@@ -1,0 +1,45 @@
+---
+title: "Przyrządy i pomiary"
+description: "Podstawy elektroniki — 07 · Elementy i pomiary · zdjęcia 8"
+sidebar:
+  order: 23
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { MeterLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 07 · Elementy i pomiary · ZDJĘCIA 8</div>
+
+<ElectronicsPdfButton client:load slug="elementy-pomiary" />
+
+## Co faktycznie pojawia się na ostatniej stronie?
+
+Zdjęcie 8 zawiera krótkie hasła o **rezystorze (stałym i zmiennym)**, symbolach graficznych i **miernikach analogowych**. Nie ma na nim jeszcze pełnego kursu rezystorów ani opisu konkretnego układu laboratoryjnego.
+
+### Najprostsze symbole
+
+- **Rezystor** — w schemacie europejskim prostokąt; element stawia opór przepływowi prądu. Jednostka: **om (Ω)**.
+- **Rezystor nastawny / potencjometr** — symbol rezystora z dodatkową strzałką lub suwakiem.
+- **Kondensator** — dwie równoległe kreski, oddzielone niewielką przerwą.
+- **Miernik napięcia (woltomierz)** — podłączamy **równolegle** do badanego elementu.
+- **Miernik prądu (amperomierz)** — włączamy **szeregowo** z gałęzią, w której mierzymy prąd.
+
+## Klasa miernika analogowego — co oznacza 5%?
+
+Jeśli podano **klasę 5**, to w typowym mierniku analogowym podstawowy błąd graniczny odnosi się do **wartości umownej zakresu pomiarowego**, zwykle pełnej wartości zakresu, a nie automatycznie do aktualnego wskazania.
+
+**Przykład uzupełniający:** zakres 10 V i klasa 5 dają graniczny błąd podstawowy ±0,5 V. Gdy wskazówka pokazuje 2 V, nie jest to tylko ±0,1 V.
+
+:::caution[Bezpieczeństwo]
+Nie podłączaj amperomierza bezpośrednio równolegle do baterii; może to spowodować bardzo duży prąd. Kondensatory mogą utrzymywać ładunek także po odłączeniu zasilania. To kurs obliczeniowy, nie instrukcja pracy pod napięciem.
+:::
+
+W notatkach pojawia się także hasło **„Zadanie 4 i 5”**, ale bez pełnej treści poleceń. Nie będę wymyślał, co zawierały.
+
+## Interaktywne laboratorium
+
+<MeterLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

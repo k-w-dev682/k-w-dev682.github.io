@@ -1,0 +1,36 @@
+---
+title: "Funkcje elementarne"
+description: "Funkcje elementarne, trygonometria i logarytmy"
+sidebar:
+  order: 18
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="funkcje-elementarne" title={"Funkcje elementarne, trygonometria i logarytmy"} section={"05 · Wykłady — funkcje"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 05 · Wykłady — funkcje · ZDJĘCIA 19–20</div>
+
+# Funkcje elementarne, trygonometria i logarytmy
+
+W notatkach pojawiają się następujące rodziny funkcji. Do każdej trzeba znać **dziedzinę** i warunki istnienia.
+
+| Funkcja | Podstawowy warunek |
+|---|---|
+| `x²`, `x³` | wszystkie liczby rzeczywiste |
+| `1/x` | x≠0 |
+| `√x` | x≥0 |
+| `log_a(x)` | x>0, a>0, a≠1 |
+| `sin x`, `cos x` | wszystkie liczby rzeczywiste |
+| `tg x` | cos x≠0 |
+
+## Funkcje odwrotne trygonometryczne
+
+Przykładowo arcsin jest odwrotnością sinusa po ograniczeniu dziedziny sinusa do przedziału od −π/2 do π/2.
+
+<Eq display tex={String.raw`\arcsin(1)=\frac{\pi}{2}`}/>
+<Eq display tex={String.raw`\arccos(1)=0`}/>
+
+**Nie myl** `sin⁻¹(x)` jako funkcji odwrotnej z `1/sin(x)` jako odwrotnością liczby.
+

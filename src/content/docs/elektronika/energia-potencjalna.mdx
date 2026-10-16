@@ -1,0 +1,37 @@
+---
+title: "Energia potencjalna ładunku"
+description: "Podstawy elektroniki — 04 · Potencjał i napięcie · zdjęcia 4, 6"
+sidebar:
+  order: 12
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 04 · Potencjał i napięcie · ZDJĘCIA 4, 6</div>
+
+<ElectronicsPdfButton client:load slug="energia-potencjalna" />
+
+## Praca a energia potencjalna
+
+W notatkach pojawia się informacja, że **siły elektrostatyczne są zachowawcze**. Oznacza to, że praca siły pola między punktami A i B nie zależy od drogi, a tylko od punktów końcowych.
+
+<Eq tex={String.raw`W_{\mathrm{pola},A\to B}=-\Delta E_p=E_p(A)-E_p(B)`} display />
+
+Znak minus jest niezbędny: jeśli pole elektryczne wykonuje dodatnią pracę, energia potencjalna maleje.
+
+Dla przenoszenia ładunku **q**:
+
+<Eq tex={String.raw`\Delta E_p=q\,\Delta V`} display />
+
+Przykład: dodatni ładunek <Eq tex={String.raw`q=2\,\mu\mathrm C`} /> przesuwamy między punktami o zmianie potencjału <Eq tex={String.raw`\Delta V=+3\,\mathrm V`} />. Wtedy:
+
+<Eq tex={String.raw`\Delta E_p=2\cdot10^{-6}\cdot3=6\cdot10^{-6}\,\mathrm J`} display />
+
+Energia potencjalna wzrosła o **6 µJ**; praca samego pola wynosi **−6 µJ**. To nie są te same wielkości.
+
+:::caution[Nazewnictwo]
+W zeszycie litera `W` bywa używana do opisu pracy. W tym kursie **W** oznacza pracę, a **Eₚ** energię potencjalną, żeby ich nie mylić.
+:::
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

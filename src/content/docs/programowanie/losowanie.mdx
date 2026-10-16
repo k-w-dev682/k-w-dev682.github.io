@@ -1,0 +1,43 @@
+---
+title: "Liczby pseudolosowe i przedziały"
+description: "Losowanie liczb całkowitych i rzeczywistych."
+sidebar:
+  order: 26
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="losowanie" title="Liczby pseudolosowe i przedziały" section="03 · Liczby w pamięci" />
+
+# Liczby pseudolosowe i przedziały
+
+## Co znaczy pseudolosowość?
+
+Komputer zwykle korzysta z **generatora liczb pseudolosowych**: algorytmu wytwarzającego ciąg wyglądający na losowy. W skrypcie pojawiają się starsze techniki z `rand()`. Do nowych programów C++ wybieraj raczej generator z `<random>`.
+
+```cpp
+#include <random>
+#include <iostream>
+int main() {
+    std::mt19937 generator{std::random_device{}()};
+    std::uniform_int_distribution<int> losuj(10, 100);
+    for (int i = 0; i < 5; ++i)
+        std::cout << losuj(generator) << ' ';
+}
+```
+
+`uniform_int_distribution<int>(10,100)` losuje **liczby całkowite łącznie z 10 i 100**. Z kolei `uniform_real_distribution<double>(a,b)` generuje wartości rzeczywiste w przybliżeniu z półotwartego zakresu `[a,b)` (szczegóły implementacji standardowej warto odróżniać od idealnego ciągłego rozkładu).
+
+## Po co osobny generator?
+
+Obiekt `generator` przechowuje stan. Każde kolejne losowanie zmienia go. Dzięki ustawieniu tego samego ziarna (*seed*) możesz odtworzyć ten sam ciąg na potrzeby testów.
+
+## Zadanie
+
+Zaimplementuj losowanie dziesięciu liczb całkowitych z zakresu `[0,100]`. Dodaj liczenie, ile z nich jest parzystych. Skorzystaj z `% 2`.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Biblioteka `<cmath>` i funkcje matematyczne](../cmath/) · [Następna: `char` i ASCII — pojedynczy znak](../char-ascii/) →

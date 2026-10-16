@@ -1,0 +1,35 @@
+---
+title: "Ćwiczenia: pole i prawo Gaussa"
+description: "Podstawy elektroniki — 08 · Ćwiczenia · zdjęcia 3–4"
+sidebar:
+  order: 25
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 08 · Ćwiczenia · ZDJĘCIA 3–4</div>
+
+<ElectronicsPdfButton client:load slug="cw-pole-gauss" />
+
+## Zadanie A — natężenie pola (opracowane uzupełnienie)
+
+Siła **0,012 N** działa na dodatni ładunek próbny **3 µC**. Oblicz natężenie pola.
+
+1. Wzór: <Eq tex={String.raw`E=F/q_0`} />.
+2. Podstawienie: <Eq tex={String.raw`E=0{,}012/(3\cdot10^{-6})`} />.
+3. Wynik: **4000 N/C**.
+
+## Zadanie B — strumień (opracowane uzupełnienie)
+
+Pole E = 100 N/C, powierzchnia S = 0,3 m², kąt między E i normalną 30°.
+
+1. Wzór: <Eq tex={String.raw`\Phi_E=ES\cos\alpha`} />.
+2. Podstawienie: <Eq tex={String.raw`\Phi_E=100\cdot0{,}3\cdot\cos30^\circ`} />.
+3. Wynik: **ok. 25,98 N·m²/C**.
+
+## Zadanie C — ważne pytanie jakościowe
+
+Wewnątrz zamkniętej powierzchni nie ma ładunków, a na zewnątrz znajduje się ładunek dodatni. Czy strumień całkowity przez powierzchnię wynosi zero? **Tak.** Czy pole we wszystkich punktach powierzchni musi być zerowe? **Nie.**
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

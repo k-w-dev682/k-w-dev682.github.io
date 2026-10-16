@@ -1,0 +1,40 @@
+---
+title: "Jak rozrysować siły?"
+description: "Fizyka dla informatyków · 06 · Siły w zadaniach · zdjęcia 4, 8–9"
+sidebar:
+  order: 30
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { ForceLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 06 · Siły w zadaniach · ZDJĘCIA 4, 8–9</div>
+
+<PhysicsPdfButton client:load slug="metoda-sil" title="Jak rysować siły i pisać równania" section="06 · Siły w zadaniach" />
+
+# Jak rysować siły i pisać równania
+
+## Sześć kroków do zadania z dynamiki
+
+1. Wydziel **jedno ciało** i narysuj osobny diagram sił.
+2. Zaznacz siły: ciężkość, normalną, naciąg, tarcie i siły zadane.
+3. Wybierz osie x oraz y; w przypadku równi jedna oś może być równoległa do powierzchni.
+4. Zapisz osobno sumy składowych sił, np. ΣFx = ma, ΣFy = 0.
+5. Dla kilku ciał powtórz równania i dodaj zależności na naciągi lub wspólne przyspieszenie.
+6. Dopiero teraz podstawiaj liczby i rozwiązuj układ równań.
+
+### Przykład: skrzynia na stole
+
+Skrzynia ma masę 10 kg, siła w prawo 40 N, siła tarcia w lewo 10 N.
+
+- ΣFx = 40 − 10 = 30 N.
+- a = ΣFx/m = 30/10 = **3 m/s²**.
+
+Na fizycznym schemacie **strzałki sił** powinny wychodzić z ciała i być podpisane; nie zastępuj ich przypadkowymi strzałkami ruchu.
+
+## Interaktywne laboratorium
+
+<ForceLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

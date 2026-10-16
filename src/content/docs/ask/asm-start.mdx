@@ -1,0 +1,42 @@
+---
+title: "Asembler: rejestr, liczba i prosta instrukcja"
+description: "04 · Asembler od zera · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 21
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { AssemblerLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 04 · Asembler od zera · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="asm-start" title="Asembler: rejestr, liczba i prosta instrukcja" section="04 · Asembler od zera" />
+
+# Asembler: rejestr, liczba i prosta instrukcja
+
+To **wprowadzenie dodatkowe**, oparte na Twoim wspomnieniu, że na wykładzie były tylko bardzo proste operacje: wczytanie wartości i dodawanie. **Nie wiemy, jakiego procesora ani składni używał prowadzący.**
+
+### Przykład w składni Intel x86 (uproszczony fragment)
+
+```asm
+mov eax, 7
+mov ebx, 5
+add eax, ebx
+```
+
+- `mov eax, 7` — wpisz liczbę `7` do rejestru `EAX`.
+- `mov ebx, 5` — wpisz liczbę `5` do rejestru `EBX`.
+- `add eax, ebx` — dodaj `EBX` do `EAX` i zapisz wynik w `EAX`.
+
+**Wynik:** `EAX = 12`, `EBX = 5`.
+
+:::note[Składnia ma znaczenie]
+To **fragment x86 w składni Intel**, a nie kompletny program uruchamialny. W innych architekturach nazwy rejestrów, składnia i sposób pracy z pamięcią są inne. Poniższy symulator to uproszczony model dydaktyczny.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<AssemblerLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

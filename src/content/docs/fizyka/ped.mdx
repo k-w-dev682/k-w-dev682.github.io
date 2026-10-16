@@ -1,0 +1,42 @@
+---
+title: "Pęd i jego jednostka"
+description: "Fizyka dla informatyków · 05 · Pęd i moment pędu · zdjęcia 5–6"
+sidebar:
+  order: 21
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { MomentumLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 05 · Pęd i moment pędu · ZDJĘCIA 5–6</div>
+
+<PhysicsPdfButton client:load slug="ped" title="Pęd i jego jednostka" section="05 · Pęd i moment pędu" />
+
+# Pęd i jego jednostka
+
+Pęd to iloczyn masy i prędkości. Jest wielkością wektorową.
+
+<Eq tex={String.raw`\vec p=m\vec v`} display />
+
+Jednostka: kg·m/s. Drugą zasadę Newtona można zapisać ogólniej jako **tempo zmiany pędu**.
+
+<Eq tex={String.raw`\sum\vec F=\frac{d\vec p}{dt}`} display />
+
+### Przykład
+
+Ciało o masie 0,5 kg porusza się z prędkością 8 m/s w prawo.
+
+1. Zapis wzoru: p = m·v.
+2. Podstawienie: p = 0,5·8 = **4 kg·m/s**.
+3. Gdy odwróci kierunek przy tej samej szybkości, pęd ma wartość −4 kg·m/s względem naszej osi.
+
+:::note[Uogólnienie z notatek]
+Przy masie zmieniającej się w czasie nie można bez dodatkowych założeń zastępować pochodnej pędu samym m·a. W lekcjach z typowymi sztywnymi ciałami przyjmujemy stałą masę.
+:::
+
+## Interaktywne laboratorium
+
+<MomentumLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

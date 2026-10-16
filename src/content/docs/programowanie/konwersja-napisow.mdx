@@ -1,0 +1,52 @@
+---
+title: "Konwersja napisu na liczbę"
+description: "`stoi`, `stod`, wyjątki i dane niepoprawne."
+sidebar:
+  order: 34
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="konwersja-napisow" title="Konwersja napisu na liczbę" section="04 · Tekst i znaki" />
+
+# Konwersja napisu na liczbę
+
+## Tekst "123" to nie liczba 123
+
+Możemy wczytać napis cyfr, ale zanim wykonamy na nim działania arytmetyczne, musimy dokonać konwersji. W starszym materiale pojawia się m.in. `atoi()` i strumienie tekstowe. We współczesnym C++ dostępne są `std::stoi` i `std::stod`.
+
+```cpp
+#include <string>
+#include <iostream>
+int main() {
+    std::string tekst = "123";
+    int liczba = std::stoi(tekst);
+    std::cout << liczba * 3; // 369
+}
+```
+
+## Jakie błędy mogą wystąpić?
+
+- `std::invalid_argument`, gdy nie da się wczytać liczby.
+- `std::out_of_range`, gdy wartość nie mieści się w typie.
+- Częściowe parsowanie: `stoi("123abc")` może zaakceptować początkowe cyfry, jeśli nie zweryfikujesz całego napisu.
+
+```cpp
+std::size_t koniec = 0;
+int x = std::stoi(tekst, &koniec);
+if (koniec != tekst.size()) {
+    std::cout << "Tekst zawiera dodatkowe znaki";
+}
+```
+
+W praktyce obsłuż również wyjątki (`try` / `catch`) lub wybierz niezgłaszającą wyjątków konwersję, np. `std::from_chars` dla odpowiednich typów.
+
+## Zadanie
+
+Wczytaj napis i sprawdź, czy jest poprawną liczbą całkowitą bez dopisków. Przetestuj: `"17"`, `"-8"`, `"12x"`, `"abc"`.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Zliczanie liter, cyfr i innych znaków](../analiza-tekstu/) · [Następna: Palindrom i odwracanie napisu](../palindrom/) →

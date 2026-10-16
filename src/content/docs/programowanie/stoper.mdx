@@ -1,0 +1,66 @@
+---
+title: "Sumowanie w pętli"
+description: "Sumuj liczby aż do znacznika końca danych."
+sidebar:
+  order: 9
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { WhileLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="stoper" title="Stoper `0` i sumowanie ciągu" section="02 · Algorytmy i diagnostyka" />
+
+# Stoper `0` i sumowanie ciągu
+
+## Zadanie ze skryptu
+
+Wczytuj kolejne liczby całkowite. Gdy użytkownik poda `0`, zakończ wczytywanie i pokaż sumę wcześniejszych liczb.
+
+**Stoper** (wartość wartownicza, *sentinel*) to specjalna wartość oznaczająca koniec danych. W tym zadaniu `0` nie jest zwykłą liczbą wejściową — służy do zakończenia procesu.
+
+```cpp
+#include <iostream>
+int main() {
+    int suma = 0;
+    int liczba = 0;
+    std::cin >> liczba;          // pierwszy odczyt
+    while (liczba != 0) {
+        suma += liczba;
+        std::cin >> liczba;      // kolejny odczyt
+    }
+    std::cout << "Suma: " << suma << '\n';
+}
+```
+
+## Dlaczego wczytujemy liczbę dwa razy w kodzie?
+
+Pierwszy odczyt pozwala **sprawdzić warunek**. Drugi znajduje się wewnątrz pętli i przygotowuje kolejne sprawdzenie. Jeśli go zabraknie, będziemy stale dodawać tę samą liczbę.
+
+## Test na danych `4 7 -2 0 9`
+
+| Wczytano | Warunek różne od 0? | Suma po iteracji |
+|---|---|---:|
+| 4 | TAK | 4 |
+| 7 | TAK | 11 |
+| −2 | TAK | 9 |
+| 0 | NIE | 9 |
+| 9 | Nie zostaje wczytana | — |
+
+:::tip[Co, jeśli zera nie będzie?]
+Ta wersja zakłada prawidłowe dane wejściowe zawierające stoper. W praktyce warto dodatkowo kontrolować powodzenie odczytu, np. `while (std::cin >> liczba && liczba != 0)`.
+:::
+
+## Zadanie
+
+Zmień program tak, aby liczył **liczbę dodatnich** elementów przed stoperem, a nie sumę wszystkich. Podpowiedź: dodaj licznik inicjalizowany zerem i `if (liczba > 0) ++licznik;`.
+
+## Interaktywna wizualizacja
+
+<WhileLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Pętla `while` — powtarzaj, aż warunek przestanie być prawdziwy](../petla-while/) · [Następna: Pętla `for` — znana liczba powtórzeń](../petla-for/) →

@@ -1,0 +1,54 @@
+---
+title: "Ułamki binarne: skąd błędy?"
+description: "Rozwinięcia binarne 0,1; 0,3 i 0,5."
+sidebar:
+  order: 18
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { FloatLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="ulamki-binarne" title="Dlaczego `0.1` nie jest dokładne?" section="03 · Liczby w pamięci" />
+
+# Dlaczego `0.1` nie jest dokładne?
+
+## Zaskoczenie ze skryptu
+
+`0.5₁₀ = 0.1₂`, więc ma dokładny zapis. Ale `0.1₁₀` ma nieskończone, okresowe rozwinięcie binarne:
+
+```text
+0.1₁₀ ≈ 0.00011001100110011...₂
+0.3₁₀ ≈ 0.01001100110011001...₂
+0.5₁₀ = 0.1₂
+```
+
+W starym skrypcie zapis binarny `0.3` jest w tabeli nieprawidłowo powtórzony po `0.1`. Tutaj podajemy poprawne rozwinięcia.
+
+## Metoda mnożenia ułamka przez 2
+
+Aby odtworzyć kolejne cyfry binarne liczby `0.1`, mnożymy część ułamkową przez 2. **Część całkowita** wyniku staje się następnym bitem, a pozostały ułamek mnożymy ponownie.
+
+| Krok | Mnożenie | Bit | Pozostała część |
+|---:|---|---:|---:|
+| 1 | 0.1 × 2 = 0.2 | 0 | 0.2 |
+| 2 | 0.2 × 2 = 0.4 | 0 | 0.4 |
+| 3 | 0.4 × 2 = 0.8 | 0 | 0.8 |
+| 4 | 0.8 × 2 = 1.6 | 1 | 0.6 |
+| 5 | 0.6 × 2 = 1.2 | 1 | 0.2 |
+
+Widzisz powrót do `0.2` — pojawia się okres. Ponieważ format ma ograniczoną liczbę bitów, zapis trzeba zaokrąglić.
+
+## Zadanie
+
+Wykaż, że `0.25` ma dokładny zapis binarny. Wynik: `0.01₂`, bo `0.25 = 1/4`.
+
+## Interaktywna wizualizacja
+
+<FloatLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Zapis pozycyjny i potęgi podstawy](../zapis-pozycyjny/) · [Następna: IEEE 754 — jak wyglądają bity `float`](../ieee754/) →

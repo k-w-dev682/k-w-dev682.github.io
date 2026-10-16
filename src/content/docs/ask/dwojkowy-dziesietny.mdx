@@ -1,0 +1,41 @@
+---
+title: "Zamiana 2 → 10: dodawanie wag bitów"
+description: "01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf"
+sidebar:
+  order: 6
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { PositionLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf</div>
+
+<AskPdfButton client:load slug="dwojkowy-dziesietny" title="Zamiana 2 → 10: dodawanie wag bitów" section="01 · Systemy liczbowe" />
+
+# Zamiana 2 → 10: dodawanie wag bitów
+
+W binarnym używamy tylko cyfr `0` i `1`. Każde miejsce odpowiada kolejnej potędze liczby 2.
+
+### Oryginalny przykład z laboratorium
+
+Zamieniamy **110111₂** na system dziesiętny.
+
+| Bit | 1 | 1 | 0 | 1 | 1 | 1 |
+|---|---:|---:|---:|---:|---:|---:|
+| Waga | 32 | 16 | 8 | 4 | 2 | 1 |
+| Wkład | 32 | 16 | 0 | 4 | 2 | 1 |
+
+<Eq tex={String.raw`110111_2=32+16+0+4+2+1=55_{10}`} display />
+
+**Dlaczego 0 przy wadze 8?** Ponieważ ten bit ma wartość `0`, więc do wyniku dodajemy `0 × 8 = 0`.
+
+:::tip[Sprawdź]
+Każdą liczbę złożoną wyłącznie z bitów można odczytać właśnie przez zsumowanie wag, przy których stoi `1`.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<PositionLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

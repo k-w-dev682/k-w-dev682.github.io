@@ -1,0 +1,32 @@
+---
+title: "Silnia"
+description: "Silnia — mnożenie kolejnych liczb"
+sidebar:
+  order: 3
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { FactorialLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="silnia" title={"Silnia — mnożenie kolejnych liczb"} section={"01 · Wykłady — język matematyki"} />
+
+# Silnia — mnożenie kolejnych liczb
+
+Zapis <Eq tex={String.raw`n!`}/> czytamy „**n silnia**”. Oznacza pomnożenie kolejnych liczb naturalnych od 1 do n.
+
+<Eq display tex={String.raw`n!=1\cdot 2\cdot 3\cdots n\quad (n\ge1),\qquad 0!=1`}/>
+
+## Oblicz 5! — pełne podstawienie
+
+<div className="math-steps"><div><strong>Wzór:</strong> n! to iloczyn liczb od 1 do n.</div><div><strong>Dane:</strong> n = 5.</div><div><strong>Podstawienie:</strong> 5! = 1 · 2 · 3 · 4 · 5.</div><div><strong>Obliczenie:</strong> 1 · 2 = 2; 2 · 3 = 6; 6 · 4 = 24; 24 · 5 = 120.</div></div>
+
+<Eq display tex={String.raw`5!=120`}/>
+
+## Silnia rekurencyjnie
+
+<Eq display tex={String.raw`n!=n\cdot(n-1)!\quad(n\ge1)`}/>
+
+Na przykład 6! = 6 · 5! = 6 · 120 = 720. **Nie podstawiaj n = 0** do tego wzoru; wartość 0! = 1 pochodzi z osobnej definicji.
+
+<FactorialLab client:load />

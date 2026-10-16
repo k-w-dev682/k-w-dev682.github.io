@@ -1,0 +1,62 @@
+---
+title: "Symbole i jednostki"
+description: "Podstawy elektroniki — 01 · Podstawy · zdjęcia 1, 3, 5–7"
+sidebar:
+  order: 4
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { ChargeLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 01 · Podstawy · ZDJĘCIA 1, 3, 5–7</div>
+
+<ElectronicsPdfButton client:load slug="symbole-i-jednostki" />
+
+## Po co nam jednostki?
+
+Symbol we wzorze określa **rodzaj wielkości**, a jednostka mówi, **w czym ją mierzymy**. Litera `C` może oznaczać jednostkę kulomb, ale we wzorze na kondensator **C** oznacza pojemność w faradach — kontekst jest kluczowy.
+
+| Wielkość | Symbol | Jednostka | Co to znaczy? |
+|---|---|---|---|
+| ładunek | <code>q, Q</code> | kulomb (C) | ilość ładunku |
+| natężenie prądu | <code>I, i</code> | amper (A) | ładunek przepływający w czasie |
+| czas | <code>t</code> | sekunda (s) | czas przepływu |
+| siła | <code>F</code> | niuton (N) | oddziaływanie ładunków |
+| natężenie pola | <code>E</code> | N/C = V/m | siła na jednostkę ładunku |
+| potencjał | <code>V</code> lub <code>φ</code> | wolt (V) | energia na jednostkę ładunku |
+| napięcie | <code>U</code> | wolt (V) | różnica potencjałów |
+| pojemność | <code>C</code> | farad (F) | ładunek na wolt |
+| przenikalność próżni | <code>ε₀</code> | F/m | stała elektryczna |
+| przenikalność względna | <code>εᵣ</code> | bez jednostki | własność dielektryka |
+
+## Przedrostki, które będziesz spotykać
+
+| Zapis | Znaczenie | Przykład |
+|---|---|---|
+| m (mili) | jedna tysięczna | 1 mF = 0,001 F |
+| µ (mikro) | jedna milionowa | 1 µF = 0,000001 F |
+| n (nano) | jedna miliardowa | 1 nF = 0,000000001 F |
+| p (piko) | jedna bilionowa | 1 pF = 0,000000000001 F |
+| k (kilo) | tysiąc razy | 1 kV = 1000 V |
+
+:::caution[Korekta zapisu ze zdjęcia 1]
+Ładunek przepływający przez przewodnik spełnia <Eq tex={String.raw`Q=I\,t`} /> (dla stałego prądu). **1 kulomb = 1 amper razy 1 sekunda**, czyli **1 C = 1 A·s**, nie A/s.
+:::
+
+### Przykład z podstawieniem
+
+W czasie 5 s płynie stały prąd 0,2 A. Ile ładunku przepłynęło?
+
+1. Wybór wzoru: <Eq tex={String.raw`Q=I\,t`} />.
+2. Podstawienie: <Eq tex={String.raw`Q=0{,}2\,\mathrm{A}\cdot5\,\mathrm{s}`} />.
+3. Wynik: <Eq tex={String.raw`Q=1\,\mathrm{C}`} />.
+
+To **uzupełniający przykład**, nie zadanie przepisane ze zdjęcia.
+
+## Interaktywne laboratorium
+
+<ChargeLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

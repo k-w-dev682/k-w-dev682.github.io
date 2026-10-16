@@ -1,0 +1,58 @@
+---
+title: "Biblioteka `<cmath>` i funkcje matematyczne"
+description: "Potęgowanie, pierwiastek, zaokrąglanie i wartość bezwzględna."
+sidebar:
+  order: 25
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="cmath" title="Biblioteka `<cmath>` i funkcje matematyczne" section="03 · Liczby w pamięci" />
+
+# Biblioteka `<cmath>` i funkcje matematyczne
+
+## Nie wszystko trzeba programować od zera
+
+W skrypcie znajdziesz m.in. `sqrt`, `pow`, `floor`, `ceil`, `abs` i `exp`. W C++ funkcje matematyczne znajdziesz zwykle w `<cmath>`.
+
+```cpp
+#include <cmath>
+#include <iostream>
+int main() {
+    double x = 2.7;
+    std::cout << std::floor(x) << '\n'; // 2
+    std::cout << std::ceil(x) << '\n';  // 3
+    std::cout << std::sqrt(25.0) << '\n'; // 5
+    std::cout << std::pow(2.0, 3.0) << '\n'; // 8
+}
+```
+
+| Funkcja | Co robi? |
+|---|---|
+| `std::sqrt(x)` | Pierwiastek kwadratowy |
+| `std::pow(x,n)` | Potęga |
+| `std::floor(x)` | Zaokrąglenie w dół, do liczby całkowitej jako wartość rzeczywista |
+| `std::ceil(x)` | Zaokrąglenie w górę |
+| `std::abs(x)` | Wartość bezwzględna |
+| `std::exp(x)` | Wartość `e` do potęgi `x` |
+
+## Przykład z geometrii
+
+Dla okręgu o promieniu `r`, **pole** obliczysz ze wzoru `P = πr²`, a **obwód** ze wzoru `O = 2πr`.
+
+```cpp
+#include <numbers>
+double pole = std::numbers::pi * r * r; // C++20
+```
+
+`r` oznacza promień, `π` to stała pi; jeśli korzystasz ze starszego standardu C++, zamiast `std::numbers::pi` użyj własnej stałej np. `constexpr double pi = 3.141592653589793;`.
+
+## Zadanie
+
+Oblicz pole koła dla `r=3`. Podstawienie: `P = π · 3 · 3 = 9π ≈ 28.2743`.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Przekroczenie zakresu i wartości specjalne](../overflow/) · [Następna: Liczby pseudolosowe i przedziały](../losowanie/) →

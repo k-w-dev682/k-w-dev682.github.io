@@ -1,0 +1,35 @@
+---
+title: "I zasada Newtona"
+description: "Fizyka dla informatyków · 04 · Dynamika · zdjęcia 4–5"
+sidebar:
+  order: 18
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { ForceLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 04 · Dynamika · ZDJĘCIA 4–5</div>
+
+<PhysicsPdfButton client:load slug="pierwsza-zasada" title="Pierwsza zasada: siły zrównoważone" section="04 · Dynamika" />
+
+# Pierwsza zasada: siły zrównoważone
+
+Jeśli suma sił wynosi zero, **przyspieszenie jest zerowe**, ale prędkość nie musi wynosić zero.
+
+<Eq tex={String.raw`\sum\vec F=\vec0\quad\Longrightarrow\quad\vec v=\mathrm{const}`} display />
+
+### Przykład
+
+Dwie osoby ciągną wózek w przeciwne strony z siłami 30 N i 30 N. Wypadkowa: 30 − 30 = **0 N**.
+
+- Gdy wózek początkowo stał, pozostanie w spoczynku.
+- Gdy już poruszał się bez tarcia ze stałą prędkością, będzie dalej tak się poruszał.
+
+To ważne: **ruch nie wymaga stale niezerowej siły wypadkowej**. Niezerowa siła wypadkowa jest potrzebna do *zmiany* prędkości.
+
+## Interaktywne laboratorium
+
+<ForceLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

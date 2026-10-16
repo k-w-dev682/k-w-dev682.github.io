@@ -1,0 +1,45 @@
+---
+title: "Kondensatory równolegle"
+description: "Podstawy elektroniki — 06 · Łączenie kondensatorów · zdjęcia 7"
+sidebar:
+  order: 20
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { NetworkLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 06 · Łączenie kondensatorów · ZDJĘCIA 7</div>
+
+<ElectronicsPdfButton client:load slug="lacznie-rownolegle" />
+
+## Jak wygląda połączenie równoległe?
+
+Obie okładki każdego kondensatora są podłączone do tych samych dwóch węzłów. Dlatego **napięcie na każdym jest takie samo**:
+
+<Eq tex={String.raw`U_1=U_2=U_3=U`} display />
+
+Całkowity ładunek pobrany ze źródła jest sumą ładunków kondensatorów: <Eq tex={String.raw`Q=Q_1+Q_2+Q_3`} />.
+
+Ponieważ <Eq tex={String.raw`Q_i=C_iU`} />, dostajemy:
+
+<Eq tex={String.raw`\boxed{C_{\mathrm{zast}}=C_1+C_2+C_3}`} display />
+
+### Przykład
+
+Kondensatory: **2 µF, 3 µF i 5 µF**, połączone równolegle.
+
+1. Wybieramy wzór na połączenie równoległe.
+2. Podstawiamy: <Eq tex={String.raw`C_{\mathrm{zast}}=2+3+5`} /> µF.
+3. Wynik: **10 µF**.
+
+:::tip[Zapamiętaj]
+**Równolegle → sumujemy pojemności.** Pojemność zastępcza jest większa niż każda z osobna.
+:::
+
+## Interaktywne laboratorium
+
+<NetworkLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

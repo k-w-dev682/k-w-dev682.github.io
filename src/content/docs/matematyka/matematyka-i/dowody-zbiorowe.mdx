@@ -1,0 +1,40 @@
+---
+title: "Dowody dotyczące zbiorów"
+description: "Dowodzenie tożsamości zbiorowych"
+sidebar:
+  order: 14
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="dowody-zbiorowe" title={"Dowodzenie tożsamości zbiorowych"} section={"04 · Ćwiczenia — zbiory"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 04 · Ćwiczenia — zbiory · ZDJĘCIA 21–22</div>
+
+# Dowodzenie tożsamości zbiorowych
+
+W zeszycie pojawia się prośba o dowodzenie równości zbiorów. Najbardziej uniwersalna metoda to **pokazać, że dowolny element należy do jednej strony wtedy i tylko wtedy, gdy należy do drugiej**.
+
+## Zadanie 1
+
+<Eq display tex={String.raw`A\setminus B=A\setminus(A\cap B)`}/>
+
+**Lewa strona:** x∈A i x∉B.
+
+**Prawa strona:** x∈A i x∉(A∩B). To znaczy: x∈A oraz „nieprawda, że x∈A i x∈B”. Skoro x∈A, ostatni warunek sprowadza się do x∉B.
+
+Obie strony opisują więc identyczne elementy.
+
+## Zadanie 2
+
+<Eq display tex={String.raw`(A\cup B)\setminus C=(A\setminus C)\cup(B\setminus C)`}/>
+
+**Lewa strona:** (x∈A lub x∈B) i x∉C.
+
+Rozdzielamy koniunkcję względem alternatywy:
+
+(x∈A i x∉C) lub (x∈B i x∉C).
+
+Jest to dokładnie warunek przynależności do prawej strony. **Dowód zakończony.**
+

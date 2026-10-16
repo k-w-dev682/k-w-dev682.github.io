@@ -1,0 +1,43 @@
+---
+title: "Ładunek elektryczny: dodatni i ujemny"
+description: "Podstawy elektroniki — 01 · Podstawy · zdjęcia 1–2"
+sidebar:
+  order: 5
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { ChargeLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 01 · Podstawy · ZDJĘCIA 1–2</div>
+
+<ElectronicsPdfButton client:load slug="ladunek" />
+
+## Co oznacza ładunek elektryczny?
+
+Ładunek elektryczny to własność materii, dzięki której ciała mogą na siebie oddziaływać elektrycznie. W notatkach występują trzy sytuacje: **ładunek dodatni**, **ujemny** oraz **ciało elektrycznie obojętne** (ładunki dodatnie i ujemne się równoważą).
+
+- **Jednoimienne ładunki** odpychają się: `+` z `+` oraz `−` z `−`.
+- **Różnoimienne ładunki** przyciągają się: `+` z `−`.
+- **Ciało obojętne** nie musi być całkowicie pozbawione ładunków — jego ładunek wypadkowy wynosi zero.
+
+Ładunek jest zachowany: w izolowanym układzie suma ładunków nie zmienia się. Może być przenoszony z jednego ciała na inne.
+
+## Dlaczego kulomb to duża jednostka?
+
+Jeden elektron ma ładunek ujemny o wartości bezwzględnej ok. <Eq tex={String.raw`e=1{,}602\cdot10^{-19}\,\mathrm{C}`} />. Oznacza to, że 1 kulomb odpowiada bardzo dużej liczbie ładunków elementarnych.
+
+:::tip[Uzupełnienie]
+W typowych przewodnikach metalowych ruch ładunku wynika z ruchu elektronów, ale **umowny kierunek prądu** przyjmujemy od `+` do `−` — przeciwnie do ruchu elektronów.
+:::
+
+### Sprawdź się
+
+Jeśli dwa ciała mają ładunki `+2 µC` i `−3 µC`, czy będą się odpychały? **Nie — będą się przyciągały**, ponieważ znaki są przeciwne.
+
+## Interaktywne laboratorium
+
+<ChargeLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

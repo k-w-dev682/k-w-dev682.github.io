@@ -1,0 +1,40 @@
+---
+title: "ZM, U1, U2 obok siebie"
+description: "02 · Liczby ze znakiem · Laboratorium 2 · lab02.pdf"
+sidebar:
+  order: 15
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { SignedLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 02 · Liczby ze znakiem · Laboratorium 2 · lab02.pdf</div>
+
+<AskPdfButton client:load slug="porownanie-zm-u1-u2" title="ZM, U1, U2 obok siebie" section="02 · Liczby ze znakiem" />
+
+# ZM, U1, U2 obok siebie
+
+Te trzy reprezentacje zapisują **tę samą wartość w różny sposób**.
+
+| Wartość, 4 bity | ZM | U1 | U2 |
+|---|---|---|---|
+| +2 | 0010 | 0010 | 0010 |
+| -2 | 1010 | 1101 | 1110 |
+| +5 | 0101 | 0101 | 0101 |
+| -5 | 1101 | 1010 | 1011 |
+| -0 | 1000 | 1111 | nie występuje |
+
+### Jak wybrać sposób?
+
+W zadaniu zawsze sprawdź oznaczenie: **ZM**, **U1** lub **U2**. Nie wystarczy napisać „binarnie”, gdy liczba jest ujemna.
+
+:::note[Istotne]
+Ta sama sekwencja, np. `1110`, ma różne wartości w zależności od użytego kodu. Odczyt bez podania kodu bywa niejednoznaczny.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<SignedLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

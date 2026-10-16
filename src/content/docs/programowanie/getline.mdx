@@ -1,0 +1,57 @@
+---
+title: "`getline` i napisy ze spacjami"
+description: "Dlaczego `cin >> tekst` kończy wczytywanie na spacji?"
+sidebar:
+  order: 32
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="getline" title="`getline` i napisy ze spacjami" section="04 · Tekst i znaki" />
+
+# `getline` i napisy ze spacjami
+
+## Cała linia czy jeden wyraz?
+
+`std::cin >> napis` pobiera **jeden token** rozdzielony białymi znakami. Jeśli wpiszesz `Ala ma kota`, w zmiennej będzie tylko `Ala`. Do pełnej linii użyj `std::getline`.
+
+```cpp
+#include <iostream>
+#include <string>
+int main() {
+    std::string zdanie;
+    std::getline(std::cin, zdanie);
+    std::cout << zdanie;
+}
+```
+
+## Klasyczna pułapka: `cin` po liczbie
+
+```cpp
+int wiek;
+std::string imie;
+std::cin >> wiek;
+std::getline(std::cin, imie); // może pobrać tylko pozostawiony Enter
+```
+
+`std::cin >> wiek` zwykle pozostawia w buforze znak nowej linii. Można go usunąć:
+
+```cpp
+#include <limits>
+std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+std::getline(std::cin, imie);
+```
+
+## W praktyce
+
+Do prostego wczytania nazwiska bez spacji wystarczy `cin >>`. Do całych zdań, adresów lub kilku słów wybieraj `getline`.
+
+## Zadanie
+
+Wczytaj imię i nazwisko w jednej linii, a następnie wypisz długość podanego łańcucha za pomocą `size()`. Pamiętaj, że wynik dla UTF-8 może różnić się od liczby widocznych znaków.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: `size`, `substr`, `find`, `erase`, `insert`](../metody-string/) · [Następna: Zliczanie liter, cyfr i innych znaków](../analiza-tekstu/) →

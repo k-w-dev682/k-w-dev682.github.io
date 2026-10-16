@@ -1,0 +1,45 @@
+---
+title: "System szesnastkowy i litery A–F"
+description: "01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf"
+sidebar:
+  order: 8
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { BaseConverterLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf</div>
+
+<AskPdfButton client:load slug="szesnastkowy" title="System szesnastkowy i litery A–F" section="01 · Systemy liczbowe" />
+
+# System szesnastkowy i litery A–F
+
+System szesnastkowy ma **16 cyfr**. Po `9` występują `A`, `B`, `C`, `D`, `E`, `F`.
+
+| Hex | Dziesiętnie | 4 bity |
+|---|---:|---|
+| A | 10 | 1010 |
+| B | 11 | 1011 |
+| C | 12 | 1100 |
+| D | 13 | 1101 |
+| E | 14 | 1110 |
+| F | 15 | 1111 |
+
+**Każda cyfra hex odpowiada dokładnie czterem bitom**, ponieważ <Eq tex={String.raw`16=2^4`} />.
+
+### Przykład z laboratorium: 25B₁₆
+
+<Eq tex={String.raw`25B_{16}=2\cdot16^2+5\cdot16^1+11\cdot16^0=603_{10}`} display />
+
+`B` oznacza dziesiętnie 11. Należy go podstawić zamiast ostatniej cyfry.
+
+### Jak przeliczyć 603₁₀ na hex?
+
+`603 ÷ 16 = 37 reszty 11 (B)`; `37 ÷ 16 = 2 reszty 5`; `2 ÷ 16 = 0 reszty 2`. Czytamy od dołu: `25B`.
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<BaseConverterLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

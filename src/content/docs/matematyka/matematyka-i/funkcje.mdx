@@ -1,0 +1,37 @@
+---
+title: "Funkcja, dziedzina, przeciwdziedzina i obraz"
+description: "Funkcja, dziedzina, przeciwdziedzina i obraz"
+sidebar:
+  order: 15
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="funkcje" title={"Funkcja, dziedzina, przeciwdziedzina i obraz"} section={"05 · Wykłady — funkcje"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 05 · Wykłady — funkcje · ZDJĘCIA 15–18</div>
+
+# Funkcja, dziedzina, przeciwdziedzina i obraz
+
+## Funkcja to przyporządkowanie
+
+Zapis <Eq tex={String.raw`f:A\to B`}/> oznacza, że **każdemu elementowi** dziedziny A przyporządkowano **dokładnie jeden** element przeciwdziedziny B.
+
+Przykład:
+
+<Eq display tex={String.raw`f(x)=x^2,\quad A=\{-2,-1,0,1,2\}`}/>
+
+| x | −2 | −1 | 0 | 1 | 2 |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| f(x) | 4 | 1 | 0 | 1 | 4 |
+
+## Ważne pojęcia
+
+- **Dziedzina** — wszystkie dozwolone wartości x.
+- **Przeciwdziedzina** — zbiór B, do którego funkcja wysyła wartości.
+- **Obraz (zbiór wartości)** — te wartości y, które faktycznie otrzymujemy. W przykładzie obrazem jest zbiór z 0, 1, 4.
+- **Argument** — wartość x; **wartość funkcji** — wynik f(x).
+
+**Pułapka:** obraz nie musi być równy przeciwdziedzinie.
+

@@ -1,0 +1,57 @@
+---
+title: "Palindrom i odwracanie napisu"
+description: "Porównywanie znaków od obu końców."
+sidebar:
+  order: 35
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="palindrom" title="Palindrom i odwracanie napisu" section="04 · Tekst i znaki" />
+
+# Palindrom i odwracanie napisu
+
+## Co to jest palindrom?
+
+Napis, który czytany od lewej i prawej strony jest taki sam, np. `kajak`. W najprostszej wersji zakładamy, że nie ma spacji ani różnic wielkości liter.
+
+```cpp
+#include <string>
+#include <iostream>
+int main() {
+    std::string s;
+    std::cin >> s;
+    bool palindrom = true;
+    for (std::size_t i = 0; i < s.size() / 2; ++i) {
+        if (s[i] != s[s.size() - 1 - i]) {
+            palindrom = false;
+            break;
+        }
+    }
+    std::cout << (palindrom ? "TAK" : "NIE");
+}
+```
+
+## Dlaczego wystarczy połowa?
+
+Sprawdzamy **pary**: pierwszy z ostatnim, drugi z przedostatnim itd. Jeśli wszystkie odpowiadają, nie trzeba jeszcze raz badać tych samych znaków z drugiej strony.
+
+| `kajak` | Para | Wynik |
+|---|---|---|
+| i = 0 | k oraz k | równe |
+| i = 1 | a oraz a | równe |
+| koniec | środek `j` | bez pary |
+
+## Wariant trudniejszy
+
+Dla zdań trzeba zdecydować, czy ignorujemy spacje, wielkość liter i interpunkcję. Dla polskich liter sprawa wymaga świadomej obsługi Unicode.
+
+## Zadanie
+
+Sprawdź słowa `kajak`, `oko`, `kot`, `abba`. Przewidź wynik zanim uruchomisz program.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Konwersja napisu na liczbę](../konwersja-napisow/) · [Następna: Szyfr Cezara i metoda płotu](../szyfr/) →

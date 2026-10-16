@@ -1,0 +1,60 @@
+---
+title: "Najważniejsze metody string"
+description: "Najważniejsze metody `std::string` na przykładach."
+sidebar:
+  order: 31
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { SearchLab } from '../../../components/ExtraLabs.jsx';
+
+<PdfTopicButton client:load slug="metody-string" title="`size`, `substr`, `find`, `erase`, `insert`" section="04 · Tekst i znaki" />
+
+# `size`, `substr`, `find`, `erase`, `insert`
+
+## Gotowe narzędzia do manipulacji tekstem
+
+Nie musisz przepisywać napisu znak po znaku za każdym razem. `std::string` udostępnia metody:
+
+```cpp
+std::string s = "Ala ma kota";
+std::cout << s.size() << '\n';     // 11
+std::cout << s.substr(4, 2);      // "ma"
+std::cout << s.find("kot");     // 7
+s.erase(3, 1);                    // usuń spację po "Ala"
+```
+
+| Metoda | Działanie | Na co uważać? |
+|---|---|---|
+| `size()` / `length()` | Liczba elementów `char` | UTF-8 to nie zawsze liczba liter |
+| `substr(p,n)` | Kopia `n` elementów od `p` | Start od 0 |
+| `find(t)` | Pozycja pierwszego wystąpienia | Może zwrócić `std::string::npos` |
+| `insert(p,t)` | Wstaw fragment | Musi istnieć poprawna pozycja |
+| `erase(p,n)` | Usuń fragment | Modyfikuje oryginalny napis |
+
+## Przykład wyszukiwania
+
+```cpp
+std::string zdanie = "Ala ma kota";
+auto gdzie = zdanie.find("kot");
+if (gdzie != std::string::npos) {
+    std::cout << "Znaleziono na pozycji " << gdzie;
+}
+```
+
+`npos` nie jest normalną pozycją. To specjalna wartość informująca, że fragment **nie został znaleziony**.
+
+## Zadanie
+
+Znajdź wszystkie gwiazdki w napisie `"a*b**c"` i zastąp je spacjami. Możesz przejść przez napis pętlą i modyfikować `s[i]`.
+
+## Interaktywna wizualizacja
+
+<SearchLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Indeksowanie napisu — pierwszy znak ma numer 0](../indeksy-string/) · [Następna: `getline` i napisy ze spacjami](../getline/) →

@@ -1,0 +1,43 @@
+---
+title: "Natężenie pola elektrycznego"
+description: "Podstawy elektroniki — 02 · Oddziaływania i pole · zdjęcia 2–3"
+sidebar:
+  order: 8
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { FieldLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 02 · Oddziaływania i pole · ZDJĘCIA 2–3</div>
+
+<ElectronicsPdfButton client:load slug="pole-elektryczne" />
+
+## Co to jest pole elektryczne?
+
+Pole elektryczne przypisuje każdemu punktowi przestrzeni **wektor natężenia**: informuje, jaką siłą działałoby ono na mały **dodatni** ładunek próbny umieszczony w tym punkcie.
+
+<Eq tex={String.raw`\vec E=\frac{\vec F}{q_0}`} display />
+
+**E** — natężenie pola, **F** — siła elektryczna, **q₀** — dodatni ładunek próbny. Jednostka to **N/C**, równoważnie **V/m**.
+
+Dla punktowego ładunku źródłowego w próżni:
+
+<Eq tex={String.raw`E=k\frac{|Q|}{r^2}`} display />
+
+**Q** to ładunek, który *wytwarza* pole; **r** to odległość od niego. W notatkach pojawia się zarówno <Eq tex={String.raw`Q`} />, jak i <Eq tex={String.raw`q`} /> — opis ról zapobiega ich pomyleniu.
+
+## Przykład z podstawieniem
+
+Dodatni ładunek próbny <Eq tex={String.raw`q_0=2\,\mu\mathrm C`} /> doświadcza siły <Eq tex={String.raw`F=0{,}006\,\mathrm N`} />.
+
+<Eq tex={String.raw`E=\frac{0{,}006}{2\cdot10^{-6}}=3000\,\mathrm{N/C}`} display />
+
+**Interpretacja:** na każdy dodatni kulomb przypadałoby 3000 N siły w tym punkcie (modelowo, przy pomijalnym wpływie ładunku próbnego na źródła pola).
+
+## Interaktywne laboratorium
+
+<FieldLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

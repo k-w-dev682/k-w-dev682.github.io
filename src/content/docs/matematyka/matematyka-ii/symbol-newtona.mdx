@@ -1,0 +1,32 @@
+---
+title: "Symbol Newtona (n po k)"
+description: "Symbol Newtona — wybór k z n"
+sidebar:
+  order: 15
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { CombinationLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="symbol-newtona" title={"Symbol Newtona — wybór k z n"} section={"04 · Wykłady — kombinatoryka"} />
+
+# Symbol Newtona — wybór k z n
+
+Symbol <Eq tex={String.raw`\binom nk`}/> czytamy **„n nad k”**. Nie jest zwykłym ułamkiem — oznacza liczbę różnych sposobów wybrania k elementów spośród n, gdy **kolejność nie ma znaczenia**.
+
+<Eq display tex={String.raw`\binom nk=\frac{n!}{k!(n-k)!}\qquad(0\le k\le n)`}/>
+
+## Rozwiązany przykład: wybór dwóch osób z pięciu
+
+<div className="math-steps"><div><strong>Wzór:</strong> symbol Newtona = n! / [k!(n−k)!].</div><div><strong>Dane:</strong> n = 5 osób; k = 2 wybrane osoby.</div><div><strong>Podstawienie:</strong> 5! / [2!·(5−2)!] = 5!/(2!·3!).</div><div><strong>Skracanie:</strong> 5! = 5·4·3!, więc 3! w liczniku i mianowniku się skraca.</div></div>
+
+<Eq display tex={String.raw`\binom52=\frac{5\cdot4}{2\cdot1}=10`}/>
+
+## Trzy przydatne własności
+
+<Eq display tex={String.raw`\binom n0=\binom nn=1,\qquad\binom nk=\binom n{n-k}`}/>
+
+Na przykład <Eq tex={String.raw`\binom52=\binom53=10`}/>, ponieważ wybranie dwóch osób jest równoważne pozostawieniu pozostałych trzech.
+
+<CombinationLab client:load />

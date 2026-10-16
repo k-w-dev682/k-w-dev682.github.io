@@ -1,0 +1,8 @@
+---
+import katex from 'katex';
+import 'katex/dist/katex.min.css';
+import '../styles/physics.css';
+const {tex = '',display = false} = Astro.props;
+const html = katex.renderToString(String(tex), {displayMode:display,throwOnError:false,strict:'ignore',trust:false,output:'html'});
+---
+<span class:list={['ph-eq',{'ph-eq-block':display}]} role="math" set:html={html} />

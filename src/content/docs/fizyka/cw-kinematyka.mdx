@@ -1,0 +1,39 @@
+---
+title: "Ćwiczenia: ruch prostoliniowy"
+description: "Fizyka dla informatyków · 07 · Ćwiczenia · zdjęcia 1"
+sidebar:
+  order: 31
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { MotionLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 07 · Ćwiczenia · ZDJĘCIA 1</div>
+
+<PhysicsPdfButton client:load slug="cw-kinematyka" title="Ćwiczenia: ruch prostoliniowy" section="07 · Ćwiczenia" />
+
+# Ćwiczenia: ruch prostoliniowy
+
+## Zadanie 1 — ruch jednostajny (przykład dodatkowy)
+
+Auto porusza się ze stałą prędkością 72 km/h przez 15 s. Ile metrów przejedzie?
+
+1. Zmień jednostki: 72 km/h = 72/3,6 = **20 m/s**.
+2. Użyj wzoru s = v·t.
+3. Podstaw s = 20·15 = **300 m**.
+
+## Zadanie 2 — przyspieszenie (przykład dodatkowy)
+
+Rower zwiększa prędkość z 4 m/s do 10 m/s w ciągu 3 s.
+
+- a = (10 − 4)/3 = **2 m/s²**.
+- Przebyta droga przy stałym a: s = ((4 + 10)/2)·3 = **21 m**.
+
+Sprawdź wynik również w symulatorze poniżej.
+
+## Interaktywne laboratorium
+
+<MotionLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

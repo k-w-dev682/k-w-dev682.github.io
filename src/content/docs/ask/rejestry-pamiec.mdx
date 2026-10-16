@@ -1,0 +1,42 @@
+---
+title: "Rejestry, RAM i adresy pamięci"
+description: "03 · CPU i pamięć · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 19
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { MemoryLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 03 · CPU i pamięć · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="rejestry-pamiec" title="Rejestry, RAM i adresy pamięci" section="03 · CPU i pamięć" />
+
+# Rejestry, RAM i adresy pamięci
+
+**Rejestr** to bardzo szybkie miejsce wewnątrz procesora. **RAM** przechowuje aktualnie używane dane i instrukcje. Każdy bajt pamięci w typowym komputerze ma własny adres.
+
+### Co to jest adres?
+
+W bardzo prostym modelu pamięci numerujemy komórki: `0`, `1`, `2`, `3`…; pod adresem 10 może znajdować się wartość 7.
+
+| Adres | Wartość (przykład) |
+|---|---:|
+| 10 | 7 |
+| 11 | 5 |
+| 12 | 0 |
+
+Możemy wykonać operację „pobierz zawartość adresu 10 do rejestru”, a potem „dodaj zawartość adresu 11”. Wynik to 12.
+
+:::note[Ważne rozróżnienie]
+Adres `10` i **wartość** `10` to nie to samo. Jeśli pod adresem 10 leży 7, to po odczycie otrzymamy 7, nie 10.
+:::
+
+W prawdziwym komputerze sposób adresowania, rozmiary rejestrów i operacje zależą od architektury.
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<MemoryLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

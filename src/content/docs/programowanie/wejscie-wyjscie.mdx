@@ -1,0 +1,51 @@
+---
+title: "Wejście `cin` i wyjście `cout`"
+description: "Czytanie danych, wypisywanie wyników i działanie strumieni."
+sidebar:
+  order: 4
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="wejscie-wyjscie" title="Wejście `cin` i wyjście `cout`" section="01 · Fundamenty" />
+
+# Wejście `cin` i wyjście `cout`
+
+## Komunikacja z użytkownikiem
+
+Program potrzebuje danych. Skrypt zaczyna od liczb całkowitych, więc użyjemy `int`. Standardowo do wejścia i wyjścia tekstowego służą strumienie z `<iostream>`.
+
+```cpp
+#include <iostream>
+int main() {
+    int a = 0;
+    int b = 0;
+    std::cout << "Podaj dwie liczby: ";
+    std::cin >> a >> b;
+    std::cout << "Suma = " << a + b << '\n';
+}
+```
+
+### Jak czytać znaki `>>` i `<<`?
+
+- `std::cin >> a` — wczytaj wartość ze strumienia do zmiennej `a`.
+- `std::cout << a` — przekaż wartość `a` do strumienia wyjściowego.
+- `std::cout << "Suma = " << wynik` — łączy wypisywanie kilku elementów, ale **nie dodaje** ich matematycznie.
+
+## Przykład krok po kroku
+
+Dla wejścia `3 5`: `a` otrzymuje 3, `b` otrzymuje 5, `a+b` daje 8, więc pojawi się `Suma = 8`.
+
+:::caution[Co się stanie, gdy wpiszesz literę?]
+Wczytanie litery do `int` może nie powieść się. W tym podstawowym przykładzie zakładamy prawidłowe dane; o sprawdzaniu wejścia dowiesz się później.
+:::
+
+## Zadanie
+
+Wczytaj trzy liczby całkowite i wypisz sumę oraz średnią. Dlaczego `suma / 3` może dać wynik bez części ułamkowej? Wrócimy do tego przy typach liczbowych.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Kompilacja, linkowanie i błędy](../kompilacja/) · [Następna: Zmienne, inicjalizacja i `int`](../zmienne/) →

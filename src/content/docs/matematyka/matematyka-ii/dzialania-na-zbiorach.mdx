@@ -1,0 +1,40 @@
+---
+title: "Suma, część wspólna i różnica zbiorów"
+description: "Suma, część wspólna i różnica zbiorów"
+sidebar:
+  order: 7
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { SetLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="dzialania-na-zbiorach" title={"Suma, część wspólna i różnica zbiorów"} section={"02 · Wykłady — zbiory"} />
+
+# Suma, część wspólna i różnica zbiorów
+
+Weźmy dwa zbiory: **A = &#123;1,2,3&#125;** oraz **B = &#123;3,4&#125;**.
+
+## Suma zbiorów
+
+<Eq display tex={String.raw`A\cup B=\{1,2,3,4\}`}/>
+
+Bierzemy elementy należące do **A lub B**, bez powtórzeń. Liczba 3 jest wspólna, ale w wyniku występuje tylko raz.
+
+## Część wspólna
+
+<Eq display tex={String.raw`A\cap B=\{3\}`}/>
+
+Bierzemy elementy, które występują **jednocześnie w A i B**.
+
+## Różnica
+
+<Eq display tex={String.raw`A\setminus B=\{1,2\},\quad B\setminus A=\{4\}`}/>
+
+W **A ∖ B** zaczynamy od A i wykreślamy wszystkie elementy, które są także w B. Dlatego kolejność ma znaczenie: A ∖ B może być różne od B ∖ A.
+
+<SetLab client:load />
+
+## Samodzielna próba
+
+Dla A = &#123;1, 4, 5&#125; i B = &#123;4, 6&#125; policz A ∪ B, A ∩ B, A ∖ B. Wyniki: &#123;1,4,5,6&#125;; &#123;4&#125;; &#123;1,5&#125;.

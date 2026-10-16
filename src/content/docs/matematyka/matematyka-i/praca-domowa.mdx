@@ -1,0 +1,46 @@
+---
+title: "Zadanie domowe: funkcja odwrotna"
+description: "Do domu (+): funkcja kwadratowa i odwrotna"
+sidebar:
+  order: 25
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="praca-domowa" title={"Do domu (+): funkcja kwadratowa i odwrotna"} section={"07 · Do domu"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 07 · Do domu · ZDJĘCIA 29</div>
+
+# Do domu (+): funkcja kwadratowa i odwrotna
+
+<div className="mathi-homework"><strong>DO SAMODZIELNEGO WYKONANIA</strong><p>Na zdjęciu 29 zadanie jest oznaczone jako „do domu”. Zgodnie z Twoją zasadą znak <strong>+</strong> przy zadaniu również oznacza pracę domową, a nie znak działania.</p></div>
+
+## Polecenie z notatek
+
+Wyznacz funkcję odwrotną do:
+
+<Eq display tex={String.raw`f(x)=x^2-4x,\qquad x\le2`}/>
+
+## Plan rozwiązania — bez podawania wyniku na start
+
+1. Przekształć trójmian do postaci kanonicznej, tj. kwadratu dwumianu i stałej.
+2. Ustal zbiór wartości funkcji na dziedzinie x≤2.
+3. Zapisz `y=f(x)` i rozwiąż względem x.
+4. Sprawdź, którą gałąź pierwiastka dopuszcza warunek x≤2.
+5. Wpisz dziedzinę i zbiór wartości funkcji odwrotnej.
+
+<details className="mathi-reveal">
+  <summary>Sprawdź wynik dopiero po samodzielnej próbie</summary>
+
+
+<Eq display tex={String.raw`f(x)=(x-2)^2-4`}/>
+
+Z warunku x≤2 otrzymujemy x−2≤0, a więc trzeba wybrać gałąź ujemną:
+
+<Eq display tex={String.raw`f^{-1}(x)=2-\sqrt{x+4},\quad x\ge-4`}/>
+
+Dziedzina funkcji odwrotnej to [−4,∞), a jej zbiór wartości to (−∞,2].
+
+</details>
+

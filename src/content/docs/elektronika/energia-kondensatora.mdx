@@ -1,0 +1,44 @@
+---
+title: "Energia kondensatora"
+description: "Podstawy elektroniki — 06 · Łączenie kondensatorów · zdjęcia 8"
+sidebar:
+  order: 22
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { EnergyLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 06 · Łączenie kondensatorów · ZDJĘCIA 8</div>
+
+<ElectronicsPdfButton client:load slug="energia-kondensatora" />
+
+## Skąd bierze się energia?
+
+Podczas ładowania trzeba wykonać pracę, aby umieszczać kolejne porcje ładunku na okładkach. Ponieważ napięcie rośnie wraz z ładunkiem, praca nie jest po prostu równa końcowemu **QU** — pojawia się współczynnik 1/2.
+
+<Eq tex={String.raw`W_C=\int_0^Q\frac{q}{C}\,dq=\frac{Q^2}{2C}`} display />
+
+Po podstawieniu <Eq tex={String.raw`Q=CU`} /> otrzymujemy trzy równoważne postaci:
+
+<Eq tex={String.raw`\boxed{W_C=\frac12 CU^2=\frac12 QU=\frac{Q^2}{2C}}`} display />
+
+**WC** — energia w dżulach (J), **C** — pojemność (F), **U** — napięcie (V), **Q** — ładunek (C).
+
+## Przykład z podstawieniem
+
+Kondensator **100 µF** naładowano do **12 V**.
+
+1. Zmieniamy jednostkę: <Eq tex={String.raw`100\,\mu\mathrm F=100\cdot10^{-6}\,\mathrm F`} />.
+2. Wzór: <Eq tex={String.raw`W_C=\frac12 CU^2`} />.
+3. Podstawienie: <Eq tex={String.raw`W_C=\frac12\cdot100\cdot10^{-6}\cdot12^2`} />.
+4. Wynik: **0,0072 J = 7,2 mJ**.
+
+Dwa razy większe napięcie przy tej samej pojemności oznacza **cztery razy większą energię**.
+
+## Interaktywne laboratorium
+
+<EnergyLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

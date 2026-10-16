@@ -1,0 +1,38 @@
+---
+title: "Linie pola elektrycznego"
+description: "Podstawy elektroniki — 02 · Oddziaływania i pole · zdjęcia 2–3"
+sidebar:
+  order: 9
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { FieldLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 02 · Oddziaływania i pole · ZDJĘCIA 2–3</div>
+
+<ElectronicsPdfButton client:load slug="linie-pola" />
+
+## Co pokazują linie pola?
+
+Na zdjęciu 2 narysowane są linie wychodzące z ładunku `+` i wchodzące do `−`.
+
+- Linie **wychodzą** z dodatnich ładunków i **wchodzą** do ujemnych (lub dochodzą do nieskończoności).
+- Styczna do linii pola w danym punkcie pokazuje **kierunek wektora E**.
+- Linie są modelem graficznym; nie są rzeczywistymi torami ruchu elektronów.
+- Gęstsze linie na rysunku sugerują większą wartość natężenia w danym rejonie, gdy rysunek zachowuje tę konwencję.
+
+### Jak kierunek siły zależy od znaku próbnika?
+
+<Eq tex={String.raw`\vec F=q\vec E`} display />
+
+Dla dodatniego **q** siła ma kierunek **E**. Dla ujemnego **q** siła jest przeciwna do **E**.
+
+Warto pamiętać: kierunek **E** definiujemy przy użyciu **dodatniego** ładunku próbnego.
+
+## Interaktywne laboratorium
+
+<FieldLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

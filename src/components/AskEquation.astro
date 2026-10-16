@@ -1,0 +1,9 @@
+---
+import katex from 'katex';
+import '../styles/ask.css';
+const {tex='', display=false} = Astro.props;
+let markup;
+try { markup = katex.renderToString(tex,{throwOnError:true,displayMode:display,strict:'ignore'}); }
+catch(error) { markup = `<span class="ask-eq-error">Błąd wzoru: ${String(error.message||error).replaceAll('<','&lt;')}</span>`; }
+---
+{display ? <div class="ask-equation ask-equation--block" set:html={markup}/> : <span class="ask-equation ask-equation--inline" set:html={markup}/>}

@@ -19,3 +19,7 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# StudyLab backups
+.studylab-backups/
+StudyLab_Backup_*/

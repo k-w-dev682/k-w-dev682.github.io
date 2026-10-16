@@ -1,0 +1,46 @@
+---
+title: "Przedziały i nierówności z wartością bezwzględną"
+description: "Przedziały i nierówności z wartością bezwzględną"
+sidebar:
+  order: 11
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+import { AbsoluteLab } from '../../../../components/MathILabs.jsx';
+
+<MathIPdfButton client:load slug="przedzialy" title={"Przedziały i nierówności z wartością bezwzględną"} section={"03 · Wykłady — zbiory"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 03 · Wykłady — zbiory · ZDJĘCIA 9–11, 14–15</div>
+
+# Przedziały i nierówności z wartością bezwzględną
+
+## Nawiasy mówią, czy końce należą do zbioru
+
+- `[a,b]` — oba końce należą.
+- `(a,b)` — oba końce są wyłączone.
+- `[a,b)` — a należy, b nie należy.
+- Przy `∞` i `−∞` zawsze używamy nawiasu okrągłego.
+
+## Jak rozwiązać nierówność z modułem?
+
+<Eq display tex={String.raw`|x+3|\le 2`}/>
+
+**Krok 1:** zapisujemy warunek podwójny:
+
+<Eq display tex={String.raw`-2\le x+3\le 2`}/>
+
+**Krok 2:** odejmujemy 3 po każdej stronie:
+
+<Eq display tex={String.raw`-5\le x\le -1`}/>
+
+**Odpowiedź:** przedział [−5, −1]. Widzisz, że końce należą do wyniku.
+
+## Gdy nierówność ma znak >
+
+<Eq display tex={String.raw`|x-2|>4\ \Longleftrightarrow\ (x<-2)\ \lor\ (x>6)`}/>
+
+Zatem rozwiązaniem jest suma dwóch przedziałów: (−∞, −2) oraz (6, ∞).
+
+<AbsoluteLab client:load />
+

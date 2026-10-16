@@ -1,0 +1,46 @@
+---
+title: "Ćwiczenie: układ trzech mas"
+description: "Fizyka dla informatyków · 07 · Ćwiczenia · zdjęcia 8–9"
+sidebar:
+  order: 35
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { ThreeBlocksLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 07 · Ćwiczenia · ZDJĘCIA 8–9</div>
+
+<PhysicsPdfButton client:load slug="cw-uklad-mas" title="Niedokończone zadanie: trzy połączone masy" section="07 · Ćwiczenia" />
+
+# Niedokończone zadanie: trzy połączone masy
+
+Na zdjęciu 9 zapisano równania dla trzech mas: m, 2m i 3m, z naciągami i tarciem. **Brakuje jednak pełnego, jednoznacznego rysunku układu i części oznaczeń.** Nie da się bezpiecznie odtworzyć jednego ostatecznego wzoru na przyspieszenie bez dodatkowych założeń.
+
+## Co na pewno można odczytać?
+
+- Każde ciało ma oddzielne równanie z II zasady Newtona.
+- Są oznaczenia sił kontaktowych / naciągów i tarcia.
+- Masy wynoszą kolejno m, 2m, 3m.
+- Obliczenia kończą się na postaci „a = ...”, bez jednoznacznego wyniku.
+
+## Jak poprawnie rozwiązać taki typ zadania?
+
+1. Narysuj wszystkie trzy ciała i połączenia (czy mają wspólne przyspieszenie?).
+2. Wskaż kierunek siły F, zaznacz wszystkie siły tarcia.
+3. Dla każdego ciała ułóż ΣFx = ma z właściwymi zwrotami.
+4. Sprawdź, czy naprężenia w sąsiednich odcinkach są równe — zależy to od modelu nici i bloczków.
+5. Dodaj równania; siły wewnętrzne powinny się zredukować, jeśli układ jest opisany spójnie.
+6. Otrzymany wzór sprawdź w granicznym przypadku tarcie = 0.
+
+:::caution[Prośba o doprecyzowanie]
+Czy na tablicy były **trzy klocki połączone nićmi na poziomej powierzchni**, czy inny układ (np. z bloczkami)? Czy wszystkie masy ślizgały się po stole? Jeśli masz rysunek, uzupełnię oryginalne zadanie bez zgadywania.
+:::
+
+Poniższa symulacja przedstawia **oddzielny, przykładowy układ** z trzema klockami na poziomym podłożu. Nie należy traktować jej jako oryginalnego rozwiązania zdjęcia 9.
+
+## Interaktywne laboratorium
+
+<ThreeBlocksLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

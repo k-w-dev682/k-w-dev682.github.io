@@ -1,0 +1,43 @@
+---
+title: "Ćwiczenia z indukcji — zadanie a–e"
+description: "Ćwiczenia — jedno polecenie, pięć dowodów"
+sidebar:
+  order: 19
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="zadanie-indukcja" title={"Ćwiczenia — jedno polecenie, pięć dowodów"} section={"05 · Ćwiczenia — indukcja"} />
+
+# Ćwiczenia — jedno polecenie, pięć dowodów
+
+> **Zadanie 1.** Stosując zasadę indukcji matematycznej, wykaż, że dla każdego n ∈ ℕ zachodzą następujące równości.
+
+### a) Suma kwadratów
+<Eq display tex={String.raw`\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}6`}/>
+
+### b) Suma sześcianów
+<Eq display tex={String.raw`\sum_{k=1}^{n}k^3=\left(\frac{n(n+1)}2\right)^2`}/>
+
+### c) Szereg geometryczny
+<Eq display tex={String.raw`\sum_{k=1}^{n}q^{k-1}=\frac{1-q^n}{1-q}\qquad(q\ne1)`}/>
+
+### d) Naprzemienna suma kwadratów
+<Eq display tex={String.raw`\sum_{k=1}^{n}(-1)^{k-1}k^2=(-1)^{n-1}\frac{n(n+1)}2`}/>
+
+### e) Suma sinusów
+<Eq display tex={String.raw`\sum_{k=1}^{n}\sin(k\alpha)=\frac{\cos(\alpha/2)-\cos((n+\frac12)\alpha)}{2\sin(\alpha/2)}`}/>
+
+Warunki: **c)** q ≠ 1; **e)** sin(α/2) ≠ 0. Przy kątach α = 2πm (m całkowite) wszystkie sinusy są zerowe i sumę oblicza się bez powyższego ilorazu.
+
+## Co oznaczają etapy dowodu?
+
+1. **Baza:** sprawdź n = 1.
+2. **Założenie:** przyjmij wzór dla pewnego n.
+3. **Teza:** zapisz wzór dla n + 1, ale jeszcze nie uznawaj jej za prawdę.
+4. **Przejście:** stara suma + nowy wyraz, podstaw założenie, uprość i porównaj z tezą.
+
+:::note[Wybierz podpunkt]
+[**a)** kwadraty](../cw-suma-kwadratow/) · [**b)** sześciany](../cw-suma-szescianow/) · [**c)** geometryczna](../cw-geometryczny/) · [**d)** naprzemienna](../cw-naprzemienne/) · [**e)** sinusy](../cw-sinusy/)
+:::

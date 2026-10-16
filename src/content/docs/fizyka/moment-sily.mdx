@@ -1,0 +1,37 @@
+---
+title: "Moment siły i równowaga obrotowa"
+description: "Fizyka dla informatyków · 05 · Pęd i moment pędu · zdjęcia 7"
+sidebar:
+  order: 25
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { AngularLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 05 · Pęd i moment pędu · ZDJĘCIA 7</div>
+
+<PhysicsPdfButton client:load slug="moment-sily" title="Moment siły i równowaga obrotowa" section="05 · Pęd i moment pędu" />
+
+# Moment siły i równowaga obrotowa
+
+Moment siły określa zdolność siły do obracania ciała względem osi lub punktu.
+
+<Eq tex={String.raw`\vec\tau=\vec r\times\vec F`} display />
+<Eq tex={String.raw`|\tau|=rF\sin\theta`} display />
+
+### Przykład: klucz do śruby
+
+Długość klucza r = 0,25 m, siła F = 40 N jest prostopadła do ramienia.
+
+Moment siły: τ = 0,25·40·sin(90°) = **10 N·m**.
+
+Jednostka N·m jest taka sama wymiarowo jak dżul, ale moment siły i energia opisują inne wielkości.
+
+Dla obrotu wokół nieruchomej osi i stałego momentu bezwładności zachodzi relacja τ = I·alfa, gdzie alfa jest przyspieszeniem kątowym. To **uzupełnienie dydaktyczne**, nie dosłowny zapis z zeszytu.
+
+## Interaktywne laboratorium
+
+<AngularLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

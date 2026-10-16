@@ -1,0 +1,40 @@
+---
+title: "Siła normalna (reakcja podłoża)"
+description: "Fizyka dla informatyków · 06 · Siły w zadaniach · zdjęcia 8"
+sidebar:
+  order: 27
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { FrictionLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 06 · Siły w zadaniach · ZDJĘCIA 8</div>
+
+<PhysicsPdfButton client:load slug="sila-normalna" title="Siła normalna (reakcja podłoża)" section="06 · Siły w zadaniach" />
+
+# Siła normalna (reakcja podłoża)
+
+Siła normalna N jest siłą kontaktową powierzchni, skierowaną **prostopadle** do niej. Nie zawsze jest równa mg — zależy od geometrii i innych sił.
+
+Na poziomej nieruchomej powierzchni bez dodatkowych sił pionowych mamy:
+
+<Eq tex={String.raw`N=mg`} display />
+
+Na równi pochyłej pod kątem beta, gdy ciało nie odrywa się od równi i nie ma innych sił prostopadłych:
+
+<Eq tex={String.raw`N=mg\cos\beta`} display />
+
+### Przykład
+
+m = 2 kg, g = 9,81 m/s², poziomy stół: N = 2·9,81 = **19,62 N**.
+
+:::note[Pamiętaj]
+Siła normalna działa **na ciało**. Jej para z III zasady działa **na podłoże**, a nie jest to siła ciężkości.
+:::
+
+## Interaktywne laboratorium
+
+<FrictionLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

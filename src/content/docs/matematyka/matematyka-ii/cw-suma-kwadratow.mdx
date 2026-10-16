@@ -1,0 +1,37 @@
+---
+title: "Ćwiczenie a: suma kwadratów"
+description: "Ćwiczenia a) Suma kwadratów"
+sidebar:
+  order: 20
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { SigmaLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="cw-suma-kwadratow" title={"Ćwiczenia a) Suma kwadratów"} section={"05 · Ćwiczenia — indukcja"} />
+
+# Zadanie 1a — suma kwadratów
+
+Udowodnij dla n ≥ 1:
+
+<Eq display tex={String.raw`\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}6`}/>
+
+**Znaczenie symboli:** k oznacza kolejną liczbę od 1 do n; k² to jej kwadrat; n to ostatni indeks sumy.
+
+## Rozgrzewka — n = 3
+
+- **Lewą stronę** liczymy: 1² + 2² + 3² = 1 + 4 + 9 = **14**.
+- **Do wzoru podstawiamy:** n = 3.
+
+<Eq display tex={String.raw`\frac{3(3+1)(2\cdot3+1)}6=\frac{3\cdot4\cdot7}6=14`}/>
+
+## Dowód indukcyjny
+
+<div className="math-steps"><div><strong>Baza n = 1:</strong> L = 1² = 1; P = 1·2·3/6 = 1.</div><div><strong>Założenie:</strong> suma k² od 1 do n wynosi n(n+1)(2n+1)/6.</div><div><strong>Teza n+1:</strong> nowa suma wynosi (n+1)(n+2)(2n+3)/6.</div><div><strong>Przejście:</strong> do starej sumy dodajemy (n+1)².</div></div>
+
+<Eq display tex={String.raw`\begin{aligned}L&=\sum_{k=1}^{n}k^2+(n+1)^2\\&=\frac{n(n+1)(2n+1)}6+(n+1)^2\\&=\frac{(n+1)\big[n(2n+1)+6(n+1)\big]}6\\&=\frac{(n+1)(2n^2+7n+6)}6\\&=\frac{(n+1)(n+2)(2n+3)}6=P\end{aligned}`}/>
+
+W ostatnim wierszu rozkładamy trójmian: 2n² + 7n + 6 = (n+2)(2n+3). Dzięki temu otrzymaliśmy **dokładnie prawą stronę tezy**.
+
+<SigmaLab client:load />

@@ -1,0 +1,41 @@
+---
+title: "Funkcje różnowartościowe"
+description: "Funkcje i różnowartościowość"
+sidebar:
+  order: 14
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="funkcje-roznawartosciowe" title={"Funkcje i różnowartościowość"} section={"04 · Wykłady — kombinatoryka"} />
+
+# Funkcje i różnowartościowość
+
+Funkcja <Eq tex={String.raw`f:X\to Y`}/> przyporządkowuje **każdemu x z X dokładnie jedną wartość f(x) w Y**.
+
+## Funkcja różnowartościowa (iniekcja)
+
+Różne argumenty dają różne wyniki. Formalnie:
+
+<Eq display tex={String.raw`f(x_1)=f(x_2)\Rightarrow x_1=x_2`}/>
+
+Równoważnie: jeśli x₁ ≠ x₂, to f(x₁) ≠ f(x₂).
+
+### Przykład działający: f(x) = 2x + 1
+
+Załóżmy, że f(x₁) = f(x₂). Wtedy:
+
+<Eq display tex={String.raw`\begin{aligned}2x_1+1&=2x_2+1\\2x_1&=2x_2\\x_1&=x_2\end{aligned}`}/>
+
+Oznacza to, że funkcja na ℝ jest różnowartościowa.
+
+### Kontrprzykład: g(x) = x² na ℝ
+
+<Eq display tex={String.raw`g(2)=4=g(-2),\qquad2\ne-2`}/>
+
+Różne argumenty dają ten sam wynik, więc g nie jest różnowartościowa na ℝ. **Dziedzina ma znaczenie**: na [0,∞) funkcja x² jest różnowartościowa.
+
+## Związek z wariacjami
+
+Gdy każdej pozycji k-elementowej listy przypisujemy jedną z n wartości, mamy n^k funkcji. Jeżeli wartości **nie mogą się powtarzać**, rozpatrujemy iniekcje i wynik jest równy n(n−1)…(n−k+1), dla k ≤ n.

@@ -1,0 +1,55 @@
+---
+title: "Kompilacja, linkowanie i błędy"
+description: "Dlaczego komputer nie uruchamia bezpośrednio pliku .cpp?"
+sidebar:
+  order: 3
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { BuildLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="kompilacja" title="Kompilacja, linkowanie i błędy" section="01 · Fundamenty" />
+
+# Kompilacja, linkowanie i błędy
+
+## Dlaczego potrzebujemy kompilatora?
+
+Program w C++ jest tekstem. Procesor nie wykonuje dosłownie słów `cout` i `while`; potrzebuje instrukcji maszynowych. Standardowa ścieżka tworzenia programu to **kod → kompilacja → kod obiektowy → linkowanie → plik wykonywalny → uruchomienie**.
+
+- **Kompilator** sprawdza składnię i tworzy kod obiektowy.
+- **Linker** łączy pliki obiektowe i potrzebne biblioteki.
+- **Program wykonywalny** uruchamia system operacyjny.
+
+```cpp
+#include <iostream>
+int main() {
+    std::cout << "Witaj świecie!"; // poprawnie
+}
+```
+
+Jeśli napiszesz `std::cout << "Witaj świecie!;`, kompilator widzi brak zamykającego `"`. To błąd **składniowy**, nie problem z działaniem algorytmu.
+
+## Trzy rodzaje błędów
+
+| Rodzaj | Przykład | Jak szukać? |
+|---|---|---|
+| Kompilacji | Brak `;`, `}` lub `"` | Komunikat kompilatora, linia kodu |
+| Wykonania | Dzielenie całkowite przez 0, dostęp poza pamięcią | Test, debugger, sanitizery |
+| Logiczny | Program wypisuje 8 zamiast 12 | Śledzenie zmiennych i danych testowych |
+
+Błąd logiczny bywa najtrudniejszy: kompilator może uznać kod za poprawny, mimo że realizuje **zły pomysł**.
+
+## Symulacja
+
+Przełącz „brak średnika” i przejdź krok po kroku przez proces budowania.
+
+## Interaktywna wizualizacja
+
+<BuildLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Code::Blocks i pliki projektu](../codeblocks/) · [Następna: Wejście `cin` i wyjście `cout`](../wejscie-wyjscie/) →

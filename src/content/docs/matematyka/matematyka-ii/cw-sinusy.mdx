@@ -1,0 +1,66 @@
+---
+title: "Ćwiczenie e: suma sinusów"
+description: "Ćwiczenia e) Suma sinusów"
+sidebar:
+  order: 24
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { SineLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="cw-sinusy" title={"Ćwiczenia e) Suma sinusów"} section={"05 · Ćwiczenia — indukcja"} />
+
+# Zadanie 1e — suma sinusów
+
+To najbardziej wymagający podpunkt ćwiczeń. Rozpiszemy również potrzebną **tożsamość trygonometryczną**.
+
+<Eq display tex={String.raw`\sum_{k=1}^{n}\sin(k\alpha)=\frac{\cos(\alpha/2)-\cos((n+\frac12)\alpha)}{2\sin(\alpha/2)}`}/>
+
+**Oznaczenia:** α (alfa) to kąt; kα to k razy ten sam kąt; sinus i cosinus są funkcjami trygonometrycznymi. W symulatorze używamy radianów. Wzór ułamkowy wymaga sin(α/2) ≠ 0.
+
+## Tożsamość, której użyjemy
+
+<Eq display tex={String.raw`\cos x-\cos y=-2\sin\frac{x+y}2\sin\frac{x-y}2`}/>
+
+Podstawienie konkretnych kątów:
+
+<Eq display tex={String.raw`x=(k-\tfrac12)\alpha,\qquad y=(k+\tfrac12)\alpha`}/>
+
+otrzymujemy równość
+
+<Eq display tex={String.raw`\cos((k-\tfrac12)\alpha)-\cos((k+\tfrac12)\alpha)=2\sin(k\alpha)\sin(\alpha/2)`}/>
+
+## Krótsze wyprowadzenie (teleskopowanie)
+
+Dodaj powyższe równości dla k = 1,2,…,n. Wyrazy pośrednie cosinusów się skracają:
+
+<Eq display tex={String.raw`2\sin(\alpha/2)\sum_{k=1}^n\sin(k\alpha)=\cos(\alpha/2)-\cos((n+\tfrac12)\alpha)`}/>
+
+Dzieląc przez 2sin(α/2), otrzymujemy tezę.
+
+## Dowód indukcyjny z ćwiczeń
+
+**Baza n = 1:** wzór sprowadza się do sin α za pomocą tożsamości pomocniczej.
+
+**Założenie:** przyjmij wzór dla n.
+
+**Przejście:** dopisujemy sin((n+1)α) i sprowadzamy do wspólnego mianownika:
+
+<Eq display tex={String.raw`\begin{aligned}L&=\frac{\cos(\alpha/2)-\cos((n+\frac12)\alpha)}{2\sin(\alpha/2)}+\sin((n+1)\alpha)\\&=\frac{\cos(\alpha/2)-\cos((n+\frac12)\alpha)+2\sin(\alpha/2)\sin((n+1)\alpha)}{2\sin(\alpha/2)}\end{aligned}`}/>
+
+Korzystamy z tożsamości, tym razem dla x = (n+1/2)α, y = (n+3/2)α:
+
+<Eq display tex={String.raw`2\sin(\alpha/2)\sin((n+1)\alpha)=\cos((n+\frac12)\alpha)-\cos((n+\frac32)\alpha)`}/>
+
+Dwa wyrazy cosinusowe się znoszą. Zostaje:
+
+<Eq display tex={String.raw`L=\frac{\cos(\alpha/2)-\cos((n+\frac32)\alpha)}{2\sin(\alpha/2)}=P`}/>
+
+To teza dla n + 1.
+
+### Co jeśli α = 2πm?
+
+Wtedy sin(α/2) = 0 i nie wolno dzielić przez mianownik. Jednak **każdy sin(kα) = 0**, więc suma wynosi 0 bez użycia wzoru ułamkowego.
+
+<SineLab client:load />

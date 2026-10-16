@@ -1,0 +1,64 @@
+---
+title: "Pętla while krok po kroku"
+description: "Warunek, iteracja, inicjalizacja i zakończenie."
+sidebar:
+  order: 8
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { WhileLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="petla-while" title="Pętla `while` — powtarzaj, aż warunek przestanie być prawdziwy" section="02 · Algorytmy i diagnostyka" />
+
+# Pętla `while` — powtarzaj, aż warunek przestanie być prawdziwy
+
+## Jak działa `while`?
+
+`while (warunek)` sprawdza warunek **przed każdą iteracją**. Jeśli jest prawdziwy, wykonuje blok instrukcji; jeśli fałszywy — przechodzi za pętlę.
+
+```cpp
+int i = 1;
+while (i <= 4) {
+    std::cout << i << ' ';
+    i = i + 1;
+}
+// Wynik: 1 2 3 4
+```
+
+## Rozpiska instrukcja po instrukcji
+
+| Sprawdzenie `i <= 4` | Wypisano | Zmiana `i` |
+|---|---|---|
+| `1 <= 4` → TAK | 1 | 2 |
+| `2 <= 4` → TAK | 2 | 3 |
+| `3 <= 4` → TAK | 3 | 4 |
+| `4 <= 4` → TAK | 4 | 5 |
+| `5 <= 4` → NIE | nic | koniec |
+
+**Iteracja** to jedno wykonanie ciała pętli. Nie myl liczby sprawdzeń warunku z liczbą iteracji — tutaj warunek sprawdzamy pięć razy, ale ciało wykonujemy cztery razy.
+
+## Błąd: pętla nieskończona
+
+```cpp
+int i = 1;
+while (i <= 4) {
+    std::cout << i; // BRAK: i++
+}
+```
+
+Warunek pozostanie prawdziwy, bo `i` w ogóle się nie zmienia. Nieskończonej pętli można również używać celowo, ale trzeba przewidzieć sposób zakończenia.
+
+## Ćwiczenie
+
+Zmień warunek na `i < 4`. Co wypisze? **1 2 3**, bo dla `i == 4` warunek jest już fałszywy.
+
+## Interaktywna wizualizacja
+
+<WhileLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Pseudokod i schematy blokowe](../pseudokod/) · [Następna: Stoper `0` i sumowanie ciągu](../stoper/) →

@@ -1,0 +1,57 @@
+---
+title: "Indeksowanie napisu — pierwszy znak ma numer 0"
+description: "`napis[i]`, granice, `at()` i pułapki."
+sidebar:
+  order: 30
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { StringLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="indeksy-string" title="Indeksowanie napisu — pierwszy znak ma numer 0" section="04 · Tekst i znaki" />
+
+# Indeksowanie napisu — pierwszy znak ma numer 0
+
+## Każdy element ma pozycję
+
+W C++ numerowanie pozycji zaczyna się od **zera**.
+
+```text
+napis:  K  O  T  E  K
+indeks: 0  1  2  3  4
+```
+
+```cpp
+std::string napis = "KOTEK";
+std::cout << napis[0]; // K
+std::cout << napis[2]; // T
+```
+
+## Dlaczego nie `napis[5]`?
+
+Dla pięciu elementów poprawne indeksy to 0–4. Próba odczytu poza zakresem za pomocą `operator[]` prowadzi do niepoprawnego dostępu (nie wolno zakładać, że program zgłosi ładny komunikat). Metoda `at()` wykonuje kontrolę granic i zgłasza wyjątek `std::out_of_range`.
+
+## Pętla po wszystkich pozycjach
+
+```cpp
+for (std::size_t i = 0; i < napis.size(); ++i) {
+    std::cout << i << ": " << napis[i] << '\n';
+}
+```
+
+Wybieramy `std::size_t`, bo taki typ zwykle zwraca `size()`. W materiałach możesz zobaczyć `int i`; dla krótkich napisów często działa, ale porównywanie różnych typów może generować ostrzeżenia.
+
+## Zadanie
+
+Wypisz znaki napisu od końca, nie używając odwracania bibliotecznego. Pomyśl, jak uniknąć zejścia poniżej zera przy pustym napisie.
+
+## Interaktywna wizualizacja
+
+<StringLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: `std::string` — napisy](../string-podstawy/) · [Następna: `size`, `substr`, `find`, `erase`, `insert`](../metody-string/) →

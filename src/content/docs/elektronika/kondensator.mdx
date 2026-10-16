@@ -1,0 +1,50 @@
+---
+title: "Budowa kondensatora"
+description: "Podstawy elektroniki — 05 · Kondensatory · zdjęcia 6"
+sidebar:
+  order: 16
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { CapacitorLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 05 · Kondensatory · ZDJĘCIA 6</div>
+
+<ElectronicsPdfButton client:load slug="kondensator" />
+
+## Co to jest kondensator?
+
+Kondensator to element złożony z **dwóch przewodzących okładek** rozdzielonych izolatorem (dielektrykiem). Gromadzi na okładkach ładunki o przeciwnych znakach; energia jest przechowywana w polu elektrycznym.
+
+Przykładowy symbol na schemacie:
+
+```text
+---| |---
+   C
+```
+
+**To nie bateria.** Kondensator nie wytwarza sam z siebie stałego napięcia — jego napięcie zależy od zgromadzonego ładunku i pojemności.
+
+## Pojemność
+
+<Eq tex={String.raw`C=\frac{Q}{U}`} display />
+
+**C** — pojemność w faradach (F); **Q** — wartość ładunku jednej okładki w kulombach; **U** — różnica potencjałów między okładkami w woltach.
+
+Jeśli pojemność jest stała, to <Eq tex={String.raw`Q=C\,U`} />. **Nie dodajemy** wartości ładunków dodatniej i ujemnej okładki — mają równe moduły i przeciwny znak.
+
+### Przykład
+
+Kondensator o pojemności <Eq tex={String.raw`C=10\,\mu\mathrm F`} /> naładowano do <Eq tex={String.raw`U=5\,\mathrm V`} />.
+
+<Eq tex={String.raw`Q=10\cdot10^{-6}\,\mathrm F\cdot5\,\mathrm V=50\,\mu\mathrm C`} display />
+
+Zgromadzony ładunek na jednej okładce ma wartość **50 µC**.
+
+## Interaktywne laboratorium
+
+<CapacitorLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

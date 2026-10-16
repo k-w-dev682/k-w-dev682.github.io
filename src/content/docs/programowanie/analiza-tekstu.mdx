@@ -1,0 +1,57 @@
+---
+title: "Zliczanie liter, cyfr i innych znaków"
+description: "Klasyfikacja tekstu, zliczanie i walidacja."
+sidebar:
+  order: 33
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="analiza-tekstu" title="Zliczanie liter, cyfr i innych znaków" section="04 · Tekst i znaki" />
+
+# Zliczanie liter, cyfr i innych znaków
+
+## Zadania z materiału
+
+Skrypt zawiera zliczanie wielkich i małych liter, cyfr oraz pozostałych znaków w zdaniu. Na początek ograniczmy się do **ASCII** — obsługa pełnego Unicode wymaga dodatkowych narzędzi.
+
+```cpp
+#include <iostream>
+#include <string>
+int main() {
+    std::string tekst;
+    std::getline(std::cin, tekst);
+    int male = 0, duze = 0, cyfry = 0, inne = 0;
+    for (unsigned char c : tekst) {
+        if (c >= 'a' && c <= 'z') ++male;
+        else if (c >= 'A' && c <= 'Z') ++duze;
+        else if (c >= '0' && c <= '9') ++cyfry;
+        else ++inne;
+    }
+    std::cout << male << ' ' << duze << ' '
+              << cyfry << ' ' << inne << '\n';
+}
+```
+
+## Prześledź `Ab3!`
+
+| Znak | Klasa | Liczniki po znaku |
+|---|---|---|
+| A | wielka litera | 0,1,0,0 |
+| b | mała litera | 1,1,0,0 |
+| 3 | cyfra | 1,1,1,0 |
+| ! | inny | 1,1,1,1 |
+
+## Dlaczego `unsigned char`?
+
+Pozwala bezpiecznie traktować wartości bajtów jako liczby 0–255 w tym przykładzie. To nie rozwiązuje jednak problemu pojedynczej polskiej litery reprezentowanej przez kilka bajtów UTF-8 — taka litera nadal zostanie policzona jako kilka bajtów „inne”.
+
+## Zadanie
+
+Dopisz liczenie spacji jako osobnej kategorii. Czy spacja powinna być „innym znakiem”, czy własną klasą? Zależy od polecenia zadania.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: `getline` i napisy ze spacjami](../getline/) · [Następna: Konwersja napisu na liczbę](../konwersja-napisow/) →

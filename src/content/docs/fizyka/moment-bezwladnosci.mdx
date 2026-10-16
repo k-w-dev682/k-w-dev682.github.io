@@ -1,0 +1,42 @@
+---
+title: "Moment bezwładności"
+description: "Fizyka dla informatyków · 05 · Pęd i moment pędu · zdjęcia 7"
+sidebar:
+  order: 24
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { AngularLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 05 · Pęd i moment pędu · ZDJĘCIA 7</div>
+
+<PhysicsPdfButton client:load slug="moment-bezwladnosci" title="Moment bezwładności" section="05 · Pęd i moment pędu" />
+
+# Moment bezwładności
+
+Moment bezwładności opisuje, jak masa ciała jest rozłożona względem **osi obrotu**.
+
+<Eq tex={String.raw`I=\sum_i m_ir_i^2`} display />
+
+- mi — masa i-tego elementu.
+- ri — odległość tego elementu od osi.
+- I — moment bezwładności [kg·m²].
+
+Dla ciała sztywnego obracającego się wokół ustalonej osi składowa momentu pędu wzdłuż osi jest równa:
+
+<Eq tex={String.raw`L_{\mathrm{osi}}=I\omega`} display />
+
+### Przykład
+
+Dwie kulki o masach 1 kg każda są oddalone od osi o 2 m.
+
+I = 1·2² + 1·2² = **8 kg·m²**.
+
+Jeśli kulki przesuniemy dwukrotnie dalej, moment bezwładności wzrośnie czterokrotnie.
+
+## Interaktywne laboratorium
+
+<AngularLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

@@ -1,0 +1,62 @@
+---
+title: "Debugger: praca krok po kroku"
+description: "Breakpoint, Step Over i okno obserwowanych zmiennych."
+sidebar:
+  order: 12
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { DebugLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="debugger" title="Debugger: praca krok po kroku" section="02 · Algorytmy i diagnostyka" />
+
+# Debugger: praca krok po kroku
+
+## Gdy kompilacja przechodzi, ale wynik jest błędny
+
+Debugger pozwala **zatrzymać program**, odczytać aktualne wartości zmiennych i wykonywać instrukcje pojedynczo. Dzięki temu widzisz nie tylko wynik, ale też cały przebieg obliczeń.
+
+### Słowniczek
+
+| Pojęcie | Znaczenie |
+|---|---|
+| Breakpoint | Punkt, w którym debugger ma zatrzymać program |
+| Step Over | Wykonaj bieżącą linię bez wchodzenia do wywoływanych funkcji |
+| Step Into | Wejdź do wywoływanej funkcji, jeśli dostępna do debugowania |
+| Watch | Obserwuj wyrażenie lub zmienną |
+| Continue | Wznów program do kolejnego zatrzymania |
+
+## Przykład
+
+```cpp
+int iloczyn = 0;
+for (int i = 0; i < 3; ++i) {
+    iloczyn += 4;
+}
+```
+
+Postaw breakpoint na `iloczyn += 4;`, uruchom program w trybie debugowania i obserwuj `i` oraz `iloczyn`.
+
+| Zatrzymanie przed instrukcją | `i` | `iloczyn` |
+|---|---:|---:|
+| pierwsze | 0 | 0 |
+| drugie | 1 | 4 |
+| trzecie | 2 | 8 |
+| po pętli | — | 12 |
+
+Wartości w tabeli pokazują **stan przed wykonaniem** instrukcji w danym zatrzymaniu. Nie pomyl „przed” z „po” — to częsta przyczyna zamieszania.
+
+## Ćwiczenie
+
+Zamiast `iloczyn += 4` wpisz `iloczyn += 3`. Przewidź wynik bez uruchamiania programu, a potem potwierdź go debuggerem.
+
+## Interaktywna wizualizacja
+
+<DebugLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 2. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Mnożenie bez operatora `*`](../mnozenie-dodawaniem/) · [Następna: Jak testować program?](../testowanie/) →

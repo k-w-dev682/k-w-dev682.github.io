@@ -1,0 +1,44 @@
+---
+title: "Ćwiczenia: trudniejsze dziedziny"
+description: "Dziedziny bardziej złożonych funkcji — korekta rachunków"
+sidebar:
+  order: 23
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="cw-dziedzina-3" title={"Dziedziny bardziej złożonych funkcji — korekta rachunków"} section={"06 · Ćwiczenia — funkcje"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 06 · Ćwiczenia — funkcje · ZDJĘCIA 27–28</div>
+
+# Dziedziny bardziej złożonych funkcji — korekta rachunków
+
+W zadaniu ze zdjęcia 27 pojawia się funkcja zawierająca pierwiastek z wyrażenia wykładniczego:
+
+<Eq display tex={String.raw`f(x)=\sqrt{2^{\frac{2x-3}{x+1}}-\frac12}`}/>
+
+## Krok 1. Usuń miejsce zerowe mianownika wykładnika
+
+<Eq display tex={String.raw`x+1\ne0\Rightarrow x\ne-1`}/>
+
+## Krok 2. Podpierwiastkowe musi być nieujemne
+
+<Eq display tex={String.raw`2^{\frac{2x-3}{x+1}}\ge\frac12=2^{-1}`}/>
+
+Ponieważ funkcja `2ᵗ` jest rosnąca, porównujemy wykładniki:
+
+<Eq display tex={String.raw`\frac{2x-3}{x+1}\ge -1`}/>
+
+## Krok 3. Sprowadź do jednego ułamka
+
+<Eq display tex={String.raw`\frac{2x-3+x+1}{x+1}=\frac{3x-2}{x+1}\ge0`}/>
+
+**Uwaga:** na zdjęciu jest wiele skreśleń; istotne jest, by przy dodawaniu `1` do ułamka otrzymać licznik **3x−2**, a nie `x−4`.
+
+Miejsca krytyczne to −1 i 2/3. Z analizy znaków:
+
+<Eq display tex={String.raw`D=(-\infty,-1)\cup\left[\frac23,\infty\right)`}/>
+
+Wartość −1 jest wykluczona, bo zeruje mianownik, a 2/3 jest dopuszczalne — pierwiastek z 0 istnieje.
+

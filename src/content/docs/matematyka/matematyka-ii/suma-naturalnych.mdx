@@ -1,0 +1,44 @@
+---
+title: "Dowód: 1 + 2 + … + n"
+description: "Dowód: 1 + 2 + … + n"
+sidebar:
+  order: 12
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { InductionLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="suma-naturalnych" title={"Dowód: 1 + 2 + … + n"} section={"03 · Wykłady — dowody"} />
+
+# Dowód: 1 + 2 + … + n
+
+Chcemy udowodnić:
+
+<Eq display tex={String.raw`1+2+\cdots+n=\sum_{k=1}^{n}k=\frac{n(n+1)}2`}/>
+
+## Przykład przed dowodem
+
+Dla n = 5 podstawiamy do wzoru:
+
+<Eq display tex={String.raw`\frac{5(5+1)}2=\frac{5\cdot6}2=15`}/>
+
+Kontrola: 1 + 2 + 3 + 4 + 5 = 15. Zgadza się, ale **to jeszcze nie dowód ogólny**.
+
+## Dowód indukcyjny
+
+<div className="math-steps"><div><strong>Baza n = 1.</strong> Lewa strona: 1. Prawa strona: 1·(1+1)/2 = 1. Są równe.</div><div><strong>Założenie dla n.</strong> Przyjmujemy, że 1+2+…+n = n(n+1)/2.</div><div><strong>Cel dla n + 1.</strong> Musimy uzyskać (n+1)(n+2)/2.</div><div><strong>Krok.</strong> Do starej sumy dopisujemy dokładnie jeden nowy składnik (n+1).</div></div>
+
+<Eq display tex={String.raw`\begin{aligned}1+\cdots+n+(n+1)&=\frac{n(n+1)}2+(n+1)\\&=\frac{n(n+1)+2(n+1)}2\\&=\frac{(n+1)(n+2)}2\end{aligned}`}/>
+
+W drugim wierszu zapisaliśmy <Eq tex={String.raw`n+1=\frac{2(n+1)}2`}/> i sprowadziliśmy wyrażenia do wspólnego mianownika 2. Ostatni krok to wyłączenie czynnika (n+1) przed nawias.
+
+**Wniosek:** wzór zachodzi dla wszystkich n ≥ 1.
+
+## Uniwersalny schemat sum
+
+<Eq display tex={String.raw`\sum_{k=1}^{n+1}f(k)=\sum_{k=1}^{n}f(k)+f(n+1)`}/>
+
+To zdanie jest bardzo przydatne w kolejnych pięciu zadaniach.
+
+<InductionLab client:load />

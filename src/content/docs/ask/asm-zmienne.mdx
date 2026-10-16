@@ -1,0 +1,45 @@
+---
+title: "Asembler: odczyt zmiennej, dodawanie i zapis"
+description: "04 · Asembler od zera · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 22
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { AssemblerLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 04 · Asembler od zera · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="asm-zmienne" title="Asembler: odczyt zmiennej, dodawanie i zapis" section="04 · Asembler od zera" />
+
+# Asembler: odczyt zmiennej, dodawanie i zapis
+
+W uproszczonym modelu programu zmienne są przechowywane w pamięci, a operacje wykonujemy na danych przeniesionych do rejestrów.
+
+### Przykład pojęciowy (pseudorozkazy, nie rzeczywiste x86)
+
+```text
+LOAD R0, [10]   ; R0 = zawartość pamięci pod adresem 10
+LOAD R1, [11]   ; R1 = zawartość pamięci pod adresem 11
+ADD  R0, R1     ; R0 = R0 + R1
+STORE [12], R0  ; pamięć pod adresem 12 = R0
+```
+
+Przyjmij: `pamięć[10]=7`, `pamięć[11]=5`, `pamięć[12]=0`.
+
+| Krok | Rejestr R0 | Rejestr R1 | Pamięć[12] |
+|---|---:|---:|---:|
+| Start | 0 | 0 | 0 |
+| LOAD R0 | 7 | 0 | 0 |
+| LOAD R1 | 7 | 5 | 0 |
+| ADD R0,R1 | 12 | 5 | 0 |
+| STORE | 12 | 5 | 12 |
+
+**Nie myl:** `LOAD` i `STORE` to tutaj **własne nazwy w symulatorze dydaktycznym**. Konkretne rozkazy rzeczywistego procesora mogą wyglądać inaczej.
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<AssemblerLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

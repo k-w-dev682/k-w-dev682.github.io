@@ -1,0 +1,47 @@
+---
+title: "Kondensatory szeregowo"
+description: "Podstawy elektroniki — 06 · Łączenie kondensatorów · zdjęcia 8"
+sidebar:
+  order: 21
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { NetworkLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 06 · Łączenie kondensatorów · ZDJĘCIA 8</div>
+
+<ElectronicsPdfButton client:load slug="lacznie-szeregowe" />
+
+## Jak wygląda połączenie szeregowe?
+
+Kondensatory tworzą jeden łańcuch. W modelu idealnym, gdy początkowo są nienaładowane i węzły pośrednie są izolowane, **wartości ładunków na kolejnych kondensatorach są równe**:
+
+<Eq tex={String.raw`|Q_1|=|Q_2|=|Q_3|=Q`} display />
+
+Napięcie całkowite jest sumą napięć:
+
+<Eq tex={String.raw`U=U_1+U_2+U_3`} display />
+
+Ponieważ <Eq tex={String.raw`U_i=Q/C_i`} />, mamy:
+
+<Eq tex={String.raw`\boxed{\frac{1}{C_{\mathrm{zast}}}=\frac{1}{C_1}+\frac{1}{C_2}+\frac{1}{C_3}}`} display />
+
+### Przykład
+
+Kondensatory **3 µF i 6 µF** połączono szeregowo.
+
+1. Wybieramy wzór: <Eq tex={String.raw`1/C_z=1/C_1+1/C_2`} />.
+2. Podstawiamy: <Eq tex={String.raw`1/C_z=1/3+1/6=1/2`} /> w jednostkach odwrotnych µF.
+3. Odpowiedź: **2 µF**.
+
+:::caution[Uwaga]
+**Szeregowo → sumujemy odwrotności.** Pojemność zastępcza jest mniejsza od najmniejszej pojemności składowej.
+:::
+
+## Interaktywne laboratorium
+
+<NetworkLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

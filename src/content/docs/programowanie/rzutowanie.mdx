@@ -1,0 +1,40 @@
+---
+title: "Typy i konwersje: `int` kontra `double`"
+description: "Dlaczego 5/2 i 5.0/2 to różne wyniki?"
+sidebar:
+  order: 22
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="rzutowanie" title="Typy i konwersje: `int` kontra `double`" section="03 · Liczby w pamięci" />
+
+# Typy i konwersje: `int` kontra `double`
+
+## Jak C++ wybiera typ obliczenia?
+
+Jeśli **obie strony dzielenia** są liczbami całkowitymi, obliczenie zachodzi w arytmetyce całkowitej: `5 / 2` daje `2`, a nie `2.5`.
+
+```cpp
+int a = 5, b = 2;
+std::cout << a / b << '\n';                 // 2
+std::cout << static_cast<double>(a) / b;  // 2.5
+```
+
+`static_cast<double>(a)` tworzy dla tego wyrażenia wartość typu `double`. Dzięki temu dzielenie zachodzi zmiennoprzecinkowo.
+
+## Trzy pułapki
+
+1. `double wynik = 5 / 2;` daje **2.0**, bo samo dzielenie zaszło wcześniej w `int`.
+2. `double wynik = 5.0 / 2;` daje **2.5**, bo jedna strona jest rzeczywista.
+3. `int x = 2.9;` daje 2 — część ułamkowa zostaje odrzucona przy konwersji do `int` (o ile wartość mieści się w typie).
+
+## Test
+
+Co wypisze `static_cast<double>(7 / 2)`? **3.0**, bo najpierw wykonało się `7/2` jako całkowite 3, a dopiero potem rzutowanie. Rzutować trzeba **przed** dzieleniem.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Jak bezpieczniej porównywać `double`](../porownanie-float/) · [Następna: `setprecision` i formatowanie wyniku](../formatowanie/) →

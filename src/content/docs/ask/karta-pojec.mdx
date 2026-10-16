@@ -1,0 +1,48 @@
+---
+title: "Karta wzorów i najważniejsze symbole"
+description: "07 · Materiały pomocnicze · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 35
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 07 · Materiały pomocnicze · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="karta-pojec" title="Karta wzorów i najważniejsze symbole" section="07 · Materiały pomocnicze" />
+
+# Karta wzorów i najważniejsze symbole
+
+## Systemy liczbowe
+
+<Eq tex={String.raw`N=\sum_{i=0}^{n-1}c_i\,p^i`} display />
+
+| Symbol | Znaczenie |
+|---|---|
+| `N` | Wartość liczby |
+| `cᵢ` | Cyfra na pozycji i |
+| `p` | Podstawa (2, 10, 16…) |
+| `i` | Pozycja licząc od prawej, od 0 |
+
+## U2
+
+<Eq tex={String.raw`N=-c_{n-1}2^{n-1}+\sum_{i=0}^{n-2}c_i2^i`} display />
+
+**Ujemna waga najstarszego bitu** odróżnia interpretację liczby U2 od liczby bez znaku.
+
+## Liczba różnych wartości i zakresy
+
+- `n` bitów: <Eq tex={String.raw`2^n`} /> różnych ciągów.
+- Bez znaku: od <Eq tex={String.raw`0`} /> do <Eq tex={String.raw`2^n-1`} />.
+- ZM i U1: od <Eq tex={String.raw`-(2^{n-1}-1)`} /> do <Eq tex={String.raw`2^{n-1}-1`} /> (dwa zera).
+- U2: od <Eq tex={String.raw`-2^{n-1}`} /> do <Eq tex={String.raw`2^{n-1}-1`} /> (jedno zero).
+
+## Pamięć i kodowanie
+
+- `b` — bit, `B` — bajt.
+- `1 B = 8 b`.
+- `1 kB = 1000 B`, `1 KiB = 1024 B`.
+- `MOV`, `ADD` — przykładowe rozkazy x86 w dodatkowej lekcji, nie gwarantują zgodności z wykładem.
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

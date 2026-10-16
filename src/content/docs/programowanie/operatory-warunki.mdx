@@ -1,0 +1,53 @@
+---
+title: "Operatory i instrukcja `if`"
+description: "Dodawanie, modulo, porównania i decyzje."
+sidebar:
+  order: 6
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="operatory-warunki" title="Operatory i instrukcja `if`" section="01 · Fundamenty" />
+
+# Operatory i instrukcja `if`
+
+## Arytmetyka i warunki
+
+W C++ używamy `+`, `-`, `*`, `/`, `%`. Operator `%` daje **resztę z dzielenia całkowitego**, dlatego pomaga wykrywać parzystość (`n % 2 == 0`).
+
+| Zapis | Co robi? | Przykład |
+|---|---|---|
+| `a = b` | Przypisuje wartość | `x = 4` |
+| `a == b` | Porównuje równość | `x == 4` |
+| `a != b` | Sprawdza nierówność | `x != 0` |
+| `a >= b` | Większe lub równe | `x >= 10` |
+| `a && b` | Logiczne „i” | `x > 0 && x < 10` |
+| `a || b` | Logiczne „lub” | `x == 0 || x == 1` |
+
+## Przykład: liczba parzysta
+
+```cpp
+int liczba;
+std::cin >> liczba;
+if (liczba % 2 == 0) {
+    std::cout << "Parzysta\n";
+} else {
+    std::cout << "Nieparzysta\n";
+}
+```
+
+**Krok 1:** pobierz `liczba`. **Krok 2:** oblicz resztę po podzieleniu przez dwa. **Krok 3:** wybierz jedną gałąź. **Krok 4:** wypisz wynik.
+
+:::danger[Częsta pomyłka]
+`if (x = 0)` nie jest testem równości! Używaj `==` do porównania. Dla początkujących to jedna z najbardziej mylących różnic.
+:::
+
+## Zadanie
+
+Napisz warunek sprawdzający, czy `x` jest dodatnia i podzielna przez trzy. Rozwiązanie: `x > 0 && x % 3 == 0`.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Zmienne, inicjalizacja i `int`](../zmienne/) · [Następna: Pseudokod i schematy blokowe](../pseudokod/) →

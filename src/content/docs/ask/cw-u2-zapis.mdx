@@ -1,0 +1,56 @@
+---
+title: "Ćwiczenia U2: zapis liczb dodatnich i ujemnych"
+description: "06 · Ćwiczenia · Lab 2 · Laboratorium 2 · lab02.pdf"
+sidebar:
+  order: 33
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { SignedLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 06 · Ćwiczenia · Lab 2 · Laboratorium 2 · lab02.pdf</div>
+
+<AskPdfButton client:load slug="cw-u2-zapis" title="Ćwiczenia U2: zapis liczb dodatnich i ujemnych" section="06 · Ćwiczenia · Lab 2" />
+
+# Ćwiczenia U2: zapis liczb dodatnich i ujemnych
+
+Oryginalne zadanie z `lab02.pdf` (sekcja 2, zapis **U2**). **Przedstaw w U2 liczby dziesiętne:**
+
+1. `7` i `-7`
+2. `12` i `-12`
+3. `127` i `-127`
+4. `56` i `-56`
+5. `32` i `-32`
+
+:::note[Przyjęta szerokość]
+Dla przejrzystości kodujemy wszystkie wyniki na **8 bitach**. Oryginał nie wskazuje jednej wymaganej szerokości dla każdego podpunktu.
+:::
+
+### Podpowiedź
+
+W U2 odwróć osiem bitów dodatniej liczby, a następnie dodaj 1.
+
+<details>
+<summary>Pokaż wszystkie rozwiązania (8 bitów)</summary>
+
+| Liczba dziesiętna | U2, 8 bitów |
+|---|---|
+| +7 | `00000111` |
+| -7 | `11111001` |
+| +12 | `00001100` |
+| -12 | `11110100` |
+| +127 | `01111111` |
+| -127 | `10000001` |
+| +56 | `00111000` |
+| -56 | `11001000` |
+| +32 | `00100000` |
+| -32 | `11100000` |
+
+</details>
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<SignedLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

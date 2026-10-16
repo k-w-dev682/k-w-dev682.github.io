@@ -1,0 +1,43 @@
+---
+title: "Zbiory liczbowe: element i podzbiór"
+description: "Zbiory liczbowe: element i podzbiór"
+sidebar:
+  order: 6
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="zbiory-podstawy" title={"Zbiory liczbowe: element i podzbiór"} section={"02 · Wykłady — zbiory"} />
+
+# Zbiory liczbowe: element i podzbiór
+
+Zbiór to kolekcja **elementów**. Na przykład A = &#123;1, 2, 3&#125; ma trzy elementy. Kolejność wpisania tych liczb w nawiasie klamrowym nie ma znaczenia.
+
+## Rodzaje liczb
+
+| Symbol | Znaczenie | Przykłady |
+|---|---|---|
+| ℕ | liczby naturalne od 1 | 1, 2, 3, … |
+| ℤ | liczby całkowite | −3, 0, 5 |
+| ℚ | liczby wymierne | 1/2, −7, 0,125 |
+| ℝ | liczby rzeczywiste | również √2, π |
+| ℝ ∖ ℚ | liczby niewymierne | √2, π |
+
+## Element a podzbiór
+
+Dla A = &#123;1, 2, 3&#125; prawdziwe są trzy zdania:
+
+<Eq display tex={String.raw`2\in A,\qquad4\notin A,\qquad\{1,2\}\subseteq A`}/>
+
+Jednak **&#123;1,2&#125; ∈ A** jest fałszem. Dlaczego? Elementami A są liczby 1,2,3, a nie zbiory. To podstawowa różnica między symbolami **∈** i **⊆**.
+
+## Co oznacza pusty zbiór?
+
+<Eq display tex={String.raw`\varnothing\ne\{\varnothing\}`}/>
+
+Po lewej mamy zero elementów. Po prawej — zbiór zawierający **jeden element, którym jest zbiór pusty**.
+
+:::tip[Warto zapamiętać]
+Nie myl **liczby elementów** z ich wartościami. <Eq tex={String.raw`|A|=3`}/> mówi o liczbie elementów zbioru A, nie o wartości bezwzględnej A.
+:::

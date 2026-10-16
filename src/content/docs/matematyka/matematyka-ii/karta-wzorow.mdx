@@ -1,0 +1,35 @@
+---
+title: "Karta wzorów — co wybrać do zadania?"
+description: "Karta wzorów — co wybrać do zadania?"
+sidebar:
+  order: 25
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="karta-wzorow" title={"Karta wzorów — co wybrać do zadania?"} section={"06 · Powtórzenie"} />
+
+# Karta wzorów — co wybrać do zadania?
+
+Przed liczeniem znajdź **rodzaj zadania**, a dopiero potem dobierz wzór. Każdy zapis niżej prowadzi do omówionej lekcji.
+
+| Widzisz w zadaniu | Wzór / metoda |
+|---|---|
+| 1 + 2 + … + n | <Eq tex={String.raw`\frac{n(n+1)}2`}/> |
+| 1² + 2² + … + n² | <Eq tex={String.raw`\frac{n(n+1)(2n+1)}6`}/> |
+| 1³ + 2³ + … + n³ | <Eq tex={String.raw`\left(\frac{n(n+1)}2\right)^2`}/> |
+| 1 + q + … + qⁿ⁻¹ | <Eq tex={String.raw`\frac{1-q^n}{1-q}`}/> dla q ≠ 1 |
+| 1² − 2² + 3² − … | <Eq tex={String.raw`(-1)^{n-1}\frac{n(n+1)}2`}/> |
+| liczba podzbiorów zbioru n-elementowego | <Eq tex={String.raw`2^n`}/> |
+| wybór k spośród n (kolejność nieważna) | <Eq tex={String.raw`\binom nk`}/> |
+| k miejsc, każde z n możliwych, powtórzenia dozwolone | <Eq tex={String.raw`n^k`}/> |
+| liczba par A×B | <Eq tex={String.raw`\lvert A\rvert\cdot\lvert B\rvert`}/> |
+| rozwinięcie (a+b)ⁿ | dwumian Newtona |
+| sin α + … + sin(nα) | suma sinusów z warunkiem na mianownik |
+
+## Kontrola poprawności
+
+<div className="math-steps"><div><strong>Wypisz dane.</strong> Rozpoznaj n, k, q, a, b, α.</div><div><strong>Zapisz wzór.</strong> Nie podstawiaj od razu w pamięci.</div><div><strong>Wypisz ograniczenia.</strong> Czy mianownik może być zerem? Czy k ≤ n?</div><div><strong>Podstaw dane krok po kroku.</strong> Jedno przekształcenie w jednym wierszu.</div><div><strong>Sprawdź wynik.</strong> Dla małego n, przez obliczenie ręczne lub test w laboratorium.</div></div>
+
+[→ Przejdź do zadań z ćwiczeń](../zadanie-indukcja/) · [→ Eksportuj własny zestaw PDF](../eksport/)

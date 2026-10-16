@@ -1,0 +1,47 @@
+---
+title: "Karta wzorów mechaniki"
+description: "Fizyka dla informatyków · 08 · Materiały pomocnicze · zdjęcia 1–9"
+sidebar:
+  order: 36
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 08 · Materiały pomocnicze · ZDJĘCIA 1–9</div>
+
+<PhysicsPdfButton client:load slug="karta-wzorow" title="Karta wzorów mechaniki" section="08 · Materiały pomocnicze" />
+
+# Karta wzorów mechaniki
+
+## Ruch po prostej
+
+<Eq tex={String.raw`v_{\mathrm{sr}}=\frac{\Delta x}{\Delta t},\quad a=\frac{\Delta v}{\Delta t}`} display />
+<Eq tex={String.raw`v=v_0+at,\qquad x=x_0+v_0t+\frac12 at^2`} display />
+
+## Rzut ukośny, oś y do góry
+
+<Eq tex={String.raw`x=x_0+v_0\cos\alpha\,t,\quad y=y_0+v_0\sin\alpha\,t-\frac12 gt^2`} display />
+
+## Ruch po okręgu
+
+<Eq tex={String.raw`a_d=\frac{v^2}{R},\qquad F_d=\frac{mv^2}{R}`} display />
+
+## Siły i pęd
+
+<Eq tex={String.raw`\sum\vec F=m\vec a,\qquad\vec p=m\vec v`} display />
+
+## Moment pędu i bezwładność
+
+<Eq tex={String.raw`\vec L=\vec r\times\vec p,\qquad I=\sum_i m_ir_i^2`} display />
+
+## Kontakt i tarcie
+
+<Eq tex={String.raw`N=mg\quad\text{(poziom bez innych sił pionowych)}`} display />
+<Eq tex={String.raw`F_{tk}=\mu_kN,\qquad |F_{ts}|\leq\mu_sN`} display />
+
+:::tip[Warunki]
+Nie ucz się samych wzorów bez zastrzeżeń: ostatnie zależności wymagają konkretnych warunków, opisanych w odpowiednich lekcjach.
+:::
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

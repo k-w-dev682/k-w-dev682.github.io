@@ -1,0 +1,45 @@
+---
+title: "Dodawanie w U2 i przepełnienie"
+description: "02 · Liczby ze znakiem · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 16
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { ALULab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 02 · Liczby ze znakiem · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="dodawanie-u2" title="Dodawanie w U2 i przepełnienie" section="02 · Liczby ze znakiem" />
+
+# Dodawanie w U2 i przepełnienie
+
+To **dodatkowe wyjaśnienie** do materiału z `lab02.pdf`, który wskazuje, że w U2 dodawanie jest prostsze niż w ZM i U1.
+
+### Przykład na 4 bitach: 3 + (-2)
+
+```
+  0011   (+3)
++ 1110   (-2)
+------
+1 0001
+```
+
+Odrzucamy piąty bit (poza ustaloną szerokością 4 bitów). Wynik to `0001(U2)` = **1**.
+
+### Kiedy wynik jest błędny?
+
+Dla 4-bitowego U2 zakres wynosi od **-8 do 7**. Jeżeli wynik matematyczny wykracza poza ten przedział, pojawia się **przepełnienie**.
+
+Przykładowo `7 + 3 = 10` — matematycznie poprawne, ale nie da się zapisać +10 na czterech bitach U2.
+
+:::caution[Przeniesienie ≠ przepełnienie]
+Samo wystąpienie przeniesienia poza najstarszy bit nie jest równoznaczne z przepełnieniem liczb ze znakiem.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<ALULab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

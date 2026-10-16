@@ -1,0 +1,47 @@
+---
+title: "Zasada superpozycji"
+description: "Podstawy elektroniki — 02 · Oddziaływania i pole · zdjęcia 2"
+sidebar:
+  order: 7
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { SuperpositionLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 02 · Oddziaływania i pole · ZDJĘCIA 2</div>
+
+<ElectronicsPdfButton client:load slug="superpozycja" />
+
+## Zasada superpozycji
+
+W notatkach zapisano, że siły od kilku ładunków obliczamy osobno i dodajemy **wektorowo**. To istotne: nie zawsze wystarczy zsumować ich wartości liczbowe.
+
+<Eq tex={String.raw`\vec F_{\mathrm{wyp}}=\vec F_1+\vec F_2+\cdots+\vec F_n`} display />
+
+W przypadku sił wzdłuż jednej prostej wybieramy umownie kierunek dodatni, np. w prawo. Siłę skierowaną w prawo zapisujemy jako dodatnią, w lewo jako ujemną.
+
+### Przykład pomocniczy
+
+Na badany ładunek działają siły `+4 N` (w prawo), `−7 N` (w lewo) i `+1 N` (w prawo).
+
+<Eq tex={String.raw`F_x=4\,\mathrm N-7\,\mathrm N+1\,\mathrm N=-2\,\mathrm N`} display />
+
+Wynik to **2 N w lewo**. Minus opisuje kierunek, a nie „ujemną wartość siły”.
+
+## Gdy siły nie są współliniowe
+
+Jeśli siły są prostopadłe, dla składowych **Fx, Fy** stosujemy:
+
+<Eq tex={String.raw`F=\sqrt{F_x^2+F_y^2}`} display />
+
+To zastosowanie twierdzenia Pitagorasa. Gdy znamy kąt, składowe wyliczamy przy użyciu sinusa i cosinusa.
+
+**Uzupełnienie:** analogiczna zasada dotyczy natężenia pola elektrycznego: <Eq tex={String.raw`\vec E=\sum_i\vec E_i`} />.
+
+## Interaktywne laboratorium
+
+<SuperpositionLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

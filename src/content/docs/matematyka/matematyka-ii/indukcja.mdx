@@ -1,0 +1,32 @@
+---
+title: "Indukcja matematyczna"
+description: "Indukcja matematyczna — cztery kroki"
+sidebar:
+  order: 11
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { InductionLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="indukcja" title={"Indukcja matematyczna — cztery kroki"} section={"03 · Wykłady — dowody"} />
+
+# Indukcja matematyczna — cztery kroki
+
+Wyobraź sobie szereg kostek domina. Jeśli **pierwsza upadnie**, a **każda przewróci następną**, to wszystkie upadną. Indukcja opiera się na podobnej logice.
+
+<div className="math-steps"><div><strong>Baza indukcyjna:</strong> sprawdź zdanie dla pierwszego dozwolonego n (najczęściej n = 1).</div><div><strong>Założenie:</strong> przyjmij, że zdanie jest prawdziwe dla pewnego n. Nie udowadniamy go ponownie.</div><div><strong>Krok indukcyjny:</strong> pokaż, że z prawdziwości dla n wynika prawdziwość dla n + 1.</div><div><strong>Wniosek:</strong> na mocy zasady indukcji zdanie działa dla każdego dozwolonego n.</div></div>
+
+## Jak zapisujemy zdanie?
+
+<Eq display tex={String.raw`P(n):\quad\sum_{k=1}^{n} k=\frac{n(n+1)}2`}/>
+
+To nazwa własności, którą chcemy udowodnić. Symbol **P(n)** nie oznacza prawej strony równości — w takim kontekście to nazwa całego zdania. W ręcznych dowodach skróty **L** i **P** bywają używane w sensie *lewa* i *prawa strona*.
+
+## Typowa pułapka
+
+Sprawdzenie wzoru dla n = 1, 2, 3, 4 nie dowodzi, że działa dla **wszystkich** naturalnych. Właściwe uzasadnienie wymaga symbolicznego kroku od n do n + 1.
+
+<InductionLab client:load />
+
+[→ Pełny dowód na sumie liczb od 1 do n](../suma-naturalnych/) · [→ Zadanie z ćwiczeń](../zadanie-indukcja/)

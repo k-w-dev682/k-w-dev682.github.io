@@ -1,0 +1,42 @@
+---
+title: "Wartość bezwzględna, otoczenie i sąsiedztwo"
+description: "Wartość bezwzględna, otoczenie i sąsiedztwo"
+sidebar:
+  order: 19
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="wartosc-bezwzgledna" title={"Wartość bezwzględna, otoczenie i sąsiedztwo"} section={"05 · Wykłady — funkcje"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 05 · Wykłady — funkcje · ZDJĘCIA 20–21</div>
+
+# Wartość bezwzględna, otoczenie i sąsiedztwo
+
+## Moduł jako odległość od zera
+
+<Eq display tex={String.raw`|x|=\begin{cases}x&x\ge0\\-x&x<0\end{cases}`}/>
+
+Przykłady: `|5|=5`, `|−5|=5`, `|0|=0`.
+
+## Otoczenie punktu x₀
+
+Przy promieniu δ>0 wszystkie punkty bliżej niż δ tworzą przedział:
+
+<Eq display tex={String.raw`U(x_0,\delta)=(x_0-\delta,\ x_0+\delta)`}/>
+
+Równoważnie: odległość `|x−x₀|` musi być mniejsza niż δ.
+
+## Sąsiedztwo punktu
+
+To otoczenie **bez punktu środkowego**. Jeśli x₀=2 i δ=1, otrzymujemy (1,2) ∪ (2,3).
+
+## Funkcja signum
+
+- `sgn(x)=-1`, gdy x jest mniejsze od 0;
+- `sgn(x)=0`, gdy x=0;
+- `sgn(x)=1`, gdy x>0.
+
+W notatkach wymieniono także funkcję „podłoga” (część całkowita): `⌊2.7⌋=2` oraz `⌊−1.2⌋=−2`.
+

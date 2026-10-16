@@ -1,0 +1,38 @@
+---
+title: "Przyspieszenie"
+description: "Fizyka dla informatyków · 01 · Kinematyka · zdjęcia 1"
+sidebar:
+  order: 9
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { MotionLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 01 · Kinematyka · ZDJĘCIA 1</div>
+
+<PhysicsPdfButton client:load slug="przyspieszenie" title="Przyspieszenie: tempo zmiany prędkości" section="01 · Kinematyka" />
+
+# Przyspieszenie: tempo zmiany prędkości
+
+Przyspieszenie mówi, jak szybko zmienia się **prędkość**, a nie sama pozycja. Może być dodatnie albo ujemne zależnie od zwrotu osi.
+
+<Eq tex={String.raw`a_{\mathrm{sr}}=\frac{v-v_0}{\Delta t}`} display />
+
+Jeśli wybieramy t₀ = 0, to delta czasu jest po prostu t.
+
+<Eq tex={String.raw`a(t)=\frac{dv(t)}{dt}`} display />
+
+### Przykład
+
+Prędkość zmieniła się z 3 m/s na 15 m/s w ciągu 4 s.
+
+<Eq tex={String.raw`a=\frac{15-3}{4}=3\ \mathrm{m/s^2}`} display />
+
+Oznacza to, że przy stałym przyspieszeniu prędkość rośnie o 3 m/s w każdej kolejnej sekundzie.
+
+## Interaktywne laboratorium
+
+<MotionLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

@@ -1,0 +1,63 @@
+---
+title: "Bank zadań — znaki i `string`"
+description: "Wyszukiwanie, palindromy, szyfry i analiza tekstu."
+sidebar:
+  order: 40
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="zadania-string" title="Bank zadań — znaki i `string`" section="05 · Zadania i utrwalanie" />
+
+# Bank zadań — znaki i `string`
+
+## Zadania na tekstach
+
+1. Zamień wszystkie spacje w napisie na `*`.
+2. Usuń wszystkie spacje z napisu.
+3. Zlicz wielkie i małe litery **ASCII** osobno.
+4. Wypisz znaki napisu od końca.
+5. Sprawdź, czy słowo jest palindromem.
+6. Zaszyfruj małe litery ASCII przesunięciem Cezara.
+7. Zaszyfruj słowo metodą płotu o dwóch rzędach.
+8. Zlicz cyfry w tekście i podaj największą cyfrę.
+9. Policz wystąpienia wskazanej litery, ignorując wielkość liter ASCII.
+10. Zastąp wskazany fragment napisu innym fragmentem.
+11. Usuń powtarzające się spacje, pozostawiając pojedynczą.
+12. Sprawdź, czy drugi napis zawiera wyłącznie znaki obecne w pierwszym.
+13. Znajdź wszystkie ciągi co najmniej dwóch cyfr w tekście.
+14. Wypisz wyrazy z napisu w odwrotnej kolejności.
+15. Policz, ile trzycyfrowych liczb znajduje się w podanym tekście.
+
+## Rozwiązanie zadania: zamiana spacji na gwiazdki
+
+```cpp
+#include <iostream>
+#include <string>
+int main() {
+    std::string s;
+    std::getline(std::cin, s);
+    for (char& c : s) {
+        if (c == ' ') c = '*';
+    }
+    std::cout << s;
+}
+```
+
+**Dlaczego `char& c`, a nie `char c`?** Referencja `&` pozwala zmienić element napisu **bezpośrednio**. Przy zwykłym `char c` modyfikowałbyś tylko kopię znaku.
+
+Dla wejścia `Ala ma kota` wynik to `Ala*ma*kota`.
+
+## Testy
+
+Sprawdź napis pusty, jeden znak, wiele spacji obok siebie i napis bez spacji.
+
+:::caution[Znaki polskie]
+Zadania ze znakami narodowymi lub ignorowaniem wielkości liter Unicode wymagają czegoś więcej niż proste `char`. Tutaj nie obiecujemy obsługi całego alfabetu za pomocą pojedynczego bajtu.
+:::
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Bank zadań — liczby rzeczywiste](../zadania-float/)

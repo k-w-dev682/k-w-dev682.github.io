@@ -1,0 +1,65 @@
+---
+title: "Mnożenie bez operatora `*`"
+description: "Od pomysłu algorytmicznego do działającej pętli."
+sidebar:
+  order: 11
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { ForLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="mnozenie-dodawaniem" title="Mnożenie bez operatora `*`" section="02 · Algorytmy i diagnostyka" />
+
+# Mnożenie bez operatora `*`
+
+## Polecenie ze skryptu
+
+Wczytaj dwie liczby całkowite i wyznacz ich iloczyn za pomocą dodawania — bez użycia operatora `*` w obliczeniu wyniku.
+
+Dla `3 × 4` możemy policzyć `4 + 4 + 4 = 12`. Za pierwszym razem mamy `wynik = 0`; wykonujemy trzy iteracje, za każdym razem dodając `4`.
+
+| Iteracja | Przed dodaniem | Dodaj | Wynik |
+|---:|---:|---:|---:|
+| 1 | 0 | +4 | 4 |
+| 2 | 4 | +4 | 8 |
+| 3 | 8 | +4 | 12 |
+
+## Co z liczbami ujemnymi?
+
+W pierwotnym, uproszczonym podejściu `for (i=0; i<x; ++i)` nie wykona żadnej iteracji, gdy `x < 0`. Musimy obsłużyć znak osobno.
+
+```cpp
+#include <iostream>
+int main() {
+    int x, y;
+    std::cin >> x >> y;
+    int wynik = 0;
+    if (x >= 0) {
+        for (int i = 0; i < x; ++i) wynik += y;
+    } else {
+        for (int i = 0; i > x; --i) wynik -= y;
+    }
+    std::cout << wynik << '\n';
+}
+```
+
+Dla `x=-3`, `y=4`: trzy razy odejmujemy 4 od 0, uzyskując −12. W ten sposób wyjaśniamy znak wyniku bez zakładania, że `x` jest dodatnie.
+
+:::caution[Granice tej wersji]
+Zakładamy, że wynik i wartości pośrednie mieszczą się w `int`. Dla skrajnych liczb całkowitych potrzeba dodatkowych zabezpieczeń.
+:::
+
+## Zadanie
+
+Przetestuj cztery przypadki: `3 4`, `-3 4`, `3 -4`, `-3 -4`. Oczekiwane wyniki: 12, −12, −12, 12.
+
+## Interaktywna wizualizacja
+
+<ForLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 2. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Pętla `for` — znana liczba powtórzeń](../petla-for/) · [Następna: Debugger: praca krok po kroku](../debugger/) →

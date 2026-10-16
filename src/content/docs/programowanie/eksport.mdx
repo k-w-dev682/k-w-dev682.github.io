@@ -1,0 +1,26 @@
+---
+title: "Eksport notatek do PDF"
+description: "Zapisz wybrany temat, kilka tematów lub cały dział w jednym dokumencie"
+sidebar:
+  order: 100
+---
+
+import { PdfCollection } from '../../../components/PdfExport.jsx';
+
+# Eksport do PDF
+
+Możesz **połączyć wybrane lekcje w jeden PDF** bez ręcznego kopiowania treści. StudyLab działa lokalnie: nie wysyła notatek do żadnej usługi.
+
+<PdfCollection client:load />
+
+## Jak zapisać plik?
+
+1. Zaznacz tematy albo kliknij **Zaznacz wszystkie**.
+2. Wybierz **czarny** lub **jasny** motyw PDF.
+3. Kliknij **Zapisz w jednym PDF**.
+4. W oknie drukowania wybierz **Zapisz jako PDF** jako drukarkę lub cel.
+5. Dla czarnego tła włącz opcję **drukowania tła** w ustawieniach drukowania przeglądarki.
+
+:::caution[Co trafia do wydruku?]
+Do PDF trafia **tekst lekcji, wzory, tabele, kod oraz statyczny podgląd symulacji**. Interaktywne przyciski nie pozostaną aktywne w wygenerowanym pliku — działają w wersji internetowej.
+:::

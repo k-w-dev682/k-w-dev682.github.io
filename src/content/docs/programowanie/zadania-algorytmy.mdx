@@ -1,0 +1,58 @@
+---
+title: "Bank zadań — algorytmy i debugger"
+description: "Złożone przypadki, pętle, potęgi i warunki."
+sidebar:
+  order: 38
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="zadania-algorytmy" title="Bank zadań — algorytmy i debugger" section="05 · Zadania i utrwalanie" />
+
+# Bank zadań — algorytmy i debugger
+
+## Zadania do rozwiązania
+
+1. Pomnóż dwa `int` bez operatora mnożenia, uwzględniając wszystkie znaki.
+2. Oblicz `x^n` dla dodatnich, zerowych i ujemnych wykładników całkowitych.
+3. Sprawdź, czy dwie liczby są „lustrzane” (np. `125` i `521`).
+4. Sprawdź, czy trzy dodatnie liczby spełniają relację pitagorejską.
+5. Oblicz sumę liczb od 1 do `n` za pomocą pętli `for`.
+6. Wypisz dzielniki podanej liczby dodatniej.
+7. Dla każdej z trzech zmiennych wypisz jej wartość przed i po zmianie.
+8. Znajdź największą cyfrę dodatniej liczby całkowitej.
+9. Policz, ile zer znajduje się w zapisie liczby dziesiętnej.
+10. Utwórz zestaw testów z wartościami: `0`, `1`, `-1`, dużymi liczbami i danymi niepoprawnymi.
+
+## Przykład z polecenia: trójka pitagorejska
+
+Dane `a,b,c` mają odpowiadać **dodatnim** długościom boków, a `c` jest przeciwprostokątną. Sprawdź `a*a + b*b == c*c`.
+
+```cpp
+bool czyPitagoras(int a, int b, int c) {
+    if (a <= 0 || b <= 0 || c <= 0) return false;
+    long long A = a, B = b, C = c;
+    return A*A + B*B == C*C;
+}
+```
+
+Zmieniamy typ na `long long`, by poszerzyć zakres bezpośrednich mnożeń; przy skrajnie dużych wartościach nadal mogą wystąpić ograniczenia.
+
+### Testy
+
+| Dane | Wynik |
+|---|---|
+| 3,4,5 | TAK |
+| 5,12,13 | TAK |
+| 2,3,4 | NIE |
+| 0,4,4 | NIE — długość 0 jest niedozwolona |
+
+## Zadanie dla debuggera
+
+Postaw punkt zatrzymania przed `return` i obserwuj wyrażenie `A*A + B*B`. Jakie wyniki pokazuje dla różnych danych?
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 2. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Bank zadań — podstawy i pętle](../zadania-podstawy/) · [Następna: Bank zadań — liczby rzeczywiste](../zadania-float/) →

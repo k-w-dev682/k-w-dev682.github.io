@@ -1,0 +1,70 @@
+---
+title: "Od zera: jak myśli komputer?"
+description: "Program, algorytm, instrukcja, kod źródłowy i program wykonywalny."
+sidebar:
+  order: 1
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="wstep" title="Od zera: jak myśli komputer?" section="01 · Fundamenty" />
+
+# Od zera: jak myśli komputer?
+
+## Najważniejsza idea
+
+Komputer wykonuje **jednoznaczne instrukcje**. Nie rozumie naszego zamiaru tak, jak człowiek. Gdy prosimy: „oblicz sumę dwóch liczb”, musimy ustalić: skąd wziąć liczby, gdzie zapamiętać wynik i jak go pokazać.
+
+**Algorytm** to przepis na rozwiązanie problemu, niezależny od języka programowania. **Kod źródłowy** jest zapisem tego przepisu w konkretnym języku, tutaj C++. **Program wykonywalny** powstaje po zbudowaniu kodu.
+
+### Trzy warstwy tego samego zadania
+
+| Warstwa | Przykład |
+|---|---|
+| Polecenie | Dodaj dwie liczby od użytkownika |
+| Algorytm | Wczytaj `a`; wczytaj `b`; oblicz `suma = a + b`; wypisz `suma` |
+| C++ | Instrukcje `std::cin`, `+`, `std::cout` |
+
+## Pierwsza działająca aplikacja
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Witaj w StudyLab!\n";
+    return 0;
+}
+```
+
+Czytaj od środka: w `main()` wykonywana jest instrukcja wypisania tekstu. `return 0` oznacza prawidłowe zakończenie programu. Sam tekst `Witaj w StudyLab!` jest **napisem** (otacza go para cudzysłowów).
+
+| Fragment | Znaczenie |
+|---|---|
+| `#include <iostream>` | Dostęp do strumieni konsoli |
+| `int main()` | Główna funkcja programu, punkt wejścia |
+| `{ }` | Wyznaczają blok instrukcji |
+| `std::cout` | Standardowe wyjście, zwykle konsola |
+| `<<` | Przesyła wartość do strumienia |
+| `\n` | Nowa linia, a nie dwie litery |
+| `;` | Kończy instrukcję |
+
+## Prześledź program
+
+1. Kompilator tłumaczy plik źródłowy.
+2. Linker tworzy program wykonywalny.
+3. Uruchamiasz program.
+4. Program wypisuje komunikat i kończy się z kodem `0`.
+
+:::tip[Po co właściwie wszystko rozpisujemy?]
+Na początku nie próbuj zapamiętywać całych programów. Naucz się odpowiadać na trzy pytania: **co jest wejściem, co zmienia się w środku i co jest wyjściem?**
+:::
+
+## Spróbuj samodzielnie
+
+Zmień napis na dowolny tekst i wypisz go w dwóch liniach. Podpowiedź: wstaw `\n` w odpowiednim miejscu albo użyj dwóch instrukcji `std::cout`.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+[Następna: Code::Blocks i pliki projektu](../codeblocks/) →

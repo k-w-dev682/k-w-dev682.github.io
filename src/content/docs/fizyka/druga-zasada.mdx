@@ -1,0 +1,39 @@
+---
+title: "II zasada Newtona"
+description: "Fizyka dla informatyków · 04 · Dynamika · zdjęcia 4"
+sidebar:
+  order: 19
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { ForceLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 04 · Dynamika · ZDJĘCIA 4</div>
+
+<PhysicsPdfButton client:load slug="druga-zasada" title="Druga zasada Newtona: równanie ruchu" section="04 · Dynamika" />
+
+# Druga zasada Newtona: równanie ruchu
+
+Dla stałej masy przyspieszenie ma taki sam kierunek jak wypadkowa siła. Najpierw ustalamy zwrot osi, potem nadajemy siłom znaki.
+
+<Eq tex={String.raw`a_x=\frac{\sum F_x}{m}`} display />
+
+### Przykład krok po kroku
+
+Na ciało o masie 4 kg działa siła 20 N w prawo i tarcie 8 N w lewo.
+
+1. Oś x wybieramy w prawo.
+2. Siła wypadkowa: ΣFx = 20 N − 8 N = **12 N**.
+3. Wzór: a = ΣFx/m.
+4. Podstawiamy: a = 12 N / 4 kg = **3 m/s²** w prawo.
+
+:::warning[Typowa pomyłka]
+Nie dziel jednej przypadkowej siły przez masę, jeśli działa ich kilka. Do wzoru wstawiamy **siłę wypadkową**.
+:::
+
+## Interaktywne laboratorium
+
+<ForceLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

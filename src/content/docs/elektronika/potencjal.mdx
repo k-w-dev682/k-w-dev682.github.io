@@ -1,0 +1,41 @@
+---
+title: "Potencjał elektryczny"
+description: "Podstawy elektroniki — 04 · Potencjał i napięcie · zdjęcia 4–6"
+sidebar:
+  order: 13
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { PotentialLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 04 · Potencjał i napięcie · ZDJĘCIA 4–6</div>
+
+<ElectronicsPdfButton client:load slug="potencjal" />
+
+## Definicja potencjału
+
+Potencjał elektryczny określamy jako **energię potencjalną na jednostkę ładunku**:
+
+<Eq tex={String.raw`V=\frac{E_p}{q}`} display />
+
+Gdy wybieramy jako poziom odniesienia potencjał równy 0 w nieskończoności, dla punktowego ładunku źródłowego **Q** w próżni:
+
+<Eq tex={String.raw`V(r)=k\frac{Q}{r}`} display />
+
+W odróżnieniu od natężenia **E**, potencjał **V** jest wielkością **skalarną** i może być ujemny. Wartość potencjału zależy od przyjętego poziomu odniesienia; fizycznie mierzalne są różnice potencjałów.
+
+## Przykład
+
+Dla <Eq tex={String.raw`Q=1\,\mathrm{nC}`} /> oraz <Eq tex={String.raw`r=0{,}1\,\mathrm m`} />:
+
+<Eq tex={String.raw`V=8{,}99\cdot10^9\cdot\frac{10^{-9}}{0{,}1}=89{,}9\,\mathrm V`} display />
+
+**Interpretacja:** dodatni ładunek próbny 1 C miałby w tym punkcie energię potencjalną 89,9 J względem przyjętego odniesienia (o ile mógłby być traktowany jako próbny).
+
+## Interaktywne laboratorium
+
+<PotentialLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

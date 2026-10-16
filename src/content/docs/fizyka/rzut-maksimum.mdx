@@ -1,0 +1,43 @@
+---
+title: "Rzut ukośny: czas i zasięg"
+description: "Fizyka dla informatyków · 02 · Ruch w dwóch wymiarach · zdjęcia 2"
+sidebar:
+  order: 14
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { ProjectileLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 02 · Ruch w dwóch wymiarach · ZDJĘCIA 2</div>
+
+<PhysicsPdfButton client:load slug="rzut-maksimum" title="Czas lotu, maksimum i zasięg rzutu" section="02 · Ruch w dwóch wymiarach" />
+
+# Czas lotu, maksimum i zasięg rzutu
+
+Dla rzutu z poziomu gruntu, który kończy się **na tej samej wysokości**, możemy wyprowadzić trzy użyteczne wzory. Pomijamy opór powietrza.
+
+<Eq tex={String.raw`t_{\mathrm{lot}}=\frac{2v_0\sin\alpha}{g}`} display />
+<Eq tex={String.raw`H=\frac{v_0^2\sin^2\alpha}{2g}`} display />
+<Eq tex={String.raw`R=\frac{v_0^2\sin(2\alpha)}{g}`} display />
+
+**Tylko dla jednakowych wysokości startu i końca**. Jeśli piłka ląduje niżej albo wyżej, czas lotu trzeba wyznaczyć z równania y(t).
+
+### Skąd bierze się czas wznoszenia?
+
+W najwyższym punkcie vy = 0. Zatem 0 = v₀ sin(alfa) − gt, skąd t wznoszenia = v₀ sin(alfa)/g.
+
+### Przykład
+
+v₀ = 10 m/s, alfa = 45°, g ≈ 9,81 m/s².
+
+- t lotu ≈ 2·10·0,7071/9,81 ≈ **1,44 s**.
+- zasięg R ≈ 100/9,81 ≈ **10,19 m**.
+
+W symulatorze zmień kąt i obserwuj, kiedy zasięg jest największy.
+
+## Interaktywne laboratorium
+
+<ProjectileLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

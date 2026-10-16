@@ -1,0 +1,43 @@
+---
+title: "Strumień pola"
+description: "Podstawy elektroniki — 03 · Prawo Gaussa · zdjęcia 4"
+sidebar:
+  order: 10
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { FluxLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 03 · Prawo Gaussa · ZDJĘCIA 4</div>
+
+<ElectronicsPdfButton client:load slug="strumien-pola" />
+
+## Co oznacza strumień?
+
+Strumień opisuje, **jak silnie pole przenika przez daną powierzchnię**. Dla jednorodnego pola i płaskiej powierzchni:
+
+<Eq tex={String.raw`\Phi_E=ES\cos\alpha`} display />
+
+**ΦE** — strumień; **E** — wartość natężenia pola; **S** — pole powierzchni; **α** — kąt **między wektorem pola E a wektorem prostopadłym do powierzchni**. To ostatnie ważne: nie jest to kąt między polem a samą płaszczyzną!
+
+- Dla <Eq tex={String.raw`\alpha=0^\circ`} />: strumień jest maksymalny, dodatni.
+- Dla <Eq tex={String.raw`\alpha=90^\circ`} />: strumień wynosi zero.
+- Dla <Eq tex={String.raw`\alpha=180^\circ`} />: strumień jest ujemny.
+
+## Przykład krok po kroku
+
+Dane: <Eq tex={String.raw`E=200\,\mathrm{N/C}`} />, <Eq tex={String.raw`S=0{,}5\,\mathrm{m^2}`} />, <Eq tex={String.raw`\alpha=60^\circ`} />.
+
+1. Wybór wzoru: <Eq tex={String.raw`\Phi_E=ES\cos\alpha`} />.
+2. Podstawienie: <Eq tex={String.raw`\Phi_E=200\cdot0{,}5\cdot\cos60^\circ`} />.
+3. Ponieważ <Eq tex={String.raw`\cos60^\circ=0{,}5`} />, wynik to <Eq tex={String.raw`\Phi_E=50\,\mathrm{N\,m^2/C}`} />.
+
+Dla nierównomiernego pola i zakrzywionej powierzchni trzeba całkować małe fragmenty: <Eq tex={String.raw`\Phi_E=\int_S\vec E\cdot d\vec S`} />.
+
+## Interaktywne laboratorium
+
+<FluxLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

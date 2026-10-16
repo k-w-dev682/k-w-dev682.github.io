@@ -1,0 +1,66 @@
+---
+title: "`std::string` — napisy"
+description: "Czym różni się napis od pojedynczego `char`?"
+sidebar:
+  order: 29
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { StringLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="string-podstawy" title="`std::string` — napisy" section="04 · Tekst i znaki" />
+
+# `std::string` — napisy
+
+## Napis to sekwencja znaków
+
+W C++ `std::string` pozwala przechowywać i modyfikować napisy. Jest wygodniejszy do pracy z tekstem niż ręcznie tworzona tablica `char`.
+
+```cpp
+#include <iostream>
+#include <string>
+int main() {
+    std::string imie = "Ala";
+    std::cout << imie << '\n';
+    std::cout << imie.size() << '\n'; // 3 bajty / elementy char
+}
+```
+
+`std::string` to **klasa**, która zarządza przechowywanymi elementami `char`. Możesz traktować jej zawartość jako ciąg bajtów znakowych i korzystać z metod.
+
+## Porównanie z `char`
+
+| `char` | `std::string` |
+|---|---|
+| `'A'` — pojedynczy element | `"Ala"` — napis |
+| Apostrofy | Cudzysłowy |
+| Zwykle 1 bajt | Długość zmienna |
+| Prosty kod znaku | Łączenie, wycinanie, wyszukiwanie |
+
+## Konkatenacja (łączenie)
+
+```cpp
+std::string a = "Ala";
+std::string b = " ma kota";
+std::string wynik = a + b;
+// "Ala ma kota"
+```
+
+### Uwaga o UTF-8
+
+`size()` zwraca liczbę elementów `char` (bajtów), a **nie zawsze liczbę widocznych liter**. Napis `"ą"` zapisany w UTF-8 może mieć `size() == 2`.
+
+## Ćwiczenie
+
+Złącz imię i nazwisko, dopisując między nimi spację. Upewnij się, że nie sklejasz słów bez odstępu.
+
+## Interaktywna wizualizacja
+
+<StringLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Wczytywanie znaku i klawisze specjalne](../wczytywanie-char/) · [Następna: Indeksowanie napisu — pierwszy znak ma numer 0](../indeksy-string/) →

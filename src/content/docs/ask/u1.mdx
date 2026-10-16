@@ -1,0 +1,40 @@
+---
+title: "U1 — uzupełnienie jedynkowe"
+description: "02 · Liczby ze znakiem · Laboratorium 2 · lab02.pdf"
+sidebar:
+  order: 13
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { SignedLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 02 · Liczby ze znakiem · Laboratorium 2 · lab02.pdf</div>
+
+<AskPdfButton client:load slug="u1" title="U1 — uzupełnienie jedynkowe" section="02 · Liczby ze znakiem" />
+
+# U1 — uzupełnienie jedynkowe
+
+W **U1** dodatnie liczby wyglądają tak jak w naturalnym zapisie binarnym, z zerem na początku. Liczbę ujemną uzyskujemy przez **inwersję wszystkich bitów** dodatniej liczby.
+
+### Zapis -5 na czterech bitach
+
+1. `+5` = `0101`.
+2. Inwersja bit po bicie: `0→1`, `1→0`, `0→1`, `1→0`.
+3. Wynik to **1010(U1)**.
+
+### Dwa zera
+
+`0000` to +0, a `1111` to -0. Dlatego czterobitowy U1 obejmuje -7 do 7 (z dwoma kodami zera).
+
+### Jak odczytać ujemny kod U1?
+
+Odwróć wszystkie bity, odczytaj wynik jako liczbę dodatnią i postaw minus.
+
+**Przykład:** `1010(U1)` → `0101₂` = 5 → **-5**.
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<SignedLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

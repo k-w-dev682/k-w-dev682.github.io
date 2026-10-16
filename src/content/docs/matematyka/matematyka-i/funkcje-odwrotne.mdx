@@ -1,0 +1,43 @@
+---
+title: "Funkcja odwrotna — podstawy"
+description: "Iniekcja, suriekcja, bijekcja i funkcja odwrotna"
+sidebar:
+  order: 16
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+import { InverseLab } from '../../../../components/MathILabs.jsx';
+
+<MathIPdfButton client:load slug="funkcje-odwrotne" title={"Iniekcja, suriekcja, bijekcja i funkcja odwrotna"} section={"05 · Wykłady — funkcje"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 05 · Wykłady — funkcje · ZDJĘCIA 16–18, 28–29</div>
+
+# Iniekcja, suriekcja, bijekcja i funkcja odwrotna
+
+## Funkcja różnowartościowa — iniekcja
+
+Różne argumenty mają różne wartości: nie może być tak, że `x₁≠x₂`, ale `f(x₁)=f(x₂)`.
+
+## Funkcja „na” — suriekcja
+
+Każdy element **przeciwdziedziny** B jest wartością dla przynajmniej jednego argumentu.
+
+**Bijekcja** to funkcja jednocześnie różnowartościowa i „na”. Tylko wtedy istnieje funkcja odwrotna na całej przeciwdziedzinie.
+
+## Przykład: funkcja liniowa
+
+<Eq display tex={String.raw`f(x)=2x+3`}/>
+
+1. Podstaw `y=2x+3`.
+2. Rozwiąż względem x: `x=(y−3)/2`.
+3. Zamień nazwy x i y.
+
+<Eq display tex={String.raw`f^{-1}(x)=\frac{x-3}{2}`}/>
+
+## Dlaczego x² nie ma odwrotnej na całym ℝ?
+
+Bo `f(−2)=4` i `f(2)=4`. Po ograniczeniu dziedziny do nieujemnych otrzymamy funkcję różnowartościową z odwrotnością pierwiastkową.
+
+<InverseLab client:load />
+

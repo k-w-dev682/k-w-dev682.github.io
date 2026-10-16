@@ -1,0 +1,51 @@
+---
+title: "Jak testować program?"
+description: "Przypadki typowe, brzegowe, ujemne i niespodziewane dane."
+sidebar:
+  order: 13
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="testowanie" title="Jak testować program?" section="02 · Algorytmy i diagnostyka" />
+
+# Jak testować program?
+
+## Jeden prawidłowy wynik nie dowodzi poprawności
+
+W skrypcie mnożenie przez dodawanie przechodzi test `3 × 4`, lecz pierwotny algorytm nie działa dla pierwszej liczby ujemnej. Z tego wynika ważna zasada: wybieraj testy, które **sprawdzają różne sytuacje**, a nie tylko losowe liczby.
+
+### Klasy testów
+
+- **Typowe:** `3, 4` → 12.
+- **Zerowe:** `0, 7` → 0.
+- **Ujemne:** `-3, 4` → −12.
+- **Oba ujemne:** `-3, -4` → 12.
+- **Graniczne:** małe i bardzo duże liczby (zwróć uwagę na możliwe przepełnienie).
+
+## Debugger a test
+
+Test mówi **że coś jest nie tak**. Debugger pomaga ustalić **w którym miejscu** stan zmiennych odbiega od oczekiwań. Te dwie techniki działają razem.
+
+## Przykład błędu logicznego
+
+```cpp
+int suma = 0;
+for (int i = 1; i < 5; ++i) suma += i;
+```
+
+Jeśli polecenie brzmiało „suma liczb od 1 do 5”, ten kod jest błędny: kończy pętlę **przed** `i=5`. Wynik to 10 zamiast 15. Zmiana `i < 5` na `i <= 5` naprawia problem.
+
+## Mini-plan sprawdzenia każdego zadania
+
+1. Zapisz oczekiwany wynik dla prostych danych.
+2. Sprawdź najmniejszą dopuszczalną liczbę elementów.
+3. Spróbuj danych ujemnych i zerowych, jeśli zadanie ich nie zabrania.
+4. Ustal, co powinno się stać, gdy użytkownik wpisze coś nieprawidłowego.
+5. Przejdź debuggerem po błędnej ścieżce.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 2. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Debugger: praca krok po kroku](../debugger/) · [Następna: Potęgowanie przez pętlę](../potegowanie/) →

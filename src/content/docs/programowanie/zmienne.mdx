@@ -1,0 +1,57 @@
+---
+title: "Zmienne, inicjalizacja i `int`"
+description: "Jak komputer przechowuje wyniki i dlaczego inicjalizacja jest ważna."
+sidebar:
+  order: 5
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="zmienne" title="Zmienne, inicjalizacja i `int`" section="01 · Fundamenty" />
+
+# Zmienne, inicjalizacja i `int`
+
+## Co jest zmienną?
+
+Zmienna ma **typ**, **nazwę** i aktualną **wartość**. Typ `int` przechowuje liczby całkowite w zakresie zależnym od implementacji (na współczesnych komputerach zwykle 32-bitowy).
+
+```cpp
+int wynik = 0;   // deklaracja i inicjalizacja
+wynik = wynik + 4;
+wynik = wynik + 7;
+std::cout << wynik; // 11
+```
+
+`wynik = wynik + 4` nie jest równaniem. Oznacza: **odczytaj poprzedni wynik, dodaj 4, zapisz nowy wynik**.
+
+## Śledź wartości
+
+| Instrukcja | Przed | Po |
+|---|---:|---:|
+| `int wynik = 0;` | — | 0 |
+| `wynik = wynik + 4;` | 0 | 4 |
+| `wynik = wynik + 7;` | 4 | 11 |
+
+### Po co `wynik = 0`?
+
+Gdy napiszesz `int wynik;` wewnątrz funkcji, jego wartość **nie jest automatycznie zerem**. Odczytywanie niezainicjalizowanej zmiennej jest błędem. Dlatego sumowanie zaczynaj od `0`, a mnożenie wielu czynników — od `1`.
+
+## Różne sposoby zapisu
+
+```cpp
+int x = 4;
+int y{5};
+int suma = x + y;
+```
+
+Warto używać nazw opisujących dane: `suma`, `licznik`, `promien`, a nie samych `a`, `b`, `c`, kiedy program robi się dłuższy.
+
+## Ćwiczenie
+
+Uzupełnij tabelę dla `int x = 10; x = x - 3; x = x * 2;`. Wynik: najpierw 7, potem 14.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Wejście `cin` i wyjście `cout`](../wejscie-wyjscie/) · [Następna: Operatory i instrukcja `if`](../operatory-warunki/) →

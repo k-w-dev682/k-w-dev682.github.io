@@ -1,0 +1,36 @@
+---
+title: "Droga i przemieszczenie"
+description: "Fizyka dla informatyków · 01 · Kinematyka · zdjęcia 1"
+sidebar:
+  order: 6
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 01 · Kinematyka · ZDJĘCIA 1</div>
+
+<PhysicsPdfButton client:load slug="polozenie-droga" title="Położenie, droga i przemieszczenie" section="01 · Kinematyka" />
+
+# Położenie, droga i przemieszczenie
+
+## Trzy różne pojęcia
+
+- **Położenie** x informuje, gdzie ciało jest na wybranej osi.
+- **Przemieszczenie** to różnica położeń końcowego i początkowego.
+- **Droga** to długość faktycznie przebytej trasy, bez uwzględniania zwrotu.
+
+<Eq tex={String.raw`\Delta x=x_{\mathrm{k}}-x_{\mathrm{p}}`} display />
+
+### Przykład krok po kroku
+
+Osoba idzie od x = 2 m do x = 9 m, a potem wraca do x = 5 m.
+
+1. Przemieszczenie końcowe: 5 − 2 = **3 m**.
+2. Droga do punktu zwrotnego: 9 − 2 = **7 m**.
+3. Droga podczas powrotu: 9 − 5 = **4 m**.
+4. Droga łącznie: 7 + 4 = **11 m**.
+
+Przemieszczenie nie musi być równe drodze!
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

@@ -1,0 +1,43 @@
+---
+title: "Zbiór potęgowy"
+description: "Zbiór potęgowy i liczba podzbiorów"
+sidebar:
+  order: 8
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { PowerSetLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="zbior-potegowy" title={"Zbiór potęgowy i liczba podzbiorów"} section={"02 · Wykłady — zbiory"} />
+
+# Zbiór potęgowy i liczba podzbiorów
+
+Zbiór potęgowy <Eq tex={String.raw`\mathcal P(X)`}/> zawiera **wszystkie podzbiory** zbioru X, również pusty i cały X.
+
+Dla X = &#123;1,2,3&#125; otrzymujemy:
+
+- **0 elementów:** ∅;
+- **1 element:** &#123;1&#125;, &#123;2&#125;, &#123;3&#125;;
+- **2 elementy:** &#123;1,2&#125;, &#123;1,3&#125;, &#123;2,3&#125;;
+- **3 elementy:** &#123;1,2,3&#125;.
+
+To razem osiem podzbiorów.
+
+## Wzór
+
+<Eq display tex={String.raw`|\mathcal P(X)|=2^n\quad\text{gdy }|X|=n`}/>
+
+**n** to liczba elementów X. Dlaczego potęga 2? Każdy element daje dokładnie dwie możliwości: **bierzemy** albo **pomijamy**. Gdy mamy 3 elementy, otrzymujemy 2 · 2 · 2 = 8 decyzji.
+
+### Podstawienie
+
+Gdy n = 4:
+
+<Eq display tex={String.raw`|\mathcal P(X)|=2^4=16`}/>
+
+<PowerSetLab client:load />
+
+:::caution[Przypadek pustego zbioru]
+<Eq tex={String.raw`\mathcal P(\varnothing)=\{\varnothing\}`}/> — pusty zbiór ma **dokładnie jeden podzbiór** (samego siebie), zatem <Eq tex={String.raw`2^0=1`}/>.
+:::

@@ -1,0 +1,40 @@
+---
+title: "Moment pędu punktu materialnego"
+description: "Fizyka dla informatyków · 05 · Pęd i moment pędu · zdjęcia 6–7"
+sidebar:
+  order: 23
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { AngularLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 05 · Pęd i moment pędu · ZDJĘCIA 6–7</div>
+
+<PhysicsPdfButton client:load slug="moment-pedu" title="Moment pędu punktu materialnego" section="05 · Pęd i moment pędu" />
+
+# Moment pędu punktu materialnego
+
+Moment pędu opisuje ruch obrotowy względem wybranego punktu odniesienia. Jest iloczynem wektorowym wektora położenia i pędu.
+
+<Eq tex={String.raw`\vec L=\vec r\times\vec p`} display />
+<Eq tex={String.raw`|L|=rp\sin\theta=rmv\sin\theta`} display />
+
+- r — odległość od punktu odniesienia do ciała.
+- p — wartość pędu.
+- theta — kąt między wektorami r i p.
+- jednostka L — kg·m²/s.
+
+### Przykład
+
+m = 2 kg, r = 3 m, v = 4 m/s, kierunek ruchu prostopadły do promienia (sin 90° = 1).
+
+L = 2·3·4 = **24 kg·m²/s**.
+
+Moment pędu zależy od wybranego punktu odniesienia, podobnie jak moment siły.
+
+## Interaktywne laboratorium
+
+<AngularLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

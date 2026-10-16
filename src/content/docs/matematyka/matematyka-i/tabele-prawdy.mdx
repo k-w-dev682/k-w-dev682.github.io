@@ -1,0 +1,38 @@
+---
+title: "Tabele prawdy od podstaw"
+description: "Tabele prawdy — od 00 do 11 i od 000 do 111"
+sidebar:
+  order: 6
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+import { TruthTableLab } from '../../../../components/MathILabs.jsx';
+
+<MathIPdfButton client:load slug="tabele-prawdy" title={"Tabele prawdy — od 00 do 11 i od 000 do 111"} section={"01 · Wykłady — logika"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 01 · Wykłady — logika · ZDJĘCIA 2, 7–8, 12–14</div>
+
+# Tabele prawdy — od 00 do 11 i od 000 do 111
+
+## Jak układać wiersze?
+
+Dla dwóch zdań mamy <Eq tex={String.raw`2^2=4`}/> kombinacje: `00`, `01`, `10`, `11`. Dla trzech zdań <Eq tex={String.raw`2^3=8`}/> kombinacji: od `000` do `111`.
+
+## Przykład: p ⇒ q
+
+| p | q | p ⇒ q |
+|:-:|:-:|:-:|
+| 0 | 0 | 1 |
+| 0 | 1 | 1 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+## Jak badać bardziej złożone zdanie?
+
+Dla formuły <Eq tex={String.raw`(p\lor(q\land r))\Leftrightarrow((p\lor q)\land(p\lor r))`}/> przygotuj kolumny pośrednie: `q∧r`, lewa strona, `p∨q`, `p∨r`, prawa strona, końcowa równoważność. Ostatnia kolumna powinna zawierać same jedynki (rozdzielność).
+
+**Ważne:** w ręcznie przepisanych tabelach ze zdjęć 12–14 występują skreślenia. W lekcji liczymy wszystko od nowa, zamiast przepisywać te wiersze.
+
+<TruthTableLab client:load />
+

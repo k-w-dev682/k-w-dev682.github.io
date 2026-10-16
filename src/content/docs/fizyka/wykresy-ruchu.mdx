@@ -1,0 +1,37 @@
+---
+title: "Wykresy ruchu: x(t), v(t), a(t)"
+description: "Fizyka dla informatyków · 01 · Kinematyka · zdjęcia 1"
+sidebar:
+  order: 11
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { MotionLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 01 · Kinematyka · ZDJĘCIA 1</div>
+
+<PhysicsPdfButton client:load slug="wykresy-ruchu" title="Jak czytać wykresy x(t), v(t), a(t)" section="01 · Kinematyka" />
+
+# Jak czytać wykresy x(t), v(t), a(t)
+
+Trzy wykresy opisują ten sam ruch z różnych perspektyw:
+
+- **x(t)**: nachylenie krzywej oznacza prędkość. Dla ruchu jednostajnego jest linią prostą.
+- **v(t)**: nachylenie wykresu oznacza przyspieszenie. Pole ze znakiem pod wykresem odpowiada przemieszczeniu.
+- **a(t)**: dla przyspieszenia stałego jest poziomą linią.
+
+### Przykład
+
+Prędkość rośnie liniowo od 2 do 8 m/s przez 3 s.
+
+- Nachylenie wykresu v(t): (8 − 2)/3 = **2 m/s²**.
+- Pole pod wykresem prędkości jest polem trapezu: ((2 + 8)/2)·3 = **15 m**.
+
+Gdy v(t) jest ujemne, pole liczymy ze znakiem minus dla przemieszczenia; **drogę** obliczamy sumując wartości bezwzględne pól.
+
+## Interaktywne laboratorium
+
+<MotionLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

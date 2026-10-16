@@ -1,0 +1,37 @@
+---
+title: "III zasada Newtona"
+description: "Fizyka dla informatyków · 04 · Dynamika · zdjęcia 5"
+sidebar:
+  order: 20
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { Newton3Lab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 04 · Dynamika · ZDJĘCIA 5</div>
+
+<PhysicsPdfButton client:load slug="trzecia-zasada" title="Trzecia zasada: pary sił" section="04 · Dynamika" />
+
+# Trzecia zasada: pary sił
+
+Gdy naciskasz ścianę siłą 50 N, ściana naciska Twoją rękę siłą 50 N w przeciwnym zwrocie.
+
+<Eq tex={String.raw`\vec F_{\mathrm{reka\to sciana}}=-\vec F_{\mathrm{sciana\to reka}}`} display />
+
+Siły te **nie działają na ten sam obiekt**. Dlatego nie sumujemy ich jako wypadkowej na ręce ani na ścianie.
+
+### Jak rozpoznać parę akcji i reakcji?
+
+1. Wskaż pierwsze ciało A i drugie B.
+2. Pierwsza siła ma postać: „A działa na B”.
+3. Druga: „B działa na A”.
+4. Obie siły mają taką samą wartość, przeciwny zwrot i działają jednocześnie.
+
+Nie myl pary akcji–reakcji z **ciężarem** i **siłą normalną** działającymi na książkę leżącą na stole — obie siły działają na książkę, więc nie są parą III zasady.
+
+## Interaktywne laboratorium
+
+<Newton3Lab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

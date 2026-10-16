@@ -1,0 +1,51 @@
+---
+title: "Code::Blocks i pliki projektu"
+description: "Edytor, kompilator, uruchamianie i najważniejsze elementy IDE."
+sidebar:
+  order: 2
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="codeblocks" title="Code::Blocks i pliki projektu" section="01 · Fundamenty" />
+
+# Code::Blocks i pliki projektu
+
+## Czym jest IDE?
+
+**IDE** (*Integrated Development Environment*) to środowisko łączące edytor kodu, uruchamianie kompilatora, debugowanie i zarządzanie projektem. Skrypt posługuje się Code::Blocks. Nie jest ono językiem C++: kod możesz pisać również w innym edytorze.
+
+## Prosty sposób pracy
+
+1. Utwórz nową aplikację konsolową C++ albo plik z rozszerzeniem `.cpp`.
+2. Zapisz plik, np. `zadanie1.cpp`.
+3. Wpisz program i uruchom **Build** (kompilację z linkowaniem).
+4. Popraw komunikaty o błędach, jeśli się pojawią.
+5. Uruchom zbudowany program i wpisz dane testowe.
+
+W Code::Blocks często spotkasz skrót `F9` dla „Build and run”; przypisanie klawiszy zależy jednak od konfiguracji. Nie musisz używać dokładnie takiej wersji programu jak w starym skrypcie.
+
+## Różnica między plikiem a projektem
+
+| Plik `.cpp` | Projekt IDE |
+|---|---|
+| Zawiera kod źródłowy | Zawiera ustawienia budowania i odwołania do plików |
+| Da się go skompilować | Ułatwia pracę z wieloma plikami |
+| Łatwy na początek | Przydatny przy większych aplikacjach |
+
+## Na co uważać?
+
+- Komunikat `missing terminating " character` zwykle oznacza niedomknięty napis.
+- Komunikat o błędzie w **kolejnej linii** nie musi wskazywać rzeczywistej przyczyny.
+- `Build` to nie to samo co `Run`: uruchomienie starego pliku wykonywalnego może nie uwzględniać zmian w kodzie.
+- Polskie znaki w konsoli zależą od kodowania źródła, terminala i środowiska. Polecenia `chcp` ze skryptu są specyficzne dla Windows i nie są uniwersalnym rozwiązaniem.
+
+## Małe ćwiczenie
+
+Wpisz w kodzie `std::cout << "Hej;` (bez drugiego cudzysłowu). Uruchom budowanie i porównaj wskazaną linię z faktyczną przyczyną błędu. Potem popraw kod.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Od zera: jak myśli komputer?](../wstep/) · [Następna: Kompilacja, linkowanie i błędy](../kompilacja/) →

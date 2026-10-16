@@ -1,0 +1,43 @@
+---
+title: "`setprecision` i formatowanie wyniku"
+description: "Ile cyfr naprawdę widzimy w konsoli?"
+sidebar:
+  order: 23
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="formatowanie" title="`setprecision` i formatowanie wyniku" section="03 · Liczby w pamięci" />
+
+# `setprecision` i formatowanie wyniku
+
+## Wartość a sposób jej wyświetlania
+
+Liczba przechowywana w `double` może mieć więcej cyfr, niż wypisuje domyślnie `std::cout`. To oznacza, że **sposób formatowania nie zmienia automatycznie wartości w pamięci**.
+
+```cpp
+#include <iostream>
+#include <iomanip>
+int main() {
+    double x = 1.0 / 3.0;
+    std::cout << std::setprecision(4) << x << '\n';
+    std::cout << std::fixed << std::setprecision(4)
+              << x << '\n';
+}
+```
+
+W pierwszym wierszu `setprecision(4)` oznacza najczęściej **cztery cyfry znaczące**; przy `fixed` oznacza **cztery miejsca po kropce**. Dla `1/3` zobaczysz odpowiednio `0.3333` i `0.3333` — tu akurat wygląda podobnie, ale dla `123.4567` różnica byłaby wyraźna.
+
+## Kiedy formatowanie jest przydatne?
+
+Przy wypisywaniu wyników zadań, porównywaniu precyzji `float` z `double` i badaniu, czy dwa wyniki różnią się na dalszych miejscach.
+
+## Zadanie
+
+Wypisz `123.456789` raz z `setprecision(4)`, drugi raz z `fixed << setprecision(4)`. Porównaj liczby widocznych miejsc.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Typy i konwersje: `int` kontra `double`](../rzutowanie/) · [Następna: Przekroczenie zakresu i wartości specjalne](../overflow/) →

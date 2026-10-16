@@ -1,0 +1,38 @@
+---
+title: "Binarne ↔ szesnastkowe: grupy po 4 bity"
+description: "01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf"
+sidebar:
+  order: 9
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { HexGroupLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf</div>
+
+<AskPdfButton client:load slug="hex-bin" title="Binarne ↔ szesnastkowe: grupy po 4 bity" section="01 · Systemy liczbowe" />
+
+# Binarne ↔ szesnastkowe: grupy po 4 bity
+
+To jedna z najszybszych zamian — **nie trzeba przechodzić przez system dziesiętny**.
+
+### Przykład z rysunku w `lab01.pdf`, strona 3
+
+`0011 1110 1010₂` odpowiada grupom `3 E A`, czyli **3EA₁₆**.
+
+<div className="ask-bit-groups not-content"><span>0011<small>3</small></span><span>1110<small>E</small></span><span>1010<small>A</small></span></div>
+
+### Jak wykonać zamianę 2 → 16?
+
+1. Podziel bity od prawej na grupy po 4.
+2. Jeśli pierwsza grupa ma mniej niż 4 bity, dopisz z lewej zera.
+3. Każdą grupę zamień na jedną cyfrę `0–9` lub `A–F`.
+
+W drugą stronę zamieniamy **każdą cyfrę hex na 4 bity**. Zera wiodące możesz usunąć, jeśli nie wymaga się konkretnej szerokości zapisu.
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<HexGroupLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

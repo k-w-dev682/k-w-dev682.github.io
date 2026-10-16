@@ -1,0 +1,35 @@
+---
+title: "Ćwiczenia: potencjał i napięcie"
+description: "Podstawy elektroniki — 08 · Ćwiczenia · zdjęcia 4–6"
+sidebar:
+  order: 26
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 08 · Ćwiczenia · ZDJĘCIA 4–6</div>
+
+<ElectronicsPdfButton client:load slug="cw-potencjal" />
+
+## Zadanie A — napięcie (opracowane uzupełnienie)
+
+W punkcie A potencjał wynosi **25 V**, a w B **9 V**. Oblicz napięcie UAB.
+
+1. Wybór wzoru: <Eq tex={String.raw`U_{AB}=V_A-V_B`} />.
+2. Podstawienie: <Eq tex={String.raw`U_{AB}=25-9`} />.
+3. Wynik: **16 V**.
+
+## Zadanie B — praca pola
+
+Na podstawie danych zadania A oblicz pracę siły pola przy przeniesieniu dodatniego ładunku **2 µC** z A do B.
+
+<Eq tex={String.raw`W=qU_{AB}=2\cdot10^{-6}\cdot16=32\cdot10^{-6}\,\mathrm J`} display />
+
+Wynik: **32 µJ** pracy pola. Zmiana energii potencjalnej ma znak przeciwny, więc **−32 µJ**.
+
+### Uważaj
+
+Jeżeli zamienisz kolejność punktów w indeksie napięcia, zmieni się także znak wyniku. Nie można dowolnie przestawiać A i B.
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

@@ -1,0 +1,43 @@
+---
+title: "Ruch jednostajny prostoliniowy"
+description: "Fizyka dla informatyków · 01 · Kinematyka · zdjęcia 1"
+sidebar:
+  order: 8
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { MotionLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 01 · Kinematyka · ZDJĘCIA 1</div>
+
+<PhysicsPdfButton client:load slug="ruch-jednostajny" title="Ruch jednostajny prostoliniowy" section="01 · Kinematyka" />
+
+# Ruch jednostajny prostoliniowy
+
+Ruch jednostajny oznacza, że **prędkość nie zmienia się z czasem**. Przyspieszenie wynosi zero.
+
+<Eq tex={String.raw`x(t)=x_0+vt`} display />
+
+- x(t) — położenie po czasie t.
+- x₀ — położenie początkowe.
+- v — stała prędkość.
+- t — czas od początku obserwacji.
+
+### Przykład
+
+Samochód startuje z punktu x₀ = 10 m i porusza się z v = 6 m/s. Gdzie będzie po 5 s?
+
+<Eq tex={String.raw`x=10+6\cdot5=40\ \mathrm m`} display />
+
+**Odpowiedź:** na współrzędnej x = 40 m. Przebył w tym czasie 30 m, ponieważ x − x₀ = 30 m.
+
+:::note[Warunek stosowania]
+Ten wzór w takiej postaci używa **stałej** prędkości. Gdy prędkość się zmienia, trzeba uwzględnić przyspieszenie.
+:::
+
+## Interaktywne laboratorium
+
+<MotionLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

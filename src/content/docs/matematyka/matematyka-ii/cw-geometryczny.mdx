@@ -1,0 +1,50 @@
+---
+title: "Ćwiczenie c: suma geometryczna"
+description: "Ćwiczenia c) Suma geometryczna"
+sidebar:
+  order: 22
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { GeometricLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="cw-geometryczny" title={"Ćwiczenia c) Suma geometryczna"} section={"05 · Ćwiczenia — indukcja"} />
+
+# Zadanie 1c — suma geometryczna
+
+Niech q będzie **stałą** różną od 1. Mamy udowodnić:
+
+<Eq display tex={String.raw`1+q+q^2+\cdots+q^{n-1}=\frac{1-q^n}{1-q}`}/>
+
+Liczba **q** jest ilorazem ciągu geometrycznego: każdy wyraz mnożymy przez q, aby uzyskać następny.
+
+## Przykład: q = 2, n = 4
+
+<Eq display tex={String.raw`\frac{1-2^4}{1-2}=\frac{-15}{-1}=15`}/>
+
+Lewa strona: 1 + 2 + 4 + 8 = **15**.
+
+## Dowód bez indukcji — wyprowadzenie wzoru
+
+Nazwij sumę S i zapisz ją dwa razy:
+
+<Eq display tex={String.raw`\begin{aligned}S&=1+q+q^2+\cdots+q^{n-1}\\qS&=q+q^2+\cdots+q^{n}\end{aligned}`}/>
+
+Po odjęciu stronami wyrazy środkowe się redukują:
+
+<Eq display tex={String.raw`S-qS=1-q^n\quad\Rightarrow\quad S=\frac{1-q^n}{1-q}`}/>
+
+## Dowód indukcyjny — taki, jak w poleceniu
+
+**Baza:** n = 1. Lewa strona = 1, prawa = (1−q)/(1−q) = 1.
+
+**Założenie:** Sₙ = (1−qⁿ)/(1−q).
+
+**Przejście:** dopisz qⁿ, sprowadź do wspólnego mianownika i uprość.
+
+<Eq display tex={String.raw`\begin{aligned}S_{n+1}&=S_n+q^n\\&=\frac{1-q^n}{1-q}+q^n\\&=\frac{1-q^n+q^n(1-q)}{1-q}\\&=\frac{1-q^{n+1}}{1-q}\end{aligned}`}/>
+
+**Wniosek:** wzór działa dla n + 1, więc działa dla każdego n ≥ 1 przy q ≠ 1.
+
+<GeometricLab client:load />

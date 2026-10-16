@@ -1,0 +1,36 @@
+---
+title: "Dlaczego potrzebujemy zapisu liczb ujemnych?"
+description: "02 · Liczby ze znakiem · Laboratorium 2 · lab02.pdf"
+sidebar:
+  order: 11
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { SignedLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 02 · Liczby ze znakiem · Laboratorium 2 · lab02.pdf</div>
+
+<AskPdfButton client:load slug="liczby-ze-znakiem" title="Dlaczego potrzebujemy zapisu liczb ujemnych?" section="02 · Liczby ze znakiem" />
+
+# Dlaczego potrzebujemy zapisu liczb ujemnych?
+
+Zapis bitowy sam w sobie nie mówi, czy interpretujemy liczbę jako **bez znaku**, czy **ze znakiem**. Przykładowo `1110` może znaczyć 14 bez znaku albo -2 w U2 (przy długości 4 bitów).
+
+Na drugim laboratorium poznajemy trzy sposoby kodowania liczb ujemnych:
+
+- **ZM** — znak-moduł (*sign-magnitude*): bit znaku i wartość bezwzględna.
+- **U1** — uzupełnienie jedynkowe: odwrócenie każdego bitu dodatniej liczby.
+- **U2** — uzupełnienie dwójkowe: odwrócenie bitów i dodanie 1.
+
+### Dlaczego szerokość ma znaczenie?
+
+Przed kodowaniem określ, ilu bitów używasz, np. **4** albo **8**. Ten sam ciąg bitów przy innej liczbie pozycji może mieć inny zakres i interpretację.
+
+**Ważne:** W oryginalnych zadaniach szerokość zapisu wynikowego nie została wszędzie narzucona. Przy rozwiązaniach par `7/-7`, `12/-12`, `127/-127`, `56/-56`, `32/-32` przyjmujemy **8 bitów**, żeby wyniki były porównywalne.
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<SignedLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

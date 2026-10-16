@@ -1,0 +1,71 @@
+---
+title: "IEEE 754: zapis liczby w bitach"
+description: "Znak, wykładnik i część ułamkowa w 32-bitowej liczbie zmiennoprzecinkowej."
+sidebar:
+  order: 19
+---
+
+import Eq from '../../../components/MathEquation.astro';
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { FloatLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="ieee754" title="IEEE 754 — jak wyglądają bity float" section="03 · Liczby w pamięci" />
+
+# IEEE 754 — jak wyglądają bity `float`
+
+## Trzy części 32-bitowego `float`
+
+Typowy `float` w formacie **IEEE 754 binary32** zajmuje 32 bity:
+
+```text
+┌─────────┬─────────────────┬──────────────────────────┐
+│  Znak   │    Wykładnik    │      Część ułamkowa      │
+│  1 bit  │     8 bitów     │         23 bity          │
+└─────────┴─────────────────┴──────────────────────────┘
+```
+
+- **Znak S:** 0 oznacza liczbę dodatnią, 1 oznacza ujemną.
+- **Wykładnik E:** liczba z pola ośmiobitowego. Dla zwykłych liczb do obliczenia wykładnika odejmujemy 127.
+- **Część ułamkowa f:** informacja o cyfrach po początkowej jedynce w zapisie binarnym liczby znormalizowanej.
+
+## Wzór dla znormalizowanych liczb skończonych
+
+<Eq display tex={String.raw`(-1)^S\cdot(1+f)\cdot 2^{E-127}`} />
+
+| Oznaczenie | Znaczenie |
+|---|---|
+| `S` | bit znaku: 0 albo 1 |
+| `E` | liczba całkowita zapisana w 8-bitowym polu wykładnika |
+| `f` | wartość ułamka zapisana w 23-bitowym polu |
+| `127` | przesunięcie (*bias*) wykładnika dla formatu binary32 |
+
+Wzór ma zastosowanie, gdy zapis wykładnika `E` jest pomiędzy 1 a 254. **E = 0** i **E = 255** oznaczają przypadki specjalne (m.in. zera, liczby podnormalne, nieskończoności i NaN).
+
+## Ręczny przykład: 2,5
+
+W systemie binarnym:
+
+<Eq display tex={String.raw`2.5_{10}=10.1_2=1.01_2\cdot2^1`} />
+
+1. **Znak:** liczba jest dodatnia, więc `S = 0`.
+2. **Wykładnik:** po normalizacji jest równy 1, dlatego zapisujemy `E = 1 + 127 = 128`, czyli `10000000` w systemie binarnym.
+3. **Ułamek:** po ukrytej jedynce występuje `01`, a dalej zera.
+4. **Wynik:** otrzymujemy 1 bit znaku, 8 bitów wykładnika i 23 bity części ułamkowej.
+
+```text
+0 | 10000000 | 01000000000000000000000
+```
+
+## Dlaczego 0,1 jest problematyczne?
+
+Liczba `0.1` ma nieskończone rozwinięcie dwójkowe. Format binary32 ma skończoną liczbę bitów, więc zapisuje jej przybliżenie, a nie dokładną wartość matematyczną.
+
+## Interaktywne laboratorium
+
+Wpisz `2.5`, potem `0.1` i sprawdź, jak zmieniają się bity. Używamy kropki jako separatora dziesiętnego, bo tak wygląda zapis liczby w kodzie C++.
+
+<FloatLab client:load />
+
+---
+
+[Poprzednia: ułamki binarne](../ulamki-binarne/) · [Następna: błędy obliczeń](../bledy-obliczen/)

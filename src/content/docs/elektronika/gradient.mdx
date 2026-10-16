@@ -1,0 +1,35 @@
+---
+title: "Potencjał a natężenie pola"
+description: "Podstawy elektroniki — 04 · Potencjał i napięcie · zdjęcia 5"
+sidebar:
+  order: 15
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 04 · Potencjał i napięcie · ZDJĘCIA 5</div>
+
+<ElectronicsPdfButton client:load slug="gradient" />
+
+## Dlaczego potencjał ma związek z natężeniem?
+
+Pole elektryczne wskazuje kierunek **najszybszego spadku potencjału** (dla elektrostatyki):
+
+<Eq tex={String.raw`\vec E=-\nabla V`} display />
+
+W jednym wymiarze, gdy **V** zależy tylko od współrzędnej **x**:
+
+<Eq tex={String.raw`E_x=-\frac{dV}{dx}`} display />
+
+Minus oznacza, że wektor pola jest zwrócony w stronę malejącego potencjału. **Gradient** to wektor pochodnych względem współrzędnych przestrzennych; nie oznacza po prostu „zmiany pola”, lecz zmianę **funkcji skalarnej**, np. potencjału.
+
+## Przykład przy polu jednorodnym
+
+Między punktami oddalonymi o 2 cm potencjał spada o 6 V, wzdłuż kierunku pola.
+
+<Eq tex={String.raw`E\approx\frac{6\,\mathrm V}{0{,}02\,\mathrm m}=300\,\mathrm{V/m}`} display />
+
+Takie przybliżenie jest poprawne dla w przybliżeniu **jednorodnego** pola na danym odcinku. Dla pola zmiennego korzystamy z pochodnych i całek.
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

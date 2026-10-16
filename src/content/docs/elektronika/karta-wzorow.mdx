@@ -1,0 +1,53 @@
+---
+title: "Karta wzorów i jednostek"
+description: "Podstawy elektroniki — 09 · Dodatki · zdjęcia 1–8"
+sidebar:
+  order: 28
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 09 · Dodatki · ZDJĘCIA 1–8</div>
+
+<ElectronicsPdfButton client:load slug="karta-wzorow" />
+
+## Ładunek i oddziaływania
+
+| Do czego? | Wzór |
+|---|---|
+| prąd stały | <Eq tex={String.raw`Q=It`} /> |
+| prawo Coulomba | <Eq tex={String.raw`F=k\frac{\lvert q_1q_2\rvert}{r^2}`} /> |
+| pole z siły | <Eq tex={String.raw`\vec E=\vec F/q_0`} /> |
+| pole punktowego ładunku | <Eq tex={String.raw`E=k\frac{\lvert Q\rvert}{r^2}`} /> |
+
+## Strumień i prawo Gaussa
+
+| Do czego? | Wzór |
+|---|---|
+| strumień jednorodny | <Eq tex={String.raw`\Phi_E=ES\cos\alpha`} /> |
+| zamknięta powierzchnia | <Eq tex={String.raw`\oint\vec E\cdot d\vec S=Q_{\rm wew}/\varepsilon_0`} /> |
+
+## Potencjał, napięcie i energia
+
+| Do czego? | Wzór |
+|---|---|
+| potencjał | <Eq tex={String.raw`V=E_p/q`} /> |
+| napięcie | <Eq tex={String.raw`U_{AB}=V_A-V_B`} /> |
+| pole z potencjału | <Eq tex={String.raw`\vec E=-\nabla V`} /> |
+| zmiana energii | <Eq tex={String.raw`\Delta E_p=q\Delta V`} /> |
+
+## Kondensatory
+
+| Do czego? | Wzór |
+|---|---|
+| pojemność | <Eq tex={String.raw`C=Q/U`} /> |
+| płaskie okładki | <Eq tex={String.raw`C=\varepsilon_0\varepsilon_r S/d`} /> |
+| prąd (stałe C) | <Eq tex={String.raw`i=C\,du/dt`} /> |
+| równolegle | <Eq tex={String.raw`C_z=\sum_i C_i`} /> |
+| szeregowo | <Eq tex={String.raw`1/C_z=\sum_i1/C_i`} /> |
+| energia | <Eq tex={String.raw`W_C=\tfrac12 CU^2`} /> |
+
+**Przypomnienie:** wzór dobieramy do sytuacji, a nie tylko do występujących liter. Podstawiaj liczby w **jednostkach SI**, chyba że wszystkie wartości w zadaniu zapisano konsekwentnie w tej samej jednostce pojemności (np. µF przy liczeniu połączeń).
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

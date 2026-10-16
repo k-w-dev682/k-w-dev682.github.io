@@ -1,0 +1,39 @@
+---
+title: "Jak wyznaczać dziedzinę funkcji"
+description: "Wyznaczanie dziedziny: trzy podstawowe reguły"
+sidebar:
+  order: 20
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+import { DomainLab } from '../../../../components/MathILabs.jsx';
+
+<MathIPdfButton client:load slug="dziedzina-zasady" title={"Wyznaczanie dziedziny: trzy podstawowe reguły"} section={"06 · Ćwiczenia — funkcje"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 06 · Ćwiczenia — funkcje · ZDJĘCIA 22–27</div>
+
+# Wyznaczanie dziedziny: trzy podstawowe reguły
+
+Dziedzina to wszystkie wartości x, dla których **całe wyrażenie ma sens**.
+
+## Reguła 1. Mianownik ≠ 0
+
+Dla funkcji `f(x)=1/(x−2)` musimy mieć x≠2.
+
+## Reguła 2. Pierwiastek parzystego stopnia
+
+Dla `√(x−3)` musimy mieć x−3≥0, czyli x≥3. Jeśli pierwiastek jest **w mianowniku**, potrzebujemy ściśle >0.
+
+## Reguła 3. Logarytm
+
+Dla `log₃(x+2)` argument x+2 musi być dodatni: x>−2. **Podstawa** logarytmu musi być dodatnia i różna od 1 (jeśli zależy od x, sprawdzamy również tę zależność).
+
+## Gdy występuje kilka reguł naraz
+
+Wyznacz osobne warunki i weź ich **część wspólną**.
+
+<div className="mathi-panel"><strong>Zapamiętaj:</strong><p>Nie rozwiązujemy pojedynczej nierówności „na oko”. Zapisujemy wszystkie warunki dziedziny, dopiero potem szukamy ich wspólnego rozwiązania.</p></div>
+
+<DomainLab client:load />
+

@@ -1,0 +1,45 @@
+---
+title: "Dowód dwumianu Newtona"
+description: "Dlaczego dwumian Newtona działa?"
+sidebar:
+  order: 18
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="dowod-dwumianu" title={"Dlaczego dwumian Newtona działa?"} section={"04 · Wykłady — kombinatoryka"} />
+
+# Dlaczego dwumian Newtona działa?
+
+Chcemy wykazać dla wszystkich n ≥ 0:
+
+<Eq display tex={String.raw`(a+b)^n=\sum_{k=0}^n\binom nk a^{n-k}b^k`}/>
+
+**Baza n = 0:** obie strony to 1 jako tożsamość wielomianowa.
+
+**Założenie indukcyjne:** przyjmujemy, że wzór działa dla pewnego n.
+
+## Krok n → n + 1
+
+Mnożymy obie strony przez (a+b):
+
+<Eq display tex={String.raw`\begin{aligned}(a+b)^{n+1}&=(a+b)\sum_{k=0}^n\binom nk a^{n-k}b^k\\&=\sum_{k=0}^n\binom nk a^{n+1-k}b^k+\sum_{k=0}^n\binom nk a^{n-k}b^{k+1}\end{aligned}`}/>
+
+**Zmieniamy indeks w drugiej sumie:** zamiast k użyjmy j = k + 1. Gdy k = 0, mamy j = 1; gdy k = n, mamy j = n + 1.
+
+<Eq display tex={String.raw`\sum_{j=1}^{n+1}\binom n{j-1}a^{n+1-j}b^j`}/>
+
+Teraz oba szeregi zawierają ten sam rodzaj potęgi <Eq tex={String.raw`a^{n+1-j}b^j`}/>. Dla środkowych składników dodajemy współczynniki:
+
+<Eq display tex={String.raw`\binom nj+\binom n{j-1}=\binom{n+1}j`}/>
+
+Skrajne wyrazy to a^(n+1) i b^(n+1). Otrzymujemy wzór dla n + 1:
+
+<Eq display tex={String.raw`(a+b)^{n+1}=\sum_{j=0}^{n+1}\binom{n+1}j a^{n+1-j}b^j`}/>
+
+**Wniosek:** przez indukcję wzór zachodzi dla wszystkich n ∈ ℕ₀.
+
+:::tip[Trzy narzędzia dowodu]
+Założenie indukcyjne, **zmiana indeksu sumowania** oraz **reguła Pascala**. Bez zmiany indeksu współczynniki trudniej porównać.
+:::

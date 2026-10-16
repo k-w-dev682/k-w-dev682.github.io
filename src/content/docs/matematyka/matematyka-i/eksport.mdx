@@ -1,0 +1,23 @@
+---
+title: "Eksport Matematyki I do PDF"
+description: "Eksport Matematyki I do PDF"
+sidebar:
+  order: 31
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+import { MathIPdfCollection } from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="eksport" title={"Eksport Matematyki I do PDF"} section={"00 · Nawigacja"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 00 · Nawigacja · ZDJĘCIA 1–29</div>
+
+# Eksport Matematyki I do PDF
+
+Wybierz jeden temat, kilka lekcji albo cały przedmiot. Eksport przygotuje **jeden PDF**, z rozdziałami w wybranej kolejności.
+
+Nie potrzebujesz dodatkowych programów: wystarczy okno drukowania w przeglądarce i opcja „Zapisz jako PDF”. Dla czarnego tła włącz drukowanie grafik tła.
+
+<MathIPdfCollection client:load />
+

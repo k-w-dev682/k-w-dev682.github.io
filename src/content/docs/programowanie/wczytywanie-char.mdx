@@ -1,0 +1,49 @@
+---
+title: "Wczytywanie pojedynczego znaku"
+description: "`cin`, funkcje zależne od platformy i klawisze F1–F12."
+sidebar:
+  order: 28
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="wczytywanie-char" title="Wczytywanie znaku i klawisze specjalne" section="04 · Tekst i znaki" />
+
+# Wczytywanie znaku i klawisze specjalne
+
+## Dwa różne problemy
+
+1. **Wczytanie znaku z tekstu**: użytkownik wpisuje znak i potwierdza Enterem.
+2. **Wykrycie naciśniętego klawisza od razu**: wymaga sposobu obsługi klawiatury zależnego od terminala lub biblioteki.
+
+```cpp
+#include <iostream>
+int main() {
+    char z;
+    std::cout << "Podaj znak: ";
+    std::cin >> z;
+    std::cout << "Podano: " << z << '\n';
+}
+```
+
+`std::cin >> z` pomija początkowe białe znaki i wczytuje jedną jednostkę `char`. Aby czytać także spację, możesz użyć `std::cin.get(z)`.
+
+## `getch()` ze starego skryptu
+
+Skrypt używa `<conio.h>` i `getch()` do przechwytywania klawiszy. To **rozszerzenie niespełniające standardu ISO C++**, dostępne w wybranych środowiskach. W nowoczesnych terminalach klawisze funkcyjne mogą być reprezentowane jako sekwencje bajtów, więc nie można przyjmować, że każdy F1 ma jeden globalnie obowiązujący kod ASCII.
+
+| Sposób | Zaleta | Ograniczenie |
+|---|---|---|
+| `std::cin >> z` | Standard C++ | Zwykle czeka na Enter, pomija białe znaki |
+| `std::cin.get(z)` | Czyta również spację/nową linię | Nadal zależny od trybu wejścia terminala |
+| `getch()` | Natychmiastowy klawisz w wybranych środowiskach | Nieprzenośny |
+
+## Zadanie
+
+Napisz program, który wczytuje znaki aż do `'k'` i liczy, ile liter wpisano przed znacznikiem. Wariant zaawansowany: rozróżnij wielkie litery ASCII.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: `char` i ASCII — pojedynczy znak](../char-ascii/) · [Następna: `std::string` — napisy](../string-podstawy/) →

@@ -1,0 +1,45 @@
+---
+title: "Napięcie elektryczne"
+description: "Podstawy elektroniki — 04 · Potencjał i napięcie · zdjęcia 5–6"
+sidebar:
+  order: 14
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { PotentialLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 04 · Potencjał i napięcie · ZDJĘCIA 5–6</div>
+
+<ElectronicsPdfButton client:load slug="napiecie" />
+
+## Dwie rzeczy, które często się mylą
+
+**Potencjał** dotyczy pojedynczego punktu względem wybranego odniesienia. **Napięcie** to **różnica potencjałów** dwóch punktów:
+
+<Eq tex={String.raw`U_{AB}=V_A-V_B`} display />
+
+Przy takim umownym oznaczeniu napięcia praca siły pola przy przeniesieniu dodatniego ładunku z A do B wynosi:
+
+<Eq tex={String.raw`W_{\mathrm{pola},A\to B}=q(V_A-V_B)=q\,U_{AB}`} display />
+
+To właśnie dlatego w obwodach używamy napięcia mierzonego między dwoma punktami, a nie bezwzględnego potencjału pojedynczego przewodu.
+
+## Przykład z liczbami
+
+Przyjmijmy <Eq tex={String.raw`V_A=12\,\mathrm V`} />, <Eq tex={String.raw`V_B=5\,\mathrm V`} />.
+
+<Eq tex={String.raw`U_{AB}=12-5=7\,\mathrm V`} display />
+
+Odwrócenie kolejności punktów zmienia znak: <Eq tex={String.raw`U_{BA}=5-12=-7\,\mathrm V`} />.
+
+:::note[Korekta zapisu]
+W notatkach ze zdjęć 5–6 litera `U` pojawia się raz jako potencjał, a raz jako różnica potencjałów. Tutaj konsekwentnie przyjmujemy **V — potencjał** i **U — napięcie**, żeby rozróżnić te pojęcia.
+:::
+
+## Interaktywne laboratorium
+
+<PotentialLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

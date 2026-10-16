@@ -1,0 +1,43 @@
+---
+title: "Wektory w dwóch wymiarach"
+description: "Fizyka dla informatyków · 02 · Ruch w dwóch wymiarach · zdjęcia 2"
+sidebar:
+  order: 12
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { ProjectileLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 02 · Ruch w dwóch wymiarach · ZDJĘCIA 2</div>
+
+<PhysicsPdfButton client:load slug="wektory-2d" title="Wektory w dwóch wymiarach" section="02 · Ruch w dwóch wymiarach" />
+
+# Wektory w dwóch wymiarach
+
+W ruchu na płaszczyźnie położenie, prędkość i przyspieszenie mają po dwie składowe.
+
+<Eq tex={String.raw`\vec r=x\,\vec i+y\,\vec j`} display />
+<Eq tex={String.raw`\vec v=v_x\,\vec i+v_y\,\vec j`} display />
+<Eq tex={String.raw`\vec a=a_x\,\vec i+a_y\,\vec j`} display />
+
+Wektory jednostkowe i, j wskazują kierunki osi x oraz y. Są to oznaczenia użyte w notatkach ze zdjęcia 2.
+
+Dla prędkości początkowej v₀ pod kątem alfa do dodatniej osi poziomej:
+
+<Eq tex={String.raw`v_{0x}=v_0\cos\alpha,\qquad v_{0y}=v_0\sin\alpha`} display />
+
+### Przykład
+
+v₀ = 10 m/s i kąt alfa = 30°.
+
+- v₀x = 10·cos(30°) ≈ **8,66 m/s**.
+- v₀y = 10·sin(30°) = **5 m/s**.
+
+Funkcje trygonometryczne odczytujemy z kąta liczonego od osi **x**; przy innym sposobie wyznaczenia kąta wzory mogą wyglądać inaczej.
+
+## Interaktywne laboratorium
+
+<ProjectileLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

@@ -1,0 +1,66 @@
+---
+title: "Potęgowanie przez pętlę"
+description: "Dodatnie, zerowe i ujemne wykładniki na konkretnym przykładzie."
+sidebar:
+  order: 14
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { PowerLab } from '../../../components/ExtraLabs.jsx';
+
+<PdfTopicButton client:load slug="potegowanie" title="Potęgowanie przez pętlę" section="02 · Algorytmy i diagnostyka" />
+
+# Potęgowanie przez pętlę
+
+## Polecenie ze skryptu
+
+Dla liczby rzeczywistej `x` i całkowitego wykładnika `n` oblicz `x` do potęgi `n`. To zadanie rozwija poprzednie mnożenie bez operatora `*`: zamiast powtarzać dodawanie, powtarzamy mnożenie.
+
+Matematycznie: `x³ = x · x · x`, natomiast `x⁰ = 1` dla `x ≠ 0` i `x⁻² = 1/(x²)`.
+
+```cpp
+#include <iostream>
+int main() {
+    double x;
+    int n;
+    std::cin >> x >> n;
+    if (x == 0 && n <= 0) {
+        std::cout << "Nieokreslony przypadek\n";
+        return 1;
+    }
+    double wynik = 1.0;
+    long long e = n;
+    if (e < 0) e = -e;
+    for (long long i = 0; i < e; ++i) wynik *= x;
+    if (n < 0) wynik = 1.0 / wynik;
+    std::cout << wynik << '\n';
+}
+```
+
+**Dlaczego wynik zaczyna się od 1?** Mnożenie przez 1 nie zmienia wartości. Gdyby zacząć od 0, każdy wynik pozostałby zerem.
+
+## Śledzenie `x=2`, `n=3`
+
+| Krok | Mnożenie | `wynik` |
+|---:|---|---:|
+| Start | — | 1 |
+| 1 | 1 × 2 | 2 |
+| 2 | 2 × 2 | 4 |
+| 3 | 4 × 2 | 8 |
+
+Uwaga: to algorytm dydaktyczny; przy ogromnych wykładnikach wynik może wyjść poza zakres `double`. Dla praktycznych obliczeń istnieje `std::pow` i szybszy algorytm potęgowania przez podnoszenie do kwadratu.
+
+## Ćwiczenie
+
+Oblicz krok po kroku `x=2, n=-3`. Po trzech mnożeniach uzyskujemy 8; ponieważ wykładnik jest ujemny, wynikiem jest `1/8 = 0.125`.
+
+## Interaktywna wizualizacja
+
+<PowerLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 2. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Jak testować program?](../testowanie/) · [Następna: Pętle zagnieżdżone](../petle-zagniezdzone/) →

@@ -1,0 +1,32 @@
+---
+title: "Magistrale i pamięć podręczna"
+description: "03 · CPU i pamięć · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 20
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 03 · CPU i pamięć · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="magistrala-cache" title="Magistrale i pamięć podręczna" section="03 · CPU i pamięć" />
+
+# Magistrale i pamięć podręczna
+
+**Magistrala** to droga komunikacji używana do przenoszenia danych, adresów lub sygnałów sterujących. W prostych podręcznikowych schematach wyróżnia się magistralę danych, adresową i sterującą.
+
+**Pamięć cache** zmniejsza średni czas dostępu do często używanych informacji. Procesor nie musi za każdym razem pobierać wszystkiego z pamięci RAM.
+
+### Bardzo prosty scenariusz
+
+1. CPU chce odczytać wartość spod pewnego adresu.
+2. Sprawdza odpowiednią warstwę cache.
+3. Gdy dane są w cache, korzysta z nich (trafienie, *hit*).
+4. Jeśli nie ma ich w cache, trzeba sięgnąć niżej, np. do RAM (*miss*).
+
+:::caution[Model naukowy, nie opis konkretnego komputera]
+Rzeczywiste hierarchie cache, protokoły zgodności i mechanizmy dostępu są bardziej złożone. Nie znamy szczegółowego zakresu Twojego wykładu.
+:::
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

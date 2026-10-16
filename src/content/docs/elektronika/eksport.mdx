@@ -1,0 +1,21 @@
+---
+title: "Elektronika — eksport do PDF"
+description: "Jeden temat, wybrane rozdziały albo całość w jednym PDF"
+sidebar:
+  order: 2
+---
+
+import {ElectronicsPdfCollection} from '../../../components/ElectronicsPdf.jsx';
+import Eq from '../../../components/ElecEquation.astro';
+
+<div className="el-eyebrow">STUDYLAB · ELEKTRONIKA · BLACK EDITION</div>
+
+# Eksport Podstaw elektroniki do PDF
+
+Zaznacz dowolne lekcje lub cały dział, a następnie przygotuj **jeden PDF ze spisem treści**. Możesz wybrać czarne albo jasne tło. Wydruk przygotowuje Twoja przeglądarka — nic nie jest wysyłane na zewnętrzny serwer.
+
+<ElectronicsPdfCollection client:load />
+
+:::note[Interaktywność]
+Symulatory działają na stronie internetowej. W wydruku PDF pozostaje teoria, wzory i przykłady; same przyciski i suwaki są pomijane.
+:::

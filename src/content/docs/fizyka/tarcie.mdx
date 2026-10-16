@@ -1,0 +1,46 @@
+---
+title: "Tarcie statyczne i kinetyczne"
+description: "Fizyka dla informatyków · 06 · Siły w zadaniach · zdjęcia 8–9"
+sidebar:
+  order: 29
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { FrictionLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 06 · Siły w zadaniach · ZDJĘCIA 8–9</div>
+
+<PhysicsPdfButton client:load slug="tarcie" title="Tarcie statyczne i kinetyczne" section="06 · Siły w zadaniach" />
+
+# Tarcie statyczne i kinetyczne
+
+Tarcie przeciwdziała względnemu przesuwaniu lub tendencji do przesuwania stykających się powierzchni.
+
+**Tarcie statyczne** dopasowuje wartość do potrzeb aż do pewnego maksimum:
+
+<Eq tex={String.raw`|F_{ts}|\leq\mu_sN`} display />
+
+Gdy ciało ślizga się, w modelu podstawowym przyjmujemy **tarcie kinetyczne**:
+
+<Eq tex={String.raw`F_{tk}=\mu_kN`} display />
+
+- mu_s, mu_k — współczynniki tarcia (bez jednostek).
+- N — siła normalna [N].
+
+### Przykład
+
+m = 5 kg na poziomym stole, mu_k = 0,2, g = 9,81 m/s².
+
+1. N = mg = 5·9,81 = **49,05 N**.
+2. Ftk = 0,2·49,05 = **9,81 N**.
+
+:::caution[Ważne rozróżnienie]
+Nie podstawiaj automatycznie Fts = mu_s·N. To jest **wartość maksymalna** tarcia statycznego; faktyczna wartość może być mniejsza, a nawet zero.
+:::
+
+## Interaktywne laboratorium
+
+<FrictionLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

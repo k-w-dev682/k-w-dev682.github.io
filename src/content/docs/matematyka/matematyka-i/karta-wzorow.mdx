@@ -1,0 +1,43 @@
+---
+title: "Karta wzorów — Matematyka I"
+description: "Karta wzorów — Matematyka I"
+sidebar:
+  order: 27
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="karta-wzorow" title={"Karta wzorów — Matematyka I"} section={"08 · Dodatki"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 08 · Dodatki · ZDJĘCIA 1–29</div>
+
+# Karta wzorów — Matematyka I
+
+## Logika
+
+<Eq display tex={String.raw`\neg(p\land q)\Leftrightarrow(\neg p\lor\neg q)`}/>
+<Eq display tex={String.raw`\neg(p\lor q)\Leftrightarrow(\neg p\land\neg q)`}/>
+<Eq display tex={String.raw`p\Rightarrow q\Leftrightarrow\neg p\lor q`}/>
+
+## Zbiory
+
+<Eq display tex={String.raw`A\setminus B=A\setminus(A\cap B)`}/>
+<Eq display tex={String.raw`(A\cup B)\setminus C=(A\setminus C)\cup(B\setminus C)`}/>
+
+## Wartość bezwzględna
+
+<Eq display tex={String.raw`|x-a|<r\Leftrightarrow a-r<x<a+r`}/>
+<Eq display tex={String.raw`|x-a|>r\Leftrightarrow x<a-r\;\lor\;x>a+r`}/>
+
+## Podstawowe warunki dziedziny
+
+- Mianownik: **różny od zera**.
+- Wnętrze pierwiastka parzystego stopnia: **nieujemne** (w mianowniku: ściśle dodatnie).
+- Argument logarytmu: **ściśle dodatni**.
+- Podstawa logarytmu: **dodatnia i inna niż 1**.
+
+## Funkcje odwrotne
+
+<Eq display tex={String.raw`f(x)=ax+b\;\Rightarrow\;f^{-1}(x)=\frac{x-b}{a},\quad a\ne0`}/>
+

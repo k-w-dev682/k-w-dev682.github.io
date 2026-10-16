@@ -1,0 +1,60 @@
+---
+title: "Pętle zagnieżdżone"
+description: "Tabliczki, prostokąty z gwiazdek i liczba powtórzeń."
+sidebar:
+  order: 15
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="petle-zagniezdzone" title="Pętle zagnieżdżone" section="02 · Algorytmy i diagnostyka" />
+
+# Pętle zagnieżdżone
+
+## Jedna pętla wewnątrz drugiej
+
+Zewnętrzna pętla wybiera **wiersz**, a wewnętrzna wykonuje wszystkie kroki potrzebne do jego narysowania. Tak powstają tekstowe prostokąty i trójkąty, o które pytają zadania z pierwszego skryptu.
+
+```cpp
+#include <iostream>
+int main() {
+    for (int w = 0; w < 3; ++w) {
+        for (int k = 0; k < 5; ++k) {
+            std::cout << '*';
+        }
+        std::cout << '\n';
+    }
+}
+```
+
+Wynik:
+
+```text
+*****
+*****
+*****
+```
+
+## Zrozum pętle
+
+| `w` | Wartości `k` | Liczba gwiazdek |
+|---:|---|---:|
+| 0 | 0,1,2,3,4 | 5 |
+| 1 | 0,1,2,3,4 | 5 |
+| 2 | 0,1,2,3,4 | 5 |
+
+Razem wykonano `3 × 5 = 15` operacji wypisywania gwiazdki. Każde `\n` występuje dopiero po **zakończeniu** pętli wewnętrznej.
+
+## Trójkąt zamiast prostokąta
+
+Wewnętrzny warunek zmień na `k <= w`. Dla `w=0` wypiszesz jedną gwiazdkę, dla `w=1` dwie, dla `w=2` trzy.
+
+## Zadanie
+
+Zaprojektuj program rysujący pusty prostokąt, w którym tylko brzegi są gwiazdkami, a środek spacjami. Warunek brzegu: `w == 0 || w == h-1 || k == 0 || k == szer-1`.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Potęgowanie przez pętlę](../potegowanie/) · [Następna: `float`, `double` i liczby rzeczywiste](../float-double/) →

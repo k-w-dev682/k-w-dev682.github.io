@@ -1,0 +1,49 @@
+---
+title: "Reguła mnożenia i wariacje"
+description: "Reguła mnożenia i wariacje"
+sidebar:
+  order: 13
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="regula-mnozenia" title={"Reguła mnożenia i wariacje"} section={"04 · Wykłady — kombinatoryka"} />
+
+# Reguła mnożenia i wariacje
+
+**Kombinatoryka** odpowiada na pytanie: „Ile jest możliwości?”, bez ręcznego wypisywania każdej z nich.
+
+## Reguła mnożenia
+
+Jeśli pierwszy wybór można zrobić na m sposobów, a po każdym z nich drugi na n sposobów, to razem mamy m · n możliwości.
+
+Przykład: 3 kolory koszulki i 2 kolory spodni — razem 3 · 2 = 6 zestawów.
+
+## Wariacje z powtórzeniami
+
+Gdy wybieramy **k kolejnych pozycji**, a na każdej może wystąpić jedna z **n możliwości** (powtórzenia dozwolone), otrzymujemy:
+
+<Eq display tex={String.raw`V_n^k=n^k`}/>
+
+Tu **n** to liczba opcji na jedną pozycję, a **k** liczba miejsc.
+
+### Podstawienie: sześciocyfrowy kod
+
+Kod może zaczynać się od zera. Na każde z 6 miejsc mamy 10 cyfr, czyli:
+
+<Eq display tex={String.raw`V_{10}^{6}=10^6=1\,000\,000`}/>
+
+To **liczba kodów**, nie liczba sześciocyfrowych liczb. W przypadku liczb pierwsza cyfra nie może być zerem, więc wynik wyniósłby <Eq tex={String.raw`9\cdot10^5=900\,000`}/>.
+
+## Jeśli powtórzenia nie są dozwolone
+
+Możliwości maleją po każdym kolejnym wyborze:
+
+<Eq display tex={String.raw`V_{n,\mathrm{bez}}^k=n(n-1)(n-2)\cdots(n-k+1)`}/>
+
+Przy wyborze trzycyfrowego kodu z różnych cyfr: pierwsza pozycja ma 10 opcji, druga 9, trzecia 8. Razem 10 · 9 · 8 = 720.
+
+:::caution[Kolejność]
+Wariacje **uwzględniają kolejność**. Wybór `(A, B)` i `(B, A)` to dwa różne uporządkowania, ale jeden i ten sam dwuosobowy zespół. Przy wyborze zespołu używamy symbolu Newtona.
+:::

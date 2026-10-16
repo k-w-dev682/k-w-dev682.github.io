@@ -1,0 +1,46 @@
+---
+title: "Pojemność kondensatora płaskiego"
+description: "Podstawy elektroniki — 05 · Kondensatory · zdjęcia 6"
+sidebar:
+  order: 17
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { CapacitorLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 05 · Kondensatory · ZDJĘCIA 6</div>
+
+<ElectronicsPdfButton client:load slug="pojemnosc-plytkowego" />
+
+## Wzór na kondensator płaski
+
+<Eq tex={String.raw`C=\varepsilon_0\varepsilon_r\frac{S}{d}`} display />
+
+- **ε₀** — przenikalność elektryczna próżni, ok. <Eq tex={String.raw`8{,}854\cdot10^{-12}\,\mathrm{F/m}`} />.
+- **εᵣ** — względna przenikalność dielektryka (bez jednostki).
+- **S** — powierzchnia nakładających się okładek w **m²**.
+- **d** — odległość między okładkami w **m**.
+
+**Założenie:** odległość okładek jest dużo mniejsza od ich rozmiarów liniowych, aby pominąć efekty brzegowe pola.
+
+## Wnioski bez liczenia
+
+- Większe **S** → większa pojemność.
+- Większe **d** → mniejsza pojemność.
+- Większe **εᵣ** → większa pojemność.
+
+## Przykład z jednostkami
+
+Dane: <Eq tex={String.raw`S=0{,}01\,\mathrm{m^2}`} />, <Eq tex={String.raw`d=1\,\mathrm{mm}=0{,}001\,\mathrm m`} />, <Eq tex={String.raw`\varepsilon_r=2`} />.
+
+<Eq tex={String.raw`C=8{,}854\cdot10^{-12}\cdot2\cdot\frac{0{,}01}{0{,}001}=1{,}77\cdot10^{-10}\,\mathrm F`} display />
+
+Czyli w przybliżeniu **177 pF**.
+
+## Interaktywne laboratorium
+
+<CapacitorLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

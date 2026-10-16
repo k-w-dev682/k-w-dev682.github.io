@@ -1,0 +1,43 @@
+---
+title: "kB, KiB, MB i MiB — nie myl jednostek"
+description: "01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf"
+sidebar:
+  order: 10
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { UnitsLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf</div>
+
+<AskPdfButton client:load slug="jednostki-pamieci" title="kB, KiB, MB i MiB — nie myl jednostek" section="01 · Systemy liczbowe" />
+
+# kB, KiB, MB i MiB — nie myl jednostek
+
+W `lab01.pdf` rozróżniono przedrostki dziesiętne (SI) oraz dwójkowe (IEC). Ta różnica jest szczególnie istotna przy pamięci i pojemnościach dysków.
+
+| Jednostka | Ile bajtów? | System |
+|---|---:|---|
+| 1 kB | 1 000 B | dziesiętny |
+| 1 KiB | 1 024 B | binarny |
+| 1 MB | 1 000 000 B | dziesiętny |
+| 1 MiB | 1 048 576 B | binarny |
+| 1 GB | 1 000 000 000 B | dziesiętny |
+| 1 GiB | 1 073 741 824 B | binarny |
+
+**Skąd 1024?** <Eq tex={String.raw`2^{10}=1024`} />. Wybór podstawy ma znaczenie: 1000 i 1024 to różne liczby.
+
+### Przykład
+
+Plik zajmuje `2048 B`. W kilobajtach dziesiętnych to `2048 ÷ 1000 = 2,048 kB`. W kibibajtach to `2048 ÷ 1024 = 2 KiB`.
+
+:::caution[Uwaga na starsze nazewnictwo]
+Starsze materiały i programy czasem używają `KB` w znaczeniu `1024 B`. W notatkach konsekwentnie rozróżniamy `kB` i `KiB`.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<UnitsLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

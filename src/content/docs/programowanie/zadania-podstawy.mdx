@@ -1,0 +1,58 @@
+---
+title: "Bank zadań — podstawy i pętle"
+description: "Od wypisywania napisów do filtrowania ciągów liczb."
+sidebar:
+  order: 37
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="zadania-podstawy" title="Bank zadań — podstawy i pętle" section="05 · Zadania i utrwalanie" />
+
+# Bank zadań — podstawy i pętle
+
+## Jak ćwiczyć?
+
+Nie czytaj od razu rozwiązania. Najpierw wypisz dane **wejściowe**, **wynik**, przypadki **graniczne** i krótki **pseudokod**. Dopiero potem pisz C++.
+
+### Zadania z zakresu pierwszego skryptu
+
+1. Wypisz pięć razy wybrany tekst, stosując pętlę.
+2. Wczytaj liczbę `n` i wypisz n kolejnych numerowanych linii.
+3. Narysuj prostokąt z gwiazdek o podanej szerokości i wysokości.
+4. Narysuj trójkąt prostokątny w terminalu (każdy kolejny wiersz ma jedną gwiazdkę więcej).
+5. Wczytaj dwie liczby i wypisz większą.
+6. Wczytaj trzy liczby i wypisz je w kolejności rosnącej.
+7. Wczytuj liczby do `0` i policz, ile z nich było większych od 10.
+8. Wczytuj liczby do `0` i policz, ile było parzystych.
+9. Wczytuj liczby do `-1` i znajdź minimum i maksimum przed stoperem.
+10. Wczytaj `n` liczb i znajdź najmniejszą wraz z pozycją (indeks od 0).
+11. Sprawdź, czy podana liczba jest pierwsza.
+12. Wczytaj ciąg i wyznacz sumę wszystkich liczb nieparzystych.
+
+Te zadania są **parafrazami wybranych problemów** ze skryptu, a nie mechanicznym przepisaniem całej listy.
+
+## Rozwiązany przykład: ile liczb było większych od 10?
+
+```cpp
+#include <iostream>
+int main() {
+    int x, licznik = 0;
+    while (std::cin >> x && x != 0) {
+        if (x > 10) ++licznik;
+    }
+    std::cout << licznik << '\n';
+}
+```
+
+Dla wejścia `5 11 20 -4 0` licznik zmienia się tak: `0 → 0 → 1 → 2 → 2`. Zero kończące ciąg **nie bierze udziału w zliczaniu**.
+
+## Sprawdź swój wynik
+
+Przetestuj ciąg pusty (sam stoper), ciąg bez liczb spełniających warunek, wszystkie liczby spełniające warunek i liczby ujemne.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Szyfr Cezara i metoda płotu](../szyfr/) · [Następna: Bank zadań — algorytmy i debugger](../zadania-algorytmy/) →

@@ -1,0 +1,33 @@
+---
+title: "Relacje i ich własności"
+description: "Relacje: zwrotna, symetryczna i przechodnia"
+sidebar:
+  order: 13
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="relacje" title={"Relacje: zwrotna, symetryczna i przechodnia"} section={"03 · Wykłady — zbiory"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 03 · Wykłady — zbiory · ZDJĘCIA 15–16</div>
+
+# Relacje: zwrotna, symetryczna i przechodnia
+
+## Czym jest relacja?
+
+Relacja R na zbiorze A określa, **które pary elementów są ze sobą w zadanym związku**. Przykład: na liczbach całkowitych możemy ustalić relację „ma tę samą parzystość”.
+
+## Własności relacji
+
+- **Zwrotna:** każdy element jest w relacji z samym sobą.
+- **Symetryczna:** jeśli a jest w relacji z b, to b jest w relacji z a.
+- **Przechodnia:** jeśli a jest w relacji z b i b z c, to a z c.
+- **Antysymetryczna:** jeśli aRb i bRa, to a=b.
+
+## Przykład: relacja ≤ na ℝ
+
+Zwrotna — tak, ponieważ `x≤x`. Przechodnia — tak, ponieważ z `x≤y` i `y≤z` wynika `x≤z`. Antysymetryczna — tak. **Nie jest symetryczna**, bo 1≤2, ale 2≤1 jest fałszywe.
+
+<div className="mathi-panel"><strong>Zapamiętaj różnicę.</strong><p>Symetryczność i antysymetryczność nie oznaczają tego samego; relacja „≤” jest antysymetryczna, ale nie jest symetryczna.</p></div>
+

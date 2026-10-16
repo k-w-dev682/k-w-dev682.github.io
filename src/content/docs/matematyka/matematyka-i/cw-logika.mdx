@@ -1,0 +1,45 @@
+---
+title: "Ćwiczenia z logiki"
+description: "Ćwiczenia: zdania złożone i tabele"
+sidebar:
+  order: 8
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="cw-logika" title={"Ćwiczenia: zdania złożone i tabele"} section={"02 · Ćwiczenia — logika"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 02 · Ćwiczenia — logika · ZDJĘCIA 7–8, 12–14</div>
+
+# Ćwiczenia: zdania złożone i tabele
+
+W zdjęciach pojawiają się zadania sprawdzające, czy dwie formuły są równoważne. Oto szczegółowa metoda rozwiązania, której można użyć dla każdego podpunktu.
+
+## Zadanie A: sprawdź prawo de Morgana
+
+<Eq display tex={String.raw`\neg(p\land q)\Leftrightarrow(\neg p\lor\neg q)`}/>
+
+| p | q | p∧q | ¬(p∧q) | ¬p∨¬q |
+|:-:|:-:|:-:|:-:|:-:|
+|0|0|0|1|1|
+|0|1|0|1|1|
+|1|0|0|1|1|
+|1|1|1|0|0|
+
+Kolumny po lewej i prawej są identyczne — jest to tautologia.
+
+## Zadanie B: sprawdź odwrócenie implikacji
+
+<Eq display tex={String.raw`(p\Rightarrow q)\Leftrightarrow(q\Rightarrow p)`}/>
+
+Dla `p=0, q=1`: `p⇒q=1`, ale `q⇒p=0`, więc równoważność jest **fałszywa**. Wystarczy jeden taki wiersz, aby odrzucić tautologię.
+
+## Zadanie C: trzy zmienne
+
+<Eq display tex={String.raw`p\lor(q\land r)\Leftrightarrow(p\lor q)\land(p\lor r)`}/>
+
+Zbuduj 8 wierszy w kolejności `000,001,…,111`. Użyj laboratorium z lekcji [Tabele prawdy](../tabele-prawdy/), aby sprawdzić każdy z nich.
+
+<div className="mathi-panel"><strong>Nie przepisuj błędnych wpisów z tablicy.</strong><p>Zdjęcia 13–14 pokazują liczne skreślenia. Najważniejszy jest prawidłowy algorytm liczenia kolumn pośrednich.</p></div>
+

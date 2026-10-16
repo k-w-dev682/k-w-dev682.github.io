@@ -1,0 +1,55 @@
+---
+title: "Zapis pozycyjny i potęgi podstawy"
+description: "Dlaczego 1011 w systemie dwójkowym to 11?"
+sidebar:
+  order: 17
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { BinaryLab } from '../../../components/ExtraLabs.jsx';
+
+<PdfTopicButton client:load slug="zapis-pozycyjny" title="Zapis pozycyjny i potęgi podstawy" section="03 · Liczby w pamięci" />
+
+# Zapis pozycyjny i potęgi podstawy
+
+## Rozkład liczby na cyfry
+
+W systemie dziesiętnym liczba `347` oznacza `3·100 + 4·10 + 7·1`. W binarnym każdy bit ma wagę **potęgi liczby 2**.
+
+```text
+bit:       1   0   1   1
+waga:      8   4   2   1
+składnik:  8 + 0 + 2 + 1 = 11
+```
+
+Zapisujemy to formalnie: `1011₂ = 1·2³ + 0·2² + 1·2¹ + 1·2⁰ = 11₁₀`.
+
+## A co z ułamkami?
+
+Za przecinkiem pojawiają się potęgi **ujemne**: `2⁻¹ = 1/2`, `2⁻² = 1/4`, `2⁻³ = 1/8`.
+
+| Zapis binarny | Obliczenie | Dziesiętnie |
+|---|---|---:|
+| `0.1₂` | 1/2 | 0.5 |
+| `0.01₂` | 1/4 | 0.25 |
+| `0.11₂` | 1/2 + 1/4 | 0.75 |
+| `0.101₂` | 1/2 + 1/8 | 0.625 |
+
+## Dlaczego to ważne?
+
+Pozwala wyjaśnić, dlaczego `0.5` da się zapisać dokładnie w typowym formacie binarnym, a `0.1` — nie.
+
+## Spróbuj sam
+
+Przelicz `1101₂` na dziesiętny. Podstaw: `1·8 + 1·4 + 0·2 + 1·1 = 13`.
+
+## Interaktywna wizualizacja
+
+<BinaryLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: `float`, `double` i liczby rzeczywiste](../float-double/) · [Następna: Dlaczego `0.1` nie jest dokładne?](../ulamki-binarne/) →

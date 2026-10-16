@@ -1,0 +1,47 @@
+---
+title: "Ćwiczenia: kondensatory"
+description: "Podstawy elektroniki — 08 · Ćwiczenia · zdjęcia 6–8"
+sidebar:
+  order: 27
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { NetworkLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 08 · Ćwiczenia · ZDJĘCIA 6–8</div>
+
+<ElectronicsPdfButton client:load slug="cw-kondensatory" />
+
+## Zadanie A — równolegle
+
+Trzy kondensatory **4 µF, 6 µF, 10 µF** połączono równolegle. Jaka jest pojemność zastępcza?
+
+<Eq tex={String.raw`C_z=C_1+C_2+C_3=4+6+10=20\,\mu\mathrm F`} display />
+
+## Zadanie B — szeregowo
+
+Dwa kondensatory: **4 µF** i **12 µF**. Oblicz pojemność zastępczą.
+
+1. Wzór: <Eq tex={String.raw`\frac1{C_z}=\frac1{C_1}+\frac1{C_2}`} />.
+2. Skrócony wzór dla dwóch: <Eq tex={String.raw`C_z=\frac{C_1C_2}{C_1+C_2}`} />.
+3. Podstawienie: <Eq tex={String.raw`C_z=\frac{4\cdot12}{4+12}=3\,\mu\mathrm F`} />.
+
+## Zadanie C — energia
+
+Kondensator **50 µF** pod napięciem **10 V**:
+
+<Eq tex={String.raw`W_C=\frac12 CU^2=\frac12\cdot50\cdot10^{-6}\cdot10^2=0{,}0025\,\mathrm J`} display />
+
+Wynik: **2,5 mJ**.
+
+:::note[Oryginalne polecenia]
+Na zdjęciu 8 pojawiają się wzmianki o zadaniach 4 i 5, ale ich treść nie jest widoczna. Powyższe zadania są **autorskimi przykładami do przećwiczenia wzorów**, nie rekonstrukcją tamtych poleceń.
+:::
+
+## Interaktywne laboratorium
+
+<NetworkLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

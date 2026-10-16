@@ -1,0 +1,40 @@
+---
+title: "Trójkąt Pascala"
+description: "Trójkąt Pascala i tożsamość Pascala"
+sidebar:
+  order: 16
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { PascalLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="pascal" title={"Trójkąt Pascala i tożsamość Pascala"} section={"04 · Wykłady — kombinatoryka"} />
+
+# Trójkąt Pascala i tożsamość Pascala
+
+W trójkącie Pascala **na brzegach są jedynki**, a każda liczba wewnątrz jest sumą dwóch liczb bezpośrednio nad nią.
+
+## Reguła Pascala
+
+<Eq display tex={String.raw`\binom nk+\binom n{k+1}=\binom{n+1}{k+1}`}/>
+
+Podobnie można zapisać:
+
+<Eq display tex={String.raw`\binom n{k-1}+\binom nk=\binom{n+1}k`}/>
+
+Drugi wariant wymaga 1 ≤ k ≤ n. Pierwszy używamy dla 0 ≤ k &lt; n.
+
+### Liczbowy przykład
+
+<Eq display tex={String.raw`\binom42+\binom43=6+4=10=\binom53`}/>
+
+## Skąd wzięło się to dodawanie?
+
+Przy wyborze grupy z n+1 osób wskaż jedną wyróżnioną osobę. Szukana grupa **zawiera ją** albo **jej nie zawiera**. Oba przypadki nie zachodzą jednocześnie i razem wyczerpują możliwości. To kombinatoryczne uzasadnienie reguły Pascala.
+
+<PascalLab client:load />
+
+:::tip[Powiązanie z następnym rozdziałem]
+Współczynniki w kolejnych wierszach trójkąta to dokładnie liczby stojące przed składnikami rozwinięcia <Eq tex={String.raw`(a+b)^n`}/>.
+:::

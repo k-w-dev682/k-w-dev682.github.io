@@ -1,0 +1,48 @@
+---
+title: "Bit, bajt i zapis informacji"
+description: "01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf"
+sidebar:
+  order: 4
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { BitLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf</div>
+
+<AskPdfButton client:load slug="bity-bajty" title="Bit, bajt i zapis informacji" section="01 · Systemy liczbowe" />
+
+# Bit, bajt i zapis informacji
+
+**Bit** (oznaczenie `b`) przechowuje jedną wartość z dwóch możliwych: `0` albo `1`. **Bajt** (oznaczenie `B`) we współczesnych komputerach to 8 bitów.
+
+| Wielkość | Zapis | Przykład |
+|---|---|---|
+| bit | `b` | `1` |
+| bajt | `B` | `01001101` |
+| 4 bity | pół bajta (*nibble*) | `1010` |
+| 1 bajt = 8 bitów | `8 b` | 256 możliwych kombinacji |
+
+## Skąd 256 kombinacji?
+
+Każdy z 8 bitów ma dwie możliwości. W sumie mamy <Eq tex={String.raw`2^8=256`} /> różnych wzorów bitowych: od `00000000` do `11111111`.
+
+:::caution[Uwaga na napięcia]
+W materiałach laboratoryjnych logiczne 0 i 1 zilustrowano niskim i wysokim napięciem. **To uproszczenie**: wartości progów napięciowych zależą od technologii układu. Jedynka nie musi oznaczać dokładnie 5 V, a zero dokładnie 0 V.
+:::
+
+## Dwa najważniejsze skróty
+
+- `b` — bit, np. 32 Mb = 32 megabity.
+- `B` — bajt, np. 32 MB = 32 megabajty.
+
+Nie należy ich mylić: 8 Mb to nie 8 MB.
+
+**Spróbuj:** Ile różnych kombinacji ma 4-bitowy zapis? Oblicz <Eq tex={String.raw`2^4=16`} />.
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<BitLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

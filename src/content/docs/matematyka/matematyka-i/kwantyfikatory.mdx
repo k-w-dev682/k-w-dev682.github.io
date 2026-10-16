@@ -1,0 +1,40 @@
+---
+title: "Kwantyfikatory"
+description: "Kwantyfikatory i funkcje zdaniowe"
+sidebar:
+  order: 7
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="kwantyfikatory" title={"Kwantyfikatory i funkcje zdaniowe"} section={"01 · Wykłady — logika"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 01 · Wykłady — logika · ZDJĘCIA 3–5</div>
+
+# Kwantyfikatory i funkcje zdaniowe
+
+## Zdanie z wolną zmienną
+
+Wyrażenie `x > 3` nie jest jeszcze zdaniem logicznym, jeśli nie ustaliliśmy wartości `x`. Po podstawieniu `x=5` jest prawdziwe, ale po podstawieniu `x=1` — fałszywe.
+
+## Dwa najważniejsze kwantyfikatory
+
+- `∀x∈A` — **dla każdego** elementu zbioru A.
+- `∃x∈A` — **istnieje co najmniej jeden** element zbioru A.
+
+<Eq display tex={String.raw`\forall x\in\mathbb{R}\;:\;x^2\ge 0`}/>
+
+To zdanie jest prawdziwe dla każdej liczby rzeczywistej.
+
+<Eq display tex={String.raw`\exists x\in\mathbb{R}\;:\;x^2=4`}/>
+
+Jest prawdziwe, ponieważ pasują np. 2 oraz −2.
+
+## Jak negować kwantyfikatory?
+
+<Eq display tex={String.raw`\neg(\forall x\ P(x))\Leftrightarrow \exists x\ \neg P(x)`}/>
+<Eq display tex={String.raw`\neg(\exists x\ P(x))\Leftrightarrow \forall x\ \neg P(x)`}/>
+
+**Sens:** żeby obalić „każdy”, wystarczy **jeden kontrprzykład**. Żeby obalić „istnieje”, musisz wykluczyć wszystkie możliwości.
+

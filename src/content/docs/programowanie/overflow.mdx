@@ -1,0 +1,43 @@
+---
+title: "Przekroczenie zakresu i wartości specjalne"
+description: "Overflow, underflow, infinity i NaN."
+sidebar:
+  order: 24
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="overflow" title="Przekroczenie zakresu i wartości specjalne" section="03 · Liczby w pamięci" />
+
+# Przekroczenie zakresu i wartości specjalne
+
+## Dlaczego nawet `float` ma granice?
+
+`float` nie ma nieskończenie dużej liczby wykładników. Dla wartości zbyt dużej pojawia się **przepełnienie** (*overflow*), np. matematycznie skończony wynik może dać `+inf` w arytmetyce IEEE 754.
+
+```cpp
+#include <iostream>
+#include <limits>
+int main() {
+    float x = 1e20f;
+    std::cout << x * x << '\n';  // zwykle inf
+}
+```
+
+Dla wartości bardzo bliskich zera może wystąpić **underflow** i utrata dokładności. W formacie IEEE 754 istnieje również `NaN` — „Not a Number”, np. dla niektórych niedozwolonych działań zmiennoprzecinkowych.
+
+## Ważne rozróżnienie
+
+- Przepełnienie `float` i `double` **nie działa** tak samo jak przepełnienie liczb całkowitych ze znakiem.
+- `pow(x, 2)` może używać arytmetyki `double`, dlatego w konkretnym przykładzie pozwoli na zakres większy niż `x*x` liczone jako `float`. Nie jest to dowód, że `pow` nigdy nie przepełni zakresu.
+- Nie zakładaj, że `long double` ma zawsze 12 bajtów — zależy od kompilatora i platformy.
+
+## Zadanie
+
+Sprawdź `std::numeric_limits<float>::max()` i `std::numeric_limits<double>::max()`. Wyjaśnij, dlaczego `double` zwykle mieści znacznie większe wartości.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: `setprecision` i formatowanie wyniku](../formatowanie/) · [Następna: Biblioteka `<cmath>` i funkcje matematyczne](../cmath/) →

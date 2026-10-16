@@ -1,0 +1,46 @@
+---
+title: "Słownik symboli matematycznych"
+description: "Słownik symboli matematycznych"
+sidebar:
+  order: 2
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="symbole" title={"Słownik symboli matematycznych"} section={"01 · Wykłady — język matematyki"} />
+
+# Słownik symboli matematycznych
+
+Matematyka często zapisuje całe zdanie jednym znakiem. **Najpierw czytaj symbole na głos** — to pomaga rozpoznać, co robić w zadaniu.
+
+| Zapis | Czytamy | Przykład i sens |
+|---|---|---|
+| =, ≠ | równe, różne | 2 + 2 = 4 |
+| ∈, ∉ | należy, nie należy | 2 ∈ &#123;1,2,3&#125; |
+| ⊆, ⊊ | podzbiór, podzbiór właściwy | &#123;1,2&#125; ⊆ &#123;1,2,3&#125; |
+| ∅ | zbiór pusty | nie zawiera żadnego elementu |
+| ∪, ∩, ∖ | suma, część wspólna, różnica | działania na zbiorach |
+| ∀, ∃, ∃! | dla każdego, istnieje, dokładnie jeden | kwantyfikatory |
+| ⇒, ⇔ | wynika z tego, wtedy i tylko wtedy | zdania logiczne |
+| ∑ | sumowanie | wielkie sigma |
+| ! | silnia | 4! = 24 |
+| ℕ, ℤ, ℚ, ℝ | naturalne, całkowite, wymierne, rzeczywiste | zbiory liczb |
+| <Eq tex={String.raw`\binom{n}{k}`} /> | Symbol Newtona (n po k) | Wybór k elementów spośród n, bez uwzględniania kolejności |
+| □ | koniec dowodu | znak zakończenia |
+
+## Przeczytaj wzór jak zwykłe zdanie
+
+<Eq display tex={String.raw`\forall n\in\mathbb{N}\quad \sum_{k=1}^{n}k=\frac{n(n+1)}2`}/>
+
+„**Dla każdego n będącego liczbą naturalną** suma liczb od 1 do n jest równa n razy (n + 1), podzielone przez 2”.
+
+W tym opracowaniu przyjmujemy <Eq tex={String.raw`\mathbb N=\{1,2,3,\ldots\}`}/> i zapisujemy liczby naturalne z zerem jako <Eq tex={String.raw`\mathbb N_0`}/>. W innych podręcznikach przyjęta konwencja bywa inna.
+
+:::caution[Uwaga na podobnie wyglądające symbole]
+<Eq tex={String.raw`2\in A`}/> oznacza, że **liczba 2 jest elementem** zbioru. <Eq tex={String.raw`\{2\}\subseteq A`}/> oznacza, że **zbiór jednoelementowy jest podzbiorem** A. To nie są te same relacje.
+:::
+
+## Krótka próba
+
+Dla A = &#123;1,2,3&#125; oceń: `2 ∈ A`, `{2} ⊆ A`, `{2} ∈ A`. Odpowiedzi: **tak, tak, nie**. Ostatnia odpowiedź wynika z tego, że elementami A są liczby, a nie zbiory.

@@ -1,0 +1,40 @@
+---
+title: "Implikacja i równoważność"
+description: "Implikacja, równoważność i kontrapozycja"
+sidebar:
+  order: 4
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="implikacja" title={"Implikacja, równoważność i kontrapozycja"} section={"01 · Wykłady — logika"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 01 · Wykłady — logika · ZDJĘCIA 2–3</div>
+
+# Implikacja, równoważność i kontrapozycja
+
+## Implikacja nie jest tym samym co koniunkcja
+
+<Eq display tex={String.raw`p\Rightarrow q\quad\Longleftrightarrow\quad \neg p\lor q`}/>
+
+To znaczy, że `p ⇒ q` ma dokładnie taką samą tabelę prawdy jak `¬p ∨ q`.
+
+## Dlaczego implikacja 0 ⇒ 0 daje 1?
+
+Zdanie „Jeśli napiszę egzamin na 100%, dostanę ocenę bardzo dobrą” nie zostaje obalone, gdy **nie napiszę go na 100%**. Gdy warunek początkowy jest fałszywy, z samej implikacji nie wynika wynik po prawej.
+
+## Prawo kontrapozycji
+
+<Eq display tex={String.raw`(p\Rightarrow q)\;\Longleftrightarrow\;(\neg q\Rightarrow\neg p)`}/>
+
+Przykład: „Jeśli liczba jest podzielna przez 4, to jest parzysta” oznacza równoważnie: „Jeśli liczba nie jest parzysta, to nie jest podzielna przez 4”.
+
+**Nie myl z odwróceniem implikacji:** `p ⇒ q` nie zawsze jest tym samym co `q ⇒ p`.
+
+## Równoważność
+
+<Eq display tex={String.raw`p\Leftrightarrow q\quad\Longleftrightarrow\quad (p\Rightarrow q)\land(q\Rightarrow p)`}/>
+
+Obie strony muszą być jednocześnie prawdziwe albo fałszywe. W przeciwnym wypadku równoważność przyjmuje 0.
+

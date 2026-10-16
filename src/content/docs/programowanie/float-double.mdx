@@ -1,0 +1,56 @@
+---
+title: "Typy float i double"
+description: "Jak zapisać liczby z częścią ułamkową?"
+sidebar:
+  order: 16
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { FloatLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="float-double" title="`float`, `double` i liczby rzeczywiste" section="03 · Liczby w pamięci" />
+
+# `float`, `double` i liczby rzeczywiste
+
+## Typ całkowity to nie wszystko
+
+`int` nie przechowa dokładnie liczby `3.14`. Do przybliżeń liczb rzeczywistych w C++ używamy najczęściej `float` i `double`. To typy **zmiennoprzecinkowe**, a nie „liczby z dowolną dokładnością”.
+
+| Typ | Zwykły rozmiar | Typowa precyzja |
+|---|---:|---|
+| `float` | 4 bajty | ok. 6–9 **cyfr znaczących** |
+| `double` | 8 bajtów | ok. 15–17 **cyfr znaczących** |
+| `long double` | zależny od systemu | zależna od implementacji |
+
+Nie myl **cyfr znaczących** z liczbą cyfr *po przecinku*. To nie jest to samo! Liczba `123456.7` ma siedem cyfr znaczących, mimo że po przecinku jest tylko jedna.
+
+```cpp
+#include <iostream>
+int main() {
+    float a = 0.1f;
+    double b = 0.1;
+    std::cout << a << '\n';
+    std::cout << b << '\n';
+}
+```
+
+Sufiks `f` w `0.1f` oznacza literał typu `float`; bez niego `0.1` ma zwykle typ `double`.
+
+## Co znaczy „przybliżenie”?
+
+Pamięć komputera ma ograniczoną liczbę bitów. Większość ułamków dziesiętnych nie ma skończonego rozwinięcia binarnego, więc zapisuje się **najbliższą reprezentowalną wartość**.
+
+## Co sprawdzamy praktycznie?
+
+Czy obliczenie wymaga tylko ogólnego przybliżenia, czy potrzebujemy bardzo małych błędów? Do obliczeń w typowych zadaniach wybieraj `double`, o ile nie istnieje konkretny powód, by użyć `float`.
+
+## Interaktywna wizualizacja
+
+<FloatLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Pętle zagnieżdżone](../petle-zagniezdzone/) · [Następna: Zapis pozycyjny i potęgi podstawy](../zapis-pozycyjny/) →

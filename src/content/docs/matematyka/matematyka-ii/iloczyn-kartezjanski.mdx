@@ -1,0 +1,41 @@
+---
+title: "Iloczyn kartezjański"
+description: "Iloczyn kartezjański — uporządkowane pary"
+sidebar:
+  order: 9
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { CartesianLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="iloczyn-kartezjanski" title={"Iloczyn kartezjański — uporządkowane pary"} section={"02 · Wykłady — zbiory"} />
+
+# Iloczyn kartezjański — uporządkowane pary
+
+Iloczyn kartezjański nie mnoży liczb. **Tworzy pary**, gdzie pierwszy element pochodzi z A, a drugi z B.
+
+<Eq display tex={String.raw`A\times B=\{(x,y):x\in A\ \wedge\ y\in B\}`}/>
+
+Dla A = &#123;1,2&#125; i B = &#123;a,b,c&#125; otrzymujemy:
+
+<Eq display tex={String.raw`A\times B=\{(1,a),(1,b),(1,c),(2,a),(2,b),(2,c)\}`}/>
+
+Jest **2 · 3 = 6** uporządkowanych par.
+
+## Wzór na liczbę par
+
+<Eq display tex={String.raw`|A\times B|=|A|\cdot|B|`}/>
+
+Pierwszy czynnik oznacza liczbę możliwości pierwszej współrzędnej, drugi — drugiej.
+
+<CartesianLab client:load />
+
+## Własności, które warto znać
+
+<Eq display tex={String.raw`A\times(B\cup C)=(A\times B)\cup(A\times C)`}/>
+<Eq display tex={String.raw`A\times(B\setminus C)=(A\times B)\setminus(A\times C)`}/>
+
+**Uwaga:** w ogólności A × B ≠ B × A. Para (1,a) jest czymś innym niż (a,1).
+
+W przypadku trzech zbiorów elementy (A × B) × C mają postać **((a,b),c)**, a A × (B × C) — **(a,(b,c))**. Można je naturalnie sobie przyporządkować, ale nie należy automatycznie uznawać za identyczne struktury.

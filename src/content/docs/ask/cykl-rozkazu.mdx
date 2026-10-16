@@ -1,0 +1,37 @@
+---
+title: "Pobierz → dekoduj → wykonaj"
+description: "03 · CPU i pamięć · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 18
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { CpuLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 03 · CPU i pamięć · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="cykl-rozkazu" title="Pobierz → dekoduj → wykonaj" section="03 · CPU i pamięć" />
+
+# Pobierz → dekoduj → wykonaj
+
+Jednym ze sposobów wyjaśnienia pracy procesora jest **cykl rozkazu**:
+
+1. **Fetch (pobranie):** CPU pobiera instrukcję z pamięci lub pamięci podręcznej.
+2. **Decode (dekodowanie):** określa, co oznacza rozkaz i jakie dane są potrzebne.
+3. **Execute (wykonanie):** przeprowadza operację, np. dodawanie, odczyt lub zapis.
+4. **Zapis wyniku i kolejny rozkaz:** procesor zapisuje wynik zgodnie z instrukcją i przechodzi dalej.
+
+### Przykład
+
+Masz w rejestrze wartość 4, a instrukcja mówi „dodaj 3”. CPU rozpoznaje operację dodawania i nowa wartość rejestru wynosi **7**.
+
+:::note[Uproszczenie]
+W nowoczesnym procesorze wiele faz może wykonywać się jednocześnie dla różnych instrukcji. Nasz model jest **sekwencyjny**, przeznaczony dla osoby początkującej.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<CpuLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

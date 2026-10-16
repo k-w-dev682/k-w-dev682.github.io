@@ -1,0 +1,58 @@
+---
+title: "Błędy zaokrągleń"
+description: "Dlaczego odejmowanie 0.1 nie gwarantuje otrzymania zera?"
+sidebar:
+  order: 20
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { FloatLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="bledy-obliczen" title="Błędy zaokrągleń i pętla, która nie kończy" section="03 · Liczby w pamięci" />
+
+# Błędy zaokrągleń i pętla, która nie kończy
+
+## Pułapka z materiału
+
+Skrypt pokazuje pętlę, w której `float x=1.0` jest zmniejszany o `0.1`, aż `x==0`. To jest **niebezpieczny warunek** — ze względu na błędy reprezentacji binarnej nie można na nim polegać.
+
+```cpp
+float x = 1.0f;
+while (x != 0.0f) {
+    x -= 0.1f; // może nigdy nie być dokładnie 0
+}
+```
+
+Mimo że w matematyce po dziesięciu odejmowaniach otrzymasz zero, na komputerze wartość może pozostać maleńkim niezerowym przybliżeniem (lub stać się ujemna).
+
+## Poprawka: licz iteracje
+
+```cpp
+for (int i = 0; i < 10; ++i) {
+    double x = 1.0 - (i + 1) * 0.1;
+    std::cout << x << '\n';
+}
+```
+
+Licznik całkowity jest tutaj pewną informacją o liczbie kroków. Wynik obliczenia nadal może być przybliżony, ale pętla wykona **dokładnie dziesięć iteracji**.
+
+## Co testować?
+
+- Powtarzane dodawanie małych liczb.
+- Odejmowanie liczb podobnej wielkości (utrata cyfr znaczących).
+- Zmianę kolejności operacji — przez zaokrąglenia może zmienić wynik.
+
+:::caution[Wnioski]
+Nie zakładaj, że `0.1 + 0.2 == 0.3` zawsze zadziała. Gdy chodzi o przybliżoną równość, zastosuj odpowiednią tolerancję dla skali obliczenia.
+:::
+
+## Interaktywna wizualizacja
+
+<FloatLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: IEEE 754 — jak wyglądają bity `float`](../ieee754/) · [Następna: Jak bezpieczniej porównywać `double`](../porownanie-float/) →

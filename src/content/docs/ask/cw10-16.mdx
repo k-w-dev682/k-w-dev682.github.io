@@ -1,0 +1,57 @@
+---
+title: "Ćwiczenia 4: dziesiętny → szesnastkowy"
+description: "05 · Ćwiczenia · Lab 1 · Laboratorium 1 · lab01.pdf"
+sidebar:
+  order: 26
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { BaseConverterLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 05 · Ćwiczenia · Lab 1 · Laboratorium 1 · lab01.pdf</div>
+
+<AskPdfButton client:load slug="cw10-16" title="Ćwiczenia 4: dziesiętny → szesnastkowy" section="05 · Ćwiczenia · Lab 1" />
+
+# Ćwiczenia 4: dziesiętny → szesnastkowy
+
+Wszystkie wartości w tym ćwiczeniu pochodzą z sekcji **2. Zadania** w `lab01.pdf`, strony 4–5. Oryginalna kolejność i dane są zachowane. Rozwiązania rozwiń po samodzielnej próbie.
+
+## Polecenie
+
+Przedstaw każdą z poniższych liczb w systemie o podstawie **16**, przy czym liczby wejściowe mają podstawę **10**.
+
+1. `458`
+2. `569`
+3. `16`
+4. `12`
+5. `200`
+
+**Wskazówka:** dziel przez 16 i zapisuj reszty 0–9 lub A–F.
+
+### Przykład z pierwszego podpunktu
+
+`458` (system 10) → **`1CA` (system 16)**. Sprawdź, dlaczego wynikiem jest właśnie ta wartość, używając wag albo dzielenia z resztą.
+
+<details>
+<summary>Pokaż odpowiedzi do wszystkich pięciu podpunktów</summary>
+
+| Nr | Dane (10) | Odpowiedź (16) |
+|---:|---|---|
+| 1 | `458` | `1CA` |
+| 2 | `569` | `239` |
+| 3 | `16` | `10` |
+| 4 | `12` | `C` |
+| 5 | `200` | `C8` |
+
+</details>
+
+:::note[Ważne]
+W zapisie binarnym pominąłem zera wiodące, jeżeli nie wymaga się ustalonej liczby bitów. Dla zamiany `16→2` można również zachować wszystkie 4 bity każdej cyfry hex.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<BaseConverterLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

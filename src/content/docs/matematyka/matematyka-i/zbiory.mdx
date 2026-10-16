@@ -1,0 +1,43 @@
+---
+title: "Zbiory, element, podzbiór i zbiory liczbowe"
+description: "Zbiory, element, podzbiór i zbiory liczbowe"
+sidebar:
+  order: 9
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="zbiory" title={"Zbiory, element, podzbiór i zbiory liczbowe"} section={"03 · Wykłady — zbiory"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 03 · Wykłady — zbiory · ZDJĘCIA 5–6, 9</div>
+
+# Zbiory, element, podzbiór i zbiory liczbowe
+
+## Co to jest zbiór?
+
+Zbiór to kolekcja określonych elementów. Możemy wypisać je jawnie lub opisać warunkiem.
+
+<Eq display tex={String.raw`A=\{1,2,3\}`}/>
+<Eq display tex={String.raw`A=\{x\in\mathbb{N}:1\le x\le 3\}`}/>
+
+To te same zbiory, pod warunkiem że rozpatrujemy naturalne z 1, 2, 3.
+
+## Podstawowe znaki
+
+| Znak | Znaczenie |
+|---|---|
+| ∈ | należy do zbioru |
+| ∉ | nie należy do zbioru |
+| ⊆ | jest podzbiorem (może być równy) |
+| ∅ | zbiór pusty |
+| ℕ, ℤ, ℚ, ℝ | naturalne, całkowite, wymierne, rzeczywiste |
+
+**Uwaga:** w różnych podręcznikach ℕ może zaczynać się od 0 albo od 1. Przy zadaniach zawsze ustalamy konwencję, jeśli wynik od niej zależy.
+
+## Przykład
+
+<Eq display tex={String.raw`\{x\in\mathbb{N}:x^2<7\}`}/>
+
+Zakładając ℕ = 1, 2, 3, …, pasują 1 i 2, bo 1²=1 i 2²=4, lecz 3²=9 nie jest mniejsze od 7. Zatem wynik to zbiór złożony z 1 i 2.
+

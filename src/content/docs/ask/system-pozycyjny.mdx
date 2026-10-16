@@ -1,0 +1,36 @@
+---
+title: "System pozycyjny: wartość cyfry zależy od miejsca"
+description: "01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf"
+sidebar:
+  order: 5
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { PositionLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf</div>
+
+<AskPdfButton client:load slug="system-pozycyjny" title="System pozycyjny: wartość cyfry zależy od miejsca" section="01 · Systemy liczbowe" />
+
+# System pozycyjny: wartość cyfry zależy od miejsca
+
+W zapisie pozycyjnym każda cyfra ma **wagę**. W systemie dziesiętnym wagi kolejnych pozycji to 1, 10, 100, 1000 i tak dalej.
+
+<Eq tex={String.raw`N=\sum_{i=0}^{n-1}c_i\,p^i`} display />
+
+**Co oznaczają litery?** `N` — wartość liczby; `cᵢ` — cyfra na pozycji `i`; `p` — podstawa systemu (np. 2, 10 lub 16); `i` — numer pozycji, liczymy od prawej, zaczynając od zera; `n` — liczba cyfr.
+
+### Przykład: 4831 w systemie dziesiętnym
+
+<Eq tex={String.raw`4831=4\cdot10^3+8\cdot10^2+3\cdot10^1+1\cdot10^0`} display />
+
+Podstawiamy kolejno cyfry: `4`, `8`, `3`, `1` oraz wagi `1000`, `100`, `10`, `1`. Wynik: 4000 + 800 + 30 + 1 = **4831**.
+
+**Zasada:** pozycja liczy się od prawej strony. Dlatego `10` w systemie binarnym nie oznacza „dziesięć”, tylko 2.
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<PositionLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

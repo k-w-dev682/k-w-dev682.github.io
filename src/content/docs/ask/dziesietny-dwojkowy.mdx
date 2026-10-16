@@ -1,0 +1,41 @@
+---
+title: "Zamiana 10 → 2: dzielenie z resztą"
+description: "01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf"
+sidebar:
+  order: 7
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { BaseConverterLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 01 · Systemy liczbowe · Laboratorium 1 · lab01.pdf</div>
+
+<AskPdfButton client:load slug="dziesietny-dwojkowy" title="Zamiana 10 → 2: dzielenie z resztą" section="01 · Systemy liczbowe" />
+
+# Zamiana 10 → 2: dzielenie z resztą
+
+Dziel liczbę całkowitą przez 2. Za każdym razem zapisz **resztę** (0 lub 1). Zakończ, gdy iloraz będzie równy 0. **Reszty odczytaj od końca**.
+
+### Oryginalny przykład: 55₁₀
+
+| Liczba | Dzielimy przez 2 | Iloraz | Reszta |
+|---|---|---:|---:|
+| 55 | 55 ÷ 2 | 27 | 1 |
+| 27 | 27 ÷ 2 | 13 | 1 |
+| 13 | 13 ÷ 2 | 6 | 1 |
+| 6 | 6 ÷ 2 | 3 | 0 |
+| 3 | 3 ÷ 2 | 1 | 1 |
+| 1 | 1 ÷ 2 | 0 | 1 |
+
+Reszty od dołu: `1 1 0 1 1 1`, więc **55₁₀ = 110111₂**.
+
+:::note[Dlaczego ta metoda działa?]
+Każde dzielenie przez 2 oddziela najmłodszy bit (resztę). Kolejne dzielenie odsłania następny bit.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<BaseConverterLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

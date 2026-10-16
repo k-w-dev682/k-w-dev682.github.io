@@ -1,0 +1,37 @@
+---
+title: "Ćwiczenia: ładunki i Coulomb"
+description: "Podstawy elektroniki — 08 · Ćwiczenia · zdjęcia 1–3"
+sidebar:
+  order: 24
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 08 · Ćwiczenia · ZDJĘCIA 1–3</div>
+
+<ElectronicsPdfButton client:load slug="cw-ladunek-coulomb" />
+
+## Zadanie A — przepływ ładunku (opracowane uzupełnienie)
+
+Przez przewodnik płynie stały prąd **250 mA** przez **8 s**. Jaki ładunek przepłynie?
+
+1. Wybór wzoru: <Eq tex={String.raw`Q=It`} />.
+2. Konwersja: 250 mA = 0,250 A.
+3. Podstawienie: <Eq tex={String.raw`Q=0{,}250\cdot8`} />.
+4. Odpowiedź: **2 C**.
+
+## Zadanie B — siła między dwoma ładunkami (opracowane uzupełnienie)
+
+Ładunki mają wartości **1 µC** i **1 µC**, a ich odległość wynosi **0,1 m**. Zakładamy próżnię.
+
+1. Wzór: <Eq tex={String.raw`F=k|q_1q_2|/r^2`} />.
+2. Podstawienie: <Eq tex={String.raw`8{,}99\cdot10^9\cdot(10^{-6})^2/(0{,}1)^2`} />.
+3. Wynik: **0,899 N**.
+4. Dwa dodatnie ładunki **odpychają się**.
+
+### Spróbuj sam
+
+Jeżeli odległość z zadania B wzrośnie z 0,1 m do 0,2 m, co stanie się z siłą? Odpowiedź: spadnie **czterokrotnie**.
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

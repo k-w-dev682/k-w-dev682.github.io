@@ -1,0 +1,47 @@
+---
+title: "Jak bezpieczniej porównywać `double`"
+description: "Tolerancja bezwzględna i względna."
+sidebar:
+  order: 21
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="porownanie-float" title="Jak bezpieczniej porównywać `double`" section="03 · Liczby w pamięci" />
+
+# Jak bezpieczniej porównywać `double`
+
+## `==` działa, ale często nie oznacza tego, czego chcemy
+
+Dla wartości reprezentowanych przybliżeniami pytanie „czy są dokładnie identyczne bitowo?” jest inne niż „czy wyniki można uznać za dostatecznie bliskie?”.
+
+```cpp
+#include <cmath>
+#include <algorithm>
+
+bool bliskie(double a, double b) {
+    const double eps = 1e-9;
+    return std::abs(a - b) <= eps *
+           std::max({1.0, std::abs(a), std::abs(b)});
+}
+```
+
+`std::abs(a-b)` to odległość między wynikami. Po prawej określamy granicę błędu zależną od ich skali (dla liczb bliskich zeru także od stałej podstawowej).
+
+## Przykład
+
+Jeśli wynik to `0.30000000000000004`, a oczekujesz `0.3`, różnica jest bardzo mała — ale niezerowa. Dobrane `eps` może uznać oba wyniki za „bliskie”.
+
+## Ważne ograniczenie
+
+Nie istnieje jedna tolerancja dobra do wszystkich zadań. Dla pomiarów laboratoryjnych i symulacji numerycznych skala błędu może być inna. A jeśli sprawdzasz, czy liczba jest **dokładnie** zero jako znacznik sterujący, użycie tolerancji może zmieniać znaczenie zadania.
+
+## Zadanie
+
+Dlaczego `std::abs(a-b) < 0.0001` może nie nadawać się do porównania bardzo dużych liczb? Bo błąd bezwzględny trzeba odnieść do skali wartości.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Błędy zaokrągleń i pętla, która nie kończy](../bledy-obliczen/) · [Następna: Typy i konwersje: `int` kontra `double`](../rzutowanie/) →

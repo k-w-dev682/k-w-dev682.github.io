@@ -1,0 +1,40 @@
+---
+title: "Siła i zasady Newtona"
+description: "Fizyka dla informatyków · 04 · Dynamika · zdjęcia 4–5"
+sidebar:
+  order: 17
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { ForceLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 04 · Dynamika · ZDJĘCIA 4–5</div>
+
+<PhysicsPdfButton client:load slug="sila-i-newton" title="Siła i trzy zasady Newtona" section="04 · Dynamika" />
+
+# Siła i trzy zasady Newtona
+
+## I zasada — bezwładność
+
+Jeżeli na ciało nie działa **wypadkowa siła** (lub siły się równoważą), ciało pozostaje w spoczynku lub porusza się ruchem jednostajnym prostoliniowym.
+
+## II zasada — zmiana pędu
+
+W typowych zadaniach szkolnych, gdy masa jest stała, wypadkowa siła równa się iloczynowi masy i przyspieszenia.
+
+<Eq tex={String.raw`\sum\vec F=m\vec a`} display />
+
+## III zasada — akcja i reakcja
+
+Dwa ciała oddziałują na siebie siłami o **takiej samej wartości**, tym samym kierunku i przeciwnych zwrotach. Te siły działają na **różne ciała**, dlatego się nie znoszą przy liczeniu siły wypadkowej na jednym ciele.
+
+<Eq tex={String.raw`\vec F_{A\to B}=-\vec F_{B\to A}`} display />
+
+Zasady te są podstawą większości zadań z dalszych zdjęć.
+
+## Interaktywne laboratorium
+
+<ForceLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

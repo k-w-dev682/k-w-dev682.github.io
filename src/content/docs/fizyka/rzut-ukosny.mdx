@@ -1,0 +1,43 @@
+---
+title: "Rzut ukośny — równania i tor"
+description: "Fizyka dla informatyków · 02 · Ruch w dwóch wymiarach · zdjęcia 2"
+sidebar:
+  order: 13
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { ProjectileLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 02 · Ruch w dwóch wymiarach · ZDJĘCIA 2</div>
+
+<PhysicsPdfButton client:load slug="rzut-ukosny" title="Rzut ukośny — równania i tor" section="02 · Ruch w dwóch wymiarach" />
+
+# Rzut ukośny — równania i tor
+
+Rzut ukośny to złożenie dwóch niezależnych ruchów: jednostajnego poziomo i jednostajnie przyspieszonego pionowo. Pomijamy opór powietrza.
+
+**Wybór osi:** x w prawo, y **w górę**. Dlatego g ma składową pionową skierowaną w dół.
+
+<Eq tex={String.raw`x(t)=x_0+v_0\cos\alpha\,t`} display />
+<Eq tex={String.raw`y(t)=y_0+v_0\sin\alpha\,t-\frac{gt^2}{2}`} display />
+<Eq tex={String.raw`v_x=v_0\cos\alpha,\qquad v_y=v_0\sin\alpha-gt`} display />
+
+### Przykład: pierwsze 2 sekundy
+
+Przyjmujemy v₀ = 20 m/s, alfa = 30°, x₀ = y₀ = 0 oraz g = 9,81 m/s².
+
+1. v₀x ≈ 17,32 m/s, v₀y = 10 m/s.
+2. Poziomo: x = 17,32·2 ≈ **34,64 m**.
+3. Pionowo: y = 10·2 − (9,81·2²)/2 = **0,38 m**.
+4. Prędkość pionowa: vy = 10 − 9,81·2 = **−9,62 m/s** — ciało już opada.
+
+:::caution[Poprawka z notatek]
+Przy osi y skierowanej do góry człon grawitacyjny ma znak **minus**. Znak plus jest poprawny dopiero przy innym wyborze osi (np. y dodatnie w dół), jeśli konsekwentnie zastosujesz go w całym rozwiązaniu.
+:::
+
+## Interaktywne laboratorium
+
+<ProjectileLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

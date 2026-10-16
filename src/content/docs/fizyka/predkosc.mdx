@@ -1,0 +1,35 @@
+---
+title: "Prędkość"
+description: "Fizyka dla informatyków · 01 · Kinematyka · zdjęcia 1"
+sidebar:
+  order: 7
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 01 · Kinematyka · ZDJĘCIA 1</div>
+
+<PhysicsPdfButton client:load slug="predkosc" title="Prędkość średnia i chwilowa" section="01 · Kinematyka" />
+
+# Prędkość średnia i chwilowa
+
+Prędkość średnia jest zmianą **położenia** podzieloną przez czas tej zmiany. W przypadku ruchu po prostej może mieć znak minus.
+
+<Eq tex={String.raw`v_{\mathrm{sr}}=\frac{\Delta x}{\Delta t}=\frac{x_2-x_1}{t_2-t_1}`} display />
+
+**Oznaczenia:** v — prędkość, x — położenie, t — czas, delta — różnica dwóch wartości. Jednostka prędkości to m/s.
+
+### Przykład: podstawiamy liczby
+
+Ciało zmienia położenie z 2 m na 22 m w ciągu 4 s.
+
+<Eq tex={String.raw`v_{\mathrm{sr}}=\frac{22-2}{4}=5\ \mathrm{m/s}`} display />
+
+**Prędkość chwilowa** jest prędkością w jednej określonej chwili; matematycznie to pochodna położenia po czasie.
+
+<Eq tex={String.raw`v(t)=\frac{dx(t)}{dt}`} display />
+
+Jeśli nie znasz pochodnych, na początek myśl o niej jako o „nachyleniu wykresu położenia”.
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

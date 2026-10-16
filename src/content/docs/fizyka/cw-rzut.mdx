@@ -1,0 +1,33 @@
+---
+title: "Ćwiczenia: rzut ukośny"
+description: "Fizyka dla informatyków · 07 · Ćwiczenia · zdjęcia 2"
+sidebar:
+  order: 32
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { ProjectileLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 07 · Ćwiczenia · ZDJĘCIA 2</div>
+
+<PhysicsPdfButton client:load slug="cw-rzut" title="Ćwiczenia: rzut ukośny" section="07 · Ćwiczenia" />
+
+# Ćwiczenia: rzut ukośny
+
+## Przykład dodatkowy
+
+Piłkę wyrzucono z poziomu gruntu z v₀ = 14 m/s pod kątem 45°. Przyjmij g = 9,81 m/s². Zakładamy, że wraca na wysokość startu.
+
+1. Składowe początkowe: vx = 14·cos45° ≈ **9,90 m/s**, vy = 14·sin45° ≈ **9,90 m/s**.
+2. Czas lotu: t = 2·vy/g ≈ 2·9,90/9,81 ≈ **2,02 s**.
+3. Zasięg: R = vx·t ≈ 9,90·2,02 ≈ **19,98 m**.
+4. Najwyższa wysokość: H = vy²/(2g) ≈ 98/(19,62) ≈ **4,99 m**.
+
+W oryginalnym zdjęciu 2 są równania rzutu, ale nie podano takiego zestawu danych — liczby są naszym ćwiczeniem.
+
+## Interaktywne laboratorium
+
+<ProjectileLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

@@ -1,0 +1,36 @@
+---
+title: "Prawa logiczne i prawa de Morgana"
+description: "Prawa logiczne, de Morgana i uproszczenia"
+sidebar:
+  order: 5
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="prawa-logiczne" title={"Prawa logiczne, de Morgana i uproszczenia"} section={"01 · Wykłady — logika"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 01 · Wykłady — logika · ZDJĘCIA 3</div>
+
+# Prawa logiczne, de Morgana i uproszczenia
+
+Zasady pozwalają przekształcać zdania **bez zmiany ich wartości logicznej**.
+
+## Prawa de Morgana
+
+<Eq display tex={String.raw`\neg(p\lor q)\ \Leftrightarrow\ (\neg p\land\neg q)`}/>
+<Eq display tex={String.raw`\neg(p\land q)\ \Leftrightarrow\ (\neg p\lor\neg q)`}/>
+
+„Nieprawda, że pada lub wieje” oznacza: „nie pada **i** nie wieje”. Widzisz, że negacja zmienia spójnik.
+
+## Rozdzielność i łączność
+
+<Eq display tex={String.raw`p\land(q\lor r)\ \Leftrightarrow\ (p\land q)\lor(p\land r)`}/>
+<Eq display tex={String.raw`p\lor(q\land r)\ \Leftrightarrow\ (p\lor q)\land(p\lor r)`}/>
+
+## Tautologia i kontrprzykład
+
+Tautologia przyjmuje 1 dla **każdego** dopuszczalnego zestawu wartości. Żeby wykazać, że formuła nie jest tautologią, wystarczy **jeden wiersz z 0**.
+
+<div className="mathi-note"><strong>Poprawka do zeszytu:</strong> kontrapozycja działa przez zanegowanie <em>obu</em> zdań i zamianę stron implikacji — nie wystarczy sama zamiana p i q.</div>
+

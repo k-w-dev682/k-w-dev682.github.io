@@ -1,0 +1,36 @@
+---
+title: "Zasada zachowania pędu"
+description: "Fizyka dla informatyków · 05 · Pęd i moment pędu · zdjęcia 5–7"
+sidebar:
+  order: 22
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { MomentumLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 05 · Pęd i moment pędu · ZDJĘCIA 5–7</div>
+
+<PhysicsPdfButton client:load slug="zasada-pedu" title="Zasada zachowania pędu" section="05 · Pęd i moment pędu" />
+
+# Zasada zachowania pędu
+
+Jeśli **zewnętrzna wypadkowa siła na układ wynosi zero**, jego całkowity pęd nie zmienia się. Siły wewnętrzne par ciało–ciało wzajemnie się kompensują w sumie pędu układu.
+
+<Eq tex={String.raw`\vec p_{\mathrm{przed}}=\vec p_{\mathrm{po}}`} display />
+
+### Przykład: całkowicie nieelastyczne zderzenie
+
+Wózek m₁ = 2 kg jedzie w prawo z v₁ = 3 m/s. Wózek m₂ = 1 kg stoi. Po zderzeniu łączą się.
+
+1. Pęd przed: 2·3 + 1·0 = 6 kg·m/s.
+2. Masa po złączeniu: 2 + 1 = 3 kg.
+3. Prędkość po zderzeniu: v = 6/3 = **2 m/s**.
+
+Energia kinetyczna nie jest tu zachowana, mimo że całkowity pęd jest zachowany.
+
+## Interaktywne laboratorium
+
+<MomentumLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

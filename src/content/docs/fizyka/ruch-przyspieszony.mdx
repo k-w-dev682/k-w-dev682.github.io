@@ -1,0 +1,40 @@
+---
+title: "Ruch jednostajnie przyspieszony"
+description: "Fizyka dla informatyków · 01 · Kinematyka · zdjęcia 1"
+sidebar:
+  order: 10
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { MotionLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 01 · Kinematyka · ZDJĘCIA 1</div>
+
+<PhysicsPdfButton client:load slug="ruch-przyspieszony" title="Ruch jednostajnie przyspieszony" section="01 · Kinematyka" />
+
+# Ruch jednostajnie przyspieszony
+
+Przy **stałym przyspieszeniu** można użyć trzech bardzo przydatnych wzorów:
+
+<Eq tex={String.raw`v=v_0+at`} display />
+<Eq tex={String.raw`x=x_0+v_0t+\frac{at^2}{2}`} display />
+<Eq tex={String.raw`\Delta x=\frac{v_0+v}{2}\,t`} display />
+
+Ten ostatni wzór działa tylko przy stałym przyspieszeniu. Średnia prędkość wówczas wynosi (v₀ + v)/2.
+
+### Przykład
+
+Ciało startuje z x₀ = 2 m, prędkością v₀ = 4 m/s i przyspieszeniem a = 2 m/s². Oblicz położenie i prędkość po 3 s.
+
+1. Najpierw prędkość: v = 4 + 2·3 = **10 m/s**.
+2. Położenie: x = 2 + 4·3 + (2·3²)/2 = 2 + 12 + 9 = **23 m**.
+3. Kontrola drogi: średnia prędkość (4 + 10)/2 = 7 m/s, zatem przemieszczenie 7·3 = 21 m; 2 + 21 = 23 m.
+
+Wykres v(t) ma postać prostej. Nachylenie tej prostej równa się przyspieszeniu.
+
+## Interaktywne laboratorium
+
+<MotionLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

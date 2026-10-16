@@ -1,0 +1,40 @@
+---
+title: "Ćwiczenia: dziedzina (a–d)"
+description: "Dziedzina — zadania a–d z zeszytu"
+sidebar:
+  order: 21
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="cw-dziedzina-1" title={"Dziedzina — zadania a–d z zeszytu"} section={"06 · Ćwiczenia — funkcje"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 06 · Ćwiczenia — funkcje · ZDJĘCIA 22–24</div>
+
+# Dziedzina — zadania a–d z zeszytu
+
+## a) <Eq tex={String.raw`f(x)=\frac{1}{1+\cos x}`}/>
+
+Mianownik nie może być zerem:
+
+<Eq display tex={String.raw`1+\cos x\ne0\iff\cos x\ne-1`}/>
+
+Cosinus jest równy −1 dla nieparzystych wielokrotności π. **Dziedzina:** wszystkie liczby rzeczywiste oprócz x=(2k+1)π, gdzie k jest całkowite.
+
+## b) <Eq tex={String.raw`f(x)=\frac{x^3-1}{x-1}`}/>
+
+Mianownik x−1 jest zerem dla x=1. Choć licznik również jest wtedy zerem, **nie możemy dopuścić x=1**. Dziedzina to ℝ bez liczby 1.
+
+## c) <Eq tex={String.raw`f(x)=\log_3(1+|x|)`}/>
+
+Ponieważ `|x|≥0`, mamy `1+|x|≥1>0`. Logarytm jest określony dla **każdego x rzeczywistego**.
+
+## d) <Eq tex={String.raw`f(x)=\frac1{\sqrt{x^2-1}}`}/>
+
+Pierwiastek jest w mianowniku. Potrzebujemy **x²−1>0**, a nie jedynie ≥0:
+
+<Eq display tex={String.raw`(x-1)(x+1)>0\iff x<-1\ \lor\ x>1`}/>
+
+**Dziedzina:** (−∞,−1) ∪ (1,∞).
+

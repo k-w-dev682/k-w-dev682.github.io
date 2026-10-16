@@ -1,0 +1,38 @@
+---
+title: "Od czego zaczyna się architektura komputerów?"
+description: "00 · Start · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 3
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 00 · Start · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="wstep" title="Od czego zaczyna się architektura komputerów?" section="00 · Start" />
+
+# Od czego zaczyna się architektura komputerów?
+
+Zobaczymy, **jak komputer zapisuje liczby**, dlaczego procesor operuje na bitach i co oznaczają podstawowe rozkazy asemblera. Nie potrzebujesz wcześniejszej wiedzy.
+
+:::note[Co naprawdę mamy z zajęć?]
+**Potwierdzone materiały:** `lab01.pdf` (systemy liczbowe i jednostki pamięci) oraz `lab02.pdf` (liczby ze znakiem: ZM, U1, U2). **Nie mamy notatek z wykładów.** Lekcje o procesorze, pamięci RAM i prostym asemblerze są moim dydaktycznym uzupełnieniem na podstawie tego, co pamiętasz; nie odtwarzają słów prowadzącego.
+:::
+
+## Jak poruszać się po kursie?
+
+1. **Najpierw** poznaj bity, systemy liczbowe i zmiany podstaw.
+2. **Potem** naucz się ZM, U1, U2 i sprawdzania wyniku.
+3. **Następnie** przejdź do CPU, pamięci i prostych rozkazów.
+4. **Na końcu** spróbuj oryginalnych 60 poleceń z dwóch laboratoriów.
+
+## Mapa: od programu do fizycznej maszyny
+
+<div className="ask-chain not-content"><span>Kod i dane</span><b>→</b><span>Instrukcje procesora</span><b>→</b><span>Rejestry i pamięć</span><b>→</b><span>Bity 0/1</span></div>
+
+Każdy etap połączymy konkretnym przykładem, np. liczbą 13 zapisaną binarnie jako `1101`.
+
+[**Przejdź do bitów i bajtów →**](../bity-bajty/)
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

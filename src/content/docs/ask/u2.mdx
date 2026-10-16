@@ -1,0 +1,47 @@
+---
+title: "U2 — uzupełnienie dwójkowe"
+description: "02 · Liczby ze znakiem · Laboratorium 2 · lab02.pdf"
+sidebar:
+  order: 14
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { SignedLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 02 · Liczby ze znakiem · Laboratorium 2 · lab02.pdf</div>
+
+<AskPdfButton client:load slug="u2" title="U2 — uzupełnienie dwójkowe" section="02 · Liczby ze znakiem" />
+
+# U2 — uzupełnienie dwójkowe
+
+**U2** jest podstawowym sposobem reprezentacji liczb całkowitych ze znakiem we współczesnych procesorach.
+
+### Jak zapisać -5 na czterech bitach?
+
+1. Zapisz +5: `0101`.
+2. Odwróć wszystkie bity: `1010`.
+3. Dodaj 1: `1010 + 0001 = 1011`.
+4. Otrzymujesz **1011(U2)**.
+
+### Jak odczytać 1011(U2)?
+
+Najstarszy bit = 1, więc liczba jest ujemna. Wykonaj inwersję: `0100`; dodaj 1: `0101₂` = 5 → wynik **-5**.
+
+### Wzór z `lab02.pdf`, strona 2
+
+<Eq tex={String.raw`N=-c_{n-1}2^{n-1}+\sum_{i=0}^{n-2}c_i2^i`} display />
+
+Pierwszy bit ma w U2 wagę **ujemną**. Pozostałe mają zwykłe dodatnie wagi. Dla `1011`:
+
+<Eq tex={String.raw`N=-1\cdot 8+0\cdot4+1\cdot2+1\cdot1=-5`} display />
+
+### Zakres 8 bitów w U2
+
+Od **-128 do +127**; tylko jedno zero. U2 upraszcza sprzętowe dodawanie i odejmowanie.
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<SignedLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

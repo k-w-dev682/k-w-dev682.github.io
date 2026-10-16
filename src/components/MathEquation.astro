@@ -1,0 +1,8 @@
+---
+import katex from 'katex';
+import 'katex/dist/katex.min.css';
+import '../styles/math.css';
+const { tex = '', display = false } = Astro.props;
+const html = katex.renderToString(String(tex), { throwOnError: false, strict: 'ignore', output: 'html', displayMode: display, trust: false });
+---
+<span class:list={['math-equation', {'math-equation--display': display}]} set:html={html} role="math" />

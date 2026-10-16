@@ -1,0 +1,45 @@
+---
+title: "Prawo Coulomba"
+description: "Podstawy elektroniki — 02 · Oddziaływania i pole · zdjęcia 1–2"
+sidebar:
+  order: 6
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { CoulombLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 02 · Oddziaływania i pole · ZDJĘCIA 1–2</div>
+
+<ElectronicsPdfButton client:load slug="prawo-coulomba" />
+
+## Co mówi prawo Coulomba?
+
+Dwa punktowe ładunki oddziałują na siebie siłą, która rośnie z iloczynem wartości ich ładunków i maleje z **kwadratem odległości**.
+
+<Eq tex={String.raw`F=k\frac{|q_1q_2|}{r^2}`} display />
+
+Tutaj **F** to wartość siły w niutonach, **q₁** i **q₂** to ładunki w kulombach, **r** to odległość w metrach, a <Eq tex={String.raw`k=\frac{1}{4\pi\varepsilon_0}`} /> to stała Coulomba (w próżni w przybliżeniu <Eq tex={String.raw`8{,}99\cdot10^9\,\mathrm{N\,m^2/C^2}`} />).
+
+W jednorodnym, liniowym ośrodku izotropowym o względnej przenikalności elektrycznej <Eq tex={String.raw`\varepsilon_r`} /> zamiast <Eq tex={String.raw`\varepsilon_0`} /> używamy <Eq tex={String.raw`\varepsilon_0\varepsilon_r`} />.
+
+## Przykład — wszystkie kroki
+
+**Dane:** <Eq tex={String.raw`q_1=2\,\mu\mathrm C`} />, <Eq tex={String.raw`q_2=-3\,\mu\mathrm C`} />, <Eq tex={String.raw`r=0{,}30\,\mathrm m`} />; próżnia.
+
+1. Zamieniamy mikro na jednostki SI: <Eq tex={String.raw`2\,\mu\mathrm C=2\cdot10^{-6}\,\mathrm C`} /> i analogicznie <Eq tex={String.raw`-3\,\mu\mathrm C=-3\cdot10^{-6}\,\mathrm C`} />.
+2. Wybieramy wzór <Eq tex={String.raw`F=k|q_1q_2|/r^2`} />.
+3. Podstawiamy wartości bezwzględne: <Eq tex={String.raw`F=8{,}99\cdot10^9\frac{(2\cdot10^{-6})(3\cdot10^{-6})}{(0{,}30)^2}`} />.
+4. Wynik: <Eq tex={String.raw`F\approx0{,}599\,\mathrm N`} />.
+5. **Kierunek oddziaływania:** ładunki mają przeciwne znaki, więc przyciągają się.
+
+:::caution[Dlaczego kwadrat odległości?]
+Jeśli odległość zwiększymy dwa razy, siła zmaleje **cztery razy**. Jeśli zwiększymy ją trzy razy — siła zmaleje dziewięć razy. Nie należy mylić siły z wektorem pola elektrycznego.
+:::
+
+## Interaktywne laboratorium
+
+<CoulombLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

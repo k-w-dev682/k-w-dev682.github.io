@@ -1,0 +1,47 @@
+---
+title: "Sigma — zapis sumy"
+description: "Sigma — zapis i obliczanie sum"
+sidebar:
+  order: 5
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { SigmaLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="sigma" title={"Sigma — zapis i obliczanie sum"} section={"01 · Wykłady — język matematyki"} />
+
+# Sigma — zapis i obliczanie sum
+
+Duża grecka litera sigma <Eq tex={String.raw`\sum`}/> oznacza: **dodaj wszystkie składniki wyznaczone przez indeks**.
+
+<Eq display tex={String.raw`\sum_{k=1}^{4}k=1+2+3+4=10`}/>
+
+Przy tym zapisie:
+
+- **k** jest indeksem, czyli licznikiem składników;
+- **k = 1** na dole oznacza, od której wartości zaczynamy;
+- **4** na górze oznacza ostatnią wartość;
+- **k** za sigmą mówi, jaki jest kolejny składnik.
+
+## Trzy typy sum
+
+**Stała wartość:**
+
+<Eq display tex={String.raw`\sum_{k=0}^{4}7=7+7+7+7+7=35`}/>
+
+Zwróć uwagę: indeks przyjmuje 0,1,2,3,4 — razem jest **pięć** składników.
+
+**Kwadraty:**
+
+<Eq display tex={String.raw`\sum_{k=1}^{4}k^2=1^2+2^2+3^2+4^2=30`}/>
+
+**Wyrazy ciągu:**
+
+<Eq display tex={String.raw`\sum_{k=1}^{3}a_k=a_1+a_2+a_3`}/>
+
+<SigmaLab client:load />
+
+:::caution[Zadania z nieskończoną sumą]
+Symbol <Eq tex={String.raw`\infty`}/> oznacza brak ostatniego indeksu. Nie wolno zakładać, że każda suma nieskończona ma skończony wynik.
+:::

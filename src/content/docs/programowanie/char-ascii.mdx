@@ -1,0 +1,56 @@
+---
+title: "`char` i ASCII — pojedynczy znak"
+description: "Litera, cyfra jako znak i kody znaków."
+sidebar:
+  order: 27
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { AsciiLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="char-ascii" title="`char` i ASCII — pojedynczy znak" section="04 · Tekst i znaki" />
+
+# `char` i ASCII — pojedynczy znak
+
+## Liczba czy znak?
+
+W kodzie `'7'` (apostrofy) to **znak**, natomiast `7` to liczba całkowita. Zmienna `char` przechowuje pojedynczą jednostkę znakową o rozmiarze 1 bajta.
+
+```cpp
+char litera = 'A';
+char cyfra = '7';
+int liczba = 7;
+std::cout << litera << ' ' << cyfra << ' ' << liczba;
+```
+
+ASCII przypisuje podstawowym znakom numery: `A → 65`, `B → 66`, `a → 97`, `0 → 48`. Kod 48 to **znak '0'**, a nie liczba całkowita zero.
+
+## Operacje na kodach znaków
+
+```cpp
+char z = 'A';
+std::cout << static_cast<int>(z) << '\n'; // 65 w ASCII
+++z;
+std::cout << z; // B
+```
+
+W tym przykładzie kolejne kody odpowiadają literom alfabetu. Nie używaj jednak „zwiększenia kodu znaku” jako uniwersalnego sposobu obsługi wszystkich alfabetów.
+
+## A co z polskimi znakami?
+
+**ASCII nie zawiera** liter `ą`, `ę`, `ł`. W UTF-8 taka litera zwykle zajmuje więcej niż jeden bajt. Dlatego `char` nie jest odpowiednikiem „jednej litery dowolnego języka”.
+
+## Zadanie
+
+Sprawdź kody `A`, `Z`, `a`, `z`, `0`, `9`. Które zakresy można wykorzystać do klasyfikacji podstawowych znaków ASCII?
+
+## Interaktywna wizualizacja
+
+<AsciiLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Liczby pseudolosowe i przedziały](../losowanie/) · [Następna: Wczytywanie znaku i klawisze specjalne](../wczytywanie-char/) →

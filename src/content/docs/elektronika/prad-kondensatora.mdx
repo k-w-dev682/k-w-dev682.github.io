@@ -1,0 +1,51 @@
+---
+title: "Prąd kondensatora"
+description: "Podstawy elektroniki — 05 · Kondensatory · zdjęcia 7"
+sidebar:
+  order: 19
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { CurrentLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 05 · Kondensatory · ZDJĘCIA 7</div>
+
+<ElectronicsPdfButton client:load slug="prad-kondensatora" />
+
+## Wyprowadzenie z notatek
+
+Zależność ładunku od napięcia dla kondensatora o stałej pojemności:
+
+<Eq tex={String.raw`q(t)=C\,u(t)`} display />
+
+Prąd definiujemy jako szybkość zmiany ładunku <Eq tex={String.raw`i(t)=dq/dt`} />. Różniczkując równanie po czasie, otrzymujemy:
+
+<Eq tex={String.raw`\boxed{i(t)=C\frac{du(t)}{dt}}`} display />
+
+**u(t)** — napięcie zmieniające się w czasie; **i(t)** — prąd kondensatora; **C** — stała pojemność.
+
+### Co oznacza ten wzór?
+
+- Napięcie rośnie → <Eq tex={String.raw`du/dt>0`} /> → dodatni prąd w przyjętej konwencji.
+- Napięcie jest stałe w czasie → <Eq tex={String.raw`du/dt=0`} /> → **i = 0** dla idealnego kondensatora.
+- Napięcie maleje → <Eq tex={String.raw`du/dt<0`} /> → prąd zmienia znak.
+
+### Przykład
+
+Pojemność **10 µF**, napięcie rośnie liniowo z 0 do 5 V w ciągu 0,1 s.
+
+<Eq tex={String.raw`i=C\frac{\Delta u}{\Delta t}=10\cdot10^{-6}\cdot\frac{5}{0{,}1}=0{,}0005\,\mathrm A`} display />
+
+Wynik to **0,5 mA**. W praktyce prąd może być ograniczany przez rezystancję obwodu.
+
+:::caution[Ważny wyjątek]
+Rzeczywisty kondensator ma niewielki prąd upływu i dodatkowe pasożytnicze elementy. Wniosek „dla stałego napięcia prąd = 0” dotyczy modelu idealnego po ustaleniu stanu.
+:::
+
+## Interaktywne laboratorium
+
+<CurrentLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

@@ -1,0 +1,18 @@
+---
+title: "ASK — eksport PDF"
+description: "Eksport pojedynczych i wielu lekcji"
+sidebar:
+  order: 2
+---
+
+import { AskPdfCollection } from '../../../components/AskPdf.jsx';
+
+# Eksport — Architektura systemów komputerowych
+
+Wybierz **jeden lub wiele tematów**, a potem użyj polecenia **Zapisz jako PDF** w oknie drukowania przeglądarki. Włączenie „Grafika tła” zachowa czarne tło.
+
+<AskPdfCollection client:load />
+
+:::note[Wydruk a interaktywne wizualizacje]
+Interaktywne przyciski i suwaki działają w przeglądarce. Do PDF trafia teoria i statyczne ilustracje — nie uruchamiany symulator.
+:::

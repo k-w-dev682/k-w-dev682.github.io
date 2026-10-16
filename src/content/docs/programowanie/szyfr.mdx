@@ -1,0 +1,68 @@
+---
+title: "Szyfr Cezara i metoda płotu"
+description: "Przekształcanie tekstu — ćwiczenia ze skryptu."
+sidebar:
+  order: 36
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { CaesarLab } from '../../../components/ExtraLabs.jsx';
+
+<PdfTopicButton client:load slug="szyfr" title="Szyfr Cezara i metoda płotu" section="04 · Tekst i znaki" />
+
+# Szyfr Cezara i metoda płotu
+
+## Szyfr Cezara — zasada
+
+Przesuwamy litery w alfabecie o pewną liczbę pozycji. Dla przesunięcia 3: `A → D`, `X → A`. Musimy **zawijać się** na początku alfabetu.
+
+```cpp
+#include <string>
+char szyfruj(char c, int przesuniecie) {
+    if (c < 'a' || c > 'z') return c;
+    int p = ((przesuniecie % 26) + 26) % 26;
+    return static_cast<char>('a' + (c - 'a' + p) % 26);
+}
+```
+
+W tym przykładzie szyfrujemy **tylko małe litery ASCII**. Ujemne przesunięcie także zadziała, bo normalizujemy je modulo 26.
+
+## Szyfr płotu o dwóch rzędach
+
+Przepis z materiału: znak pierwszy, trzeci, piąty itd. trafiają do górnego rzędu; drugi, czwarty itd. do dolnego. Na końcu zapisujemy kolejno górny i dolny rząd.
+
+Przykład dla napisu `KOTEK`:
+
+```text
+GÓRNY: K T K
+DOLNY:  O E
+WYNIK: KTKOE
+```
+
+```cpp
+std::string koduj(const std::string& s) {
+    std::string wynik;
+    for (std::size_t i = 0; i < s.size(); i += 2) wynik += s[i];
+    for (std::size_t i = 1; i < s.size(); i += 2) wynik += s[i];
+    return wynik;
+}
+```
+
+## Co warto zapamiętać?
+
+To przykłady **algorytmów przekształcania tekstu**, a nie bezpiecznego szyfrowania współczesnych danych. Żaden z tych szyfrów nie chroni prawdziwych sekretów.
+
+## Zadanie
+
+Zakoduj ręcznie `PROGRAM` metodą płotu o dwóch rzędach i porównaj wynik programu. Sprawdź, co się dzieje dla nieparzystej liczby znaków.
+
+## Interaktywna wizualizacja
+
+<CaesarLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Palindrom i odwracanie napisu](../palindrom/) · [Następna: Bank zadań — podstawy i pętle](../zadania-podstawy/) →

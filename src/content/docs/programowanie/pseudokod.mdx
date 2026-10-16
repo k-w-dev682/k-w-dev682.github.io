@@ -1,0 +1,68 @@
+---
+title: "Pseudokod i schematy blokowe"
+description: "Jak zaplanować rozwiązanie przed napisaniem kodu."
+sidebar:
+  order: 7
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="pseudokod" title="Pseudokod i schematy blokowe" section="01 · Fundamenty" />
+
+# Pseudokod i schematy blokowe
+
+## Najpierw pomysł, potem składnia
+
+W skrypcie proste zadania — suma dwóch liczb i sumowanie ciągu — pokazano najpierw za pomocą **pseudokodu** i schematów blokowych. To dobry nawyk: rozwiązanie możesz sprawdzić na papierze, zanim przełożysz je na C++.
+
+### Algorytm sumowania dwóch liczb
+
+1. START.
+2. Wczytaj `a`, `b`.
+3. Oblicz `suma = a + b`.
+4. Wypisz `suma`.
+5. STOP.
+
+```text
+   ┌───────────┐
+   │   START   │
+   └─────┬─────┘
+         ↓
+   ┌───────────┐
+   │  a oraz b │  ← dane wejściowe
+   └─────┬─────┘
+         ↓
+   ┌───────────┐
+   │ suma=a+b  │  ← obliczenie
+   └─────┬─────┘
+         ↓
+   ┌───────────┐
+   │ wypisz    │  ← wynik
+   └─────┬─────┘
+         ↓
+       STOP
+```
+
+## Najważniejsze kształty
+
+| Kształt | Znaczenie |
+|---|---|
+| Owal | Początek i koniec |
+| Prostokąt | Obliczenie lub przetworzenie danych |
+| Równoległobok | Wczytaj lub wypisz dane |
+| Romb | Warunek: tak/nie |
+| Strzałka | Kolejność przepływu |
+
+## Kiedy schemat jest naprawdę pomocny?
+
+Najbardziej przy rozgałęzieniach i pętlach. Jeśli nie umiesz narysować, **kiedy** pętla się zatrzyma, prawdopodobnie nie rozumiesz jeszcze jej warunku.
+
+## Ćwiczenie
+
+Zapisz pseudokod programu wypisującego większą z dwóch liczb. Gdzie potrzebujesz rombu? Przy warunku `a > b`.
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Operatory i instrukcja `if`](../operatory-warunki/) · [Następna: Pętla `while` — powtarzaj, aż warunek przestanie być prawdziwy](../petla-while/) →

@@ -1,0 +1,81 @@
+/* StudyLab · Elektronika · BLACK Edition (only scoped classes) */
+:root[data-theme='dark']{--elec-accent:#fbc389;--elec-contrast:#fff4e6}
+.el-eyebrow{display:inline-flex;gap:.55rem;align-items:center;color:#ffc990;font:800 .72rem/1.4 'Segoe UI',sans-serif;letter-spacing:.13em;text-transform:uppercase;border:1px solid #503829;background:#160f08;border-radius:99px;padding:.35rem .8rem;margin:1rem 0 .8rem}
+.el-lead{font-size:1.07rem;line-height:1.8;color:#d2dbe7;max-width:61ch}
+.el-eq{display:inline-block;max-width:100%;vertical-align:middle}
+.el-eq-block{display:block;overflow-x:auto;text-align:center;padding:1.2rem .7rem;margin:1rem 0 1.5rem;border-radius:14px;background:linear-gradient(135deg,#150f0b,#080808);border:1px solid #493626;box-shadow:inset 3px 0 #f3b979;color:#ffe5c7}
+.el-eq-block .katex-display{margin:.35rem 0;overflow-x:auto;overflow-y:hidden}
+.sl-markdown-content .el-eq{color:inherit}
+.el-links{display:flex;flex-wrap:wrap;gap:.7rem;margin:2.3rem 0 1.5rem}
+.el-links a{display:inline-flex;background:#100d0a;border:1px solid #544032;border-radius:12px;padding:.65rem 1rem;color:#f6c68b;text-decoration:none;font-weight:650;font-size:.9rem}
+.el-links a:hover{background:#26190f;text-decoration:none}
+.el-lab{background:radial-gradient(circle at top right,#231607,#080808 60%);border:1px solid #503a28;border-radius:22px;overflow:hidden;margin:2rem 0;color:#ecf1f7;box-shadow:0 22px 55px #0008}
+.el-lab *{box-sizing:border-box}
+.el-lab-head{display:flex;align-items:center;gap:13px;padding:19px 20px;border-bottom:1px solid #34291e}
+.el-orb{width:38px;height:38px;border-radius:12px;background:#f9c27d1c;border:1px solid #fbc38965;display:grid;place-items:center;color:#ffc389;font-size:22px;flex:0 0 auto}
+.el-lab-head>div{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.el-lab-head strong{font-size:1.05rem;color:#fff;font-weight:800;letter-spacing:-.025em}
+.el-lab-head small{color:#aeb6c6;font-size:.81rem;line-height:1.5}
+.el-live{border:1px solid #496450;color:#a0f5b1;background:#0a1a0f;font:800 .63rem/1.2 'Segoe UI',sans-serif;border-radius:30px;padding:6px 10px;letter-spacing:.12em}
+.el-lab-body{padding:20px;display:flex;flex-direction:column;gap:14px}
+.el-control-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
+.el-input,.el-slider{display:flex;flex-direction:column;gap:8px;min-width:0}
+.el-input>span,.el-slider>span{font-size:.8rem;color:#bdc6d0;font-weight:600}
+.el-input>div{display:flex;align-items:center;background:#14171e;border:1px solid #38404a;border-radius:10px;padding:0 9px}
+.el-input input{min-width:0;max-width:100%;flex:1;border:0;background:transparent;color:#fff;padding:12px 4px;font:650 1rem 'Segoe UI',sans-serif}
+.el-input b{color:#fbc389;font-size:.78rem;white-space:nowrap}
+.el-input select{max-width:100%;width:100%;background:#14171e;color:#fff;border:1px solid #38404a;border-radius:10px;padding:12px 10px;font-size:.86rem}
+.el-slider input{width:100%;accent-color:#f5ba77;cursor:pointer}
+.el-slider strong{color:#f9c88e}
+.el-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+.el-result{display:flex;flex-direction:column;gap:6px;padding:16px;border:1px solid #403224;border-radius:12px;background:#18120d;min-width:0}
+.el-result small{color:#abb8c8;font-size:.73rem;line-height:1.4}
+.el-result strong{font-size:clamp(1rem,2vw,1.45rem);line-height:1.2;color:#ffcf92;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.el-note{color:#bfc7d1;background:#121920;border-left:3px solid #e6ac68;border-radius:6px;padding:12px 15px;line-height:1.7;font-size:.88rem}
+.el-viz{width:100%;max-height:205px;border:1px solid #2a323d;border-radius:12px;background:repeating-linear-gradient(0deg,transparent 0 26px,#ffffff05 27px),repeating-linear-gradient(90deg,transparent 0 26px,#ffffff05 27px),#0c1016}
+.el-energy{height:12px;background:#29313c;border-radius:20px;overflow:hidden}
+.el-energy>div{background:linear-gradient(90deg,#cf8547,#f7c07b);height:100%;border-radius:20px;transition:width .12s}
+.el-export-button{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:.8rem 0 1.35rem}
+.el-export-button button,.el-toolbar button{cursor:pointer;color:#ffe4c0;background:#20150d;border:1px solid #67492d;border-radius:10px;padding:9px 13px;font:650 .86rem 'Segoe UI',sans-serif}
+.el-export-button button:hover,.el-toolbar button:hover{background:#362312}
+.el-export-button small{font-size:.8rem;color:#abb7c7}
+.el-export-app{margin:2rem 0;padding:1.25rem;border:1px solid #65432a;border-radius:18px;background:#070707;color:#edf3ff}
+.el-export-app *{box-sizing:border-box}
+.el-toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 16px}
+.el-toolbar span{color:#b5c0cd;font-size:.9rem}
+.el-toolbar label{display:flex;align-items:center;gap:5px;color:#f4e6d5;font-size:.87rem}
+.el-export-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:22px}
+.el-export-groups fieldset{padding:14px;border:1px solid #34291f;border-radius:12px;background:#101013;min-width:0}
+.el-export-groups legend{font-weight:750;color:#f9ca91;font-size:.94rem;padding:0 6px}
+.el-export-groups legend label{display:flex;gap:8px;align-items:center}
+.el-export-option{display:flex;align-items:center;gap:10px;padding:8px 4px;min-width:0}
+.el-export-option input,.el-export-app input[type=checkbox],.el-export-app input[type=radio]{accent-color:#efb775;flex:0 0 auto}
+.el-export-option span{font-size:.85rem;flex:1;color:#e5e8ef}
+.el-export-option small{font-size:.69rem;color:#9da9bb;white-space:nowrap}
+.el-export-primary{cursor:pointer;width:100%;background:#f5bd79;color:#150c06;padding:15px 18px;border-radius:12px;border:0;font:800 1rem 'Segoe UI',sans-serif}
+.el-export-primary:disabled{opacity:.4;cursor:not-allowed}
+.el-export-status{color:#c7d4e4;padding:12px;background:#151a22;border-radius:10px;overflow-wrap:anywhere}
+.el-pdf{font-family:'Segoe UI',Arial,sans-serif;line-height:1.68;color:#e4eaf1;background:#000;max-width:100%}
+.el-pdf-dark{background:#000;color:#e5eaf2}.el-pdf-light{background:#fff;color:#17202c}
+.el-pdf-chapter{padding:10mm 0;line-height:1.65}.el-pdf-chapter h1{font-size:26pt;letter-spacing:-.05em;color:inherit;margin:.2em 0 .85em}
+.el-pdf-chapter h2{font-size:17pt;margin:1.3em 0 .6em;color:#f6bb7a}
+.el-pdf-light .el-pdf-chapter h2{color:#8d4c18}
+.el-pdf-chapter :is(p,li,td){font-size:10.5pt;line-height:1.7}
+.el-pdf-chapter blockquote,.el-pdf-chapter aside{break-inside:avoid}
+.el-pdf-chapter pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:9pt}
+.el-pdf-chapter table{width:100%;border-collapse:collapse;font-size:9pt}.el-pdf-chapter th,.el-pdf-chapter td{border-bottom:1px solid #59534f;padding:6px;text-align:left}
+.el-pdf-eyebrow{color:#d6a678;letter-spacing:.11em;text-transform:uppercase;font-size:9pt;font-weight:700}
+.el-pdf-cover{padding:34mm 9mm;min-height:235mm;display:flex;flex-direction:column;justify-content:center;gap:10mm}
+.el-pdf-kicker{letter-spacing:.25em;text-transform:uppercase;color:#d7a36e;font-size:11pt;font-weight:700}
+.el-pdf-title{font-size:58pt;letter-spacing:-.075em;line-height:1.05;font-weight:850}
+.el-pdf-title em{font:italic 500 1.06em Georgia,serif;color:#f4c18c}
+.el-pdf-light .el-pdf-title em{color:#9d561b}
+.el-pdf-cover small{opacity:.7;max-width:32em}
+.el-pdf-toc{min-height:235mm;padding:26mm 9mm}.el-pdf-toc h1{font-size:28pt;letter-spacing:-.055em}
+.el-pdf-toc ol{list-style:none;padding:0}.el-pdf-toc li{padding:7px 0;border-bottom:1px solid #514336;font-size:11pt}.el-pdf-toc li span{color:#e5ae79;padding-right:20px;font-weight:800}
+@media(max-width:640px){.el-lab-head{padding:14px}.el-lab-body{padding:13px}.el-live{display:none}.el-export-option small{display:none}}
+@media print{.el-pdf .el-eq-block{background:transparent!important;border:1px solid #8e785f;box-shadow:none!important;color:inherit!important}.el-pdf-dark .el-eq-block{color:#ffe9c4!important}.el-pdf-chapter a{overflow-wrap:anywhere}}
+
+.el-pdf-light{--sl-color-text:#17202c;--sl-color-text-accent:#984f1b;--sl-color-bg:#ffffff;--sl-color-accent:#8c4b1b;}
+.el-pdf-dark{--sl-color-text:#e5eaf2;--sl-color-text-accent:#ffcf92;--sl-color-bg:#000000;--sl-color-accent:#f5bb78;}
+.el-pdf-light .el-eq-block{background:#fff8ef!important;color:#45230c!important;border-color:#cfb08a!important}

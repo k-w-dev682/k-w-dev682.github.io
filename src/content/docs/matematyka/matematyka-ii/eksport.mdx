@@ -1,0 +1,26 @@
+---
+title: "Eksport matematyki do PDF"
+description: "Eksport matematyki do PDF"
+sidebar:
+  order: 27
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { MathPdfCollection } from '../../../../components/MathPdf.jsx';
+
+# Eksport Matematyki II do PDF
+
+Eksport dotyczy wyłącznie **Matematyki II**. Wybierz **jeden temat, kilka podrozdziałów, całe ćwiczenia lub wszystkie wykłady**. StudyLab złoży je w jeden dokument z okładką i spisem treści — tak jak w eksporcie C++.
+
+<MathPdfCollection client:load />
+
+## Jak zapisać dokument?
+
+1. Wybierz tematy i motyw (**czarny** lub **jasny**).
+2. Kliknij przycisk przygotowania dokumentu.
+3. Gdy pojawi się systemowe okno drukowania, wybierz **Zapisz jako PDF**.
+4. Przy czarnym motywie włącz **drukowanie tła / grafiki tła**.
+
+:::caution[Symulatory po eksporcie]
+W wersji internetowej pozostają interaktywne. W PDF-ie zapisuje się **statyczny podgląd**. Wykresy, tekst, obliczenia i wzory z lekcji zostają; suwakami poruszasz tylko na stronie.
+:::

@@ -1,0 +1,45 @@
+---
+title: "Ćwiczenia: funkcja odwrotna"
+description: "Ćwiczenia: jak wyznaczyć funkcję odwrotną"
+sidebar:
+  order: 24
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+import { InverseLab } from '../../../../components/MathILabs.jsx';
+
+<MathIPdfButton client:load slug="cw-odwrotne" title={"Ćwiczenia: jak wyznaczyć funkcję odwrotną"} section={"06 · Ćwiczenia — funkcje"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 06 · Ćwiczenia — funkcje · ZDJĘCIA 28–29</div>
+
+# Ćwiczenia: jak wyznaczyć funkcję odwrotną
+
+## a) Funkcja sześcienna
+
+<Eq display tex={String.raw`f(x)=x^3+5`}/>
+
+**Krok 1.** Podstaw y=x³+5.
+
+**Krok 2.** Odejmij 5: y−5=x³.
+
+**Krok 3.** Wyciągnij pierwiastek trzeciego stopnia: x=∛(y−5).
+
+**Krok 4.** Zamień x z y:
+
+<Eq display tex={String.raw`f^{-1}(x)=\sqrt[3]{x-5}`}/>
+
+Funkcja jest różnowartościowa na ℝ, więc odwrotna ma dziedzinę ℝ.
+
+## b) Funkcja kwadratowa z ograniczoną dziedziną
+
+<Eq display tex={String.raw`f(x)=x^2-2x,\quad x\ge1`}/>
+
+Postać kanoniczna to `(x−1)²−1`. Funkcja jest rosnąca na [1,∞), więc odwracalna. Z `y=(x−1)²−1` dostajemy `x−1=√(y+1)`, gdyż x≥1:
+
+<Eq display tex={String.raw`f^{-1}(x)=1+\sqrt{x+1},\qquad x\ge-1`}/>
+
+**Dlaczego plus, a nie minus?** W pierwotnej dziedzinie mamy x−1≥0, więc wybieramy dodatnią gałąź pierwiastka.
+
+<InverseLab client:load />
+

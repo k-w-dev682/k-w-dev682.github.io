@@ -1,0 +1,44 @@
+---
+title: "Dielektryki"
+description: "Podstawy elektroniki — 05 · Kondensatory · zdjęcia 1, 6, 8"
+sidebar:
+  order: 18
+---
+
+import Eq from '../../../components/ElecEquation.astro';
+import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
+import { DielectricLab } from '../../../components/ElectronicsLabs.jsx';
+
+<div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 05 · Kondensatory · ZDJĘCIA 1, 6, 8</div>
+
+<ElectronicsPdfButton client:load slug="dielektryki" />
+
+## Co robi dielektryk?
+
+Dielektryk to materiał o bardzo ograniczonym przewodzeniu prądu w normalnych warunkach. W polu elektrycznym może się **polaryzować**, przez co zmienia się pole wewnątrz materiału. Umieszczony między okładkami kondensatora zwykle zwiększa jego pojemność.
+
+<Eq tex={String.raw`C'=\varepsilon_r\,C_0`} display />
+
+W notatkach na pierwszym zdjęciu zapisano przykładowe wartości przenikalności względnej dla powietrza, parafiny, szkła i wody. Wartości te **są przybliżone i zależą m.in. od temperatury i częstotliwości**. Dla powietrza w warunkach zwykłych przyjmuje się ~1,0005, dla szkła kilka, dla wody ~78–81 przy niskich częstotliwościach w temperaturze pokojowej.
+
+## Czy pole maleje, gdy wstawimy dielektryk?
+
+Trzeba odróżnić dwa przypadki:
+
+- **Kondensator odłączony od baterii:** ładunek **Q** jest stały, pojemność rośnie, napięcie **U=Q/C** maleje.
+- **Kondensator podłączony do baterii:** napięcie **U** pozostaje stałe, pojemność rośnie, więc z baterii dopływa dodatkowy ładunek **Q=CU**.
+
+## Wytrzymałość dielektryczna
+
+Przy dostatecznie silnym polu może nastąpić **przebicie** izolatora. Napięcie graniczne zależy od materiału, jego grubości i warunków. Dlatego na rzeczywistych kondensatorach podaje się **maksymalne dopuszczalne napięcie pracy**.
+
+:::tip[AGH]
+[Zbigniew Kąkol — Kondensator z dielektrykiem](https://home.agh.edu.pl/~kakol/efizyka/w20/main20c.html) omawia polaryzację i odróżnia kondensator odłączony od źródła.
+:::
+
+## Interaktywne laboratorium
+
+<DielectricLab client:load />
+
+
+<div className="el-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

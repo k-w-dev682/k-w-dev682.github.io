@@ -1,0 +1,45 @@
+---
+title: "Suma, przecięcie, różnica i dopełnienie zbiorów"
+description: "Suma, przecięcie, różnica i dopełnienie zbiorów"
+sidebar:
+  order: 10
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+import { SetsLab } from '../../../../components/MathILabs.jsx';
+
+<MathIPdfButton client:load slug="dzialania-na-zbiorach" title={"Suma, przecięcie, różnica i dopełnienie zbiorów"} section={"03 · Wykłady — zbiory"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 03 · Wykłady — zbiory · ZDJĘCIA 6, 10–11, 14–15</div>
+
+# Suma, przecięcie, różnica i dopełnienie zbiorów
+
+## Cztery działania
+
+Przyjmijmy zbiory A = [1, 4] oraz B = [3, 6].
+
+- **Suma** `A ∪ B` to wszystkie liczby należące do A **lub** B: [1, 6].
+- **Przecięcie** `A ∩ B` to liczby należące do obu: [3, 4].
+- **Różnica** `A ∖ B` to liczby tylko z A: [1, 3).
+- **Dopełnienie** `Aᶜ` zależy od tego, jaki zbiór uznajemy za cały rozważany świat, np. ℝ.
+
+<Eq display tex={String.raw`A\setminus B=A\setminus(A\cap B)`}/>
+
+To własność wykorzystywana także w dowodach na zdjęciach 21–22.
+
+## Przykład na zbiorach skończonych
+
+A: 1, 2, 3, 5. B: 2, 4, 5.
+
+| Działanie | Wynik |
+|---|---|
+| A ∪ B | 1, 2, 3, 4, 5 |
+| A ∩ B | 2, 5 |
+| A ∖ B | 1, 3 |
+| B ∖ A | 4 |
+
+Zmieniaj zbiory w laboratorium i obserwuj obliczenia.
+
+<SetsLab client:load />
+

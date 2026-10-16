@@ -1,0 +1,59 @@
+---
+title: "Liczby naturalne — aksjomaty Peana"
+description: "Liczby naturalne, następnik i zasada indukcji — wyjaśnione od podstaw."
+sidebar:
+  order: 10
+---
+
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="aksjomaty-peana" title="Aksjomaty Peana i liczby naturalne" section="03 · Wykłady — dowody" />
+
+# Aksjomaty Peana i liczby naturalne
+
+**Aksjomat** to zasada, którą przyjmujemy jako punkt wyjścia teorii. Inne twierdzenia uzasadniamy za pomocą takich zasad oraz logicznego rozumowania.
+
+## Czym są liczby naturalne?
+
+Liczb naturalnych używamy między innymi do liczenia przedmiotów: 1, 2, 3, 4, 5 i tak dalej.
+
+W tej lekcji przyjmujemy konwencję, w której **pierwszą liczbą naturalną jest 1**. Zapis tego zbioru wygląda tak:
+
+`ℕ = {1, 2, 3, 4, …}`
+
+W innych podręcznikach liczby naturalne mogą zaczynać się od 0. Dlatego zawsze należy sprawdzić, jaką konwencję przyjęto.
+
+## Pięć podstawowych zasad
+
+1. **1 jest liczbą naturalną.** Mamy więc punkt startowy.
+2. **Każda liczba naturalna ma następnika.** Po każdej liczbie naturalnej jest następna.
+3. **1 nie jest następnikiem żadnej liczby naturalnej.** W przyjętej konwencji jest pierwsza.
+4. **Różne liczby mają różnych następników.** Następnik jednoznacznie wskazuje liczbę poprzedzającą.
+5. **Zasada indukcji.** Własność prawdziwa dla 1, która przechodzi z każdej liczby na jej następnika, jest prawdziwa dla wszystkich liczb naturalnych.
+
+## Co to jest następnik?
+
+Następnikiem liczby `n` jest liczba `n + 1`.
+
+| Liczba `n` | Następnik `n + 1` |
+|---|---|
+| 1 | 2 |
+| 3 | 4 |
+| 7 | 8 |
+
+**Dlaczego to ważne?** Indukcja matematyczna pozwala udowodnić twierdzenie dla nieskończenie wielu liczb bez sprawdzania każdej z nich osobno.
+
+## Indukcja — prosta intuicja
+
+Wyobraź sobie rząd kostek domina. Jeżeli pierwsza kostka się przewróci i każda przewracająca się kostka strąca następną, to przewrócą się wszystkie kostki w rzędzie.
+
+W dowodzie matematycznym sprawdzamy odpowiednio dwa warunki:
+
+1. **Początek:** własność jest prawdziwa dla pierwszej liczby.
+2. **Przejście:** jeśli jest prawdziwa dla pewnego `n`, to wynika z tego prawdziwość dla `n + 1`.
+
+Te dwa kroki są podstawą dowodów indukcyjnych omawianych w kolejnych lekcjach.
+
+> **Uwaga:** to intuicyjne przedstawienie aksjomatów Peana. W formalnym ujęciu zapisuje się je dokładniej, z użyciem pojęcia następnika oraz własności liczb naturalnych.
+
+[Przejdź do zasady indukcji](../indukcja/) · [Przejdź do spisu treści](../spis-tresci/)

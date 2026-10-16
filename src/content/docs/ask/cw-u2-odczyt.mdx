@@ -1,0 +1,51 @@
+---
+title: "Ćwiczenia U2: odczytaj wartość dziesiętną"
+description: "06 · Ćwiczenia · Lab 2 · Laboratorium 2 · lab02.pdf"
+sidebar:
+  order: 34
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { SignedLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 06 · Ćwiczenia · Lab 2 · Laboratorium 2 · lab02.pdf</div>
+
+<AskPdfButton client:load slug="cw-u2-odczyt" title="Ćwiczenia U2: odczytaj wartość dziesiętną" section="06 · Ćwiczenia · Lab 2" />
+
+# Ćwiczenia U2: odczytaj wartość dziesiętną
+
+Oryginalne zadanie z `lab02.pdf` (sekcja 2, zapis **U2**). **Jakim liczbom dziesiętnym odpowiadają poniższe ciągi bitów?**
+
+1. `011011`
+2. `111111`
+3. `1010101`
+4. `0111`
+5. `10111`
+
+### Ważna wskazówka
+
+Każdą liczbę odczytujemy **w szerokości podanej w samym zadaniu**: `011011` ma 6 bitów, `1010101` ma 7, a `0111` ma 4. Nie dopisuj dodatkowych bitów znaku przy odczycie.
+
+<details>
+<summary>Pokaż odpowiedzi</summary>
+
+| Ciąg bitów w U2 | Wartość dziesiętna |
+|---|---:|
+| `011011` | 27 |
+| `111111` | -1 |
+| `1010101` | -43 |
+| `0111` | 7 |
+| `10111` | -9 |
+
+</details>
+
+:::note[Ujemne zero]
+W ZM i U1 pewne ciągi oznaczają `-0`. Wartość liczby nadal wynosi zero, ale kod bitowy jest inny niż dla `+0`.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<SignedLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

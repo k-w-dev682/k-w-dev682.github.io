@@ -1,0 +1,40 @@
+---
+title: "Co robi procesor (CPU)?"
+description: "03 · CPU i pamięć · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 17
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { CpuLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 03 · CPU i pamięć · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="cpu-ogolnie" title="Co robi procesor (CPU)?" section="03 · CPU i pamięć" />
+
+# Co robi procesor (CPU)?
+
+To **uzupełnienie dydaktyczne**: nie mamy materiałów z wykładu o budowie CPU, więc opisuję jedynie podstawy, które najczęściej pojawiają się na początku architektury systemów komputerowych.
+
+**CPU** (Central Processing Unit) wykonuje rozkazy programu, wykonuje obliczenia i steruje przepływem danych.
+
+| Część CPU | Najprostsza funkcja |
+|---|---|
+| Jednostka sterująca | Organizuje pobieranie i wykonywanie instrukcji |
+| ALU | Dodaje, odejmuje i wykonuje operacje logiczne |
+| Rejestry | Bardzo szybkie miejsce na bieżące dane i adresy |
+| Licznik rozkazów (PC/IP) | Wskazuje adres następnej instrukcji |
+| Pamięć podręczna | Przechowuje często potrzebne dane i instrukcje blisko rdzenia |
+
+:::note[To nie schemat kompletnego procesora]
+Rzeczywiste CPU mogą zawierać wiele rdzeni, kolejki, potoki, przewidywanie skoków i inne moduły. Nasz schemat służy wyłącznie do zrozumienia początku działania.
+:::
+
+<div className="ask-chain not-content"><span>Pamięć programu</span><b>→</b><span>CPU (sterowanie + ALU)</span><b>↔</b><span>Rejestry</span></div>
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<CpuLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

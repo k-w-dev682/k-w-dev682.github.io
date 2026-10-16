@@ -1,0 +1,42 @@
+---
+title: "Dwumian Newtona"
+description: "Dwumian Newtona — rozwijanie potęg"
+sidebar:
+  order: 17
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import { BinomialLab } from '../../../../components/MathLabs.jsx';
+import MathPdfButton from '../../../../components/MathPdf.jsx';
+
+<MathPdfButton client:load slug="dwumian-newtona" title={"Dwumian Newtona — rozwijanie potęg"} section={"04 · Wykłady — kombinatoryka"} />
+
+# Dwumian Newtona — rozwijanie potęg
+
+Jeżeli mnożymy (a + b) przez siebie n razy, możemy rozpisać wynik **bez wykonywania mnożenia nawiasów ręcznie**.
+
+<Eq display tex={String.raw`(a+b)^n=\sum_{k=0}^n\binom nk a^{n-k}b^k`}/>
+
+**Co oznacza każda litera?**
+
+- **a, b** — dwa składniki sumy w nawiasie;
+- **n** — wykładnik całej potęgi;
+- **k** — numer składnika w rozwinięciu, zaczyna się od zera;
+- **(n nad k)** — współczynnik z trójkąta Pascala;
+- potęga **a** maleje z n do 0, a potęga **b** rośnie z 0 do n.
+
+## Przykład: rozwiń (a+b)³
+
+<Eq display tex={String.raw`\begin{aligned}(a+b)^3&=\binom30a^3b^0+\binom31a^2b+\binom32ab^2+\binom33a^0b^3\\&=a^3+3a^2b+3ab^2+b^3\end{aligned}`}/>
+
+## Przykład z liczbami niewymiernymi
+
+Oblicz <Eq tex={String.raw`(1+\sqrt2)^5`}/>.
+
+- **Wzór:** dwumian Newtona;
+- **Dane:** a = 1, b = √2, n = 5;
+- **Współczynniki:** 1, 5, 10, 10, 5, 1.
+
+<Eq display tex={String.raw`\begin{aligned}(1+\sqrt2)^5&=1+5\sqrt2+10\cdot2+10\cdot2\sqrt2+5\cdot4+4\sqrt2\\&=41+29\sqrt2\end{aligned}`}/>
+
+<BinomialLab client:load />

@@ -1,0 +1,37 @@
+---
+title: "Własności funkcji"
+description: "Monotoniczność, parzystość i wykres"
+sidebar:
+  order: 17
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+
+<MathIPdfButton client:load slug="wlasnosci-funkcji" title={"Monotoniczność, parzystość i wykres"} section={"05 · Wykłady — funkcje"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 05 · Wykłady — funkcje · ZDJĘCIA 18–19</div>
+
+# Monotoniczność, parzystość i wykres
+
+## Monotoniczność
+
+- **Rosnąca:** większemu argumentowi odpowiada większa wartość.
+- **Malejąca:** większemu argumentowi odpowiada mniejsza wartość.
+- **Stała:** wartości się nie zmieniają.
+
+Dla `f(x)=x²` funkcja **maleje** na (−∞,0] i **rośnie** na [0,∞). Nie jest rosnąca na całym ℝ.
+
+## Parzystość i nieparzystość
+
+<Eq display tex={String.raw`f(-x)=f(x)\quad\text{(parzysta)}`}/>
+<Eq display tex={String.raw`f(-x)=-f(x)\quad\text{(nieparzysta)}`}/>
+
+Przykłady: `x²` jest parzysta, a `x³` nieparzysta. Funkcja parzysta ma symetrię względem osi OY, a nieparzysta względem początku układu.
+
+## Jak czytać wykres?
+
+Dla każdego argumentu x wykres pokazuje jedną wysokość y. Pionowa prosta nie może przecinać wykresu funkcji w więcej niż jednym punkcie.
+
+Wartości odczytujemy z osi y, miejsca zerowe z przecięcia z osią x, a przedziały monotoniczności z kierunku, w którym „idzie” wykres.
+

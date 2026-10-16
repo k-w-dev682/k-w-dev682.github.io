@@ -1,0 +1,48 @@
+---
+title: "Zdania i spójniki logiczne"
+description: "Zdania, negacja i spójniki logiczne"
+sidebar:
+  order: 3
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+import { LogicLab } from '../../../../components/MathILabs.jsx';
+
+<MathIPdfButton client:load slug="zdania-i-spojniki" title={"Zdania, negacja i spójniki logiczne"} section={"01 · Wykłady — logika"} />
+
+<div className="mathi-eyebrow">MATEMATYKA I · 01 · Wykłady — logika · ZDJĘCIA 1–2</div>
+
+# Zdania, negacja i spójniki logiczne
+
+## 1. Co jest zdaniem logicznym?
+
+**Zdanie logiczne** jest wypowiedzią, której możemy przypisać jedną z dwóch wartości: **1 — prawda** albo **0 — fałsz**. Pytanie „Ile jest godzin?” nie jest zdaniem logicznym — nie da się mu przypisać takiej wartości.
+
+Niech `p` oznacza „2 jest liczbą parzystą” (1), a `q` oznacza „2 jest większe od 5” (0).
+
+## 2. Symbole i ich znaczenie
+
+| Symbol | Czytamy | Kiedy całe zdanie jest prawdziwe? |
+|:--:|---|---|
+| ¬p | nie p | gdy p jest fałszywe |
+| p ∧ q | p i q | gdy oba są prawdziwe |
+| p ∨ q | p lub q | gdy przynajmniej jedno jest prawdziwe |
+| p ⇒ q | jeśli p, to q | fałszywe tylko dla p=1 i q=0 |
+| p ⇔ q | p wtedy i tylko wtedy, gdy q | gdy obie wartości są jednakowe |
+
+<div className="mathi-panel"><strong>Uwaga na „lub”!</strong><p>W matematyce alternatywa <code>∨</code> jest prawdziwa także wtedy, gdy prawdziwe są oba zdania. To nie jest „albo jedno, albo drugie”.</p></div>
+
+## 3. Przykład na konkretnych wartościach
+
+Dla p=1, q=0:
+
+- `¬p = 0`, bo negujemy prawdę.
+- `p ∧ q = 0`, bo drugie zdanie jest fałszywe.
+- `p ∨ q = 1`, bo co najmniej jedno zdanie jest prawdziwe.
+- `p ⇒ q = 0`, bo prawda nie może implikować fałszu.
+
+Przećwicz to w laboratorium:
+
+<LogicLab client:load />
+

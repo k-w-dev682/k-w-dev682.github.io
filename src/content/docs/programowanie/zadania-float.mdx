@@ -1,0 +1,57 @@
+---
+title: "Bank zadań — liczby rzeczywiste"
+description: "Wzory matematyczne, zakresy i precyzja."
+sidebar:
+  order: 39
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="zadania-float" title="Bank zadań — liczby rzeczywiste" section="05 · Zadania i utrwalanie" />
+
+# Bank zadań — liczby rzeczywiste
+
+## Zadania na liczbach rzeczywistych
+
+1. Oblicz pole i obwód prostokąta o bokach `a`, `b`.
+2. Oblicz pole i obwód koła o promieniu `r`.
+3. Oblicz obwód trójkąta i sprawdź nierówność trójkąta.
+4. Rozwiąż równanie kwadratowe, obsługując przypadki `a=0` i ujemne `Δ`.
+5. Wylosuj 10 liczb całkowitych z `[10,100]`.
+6. Wylosuj 10 liczb rzeczywistych z `[0,1)`.
+7. Porównaj `0.1 + 0.2` z `0.3` z dokładnością do 17 cyfr znaczących.
+8. Pokaż różnicę między `5/2`, `5.0/2`, `static_cast<double>(5)/2`.
+9. Dla `float x=1e20f` porównaj `x*x` oraz wynik obliczeń wykonanych po konwersji do `double`.
+10. Wypisz `std::numeric_limits<float>::epsilon()`.
+11. Porównaj `std::floor(-2.4)` i `std::ceil(-2.4)`.
+12. Przybliż `e^x` przez sumę szeregu i porównaj z `std::exp(x)`.
+
+## Rozwiązany przykład: pole koła
+
+Dane: `r = 2.5`. Wzór: `P = πr²`. Podstawienie:
+
+
+> **Wzór:** P = π × (2.5)^2 = 6.25π ≈ 19.63495
+
+
+```cpp
+#include <iostream>
+#include <numbers>
+int main() {
+    double r = 2.5;
+    double pole = std::numbers::pi * r * r;
+    std::cout << pole;
+}
+```
+
+`std::numbers::pi` wymaga C++20. Jeśli masz starszy standard kompilatora, zastąp ją własną stałą o odpowiedniej dokładności.
+
+## Weryfikacja
+
+Czy ujemny promień powinien zostać zaakceptowany? Nie — zadanie opisuje długość promienia, więc sprawdź `r >= 0` (ewentualnie `r > 0`, jeśli wymagane jest niezerowe koło).
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Bank zadań — algorytmy i debugger](../zadania-algorytmy/) · [Następna: Bank zadań — znaki i `string`](../zadania-string/) →

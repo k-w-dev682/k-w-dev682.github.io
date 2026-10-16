@@ -1,0 +1,59 @@
+---
+title: "Pętla `for` — znana liczba powtórzeń"
+description: "Licznik pętli, trzy części nagłówka, granice i liczba iteracji."
+sidebar:
+  order: 10
+---
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+import { ForLab } from '../../../components/CppLabs.jsx';
+
+<PdfTopicButton client:load slug="petla-for" title="Pętla `for` — znana liczba powtórzeń" section="02 · Algorytmy i diagnostyka" />
+
+# Pętla `for` — znana liczba powtórzeń
+
+## Budowa pętli
+
+```cpp
+for (int i = 0; i < 4; ++i) {
+    std::cout << i << ' ';
+}
+// 0 1 2 3
+```
+
+W nagłówku są **trzy pola** oddzielone średnikami:
+
+1. `int i = 0` — wartość początkowa (zwykle wykonywana raz).
+2. `i < 4` — warunek sprawdzany przed kolejną iteracją.
+3. `++i` — zmiana po wykonaniu ciała pętli.
+
+`i++` i `++i` mają w tym nagłówku ten sam efekt: zwiększenie `i` o jeden. Różnica w wartości całego wyrażenia ma znaczenie w innych kontekstach.
+
+## Ile razy wykona się pętla?
+
+| Nagłówek | Wartości `i` w ciele | Liczba iteracji |
+|---|---|---:|
+| `i=0; i<4; ++i` | 0,1,2,3 | 4 |
+| `i=1; i<=4; ++i` | 1,2,3,4 | 4 |
+| `i=1; i<4; ++i` | 1,2,3 | 3 |
+
+To właśnie **jedna literka** `<` zamiast `<=` często powoduje błąd „o jeden”.
+
+## `for` i `while`
+
+Obie pętle mogą realizować ten sam algorytm. `for` bywa wygodniejsza, gdy znamy liczbę powtórzeń, a `while` — gdy kończymy po pojawieniu się konkretnego warunku.
+
+## Zadanie
+
+Wypisz pięć pierwszych dodatnich wielokrotności 3: 3, 6, 9, 12, 15. Jedno rozwiązanie: `for (int i=1; i<=5; ++i) cout << 3*i << ' ';`.
+
+## Interaktywna wizualizacja
+
+<ForLab client:load />
+
+
+---
+
+<small>Materiał dydaktyczny rozwinięty na podstawie skryptu 2. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
+
+← [Poprzednia: Stoper `0` i sumowanie ciągu](../stoper/) · [Następna: Mnożenie bez operatora `*`](../mnozenie-dodawaniem/) →

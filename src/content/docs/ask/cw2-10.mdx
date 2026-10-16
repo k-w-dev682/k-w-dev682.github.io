@@ -1,0 +1,57 @@
+---
+title: "Ćwiczenia 2: dwójkowy → dziesiętny"
+description: "05 · Ćwiczenia · Lab 1 · Laboratorium 1 · lab01.pdf"
+sidebar:
+  order: 24
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+import { BaseConverterLab } from '../../../components/AskLabs.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 05 · Ćwiczenia · Lab 1 · Laboratorium 1 · lab01.pdf</div>
+
+<AskPdfButton client:load slug="cw2-10" title="Ćwiczenia 2: dwójkowy → dziesiętny" section="05 · Ćwiczenia · Lab 1" />
+
+# Ćwiczenia 2: dwójkowy → dziesiętny
+
+Wszystkie wartości w tym ćwiczeniu pochodzą z sekcji **2. Zadania** w `lab01.pdf`, strony 4–5. Oryginalna kolejność i dane są zachowane. Rozwiązania rozwiń po samodzielnej próbie.
+
+## Polecenie
+
+Przedstaw każdą z poniższych liczb w systemie o podstawie **10**, przy czym liczby wejściowe mają podstawę **2**.
+
+1. `1010101`
+2. `110010`
+3. `11100101`
+4. `1010`
+5. `01100101`
+
+**Wskazówka:** zsumuj wagi potęg 2 odpowiadające bitom 1.
+
+### Przykład z pierwszego podpunktu
+
+`1010101` (system 2) → **`85` (system 10)**. Sprawdź, dlaczego wynikiem jest właśnie ta wartość, używając wag albo dzielenia z resztą.
+
+<details>
+<summary>Pokaż odpowiedzi do wszystkich pięciu podpunktów</summary>
+
+| Nr | Dane (2) | Odpowiedź (10) |
+|---:|---|---|
+| 1 | `1010101` | `85` |
+| 2 | `110010` | `50` |
+| 3 | `11100101` | `229` |
+| 4 | `1010` | `10` |
+| 5 | `01100101` | `101` |
+
+</details>
+
+:::note[Ważne]
+W zapisie binarnym pominąłem zera wiodące, jeżeli nie wymaga się ustalonej liczby bitów. Dla zamiany `16→2` można również zachować wszystkie 4 bity każdej cyfry hex.
+:::
+
+## Sprawdź samodzielnie — interaktywne laboratorium
+
+<BaseConverterLab client:load />
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

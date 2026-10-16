@@ -1,0 +1,31 @@
+---
+title: "Co jest pewne, a co wymaga potwierdzenia?"
+description: "07 · Materiały pomocnicze · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu"
+sidebar:
+  order: 36
+---
+
+import Eq from '../../../components/AskEquation.astro';
+import AskPdfButton from '../../../components/AskPdf.jsx';
+
+<div className="ask-eyebrow">ARCHITEKTURA SYSTEMÓW KOMPUTEROWYCH · 07 · Materiały pomocnicze · Uzupełnienie dydaktyczne · niepotwierdzone notatkami z wykładu</div>
+
+<AskPdfButton client:load slug="niejasnosci" title="Co jest pewne, a co wymaga potwierdzenia?" section="07 · Materiały pomocnicze" />
+
+# Co jest pewne, a co wymaga potwierdzenia?
+
+## Potwierdzone materiałem z zajęć
+
+- **Laboratorium 1:** bity i bajty, system pozycyjny, zamiana liczb 2/10/16, przedrostki pamięci, 30 przykładów do wykonania.
+- **Laboratorium 2:** trzy kody liczb ze znakiem ZM, U1 i U2, 30 przykładów do wykonania.
+
+## Tego nie można ustalić z przesłanych PDF-ów
+
+1. **Dokładna architektura i składnia asemblera z wykładu.** Czy to był x86, MIPS, RISC-V czy inny zapis? Na razie rozdziały używają wyraźnie oznaczonej składni Intel x86 oraz pseudorozkazów edukacyjnych.
+2. **Zakres wykładu o CPU.** Materiały laboratoryjne nie opisują budowy procesora. Dodatkowy rozdział jest wprowadzeniem, a nie rekonstrukcją konkretnego wykładu.
+3. **Zakres wykładu o pamięci.** Mówimy o RAM, rejestrach, adresach i cache tylko na poziomie podstaw, bo nie wiemy, co dokładnie omówiono.
+4. **Wymagana liczba bitów dla wyników laboratoryjnych.** W Lab 2 przyjęliśmy 8 bitów przy zapisie liczb dziesiętnych, co pozwala zakodować ±127 w ZM i U1.
+
+Jeżeli otrzymasz więcej materiałów, będziemy mogli podmienić przykłady i uzupełnić rozdziały bez przepisywania całego kursu.
+
+<div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

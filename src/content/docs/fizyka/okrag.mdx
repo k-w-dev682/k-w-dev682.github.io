@@ -1,0 +1,41 @@
+---
+title: "Ruch jednostajny po okręgu"
+description: "Fizyka dla informatyków · 03 · Ruch po okręgu · zdjęcia 3"
+sidebar:
+  order: 15
+---
+
+import Eq from '../../../components/PhysicsEquation.astro';
+import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import { CircleLab } from '../../../components/PhysicsLabs.jsx';
+
+<div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 03 · Ruch po okręgu · ZDJĘCIA 3</div>
+
+<PhysicsPdfButton client:load slug="okrag" title="Ruch jednostajny po okręgu" section="03 · Ruch po okręgu" />
+
+# Ruch jednostajny po okręgu
+
+Przy stałej **wartości prędkości** kierunek wektora prędkości nadal się zmienia. Dlatego ruch po okręgu jest ruchem z przyspieszeniem, mimo że szybkość pozostaje stała.
+
+<Eq tex={String.raw`v=\omega R,\qquad \omega=\frac{2\pi}{T}`} display />
+
+- R — promień okręgu [m].
+- omega — prędkość kątowa [rad/s].
+- T — okres jednego pełnego obiegu [s].
+
+### Przykład
+
+Obiekt obiega okrąg R = 2 m w T = 4 s.
+
+1. omega = 2π/4 ≈ **1,57 rad/s**.
+2. v = omega·R ≈ 1,57·2 ≈ **3,14 m/s**.
+
+:::tip[Geometria ruchu]
+Wektor prędkości jest styczny do toru. Przyspieszenie dośrodkowe wskazuje do środka okręgu — oba wektory są prostopadłe.
+:::
+
+## Interaktywne laboratorium
+
+<CircleLab client:load />
+
+<div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>
