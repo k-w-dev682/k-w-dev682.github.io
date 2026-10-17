@@ -9,7 +9,7 @@ const task = (key, subject, topic, title, prompt, expected, unit, solution, hint
 });
 const TEMPLATES = [
  { key:'cpp-sum',subject:'cpp',topic:'basic',create:()=>{
-   const a=ri(2,24),b=ri(3,24);return task('cpp-sum','cpp','basic','Przypisanie i dodawanie',`Jaki wynik wypisze ten kod?  int a=${a}; int b=${b}; std::cout << a+b;`,a,'',`a+b=${a}+${b}=${a+b}. Operator << wypisze tę wartość.`,['Ustal wartości obu zmiennych.','Wykonaj działanie po prawej stronie <<.','Dodaj obie liczby.'],'wejscie-wyjscie');}},
+   const a=ri(2,24),b=ri(3,24);return task('cpp-sum','cpp','basic','Przypisanie i dodawanie',`Jaki wynik wypisze ten kod?  int a=${a}; int b=${b}; std::cout << a+b;`,a+b,'',`a+b=${a}+${b}=${a+b}. Operator << wypisze tę wartość.`,['Ustal wartości obu zmiennych.','Wykonaj działanie po prawej stronie <<.','Dodaj obie liczby.'],'wejscie-wyjscie');}},
  { key:'cpp-for',subject:'cpp',topic:'flow',create:()=>{
    const start=ri(0,3),end=ri(6,15),step=take([1,2,3]);const n=Math.ceil((end-start)/step);return task('cpp-for','cpp','flow','Ile iteracji?',`Ile razy wykona się ciało pętli?  for (int i=${start}; i<${end}; i+=${step}) { /* ... */ }`,n,'',`Wartości i: ${Array.from({length:n},(_,j)=>start+j*step).join(', ')}. W sumie ${n} iteracji.`,['Zacznij od wartości początkowej i.','Każdy obieg zwiększa i o krok.','Kończysz, gdy warunek i < granica jest fałszywy.'],'petla-for');}},
  { key:'cpp-div',subject:'cpp',topic:'data',create:()=>{

@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const project=path.resolve(process.argv[2]||process.cwd());
+const file=path.join(project,'package.json');
+const obj=JSON.parse(fs.readFileSync(file,'utf8'));
+if(!obj.scripts)obj.scripts={};
+const check='node tools/studycenter-check-public-config.mjs';
+const old=obj.scripts.prebuild||'';
+if(!old.includes(check))obj.scripts.prebuild=old?`${check} && ${old}`:check;
+fs.writeFileSync(file,JSON.stringify(obj,null,2)+'\n','utf8');
+console.log('StudyLab: prebuild public-key safety check enabled.');

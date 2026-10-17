@@ -1,6 +1,6 @@
-// StudyLab v2.0 - offline cache for pages/resources actually visited. No automatic whole-site download.
-const CACHE='studylab-v2-pages-20261017';
-const PREFIX='studylab-v2-pages-';
+// StudyLab v3.0 - offline cache for pages/resources actually visited. No automatic whole-site download.
+const CACHE='studylab-v3-pages-20261017';
+const PREFIX='studylab-v3-pages-';
 const ROOT=new URL('./',self.registration.scope);
 self.addEventListener('install',event=>{
  event.waitUntil(caches.open(CACHE).then(cache=>Promise.allSettled([
@@ -11,7 +11,7 @@ self.addEventListener('install',event=>{
 });
 self.addEventListener('activate',event=>{
  event.waitUntil((async()=>{
-  for(const key of await caches.keys())if(key.startsWith(PREFIX)&&key!==CACHE)await caches.delete(key);
+  for(const key of await caches.keys())if((key.startsWith(PREFIX)||key.startsWith('studylab-v2-pages-'))&&key!==CACHE)await caches.delete(key);
   await self.clients.claim();
  })());
 });

@@ -23,3 +23,6 @@ pnpm-debug.log*
 # StudyLab backups
 .studylab-backups/
 StudyLab_Backup_*/
+study-center-drafts/
+.env.*
+!.env.example

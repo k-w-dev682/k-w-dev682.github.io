@@ -1,3 +1,4 @@
+import approvedContent from './approved-content.json' with { type: 'json' };
 // StudyLab — recenzowana baza startowa: pytania pisane ręcznie na podstawie tematów kursów.
 // Brak wywołań AI, brak kluczy API i zależności od zewnętrznych usług.
 export const SUBJECTS = [
@@ -17,7 +18,7 @@ export const TOPICS = {
   electronics: [ ['charge','Ładunek i pole'],['potential','Potencjał i napięcie'],['cap','Kondensatory'] ],
 };
 const question = (id, subject, topic, stem, options, correct, why, lesson, hint) => ({id,subject,topic,stem,options,correct,why,lesson,hint});
-export const QUESTIONS = [
+const STARTER_QUESTIONS = [
   // Programowanie C++
   question('cpp01','cpp','basic','Który obiekt standardowego C++ służy do wypisywania tekstu na konsolę?',['std::cin','std::cout','std::string','std::getline'],1,'std::cout służy do wyprowadzania danych; std::cin do wczytywania.','wejscie-wyjscie','Pomyśl, w którą stronę płyną dane.'),
   question('cpp02','cpp','basic','Jaki typ zwykle przechowuje liczby całkowite, np. 17?',['int','double','bool','char'],0,'int jest typem całkowitoliczbowym.','zmienne','Nie potrzebujemy części ułamkowej.'),
@@ -125,7 +126,7 @@ export const QUESTIONS = [
 ];
 
 const card = (id, subject, topic, front, back, lesson) => ({ id, subject, topic, front, back, lesson });
-export const FLASHCARDS = [
+const STARTER_FLASHCARDS = [
   card('cf01','cpp','basic','Co robi std::cout?','Wypisuje dane na standardowe wyjście.','wejscie-wyjscie'),
   card('cf02','cpp','basic','Co robi std::cin?','Wczytuje dane ze standardowego wejścia.','wejscie-wyjscie'),
   card('cf03','cpp','basic','Co to inicjalizacja zmiennej?','Nadanie jej wartości początkowej.','zmienne'),
@@ -225,6 +226,9 @@ export const FLASHCARDS = [
   card('v2ef03','electronics','potential','Co oznacza napięcie między punktami?','Różnicę ich potencjałów elektrycznych.','napiecie'),
   card('v2ef04','electronics','cap','Wzór na energię naładowanego kondensatora?','E=CU²/2.','energia-kondensatora'),
 ];
+
+export const QUESTIONS = [...STARTER_QUESTIONS, ...(approvedContent.questions || [])];
+export const FLASHCARDS = [...STARTER_FLASHCARDS, ...(approvedContent.cards || [])];
 
 export const topicLabel = (subjectId, topicId) => TOPICS[subjectId]?.find(x => x[0] === topicId)?.[1] || 'Inne';
 export const subjectById = (id) => SUBJECTS.find(x => x.id === id);

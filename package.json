@@ -7,11 +7,15 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "studycenter:drafts": "node tools/studycenter-generate.mjs",
+    "studycenter:approve": "node tools/studycenter-approve.mjs",
+    "prebuild": "node tools/studycenter-check-public-config.mjs && node tools/generate-lesson-index.mjs && node tools/studycenter-generate.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.0",
     "@astrojs/starlight": "^0.42.6",
+    "@supabase/supabase-js": "^2.118.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "astro": "^7.2.10",

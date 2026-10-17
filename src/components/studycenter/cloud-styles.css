@@ -1,0 +1,13 @@
+/* Minimal extension to the existing StudyLab BLACK interface */
+.sc-cloud-panel {display:grid;gap:1rem}
+.sc-cloud-panel h3 {margin:0}
+.sc-cloud-indicator {display:inline-flex;align-items:center;font-weight:650;font-size:.78rem;padding:.35rem .75rem;border:1px solid #404047;border-radius:999px;white-space:nowrap;color:#c4c6d0}
+.sc-cloud-connected {color:#a2ebc6;border-color:#316f55}
+.sc-cloud-syncing {color:#efdc9a;border-color:#80692c}
+.sc-cloud-error,.sc-cloud-account-mismatch {color:#ffc8a6;border-color:#8c4840}
+.sc-cloud-panel .sc-cloud-otp {margin-top:1rem}
+.sc-cloud-login {max-width:460px}
+.sc-cloud-warning,.sc-cloud-notice {border:1px solid #6f5e40;background:#1d1a13;border-radius:12px;padding:1rem}
+.sc-cloud-warning p,.sc-cloud-notice p {margin:.5rem 0 1rem}
+.sc-cloud-error {color:#ffc2ba;border-left:3px solid #e37e74;padding:.6rem 1rem}
+.sc-cloud-disclaimer {font-size:.82rem}

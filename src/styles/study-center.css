@@ -171,3 +171,29 @@
 /* V2 - kontekst lekcji i dopasowanie zakresu */
 .sc-focus-note{padding:12px 14px;margin:12px 0;border:1px solid #34554b;background:rgba(38,82,67,.19);border-radius:9px;font-size:13px;line-height:1.6;color:#d0e8df}
 .sc-focus-note a{display:inline-block;margin-left:7px;color:#9ee8d0!important}
+
+/* StudyLab v3 — przejrzysty kalendarz i ustawienia FSRS */
+.sc-root .sc-retention-setting{max-width:370px;margin:15px 0 5px;}
+.sc-calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin:14px 0 10px;}
+.sc-calendar-weekday{text-align:center;font-size:11px;color:#9cb3ac;font-weight:680;padding:7px 0;}
+.sc-calendar-day{min-height:43px;border:1px solid #293530;border-radius:7px;background:#121b1a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12px;color:#dae4de;}
+.sc-calendar-blank{background:none;border-color:transparent;}
+.sc-calendar-today{border-color:#75dbbf;color:#9ee6ce;}
+.sc-calendar-event{background:#204034;}
+.sc-calendar-event i{display:block;width:5px;height:5px;background:#8bdbbe;border-radius:50%;}
+.sc-exam-list{display:flex;flex-direction:column;gap:14px;}
+.sc-exam-item{border:1px solid #34483f;border-radius:11px;padding:16px;background:#141e1b;}
+.sc-exam-item h4{font-size:15px;margin:7px 0;}
+.sc-exam-item p{font-size:12px;line-height:1.7;color:#becbc5;margin:12px 0;}
+.sc-exam-item small{font-size:11px;color:#a6b7b0;}
+.sc-root .sc-calendar .sc-secondary{min-width:30px;padding:7px 11px;}
+@media(max-width:480px){.sc-calendar-day{min-height:35px;font-size:11px;}.sc-calendar-grid{gap:3px;}}
+
+.sc-task-steps{border:1px solid #334940;border-radius:10px;padding:15px;margin:14px 0;background:#17221d;}
+.sc-task-steps h4{font-size:13px;margin:0 0 5px;color:#d7e9df;}
+.sc-task-steps>p{margin:0 0 14px;}
+.sc-task-step{margin-top:10px;padding-top:10px;border-top:1px solid #314038;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;}
+.sc-task-step .sc-field{flex:1;min-width:170px;}
+.sc-task-step>.sc-secondary{margin-bottom:0;}
+.sc-task-step p{font-size:12px;line-height:1.6;width:100%;margin:0;}
+.sc-step-correct{color:#92e5c6;}.sc-step-wrong{color:#f0b5a6;}

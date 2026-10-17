@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=path.resolve(process.argv[2]||'.');
+const p=path.join(root,'package.json');
+if(!fs.existsSync(p))throw new Error('Brak package.json.');
+const pkg=JSON.parse(fs.readFileSync(p,'utf8'));pkg.scripts??={};
+pkg.scripts['studycenter:drafts']='node tools/studycenter-generate.mjs';
+pkg.scripts['studycenter:approve']='node tools/studycenter-approve.mjs';
+const command='node tools/generate-lesson-index.mjs && node tools/studycenter-generate.mjs';
+if(!pkg.scripts.prebuild) pkg.scripts.prebuild=command;
+else if(!pkg.scripts.prebuild.includes(command))pkg.scripts.prebuild+=` && ${command}`;
+fs.writeFileSync(p,JSON.stringify(pkg,null,2)+'\n','utf8');
+console.log('StudyLab: skonfigurowano npm run studycenter:drafts oraz bezpieczny prebuild.');
