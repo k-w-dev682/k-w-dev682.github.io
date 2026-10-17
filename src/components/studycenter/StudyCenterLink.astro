@@ -1,0 +1,20 @@
+---
+const base = (import.meta.env.BASE_URL || '/').replace(/\/?$/, '/');
+---
+<section class="scl" aria-label="Centrum nauki">
+  <div class="scl__symbol" aria-hidden="true">◇</div>
+  <div class="scl__body">
+    <strong>Centrum nauki</strong>
+    <p>Quizy, fiszki, zadania, powtórki i statystyki.</p>
+  </div>
+  <a href={`${base}centrum-nauki/`} class="scl__link">Otwórz <span aria-hidden="true">↗</span></a>
+</section>
+<style>
+.scl,.scl *{box-sizing:border-box}
+.scl{display:flex;align-items:center;gap:15px;margin:23px 0 30px;padding:18px 20px;background:#101717;border:1px solid #29483f;border-radius:13px;color:#ecf6f4;font-family:'Segoe UI',system-ui,sans-serif}
+.scl__symbol{width:44px;height:44px;border:1px solid #49786d;border-radius:11px;display:grid;place-items:center;flex-shrink:0;color:#9be4d3;font-size:27px}
+.scl__body{flex:1;min-width:0}.scl__body strong{font-size:14px;font-weight:750}.scl__body p{margin:4px 0 0!important;font-size:12px!important;line-height:1.5;color:#acbebb!important}
+.scl__link{padding:10px 13px;border:1px solid #659e90;border-radius:8px;text-decoration:none!important;color:#d6fff4!important;font-size:12px;font-weight:730;white-space:nowrap}
+.scl__link:hover{background:#1c3630}
+@media(max-width:540px){.scl{gap:10px;padding:13px}.scl__symbol{display:none}.scl__link{padding:9px 11px}}
+</style>

@@ -12,6 +12,7 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
 
       sidebar: [
+        { label: 'Centrum nauki', slug: 'centrum-nauki' },
   {
     label: "Programowanie C++",
     collapsed: true,
