@@ -34,3 +34,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+env:
+  PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL }}
+  PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ vars.PUBLIC_SUPABASE_PUBLISHABLE_KEY }}
