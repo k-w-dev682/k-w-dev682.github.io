@@ -7,6 +7,13 @@ export default defineConfig({
 
   integrations: [
     starlight({
+      // StudyLab Centrum nauki v2.
+      head: [
+        { tag: 'script', attrs: { src: '/study-center-lesson-bridge.js', defer: true } },
+        { tag: 'link', attrs: { rel: 'stylesheet', href: '/study-center-lesson-tools.css' } },
+        { tag: 'link', attrs: { rel: 'manifest', href: '/study-center-manifest.webmanifest' } },
+        { tag: 'meta', attrs: { name: 'theme-color', content: '#090c0b' } },
+      ],
       title: 'StudyLab',
 
       customCss: ['./src/styles/custom.css'],

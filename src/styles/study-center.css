@@ -168,3 +168,6 @@
 .sc-root .sc-bookmark:hover{background:#302d1d;}
 .sc-saved-links{display:flex;flex-direction:column;gap:8px;}.sc-saved-links>a{color:#9de1d1;font-size:12px;text-decoration:none;border:1px solid #2a4640;border-radius:8px;padding:10px 12px;word-break:break-word;}.sc-saved-links>a:hover{background:#18332c;}
 .sc-path-list{display:flex;flex-direction:column;gap:11px;margin-top:15px;}.sc-path-list>div{display:flex;gap:15px;align-items:center;border-bottom:1px solid var(--sc-line);padding-bottom:10px;}.sc-path-list>div:last-child{border:0;}.sc-path-list>div>strong{font-size:12px;min-width:105px;color:#c4dbd5;}.sc-path-list>div>div{display:flex;align-items:center;flex-wrap:wrap;gap:7px;}.sc-path-list a{border:1px solid #324d45;background:#15231f;color:#b9e9d7;text-decoration:none;padding:6px 9px;border-radius:7px;font-size:11px;}.sc-path-list span{color:#7c9e96;font-size:12px;}@media(max-width:680px){.sc-path-list>div{align-items:start;flex-direction:column;gap:7px;}}
+/* V2 - kontekst lekcji i dopasowanie zakresu */
+.sc-focus-note{padding:12px 14px;margin:12px 0;border:1px solid #34554b;background:rgba(38,82,67,.19);border-radius:9px;font-size:13px;line-height:1.6;color:#d0e8df}
+.sc-focus-note a{display:inline-block;margin-left:7px;color:#9ee8d0!important}

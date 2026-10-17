@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { SUBJECTS, TOPICS, QUESTIONS, FLASHCARDS, topicLabel, subjectById, lessonHref } from './bank.js';
 import { GENERATOR_COUNT, generateTask, checkTaskAnswer } from './generators.js';
+import { pickAdaptiveQuestions, availableLessonItems, filterLessonItems, explainFocus } from './learning-v2.js';
 import { DEFAULT_DB, safeRead, save, validate, shuffled, pickQuestions, scheduleCard, cardsFor, getStats, recentMistakes, bookmarkedHref } from './engine.js';
 import '../../styles/study-center.css';
 
@@ -9,8 +10,8 @@ const localHref = route => `${BASE}${String(route||'').replace(/^\/+/, '')}`;
 const TODAY = () => new Date().toLocaleDateString('sv-SE');
 const prettyDate = stamp => new Date(stamp).toLocaleDateString('pl-PL', { day:'2-digit', month:'short', year:'numeric' });
 const uid = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2,10)}`;
-const SHORT = {overview:'Pulpit',quiz:'Quizy',cards:'Fiszki',tasks:'Zadania',exam:'Kolokwium',errors:'Błędy',stats:'Statystyki',planner:'Plan nauki',library:'Moje materiały'};
-const ICONS = {overview:'◫',quiz:'◇',cards:'▤',tasks:'∑',exam:'◷',errors:'↺',stats:'▥',planner:'▦',library:'☆'};
+const SHORT = {overview:'Pulpit',quiz:'Quizy',cards:'Fiszki',tasks:'Zadania',adaptive:'Trening',exam:'Kolokwium',errors:'Błędy',stats:'Statystyki',planner:'Plan nauki',library:'Moje materiały'};
+const ICONS = {overview:'◫',quiz:'◇',cards:'▤',tasks:'∑',adaptive:'◎',exam:'◷',errors:'↺',stats:'▥',planner:'▦',library:'☆'};
 const BookmarkContext = React.createContext({bookmarks:[],toggle:()=>{}});
 
 function SectionTitle({eyebrow,title,children}){return <div className="sc-section-title"><div><span className="sc-eyebrow">{eyebrow}</span><h2>{title}</h2></div>{children&&<div>{children}</div>}</div>;}
@@ -46,12 +47,15 @@ function Overview({db,stats,setTab}){
   <div className="sc-two-col"><section className="sc-panel"><h3>Przedmioty</h3><p className="sc-muted">Skuteczność oznacza odsetek poprawnych odpowiedzi, a nie zaliczenie całego kursu.</p><div className="sc-progress-list">{stats.bySubject.map(s=><div key={s.id} className="sc-subject-progress"><div className="sc-between"><span><i style={{background:s.color}}/>{s.short}</span><strong>{s.percent===null?'Jeszcze bez danych':`${s.percent}%`}</strong></div><Meter value={s.percent??0}/></div>)}</div></section>
    <section className="sc-panel"><h3>Co teraz ćwiczyć?</h3>{stats.weak.length?<><p className="sc-muted">Zagadnienia z co najmniej dwoma odpowiedziami i skutecznością poniżej 70%.</p>{stats.weak.slice(0,4).map(w=><div className="sc-weak" key={`${w.subject}-${w.id}`}><span>{w.subjectName}<b>{w.title}</b></span><strong>{w.rate}%</strong></div>)}</>:<Empty title="Jeszcze nie ma słabszych tematów">Rozwiąż kilka quizów. Gdy pojawią się błędy, system wskaże zagadnienia do powtórki.</Empty>}
     {last.length>0&&<button className="sc-inline-action" onClick={()=>setTab('errors')}>Otwórz zeszyt błędów →</button>}</section></div>
-  <section className="sc-panel"><div className="sc-between"><div><h3>Szybki wybór</h3><p>Ucz się na różne sposoby, nie tylko czytając notatki.</p></div></div><div className="sc-tile-grid">{[['quiz','Quizy','Pytania z wyjaśnieniami'],['cards','Fiszki','Powtórki w odpowiednich odstępach'],['tasks','Zadania','Nowe liczby i automatyczne sprawdzanie'],['exam','Kolokwium','Test na czas bez podpowiedzi']].map(([key,title,desc])=><button key={key} className="sc-tile" onClick={()=>setTab(key)}><span aria-hidden="true">{ICONS[key]}</span><strong>{title}</strong><small>{desc}</small><i aria-hidden="true">↗</i></button>)}</div></section>
+  <section className="sc-panel"><div className="sc-between"><div><h3>Szybki wybór</h3><p>Ucz się na różne sposoby, nie tylko czytając notatki.</p></div></div><div className="sc-tile-grid">{[['quiz','Quizy','Pytania z wyjaśnieniami'],['cards','Fiszki','Powtórki w odpowiednich odstępach'],['tasks','Zadania','Nowe liczby i automatyczne sprawdzanie'],['adaptive','Trening adaptacyjny','Słabsze i nieprzećwiczone tematy'],['exam','Kolokwium','Test na czas bez podpowiedzi']].map(([key,title,desc])=><button key={key} className="sc-tile" onClick={()=>setTab(key)}><span aria-hidden="true">{ICONS[key]}</span><strong>{title}</strong><small>{desc}</small><i aria-hidden="true">↗</i></button>)}</div></section>
  </>;
 }
 
-function QuizPanel({db,onAttempt,onSession,examMode=false}){
- const [subject,setSubject]=useState('all'); const [topic,setTopic]=useState('all'); const [count,setCount]=useState(10);
+function QuizPanel({db,onAttempt,onSession,examMode=false,adaptiveMode=false,focus=null}){
+ const [subject,setSubject]=useState(focus?.subject||'all'); const [topic,setTopic]=useState(focus?.topic||'all'); const [count,setCount]=useState(10);
+ const [onlyLesson,setOnlyLesson]=useState(!!focus?.lesson && availableLessonItems(QUESTIONS, focus).length>0);
+ const focused=focus&&focus.subject===subject&&focus.lesson?focus:null;
+ const exactCount=focused?availableLessonItems(QUESTIONS,focused).length:0;
  const [active,setActive]=useState(null); const [phase,setPhase]=useState('setup');const [idx,setIdx]=useState(0);
  const [selected,setSelected]=useState({});const [checked,setChecked]=useState({});const [revealed,setRevealed]=useState(false);
  const [finished,setFinished]=useState([]);const [clock,setClock]=useState(Date.now());const [deadline,setDeadline]=useState(0);
@@ -59,7 +63,7 @@ function QuizPanel({db,onAttempt,onSession,examMode=false}){
  const durationSecs=deadline?Math.max(0,Math.ceil((deadline-clock)/1000)):0;
  const errors=new Set(db.attempts.filter(a=>!a.ok).slice(-160).map(x=>x.id));
  function start(){
-  const generated=pickQuestions(subject,topic,count,[...db.attempts.slice(-20).map(a=>a.id)]);
+  const generated=adaptiveMode?pickAdaptiveQuestions(db,subject,topic,count):onlyLesson&&focused&&exactCount?filterLessonItems(pickQuestions(subject,topic,QUESTIONS.length,[]),focused).slice(0,count):pickQuestions(subject,topic,count,[...db.attempts.slice(-20).map(a=>a.id)]);
   if(!generated.length)return;
   setActive(generated);setPhase('running');setIdx(0);setSelected({});setChecked({});setRevealed(false);setFinished([]);finishing.current=false;
   const end=Date.now()+minutes*60*1000;setDeadline(end);setClock(Date.now());
@@ -74,14 +78,14 @@ function QuizPanel({db,onAttempt,onSession,examMode=false}){
  function commitQuestion(){
   if(!question || selectedOriginal===undefined || isChecked)return;
   const ok=selectedOriginal===question.correct;
-  onAttempt({id:question.id,subject:question.subject,topic:question.topic,question:question.stem,given:question.options[selectedOriginal],answer:question.options[question.correct],why:question.why,lesson:question.lesson,ok,mode:'quiz',hints:revealed?1:0,date:Date.now()});
+  onAttempt({id:question.id,subject:question.subject,topic:question.topic,question:question.stem,given:question.options[selectedOriginal],answer:question.options[question.correct],why:question.why,lesson:question.lesson,ok,mode:adaptiveMode?'adaptive':'quiz',hints:revealed?1:0,date:Date.now()});
   setChecked(p=>({...p,[idx]:true}));
  }
  function nextQuestion(){if(idx===(active?.length||1)-1){completeQuiz();}else{setIdx(i=>i+1);setRevealed(false);}}
  function completeQuiz(){
   const arr=active||[];const tally=arr.reduce((sum,q,i)=>sum+(checked[i]&&selected[i]===q.correct?1:0),0);
   setFinished(arr.map((q,i)=>({...q,selected:selected[i],wasChecked:!!checked[i]})));
-  onSession({mode:'quiz',score:tally,total:arr.length,date:Date.now()});setPhase('done');
+  onSession({mode:adaptiveMode?'adaptive':'quiz',score:tally,total:arr.length,date:Date.now()});setPhase('done');
  }
  function completeExam(){
   if(finishing.current||!active)return;finishing.current=true;
@@ -94,8 +98,8 @@ function QuizPanel({db,onAttempt,onSession,examMode=false}){
  useEffect(()=>{if(examMode&&phase==='running'&&deadline&&durationSecs===0){completeExam();}},[examMode,phase,deadline,durationSecs]);
  const score=finished.filter(q=>q.selected===q.correct&&(!(!examMode&&!q.wasChecked))).length;
  return <>
- <SectionTitle eyebrow={examMode?'TRYB EGZAMINACYJNY':'AKTYWNE PRZYPOMINANIE'} title={examMode?'Próbne kolokwium':'Quizy wiedzy'}><SmallTag>{examMode?'Bez podpowiedzi':'Z wyjaśnieniami odpowiedzi'}</SmallTag></SectionTitle>
- {phase==='setup'&&<section className="sc-panel"><h3>Ustawienia {examMode?'kolokwium':'quizu'}</h3><p>Wybierz materiał. Pytania pochodzą z przygotowanej bazy StudyLab; odpowiedzi są automatycznie tasowane.</p><div className="sc-form-grid"><SubjectSelect value={subject} onChange={v=>{setSubject(v);setTopic('all')}} id={examMode?'exam-subject':'quiz-subject'}/><TopicSelect subject={subject} value={topic} onChange={setTopic} id={examMode?'exam-topic':'quiz-topic'}/><label className="sc-field"><span>Liczba pytań (maksimum dostępnych)</span><select value={count} onChange={e=>setCount(Number(e.target.value))}><option value={5}>5</option><option value={10}>10</option><option value={20}>20</option></select></label>{examMode&&<label className="sc-field"><span>Limit czasu</span><select value={minutes} onChange={e=>setMinutes(Number(e.target.value))}><option value={5}>5 minut</option><option value={10}>10 minut</option><option value={15}>15 minut</option><option value={30}>30 minut</option></select></label>}</div><div className="sc-info-line"><span>W bazie: <strong>{QUESTIONS.filter(q=>(subject==='all'||q.subject===subject)&&(topic==='all'||q.topic===topic)).length}</strong> różnych pytań</span>{errors.size>0&&<span>{errors.size} pytań wystąpiło w poprzednich błędach</span>}</div><button className="sc-primary" onClick={start}>Rozpocznij {examMode?'kolokwium':'quiz'} <span aria-hidden="true">→</span></button></section>}
+ <SectionTitle eyebrow={examMode?'TRYB EGZAMINACYJNY':adaptiveMode?'PRIORYTET TRUDNYCH TEMATÓW':'AKTYWNE PRZYPOMINANIE'} title={examMode?'Próbne kolokwium':adaptiveMode?'Trening adaptacyjny':'Quizy wiedzy'}><SmallTag>{examMode?'Bez podpowiedzi':adaptiveMode?'Na podstawie Twoich prób':'Z wyjaśnieniami odpowiedzi'}</SmallTag></SectionTitle>
+ {phase==='setup'&&<section className="sc-panel"><h3>Ustawienia {examMode?'kolokwium':'quizu'}</h3><p>{adaptiveMode?'Pytania dobierane są na podstawie Twoich błędów i dotychczas nieprzećwiczonych tematów. To przejrzysty algorytm, bez AI.':'Wybierz materiał. Pytania pochodzą z przygotowanej bazy StudyLab; odpowiedzi są automatycznie tasowane.'}</p>{focused&&<div className="sc-focus-note">{explainFocus(QUESTIONS,focused)} <a href={localHref(lessonHref(focused.subject,focused.lesson))}>Wróć do lekcji ↗</a></div>}<div className="sc-form-grid"><SubjectSelect value={subject} onChange={v=>{setSubject(v);setTopic('all')}} id={examMode?'exam-subject':'quiz-subject'}/><TopicSelect subject={subject} value={topic} onChange={setTopic} id={examMode?'exam-topic':'quiz-topic'}/><label className="sc-field"><span>Liczba pytań (maksimum dostępnych)</span><select value={count} onChange={e=>setCount(Number(e.target.value))}><option value={5}>5</option><option value={10}>10</option><option value={20}>20</option></select></label>{examMode&&<label className="sc-field"><span>Limit czasu</span><select value={minutes} onChange={e=>setMinutes(Number(e.target.value))}><option value={5}>5 minut</option><option value={10}>10 minut</option><option value={15}>15 minut</option><option value={30}>30 minut</option></select></label>}</div>{focused&&exactCount>0&&!adaptiveMode&&<label className="sc-toggle"><input type="checkbox" checked={onlyLesson} onChange={e=>setOnlyLesson(e.target.checked)}/>Tylko pytania dokładnie do tej lekcji ({exactCount})</label>}<div className="sc-info-line"><span>W bazie: <strong>{QUESTIONS.filter(q=>(subject==='all'||q.subject===subject)&&(topic==='all'||q.topic===topic)).length}</strong> różnych pytań</span>{errors.size>0&&<span>{errors.size} pytań wystąpiło w poprzednich błędach</span>}</div><button className="sc-primary" onClick={start}>Rozpocznij {examMode?'kolokwium':'quiz'} <span aria-hidden="true">→</span></button></section>}
  {phase==='running'&&question&&<section className="sc-panel sc-test-panel"><div className="sc-between sc-question-meta"><span>Pytanie <strong>{idx+1}</strong> z {active.length}</span><div className="sc-meta-right">{examMode&&<span className={durationSecs<60?'sc-time-alert':'sc-timer'} aria-live="off">{String(Math.floor(durationSecs/60)).padStart(2,'0')}:{String(durationSecs%60).padStart(2,'0')}</span>}<SmallTag>{subjectById(question.subject)?.short} / {topicLabel(question.subject,question.topic)}</SmallTag></div></div><Meter value={idx+1} max={active.length}/><h3 className="sc-question">{question.stem}</h3><div className="sc-option-list">{question.shuffledOptions.map(({value,index})=>{
   const chosen=selectedOriginal===index; const correct=index===question.correct;
   const className=`sc-option ${chosen?'sc-option--selected':''} ${!examMode&&isChecked&&correct?'sc-option--correct':''} ${!examMode&&isChecked&&chosen&&!correct?'sc-option--wrong':''}`;
@@ -107,29 +111,31 @@ function QuizPanel({db,onAttempt,onSession,examMode=false}){
  </>;
 }
 
-function FlashcardPanel({db,onReview}){
- const [subject,setSubject]=useState('all'),[topic,setTopic]=useState('all'),[onlyDue,setOnlyDue]=useState(true);
+function FlashcardPanel({db,onReview,focus=null}){
+ const [subject,setSubject]=useState(focus?.subject||'all'),[topic,setTopic]=useState(focus?.topic||'all'),[onlyDue,setOnlyDue]=useState(true);
+ const [onlyLesson,setOnlyLesson]=useState(!!focus?.lesson&&availableLessonItems(FLASHCARDS,focus).length>0);
+ const focused=focus&&focus.subject===subject&&focus.lesson?focus:null;const exactCount=focused?availableLessonItems(FLASHCARDS,focused).length:0;
  const [seen,setSeen]=useState([]),[flipped,setFlipped]=useState(false),[lastInfo,setLastInfo]=useState('');
- const cards=useMemo(()=>cardsFor(db,subject,topic,onlyDue).filter(c=>!seen.includes(c.id)),[db,subject,topic,onlyDue,seen]);
+ const cards=useMemo(()=>cardsFor(db,subject,topic,onlyDue).filter(c=>(!onlyLesson||!focused||!exactCount||c.lesson===focused.lesson)&&!seen.includes(c.id)),[db,subject,topic,onlyDue,seen,onlyLesson,focused?.lesson,exactCount]);
  const card=cards[0];const total=cardsFor(db,subject,topic,onlyDue).length;
  function changeSubject(v){setSubject(v);setTopic('all');setSeen([]);setFlipped(false);setLastInfo('');}
  function changeTopic(v){setTopic(v);setSeen([]);setFlipped(false);setLastInfo('');}
  function rate(rating){if(!card)return;const state=scheduleCard(db.cards[card.id],rating);onReview(card.id,rating,state);setSeen(p=>[...p,card.id]);setFlipped(false);setLastInfo(rating==='again'?'Powtórka za 1 minutę':rating==='hard'?'Do jutra lub później':`Następna powtórka za ${state.interval} dni`);}
  return <><SectionTitle eyebrow="POWTÓRKI INTERWAŁOWE" title="Fiszki"><SmallTag>{FLASHCARDS.length+db.customCards.length} fiszek w bibliotece</SmallTag></SectionTitle>
-  <section className="sc-panel"><div className="sc-form-grid"><SubjectSelect value={subject} onChange={changeSubject} id="card-subject"/><TopicSelect subject={subject} value={topic} onChange={changeTopic} id="card-topic"/></div><label className="sc-toggle"><input type="checkbox" checked={onlyDue} onChange={e=>{setOnlyDue(e.target.checked);setSeen([]);setFlipped(false);}}/>Tylko nowe i zaplanowane na teraz</label><p className="sc-muted">Oceń, czy potrafiłeś odtworzyć odpowiedź <strong>przed</strong> odwróceniem karty. Powtórki działają na podstawie uproszczonego algorytmu SM-2.</p></section>
+  <section className="sc-panel"><div className="sc-form-grid"><SubjectSelect value={subject} onChange={changeSubject} id="card-subject"/><TopicSelect subject={subject} value={topic} onChange={changeTopic} id="card-topic"/></div>{focused&&<div className="sc-focus-note">{explainFocus(FLASHCARDS,focused)} <a href={localHref(lessonHref(focused.subject,focused.lesson))}>Wróć do lekcji ↗</a></div>}{focused&&exactCount>0&&<label className="sc-toggle"><input type="checkbox" checked={onlyLesson} onChange={e=>{setOnlyLesson(e.target.checked);setSeen([]);}}/>Tylko fiszki dokładnie do tej lekcji ({exactCount})</label>}<label className="sc-toggle"><input type="checkbox" checked={onlyDue} onChange={e=>{setOnlyDue(e.target.checked);setSeen([]);setFlipped(false);}}/>Tylko nowe i zaplanowane na teraz</label><p className="sc-muted">Oceń, czy potrafiłeś odtworzyć odpowiedź <strong>przed</strong> odwróceniem karty. Powtórki działają na podstawie uproszczonego algorytmu SM-2.</p></section>
   {card?<section className="sc-card-session"><div className="sc-between"><span className="sc-eyebrow">{subjectById(card.subject)?.short} / {topicLabel(card.subject,card.topic)}</span><span className="sc-tag">{cards.length} w tej sesji</span></div><button className={`sc-flashcard ${flipped?'is-flipped':''}`} onClick={()=>setFlipped(f=>!f)} aria-label={flipped?'Pokaż pytanie':'Pokaż odpowiedź'}><span>{flipped?'ODPOWIEDŹ':'PYTANIE'}</span><strong>{flipped?card.back:card.front}</strong><small>Kliknij, aby {flipped?'wrócić do pytania':'odwrócić fiszkę'}</small></button>{flipped?<><LinkLesson subject={card.subject} slug={card.lesson}/><div className="sc-card-ratings">{[['again','Nie pamiętam'],['hard','Trudne'],['good','Umiem'],['easy','Bardzo łatwe']].map(([val,label])=><button key={val} className={`sc-rate sc-rate--${val}`} onClick={()=>rate(val)}>{label}</button>)}</div></>:<p className="sc-flash-info">Spróbuj odpowiedzieć z pamięci, zanim odwrócisz kartę.</p>}</section>:<section className="sc-panel"><Empty title="Sesja fiszek zakończona">{onlyDue?'Na razie nie ma więcej kart do przejrzenia w wybranym zakresie.':'Przejrzałeś wszystkie fiszki z tego zestawu.'}</Empty>{lastInfo&&<p className="sc-muted">{lastInfo}</p>}<button className="sc-secondary" onClick={()=>{setSeen([]);setFlipped(false);}}>Rozpocznij ponownie</button></section>}
  </>;
 }
 
-function TasksPanel({onAttempt,initialSubject='all'}){
- const [subject,setSubject]=useState(initialSubject),[topic,setTopic]=useState('all'),[t,setT]=useState(()=>generateTask('all'));
+function TasksPanel({onAttempt,initialSubject='all',initialTopic='all',focus=null}){
+ const [subject,setSubject]=useState(initialSubject),[topic,setTopic]=useState(initialTopic),[t,setT]=useState(()=>generateTask(initialSubject,initialTopic));
  const [input,setInput]=useState(''),[checked,setChecked]=useState(false),[correct,setCorrect]=useState(false),[hints,setHints]=useState(0);
  function newTask(s=subject,top=topic){setT(prev=>generateTask(s,top,prev?.key));setInput('');setChecked(false);setCorrect(false);setHints(0);}
  function check(){if(checked||!input.trim())return;const ok=checkTaskAnswer(input,t);setChecked(true);setCorrect(ok);
   onAttempt({id:t.key,subject:t.subject,topic:t.topic,question:t.prompt,given:input.trim(),answer:t.displayAnswer,why:t.solution,lesson:t.lesson,ok,mode:'task',hints,date:Date.now()});
  }
  return <><SectionTitle eyebrow="GENERATOR OFFLINE" title="Zadania praktyczne"><SmallTag>{GENERATOR_COUNT} typów zadań</SmallTag></SectionTitle>
- <section className="sc-panel"><div className="sc-form-grid"><SubjectSelect id="task-subject" value={subject} onChange={v=>{setSubject(v);setTopic('all');newTask(v,'all')}}/><TopicSelect id="task-topic" subject={subject} value={topic} onChange={v=>{setTopic(v);newTask(subject,v)}}/></div><p className="sc-muted">JavaScript losuje nowe dane i oblicza odpowiedź. To nie są losowe teksty ani odpowiedzi generowane przez AI.</p></section>
+ <section className="sc-panel"><div className="sc-form-grid"><SubjectSelect id="task-subject" value={subject} onChange={v=>{setSubject(v);setTopic('all');newTask(v,'all')}}/><TopicSelect id="task-topic" subject={subject} value={topic} onChange={v=>{setTopic(v);newTask(subject,v)}}/></div>{focus?.lesson&&<div className="sc-focus-note">Zadania losowane z rozdziału dotyczącego tej lekcji, niekoniecznie z identycznego przykładu. <a href={localHref(lessonHref(focus.subject,focus.lesson))}>Wróć do lekcji ↗</a></div>}<p className="sc-muted">JavaScript losuje nowe dane i oblicza odpowiedź. To nie są losowe teksty ani odpowiedzi generowane przez AI.</p></section>
  <section className="sc-panel sc-task-panel"><div className="sc-between"><SmallTag>{subjectById(t.subject)?.short} / {topicLabel(t.subject,t.topic)}</SmallTag><button className="sc-inline-action" onClick={()=>newTask()}>Inny przykład ↻</button></div><h3>{t.title}</h3><p className="sc-task-prompt">{t.prompt}</p><label className="sc-field"><span>Twoja odpowiedź{t.unit?` (${t.unit})`:''}</span><input type="text" inputMode={t.kind==='number'?'decimal':'text'} autoComplete="off" placeholder={t.kind==='binary'?'Np. 10101010':'Wpisz wynik'} value={input} disabled={checked} onChange={e=>setInput(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&!checked)check();}}/></label>{!checked&&<><button className="sc-hint" onClick={()=>setHints(n=>Math.min(n+1,t.hints.length))} disabled={hints>=t.hints.length}>Podpowiedź {hints}/{t.hints.length} +</button>{hints>0&&<div className="sc-hints">{t.hints.slice(0,hints).map((x,i)=><p key={i}><b>{i+1}.</b> {x}</p>)}</div>}</>}
  {checked&&<div className={`sc-feedback ${correct?'sc-feedback--good':'sc-feedback--bad'}`} role="status"><strong>{correct?'Poprawny wynik':'Warto spróbować jeszcze raz w następnym przykładzie'}</strong><p>Odpowiedź: <b>{t.displayAnswer}</b></p><p>{t.solution}</p><LinkLesson subject={t.subject} slug={t.lesson}/></div>}
  <div className="sc-actions sc-actions--end">{!checked?<button className="sc-primary" disabled={!input.trim()} onClick={check}>Sprawdź wynik</button>:<button className="sc-primary" onClick={()=>newTask()}>Kolejne zadanie →</button>}</div></section>
@@ -199,6 +205,7 @@ function LibraryPanel({db,onAddCard,onRemoveCard,onAddNote,onRemoveNote,onImport
 
 export default function StudyCenter(){
  const [db,setDb]=useState(()=>DEFAULT_DB());const [ready,setReady]=useState(false);
+ const [focus]=useState(()=>{if(typeof window==='undefined')return null;const params=new URLSearchParams(window.location.search);const subj=params.get('subject'),top=params.get('topic'),lesson=params.get('lesson');if(!SUBJECTS.some(s=>s.id===subj))return null;return {subject:subj,topic:TOPICS[subj]?.some(([t])=>t===top)?top:'all',lesson:/^[a-z0-9-]{1,100}$/i.test(lesson||'')?lesson:null};});
  const [tab,setTab]=useState('overview');const [saveError,setSaveError]=useState(false);
  useEffect(()=>{setDb(safeRead());setReady(true);},[]);
  useEffect(()=>{if(ready)setSaveError(!save(db));},[db,ready]);
@@ -208,21 +215,22 @@ export default function StudyCenter(){
  function rateCard(id,rating,state){update(db=>({...db,cards:{...db.cards,[id]:state},reviews:[...db.reviews,{cardId:id,rating,date:Date.now()}].slice(-5000)}));}
  function toggleBookmark(href){update(d=>({...d,bookmarks:d.bookmarks.includes(href)?d.bookmarks.filter(x=>x!==href):[...d.bookmarks,href]}));}
  const stats=useMemo(()=>getStats(db),[db]);
- useEffect(()=>{if(typeof window==='undefined')return;const hash=window.location.hash.slice(1);if(SHORT[hash])setTab(hash);},[]);
+ useEffect(()=>{if(typeof window==='undefined')return;const hash=window.location.hash.slice(1);if(SHORT[hash])setTab(hash);else {const mode=new URLSearchParams(window.location.search).get('mode');if(SHORT[mode]&&mode!=='overview')setTab(mode);}},[]);
  function changeTab(next){setTab(next);if(typeof history!=='undefined')history.replaceState(null,'',`${location.pathname}${location.search}#${next}`);}
  if(!ready)return <div className="sc-root sc-loading" aria-busy="true">Ładowanie Centrum nauki…</div>;
  return <BookmarkContext.Provider value={{bookmarks:db.bookmarks,toggle:toggleBookmark}}><div className="sc-root"><header className="sc-header"><div><p className="sc-eyebrow"><span className="sc-dot"/> STUDYLAB / CENTRUM NAUKI</p><h1>Ćwicz. Sprawdzaj. <em>Zapamiętuj.</em></h1><p className="sc-lead">Quizy, fiszki, zadania i powtórki połączone z Twoimi lekcjami. Bez konta, bez abonamentu, bez kluczy API.</p></div><div className="sc-header-meta"><span><b>{QUESTIONS.length}</b> pytań</span><span><b>{FLASHCARDS.length+db.customCards.length}</b> fiszek</span><span><b>{GENERATOR_COUNT}</b> generatorów</span></div></header>
  {saveError&&<div className="sc-warning" role="alert">Nie udało się zapisać postępów w przeglądarce. Sprawdź wolne miejsce i ustawienia prywatności. Możesz spróbować wyeksportować dane.</div>}
- <div className="sc-layout"><nav className="sc-navigation" aria-label="Centrum nauki">{Object.entries(SHORT).map(([key,title])=><button key={key} className={tab===key?'sc-nav-active':''} aria-current={tab===key?'page':undefined} onClick={()=>changeTab(key)}><span aria-hidden="true">{ICONS[key]}</span>{title}{key==='cards'&&stats.due>0&&<small>{stats.due}</small>}{key==='errors'&&recentMistakes(db).length>0&&<small>{recentMistakes(db).length}</small>}</button>)}<div className="sc-side-note"><strong>Tryb offline</strong><p>Generowanie działa bez połączenia z AI. Postępy zapisują się w Twojej przeglądarce.</p></div></nav>
+ <div className="sc-layout"><nav className="sc-navigation" aria-label="Centrum nauki">{Object.entries(SHORT).map(([key,title])=><button key={key} className={tab===key?'sc-nav-active':''} aria-current={tab===key?'page':undefined} onClick={()=>changeTab(key)}><span aria-hidden="true">{ICONS[key]}</span>{title}{key==='cards'&&stats.due>0&&<small>{stats.due}</small>}{key==='errors'&&recentMistakes(db).length>0&&<small>{recentMistakes(db).length}</small>}</button>)}<div className="sc-side-note"><strong>Tryb offline</strong><p>Odwiedzone lekcje i Centrum nauki są dostępne offline po zapisaniu ich przez przeglądarkę. Postępy pozostają lokalne.</p></div></nav>
  <div className="sc-main" id="study-center-content">
  {tab==='overview'&&<Overview db={db} stats={stats} setTab={changeTab}/>}
- {tab==='quiz'&&<QuizPanel key="quiz-panel" db={db} onAttempt={addAttempt} onSession={addSession}/>}
- {tab==='cards'&&<FlashcardPanel db={db} onReview={rateCard}/>}
- {tab==='tasks'&&<TasksPanel onAttempt={addAttempt}/>}
+ {tab==='quiz'&&<QuizPanel key="quiz-panel" db={db} onAttempt={addAttempt} onSession={addSession} focus={focus}/>}
+ {tab==='cards'&&<FlashcardPanel db={db} onReview={rateCard} focus={focus}/>}
+ {tab==='tasks'&&<TasksPanel onAttempt={addAttempt} initialSubject={focus?.subject||'all'} initialTopic={focus?.topic||'all'} focus={focus}/>}
+ {tab==='adaptive'&&<QuizPanel key="adaptive-panel" db={db} onAttempt={addAttempt} onSession={addSession} adaptiveMode focus={focus}/>}
  {tab==='exam'&&<QuizPanel key="exam-panel" db={db} onAttempt={addAttempt} onSession={addSession} examMode/>}
  {tab==='errors'&&<Mistakes db={db} setTab={changeTab}/>}
  {tab==='stats'&&<StatsPanel db={db} stats={stats} onGoal={goal=>update(d=>({...d,settings:{...d.settings,goal}}))}/>}
  {tab==='planner'&&<PlannerPanel db={db} stats={stats} onPlanner={planner=>update(d=>({...d,planner}))} setTab={changeTab}/>}
  {tab==='library'&&<LibraryPanel db={db} onAddCard={c=>update(d=>({...d,customCards:[...d.customCards,c]}))} onRemoveCard={id=>update(d=>({...d,customCards:d.customCards.filter(x=>x.id!==id)}))} onAddNote={n=>update(d=>({...d,notes:[...d.notes,n]}))} onRemoveNote={id=>update(d=>({...d,notes:d.notes.filter(x=>x.id!==id)}))} onImport={setDb} onClear={()=>setDb(DEFAULT_DB())}/>}
- </div></div><footer className="sc-footer">StudyLab · Wersja 1.0 · Pytania i fiszki z przygotowanej bazy · Uproszczony system powtórek · Brak synchronizacji między urządzeniami</footer></div></BookmarkContext.Provider>;
+ </div></div><footer className="sc-footer">StudyLab · Wersja 2.0 · Pytania i fiszki z przygotowanej bazy · Uproszczony SM-2 (bez FSRS) · PWA: odwiedzone strony dostępne offline · Postęp osobno na każdym urządzeniu</footer></div></BookmarkContext.Provider>;
 }
