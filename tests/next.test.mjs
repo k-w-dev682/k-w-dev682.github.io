@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {evaluateTopic,buildMap,reviewQueue,summarizeProgress,validateNotesFile,quickQuestions} from '../src/components/studycenter/next-engine.mjs';
+const subjects=[{id:'math2',short:'M2'}],topics={math2:[['sets','Zbiory'],['sequences','Ciągi']]};
+const attempts=[{subject:'math2',topic:'sets',ok:false,date:Date.now()},{subject:'math2',topic:'sets',ok:true,date:Date.now()}];
+test('bez prób nie sugeruje opanowania',()=>assert.equal(evaluateTopic([],'math2','sets').mastery,0));
+test('mapa ma relacje wymagań',()=>assert.deepEqual(buildMap(attempts,'math2',topics.math2)[1].requires,['sets']));
+test('kolejka wykrywa błędy i fiszki',()=>{const x=reviewQueue({attempts,cards:{a:{due:Date.now()-1}},reviews:[]},subjects,topics);assert.equal(x.dueCardCount,1);assert.ok(x.items[0].score>0)});
+test('statystyki sumują zadania i błędy',()=>{const x=summarizeProgress({attempts,reviews:[]},'math2',topics);assert.equal(x.attempts,2);assert.equal(x.accuracy,50);assert.equal(x.days.length,28)});
+test('import odrzuca obce i wadliwe dane',()=>assert.throws(()=>validateNotesFile({version:0,notes:[]})));
+test('import przycina dane',()=>assert.equal(validateNotesFile({version:1,notes:[{id:'a',title:'Notatka',body:'abc'}]}).notes.length,1));
+test('mikrotest odfiltruje temat',()=>assert.equal(quickQuestions([{subject:'math2',topic:'sets'},{subject:'math2',topic:'sequences'}],'math2','sets').length,1));

@@ -1,0 +1,17 @@
+/* StudyLab 7.3: czytelne objaśnienia fiszek i opcjonalna łatwiejsza treść zadań */
+.sc-root .sc-simplify{margin:-7px 0 20px;min-width:0}
+.sc-root .sc-simplify-button{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;max-width:100%;min-height:39px;text-align:left;border:1px solid #35584f;background:#14241f;color:#aef4e0;padding:9px 12px;border-radius:9px;font-size:12px;line-height:1.45;font-weight:650;overflow-wrap:anywhere}
+.sc-root .sc-simplify-button:hover{background:#1b342b;border-color:#78cbb1}
+.sc-root .sc-simplify-button > span{display:inline-flex;align-items:center;justify-content:center;flex:0 0 18px;font-size:16px}
+.sc-root .sc-simplify-content{background:#101f1a;border:1px solid #355c4b;border-left:3px solid #8be9c4;border-radius:9px;padding:13px 15px;margin-top:9px;overflow-wrap:anywhere}
+.sc-root .sc-simplify-content strong{display:block;font-size:12px;color:#c6fbe5;margin-bottom:6px}
+.sc-root .sc-simplify-content p{font-size:13px;line-height:1.7;margin:0;color:#d9ebdf}
+.sc-root .sc-card-explanation{display:grid;gap:13px;margin:13px 0 18px;background:#0f201b;border:1px solid #376854;border-radius:13px;padding:clamp(14px,2.2vw,22px);max-width:100%;overflow-wrap:anywhere}
+.sc-root .sc-card-explanation h3{font-size:16px;color:#b7f8d9;font-weight:750;line-height:1.35;margin:0!important}
+.sc-root .sc-card-explanation p{font-size:13px;line-height:1.75;color:#e0eee7;margin:0}
+.sc-root .sc-card-explanation-part{padding-top:12px;border-top:1px solid #315242;min-width:0}
+.sc-root .sc-card-explanation-part strong{display:block;font-size:12px;color:#a8e9d0;margin-bottom:7px}
+.sc-root .sc-card-explanation-part p{white-space:pre-wrap}
+.sc-root .sc-task-panel>.sc-simplify{margin:10px 0 18px}
+.sc-root .sc-card-session .sc-card-ratings{margin-top:16px}
+@media(max-width:560px){.sc-root .sc-simplify-button{width:100%}.sc-root .sc-card-explanation{padding:13px}.sc-root .sc-simplify-content{padding:12px}}

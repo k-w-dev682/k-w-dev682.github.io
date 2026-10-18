@@ -24,7 +24,7 @@
     text.textContent=exact?`${item.exactQuestions} ${form(item.exactQuestions,'pytanie','pytania','pytań')} i ${item.exactCards} ${form(item.exactCards,'fiszka','fiszki','fiszek')} przypisanych do tej lekcji`:'Brak materiałów przypisanych wprost do lekcji — dostępny jest zestaw z rozdziału/przedmiotu';
     content.append(heading,text);
     const controls=document.createElement('div');controls.className='scl2-lesson-controls';
-    for(const [mode,label] of [['quiz','Quiz'],['cards','Fiszki'],['tasks','Zadania']]){
+    for(const [mode,label] of [['quiz','Quiz'],['cards','Fiszki'],['tasks','Zadania'],['workshop','Warsztat']]){
       const a=document.createElement('a');a.textContent=label;
       const params=new URLSearchParams({subject:item.subject,topic:item.topic,lesson:item.lesson,mode});
       a.href=href('centrum-nauki/')+'?'+params.toString()+'#'+mode;

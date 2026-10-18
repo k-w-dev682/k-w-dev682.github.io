@@ -10,7 +10,10 @@
     "astro": "astro",
     "studycenter:drafts": "node tools/studycenter-generate.mjs",
     "studycenter:approve": "node tools/studycenter-approve.mjs",
-    "prebuild": "node tools/studycenter-check-public-config.mjs && node tools/generate-lesson-index.mjs && node tools/studycenter-generate.mjs"
+    "prebuild": "node tools/studycenter-check-public-config.mjs && node tools/generate-lesson-index.mjs && node tools/generate-microchecks.mjs && node tools/studycenter-generate.mjs",
+    "test:workshop": "node --test tests/workshop.test.mjs",
+    "test:next": "node --test tests/next.test.mjs",
+    "test:cards": "node --test tests/studylab73.test.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.0",

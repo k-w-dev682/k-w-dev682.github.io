@@ -7,8 +7,8 @@
       "topic": "cpu",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 4
+      "topicQuestions": 7,
+      "topicCards": 5
     },
     "ask/asm-zmienne": {
       "subject": "ask",
@@ -16,26 +16,26 @@
       "topic": "cpu",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 5,
-      "topicCards": 4
+      "topicQuestions": 7,
+      "topicCards": 5
     },
     "ask/bity-bajty": {
       "subject": "ask",
       "lesson": "bity-bajty",
       "topic": "bases",
-      "exactQuestions": 0,
-      "exactCards": 1,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "exactQuestions": 1,
+      "exactCards": 2,
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/cpu-ogolnie": {
       "subject": "ask",
       "lesson": "cpu-ogolnie",
       "topic": "cpu",
-      "exactQuestions": 2,
-      "exactCards": 2,
-      "topicQuestions": 5,
-      "topicCards": 4
+      "exactQuestions": 3,
+      "exactCards": 3,
+      "topicQuestions": 7,
+      "topicCards": 5
     },
     "ask/cw-u1-odczyt": {
       "subject": "ask",
@@ -43,8 +43,8 @@
       "topic": "signed",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/cw-u1-zapis": {
       "subject": "ask",
@@ -52,8 +52,8 @@
       "topic": "signed",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/cw-u2-odczyt": {
       "subject": "ask",
@@ -61,8 +61,8 @@
       "topic": "signed",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/cw-u2-zapis": {
       "subject": "ask",
@@ -70,8 +70,8 @@
       "topic": "signed",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/cw-zm-odczyt": {
       "subject": "ask",
@@ -79,8 +79,8 @@
       "topic": "signed",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/cw-zm-zapis": {
       "subject": "ask",
@@ -88,8 +88,8 @@
       "topic": "signed",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/cw10-16": {
       "subject": "ask",
@@ -97,8 +97,8 @@
       "topic": "bases",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/cw10-2": {
       "subject": "ask",
@@ -106,8 +106,8 @@
       "topic": "bases",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/cw16-10": {
       "subject": "ask",
@@ -115,8 +115,8 @@
       "topic": "bases",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/cw16-2": {
       "subject": "ask",
@@ -124,8 +124,8 @@
       "topic": "bases",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/cw2-10": {
       "subject": "ask",
@@ -133,8 +133,8 @@
       "topic": "bases",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/cw2-16": {
       "subject": "ask",
@@ -142,8 +142,8 @@
       "topic": "bases",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/cykl-rozkazu": {
       "subject": "ask",
@@ -151,8 +151,8 @@
       "topic": "cpu",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 5,
-      "topicCards": 4
+      "topicQuestions": 7,
+      "topicCards": 5
     },
     "ask/dodawanie-u2": {
       "subject": "ask",
@@ -160,44 +160,44 @@
       "topic": "signed",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/dwojkowy-dziesietny": {
       "subject": "ask",
       "lesson": "dwojkowy-dziesietny",
       "topic": "bases",
-      "exactQuestions": 1,
-      "exactCards": 1,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "exactQuestions": 2,
+      "exactCards": 2,
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/dziesietny-dwojkowy": {
       "subject": "ask",
       "lesson": "dziesietny-dwojkowy",
       "topic": "bases",
-      "exactQuestions": 0,
+      "exactQuestions": 1,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/hex-bin": {
       "subject": "ask",
       "lesson": "hex-bin",
       "topic": "bases",
-      "exactQuestions": 1,
+      "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/jednostki-pamieci": {
       "subject": "ask",
       "lesson": "jednostki-pamieci",
       "topic": "bases",
       "exactQuestions": 2,
-      "exactCards": 3,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "exactCards": 4,
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/karta-pojec": {
       "subject": "ask",
@@ -205,8 +205,8 @@
       "topic": "all",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 16,
-      "topicCards": 16
+      "topicQuestions": 24,
+      "topicCards": 20
     },
     "ask/liczby-ze-znakiem": {
       "subject": "ask",
@@ -214,8 +214,8 @@
       "topic": "signed",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/magistrala-cache": {
       "subject": "ask",
@@ -223,8 +223,8 @@
       "topic": "cpu",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 4
+      "topicQuestions": 7,
+      "topicCards": 5
     },
     "ask/porownanie-zm-u1-u2": {
       "subject": "ask",
@@ -232,8 +232,8 @@
       "topic": "signed",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/rejestry-pamiec": {
       "subject": "ask",
@@ -241,8 +241,8 @@
       "topic": "cpu",
       "exactQuestions": 1,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 4
+      "topicQuestions": 7,
+      "topicCards": 5
     },
     "ask/system-pozycyjny": {
       "subject": "ask",
@@ -250,8 +250,8 @@
       "topic": "bases",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/szesnastkowy": {
       "subject": "ask",
@@ -259,8 +259,8 @@
       "topic": "bases",
       "exactQuestions": 1,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "ask/u1": {
       "subject": "ask",
@@ -268,17 +268,17 @@
       "topic": "signed",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/u2": {
       "subject": "ask",
       "lesson": "u2",
       "topic": "signed",
-      "exactQuestions": 4,
+      "exactQuestions": 6,
       "exactCards": 4,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "ask/zm": {
       "subject": "ask",
@@ -286,8 +286,8 @@
       "topic": "signed",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "elektronika/cw-kondensatory": {
       "subject": "electronics",
@@ -295,8 +295,8 @@
       "topic": "cap",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 7,
-      "topicCards": 6
+      "topicQuestions": 10,
+      "topicCards": 8
     },
     "elektronika/cw-ladunek-coulomb": {
       "subject": "electronics",
@@ -304,7 +304,7 @@
       "topic": "charge",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
+      "topicQuestions": 7,
       "topicCards": 6
     },
     "elektronika/cw-pole-gauss": {
@@ -313,7 +313,7 @@
       "topic": "charge",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
+      "topicQuestions": 7,
       "topicCards": 6
     },
     "elektronika/cw-potencjal": {
@@ -322,8 +322,8 @@
       "topic": "potential",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 7,
+      "topicCards": 6
     },
     "elektronika/dielektryki": {
       "subject": "electronics",
@@ -331,8 +331,8 @@
       "topic": "cap",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 7,
-      "topicCards": 6
+      "topicQuestions": 10,
+      "topicCards": 8
     },
     "elektronika/elementy-pomiary": {
       "subject": "electronics",
@@ -340,17 +340,17 @@
       "topic": "all",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 16,
-      "topicCards": 16
+      "topicQuestions": 24,
+      "topicCards": 20
     },
     "elektronika/energia-kondensatora": {
       "subject": "electronics",
       "lesson": "energia-kondensatora",
       "topic": "cap",
-      "exactQuestions": 2,
-      "exactCards": 2,
-      "topicQuestions": 7,
-      "topicCards": 6
+      "exactQuestions": 3,
+      "exactCards": 3,
+      "topicQuestions": 10,
+      "topicCards": 8
     },
     "elektronika/energia-potencjalna": {
       "subject": "electronics",
@@ -358,8 +358,8 @@
       "topic": "potential",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 7,
+      "topicCards": 6
     },
     "elektronika/gradient": {
       "subject": "electronics",
@@ -367,26 +367,26 @@
       "topic": "potential",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 7,
+      "topicCards": 6
     },
     "elektronika/kondensator": {
       "subject": "electronics",
       "lesson": "kondensator",
       "topic": "cap",
-      "exactQuestions": 1,
-      "exactCards": 2,
-      "topicQuestions": 7,
-      "topicCards": 6
+      "exactQuestions": 2,
+      "exactCards": 3,
+      "topicQuestions": 10,
+      "topicCards": 8
     },
     "elektronika/lacznie-rownolegle": {
       "subject": "electronics",
       "lesson": "lacznie-rownolegle",
       "topic": "cap",
-      "exactQuestions": 2,
+      "exactQuestions": 3,
       "exactCards": 2,
-      "topicQuestions": 7,
-      "topicCards": 6
+      "topicQuestions": 10,
+      "topicCards": 8
     },
     "elektronika/lacznie-szeregowe": {
       "subject": "electronics",
@@ -394,8 +394,8 @@
       "topic": "cap",
       "exactQuestions": 1,
       "exactCards": 0,
-      "topicQuestions": 7,
-      "topicCards": 6
+      "topicQuestions": 10,
+      "topicCards": 8
     },
     "elektronika/ladunek": {
       "subject": "electronics",
@@ -403,7 +403,7 @@
       "topic": "charge",
       "exactQuestions": 2,
       "exactCards": 2,
-      "topicQuestions": 5,
+      "topicQuestions": 7,
       "topicCards": 6
     },
     "elektronika/linie-pola": {
@@ -412,17 +412,17 @@
       "topic": "all",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 16,
-      "topicCards": 16
+      "topicQuestions": 24,
+      "topicCards": 20
     },
     "elektronika/napiecie": {
       "subject": "electronics",
       "lesson": "napiecie",
       "topic": "potential",
-      "exactQuestions": 2,
-      "exactCards": 3,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "exactQuestions": 4,
+      "exactCards": 4,
+      "topicQuestions": 7,
+      "topicCards": 6
     },
     "elektronika/pojemnosc-plytkowego": {
       "subject": "electronics",
@@ -430,16 +430,16 @@
       "topic": "cap",
       "exactQuestions": 1,
       "exactCards": 0,
-      "topicQuestions": 7,
-      "topicCards": 6
+      "topicQuestions": 10,
+      "topicCards": 8
     },
     "elektronika/pole-elektryczne": {
       "subject": "electronics",
       "lesson": "pole-elektryczne",
       "topic": "charge",
-      "exactQuestions": 1,
+      "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 5,
+      "topicQuestions": 7,
       "topicCards": 6
     },
     "elektronika/potencjal": {
@@ -448,8 +448,8 @@
       "topic": "potential",
       "exactQuestions": 1,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 7,
+      "topicCards": 6
     },
     "elektronika/prad-kondensatora": {
       "subject": "electronics",
@@ -457,16 +457,16 @@
       "topic": "cap",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 7,
-      "topicCards": 6
+      "topicQuestions": 10,
+      "topicCards": 8
     },
     "elektronika/prawo-coulomba": {
       "subject": "electronics",
       "lesson": "prawo-coulomba",
       "topic": "charge",
-      "exactQuestions": 2,
+      "exactQuestions": 3,
       "exactCards": 2,
-      "topicQuestions": 5,
+      "topicQuestions": 7,
       "topicCards": 6
     },
     "elektronika/prawo-gaussa": {
@@ -475,7 +475,7 @@
       "topic": "charge",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
+      "topicQuestions": 7,
       "topicCards": 6
     },
     "elektronika/strumien-pola": {
@@ -484,7 +484,7 @@
       "topic": "charge",
       "exactQuestions": 0,
       "exactCards": 1,
-      "topicQuestions": 5,
+      "topicQuestions": 7,
       "topicCards": 6
     },
     "elektronika/superpozycja": {
@@ -493,17 +493,17 @@
       "topic": "charge",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
+      "topicQuestions": 7,
       "topicCards": 6
     },
     "elektronika/symbole-i-jednostki": {
       "subject": "electronics",
       "lesson": "symbole-i-jednostki",
       "topic": "potential",
-      "exactQuestions": 1,
-      "exactCards": 1,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "exactQuestions": 2,
+      "exactCards": 2,
+      "topicQuestions": 7,
+      "topicCards": 6
     },
     "fizyka/cw-dynamika": {
       "subject": "physics",
@@ -511,8 +511,8 @@
       "topic": "forces",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/cw-kinematyka": {
       "subject": "physics",
@@ -520,8 +520,8 @@
       "topic": "motion",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/cw-ruch-okrag": {
       "subject": "physics",
@@ -529,8 +529,8 @@
       "topic": "motion",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/cw-rzut": {
       "subject": "physics",
@@ -538,8 +538,8 @@
       "topic": "motion",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/cw-uklad-mas": {
       "subject": "physics",
@@ -547,35 +547,35 @@
       "topic": "forces",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/dosrodkowe": {
       "subject": "physics",
       "lesson": "dosrodkowe",
       "topic": "momentum",
-      "exactQuestions": 1,
+      "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 4,
+      "topicQuestions": 6,
       "topicCards": 4
     },
     "fizyka/druga-zasada": {
       "subject": "physics",
       "lesson": "druga-zasada",
       "topic": "forces",
-      "exactQuestions": 2,
-      "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "exactQuestions": 3,
+      "exactCards": 3,
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/grawitacja": {
       "subject": "physics",
       "lesson": "grawitacja",
       "topic": "forces",
-      "exactQuestions": 0,
+      "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/jednostki-wektory": {
       "subject": "physics",
@@ -583,17 +583,17 @@
       "topic": "motion",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/metoda-sil": {
       "subject": "physics",
       "lesson": "metoda-sil",
       "topic": "forces",
-      "exactQuestions": 0,
+      "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/moment-bezwladnosci": {
       "subject": "physics",
@@ -601,7 +601,7 @@
       "topic": "momentum",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
+      "topicQuestions": 6,
       "topicCards": 4
     },
     "fizyka/moment-pedu": {
@@ -610,7 +610,7 @@
       "topic": "momentum",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
+      "topicQuestions": 6,
       "topicCards": 4
     },
     "fizyka/moment-sily": {
@@ -619,7 +619,7 @@
       "topic": "momentum",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
+      "topicQuestions": 6,
       "topicCards": 4
     },
     "fizyka/napiecie-nici": {
@@ -628,8 +628,8 @@
       "topic": "forces",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/okrag": {
       "subject": "physics",
@@ -637,16 +637,16 @@
       "topic": "motion",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/ped": {
       "subject": "physics",
       "lesson": "ped",
       "topic": "momentum",
-      "exactQuestions": 3,
+      "exactQuestions": 4,
       "exactCards": 2,
-      "topicQuestions": 4,
+      "topicQuestions": 6,
       "topicCards": 4
     },
     "fizyka/pierwsza-zasada": {
@@ -655,8 +655,8 @@
       "topic": "forces",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/polozenie-droga": {
       "subject": "physics",
@@ -664,8 +664,8 @@
       "topic": "motion",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/predkosc": {
       "subject": "physics",
@@ -673,35 +673,35 @@
       "topic": "motion",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/przyspieszenie": {
       "subject": "physics",
       "lesson": "przyspieszenie",
       "topic": "motion",
-      "exactQuestions": 0,
-      "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "exactQuestions": 2,
+      "exactCards": 2,
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/ruch-jednostajny": {
       "subject": "physics",
       "lesson": "ruch-jednostajny",
       "topic": "motion",
-      "exactQuestions": 2,
+      "exactQuestions": 3,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/ruch-przyspieszony": {
       "subject": "physics",
       "lesson": "ruch-przyspieszony",
       "topic": "motion",
       "exactQuestions": 1,
-      "exactCards": 2,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "exactCards": 3,
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/rzut-maksimum": {
       "subject": "physics",
@@ -709,8 +709,8 @@
       "topic": "motion",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/rzut-ukosny": {
       "subject": "physics",
@@ -718,8 +718,8 @@
       "topic": "motion",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/sila-i-newton": {
       "subject": "physics",
@@ -727,8 +727,8 @@
       "topic": "forces",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/sila-normalna": {
       "subject": "physics",
@@ -736,8 +736,8 @@
       "topic": "forces",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/tarcie": {
       "subject": "physics",
@@ -745,8 +745,8 @@
       "topic": "forces",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/trzecia-zasada": {
       "subject": "physics",
@@ -754,8 +754,8 @@
       "topic": "forces",
       "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/wektory-2d": {
       "subject": "physics",
@@ -763,8 +763,8 @@
       "topic": "motion",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/wykresy-ruchu": {
       "subject": "physics",
@@ -772,8 +772,8 @@
       "topic": "motion",
       "exactQuestions": 1,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 8
     },
     "fizyka/zasada-pedu": {
       "subject": "physics",
@@ -781,7 +781,7 @@
       "topic": "momentum",
       "exactQuestions": 0,
       "exactCards": 1,
-      "topicQuestions": 4,
+      "topicQuestions": 6,
       "topicCards": 4
     },
     "matematyka/matematyka-i/cw-dziedzina-1": {
@@ -790,8 +790,8 @@
       "topic": "functions",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/cw-dziedzina-2": {
       "subject": "math1",
@@ -799,8 +799,8 @@
       "topic": "functions",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/cw-dziedzina-3": {
       "subject": "math1",
@@ -808,8 +808,8 @@
       "topic": "functions",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/cw-logika": {
       "subject": "math1",
@@ -817,8 +817,8 @@
       "topic": "logic",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "matematyka/matematyka-i/cw-odwrotne": {
       "subject": "math1",
@@ -826,8 +826,8 @@
       "topic": "functions",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/cw-zbiory": {
       "subject": "math1",
@@ -835,8 +835,8 @@
       "topic": "sets",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 5
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/dowody-zbiorowe": {
       "subject": "math1",
@@ -844,26 +844,26 @@
       "topic": "sets",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 5
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/dzialania-na-zbiorach": {
       "subject": "math1",
       "lesson": "dzialania-na-zbiorach",
       "topic": "sets",
-      "exactQuestions": 3,
+      "exactQuestions": 4,
       "exactCards": 4,
-      "topicQuestions": 5,
-      "topicCards": 5
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/dziedzina-zasady": {
       "subject": "math1",
       "lesson": "dziedzina-zasady",
       "topic": "functions",
-      "exactQuestions": 3,
+      "exactQuestions": 4,
       "exactCards": 3,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/funkcje-elementarne": {
       "subject": "math1",
@@ -871,8 +871,8 @@
       "topic": "functions",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/funkcje-odwrotne": {
       "subject": "math1",
@@ -880,17 +880,17 @@
       "topic": "functions",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/funkcje": {
       "subject": "math1",
       "lesson": "funkcje",
       "topic": "functions",
-      "exactQuestions": 1,
-      "exactCards": 1,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "exactQuestions": 2,
+      "exactCards": 2,
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/implikacja": {
       "subject": "math1",
@@ -898,17 +898,17 @@
       "topic": "logic",
       "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "matematyka/matematyka-i/kwantyfikatory": {
       "subject": "math1",
       "lesson": "kwantyfikatory",
       "topic": "logic",
-      "exactQuestions": 1,
+      "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "matematyka/matematyka-i/praca-domowa": {
       "subject": "math1",
@@ -916,26 +916,26 @@
       "topic": "functions",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/prawa-logiczne": {
       "subject": "math1",
       "lesson": "prawa-logiczne",
       "topic": "logic",
-      "exactQuestions": 1,
+      "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "matematyka/matematyka-i/przedzialy": {
       "subject": "math1",
       "lesson": "przedzialy",
       "topic": "sets",
-      "exactQuestions": 0,
-      "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 5
+      "exactQuestions": 1,
+      "exactCards": 1,
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/relacje": {
       "subject": "math1",
@@ -943,26 +943,26 @@
       "topic": "sets",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 5
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/tabele-prawdy": {
       "subject": "math1",
       "lesson": "tabele-prawdy",
       "topic": "logic",
-      "exactQuestions": 2,
-      "exactCards": 2,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "exactQuestions": 3,
+      "exactCards": 3,
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "matematyka/matematyka-i/wartosc-bezwzgledna": {
       "subject": "math1",
       "lesson": "wartosc-bezwzgledna",
       "topic": "sets",
-      "exactQuestions": 1,
+      "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 5,
-      "topicCards": 5
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/wlasnosci-funkcji": {
       "subject": "math1",
@@ -970,17 +970,17 @@
       "topic": "functions",
       "exactQuestions": 0,
       "exactCards": 1,
-      "topicQuestions": 5,
-      "topicCards": 6
+      "topicQuestions": 7,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/zbiory": {
       "subject": "math1",
       "lesson": "zbiory",
       "topic": "sets",
       "exactQuestions": 1,
-      "exactCards": 0,
-      "topicQuestions": 5,
-      "topicCards": 5
+      "exactCards": 1,
+      "topicQuestions": 8,
+      "topicCards": 7
     },
     "matematyka/matematyka-i/zdania-i-spojniki": {
       "subject": "math1",
@@ -988,8 +988,8 @@
       "topic": "logic",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "matematyka/matematyka-ii/aksjomaty-peana": {
       "subject": "math2",
@@ -997,8 +997,8 @@
       "topic": "sequences",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/ciagi": {
       "subject": "math2",
@@ -1006,8 +1006,8 @@
       "topic": "sequences",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/cw-geometryczny": {
       "subject": "math2",
@@ -1015,8 +1015,8 @@
       "topic": "sequences",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/cw-naprzemienne": {
       "subject": "math2",
@@ -1024,8 +1024,8 @@
       "topic": "sequences",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/cw-sinusy": {
       "subject": "math2",
@@ -1033,8 +1033,8 @@
       "topic": "sequences",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/cw-suma-kwadratow": {
       "subject": "math2",
@@ -1042,8 +1042,8 @@
       "topic": "sequences",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/cw-suma-szescianow": {
       "subject": "math2",
@@ -1051,8 +1051,8 @@
       "topic": "sequences",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/dowod-dwumianu": {
       "subject": "math2",
@@ -1060,17 +1060,17 @@
       "topic": "combinatorics",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 7,
-      "topicCards": 7
+      "topicQuestions": 11,
+      "topicCards": 9
     },
     "matematyka/matematyka-ii/dwumian-newtona": {
       "subject": "math2",
       "lesson": "dwumian-newtona",
       "topic": "combinatorics",
-      "exactQuestions": 1,
+      "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 7,
-      "topicCards": 7
+      "topicQuestions": 11,
+      "topicCards": 9
     },
     "matematyka/matematyka-ii/dzialania-na-zbiorach": {
       "subject": "math2",
@@ -1078,8 +1078,8 @@
       "topic": "sets",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 4,
+      "topicCards": 4
     },
     "matematyka/matematyka-ii/funkcje-roznawartosciowe": {
       "subject": "math2",
@@ -1087,8 +1087,8 @@
       "topic": "sets",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 4,
+      "topicCards": 4
     },
     "matematyka/matematyka-ii/iloczyn-kartezjanski": {
       "subject": "math2",
@@ -1096,17 +1096,17 @@
       "topic": "sets",
       "exactQuestions": 2,
       "exactCards": 2,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 4,
+      "topicCards": 4
     },
     "matematyka/matematyka-ii/indukcja": {
       "subject": "math2",
       "lesson": "indukcja",
       "topic": "sequences",
-      "exactQuestions": 2,
+      "exactQuestions": 3,
       "exactCards": 2,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/pascal": {
       "subject": "math2",
@@ -1114,35 +1114,35 @@
       "topic": "combinatorics",
       "exactQuestions": 2,
       "exactCards": 2,
-      "topicQuestions": 7,
-      "topicCards": 7
+      "topicQuestions": 11,
+      "topicCards": 9
     },
     "matematyka/matematyka-ii/regula-mnozenia": {
       "subject": "math2",
       "lesson": "regula-mnozenia",
       "topic": "combinatorics",
-      "exactQuestions": 2,
-      "exactCards": 2,
-      "topicQuestions": 7,
-      "topicCards": 7
+      "exactQuestions": 3,
+      "exactCards": 3,
+      "topicQuestions": 11,
+      "topicCards": 9
     },
     "matematyka/matematyka-ii/sigma": {
       "subject": "math2",
       "lesson": "sigma",
       "topic": "sequences",
-      "exactQuestions": 1,
-      "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "exactQuestions": 2,
+      "exactCards": 2,
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/silnia": {
       "subject": "math2",
       "lesson": "silnia",
       "topic": "sequences",
-      "exactQuestions": 2,
+      "exactQuestions": 3,
       "exactCards": 2,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/suma-naturalnych": {
       "subject": "math2",
@@ -1150,17 +1150,17 @@
       "topic": "sequences",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/symbol-newtona": {
       "subject": "math2",
       "lesson": "symbol-newtona",
       "topic": "combinatorics",
-      "exactQuestions": 2,
-      "exactCards": 2,
-      "topicQuestions": 7,
-      "topicCards": 7
+      "exactQuestions": 4,
+      "exactCards": 3,
+      "topicQuestions": 11,
+      "topicCards": 9
     },
     "matematyka/matematyka-ii/zadanie-indukcja": {
       "subject": "math2",
@@ -1168,17 +1168,17 @@
       "topic": "sequences",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 6
+      "topicQuestions": 9,
+      "topicCards": 7
     },
     "matematyka/matematyka-ii/zbior-potegowy": {
       "subject": "math2",
       "lesson": "zbior-potegowy",
       "topic": "sets",
-      "exactQuestions": 1,
+      "exactQuestions": 2,
       "exactCards": 1,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 4,
+      "topicCards": 4
     },
     "matematyka/matematyka-ii/zbiory-podstawy": {
       "subject": "math2",
@@ -1186,8 +1186,8 @@
       "topic": "sets",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 4,
+      "topicCards": 4
     },
     "programowanie/analiza-tekstu": {
       "subject": "cpp",
@@ -1195,8 +1195,8 @@
       "topic": "strings",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/bledy-obliczen": {
       "subject": "cpp",
@@ -1204,8 +1204,8 @@
       "topic": "data",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/char-ascii": {
       "subject": "cpp",
@@ -1213,8 +1213,8 @@
       "topic": "strings",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/cmath": {
       "subject": "cpp",
@@ -1222,8 +1222,8 @@
       "topic": "data",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/codeblocks": {
       "subject": "cpp",
@@ -1231,8 +1231,8 @@
       "topic": "basic",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 5,
+      "topicCards": 4
     },
     "programowanie/debugger": {
       "subject": "cpp",
@@ -1240,8 +1240,8 @@
       "topic": "flow",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/float-double": {
       "subject": "cpp",
@@ -1249,8 +1249,8 @@
       "topic": "data",
       "exactQuestions": 1,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/formatowanie": {
       "subject": "cpp",
@@ -1258,8 +1258,8 @@
       "topic": "data",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/getline": {
       "subject": "cpp",
@@ -1267,8 +1267,8 @@
       "topic": "strings",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/ieee754": {
       "subject": "cpp",
@@ -1276,17 +1276,17 @@
       "topic": "data",
       "exactQuestions": 0,
       "exactCards": 1,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/indeksy-string": {
       "subject": "cpp",
       "lesson": "indeksy-string",
       "topic": "strings",
-      "exactQuestions": 1,
-      "exactCards": 1,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "exactQuestions": 2,
+      "exactCards": 2,
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/kompilacja": {
       "subject": "cpp",
@@ -1294,8 +1294,8 @@
       "topic": "basic",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 5,
+      "topicCards": 4
     },
     "programowanie/konwersja-napisow": {
       "subject": "cpp",
@@ -1303,8 +1303,8 @@
       "topic": "strings",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/laboratorium": {
       "subject": "cpp",
@@ -1312,8 +1312,8 @@
       "topic": "all",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 16,
-      "topicCards": 16
+      "topicQuestions": 24,
+      "topicCards": 20
     },
     "programowanie/liczby-zmiennoprzecinkowe": {
       "subject": "cpp",
@@ -1321,8 +1321,8 @@
       "topic": "all",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 16,
-      "topicCards": 16
+      "topicQuestions": 24,
+      "topicCards": 20
     },
     "programowanie/losowanie": {
       "subject": "cpp",
@@ -1330,8 +1330,8 @@
       "topic": "flow",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/metody-string": {
       "subject": "cpp",
@@ -1339,8 +1339,8 @@
       "topic": "strings",
       "exactQuestions": 2,
       "exactCards": 2,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/mnozenie-dodawaniem": {
       "subject": "cpp",
@@ -1348,17 +1348,17 @@
       "topic": "flow",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/operatory-warunki": {
       "subject": "cpp",
       "lesson": "operatory-warunki",
       "topic": "flow",
-      "exactQuestions": 3,
-      "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "exactQuestions": 6,
+      "exactCards": 2,
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/overflow": {
       "subject": "cpp",
@@ -1366,8 +1366,8 @@
       "topic": "data",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/palindrom": {
       "subject": "cpp",
@@ -1375,17 +1375,17 @@
       "topic": "strings",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/petla-for": {
       "subject": "cpp",
       "lesson": "petla-for",
       "topic": "flow",
-      "exactQuestions": 2,
-      "exactCards": 2,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "exactQuestions": 3,
+      "exactCards": 3,
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/petla-while": {
       "subject": "cpp",
@@ -1393,8 +1393,8 @@
       "topic": "flow",
       "exactQuestions": 1,
       "exactCards": 1,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/petle-zagniezdzone": {
       "subject": "cpp",
@@ -1402,8 +1402,8 @@
       "topic": "flow",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/petle": {
       "subject": "cpp",
@@ -1411,8 +1411,8 @@
       "topic": "flow",
       "exactQuestions": 1,
       "exactCards": 2,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/porownanie-float": {
       "subject": "cpp",
@@ -1420,8 +1420,8 @@
       "topic": "data",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/potegowanie": {
       "subject": "cpp",
@@ -1429,8 +1429,8 @@
       "topic": "flow",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/programowanie": {
       "subject": "cpp",
@@ -1438,8 +1438,8 @@
       "topic": "all",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 16,
-      "topicCards": 16
+      "topicQuestions": 24,
+      "topicCards": 20
     },
     "programowanie/pseudokod": {
       "subject": "cpp",
@@ -1447,8 +1447,8 @@
       "topic": "basic",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 5,
+      "topicCards": 4
     },
     "programowanie/rzutowanie": {
       "subject": "cpp",
@@ -1456,8 +1456,8 @@
       "topic": "data",
       "exactQuestions": 1,
       "exactCards": 2,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/stoper": {
       "subject": "cpp",
@@ -1465,8 +1465,8 @@
       "topic": "flow",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/string-podstawy": {
       "subject": "cpp",
@@ -1474,8 +1474,8 @@
       "topic": "strings",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/szyfr": {
       "subject": "cpp",
@@ -1483,8 +1483,8 @@
       "topic": "strings",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/testowanie": {
       "subject": "cpp",
@@ -1492,8 +1492,8 @@
       "topic": "flow",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/ulamki-binarne": {
       "subject": "cpp",
@@ -1501,8 +1501,8 @@
       "topic": "data",
       "exactQuestions": 0,
       "exactCards": 1,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/wczytywanie-char": {
       "subject": "cpp",
@@ -1510,17 +1510,17 @@
       "topic": "strings",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/wejscie-wyjscie": {
       "subject": "cpp",
       "lesson": "wejscie-wyjscie",
       "topic": "basic",
-      "exactQuestions": 1,
+      "exactQuestions": 2,
       "exactCards": 2,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 5,
+      "topicCards": 4
     },
     "programowanie/zadania-algorytmy": {
       "subject": "cpp",
@@ -1528,8 +1528,8 @@
       "topic": "flow",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 6,
-      "topicCards": 5
+      "topicQuestions": 9,
+      "topicCards": 6
     },
     "programowanie/zadania-float": {
       "subject": "cpp",
@@ -1537,8 +1537,8 @@
       "topic": "data",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/zadania-podstawy": {
       "subject": "cpp",
@@ -1546,8 +1546,8 @@
       "topic": "all",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 16,
-      "topicCards": 16
+      "topicQuestions": 24,
+      "topicCards": 20
     },
     "programowanie/zadania-string": {
       "subject": "cpp",
@@ -1555,8 +1555,8 @@
       "topic": "strings",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/zapis-pozycyjny": {
       "subject": "cpp",
@@ -1564,17 +1564,17 @@
       "topic": "data",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 3,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     },
     "programowanie/zmienne": {
       "subject": "cpp",
       "lesson": "zmienne",
       "topic": "basic",
-      "exactQuestions": 2,
+      "exactQuestions": 4,
       "exactCards": 1,
-      "topicQuestions": 3,
-      "topicCards": 3
+      "topicQuestions": 5,
+      "topicCards": 4
     },
     "programowanie/znaki-i-napisy": {
       "subject": "cpp",
@@ -1582,8 +1582,8 @@
       "topic": "strings",
       "exactQuestions": 0,
       "exactCards": 0,
-      "topicQuestions": 4,
-      "topicCards": 4
+      "topicQuestions": 5,
+      "topicCards": 5
     }
   }
 }

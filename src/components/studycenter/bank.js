@@ -1,4 +1,5 @@
 import approvedContent from './approved-content.json' with { type: 'json' };
+import { CARD_DETAILS, EASY_QUESTIONS, EXTRA_QUESTIONS_73, EXTRA_CARDS_73 } from './study-content-73.mjs';
 // StudyLab — recenzowana baza startowa: pytania pisane ręcznie na podstawie tematów kursów.
 // Brak wywołań AI, brak kluczy API i zależności od zewnętrznych usług.
 export const SUBJECTS = [
@@ -227,8 +228,10 @@ const STARTER_FLASHCARDS = [
   card('v2ef04','electronics','cap','Wzór na energię naładowanego kondensatora?','E=CU²/2.','energia-kondensatora'),
 ];
 
-export const QUESTIONS = [...STARTER_QUESTIONS, ...(approvedContent.questions || [])];
-export const FLASHCARDS = [...STARTER_FLASHCARDS, ...(approvedContent.cards || [])];
+export const QUESTIONS = [...STARTER_QUESTIONS, ...(approvedContent.questions || []), ...EXTRA_QUESTIONS_73]
+  .map(q=>({...q, easy:q.easy||EASY_QUESTIONS[q.id]||null}));
+export const FLASHCARDS = [...STARTER_FLASHCARDS, ...(approvedContent.cards || []), ...EXTRA_CARDS_73]
+  .map(c=>{const detail=CARD_DETAILS[c.id];return detail?{...c,why:detail[0],symbols:detail[1],example:detail[2]}:c;});
 
 export const topicLabel = (subjectId, topicId) => TOPICS[subjectId]?.find(x => x[0] === topicId)?.[1] || 'Inne';
 export const subjectById = (id) => SUBJECTS.find(x => x.id === id);

@@ -7,3 +7,54 @@
 .scl2-lesson-controls a{display:inline-flex;justify-content:center;align-items:center;border:1px solid #486d62;border-radius:8px;padding:8px 11px;color:#d7f6ec!important;background:#1a2924;text-decoration:none!important;font-size:12px;font-weight:650}
 .scl2-lesson-controls a:hover,.scl2-lesson-controls a:focus-visible{background:#29463d;border-color:#7db9a9}
 @media(max-width:640px){.scl2-lesson-bar{flex-direction:column;align-items:stretch}.scl2-lesson-controls a{flex:1}}
+/* StudyLab 7.0 — adnotacje do lekcji */
+.scl7-annotation-bar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:8px 0 20px;border:1px solid #3a5a4c;background:#101d17;border-radius:10px;padding:12px;font-family:system-ui,sans-serif}
+.scl7-annotation-bar span{font-weight:700;color:#d9efdf;font-size:13px;margin-right:auto}
+.scl7-annotation-bar button,.scl7-editor button,.scl7-note button{background:#1c4030;border:1px solid #478c67;border-radius:7px;color:#def9eb;padding:8px 12px;font-size:12px;cursor:pointer}
+.scl7-editor{background:#13271c;border:1px solid #386048;border-radius:9px;padding:14px;margin:8px 0 18px}.scl7-editor[hidden]{display:none}
+.scl7-editor textarea{display:block;width:100%;padding:10px;background:#0e1913;color:#e4f8e9;border:1px solid #41634e;border-radius:7px;margin:10px 0;box-sizing:border-box}
+.scl7-editor blockquote,.scl7-note blockquote{border-left:3px solid #67ad87;margin:9px 0;padding:8px 12px;color:#c5e1cd;font-size:13px}
+.scl7-notes{display:grid;gap:9px}.scl7-notes>strong{font-size:13px;color:#b7e8c8}.scl7-note{background:#16261b;border:1px solid #325940;padding:10px;border-radius:8px}.scl7-note p{font-size:13px;color:#cadccc}
+/* Fokus: schowanie paska to nie wszystko — trzeba zwolnic kolumny siatki Starlight. */
+body:is(.scl7-focus,.studylab-focus) :is(.sidebar-pane,.right-sidebar,.mobile-starlight-toc){display:none!important}
+body:is(.scl7-focus,.studylab-focus) .page > .sidebar {display:none!important;}
+body:is(.scl7-focus,.studylab-focus) .main-frame {
+  display:block!important;grid-template-columns:minmax(0,1fr)!important;
+  width:100%!important;max-width:100%!important;min-width:0!important;
+  margin:0 auto!important;padding:0!important;
+}
+body:is(.scl7-focus,.studylab-focus) .main-pane {
+  grid-column:1 / -1!important;display:block!important;min-width:0!important;
+  width:100%!important;max-width:100%!important;margin:0!important;
+}
+body:is(.scl7-focus,.studylab-focus) main .content-panel {
+  box-sizing:border-box!important;width:100%!important;min-width:0!important;
+  max-width:1200px!important;margin:0 auto!important;
+}
+body:is(.scl7-focus,.studylab-focus) main .sl-markdown-content {max-width:100%!important;min-width:0!important;}
+body:is(.scl7-focus,.studylab-focus) :is(.page,.main-pane,.content-panel) {min-width:0!important;}
+/* W trybie skupienia zachowujemy pasek gorny — pozwala wrocic do nawigacji. */
+@media(max-width:650px){.scl7-annotation-bar span{flex-basis:100%}}
+::highlight(studylab-user-highlights){background:rgba(100,212,150,.32);text-decoration:underline;text-decoration-color:#7ce9b3}
+
+/* StudyLab 7.1 — wspolna geometria przyciskow lekcji, eksportu i laboratoriow. */
+.scl7-annotation-bar,.scl2-lesson-controls,.scl7-editor {box-sizing:border-box;max-width:100%;}
+.scl7-annotation-bar {align-items:center;justify-content:flex-start;}
+.scl7-annotation-bar > span {flex:1 1 160px;min-width:0;margin-right:0;}
+.scl7-annotation-bar :is(button,a),.scl7-editor button,.scl7-note button,.scl2-lesson-controls a {
+  box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;
+  text-align:center;min-height:40px;max-width:100%;line-height:1.4;vertical-align:middle;
+  white-space:normal;overflow-wrap:break-word;
+}
+.scl7-annotation-bar button[aria-pressed="true"] {border-color:#89d9af;background:#285642;}
+:is(.lab__button,.scp-button,.sca-button,.slcpp-actions button,.slcpp-modes button,
+     .study-export-mini-actions button,.study-export-bottom>button,.study-export-controls button) {
+  box-sizing:border-box;min-height:40px;max-width:100%;
+  display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  line-height:1.4;vertical-align:middle;white-space:normal;
+}
+@media (max-width:650px) {
+  .scl7-annotation-bar > span {flex:1 1 100%;}
+  .scl7-annotation-bar > button {flex:1 1 150px;}
+  .scl2-lesson-controls {width:100%;}
+}
