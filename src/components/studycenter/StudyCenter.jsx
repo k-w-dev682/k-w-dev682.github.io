@@ -10,14 +10,15 @@ import { useCloudSync } from './useCloudSync.jsx';
 import { markDeleted, toggleCloudBookmark, bumpModified, addCloudItem } from './cloud-merge.js';
 import './cloud-styles.css';
 import '../../styles/study-center.css';
+import StudyCenterPlus from './StudyCenterPlus.jsx';
 
 const BASE = (import.meta.env.BASE_URL || '/').replace(/\/?$/, '/');
 const localHref = route => `${BASE}${String(route||'').replace(/^\/+/, '')}`;
 const TODAY = () => new Date().toLocaleDateString('sv-SE');
 const prettyDate = stamp => new Date(stamp).toLocaleDateString('pl-PL', { day:'2-digit', month:'short', year:'numeric' });
 const uid = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2,10)}`;
-const SHORT = {overview:'Pulpit',quiz:'Quizy',cards:'Fiszki',tasks:'Zadania',adaptive:'Trening',exam:'Kolokwium',errors:'Błędy',stats:'Statystyki',calendar:'Kalendarz',planner:'Plan nauki',library:'Moje materiały',sync:'Synchronizacja'};
-const ICONS = {overview:'◫',quiz:'◇',cards:'▤',tasks:'∑',adaptive:'◎',exam:'◷',errors:'↺',stats:'▥',planner:'▦',calendar:'◷',library:'☆',sync:'☁'};
+const SHORT = {overview:'Pulpit',quiz:'Quizy',cards:'Fiszki',tasks:'Zadania',adaptive:'Trening',exam:'Kolokwium',errors:'Błędy',stats:'Statystyki',calendar:'Kalendarz',planner:'Plan nauki',library:'Moje materiały',sync:'Synchronizacja',plus:'Laboratorium nauki'};
+const ICONS = {overview:'◫',quiz:'◇',cards:'▤',tasks:'∑',adaptive:'◎',exam:'◷',errors:'↺',stats:'▥',planner:'▦',calendar:'◷',library:'☆',sync:'☁',plus:'✦'};
 const BookmarkContext = React.createContext({bookmarks:[],toggle:()=>{}});
 
 function SectionTitle({eyebrow,title,children}){return <div className="sc-section-title"><div><span className="sc-eyebrow">{eyebrow}</span><h2>{title}</h2></div>{children&&<div>{children}</div>}</div>;}
@@ -283,6 +284,7 @@ export default function StudyCenter(){
  {tab==='calendar'&&<CalendarPanel db={db} onAdd={exam=>update(d=>addCloudItem(d,'exams',exam))} onRemove={id=>update(d=>markDeleted(d,'exams',id))} setTab={changeTab} stats={stats}/>}
  {tab==='stats'&&<StatsPanel db={db} stats={stats} onGoal={goal=>update(d=>bumpModified({...d,settings:{...d.settings,goal}},'settings'))}/>}
  {tab==='planner'&&<PlannerPanel db={db} stats={stats} onPlanner={planner=>update(d=>bumpModified({...d,planner},'planner'))} setTab={changeTab}/>}
+ {tab==='plus'&&<StudyCenterPlus db={db} onAttempt={addAttempt} onSession={addSession}/>}
  {tab==='library'&&<LibraryPanel db={db} onAddCard={c=>update(d=>addCloudItem(d,'customCards',c))} onRemoveCard={id=>update(d=>markDeleted(d,'customCards',id))} onAddNote={n=>update(d=>addCloudItem(d,'notes',n))} onRemoveNote={id=>update(d=>markDeleted(d,'notes',id))} onImport={setDb} onClear={()=>{if(!cloud.userId){setDb(DEFAULT_DB());cloud.clearAccountBindingIfSignedOut();}}} cloudActive={!!cloud.userId}/>}
- </div></div><footer className="sc-footer">StudyLab · Wersja 3.0 · Pytania i fiszki z zatwierdzonej bazy · FSRS-5 (parametry standardowe, bez indywidualnego trenowania) · PWA: odwiedzone strony dostępne offline · Synchronizacja opcjonalna przez Supabase</footer></div></BookmarkContext.Provider>;
+ </div></div><footer className="sc-footer">StudyLab · Wersja 5.0 · Pytania i fiszki z zatwierdzonej bazy · FSRS-5 (parametry standardowe, bez indywidualnego trenowania) · PWA: odwiedzone strony dostępne offline · Synchronizacja opcjonalna przez Supabase</footer></div></BookmarkContext.Provider>;
 }

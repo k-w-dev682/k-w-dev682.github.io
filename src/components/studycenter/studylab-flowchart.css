@@ -1,0 +1,39 @@
+.slflow-panel{width:100%;min-width:0;background:#07111c;border:1px solid #30435a;border-radius:14px;color:#edf5fe;overflow:hidden}
+.slflow-panel *, .slflow-fullscreen *{box-sizing:border-box}
+.slflow-panel button, .slflow-fullscreen button{cursor:pointer;font:inherit}
+.slflow-panel button:focus-visible, .slflow-fullscreen button:focus-visible{outline:2px solid #82edb0;outline-offset:2px}
+.slflow-header,.slflow-full-header{display:flex;justify-content:space-between;gap:1rem;align-items:center;background:#0a1623;border-bottom:1px solid #2a4058;padding:1rem 1.15rem}
+.slflow-header h4,.slflow-full-header h4{margin:0;color:#edf7ff;font-size:1.03rem;font-weight:750}
+.slflow-full-header small{color:#9cb2cb;font-size:.76rem;margin-left:.6rem;font-weight:500}
+.slflow-header p{font-size:.82rem;color:#a3b8d2;line-height:1.45;margin:.4rem 0 0}
+.slflow-toolbar{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+.slflow-toolbar button,.slflow-downloads button,.slflow-player button{border-radius:9px;padding:.55rem .75rem;border:1px solid #3b5570;background:#14263a;color:#e4f2ff;min-height:36px;font-size:.82rem;font-weight:700}
+.slflow-toolbar button:hover,.slflow-downloads button:hover,.slflow-player button:hover:not(:disabled){background:#1d3650}
+.slflow-toolbar button:disabled,.slflow-player button:disabled{opacity:.48;cursor:not-allowed}
+.slflow-toolbar .slflow-expand-button{width:38px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border-color:transparent;padding:.45rem}
+.slflow-expand-icon{width:23px;height:23px;display:block}
+.slflow-zoom-label{font-variant-numeric:tabular-nums;min-width:48px;text-align:center;color:#cde0f3;font-size:.8rem}
+.slflow-scroller{width:100%;height:560px;overflow:auto;touch-action:pan-x pan-y;overscroll-behavior:contain;cursor:grab;background:#07111a;padding:12px}
+.slflow-scroller:active{cursor:grabbing}
+.slflow-zoom-stage{margin:0 auto;position:relative;flex:none;user-select:none}
+.slflow-svg{display:block;width:100%;height:100%;overflow:visible}
+.slflow-bg{fill:#07111a}
+.slflow-node{cursor:pointer}.slflow-node rect,.slflow-node polygon{stroke:#507096;stroke-width:2;fill:#142436;transition:stroke .1s,fill .1s}
+.slflow-node-start rect,.slflow-node-end rect{fill:#12412c}
+.slflow-node-decision polygon{fill:#38244d;stroke:#8f70af}
+.slflow-node-input polygon,.slflow-node-output polygon{fill:#123b50}
+.slflow-node-case rect{fill:#3a2c42}
+.slflow-node-label{fill:#edf7ff;font:700 14px Arial,sans-serif;dominant-baseline:middle;pointer-events:none}
+.slflow-node-selected rect,.slflow-node-selected polygon{stroke:#facc6c;stroke-width:3}
+.slflow-node-active rect,.slflow-node-active polygon{stroke:#69f5a0;stroke-width:4;filter:drop-shadow(0 0 8px rgba(90,240,150,.55))}
+.slflow-edge-label{fill:#91f6bd;font:700 13px Arial,sans-serif;pointer-events:none}
+.slflow-player{padding:.8rem 1rem;border-top:1px solid #273b50;display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;background:#0b1927}
+.slflow-player-buttons{display:flex;gap:.45rem;flex-wrap:wrap}.slflow-player-position{font-size:.78rem;color:#9eb5cd}.slflow-player-line{display:block;max-width:100%;color:#a6f0c3;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slflow-downloads{padding:.8rem 1rem;border-top:1px solid #24384d;display:flex;gap:.5rem;flex-wrap:wrap}
+.slflow-warning{margin:.7rem 1rem;border-left:3px solid #fbbf24;color:#ffe5a8;padding:.4rem .75rem;font-size:.82rem}
+.slflow-error{padding:.8rem 1rem;color:#ffb9b9}
+/* Portal makes the fullscreen entirely independent of Starlight navigation and 'Overview' overlays. */
+.slflow-fullscreen{position:fixed!important;inset:0!important;z-index:2147483000!important;display:flex!important;flex-direction:column!important;background:#050b13!important;color:#eaf4ff!important;isolation:isolate!important;padding:0!important;margin:0!important;border:0!important;overflow:hidden!important;font-family:system-ui,Segoe UI,Arial,sans-serif!important}
+.slflow-fullscreen .slflow-scroller{flex:1;height:auto;min-height:0;padding:20px}
+.slflow-fullscreen .slflow-full-header,.slflow-fullscreen .slflow-player,.slflow-fullscreen .slflow-downloads{flex:none}
+@media (max-width:650px){.slflow-header,.slflow-full-header{align-items:flex-start;flex-direction:column;padding:.8rem}.slflow-toolbar{gap:.25rem}.slflow-toolbar button{padding:.45rem .6rem}.slflow-scroller{height:440px}.slflow-fullscreen .slflow-scroller{padding:8px}.slflow-player,.slflow-downloads{padding:.6rem}.slflow-full-header small{display:block;margin:.25rem 0 0}}

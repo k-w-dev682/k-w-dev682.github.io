@@ -1,0 +1,15 @@
+/* StudyLab 6.2: GitHub OAuth UI — isolated from general lesson styling. */
+.sc-github-login{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1rem;max-width:460px}
+.sc-github-login-button{display:inline-flex;justify-content:center;align-items:center;gap:.65rem;width:100%;padding:.8rem 1.1rem;border:1px solid #526077;border-radius:12px;background:#202a38;color:#f5f7ff;font:inherit;font-weight:750;cursor:pointer;transition:background .14s,border-color .14s}
+.sc-github-login-button:hover:not(:disabled){background:#303c4e;border-color:#91a3b9}
+.sc-github-login-button:disabled{opacity:.62;cursor:wait}
+.sc-github-login-button:focus-visible,.sc-github-link-button:focus-visible{outline:2px solid #83edb4;outline-offset:3px}
+.sc-github-login-button svg{width:21px;height:21px;fill:currentColor;flex-shrink:0}
+.sc-github-divider{display:flex;align-items:center;gap:1rem;color:#98a8be;font-size:.8rem;font-weight:600;letter-spacing:.03em;margin:.2rem 0 .75rem}
+.sc-github-divider::before,.sc-github-divider::after{content:'';flex:1;height:1px;background:#3b4555}
+.sc-github-link-area{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;margin:.5rem 0 1rem}
+.sc-github-link-button{display:inline-flex;align-items:center;gap:.45rem;border:1px solid #526077;border-radius:10px;background:transparent;color:#d7ebfa;padding:.62rem .9rem;font:inherit;cursor:pointer}
+.sc-github-link-button:hover:not(:disabled){background:#192534}
+.sc-github-link-button:disabled{opacity:.6;cursor:wait}
+.sc-github-linked{font-size:.85rem;color:#93e8ba}
+.sc-github-safety{font-size:.82rem;line-height:1.55;color:#b4c2d1;margin:.35rem 0 .7rem}

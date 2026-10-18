@@ -40,7 +40,7 @@ export function useCloudSync(db, setDb, ready) {
   const workingRef = useRef(false);
   const retryRef = useRef(false);
   const initializedRef = useRef(false);
-  const [info, setInfo] = useState({configured: CONFIGURED, email:'', userId:null, phase:CONFIGURED?'logged-out':'unconfigured', lastSync:null, error:'', busy:false});
+  const [info, setInfo] = useState({configured: CONFIGURED, email:'', userId:null, phase:CONFIGURED?'logged-out':'unconfigured', lastSync:null, error:'', busy:false, githubLinked:false});
   useEffect(() => { dbRef.current = db; }, [db]);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export function useCloudSync(db, setDb, ready) {
     clientRef.current = client;
     // Default Supabase emails use confirmation/magic links. Keep track of a link
     // return so the user lands in StudyLab's Sync tab once auth completes.
-    const returnedFromEmail = /(?:^|[&?])(?:access_token|refresh_token|type)=/.test(window.location.hash.slice(1)) ||
+    const returnedFromAuth = /(?:^|[&?])(?:access_token|refresh_token|type)=/.test(window.location.hash.slice(1)) ||
       /[?&]code=/.test(window.location.search);
     const set = patch => { if(mounted) setInfo(prev => ({...prev,...patch})); };
 
@@ -110,21 +110,22 @@ export function useCloudSync(db, setDb, ready) {
       if (!user) {
         activeRef.current=null;
         initializedRef.current=false;
-        set({userId:null,email:'',phase:'logged-out',error:''});
+        set({userId:null,email:'',phase:'logged-out',error:'',githubLinked:false});
         return;
       }
+      const githubLinked = Boolean(user.identities?.some(identity => identity.provider === 'github') || user.app_metadata?.providers?.includes('github'));
       const bound = window.localStorage.getItem(OWNER_KEY);
       if (bound && bound !== user.id) {
         activeRef.current=null;
         initializedRef.current=false;
-        set({userId:user.id,email:user.email || '',phase:'account-mismatch',error:'Na tym urządzeniu zapisano dane innego konta. Wymagana jest świadoma decyzja przed synchronizacją.'});
+        set({userId:user.id,email:user.email || '',githubLinked,phase:'account-mismatch',error:'Na tym urządzeniu zapisano dane innego konta. Wymagana jest świadoma decyzja przed synchronizacją.'});
         return;
       }
-      if (activeRef.current?.id === user.id && initializedRef.current) return;
+      if (activeRef.current?.id === user.id && initializedRef.current) {set({githubLinked});return;}
       if(!bound)window.localStorage.setItem(OWNER_KEY,user.id);
       activeRef.current=user;
       initializedRef.current=true;
-      set({userId:user.id,email:user.email || '',phase:'syncing',error:''});
+      set({userId:user.id,email:user.email || '',githubLinked,phase:'syncing',error:''});
       void sync();
     };
     const {data:{subscription}} = client.auth.onAuthStateChange((event,session) => {
@@ -133,7 +134,7 @@ export function useCloudSync(db, setDb, ready) {
         Promise.resolve().then(()=>{
           if (!mounted) return;
           connect(session?.user || null);
-          if (returnedFromEmail && session?.user && (event==='SIGNED_IN' || event==='INITIAL_SESSION')) {
+          if (returnedFromAuth && session?.user && (event==='SIGNED_IN' || event==='INITIAL_SESSION')) {
             // Replace only the fragment: the SDK consumes and clears session tokens.
             // Never copy auth tokens to other URLs or to app state.
             const cleanQuery = new URLSearchParams(window.location.search);
@@ -177,6 +178,39 @@ export function useCloudSync(db, setDb, ready) {
     return () => window.clearTimeout(timeout);
   }, [db, ready, info.userId]);
 
+  // Browser OAuth: GitHub redirects via Supabase back to the CURRENT page.
+  // Do not request repository permissions and never handle the GitHub Client Secret here.
+  async function signInWithGithub() {
+    const client=clientRef.current;
+    if(!client){setInfo(p=>({...p,error:'Najpierw skonfiguruj Supabase i uruchom strone.'}));return false;}
+    setInfo(p=>({...p,busy:true,error:''}));
+    try {
+      const {error}=await client.auth.signInWithOAuth({
+        provider:'github',options:{redirectTo:window.location.origin+window.location.pathname}
+      });
+      if(error)throw error;
+      return true;
+    }catch(err){setInfo(p=>({...p,error:readableError(err)}));return false;}
+    finally{setInfo(p=>({...p,busy:false}));}
+  }
+  // Optional: links GitHub to the EXISTING signed-in Supabase user.
+  // Supabase must have manual identity linking enabled for this route.
+  async function linkGithub() {
+    const client=clientRef.current;
+    if(!client || !info.userId)return false;
+    setInfo(p=>({...p,busy:true,error:''}));
+    try {
+      const {data,error:userError}=await client.auth.getUser();
+      if(userError)throw userError;
+      if(data.user?.id!==info.userId)throw new Error('Sesja nie pasuje do zalogowanego konta. Odswiez strone przed laczeniem kont.');
+      const {error}=await client.auth.linkIdentity({
+        provider:'github',options:{redirectTo:window.location.origin+window.location.pathname}
+      });
+      if(error)throw error;
+      return true;
+    }catch(err){setInfo(p=>({...p,error:readableError(err)}));return false;}
+    finally{setInfo(p=>({...p,busy:false}));}
+  }
   async function sendCode(email) {
     if (!clientRef.current) throw new Error('Najpierw skonfiguruj Supabase.');
     setInfo(p=>({...p,busy:true,error:''}));
@@ -212,7 +246,7 @@ export function useCloudSync(db, setDb, ready) {
       const {error} = await clientRef.current.auth.signOut({scope:'local'});
       if(error)throw error;
       activeRef.current=null;initializedRef.current=false;
-      setInfo(p=>({...p,userId:null,email:'',phase:'logged-out',busy:false}));
+      setInfo(p=>({...p,userId:null,email:'',phase:'logged-out',githubLinked:false,busy:false}));
     } catch(err) {setInfo(p=>({...p,busy:false,error:readableError(err)}));}
   }
   function replaceWithAccount() {
@@ -232,7 +266,7 @@ export function useCloudSync(db, setDb, ready) {
     window.localStorage.removeItem(OWNER_KEY);
   }
   return {
-    ...info, sendCode, verifyCode, signOut, replaceWithAccount,
+    ...info, sendCode, verifyCode, signOut, signInWithGithub, linkGithub, replaceWithAccount,
     syncNow:()=>syncRef.current(), clearAccountBindingIfSignedOut
   };
 }

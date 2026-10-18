@@ -1,0 +1,6 @@
+{
+  "studylab": "5.3",
+  "package": "@live-codes/clang-wasm@0.3.0",
+  "content": "Clang/LLVM 22 WebAssembly runtime + WASI + IIFE wrapper",
+  "note": "No user code sent to external API"
+}
