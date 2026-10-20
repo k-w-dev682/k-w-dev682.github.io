@@ -13,6 +13,26 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Iloczyn kartezjański — uporządkowane pary
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/iloczyn-kartezjanski.svg" alt="Dwie listy tworzą tabelę wszystkich możliwych par" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Reguła mnożenia działa, bo dla każdej z 2 opcji na pierwszą pozycję istnieją 3 możliwości na drugą.</figcaption>
+</figure>
+
+## Dlaczego w parach kolejność ma znaczenie?
+
+Dla zbiorów `A={1,2}` i `B={a,b}` zapis `A×B` oznacza zbiór **wszystkich uporządkowanych par**, gdzie pierwszy element pochodzi z A, a drugi z B.
+
+<Eq display tex={String.raw`A\times B=\{(1,a),(1,b),(2,a),(2,b)\}`}/>
+
+Nawias `(1,a)` pokazuje **parę uporządkowaną**: liczba 1 musi być pierwsza, a litera a druga. W przeciwieństwie do zwykłego zbioru `(a,1)` nie jest tą samą parą.
+
+Jeśli zbiór A ma 2 elementy, a B ma 3, to `A×B` ma `2·3=6` par, bo do każdego pierwszego elementu dopasowujemy trzy możliwości na drugiej pozycji.
+
+
 Iloczyn kartezjański nie mnoży liczb. **Tworzy pary**, gdzie pierwszy element pochodzi z A, a drugi z B.
 
 <Eq display tex={String.raw`A\times B=\{(x,y):x\in A\ \wedge\ y\in B\}`}/>
@@ -28,6 +48,48 @@ Jest **2 · 3 = 6** uporządkowanych par.
 <Eq display tex={String.raw`|A\times B|=|A|\cdot|B|`}/>
 
 Pierwszy czynnik oznacza liczbę możliwości pierwszej współrzędnej, drugi — drugiej.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Dwie listy tworzą tabelę wszystkich możliwych par
+
+Iloczyn kartezjański nie mnoży elementów. Zbiór `A×B` to wszystkie pary **(element z A, element z B)**. Możesz wyobrazić sobie wybór najpierw wiersza, a potem kolumny tabeli.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Weź `A={1,2}` oraz `B={a,b,c}`.
+2. Z pierwszym elementem A, czyli 1, utwórz trzy pary: `(1,a)`, `(1,b)`, `(1,c)`.
+3. Z drugim elementem A, czyli 2, utwórz trzy kolejne: `(2,a)`, `(2,b)`, `(2,c)`.
+4. Razem jest `2·3=6` par. Nie zapisuj `(a,1)` zamiast `(1,a)`: zamieniasz wówczas kolejność współrzędnych.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Reguła mnożenia działa, bo dla każdej z 2 opcji na pierwszą pozycję istnieją 3 możliwości na drugą.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**A×B: najpierw z A, potem z B. Liczba par = liczba wierszy · liczba kolumn.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Zbiór `{1,2}` to co innego niż para `(1,2)`: w zbiorze kolejność jest nieważna, w parze uporządkowanej jest ważna.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Dane `A={p,q,r}`, `B={0,1}`. Ile elementów ma `A×B`? Podaj dwa.</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `3·2=6`. Przykładowe pary: `(p,0)`, `(p,1)`; pozostałe: `(q,0)`, `(q,1)`, `(r,0)`, `(r,1)`.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <CartesianLab client:load />
 

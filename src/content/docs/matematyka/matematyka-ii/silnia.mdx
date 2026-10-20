@@ -13,6 +13,39 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Silnia — mnożenie kolejnych liczb
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/silnia.svg" alt="Dlaczego `n!` mnoży kolejne liczby?" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Przy ustawianiu przedmiotów nie wolno użyć tego samego przedmiotu dwa razy, więc liczba dostępnych możliwości maleje.</figcaption>
+</figure>
+
+## Co oznacza wykrzyknik po liczbie?
+
+Silnia nie jest okrzykiem ani zwykłym mnożeniem przez jeden. `4!` jest umowną nazwą działania: **pomnóż wszystkie dodatnie liczby całkowite od 1 do 4**.
+
+```text
+4! = 1 · 2 · 3 · 4
+   = 2 · 3 · 4
+   = 6 · 4
+   = 24
+```
+
+Litera `n` oznacza liczbę, dla której liczysz silnię. Wykrzyknik `!` jest symbolem całego działania. Kropka `·` oznacza mnożenie. `0!=1` przyjmujemy zgodnie z definicją; jest to także naturalny wynik liczenia liczby sposobów ułożenia zera elementów — istnieje jeden pusty układ.
+
+### Dlaczego `5!=5·4!`?
+
+Ponieważ `4!=1·2·3·4`, to `5·4!=5·(1·2·3·4)=1·2·3·4·5=5!`. To sposób na liczenie większej silni z mniejszej bez rozpoczynania od jedynki.
+
+### Silnia opisuje liczbę ustawień
+
+Masz 3 różne książki. Na pierwszej pozycji możesz ustawić 3 książki, na drugiej już tylko 2, na trzeciej ostatnią 1. Łącznie `3·2·1=6=3!` uporządkowań. Zasada ta ma zastosowanie tylko wtedy, gdy elementy są **rozróżnialne**.
+
+**Pułapka:** `(3+2)! = 5! = 120`, ale `3!+2!=6+2=8`. Nie wolno „rozbijać” silni na dodawanie.
+
+
 Zapis <Eq tex={String.raw`n!`}/> czytamy „**n silnia**”. Oznacza pomnożenie kolejnych liczb naturalnych od 1 do n.
 
 <Eq display tex={String.raw`n!=1\cdot 2\cdot 3\cdots n\quad (n\ge1),\qquad 0!=1`}/>
@@ -28,5 +61,47 @@ Zapis <Eq tex={String.raw`n!`}/> czytamy „**n silnia**”. Oznacza pomnożenie
 <Eq display tex={String.raw`n!=n\cdot(n-1)!\quad(n\ge1)`}/>
 
 Na przykład 6! = 6 · 5! = 6 · 120 = 720. **Nie podstawiaj n = 0** do tego wzoru; wartość 0! = 1 pochodzi z osobnej definicji.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Dlaczego `n!` mnoży kolejne liczby?
+
+Silnia liczy, na ile sposobów można ustawić `n` różnych rzeczy w kolejności. Dla pierwszego miejsca masz `n` możliwości, dla drugiego `n−1`, i tak dalej, aż zostanie jedna.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Dla trzech różnych książek A, B, C masz 3 możliwości na pierwszą pozycję.
+2. Po wybraniu pierwszej pozostają 2 możliwości na drugą. Ostatnia pozycja ma 1 możliwość.
+3. Z reguły mnożenia `3!=3·2·1=6`. To sześć możliwych kolejności: ABC, ACB, BAC, BCA, CAB, CBA.
+4. Dla `5!` możesz wykorzystać poprzednią silnię: `5!=5·4!=5·24=120`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Przy ustawianiu przedmiotów nie wolno użyć tego samego przedmiotu dwa razy, więc liczba dostępnych możliwości maleje.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Silnia = ustawienia bez powtórzeń; pomnóż wszystkie dodatnie liczby do n.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+`5!` nie oznacza `5·5` ani `5+4+3+2+1`. Z definicji `0!=1`, bo jest jedna możliwość uporządkowania pustego zbioru — pusty układ.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Ile kolejności ma ustawienie 4 różnych osób w rzędzie?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `4!=4·3·2·1=24`, bo wybór pierwszej osoby daje 4 opcje, drugiej 3, trzeciej 2, ostatniej 1.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <FactorialLab client:load />

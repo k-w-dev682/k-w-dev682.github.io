@@ -37,4 +37,47 @@ Odwróć wszystkie bity, odczytaj wynik jako liczbę dodatnią i postaw minus.
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: U1 — uzupełnienie jedynkowe](/ask/grafiki/u1.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+W kodzie U1 dodatnie liczby zapisuje się zwyczajnie, ale kod liczby ujemnej otrzymujemy przez **zmianę każdego bitu na przeciwny**. Szerokość musi być ustalona przed odwracaniem.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Wybierz 8 bitów. Dodatnie `5` to `00000101`.
+2. Odwróć każdy bit (`0 ↔ 1`): `11111010`.
+3. To kod `−5` w U1. Aby odczytać go z powrotem, wykonaj inwersję: `00000101₂ = 5`, potem dodaj minus.
+4. Na 8 bitach `00000000` i `11111111` odpowiadają dodatniemu i ujemnemu zeru.
+
+### Dlaczego to działa?
+
+W każdej pozycji jedynki zastępują zera i odwrotnie. To **cała procedura** U1; nie dodajesz jedynki na końcu (to robi się dopiero w U2).
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Błędem jest odwracanie tylko części bitów, np. `0101` → `1010` bez uwzględnienia wymaganej szerokości 8 bitów.
+:::
+
+### Powtórka bez podglądania
+
+Jaki jest U1 liczby −2 na czterech bitach?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+`+2 = 0010`; odwracamy wszystkie 4 bity: `1101`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

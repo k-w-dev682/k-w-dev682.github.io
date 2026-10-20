@@ -35,4 +35,47 @@ W drugą stronę zamieniamy **każdą cyfrę hex na 4 bity**. Zera wiodące moż
 
 <HexGroupLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Binarne ↔ szesnastkowe: grupy po 4 bity](/ask/grafiki/hex-bin.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Najprostsze przejście `16 ↔ 2` odbywa się **po cztery bity**. Każdą pojedynczą cyfrę szesnastkową zamieniasz na czterobitową grupę; nie liczysz całej dużej liczby od zera.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Przykład `2D₁₆`. Cyfra `2` daje `0010`, a `D = 13` daje `1101`.
+2. Połącz grupy: `0010 1101₂`. Bez zer wiodących to `101101₂`.
+3. Sprawdź wagami: `32 + 8 + 4 + 1 = 45`; z hex: `2·16 + 13 = 45`.
+4. W drugą stronę, przy zamianie `101101₂ → 16`, grupuj **od prawej**: `0010 1101` → `2D₁₆`.
+
+### Dlaczego to działa?
+
+Cztery bity mają `2⁴ = 16` konfiguracji, więc każda taka grupa ma dokładnie jedną odpowiadającą jej cyfrę hex.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Zera dopisane z lewej służą jedynie uzupełnieniu niepełnej grupy. Nie wolno dopisywać zer po prawej, bo zmieniłoby to wartość.
+:::
+
+### Powtórka bez podglądania
+
+Zamień `11110010₂` na hex.
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+`1111 0010` → `F2₁₆`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

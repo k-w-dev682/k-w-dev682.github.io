@@ -48,4 +48,41 @@ W ZM i U1 pewne ciągi oznaczają `-0`. Wartość liczby nadal wynosi zero, ale 
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia ZM: odczytaj wartość dziesiętną](/ask/grafiki/cw-zm-odczyt.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Weź pierwszy oryginalny ciąg `011011` (6 bitów). Pierwsza cyfra to `0`, więc znak jest dodatni.
+2. Pozostałe 5 bitów `11011₂` to `16+8+0+2+1 = 27`.
+3. Zatem `011011` w ZM oznacza `+27`.
+4. Dla porównania `111111` ma znak 1 i moduł `11111₂=31`, czyli `−31`.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+Znak traktujesz osobno; wagi zwykłej liczby binarnej stosujesz wyłącznie do części po znaku.
+
+:::caution[Uważaj tutaj]
+Nie używaj w tym ćwiczeniu odwracania bitów ani dodawania 1 — to inne kody.
+:::
+
+### Minisprawdzian po zadaniu
+
+Co oznacza ZM `10000` na 5 bitach?
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+To `−0`, bo bit znaku to 1, a wszystkie bity modułu to 0.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

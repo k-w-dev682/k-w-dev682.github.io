@@ -15,6 +15,14 @@ import { MotionLab } from '../../../components/PhysicsLabs.jsx';
 
 # Ruch jednostajnie przyspieszony
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/ruch-przyspieszony.svg" alt="Ruch z przyspieszeniem: prędkość się zmienia, droga narasta nierównomiernie" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Prędkość: + at. Położenie: + v₀t + at²/2.**</figcaption>
+</figure>
+
 Przy **stałym przyspieszeniu** można użyć trzech bardzo przydatnych wzorów:
 
 <Eq tex={String.raw`v=v_0+at`} display />
@@ -34,6 +42,51 @@ Ciało startuje z x₀ = 2 m, prędkością v₀ = 4 m/s i przyspieszeniem a = 2
 Wykres v(t) ma postać prostej. Nachylenie tej prostej równa się przyspieszeniu.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Ruch z przyspieszeniem: prędkość się zmienia, droga narasta nierównomiernie
+
+W ruchu jednostajnie przyspieszonym **przyspieszenie ma stałą wartość**. Obliczasz osobno prędkość końcową oraz położenie po czasie.
+
+### Co oznaczają symbole i jednostki?
+
+`v₀` — prędkość startowa [m/s]; `a` — stałe przyspieszenie [m/s²]; `t` — czas [s]; `Δx` — przemieszczenie [m].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Przyjmij `v₀=2 m/s`, `a=3 m/s²`, `t=4 s`, `x₀=0 m`.
+2. Prędkość końcowa: `v=v₀+at=2+3·4=14 m/s`.
+3. Przemieszczenie: `Δx=v₀t+(at²)/2=2·4+(3·16)/2=8+24=32 m`.
+4. Kontrola: średnia prędkość przy stałym przyspieszeniu to `(v₀+v)/2=(2+14)/2=8 m/s`. Mnożąc przez 4 s dostajesz 32 m.
+
+### Dlaczego to działa?
+
+Człon `at²/2` powstaje, bo prędkość rośnie w czasie — na wykresie `v(t)` pole to prostokąt i trójkąt.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Prędkość: + at. Położenie: + v₀t + at²/2.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie myl `at²/2` z `(at)²/2`. Kwadrat dotyczy tylko `t`.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Ciało rusza z miejsca z a=2 m/s². Ile przebędzie w 3 s?</summary>
+
+**Kolejne kroki i odpowiedź:** `v₀=0`, `Δx=at²/2=2·9/2=9 m`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <MotionLab client:load />
 

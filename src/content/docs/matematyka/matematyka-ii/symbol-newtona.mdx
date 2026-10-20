@@ -13,6 +13,36 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Symbol Newtona — wybór k z n
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/symbol-newtona.svg" alt="Wybierz grupę bez liczenia kolejności" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Czynnik `k!` usuwa nadliczbowe ustawienia tych samych wybranych osób. Czynnik `(n−k)!` wynika z algebraicznego skrócenia permutacji wszystkich elementów.</figcaption>
+</figure>
+
+## Symbol Newtona bez zgadywania
+
+<Eq display tex={String.raw`\binom nk=\frac{n!}{k!(n-k)!}`}/>
+
+- `n` to **liczba wszystkich różnych elementów**; znajduje się u góry symbolu.
+- `k` to **liczba elementów, które chcemy wybrać**; znajduje się na dole.
+- `!` oznacza silnię, np. `3!=3·2·1=6`.
+- Symbol czytamy „**n po k**” i używamy wtedy, gdy **kolejność wybierania nie ma znaczenia**.
+- Dla typowego liczenia wyborów `n` i `k` są całkowite oraz `0≤k≤n`.
+
+### Przykład: wybierz 2 osoby spośród 4
+
+Osoby oznaczamy A, B, C, D. Możliwe pary to AB, AC, AD, BC, BD, CD — razem 6. Wzór musi dać to samo:
+
+<Eq display tex={String.raw`\binom42=\frac{4!}{2!\cdot(4-2)!}=\frac{24}{2\cdot2}=\frac{24}{4}=6`}/>
+
+**Dlaczego dzielimy przez `k!`?** Jeśli policzymy kolejność wyboru dwóch osób, AB i BA zostaną policzone osobno, mimo że tworzą tę samą grupę. Dzielimy przez liczbę możliwych ustawień w grupie. Pozostały czynnik wynika z wyboru elementów poza grupą.
+
+**Sprawdzenie:** `C(4,2)=C(4,4−2)`, bo wybranie dwóch osób jest równoważne wskazaniu dwóch, które zostały.
+
+
 Symbol <Eq tex={String.raw`\binom nk`}/> czytamy **„n nad k”**. Nie jest zwykłym ułamkiem — oznacza liczbę różnych sposobów wybrania k elementów spośród n, gdy **kolejność nie ma znaczenia**.
 
 <Eq display tex={String.raw`\binom nk=\frac{n!}{k!(n-k)!}\qquad(0\le k\le n)`}/>
@@ -28,5 +58,47 @@ Symbol <Eq tex={String.raw`\binom nk`}/> czytamy **„n nad k”**. Nie jest zwy
 <Eq display tex={String.raw`\binom n0=\binom nn=1,\qquad\binom nk=\binom n{n-k}`}/>
 
 Na przykład <Eq tex={String.raw`\binom52=\binom53=10`}/>, ponieważ wybranie dwóch osób jest równoważne pozostawieniu pozostałych trzech.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Wybierz grupę bez liczenia kolejności
+
+Zapis `C(n,k)` czytaj „ile różnych grup po k elementów mogę wybrać z n różnych elementów?”. W grupie kolejność nie ma znaczenia. To najważniejsze pytanie przed zastosowaniem wzoru.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Wybierz 2 osoby spośród A, B, C, D. Różne pary to `AB, AC, AD, BC, BD, CD` — jest ich 6.
+2. Gdyby kolejność miała znaczenie, policzylibyśmy `4·3=12` par uporządkowanych.
+3. Każda nieuporządkowana para została jednak policzona dwa razy: `AB` i `BA`. Dzielimy przez `2!=2`: `12/2=6`.
+4. Wzór ogólny `n!/[k!(n−k)!]`. Dla n=4, k=2: `4!/(2!·2!)=24/(2·2)=6`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Czynnik `k!` usuwa nadliczbowe ustawienia tych samych wybranych osób. Czynnik `(n−k)!` wynika z algebraicznego skrócenia permutacji wszystkich elementów.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Grupa = kolejność nieistotna = n po k. Kod = kolejność istotna.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+W zadaniach o kodach, miejscach na podium lub hasłach kolejność zwykle ma znaczenie — wtedy `C(n,k)` da zaniżony wynik.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Ile trzyosobowych zespołów można utworzyć z pięciu osób?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `C(5,3)=5!/(3!·2!)=120/(6·2)=10`. Można też wybrać dwie osoby pozostające poza zespołem: `C(5,2)=10`.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <CombinationLab client:load />

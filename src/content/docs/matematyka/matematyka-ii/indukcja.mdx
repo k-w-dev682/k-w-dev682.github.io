@@ -13,6 +13,53 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Indukcja matematyczna — cztery kroki
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/indukcja.svg" alt="Baza, założenie, krok — bez przeskakiwania działań" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Uzasadnienie dotyczy przejścia **dla dowolnego k**, nie tylko dla 2 albo 3. Dzięki temu baza „uruchamia” każdy kolejny przypadek.</figcaption>
+</figure>
+
+## Indukcja bez skrótów: co właściwie chcemy udowodnić?
+
+Przypuśćmy, że ktoś zauważył: `1+2+3=6`. Potrafi też policzyć `1+2+3+4=10`. To jednak nie dowodzi jeszcze wzoru dla wszystkich liczb naturalnych. **Indukcja** pozwala przejść od pojedynczego przypadku do nieskończenie wielu, o ile wykonamy dwa poprawne kroki.
+
+- `n` — numer, dla którego badamy zdanie; jest liczbą naturalną.
+- `P(n)` — skrócona nazwa **całego zdania**, które chcemy uzasadnić.
+- **Baza:** pokaż, że zdanie jest prawdziwe dla pierwszego dopuszczalnego `n`.
+- **Krok:** pokaż, że jeżeli zdanie jest prawdziwe dla dowolnego `n=k`, to jest prawdziwe również dla `n=k+1`.
+
+### Dowód od początku na sumie liczb
+
+Badamy zdanie `1+2+...+n=n(n+1)/2` dla wszystkich `n≥1`.
+
+**Baza (`n=1`):** lewa strona to 1. Prawa to `1·(1+1)/2=2/2=1`. Strony są równe.
+
+**Założenie:** dla pewnej liczby naturalnej `k≥1` przyjmujemy:
+
+<Eq display tex={String.raw`1+2+\cdots+k=\frac{k(k+1)}2`}/>
+
+**Krok:** dla `k+1` po lewej stronie dochodzi **dokładnie jeden nowy składnik**, czyli `k+1`:
+
+<Eq display tex={String.raw`1+2+\cdots+k+(k+1)=\frac{k(k+1)}2+(k+1)`}/>
+
+Prawą stronę sprowadzamy do jednego mianownika. Zapis `(k+1)` to samo co `2(k+1)/2`:
+
+<Eq display tex={String.raw`\frac{k(k+1)}2+\frac{2(k+1)}2=\frac{k(k+1)+2(k+1)}2`}/>
+
+Wyłączamy wspólny czynnik `k+1` przed nawias:
+
+<Eq display tex={String.raw`\frac{(k+1)(k+2)}2`}/>
+
+To dokładnie wzór `n(n+1)/2` po podstawieniu `n=k+1`. **Dlatego krok jest udowodniony.** Baza i krok łącznie dowodzą zdania dla wszystkich naturalnych `n≥1`.
+
+### Częste błędy
+
+Samo sprawdzenie liczb `1,2,3` to **nie** indukcja. Nie wolno też w kroku napisać bez uzasadnienia „dla `k+1` jest tak samo”: trzeba pokazać przekształcenia prowadzące do szukanego wzoru.
+
+
 Wyobraź sobie szereg kostek domina. Jeśli **pierwsza upadnie**, a **każda przewróci następną**, to wszystkie upadną. Indukcja opiera się na podobnej logice.
 
 <div className="math-steps"><div><strong>Baza indukcyjna:</strong> sprawdź zdanie dla pierwszego dozwolonego n (najczęściej n = 1).</div><div><strong>Założenie:</strong> przyjmij, że zdanie jest prawdziwe dla pewnego n. Nie udowadniamy go ponownie.</div><div><strong>Krok indukcyjny:</strong> pokaż, że z prawdziwości dla n wynika prawdziwość dla n + 1.</div><div><strong>Wniosek:</strong> na mocy zasady indukcji zdanie działa dla każdego dozwolonego n.</div></div>
@@ -26,6 +73,49 @@ To nazwa własności, którą chcemy udowodnić. Symbol **P(n)** nie oznacza pra
 ## Typowa pułapka
 
 Sprawdzenie wzoru dla n = 1, 2, 3, 4 nie dowodzi, że działa dla **wszystkich** naturalnych. Właściwe uzasadnienie wymaga symbolicznego kroku od n do n + 1.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Baza, założenie, krok — bez przeskakiwania działań
+
+Indukcja to dowód nieskończenie wielu przypadków jednym argumentem. Najpierw potwierdzasz pierwszy przypadek, a potem udowadniasz **mechanizm**, który prowadzi z dowolnego przypadku do następnego.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Teza: `1+2+...+n=n(n+1)/2` dla `n≥1`. W bazie `n=1`: lewa `1`, prawa `1·2/2=1`.
+2. Założenie: dla dowolnego `k≥1` przyjmij `1+...+k=k(k+1)/2`. Nie pisz, że to zostało już udowodnione dla wszystkich: to tylko warunek kroku.
+3. Dla `k+1` po lewej dochodzi wyraz `k+1`: `1+...+k+(k+1)`.
+4. Zastąp starą sumę wzorem z założenia: `k(k+1)/2+(k+1)`. Mianownik 2 wyrównujemy: `k(k+1)/2+2(k+1)/2`.
+5. Wyłącz wspólne `(k+1)`: `(k+1)(k+2)/2`. To dokładnie prawa strona dla `n=k+1`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Uzasadnienie dotyczy przejścia **dla dowolnego k**, nie tylko dla 2 albo 3. Dzięki temu baza „uruchamia” każdy kolejny przypadek.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Sprawdź pierwszy → załóż dowolny → dopisz następny → uzyskaj tezę.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Nie zastępuj `P(k)` od razu przez `P(k+1)` — to właśnie tezę trzeba udowodnić. Najpierw przepisz lewą stronę dla `k+1` i użyj starego wzoru.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Jaki składnik dochodzi przy przejściu z `1²+...+k²` na sumę do `(k+1)²`?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** Dokładnie `(k+1)²`. Poprzednich kwadratów nie obliczamy ponownie.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <InductionLab client:load />
 

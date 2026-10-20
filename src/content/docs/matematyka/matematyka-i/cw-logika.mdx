@@ -14,6 +14,27 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Ćwiczenia: zdania złożone i tabele
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/cw-logika.svg" alt="Złożone zdanie licz od środka nawiasów" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Złożone zdanie licz od środka nawiasów. Tautologia ma same jedynki w ostatniej kolumnie.</figcaption>
+</figure>
+
+
+## Jak podchodzić do ćwiczeń z logiki?
+
+Zanim zaczniesz obliczać, przypisz każdej literze **jedno konkretne zdanie**. Jeśli `p=1`, a `q=0`, rozwiąż najpierw działanie w nawiasie, potem wykonaj negację, a dopiero na końcu spójnik zewnętrzny.
+
+Przykład: oblicz `¬(p∧q)` dla `p=1`, `q=0`.
+
+1. W nawiasie: `p∧q = 1∧0 = 0`, bo nie są prawdziwe oba zdania.
+2. Negacja odwraca prawdę i fałsz: `¬0=1`.
+3. Wynik całego zdania to `1` (prawda).
+
+Nie wolno pomijać nawiasu: `¬(p∧q)` nie jest tym samym zapisem co `(¬p)∧q`.
+
+
 W zdjęciach pojawiają się zadania sprawdzające, czy dwie formuły są równoważne. Oto szczegółowa metoda rozwiązania, której można użyć dla każdego podpunktu.
 
 ## Zadanie A: sprawdź prawo de Morgana
@@ -42,4 +63,41 @@ Dla `p=0, q=1`: `p⇒q=1`, ale `q⇒p=0`, więc równoważność jest **fałszyw
 Zbuduj 8 wierszy w kolejności `000,001,…,111`. Użyj laboratorium z lekcji [Tabele prawdy](../tabele-prawdy/), aby sprawdzić każdy z nich.
 
 <div className="mathi-panel"><strong>Nie przepisuj błędnych wpisów z tablicy.</strong><p>Zdjęcia 13–14 pokazują liczne skreślenia. Najważniejszy jest prawidłowy algorytm liczenia kolumn pośrednich.</p></div>
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Trening: nie zgaduj tabeli, policz każdą kolumnę
+
+Sprawdź, czy `p⇒q` i `¬p∨q` mają takie same wartości.
+
+| p | q | `p⇒q` | `¬p` | `¬p∨q` |
+|---|---|---|---|---|
+| 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 | 0 |
+| 1 | 1 | 1 | 0 | 1 |
+
+W ostatnich dwóch kolumnach jest ten sam ciąg wartości, dlatego wyrażenia są **równoważne**.
+
+### Mini-zadanie z objaśnieniem strategii
+
+Sprawdź, czy `p∧(p∨q)` jest równoważne `p`.
+
+1. Jeśli `p=0`, całe wyrażenie `0∧(...)` musi dać 0.
+2. Jeśli `p=1`, wtedy `p∨q=1` bez względu na q.
+3. Całość wynosi wtedy `1∧1=1`.
+4. Zatem wynik jest zawsze taki sam jak p — to prawo absorpcji.
+
+<details className="m1-selfcheck">
+<summary>Kontrola: czy `p∧¬p` może kiedykolwiek być prawdziwe?</summary>
+
+Nie. Jeśli `p=1`, to `¬p=0`. Jeśli `p=0`, to pierwszy czynnik jest 0. W obu przypadkach koniunkcja ma wartość 0 — to sprzeczność.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

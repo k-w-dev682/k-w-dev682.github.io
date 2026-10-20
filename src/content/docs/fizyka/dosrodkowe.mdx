@@ -15,6 +15,14 @@ import { CircleLab } from '../../../components/PhysicsLabs.jsx';
 
 # Przyspieszenie i siła dośrodkowa
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/dosrodkowe.svg" alt="Do środka oznacza zmianę kierunku, nie dodatkowy rodzaj siły" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Do środka: v²/r, a siła to m·v²/r.**</figcaption>
+</figure>
+
 Nawet jeśli ciało nie przyspiesza w sensie zwiększania szybkości, zmienia **kierunek** prędkości. Odpowiada za to przyspieszenie dośrodkowe.
 
 <Eq tex={String.raw`a_d=\frac{v^2}{R}=\omega^2R`} display />
@@ -32,6 +40,51 @@ Masa m = 2 kg, v = 6 m/s, R = 3 m.
 Zauważ: podwojenie prędkości powoduje **czterokrotny** wzrost siły wymaganej do utrzymania tego samego toru.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Do środka oznacza zmianę kierunku, nie dodatkowy rodzaj siły
+
+Przyspieszenie dośrodkowe jest skierowane ku środkowi koła. „Siła dośrodkowa” to nazwa **wypadkowej składowej sił** w tym kierunku, a nie zawsze osobna siła.
+
+### Co oznaczają symbole i jednostki?
+
+`m` — masa [kg]; `v` — szybkość [m/s]; `r` — promień toru [m]; `a_d` — przyspieszenie dośrodkowe [m/s²]; `F_d` — wypadkowa radialna [N].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Dane: `m=2 kg`, `v=4 m/s`, `r=2 m`.
+2. Przyspieszenie: `a_d=v²/r=4²/2=16/2=8 m/s²`.
+3. Wypadkowa skierowana do środka: `F_d=ma_d=2·8=16 N`.
+4. Jeżeli promień wzrośnie dwa razy przy tej samej szybkości, przyspieszenie spadnie dwa razy.
+
+### Dlaczego to działa?
+
+Aby obrócić wektor prędkości, potrzebna jest zmiana prędkości skierowana do środka toru. Im mniejszy promień, tym ostrzejszy skręt.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Do środka: v²/r, a siła to m·v²/r.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie dorysowuj „siły dośrodkowej” obok faktycznych sił, jeśli już jest ich wypadkową — policzyłbyś efekt dwa razy.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Ciało ma v=6 m/s i r=3 m. Oblicz przyspieszenie dośrodkowe.</summary>
+
+**Kolejne kroki i odpowiedź:** `a_d=6²/3=36/3=12 m/s²`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <CircleLab client:load />
 

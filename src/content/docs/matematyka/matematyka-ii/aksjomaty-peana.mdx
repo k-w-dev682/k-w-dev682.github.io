@@ -11,6 +11,28 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Aksjomaty Peana i liczby naturalne
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/aksjomaty-peana.svg" alt="Od liczenia przedmiotów do dowodu" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Warunek początku uruchamia łańcuch, a przejście zapewnia brak przerw. Samo „działa dla 1, 2, 3” nie daje prawa do zdania „działa dla wszystkich”.</figcaption>
+</figure>
+
+## Najpierw: czym w ogóle jest aksjomat?
+
+Kiedy uczymy się matematyki, nie da się uzasadnić wszystkiego „od jeszcze wcześniejszej zasady” w nieskończoność. Potrzebujemy punktu startowego. **Aksjomat** jest właśnie takim założeniem przyjętym w danej teorii. Z tych założeń można już dowodzić kolejnych twierdzeń.
+
+### Czym jest następnik?
+
+Następnik liczby `n` zapisujemy `n+1`: po 1 jest 2, po 2 jest 3, i tak dalej. W przyjętej tu wersji z `ℕ={1,2,3,...}` nie ma liczby naturalnej, której następnikiem byłoby 1.
+
+### Dlaczego pojawia się tu indukcja?
+
+Jeżeli pewna własność działa **dla jedynki** i umiesz wykazać, że z jej prawdziwości dla `n` wynika jej prawdziwość dla `n+1`, to działa dla wszystkich liczb naturalnych. To nie zgadywanie na podstawie kilku przykładów, lecz zastosowanie przyjętej zasady indukcji.
+
+
 **Aksjomat** to zasada, którą przyjmujemy jako punkt wyjścia teorii. Inne twierdzenia uzasadniamy za pomocą takich zasad oraz logicznego rozumowania.
 
 ## Czym są liczby naturalne?
@@ -57,3 +79,45 @@ Te dwa kroki są podstawą dowodów indukcyjnych omawianych w kolejnych lekcjach
 > **Uwaga:** to intuicyjne przedstawienie aksjomatów Peana. W formalnym ujęciu zapisuje się je dokładniej, z użyciem pojęcia następnika oraz własności liczb naturalnych.
 
 [Przejdź do zasady indukcji](../indukcja/) · [Przejdź do spisu treści](../spis-tresci/)
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Od liczenia przedmiotów do dowodu
+
+Najpierw liczymy: 1, 2, 3... W matematyce trzeba jednak powiedzieć, co dokładnie uznajemy za liczbę naturalną i dlaczego zawsze wolno przejść do następnej liczby. Aksjomaty są zasadami startowymi, nie wzorami do podstawiania liczb.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Ustal konwencję: w tej lekcji `ℕ={1,2,3,...}`. Jeśli inny podręcznik zaczyna od zera, nie jest to błąd, tylko inna konwencja.
+2. Nazwij funkcję następnika `S(n)`: to kolejna liczba po `n`, czyli `S(n)=n+1`. Przykład: `S(4)=5`.
+3. Wyobraź sobie własność `P(n)`: „po dodaniu 1 do n nadal otrzymujemy liczbę naturalną”. W przykładzie `n=4` otrzymujemy 5, ale sprawdzenie jednej wartości nie jest dowodem dla wszystkich.
+4. Aksjomat indukcji stwierdza: jeśli `P(1)` jest prawdziwe i z `P(n)` zawsze wynika `P(n+1)`, to własność obejmuje wszystkie liczby naturalne w tej konwencji.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Warunek początku uruchamia łańcuch, a przejście zapewnia brak przerw. Samo „działa dla 1, 2, 3” nie daje prawa do zdania „działa dla wszystkich”.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Początek + następny krok = wszystkie kolejne liczby** (w ustalonej konwencji).
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Nie myl aksjomatu z twierdzeniem: aksjomat w tej teorii przyjmujemy, a twierdzenie dowodzimy. Przy zadaniu zawsze sprawdzaj, czy `0` należy do `ℕ`.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Przyjmij `ℕ={1,2,3,...}`. Czy na podstawie samych trzech obliczeń `P(1), P(2), P(3)` wolno stwierdzić `P(n)` dla każdej liczby naturalnej?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** Nie. Trzy przykłady pokazują tylko trzy przypadki. Potrzebujemy dowodu kroku `P(n) ⇒ P(n+1)` dla dowolnego `n` i sprawdzenia punktu startowego.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
+

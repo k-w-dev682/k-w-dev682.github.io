@@ -14,6 +14,30 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Dowodzenie tożsamości zbiorowych
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/dowody-zbiorowe.svg" alt="Równość zbiorów wymaga obu zawierań" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Równość zbiorów wymaga obu zawierań. Każdy krok wynika z definicji znaku.</figcaption>
+</figure>
+
+
+## Jak udowodnić równość zbiorów, kiedy nie znamy ich elementów?
+
+Dla dwóch **konkretnych** zbiorów możesz wypisać elementy. Ale jeśli `A`, `B` i `C` są dowolnymi zbiorami, musimy uzasadnić równość dla każdego możliwego wyboru elementu `x`.
+
+### Metoda „weź dowolne x”
+
+1. Wybierz dowolny element `x` — nie zakładaj, jaką ma wartość.
+2. Zapisz, co znaczy `x` należące do **lewej strony**.
+3. Przekształć opis przynależności korzystając z „i”, „lub”, „nie”.
+4. Sprawdź, że otrzymany warunek opisuje **prawą stronę**.
+
+Przykład: `x∈A∩B` oznacza jednocześnie `x∈A` **i** `x∈B`. Natomiast `x∈A∪B` oznacza `x∈A` **lub** `x∈B`. Dlatego suma i część wspólna nie są tym samym.
+
+**Po co kierunek w obie strony?** Równość zbiorów znaczy, że każdy element lewej strony należy do prawej **i odwrotnie**. Sama jednostronna przynależność wystarczyłaby jedynie do wykazania, że jeden zbiór jest podzbiorem drugiego.
+
+
 W zeszycie pojawia się prośba o dowodzenie równości zbiorów. Najbardziej uniwersalna metoda to **pokazać, że dowolny element należy do jednej strony wtedy i tylko wtedy, gdy należy do drugiej**.
 
 ## Zadanie 1
@@ -37,4 +61,42 @@ Rozdzielamy koniunkcję względem alternatywy:
 (x∈A i x∉C) lub (x∈B i x∉C).
 
 Jest to dokładnie warunek przynależności do prawej strony. **Dowód zakończony.**
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Dowód zbiorów od zera: zawsze dwie strony
+
+Aby wykazać `X=Y`, wystarczy udowodnić `X⊆Y` i `Y⊆X`. To działa, ponieważ równe zbiory mają dokładnie te same elementy.
+
+### Dowód: `A∩B ⊆ A`
+
+1. Weź **dowolne** `x∈A∩B`.
+2. Z definicji przecięcia wiemy, że `x∈A` **i** `x∈B`.
+3. Zatem w szczególności `x∈A`.
+4. Ponieważ tak jest dla każdego `x∈A∩B`, otrzymujemy `A∩B⊆A`.
+
+### Dowód równości: `A∩(B∪C) = (A∩B) ∪ (A∩C)`
+
+**Kierunek pierwszy:** jeśli `x∈A∩(B∪C)`, to `x∈A` oraz (`x∈B` lub `x∈C`). A zatem (`x∈A∩B` lub `x∈A∩C`), więc `x` należy do prawej strony.
+
+**Kierunek drugi:** jeśli `x` należy do `(A∩B) ∪ (A∩C)`, to należy do co najmniej jednego z tych przecięć. W obu przypadkach jest w A oraz przynajmniej jednym z B, C, zatem `x∈A∩(B∪C)`.
+
+Oba zawierania zachodzą, więc zbiory są równe.
+
+:::tip[Szkielet dowodu]
+„Niech `x` będzie dowolnym elementem lewej strony. ... Zatem należy do prawej”. Potem **zamień strony** i powtórz.
+:::
+
+<details className="m1-selfcheck">
+<summary>Ćwiczenie: pokaż, że `A∖B ⊆ A`</summary>
+
+Weź `x∈A∖B`. Z definicji różnicy wiemy `x∈A` i `x∉B`. W szczególności `x∈A`, więc `A∖B⊆A`.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

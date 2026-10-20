@@ -28,6 +28,7 @@ export default defineConfig({
     label: "Programowanie C++",
     collapsed: true,
     items: [
+      {"label": "Dane, funkcje i pamięć", "collapsed": true, "items": [{"label": "Tablice — wiele wartości pod jedną nazwą", "slug": "programowanie/tablice"}, {"label": "Funkcje — parametry, wynik i wywołanie", "slug": "programowanie/funkcje"}, {"label": "Referencje — druga nazwa tego samego obiektu", "slug": "programowanie/referencje"}, {"label": "Wskaźniki, adresy i czas życia pamięci", "slug": "programowanie/wskazniki-pamiec"}]},
       {
         label: "Spis treści",
         slug: "programowanie/spis-tresci"

@@ -13,6 +13,36 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Zadanie 1a — suma kwadratów
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/cw-suma-kwadratow.svg" alt="Suma kwadratów: skąd bierze się nowy składnik?" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Działa tu założenie indukcyjne: pozwala zastąpić całą starą sumę jednym wyrażeniem. Bez tego musiałbyś znowu dodawać `n` kwadratów.</figcaption>
+</figure>
+
+## Dlaczego w kroku indukcyjnym dopisujemy `(n+1)²`?
+
+Badamy sumę **kwadratów**: `1²+2²+...+n²`. Jeżeli zwiększymy granicę sumy z `n` do `n+1`, nie zmieniają się poprzednie składniki — dochodzi **jeden**, czyli `(n+1)²`. Dlatego nowa lewa strona to stara suma plus `(n+1)²`.
+
+### Rozpakujmy najtrudniejsze przekształcenie
+
+Po skorzystaniu z założenia mamy:
+
+<Eq display tex={String.raw`\frac{n(n+1)(2n+1)}6+(n+1)^2`}/>
+
+Drugi składnik zapisujemy ze wspólnym mianownikiem `6`:
+
+<Eq display tex={String.raw`\frac{n(n+1)(2n+1)+6(n+1)^2}{6}`}/>
+
+W obu częściach licznika występuje `n+1`, więc wyłączamy ten czynnik:
+
+<Eq display tex={String.raw`\frac{(n+1)[n(2n+1)+6(n+1)]}{6}`}/>
+
+W nawiasie: `n(2n+1)+6(n+1)=2n²+n+6n+6=2n²+7n+6=(n+2)(2n+3)`. To już wzór dla kolejnego numeru, czyli `n+1`.
+
+
 Udowodnij dla n ≥ 1:
 
 <Eq display tex={String.raw`\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}6`}/>
@@ -33,5 +63,48 @@ Udowodnij dla n ≥ 1:
 <Eq display tex={String.raw`\begin{aligned}L&=\sum_{k=1}^{n}k^2+(n+1)^2\\&=\frac{n(n+1)(2n+1)}6+(n+1)^2\\&=\frac{(n+1)\big[n(2n+1)+6(n+1)\big]}6\\&=\frac{(n+1)(2n^2+7n+6)}6\\&=\frac{(n+1)(n+2)(2n+3)}6=P\end{aligned}`}/>
 
 W ostatnim wierszu rozkładamy trójmian: 2n² + 7n + 6 = (n+2)(2n+3). Dzięki temu otrzymaliśmy **dokładnie prawą stronę tezy**.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Suma kwadratów: skąd bierze się nowy składnik?
+
+Gdy przechodzisz z pierwszych `n` kwadratów na pierwszych `n+1` kwadratów, nie przeliczaj poprzednich od nowa. **Dopisujesz dokładnie jeden**: `(n+1)²`.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Sprawdź mały przykład: dla `n=3` lewa strona to `1²+2²+3²=1+4+9=14`.
+2. Wzór daje `3·4·7/6=84/6=14`. To tylko sprawdzenie, nie pełny dowód.
+3. Załóż, że `Sₙ=n(n+1)(2n+1)/6`. Wtedy `Sₙ₊₁=Sₙ+(n+1)²`.
+4. Podstaw: `[n(n+1)(2n+1)+6(n+1)²]/6`. Wyłącz `(n+1)`: `(n+1)[n(2n+1)+6(n+1)]/6`.
+5. Uprość nawias: `2n²+n+6n+6=2n²+7n+6=(n+2)(2n+3)`. Wynik to `(n+1)(n+2)(2n+3)/6`, czyli wzór dla `n+1`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Działa tu założenie indukcyjne: pozwala zastąpić całą starą sumę jednym wyrażeniem. Bez tego musiałbyś znowu dodawać `n` kwadratów.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Stara suma + nowy kwadrat → wyłącz `(n+1)` → szukaj wzoru na `n+1`.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Nie dodawaj `(n+1)` zamiast `(n+1)²`; zawsze spójrz na postać *pojedynczego* składnika ciągu.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Oblicz `1²+2²+3²+4²` ręcznie i ze wzoru.</summary>
+
+**Rozwiązanie z wyjaśnieniem:** Ręcznie: `1+4+9+16=30`. Ze wzoru: `4·5·9/6=180/6=30`. Oba wyniki powinny się zgodzić.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <SigmaLab client:load />

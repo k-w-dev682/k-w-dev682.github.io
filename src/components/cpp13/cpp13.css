@@ -1,0 +1,10 @@
+.cpp13-lab{margin:2rem 0;padding:clamp(1rem,3vw,1.5rem);border:1px solid #28544f;border-radius:16px;background:#080e10;color:#e7f4f1;overflow:hidden}.cpp13-lab header>span{color:#61e4c5;font-size:.7rem;letter-spacing:.1em}.cpp13-lab h3{color:#effbf7;margin:.5rem 0}.cpp13-lab p{color:#b5cdc7;line-height:1.65}.cpp13-lab pre{overflow-x:auto;padding:1rem;border:1px solid #28544f;background:#101b1d;color:#aaf5df;border-radius:8px;font-size:.9rem}.cpp13-memory{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.7rem;margin:1rem 0}.cpp13-memory>div{border:1px solid #28544f;border-radius:8px;padding:.8rem;background:#101b1d;overflow-wrap:anywhere}.cpp13-memory dt{color:#b5cdc7;font-size:.8rem}.cpp13-memory dd{margin:.4rem 0 0;color:#61e4c5;font:700 1.1rem monospace}.cpp13-controls{display:flex;flex-wrap:wrap;gap:.6rem}.cpp13-controls button{font:inherit;font-size:.85rem;padding:.7rem 1rem;min-height:44px;border:1px solid #3b9b88;border-radius:8px;background:#14382f;color:#ecfff9;cursor:pointer}.cpp13-controls button:disabled{opacity:.45;cursor:default}.cpp13-controls button:focus-visible{outline:3px solid #8dffe0;outline-offset:3px}@media(max-width:420px){.cpp13-controls button{flex:1 1 100%}}@media print{.cpp13-controls{display:none}.cpp13-lab{break-inside:avoid}}
+
+/* The PDF collection page imports these rules even without a lesson island. */
+#study-print-root .cpp13-trace{padding:1rem;border:1px solid #387b6c;border-radius:10px;break-inside:avoid;margin:1.5rem 0}
+#study-print-root .cpp13-trace figcaption{display:grid;gap:.3rem;margin-bottom:.8rem}
+#study-print-root .cpp13-trace ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;list-style:none;padding:0}
+#study-print-root .cpp13-trace li{padding:.8rem;border:1px solid #387b6c;border-radius:8px}
+#study-print-root .cpp13-number{font-weight:bold;margin-right:.5rem}
+#study-print-root .cpp13-trace p{margin:.4rem 0;overflow-wrap:anywhere}
+#study-print-root img[src*="/cpp13/"]{max-width:100%;height:auto;break-inside:avoid}

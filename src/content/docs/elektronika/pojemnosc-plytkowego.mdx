@@ -13,6 +13,65 @@ import { CapacitorLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="pojemnosc-plytkowego" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Dla idealizowanego kondensatora płaskiego pojemność rośnie z **powierzchnią okładek** i maleje z **odległością między nimi**. Materiał między okładkami również wpływa na pojemność.
+
+Wyobraź sobie dwie półki na „rozdzielone ładunki”: większa powierzchnia daje więcej miejsca, a mniejsza odległość sprawia, że łatwiej uzyskać duży ładunek przy danym napięciu.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: pojemnosc plytkowego](/elektronika/grafiki/pojemnosc-plytkowego.svg)
+
+**Wskazówka do grafiki:** Większe `S` → większe `C`; większe `d` → mniejsze `C`.
+
+### Każda litera i symbol — co oznacza?
+
+- `C` — pojemność w faradach.
+- `ε₀` — przenikalność próżni.
+- `εᵣ` — względna przenikalność dielektryka (bezwymiarowa).
+- `S` — wspólna powierzchnia okładek w `m²`.
+- `d` — odstęp okładek w `m`.
+- `C ≈ ε₀ εᵣ S/d` — przy zaniedbaniu efektów brzegowych.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dane: `S = 100 cm²`, `d = 1 mm`, `εᵣ = 2`.
+2. Zamieniamy powierzchnię: `100 cm² = 100 · 10⁻⁴ m² = 0,010 m²`.
+3. Zamieniamy odległość `1 mm = 0,001 m`.
+4. Podstawiamy: `C = 8,854 · 10⁻¹² · 2 · (0,010/0,001)`.
+5. Ułamek geometryczny ma wartość `10`, zatem `C ≈ 1,77 · 10⁻¹⁰ F`.
+6. To około `177 pF`.
+
+:::caution[Na co uważać?]
+Centymetry **kwadratowe** zamieniamy przez `10⁻⁴`, a nie `10⁻²`. W mianowniku jest odległość `d`.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+Większe `S` → większe `C`; większe `d` → mniejsze `C`.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Co stanie się z pojemnością, gdy `d` zmaleje dwukrotnie przy niezmienionym `S` i dielektryku?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+Pojemność wzrośnie dwukrotnie.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Wzór na kondensator płaski
 
 <Eq tex={String.raw`C=\varepsilon_0\varepsilon_r\frac{S}{d}`} display />

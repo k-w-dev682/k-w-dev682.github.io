@@ -15,6 +15,31 @@ import { InverseLab } from '../../../../components/MathILabs.jsx';
 
 # Ćwiczenia: jak wyznaczyć funkcję odwrotną
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/cw-odwrotne.svg" alt="Kwadrat wymaga wyboru jednej gałęzi" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Kwadrat wymaga wyboru jednej gałęzi. Znak pierwiastka wynika z dziedziny.</figcaption>
+</figure>
+
+
+## Jak rozumieć polecenie z ćwiczeń?
+
+„Wyznacz funkcję odwrotną” znaczy: znajdź przepis, który z **wyniku** odtworzy **pierwotny argument**. Najpierw ustalamy, czy odtworzenie będzie jednoznaczne. Potem rozwiązujemy równanie `y=f(x)` względem starego `x`.
+
+### Dodatkowe zadanie przejściowe
+
+Weź `f(x)=3x−6`. Zapisz `y=3x−6`, dodaj 6 do obu stron: `y+6=3x`; podziel obie strony przez 3: `x=(y+6)/3`. Zamień nazwy argumentu i wyniku:
+
+<Eq display tex={String.raw`f^{-1}(x)=\frac{x+6}{3}`}/>
+
+**Sprawdzenie:** `f(4)=12−6=6` i `f⁻¹(6)=(6+6)/3=4`. Obie maszyny wzajemnie się cofają.
+
+### Wskazówka do kwadratu w ćwiczeniu b
+
+Zapis `x²−2x` nie wygląda jak kwadrat, ale `x²−2x+1=(x−1)²`. Dlatego `x²−2x=(x−1)²−1`. **Dodajemy i odejmujemy 1**, a nie dopisujemy jej tylko z jednej strony. Ponieważ w ćwiczeniu `x≥1`, wyrażenie `x−1` jest nieujemne, dlatego wybieramy gałąź dodatnią `√(...)`.
+
+
 ## a) Funkcja sześcienna
 
 <Eq display tex={String.raw`f(x)=x^3+5`}/>
@@ -42,4 +67,39 @@ Postać kanoniczna to `(x−1)²−1`. Funkcja jest rosnąca na [1,∞), więc o
 **Dlaczego plus, a nie minus?** W pierwotnej dziedzinie mamy x−1≥0, więc wybieramy dodatnią gałąź pierwiastka.
 
 <InverseLab client:load />
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Ćwiczenia: nie pomijaj dziedziny i znaku pierwiastka
+
+Dla `f(x)=x²` bez ograniczenia dziedziny nie otrzymasz jednej odwrotności, bo `f(2)=f(−2)=4`. W ćwiczeniach z trójmianem kluczowa jest **informacja podana po przecinku**: `x≤...` lub `x≥...`.
+
+### Przykład bardzo podobny do zadania z zeszytu
+
+Niech `f(x)=(x−1)²+2`, ale **tylko dla `x≤1`**.
+
+1. Zapisz `y=(x−1)²+2`.
+2. Odejmij 2: `y−2=(x−1)²`.
+3. Pierwiastkuj: `|x−1|=√(y−2)` — pierwiastek po prawej jest nieujemny.
+4. Ponieważ `x≤1`, mamy `x−1≤0`, zatem `|x−1|=1−x`.
+5. Otrzymujemy `1−x=√(y−2)`, czyli `x=1−√(y−2)`.
+6. Zmień nazwę zmiennej: **`f⁻¹(x)=1−√(x−2)`**, przy **`x≥2`**.
+7. Sprawdź: `f(0)=3`, a `f⁻¹(3)=1−1=0`.
+
+:::caution[Częsty błąd]
+Nie wybieraj automatycznie znaku `+` przed pierwiastkiem. Znak wybiera **ograniczenie dziedziny oryginalnej funkcji**.
+:::
+
+<details className="m1-selfcheck">
+<summary>Ćwiczenie: `f(x)=(x+2)²`, x≥−2. Jaka odwrotna?</summary>
+
+`y=(x+2)²`, więc `√y=|x+2|=x+2`, bo `x≥−2`. Stąd `x=√y−2`, czyli `f⁻¹(x)=√x−2` dla `x≥0`.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

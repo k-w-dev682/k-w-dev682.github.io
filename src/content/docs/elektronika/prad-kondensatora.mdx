@@ -13,6 +13,64 @@ import { CurrentLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="prad-kondensatora" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Prąd kondensatora wynika ze **zmiany ładunku na okładkach w czasie**. Dla idealnego kondensatora prąd może płynąć w przewodach podczas ładowania, choć przez idealny izolator między okładkami nie przepływa prąd przewodzenia.
+
+Jeśli napięcie na kondensatorze zmienia się szybko, szybko zmienia się również zgromadzony ładunek. Dlatego większe tempo zmiany napięcia oznacza większy prąd przy stałej pojemności.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: prad kondensatora](/elektronika/grafiki/prad-kondensatora.svg)
+
+**Wskazówka do grafiki:** **Prąd w idealnym kondensatorze pojawia się przy zmianie napięcia.**
+
+### Każda litera i symbol — co oznacza?
+
+- `i(t)` — chwilowy prąd w amperach.
+- `u(t)` — napięcie jako funkcja czasu.
+- `C` — stała pojemność w faradach.
+- `du/dt` — tempo zmiany napięcia w `V/s`.
+- `i(t) = C · du/dt` — przy przyjętej pasywnej konwencji znaków.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dane: `C = 10 μF`, napięcie wzrasta liniowo o `5 V` w czasie `0,1 s`.
+2. Zamieniamy: `C = 10 · 10⁻⁶ F`.
+3. Przy liniowym wzroście `du/dt = Δu/Δt = 5/0,1 = 50 V/s`.
+4. Podstawiamy: `i = 10 · 10⁻⁶ · 50 A`.
+5. Wynik `i = 0,0005 A = 0,5 mA`.
+6. Gdy napięcie jest stałe w czasie, `du/dt = 0`, więc w idealnym modelu prąd kondensatora wynosi zero.
+
+:::caution[Na co uważać?]
+Nie myl stałego napięcia z brakiem ładunku. Naładowany kondensator może mieć niezerowe U i jednocześnie `i = 0`.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Prąd w idealnym kondensatorze pojawia się przy zmianie napięcia.**
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Czy kondensator o stałym napięciu 5 V musi mieć niezerowy prąd?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+Nie. Jeśli napięcie się nie zmienia, `du/dt = 0`, więc `i = 0` w idealnym modelu.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Wyprowadzenie z notatek
 
 Zależność ładunku od napięcia dla kondensatora o stałej pojemności:

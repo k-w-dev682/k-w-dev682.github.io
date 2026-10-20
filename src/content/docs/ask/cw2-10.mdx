@@ -54,4 +54,41 @@ W zapisie binarnym pominąłem zera wiodące, jeżeli nie wymaga się ustalonej 
 
 <BaseConverterLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia 2: dwójkowy → dziesiętny](/ask/grafiki/cw2-10.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Weź `1010101₂`. Z prawej przypisz wagi: `1,2,4,8,16,32,64`.
+2. Zapisz mnożenie: `1·64 + 0·32 + 1·16 + 0·8 + 1·4 + 0·2 + 1·1`.
+3. Dodaj tylko wkłady jedynek: `64+16+4+1 = 85`.
+4. Odpowiedź: `85₁₀`. Oryginalne `1010101` było **liczbą dwójkową**, nie dziesiętną.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+Wagi bitów są potęgami dwójki, a nie kolejnymi liczbami naturalnymi.
+
+:::caution[Uważaj tutaj]
+Jeśli pomylisz kolejność wag, cały wynik może być błędny.
+:::
+
+### Minisprawdzian po zadaniu
+
+Ile to `111₂`?
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+`4+2+1=7₁₀`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

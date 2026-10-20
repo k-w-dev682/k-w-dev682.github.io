@@ -5,12 +5,100 @@ sidebar:
   order: 3
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { BuildLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="kompilacja" title="Kompilacja, linkowanie i błędy" section="01 · Fundamenty" />
 
 # Kompilacja, linkowanie i błędy
+
+## Zrozum od podstaw
+
+Tłumaczenie programu przypomina przygotowanie książki: najpierw trzeba przetworzyć poszczególne części, potem połączyć je w całość. Preprocesor obsługuje między innymi `#include`. Kompilator sprawdza reguły języka i tworzy kod obiektowy. Linker łączy elementy, w tym używane części bibliotek. Dopiero system operacyjny uruchamia gotowy program.
+
+**Nagłówek** udostępnia deklaracje potrzebne kompilatorowi. Dołączenie nagłówka nie jest uruchomieniem biblioteki. Pliki obiektowe zwykle mają rozszerzenie .o albo .obj; aplikacja Windows często .exe.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int cena = 4;
+    int sztuki = 3;
+    std::cout << cena * sztuki << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Pierwsze dwie instrukcje tworzą wartości dopiero podczas wykonania programu.
+2. Kompilator sprawdza, czy nazwy i operatory są użyte poprawnie; nie zna twojego polecenia zadania.
+3. Mnożenie daje 12. Gdyby użyć +, kod nadal byłby poprawny składniowo, ale obliczałby inną rzecz.
+
+<CppTrace title="Śledzenie: kompilacja" steps={[["Preprocesor", "Dołączenie deklaracji i rozwinięcie dyrektyw"], ["Kompilator", "Sprawdzenie kodu i plik obiektowy"], ["Linker", "Połączenie definicji w program"], ["Uruchomienie", "Obliczenie 4 × 3 i wypisanie 12"]]} />
+
+![Schemat: budowanie](/cpp13/budowanie.svg)
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+std::cout << cena + sztuki;
+```
+
+To błąd logiczny, gdy chcemy koszt trzech sztuk po 4. Kompilator akceptuje obie wersje, ponieważ obie są poprawnym C++.
+
+**Poprawiony fragment:**
+
+```cpp
+std::cout << cena * sztuki;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy brak średnika to błąd wykonania?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Zwykle uniemożliwia kompilację, zanim uruchomisz program.
+
+</details>
+
+### 2. Co oznacza undefined reference dla własnej funkcji?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Linker nie znalazł pasującej definicji. Sprawdź, czy plik z jej kodem jest budowany i czy zgadzają się nazwa oraz parametry.
+
+</details>
+
+### 3. Jak sprawdzisz poprawność ceny całkowitej?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Dla cena = 4 i sztuki = 3 oczekuj 12, a dla sztuki = 0 oczekuj 0. Testy wynikają z treści zadania.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Pomyślne budowanie potwierdza zgodność z częścią reguł języka, ale nie dowodzi poprawności rozwiązania.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Dlaczego potrzebujemy kompilatora?
 

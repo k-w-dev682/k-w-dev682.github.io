@@ -13,6 +13,26 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Ciągi: wyraz jawny i rekurencja
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/ciagi.svg" alt="Ciąg to ponumerowana lista wartości" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> W obu opisach chodzi o tę samą ponumerowaną listę. Wzór jawny ułatwia szybkie liczenie odległego wyrazu; rekurencja pokazuje regułę przejścia.</figcaption>
+</figure>
+
+## Ciąg to uporządkowana lista liczb
+
+Przykładowy ciąg: `2,4,6,8,...`. Pierwszy wyraz to 2, drugi to 4, trzeci to 6. Zapis `aₙ` czytamy „n-ty wyraz”, a `n` to **numer miejsca w ciągu**, nie liczba wyrazów już dodanych do siebie.
+
+**Wzór jawny** `aₙ=2n`: żeby znaleźć piąty wyraz, podstaw `n=5` i oblicz `2·5=10`.
+
+**Wzór rekurencyjny** może brzmieć `a₁=2`, `aₙ₊₁=aₙ+2`: zaczynamy od 2 i każdą następną wartość wyznaczamy z poprzedniej przez dodanie 2.
+
+**Błąd:** jeśli ciąg jest numerowany od `n=0`, to `a₀` oznacza pierwszy wyraz; zawsze sprawdzaj, od jakiej wartości zaczyna się indeks.
+
+
 Ciąg to uporządkowana lista wyrazów: <Eq tex={String.raw`a_1,a_2,a_3,\ldots`}/>. **Indeks**, czyli mała liczba na dole, oznacza pozycję w ciągu, a nie mnożenie.
 
 ## Wzór jawny
@@ -35,6 +55,48 @@ Przyjmijmy: <Eq tex={String.raw`a_1=1`}/> i <Eq tex={String.raw`a_2=2`}/>.
 
 <Eq display tex={String.raw`a_3=2a_2+3a_1=2\cdot2+3\cdot1=7`}/>
 <Eq display tex={String.raw`a_4=2a_3+3a_2=2\cdot7+3\cdot2=20`}/>
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Ciąg to ponumerowana lista wartości
+
+Ciąg oznaczamy zwykle `aₙ`. Dolny indeks nie jest mnożeniem: `a₃` oznacza **trzeci wyraz**. Wzór jawny mówi od razu, jaki jest wyraz numer `n`; wzór rekurencyjny mówi, jak policzyć go z poprzedniego.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Rozpatrz ciąg `aₙ=2n+1`, dla `n≥1`. Litera `n` jest numerem wyrazu, a `aₙ` jego wartością.
+2. Podstaw `n=1`: `a₁=2·1+1=3`. Podstaw `n=2`: `a₂=2·2+1=5`. Podstaw `n=3`: `a₃=7`.
+3. Ten sam ciąg opisz rekurencyjnie: `a₁=3` oraz `aₙ₊₁=aₙ+2` dla `n≥1`. Gdy znasz 3, dodajesz 2, aby dostać 5; z 5 dostajesz 7.
+4. Sprawdź zgodność: wzór jawny dla `n=4` daje `a₄=9`; rekurencja daje `7+2=9`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+W obu opisach chodzi o tę samą ponumerowaną listę. Wzór jawny ułatwia szybkie liczenie odległego wyrazu; rekurencja pokazuje regułę przejścia.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Jawny = policz od razu. Rekurencyjny = policz z poprzedniego.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Samo `aₙ₊₁=aₙ+2` nie określa jednego konkretnego ciągu — konieczny jest wyraz początkowy, np. `a₁=3`.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Ciąg spełnia `a₁=4`, `aₙ₊₁=aₙ+3`. Jakie są pierwsze cztery wyrazy?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `4, 7, 10, 13`. Każdy następny powstaje przez dodanie 3 do poprzedniego. Tu `n` numeruje kolejne kroki.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <RecurrenceLab client:load />
 

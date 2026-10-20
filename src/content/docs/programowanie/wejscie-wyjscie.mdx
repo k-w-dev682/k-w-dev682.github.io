@@ -5,11 +5,101 @@ sidebar:
   order: 4
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="wejscie-wyjscie" title="Wejście `cin` i wyjście `cout`" section="01 · Fundamenty" />
 
 # Wejście `cin` i wyjście `cout`
+
+## Zrozum od podstaw
+
+Strumień to uporządkowana kolejka danych. `std::cin` pobiera dane z wejścia, a `std::cout` przekazuje je na wyjście. Zwykle są to klawiatura i konsola, ale strumienie mogą być przekierowane. Dwa operatory `>>` nie oznaczają dwóch osobnych uruchomień: najpierw czytasz pierwszą liczbę, potem następną.
+
+W przykładzie używamy dodatkowo `if`, czyli decyzji, oraz `!`, czyli zaprzeczenia. Odczyt jako warunek mówi, czy udało się pobrać oba składniki. Dzięki temu obliczenie nie ruszy po wpisaniu tekstu zamiast liczby.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a = 0, b = 0;
+    if (!(std::cin >> a >> b)) {
+        std::cout << "Bledne dane\n";
+        return 1;
+    }
+    std::cout << "Suma: " << a + b << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Deklaracja tworzy dwie zmienne i nadaje obu wartość 0. Przecinek oddziela deklaratory.
+2. Nawiasy grupują odczyt; ! odwraca powodzenie: wejdź do bloku, jeśli odczyt się nie udał.
+3. `return 1` kończy main wcześniej i sygnalizuje niepowodzenie.
+4. Dopiero po udanym odczycie wypisujemy sumę. Tekst Suma: jest etykietą, nie częścią działania.
+
+<CppTrace title="Śledzenie: wejscie wyjscie" steps={[["Start", "a = 0, b = 0"], ["Wejście 3 5", "a = 3, b = 5"], ["Warunek błędu", "fałsz — pomijamy blok"], ["Wyjście", "Suma: 8"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+std::cout << a << b;
+```
+
+Dla 3 i 5 pierwsza wersja skleja wypisywane wartości w 35. Operator + wykonuje dodawanie przed wysłaniem wyniku.
+
+**Poprawiony fragment:**
+
+```cpp
+std::cout << a + b;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy dane 3 i 5 muszą być w jednej linii?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Domyślny odczyt liczb pomija spacje i nowe linie.
+
+</details>
+
+### 2. Jak wczytać trzecią liczbę c?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zadeklaruj `int c = 0;` i dopisz `>> c` w sprawdzanym odczycie.
+
+</details>
+
+### 3. Oblicz średnią z 2, 3 i 3.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Użyj `(2 + 3 + 3) / 3.0`. Wynik to około 2.66667; 3.0 wymusza dzielenie z częścią ułamkową.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Kierunki są różne: cin >> zmienna, cout &lt;&lt; wartość. Sprawdzaj, czy odczyt się udał.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Komunikacja z użytkownikiem
 

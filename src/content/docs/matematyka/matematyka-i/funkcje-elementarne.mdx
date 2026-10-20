@@ -14,6 +14,27 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Funkcje elementarne, trygonometria i logarytmy
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/funkcje-elementarne.svg" alt="x² daje parabolę, √x wymaga x≥0" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> x² daje parabolę, √x wymaga x≥0. Potęgowanie i logarytmowanie cofają się.</figcaption>
+</figure>
+
+
+## Co warto wiedzieć przed zapamiętaniem tabeli?
+
+Wzór funkcji to instrukcja przetwarzania liczby. **Warunki dziedziny** odpowiadają na pytanie „kiedy tę instrukcję można wykonać?”. Dla `x²` liczba ujemna nie przeszkadza — kwadrat `−3` wynosi 9. Dla `√x` w liczbach rzeczywistych nie można podstawić `−3`.
+
+### Różnica między logarytmem a potęgą
+
+`log₂(8)=3` znaczy to samo co `2³=8`. Logarytm pyta więc: „do której potęgi podnieść podstawę, aby otrzymać tę liczbę?”. Podstawa `2` jest dodatnia i różna od 1, a argument `8` jest dodatni.
+
+### Różnica między odwrotnością funkcji a odwrotnością liczby
+
+`sin⁻¹(x)` bywa zapisem `arcsin(x)` — funkcji odwrotnej do sinusa na ustalonym przedziale. Zapis `1/sin(x)` oznacza natomiast **dzielenie jedności przez wynik sinusa**. To zupełnie inne operacje.
+
+
 W notatkach pojawiają się następujące rodziny funkcji. Do każdej trzeba znać **dziedzinę** i warunki istnienia.
 
 | Funkcja | Podstawowy warunek |
@@ -33,4 +54,44 @@ Przykładowo arcsin jest odwrotnością sinusa po ograniczeniu dziedziny sinusa 
 <Eq display tex={String.raw`\arccos(1)=0`}/>
 
 **Nie myl** `sin⁻¹(x)` jako funkcji odwrotnej z `1/sin(x)` jako odwrotnością liczby.
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Rozpoznawaj funkcje po zachowaniu, nie tylko po wzorze
+
+Zanim nauczysz się nazw, zadaj dwa pytania: jakie `x` wolno wstawić i jak zachowuje się wynik, gdy `x` rośnie?
+
+| Funkcja | Ograniczenie dziedziny | Co warto wiedzieć? |
+|---|---|---|
+| `x²` | brak, wszystkie rzeczywiste | wynik nieujemny, wykres paraboliczny |
+| `√x` | `x≥0` | wynik nieujemny |
+| `1/x` | `x≠0` | przy zerze nie istnieje |
+| `2ˣ` | brak | zawsze dodatnia, rośnie |
+| `log₂x` | `x>0` | odwrotna do `2ˣ` |
+| `|x|` | brak | odległość od zera |
+
+### Dlaczego `log₂(8)=3`?
+
+Logarytm odpowiada na pytanie „do której potęgi podnieść podstawę 2, aby otrzymać 8?”. Zapisujemy `2³=8`, dlatego `log₂(8)=3`. To nie jest dzielenie 8 przez 2.
+
+### Uwaga na odwrotność funkcji
+
+`log₂(x)` jest funkcją odwrotną do `2ˣ`, ponieważ `2^{log₂(8)}=8` oraz `log₂(2³)=3`. Ale `1/(2ˣ)=2^{-x}` to **odwrotność wartości**, nie funkcja odwrotna.
+
+:::tip[Szybka mapa]
+Potęgowanie ↔ logarytmowanie. Kwadrat na `x≥0` ↔ pierwiastkowanie. Każdy typ ma własną dziedzinę.
+:::
+
+<details className="m1-selfcheck">
+<summary>Sprawdź: oblicz `log₃(81)` i powiedz, czy `√(−1)` jest rzeczywiste</summary>
+
+`3⁴=81`, zatem `log₃(81)=4`. W liczbach rzeczywistych `√(−1)` nie jest określone, bo kwadrat dowolnej liczby rzeczywistej jest nieujemny.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

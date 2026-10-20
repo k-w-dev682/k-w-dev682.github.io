@@ -5,12 +5,101 @@ sidebar:
   order: 27
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { AsciiLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="char-ascii" title="`char` i ASCII — pojedynczy znak" section="04 · Tekst i znaki" />
 
 # `char` i ASCII — pojedynczy znak
+
+## Zrozum od podstaw
+
+Znak cyfry i liczba to różne rzeczy. Napisanie 7 oznacza wartość liczbową, a apostrofy w '7' oznaczają kod znaku. char zajmuje jeden bajt C++; na typowych komputerach bajt ma 8 bitów. Podstawowe kody ASCII pozwalają porządkować cyfry i litery, ale nie opisują wszystkich języków.
+
+Żeby zmienić znak cyfry na liczbę, odejmujemy kod '0'. Kolejne cyfry mają kolejne kody, więc odległość od zera daje ich wartość. Najpierw sprawdzamy jednak, czy znak rzeczywiście jest cyfrą.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    char c = '7';
+    if (c >= '0' && c <= '9') {
+        int wartosc = c - '0';
+        std::cout << wartosc + 1 << '\n';
+    }
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Apostrofy tworzą literał pojedynczego znaku.
+2. Dwa porównania sprawdzają dolną i górną granicę zakresu cyfr.
+3. W ASCII kod 7 to 55, a kod 0 to 48, więc różnica wynosi 7.
+4. Dodajemy do liczbowej wartości 1, otrzymując 8.
+
+<CppTrace title="Śledzenie: char ascii" steps={[["Znak", "c = znak 7"], ["Kod ASCII", "55"], ["Odjęcie kodu zera", "55 − 48 = 7"], ["Arytmetyka", "7 + 1 = 8"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+int wartosc = static_cast<int>(c);
+```
+
+Rzutowanie daje kod znaku, np. 55, a nie wartość cyfry 7. Odejmowanie zera jest poprawne po sprawdzeniu zakresu cyfr.
+
+**Poprawiony fragment:**
+
+```cpp
+int wartosc = c - '0';
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czym różni się 'A' od "A"?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Pierwsze to pojedynczy char; drugie to literał napisu, zawierający także końcowe zero.
+
+</details>
+
+### 2. Jaki wynik dla c = '0'?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Wartość cyfry 0, po dodaniu 1 otrzymamy 1.
+
+</details>
+
+### 3. Czy polska litera ą zawsze mieści się w char?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. W UTF-8 zajmuje dwa bajty, więc pojedynczy char nie reprezentuje całej takiej litery.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Kod znaku nie jest wartością cyfry. ASCII i bajty UTF-8 to różne poziomy opisu tekstu.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Liczba czy znak?
 

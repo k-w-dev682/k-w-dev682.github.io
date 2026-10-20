@@ -14,6 +14,14 @@ import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
 
 # Naprężenie i siła naciągu nici
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/napiecie-nici.svg" alt="Napięcie nici ciągnie, a nie pcha" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Nić tylko ciągnie; T oblicz z ΣF=ma.**</figcaption>
+</figure>
+
 Napięta nić wywiera na przymocowane ciało siłę skierowaną **wzdłuż nici**, od ciała w stronę punktu zamocowania.
 
 W modelu idealnej, nieważkiej i nierozciągliwej nici z idealnym bloczkiem wartość siły naciągu jest jednakowa wzdłuż jednego odcinka tej samej nici. W rzeczywistych układach może być inaczej.
@@ -25,5 +33,50 @@ Masa m = 4 kg wisi nieruchomo na pionowej nici. Siły się równoważą:
 <Eq tex={String.raw`T-mg=0\quad\Longrightarrow\quad T=mg=39{,}24\ \mathrm N`} display />
 
 Jeśli ciało przyspiesza w górę, potrzebne jest T − mg = ma, a zatem T = m(g + a).
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Napięcie nici ciągnie, a nie pcha
+
+Idealna nieważka, nierozciągliwa nić przenosi siłę naciągu wzdłuż siebie. Działa na przywiązane ciało **w stronę nici**. W złożonych układach naciągi różnych nici nie muszą być równe.
+
+### Co oznaczają symbole i jednostki?
+
+`T` — napięcie / naciąg nici [N], **nie** okres; `m` — masa [kg]; `g` — przyspieszenie ziemskie [m/s²].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Masa `m=2 kg` wisi nieruchomo na jednej pionowej nici. `g=10 m/s²`.
+2. W dół działa ciężar `mg=2·10=20 N`.
+3. W górę działa siła naciągu `T`. Brak przyspieszenia: `T−20=0`.
+4. Stąd `T=20 N`. Gdy masa byłaby przyspieszana w górę, naciąg musiałby być większy niż ciężar.
+
+### Dlaczego to działa?
+
+Jeżeli ciało spoczywa, suma sił na nie działających musi wynosić zero. W tym modelu występują tylko dwa oddziaływania.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Nić tylko ciągnie; T oblicz z ΣF=ma.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie rysuj siły ciężkości jako reakcji do napięcia tej samej nici; to inne oddziaływania.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Masa 3 kg wisi nieruchomo na pionowej nici, g≈10. Ile wynosi T?</summary>
+
+**Kolejne kroki i odpowiedź:** `T=mg=3·10=30 N`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

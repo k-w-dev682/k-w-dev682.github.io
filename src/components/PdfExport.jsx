@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import './cpp13/cpp13.css';
 import { CPP_LESSONS } from '../data/cppLessons.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
@@ -19,6 +20,7 @@ async function preparePrint(lessons, palette, setStatus) {
     const content = documentCopy.querySelector('.sl-markdown-content');
     if (!content) throw new Error(`Brakuje treści lekcji „${lesson.title}”.`);
     const clean = content.cloneNode(true);
+    clean.querySelectorAll('details').forEach(node => node.setAttribute('open', ''));
     clean.querySelectorAll('script,iframe,.study-print-toolbar,button,input,select,textarea,.lab__controls,.lab__range,.lab__chip').forEach(node => node.remove());
     // Same-origin documentation authored in StudyLab. We display a print-only snapshot, not an active program.
     result.push(`<article class="study-print-article"><div class="study-print-lesson-number">${safeText(lesson.section)} · LEKCJA ${i+1}/${lessons.length}</div><h1>${safeText(lesson.title)}</h1><div class="study-print-prose sl-markdown-content">${clean.innerHTML}</div></article>`);
@@ -34,6 +36,10 @@ async function preparePrint(lessons, palette, setStatus) {
   window.addEventListener('afterprint',cleanup,{once:true});
   setStatus('Otwieram okno drukowania — wybierz „Zapisz jako PDF”.');
   await document.fonts.ready;
+  await Promise.all(Array.from(root.querySelectorAll('img')).map(img => {
+    if (img.complete) return Promise.resolve();
+    return new Promise(resolve => { img.addEventListener('load', resolve, {once:true}); img.addEventListener('error', resolve, {once:true}); setTimeout(resolve, 5000); });
+  }));
   await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
   try { window.print(); } catch(error) { cleanup(); throw error; }
   // Some browser print engines do not dispatch afterprint consistently; manual repeated exports clear old snapshots.

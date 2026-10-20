@@ -1,4 +1,3 @@
-
 ---
 title: Wprowadzenie do C++
 description: Pierwsze kroki w programowaniu
@@ -27,3 +26,9 @@ int main() {
 - `int main()` — funkcja główna programu.
 - `std::cout` — wypisuje tekst.
 - `return 0` — kończy program z kodem sukcesu.
+
+## Zacznij od pełnej ścieżki
+
+[Od zera: instrukcje i pierwszy program](../wstep/) wyjaśnia każdy symbol, pokazuje wartości zmiennych i daje ćwiczenia z odpowiedziami. [Spis treści](../spis-tresci/) obejmuje 44 lekcje.
+
+`std::cout << "2 + 3";` wypisze tekst 2 + 3, natomiast `std::cout << 2 + 3;` wypisze 5. Cudzysłowy zmieniają znaczenie: komputer nie oblicza działania zapisanego w napisie.

@@ -13,6 +13,63 @@ import { FluxLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="strumien-pola" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Strumień pola pokazuje, **ile składowej pola przechodzi przez powierzchnię**. To nie jest przepływ elektronów ani „ilość prądu”; chodzi o pole i orientację powierzchni.
+
+Wyobraź sobie wiatr wiejący przez okno. Najwięcej powietrza przechodzi, gdy okno jest ustawione prostopadle do wiatru. Gdy obrócisz okno krawędzią do wiatru, przechodzi bardzo mało. Dla pola i powierzchni działa podobna geometria.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: strumien pola](/elektronika/grafiki/strumien-pola.svg)
+
+**Wskazówka do grafiki:** **Prostopadle do powierzchni** to normalna. Pole równoległe do normalnej daje maksymalny moduł strumienia.
+
+### Każda litera i symbol — co oznacza?
+
+- `Φ_E` — strumień pola elektrycznego, jednostka `N·m²/C`.
+- `E` — wartość natężenia pola, `N/C`.
+- `S` — pole powierzchni, `m²`.
+- `α` — kąt między **wektorem pola** i **normalną** do powierzchni.
+- `Φ_E = E S cos α` — dla jednorodnego pola i płaskiej powierzchni.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dane: `E = 100 N/C`, `S = 0,20 m²`, `α = 60°`.
+2. Obliczamy `cos 60° = 0,5`.
+3. Wstawiamy do wzoru: `Φ_E = 100 · 0,20 · 0,5`.
+4. Liczymy: `100 · 0,20 = 20`, `20 · 0,5 = 10`.
+5. Wynik: `Φ_E = 10 N·m²/C`. Zmiana orientacji powierzchni może zmienić wartość lub znak strumienia.
+
+:::caution[Na co uważać?]
+Kąt `α` mierzymy do **normalnej** (prostopadłej), nie do samej płaszczyzny powierzchni. Dla kąta 90° do normalnej strumień wynosi zero.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Prostopadle do powierzchni** to normalna. Pole równoległe do normalnej daje maksymalny moduł strumienia.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Co daje `cos 90°` we wzorze na strumień?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+Zero, więc strumień przez daną płaską powierzchnię wynosi `0`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Co oznacza strumień?
 
 Strumień opisuje, **jak silnie pole przenika przez daną powierzchnię**. Dla jednorodnego pola i płaskiej powierzchni:

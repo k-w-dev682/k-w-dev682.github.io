@@ -5,12 +5,105 @@ sidebar:
   order: 18
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { FloatLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="ulamki-binarne" title="Dlaczego `0.1` nie jest dokładne?" section="03 · Liczby w pamięci" />
 
 # Dlaczego `0.1` nie jest dokładne?
+
+## Zrozum od podstaw
+
+Tak jak za przecinkiem dziesiętnym są dziesiąte i setne, za kropką binarną są połówki, ćwiartki i ósme. Ułamek ma skończony zapis dwójkowy, jeżeli po skróceniu jego mianownik jest potęgą dwójki. Dlatego 3/8 jest łatwe, a 1/10 wymaga nieskończonego rozwinięcia.
+
+Przy mnożeniu ułamka przez 2 część całkowita wyniku daje kolejny bit. Następnie odejmujemy tę część i powtarzamy z resztą. Poniżej 0.625 jest dokładnie reprezentowalne, więc trzy kroki kończą się zerową resztą.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    double reszta = 0.625;
+    for (int i = 0; i < 3; ++i) {
+        reszta *= 2;
+        int bit = static_cast<int>(reszta);
+        std::cout << bit;
+        reszta -= bit;
+    }
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. reszta zaczyna od 5/8.
+2. Mnożenie przez 2 przesuwa następną cyfrę binarną przed kropkę.
+3. Konwersja do int odrzuca ułamek; dla wartości od 0 do mniej niż 2 daje 0 lub 1.
+4. Po wypisaniu bitu odejmujemy go, aby ponownie zostać z samym ułamkiem.
+
+<CppTrace title="Śledzenie: ulamki binarne" steps={[["Start", "reszta = 0.625"], ["× 2 = 1.25", "bit 1, nowa reszta 0.25"], ["× 2 = 0.5", "bit 0, nowa reszta 0.5"], ["× 2 = 1", "bit 1, reszta 0: wynik 0.101₂"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+reszta *= 2; // brak odjęcia części całkowitej
+```
+
+Jeśli zachowasz część całkowitą, następny krok nie będzie już przetwarzaniem ułamka i może dać cyfrę większą od 1.
+
+**Poprawiony fragment:**
+
+```cpp
+reszta *= 2;
+int bit = static_cast<int>(reszta);
+reszta -= bit;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Dlaczego 0.25 jest dokładne?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+To 1/4 = 2 do potęgi −2, więc zapis 0.01₂ kończy się po dwóch bitach.
+
+</details>
+
+### 2. Co daje 0.11₂?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+1/2 + 1/4 = 0.75.
+
+</details>
+
+### 3. Czy ten algorytm na double udowadnia okresowość 0.1?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie: double już zawiera zaokrąglenie. Dowód okresowości prowadź na dokładnych ułamkach, jak w tabeli poniżej.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Skończona pamięć wymaga zaokrąglenia nieskończonego rozwinięcia. To cecha reprezentacji, a nie awaria procesora.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Zaskoczenie ze skryptu
 

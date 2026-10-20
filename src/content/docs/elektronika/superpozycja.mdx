@@ -13,6 +13,63 @@ import { SuperpositionLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="superpozycja" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Gdy kilka ładunków wytwarza pole, liczymy wkład każdego źródła osobno, a później **dodajemy wektory**, nie same wartości dodatnie. To jest zasada superpozycji.
+
+Trzy osoby mogą ciągnąć przedmiot w różne strony. Jeśli jedna ciągnie w prawo, a druga w lewo, ich wysiłki częściowo się znoszą. Przy sile elektrycznej działa ta sama zasada wektorowa.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: superpozycja](/elektronika/grafiki/superpozycja.svg)
+
+**Wskazówka do grafiki:** Najpierw **znaki i kierunki**, potem dodawanie liczb.
+
+### Każda litera i symbol — co oznacza?
+
+- `F₁`, `F₂`, … — siły od poszczególnych źródeł.
+- `F_wyp` — siła wypadkowa (suma wektorów).
+- `Fₓ`, `Fᵧ` — składowe pozioma i pionowa.
+- `|F| = √(Fₓ² + Fᵧ²)` — wartość wypadkowej w osiach prostopadłych.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Wzdłuż osi x działają trzy siły: `4 N` w prawo, `7 N` w lewo, `1 N` w prawo.
+2. Przyjmujemy kierunek w prawo jako dodatni.
+3. Zapisujemy ze znakami: `Fₓ = +4 − 7 + 1`.
+4. Liczymy: `4 − 7 = −3`, `−3 + 1 = −2`.
+5. Wynik `Fₓ = −2 N` znaczy: **wartość 2 N, kierunek w lewo**.
+6. Jeśli siły są pod kątem, najpierw rozdzielamy je na osie x oraz y, a dopiero później obliczamy moduł.
+
+:::caution[Na co uważać?]
+Błąd: `4+7+1=12 N`. Tak otrzymujemy sumę wartości, a nie wypadkową, bo pomijamy kierunki.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+Najpierw **znaki i kierunki**, potem dodawanie liczb.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Dwie siły: `5 N` w prawo i `5 N` w lewo. Jaka jest siła wypadkowa?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`0 N` — siły się równoważą.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Zasada superpozycji
 
 W notatkach zapisano, że siły od kilku ładunków obliczamy osobno i dodajemy **wektorowo**. To istotne: nie zawsze wystarczy zsumować ich wartości liczbowe.

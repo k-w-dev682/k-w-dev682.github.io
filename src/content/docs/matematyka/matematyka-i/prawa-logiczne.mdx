@@ -14,6 +14,27 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Prawa logiczne, de Morgana i uproszczenia
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/prawa-logiczne.svg" alt="Równoważne formuły mają tę samą ostatnią kolumnę" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Równoważne formuły mają tę samą ostatnią kolumnę. De Morgan zamienia ∧ na ∨ i odwrotnie.</figcaption>
+</figure>
+
+
+## Po co są prawa logiczne?
+
+Pozwalają zastępować długie warunki krótszymi, ale **bez zmiany wyniku** dla jakiejkolwiek kombinacji `p` i `q`. To podobne do przekształcania równania — zmieniamy zapis, nie jego sens.
+
+### Prawa de Morgana w zwykłym języku
+
+„Nieprawda, że **p i q**” oznacza „**nie p lub nie q**”. Jeśli warunek „mam bilet **i** dokument” nie jest spełniony, oznacza to, że brakuje przynajmniej jednej rzeczy.
+
+„Nieprawda, że **p lub q**” oznacza „**nie p i nie q**”. Aby nie mieć żadnego z tych dwóch elementów, obydwa muszą być nieobecne.
+
+**Sposób sprawdzenia:** wybierz wartości `p=1`, `q=0`. Oblicz lewą i prawą stronę każdego prawa. Potem przetestuj pozostałe trzy wiersze. Dopiero zgodność dla **wszystkich** wierszy dowodzi równoważności formuł z dwiema zmiennymi.
+
+
 Zasady pozwalają przekształcać zdania **bez zmiany ich wartości logicznej**.
 
 ## Prawa de Morgana
@@ -33,4 +54,43 @@ Zasady pozwalają przekształcać zdania **bez zmiany ich wartości logicznej**.
 Tautologia przyjmuje 1 dla **każdego** dopuszczalnego zestawu wartości. Żeby wykazać, że formuła nie jest tautologią, wystarczy **jeden wiersz z 0**.
 
 <div className="mathi-note"><strong>Poprawka do zeszytu:</strong> kontrapozycja działa przez zanegowanie <em>obu</em> zdań i zamianę stron implikacji — nie wystarczy sama zamiana p i q.</div>
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Prawa logiczne zrozumiane na przykładzie zamiast nauki na pamięć
+
+Prawa de Morgana mówią, co się dzieje, gdy zaprzeczysz **całemu** zdaniu złożonemu. Wyobraź sobie wymaganie „mam dowód osobisty **i** bilet”. Zdanie jest fałszywe, jeśli **brakuje dowodu lub biletu**. Stąd:
+
+- `¬(p ∧ q) ⇔ (¬p ∨ ¬q)` — „nie oba” znaczy „przynajmniej jednego nie ma”.
+- `¬(p ∨ q) ⇔ (¬p ∧ ¬q)` — „ani jedno” znaczy „nie ma pierwszego i nie ma drugiego”.
+
+### Przykład rachunkowy, linia po linii
+
+Uprość `¬(p ∧ ¬q)`.
+
+1. Rozpoznaj schemat `¬(A ∧ B)` z `A=p`, `B=¬q`.
+2. Zastosuj de Morgana: `¬A ∨ ¬B`.
+3. Podstaw: `¬p ∨ ¬(¬q)`.
+4. Podwójne zaprzeczenie znika, więc wynik to **`¬p ∨ q`**.
+
+### Jak samodzielnie sprawdzić prawo?
+
+Dla dwóch zmiennych wypisz cztery pary `(0,0)`, `(0,1)`, `(1,0)`, `(1,1)`. Policz najpierw wyrażenie po lewej, potem po prawej. Gdy otrzymasz cztery takie same wartości, oba wyrażenia są równoważne.
+
+:::caution[Częsty błąd]
+Fałsz: `¬(p ∧ q) = ¬p ∧ ¬q`. **Po zanegowaniu nawiasu zmień także `∧` na `∨`**.
+:::
+
+<details className="m1-selfcheck">
+<summary>Mini-sprawdzian: zaprzecz „x jest dodatnie lub x jest parzyste”</summary>
+
+Poprawnie: „x **nie** jest dodatnie **i** x **nie** jest parzyste”. W języku symboli `¬(p∨q) ⇔ ¬p∧¬q`. Dla liczb całkowitych „nie jest dodatnie” znaczy `x≤0`.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

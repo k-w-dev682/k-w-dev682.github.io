@@ -15,6 +15,14 @@ import { AngularLab } from '../../../components/PhysicsLabs.jsx';
 
 # Moment bezwładności
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/moment-bezwladnosci.svg" alt="W obrocie ważne jest nie tylko ile masy, ale jak daleko od osi" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Dwa razy dalej od osi → cztery razy większy wkład do I.**</figcaption>
+</figure>
+
 Moment bezwładności opisuje, jak masa ciała jest rozłożona względem **osi obrotu**.
 
 <Eq tex={String.raw`I=\sum_i m_ir_i^2`} display />
@@ -36,6 +44,51 @@ I = 1·2² + 1·2² = **8 kg·m²**.
 Jeśli kulki przesuniemy dwukrotnie dalej, moment bezwładności wzrośnie czterokrotnie.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## W obrocie ważne jest nie tylko ile masy, ale jak daleko od osi
+
+Moment bezwładności `I` opisuje opór wobec zmiany ruchu obrotowego wokół **konkretnej osi**. Masa oddalona od osi zwiększa go mocniej, bo odległość występuje w kwadracie.
+
+### Co oznaczają symbole i jednostki?
+
+`I` — moment bezwładności [kg·m²]; `m` — masa [kg]; `r` — odległość od osi obrotu [m].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Punkt materialny ma masę `m=2 kg` i obraca się w odległości `r=3 m` od osi.
+2. Dla punktu materialnego `I=mr²`.
+3. Podstaw: `I=2·3²=2·9=18 kg·m²`.
+4. Przy tym samym m, lecz `r=6 m`, wynik `I=2·36=72 kg·m²`, czyli 4 razy większy.
+
+### Dlaczego to działa?
+
+Przesuwanie masy na zewnątrz zwiększa jej wkład do momentu bezwładności proporcjonalnie do `r²`.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Dwa razy dalej od osi → cztery razy większy wkład do I.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie traktuj wzoru `I=mr²` jako wzoru na każdą bryłę; to wzór na punkt materialny lub wkład niewielkiego elementu masy.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Punkt materialny 3 kg znajduje się 2 m od osi. Oblicz moment bezwładności.</summary>
+
+**Kolejne kroki i odpowiedź:** `I=3·2²=3·4=12 kg·m²`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <AngularLab client:load />
 

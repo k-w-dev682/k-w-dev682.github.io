@@ -7,12 +7,61 @@ sidebar:
 
 import Eq from '../../../../components/MathEquation.astro';
 import MathIPdfButton from '../../../../components/MathIPdf.jsx';
+import AbsoluteValueGraphic from '../../../../components/visuals/AbsoluteValueGraphic.astro';
 
 <MathIPdfButton client:load slug="wartosc-bezwzgledna" title={"Wartość bezwzględna, otoczenie i sąsiedztwo"} section={"05 · Wykłady — funkcje"} />
 
 <div className="mathi-eyebrow">MATEMATYKA I · 05 · Wykłady — funkcje · ZDJĘCIA 20–21</div>
 
 # Wartość bezwzględna, otoczenie i sąsiedztwo
+
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/wartosc-bezwzgledna.svg" alt="Liczby −2 i 2 są równie daleko od zera" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Liczby −2 i 2 są równie daleko od zera. Minus przed nawiasem zmienia wszystkie znaki.</figcaption>
+</figure>
+
+
+## Zanim poznasz definicję: wyobraź sobie oś liczbową
+
+Wartość bezwzględna to po prostu **odległość od zera**. Odległość nigdy nie jest ujemna. Liczby `−3` i `3` leżą po przeciwnych stronach zera, ale obie są od niego oddalone o trzy jednostki.
+
+```text
+−4   −3   −2   −1    0    1    2    3    4
+      ●──────────────●──────────────●
+     −3              0              3
+          3 kroki        3 kroki
+```
+
+- `|−3|=3` — odległość liczby `−3` od zera to 3.
+- `|3|=3` — odległość liczby `3` od zera też to 3.
+- `|0|=0` — zero znajduje się w zerowej odległości od siebie.
+
+<AbsoluteValueGraphic />
+
+### Najważniejsza reguła znaku
+
+<Eq display tex={String.raw`|a|=\begin{cases}a&\text{gdy }a\ge0\\-a&\text{gdy }a<0\end{cases}`}/>
+
+Symbol `a` oznacza *dowolne wyrażenie*, niekoniecznie pojedynczą liczbę. Dla przykładu nie możemy powiedzieć od razu, że `|x−2|=x−2`. Musimy sprawdzić znak tego, co jest **w środku**.
+
+- Jeśli `x=5`, to `x−2=3`, więc `|x−2|=3=x−2`.
+- Jeśli `x=1`, to `x−2=−1`, więc `|x−2|=1=−(x−2)=2−x`.
+- Jeśli `x=2`, to obie postacie dają zero.
+
+### Moduł dwóch liczb to odległość między nimi
+
+`|x−5|` oznacza, jak daleko liczba `x` leży od 5. Dlatego `|x−5|≤2` opisuje wszystkie liczby odległe od 5 **nie więcej niż** o 2, czyli od 3 do 7 włącznie.
+
+<Eq display tex={String.raw`|x-5|\le2\quad\Longleftrightarrow\quad3\le x\le7`}/>
+
+A `|x−5|>2` oznacza odległość **większą niż** 2 — po lewej od 3 albo po prawej od 7.
+
+### Nie popełniaj tego błędu
+
+Błędnie: `|−7|=−7`. Wartość bezwzględna jest zawsze nieujemna, więc poprawnie: `|−7|=7`. Tak samo `|x−2|=2−x` obowiązuje **tylko**, gdy `x≤2`.
+
 
 ## Moduł jako odległość od zera
 
@@ -39,4 +88,41 @@ To otoczenie **bez punktu środkowego**. Jeśli x₀=2 i δ=1, otrzymujemy (1,2)
 - `sgn(x)=1`, gdy x>0.
 
 W notatkach wymieniono także funkcję „podłoga” (część całkowita): `⌊2.7⌋=2` oraz `⌊−1.2⌋=−2`.
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Najtrudniejszy punkt: skąd bierze się znak minus przed nawiasem?
+
+Jeżeli liczba **wewnątrz** modułu jest ujemna, zmieniamy jej znak, aby otrzymać nieujemną odległość. Dla wyrażenia `x−2`:
+
+- Gdy `x≥2`, wtedy `x−2≥0` i `|x−2|=x−2`.
+- Gdy `x<2`, wtedy `x−2<0` i `|x−2|=−(x−2)=−x+2=2−x`.
+
+Wynik `2−x` nie spada z nieba: wynika z **wymnożenia minusa przed nawiasem**. Na przykład przy `x=−1` mamy `|−1−2|=|−3|=3` oraz `2−(−1)=3`.
+
+### Przykład: rozwiąż `|x−2|=4`
+
+1. Pytamy: które liczby są oddalone od 2 o dokładnie 4?
+2. Po prawej: `x−2=4`, więc `x=6`.
+3. Po lewej: `x−2=−4`, więc `x=−2`.
+4. Sprawdź: `|6−2|=4`, `|−2−2|=4`.
+
+**Odpowiedź:** `x=−2` lub `x=6`. Moduł zwykle daje dwa rozwiązania, gdy odległość jest dodatnia.
+
+:::tip[Zapamiętaj]
+`|a|` to **odległość**. Jeśli `a<0`, to `|a|=−a`; ten minus oznacza „zmień znak całego a”, a nie „wynik ma być ujemny”.
+:::
+
+<details className="m1-selfcheck">
+<summary>Ćwiczenie: rozwiąż `|x+1|=3`</summary>
+
+`x+1=3` daje `x=2`, a `x+1=−3` daje `x=−4`. Oba pasują: `|2+1|=3`, `|−4+1|=3`.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

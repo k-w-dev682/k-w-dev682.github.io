@@ -15,6 +15,39 @@ import { TruthTableLab } from '../../../../components/MathILabs.jsx';
 
 # Tabele prawdy — od 00 do 11 i od 000 do 111
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/tabele-prawdy.svg" alt="Trzy zmienne dają 2³ = 8 wierszy" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Trzy zmienne dają 2³ = 8 wierszy. Osobne kolumny pozwalają uniknąć błędów.</figcaption>
+</figure>
+
+
+## Tabela prawdy to sprawdzenie wszystkich przypadków
+
+Dwie zmienne logiczne mają po dwa możliwe stany, więc liczba par wynosi `2·2=4`. Trzy zmienne mają `2·2·2=8` konfiguracji. Zapis `2³` oznacza **trzy dwójki pomnożone przez siebie**.
+
+### Jak nie zgubić wiersza w tabeli dla trzech zmiennych?
+
+Wypisuj wartości jak przy liczeniu w systemie dwójkowym:
+
+```text
+p q r
+0 0 0
+0 0 1
+0 1 0
+0 1 1
+1 0 0
+1 0 1
+1 1 0
+1 1 1
+```
+
+W każdej kolumnie obliczaj **jedno działanie naraz**. Dla `(p∨q)∧r` najpierw policz `p∨q`, a dopiero później połącz wynik spójnikiem `∧` z `r`.
+
+**Samodzielny test:** dla `p=1`, `q=0`, `r=0` pierwsze działanie daje `1∨0=1`, drugie `1∧0=0`. Wynikiem jest `0`.
+
+
 ## Jak układać wiersze?
 
 Dla dwóch zdań mamy <Eq tex={String.raw`2^2=4`}/> kombinacje: `00`, `01`, `10`, `11`. Dla trzech zdań <Eq tex={String.raw`2^3=8`}/> kombinacji: od `000` do `111`.
@@ -35,4 +68,46 @@ Dla formuły <Eq tex={String.raw`(p\lor(q\land r))\Leftrightarrow((p\lor q)\land
 **Ważne:** w ręcznie przepisanych tabelach ze zdjęć 12–14 występują skreślenia. W lekcji liczymy wszystko od nowa, zamiast przepisywać te wiersze.
 
 <TruthTableLab client:load />
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Jak budować tabelę prawdy bez żadnego zgubionego przypadku?
+
+Zamiast uczyć się kolejności wierszy na pamięć, policz możliwe kombinacje. Dla `n` zmiennych masz `2ⁿ` wierszy, bo każda zmienna może przyjąć dwie wartości.
+
+Dla `p`, `q`, `r` jest `2³=8` wierszy. Wygodnie zapisuj wartości jak liczby binarne od `000` do `111`.
+
+### Pełne obliczenie wyrażenia `(p ∨ q) ∧ ¬r`
+
+| p | q | r | `p∨q` | `¬r` | wynik `(... )∧¬r` |
+|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 1 | 0 |
+| 0 | 0 | 1 | 0 | 0 | 0 |
+| 0 | 1 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 0 | 0 |
+| 1 | 0 | 0 | 1 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 0 | 0 |
+| 1 | 1 | 0 | 1 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 0 | 0 |
+
+**Dlaczego w trzecim wierszu wyszło 1?** `p=0`, `q=1`, więc `p∨q=1`. Ponadto `r=0`, więc `¬r=1`. Ostatecznie `1∧1=1`.
+
+### Trzy zasady dobrej tabeli
+
+1. Każdej operacji z nawiasów daj **oddzielną kolumnę**.
+2. Dopiero na końcu oblicz całe wyrażenie.
+3. Nie oceniaj, czy zdanie jest tautologią po jednym wierszu: tautologia wymaga samych jedynek w całej ostatniej kolumnie.
+
+<details className="m1-selfcheck">
+<summary>Ćwiczenie: czy `p ∨ ¬p` jest tautologią?</summary>
+
+Tak. Jeśli `p=0`, to `¬p=1` i `0∨1=1`. Jeśli `p=1`, to `¬p=0` i `1∨0=1`. To wszystkie możliwe przypadki, zatem zdanie zawsze jest prawdziwe.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

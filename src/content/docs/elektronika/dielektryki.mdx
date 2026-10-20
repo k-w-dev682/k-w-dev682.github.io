@@ -13,6 +13,62 @@ import { DielectricLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="dielektryki" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Dielektryk to materiał izolacyjny, który ulega polaryzacji w polu elektrycznym. W idealnym kondensatorze płaskim **całkowicie wypełnionym** dielektrykiem rośnie pojemność.
+
+W dielektryku ładunki związane przesuwają się nieznacznie względem siebie, choć swobodne elektrony nie płyną przez izolator tak jak przez metal. Powstająca polaryzacja wpływa na pole między okładkami.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: dielektryki](/elektronika/grafiki/dielektryki.svg)
+
+**Wskazówka do grafiki:** Zawsze zadaj pytanie: **źródło podłączone (U stałe) czy odłączone (Q stałe)?**
+
+### Każda litera i symbol — co oznacza?
+
+- `εᵣ` — względna przenikalność dielektryczna materiału.
+- `C₀` — pojemność bez dielektryka (w powietrzu w przybliżeniu jak w próżni).
+- `C = εᵣ C₀` — idealny przypadek pełnego wypełnienia i niezmiennej geometrii.
+- `Q` i `U` — ładunek i napięcie; zależność zależy od tego, czy kondensator jest podłączony do źródła.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Kondensator ma `C₀ = 100 pF`; wkładamy dielektryk o `εᵣ = 4`.
+2. Obliczamy `C = εᵣ C₀ = 4 · 100 pF = 400 pF`.
+3. Jeśli kondensator jest **odłączony** od źródła, ładunek `Q` pozostaje (w idealnym modelu) stały.
+4. Z `U=Q/C` widać, że pojemność cztery razy większa daje napięcie cztery razy mniejsze.
+5. Jeżeli jest **stale podłączony** do idealnego źródła napięcia, `U` pozostaje stałe, a `Q = C U` wzrasta czterokrotnie.
+
+:::caution[Na co uważać?]
+Nie powtarzaj bez warunku „wstawienie dielektryka zmniejsza napięcie” — zależy to od podłączenia kondensatora.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+Zawsze zadaj pytanie: **źródło podłączone (U stałe) czy odłączone (Q stałe)?**
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Po włożeniu dielektryka pojemność wzrosła 3 razy. Co stanie się z Q przy stałym U?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+Ładunek wzrośnie 3 razy, bo `Q = C U`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Co robi dielektryk?
 
 Dielektryk to materiał o bardzo ograniczonym przewodzeniu prądu w normalnych warunkach. W polu elektrycznym może się **polaryzować**, przez co zmienia się pole wewnątrz materiału. Umieszczony między okładkami kondensatora zwykle zwiększa jego pojemność.

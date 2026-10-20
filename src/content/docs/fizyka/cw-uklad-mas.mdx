@@ -15,6 +15,14 @@ import { ThreeBlocksLab } from '../../../components/PhysicsLabs.jsx';
 
 # Niedokończone zadanie: trzy połączone masy
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/cw-uklad-mas.svg" alt="Nie dopisuj brakującego rysunku z notatek — rozwiąż jawnie model przykładowy" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Układ: suma mas i siły zewnętrzne. Naciąg: wydziel pojedynczy klocek lub część układu.**</figcaption>
+</figure>
+
 Na zdjęciu 9 zapisano równania dla trzech mas: m, 2m i 3m, z naciągami i tarciem. **Brakuje jednak pełnego, jednoznacznego rysunku układu i części oznaczeń.** Nie da się bezpiecznie odtworzyć jednego ostatecznego wzoru na przyspieszenie bez dodatkowych założeń.
 
 ## Co na pewno można odczytać?
@@ -40,6 +48,51 @@ Czy na tablicy były **trzy klocki połączone nićmi na poziomej powierzchni**,
 Poniższa symulacja przedstawia **oddzielny, przykładowy układ** z trzema klockami na poziomym podłożu. Nie należy traktować jej jako oryginalnego rozwiązania zdjęcia 9.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Nie dopisuj brakującego rysunku z notatek — rozwiąż jawnie model przykładowy
+
+Oryginalne zdjęcie z trzema masami nie pozwala jednoznacznie odtworzyć układu. Poniżej **osobny przykład**: trzy klocki `m, 2m, 3m` połączone idealnymi nićmi leżą na poziomym, **gładkim** stole. Siła `F` ciągnie ostatni klocek w prawo.
+
+### Co oznaczają symbole i jednostki?
+
+`m`, `2m`, `3m` — masy ciał [kg]; `F` — zewnętrzna siła ciągnąca [N]; `a` — wspólne przyspieszenie [m/s²]; `T₁`, `T₂` — różne naciągi nici [N].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Przyjmij `m=1 kg` i `F=12 N`. Masy klocków to odpowiednio `1 kg`, `2 kg`, `3 kg`.
+2. Całkowita masa układu to `M=1+2+3=6 kg`. Przy gładkim stole i idealnych niciach siły wewnętrzne po zsumowaniu równań się redukują.
+3. Cały układ przyspiesza `a=F/M=12/6=2 m/s²`.
+4. Naciąg między klockami 1 kg i 2 kg ciągnie pierwszy klocek, więc `T₁=1·2=2 N`. Dla pierwszych dwóch łącznie `T₂=(1+2)·2=6 N`.
+
+### Dlaczego to działa?
+
+Przy dodawaniu równań dla wszystkich klocków siły naciągu są wewnętrzne i znoszą się parami. Dzięki temu wypadkowa siła zewnętrzna dzieli się przez sumę mas.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Układ: suma mas i siły zewnętrzne. Naciąg: wydziel pojedynczy klocek lub część układu.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie traktuj tego przykładu jako odczytu zadania ze zdjęcia 9. Przy tarciu, innych bloczkach lub odmiennej konfiguracji powstaną inne równania.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Trzy klocki na gładkim stole mają masy 1, 1 i 2 kg. Całość ciągnie F=8 N. Jakie jest a?</summary>
+
+**Kolejne kroki i odpowiedź:** Całkowita masa 4 kg, więc `a=8/4=2 m/s²`. Zakładamy idealne nici i wspólne przyspieszenie.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <ThreeBlocksLab client:load />
 

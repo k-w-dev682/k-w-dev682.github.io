@@ -15,6 +15,14 @@ import { MomentumLab } from '../../../components/PhysicsLabs.jsx';
 
 # Zasada zachowania pędu
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/zasada-pedu.svg" alt="W układzie izolowanym suma pędów przed = suma pędów po" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Zanim=potem, ale dla całego układu i ze znakami.**</figcaption>
+</figure>
+
 Jeśli **zewnętrzna wypadkowa siła na układ wynosi zero**, jego całkowity pęd nie zmienia się. Siły wewnętrzne par ciało–ciało wzajemnie się kompensują w sumie pędu układu.
 
 <Eq tex={String.raw`\vec p_{\mathrm{przed}}=\vec p_{\mathrm{po}}`} display />
@@ -30,6 +38,51 @@ Wózek m₁ = 2 kg jedzie w prawo z v₁ = 3 m/s. Wózek m₂ = 1 kg stoi. Po zd
 Energia kinetyczna nie jest tu zachowana, mimo że całkowity pęd jest zachowany.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## W układzie izolowanym suma pędów przed = suma pędów po
+
+W zderzeniu pęd całkowity układu jest zachowany, gdy **zewnętrzny impuls jest pomijalny**. Energia kinetyczna nie musi być zachowana, szczególnie gdy ciała sklejają się.
+
+### Co oznaczają symbole i jednostki?
+
+`m₁`, `m₂` — masy [kg]; `v₁`, `v₂` — początkowe prędkości [m/s]; `v` — wspólna prędkość po złączeniu [m/s]; `p` — suma pędów [kg·m/s].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Wózek `m₁=2 kg` jedzie z `v₁=3 m/s`, a wózek `m₂=1 kg` spoczywa.
+2. Przed zderzeniem pęd układu: `p=2·3+1·0=6 kg·m/s`.
+3. Wózki sklejają się, masa końcowa `m₁+m₂=3 kg`.
+4. Po zderzeniu `3·v=6`, więc `v=2 m/s` w dotychczasowym kierunku.
+
+### Dlaczego to działa?
+
+Siły wzajemnego oddziaływania wózków zmieniają ich pędy przeciwnie, więc suma pędów całego układu pozostaje stała w braku istotnego impulsu zewnętrznego.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Zanim=potem, ale dla całego układu i ze znakami.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie stosuj automatycznie zachowania energii kinetycznej do zderzenia nieelastycznego, w którym ciała się sklejają.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Dwa identyczne wózki: pierwszy jedzie 4 m/s, drugi stoi. Po sklejeniu jaka jest wspólna prędkość?</summary>
+
+**Kolejne kroki i odpowiedź:** Dla mas m: `m·4+m·0=(2m)·v`, więc `v=2 m/s`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <MomentumLab client:load />
 

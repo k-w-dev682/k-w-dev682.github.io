@@ -5,15 +5,105 @@ sidebar:
   order: 21
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="porownanie-float" title="Jak bezpieczniej porównywać `double`" section="03 · Liczby w pamięci" />
 
 # Jak bezpieczniej porównywać `double`
 
+## Zrozum od podstaw
+
+Porównanie == odpowiada na pytanie o równość wartości według reguł danego typu. Nie porównuje po prostu wszystkich bitów: +0.0 i −0.0 są równe mimo innego bitu znaku, a NaN nie jest równy nawet sobie. Gdy oczekujesz wyniku przybliżonego, możesz zamiast tego sprawdzić, czy odległość mieści się w dozwolonym błędzie.
+
+**Tolerancja bezwzględna** jest stałą odległością, np. 0.001. **Względna** odnosi błąd do skali wartości. Tolerancję dobiera się do zadania; epsilon typu nie jest uniwersalną dokładnością wszystkich obliczeń.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <cmath>
+
+int main() {
+    double a = 0.1 + 0.2;
+    double b = 0.3;
+    double tolerancja = 1e-9;
+    bool blisko = std::abs(a - b) <= tolerancja;
+    std::cout << std::boolalpha << blisko << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. a powstaje przez dodawanie, b przez reprezentację literału; mogą różnić się o drobne zaokrąglenie.
+2. 1e-9 oznacza 0.000000001.
+3. abs z cmath mierzy nieujemną odległość, więc kolejność a i b nie zmienia kryterium.
+4. boolalpha wypisuje true/false zamiast 1/0.
+
+<CppTrace title="Śledzenie: porownanie float" steps={[["a", "typowo 0.30000000000000004"], ["b", "przybliżenie 0.3"], ["Odległość", "około 5.55 × 10⁻¹⁷"], ["Porównanie", "odległość ≤ 10⁻⁹: true"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+bool blisko = a - b <= tolerancja;
+```
+
+Bez abs każda duża ujemna różnica przejdzie test. Liczy się odległość, nie kierunek.
+
+**Poprawiony fragment:**
+
+```cpp
+bool blisko = std::abs(a - b) <= tolerancja;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy 1 i 100 są bliskie przy tolerancji 0.01?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Odległość to 99; bez abs różnica 1 − 100 mogłaby błędnie przejść test.
+
+</details>
+
+### 2. Czy bliskość jest zawsze przechodnia?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Przy tolerancji 1 liczby 0 i 0.75 są bliskie, 0.75 i 1.5 też, ale 0 i 1.5 już nie.
+
+</details>
+
+### 3. Co zrobić z NaN i nieskończonościami?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Obsłuż je osobno, np. przez isfinite/isnan. Wzór z różnicą i skalą poniżej jest przeznaczony dla zwykłych skończonych danych.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Dobieraj kryterium do znaczenia wyniku. Przybliżona równość nie jest tym samym co == i nie nadaje się bezmyślnie do porządkowania.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
+
 ## `==` działa, ale często nie oznacza tego, czego chcemy
 
-Dla wartości reprezentowanych przybliżeniami pytanie „czy są dokładnie identyczne bitowo?” jest inne niż „czy wyniki można uznać za dostatecznie bliskie?”.
+Dla wartości reprezentowanych przybliżeniami pytanie „czy są równe według reguł porównania wartości?” jest inne niż „czy wyniki można uznać za dostatecznie bliskie?”.
 
 ```cpp
 #include <cmath>

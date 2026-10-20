@@ -13,6 +13,63 @@ import { NetworkLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="cw-kondensatory" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+W zadaniach z kondensatorów najpierw ustal **rodzaj połączenia**, a dopiero potem wybierz wzór. Szereg i połączenie równoległe mają odwrotne reguły dotyczące pojemności.
+
+Zaznacz na rysunku dwa węzły. Jeżeli każdy kondensator ma końce podłączone do tych samych węzłów, są połączone równolegle. Jeśli elementy tworzą jeden łańcuch, to połączenie szeregowe.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: cw kondensatory](/elektronika/grafiki/cw-kondensatory.svg)
+
+**Wskazówka do grafiki:** **Równolegle: dodaj. Szeregowo: dodaj odwrotności.**
+
+### Każda litera i symbol — co oznacza?
+
+- `C_z` — pojemność zastępcza w faradach.
+- `C_z = C₁ + C₂` — połączenie równoległe.
+- `1/C_z = 1/C₁ + 1/C₂` — połączenie szeregowe.
+- `W_C = (1/2) C U²` — energia kondensatora.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dwa kondensatory `4 μF` i `6 μF` połączono równolegle przy napięciu `10 V`.
+2. Ponieważ połączenie jest równoległe, `C_z = 4 + 6 = 10 μF`.
+3. Każdy kondensator ma napięcie `U=10 V`.
+4. Ładunek całkowity po jednej stronie: `Q_z = C_z U = 10 μF · 10 V = 100 μC`.
+5. Energia całego układu: `W = (1/2) C_z U² = 0,5 · 10 · 10⁻⁶ · 100`.
+6. Wynik: `W = 0,0005 J = 0,5 mJ`.
+
+:::caution[Na co uważać?]
+Najczęstsza pomyłka: użycie wzoru szeregowego do równoległego albo odwrotnie. Zawsze narysuj układ przed rachunkami.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Równolegle: dodaj. Szeregowo: dodaj odwrotności.**
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Dwa kondensatory po `6 μF` połączono szeregowo. Ile wynosi `C_z`?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`3 μF`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Zadanie A — równolegle
 
 Trzy kondensatory **4 µF, 6 µF, 10 µF** połączono równolegle. Jaka jest pojemność zastępcza?

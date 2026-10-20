@@ -13,6 +13,63 @@ import { MeterLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="elementy-pomiary" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Przyrządy pomiarowe pokazują różne wielkości. **Woltomierz** mierzy napięcie między dwoma punktami, a **amperomierz** natężenie prądu przez element obwodu. Z tego wynika odmienny sposób ich podłączenia.
+
+Woltomierz „patrzy” na różnicę między punktami, więc podłączasz go do dwóch końców elementu. Amperomierz musi mierzyć przepływ przez wybraną gałąź, dlatego wpinasz go w tę gałąź.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: elementy pomiary](/elektronika/grafiki/elementy-pomiary.svg)
+
+**Wskazówka do grafiki:** **Napięcie porównujesz między punktami (równolegle), prąd mierzysz w gałęzi (szeregowo).**
+
+### Każda litera i symbol — co oznacza?
+
+- `V` na symbolu miernika — woltomierz (połączenie równoległe).
+- `A` na symbolu miernika — amperomierz (połączenie szeregowe).
+- `U` — mierzone napięcie w woltach.
+- `I` — mierzony prąd w amperach.
+- `klasa 1,5` — w typowym analogowym wskazówkowym mierniku oznacza graniczny błąd odniesiony do wartości zakresu, jeżeli tak stanowi jego specyfikacja.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Miernik analogowy klasy `1,5` ustawiono na zakres `20 V` (zakładamy błąd graniczny 1,5% zakresu).
+2. Wzór na graniczny błąd bezwzględny: `ΔU = 0,015 · 20 V`.
+3. Obliczamy: `ΔU = 0,30 V`.
+4. Jeśli wskazanie wynosi `12,0 V`, wynik można zapisać jako około `(12,0 ± 0,3) V` według przyjętego modelu błędu.
+5. Błąd względny względem wskazania ma wtedy wartość `0,3/12 ≈ 2,5%` — większą niż 1,5% zakresu.
+
+:::caution[Na co uważać?]
+Nigdy nie podłączaj amperomierza **wprost równolegle do źródła** tak jak woltomierza — grozi to zwarciem. Zawsze dobierz zakres i sposób pomiaru do instrukcji miernika.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Napięcie porównujesz między punktami (równolegle), prąd mierzysz w gałęzi (szeregowo).**
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Gdzie włączyć amperomierz, żeby zmierzyć prąd płynący przez rezystor?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+Szeregowo z tym rezystorem w tej samej gałęzi obwodu.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Co faktycznie pojawia się na ostatniej stronie?
 
 Zdjęcie 8 zawiera krótkie hasła o **rezystorze (stałym i zmiennym)**, symbolach graficznych i **miernikach analogowych**. Nie ma na nim jeszcze pełnego kursu rezystorów ani opisu konkretnego układu laboratoryjnego.

@@ -13,6 +13,63 @@ import { ChargeLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="symbole-i-jednostki" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Zanim zaczniesz liczyć, naucz się czytać wynik. Litera opisuje wielkość fizyczną, a jednostka mówi, **w czym** ją mierzymy. `Q = 3 μC` to nie samo „3”, tylko trzy milionowe części kulomba.
+
+Pomyśl o wielkości jak o pytaniu „ile?”, a o jednostce jak o odpowiedzi „czego?”. `5 m` i `5 s` nie znaczą tego samego, mimo że oba zapisy mają liczbę 5. Przedrostek `μ` jest tylko skrótem mnożenia przez `10⁻⁶`.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: symbole i jednostki](/elektronika/grafiki/symbole-i-jednostki.svg)
+
+**Wskazówka do grafiki:** Wzór czytasz zawsze w tej kolejności: **wielkość → jednostka → przedrostek → podstawienie**.
+
+### Każda litera i symbol — co oznacza?
+
+- `Q` — ładunek, jednostka `C` (kulomb).
+- `U` — napięcie, jednostka `V` (wolt).
+- `I` — natężenie prądu, jednostka `A` (amper).
+- `C` jako symbol **pojemności** — jednostka `F` (farad); nie myl z `C` jako jednostką ładunku.
+- `μ = 10⁻⁶`, `m = 10⁻³`, `n = 10⁻⁹`, `k = 10³`.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dane: `C = 2 μF` i `U = 3 V`. Chcemy obliczyć ładunek `Q`.
+2. Najpierw zamieniamy mikrofarady: `2 μF = 2 · 10⁻⁶ F`.
+3. Wybieramy wzór: `Q = C · U`.
+4. Podstawiamy wraz z jednostkami: `Q = 2 · 10⁻⁶ F · 3 V`.
+5. Mnożymy liczby: `Q = 6 · 10⁻⁶ C = 6 μC`. Jednostki `F · V` dają kulomby.
+
+:::caution[Na co uważać?]
+Nie pisz `2 μF = 2 · 10⁶ F`. Minus w wykładniku zmienia wynik milion razy. Symbol `m` oznacza mili, ale duże `M` — mega.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+Wzór czytasz zawsze w tej kolejności: **wielkość → jednostka → przedrostek → podstawienie**.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Ile faradów to `470 nF`?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`470 · 10⁻⁹ F = 4,70 · 10⁻⁷ F = 0,47 μF`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Po co nam jednostki?
 
 Symbol we wzorze określa **rodzaj wielkości**, a jednostka mówi, **w czym ją mierzymy**. Litera `C` może oznaczać jednostkę kulomb, ale we wzorze na kondensator **C** oznacza pojemność w faradach — kontekst jest kluczowy.

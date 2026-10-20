@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-labelledby="t d">
+<title id="t">Zamiana 10 → 2: dzielenie z resztą</title><desc id="d">Przykład z lekcji: DZIEL 26 → 13 13 → 6 6 → 3 3 → 1 1 → 0; RESZTA 0 1 0 1 1; OD DOŁU 1 1 0 1 0 = 11010₂</desc>
+<rect width="960" height="410" rx="24" fill="#070d12"/>
+<rect x="2" y="2" width="956" height="406" rx="22" fill="none" stroke="#28434a" stroke-width="2"/>
+<circle cx="46" cy="45" r="6" fill="#5ce2d1"/>
+<text x="64" y="50" fill="#66e9d8" font-size="15" font-weight="800" font-family="Segoe UI,Arial,sans-serif">STUDYLAB / BLACK EDITION / ARCHITEKTURA</text>
+<text x="42" y="94" fill="#f0fbff" font-size="27" font-weight="800" font-family="Segoe UI,Arial,sans-serif">Zamiana 10 → 2: dzielenie z resztą</text>
+<rect x="41.0" y="130.0" width="139.3" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="110.66666666666667" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">DZIEL</text>
+<rect x="187.3" y="130.0" width="139.3" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="257.0" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">26 → 13</text>
+<rect x="333.7" y="130.0" width="139.3" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="403.33333333333337" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">13 → 6</text>
+<rect x="480.0" y="130.0" width="139.3" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="549.6666666666666" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">6 → 3</text>
+<rect x="626.3" y="130.0" width="139.3" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="696.0" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">3 → 1</text>
+<rect x="772.7" y="130.0" width="139.3" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="842.3333333333334" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">1 → 0</text>
+<rect x="41.0" y="188.0" width="139.3" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="110.66666666666667" y="223.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">RESZTA</text>
+<rect x="187.3" y="188.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="257.0" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">0</text>
+<rect x="333.7" y="188.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="403.33333333333337" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">1</text>
+<rect x="480.0" y="188.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="549.6666666666666" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">0</text>
+<rect x="626.3" y="188.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="696.0" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">1</text>
+<rect x="772.7" y="188.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="842.3333333333334" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">1</text>
+<rect x="41.0" y="246.0" width="139.3" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="110.66666666666667" y="281.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">OD DOŁU</text>
+<rect x="187.3" y="246.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="257.0" y="280.76" fill="#e7f0fa" font-size="18" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">1 1 0 1 0</text>
+<rect x="333.7" y="246.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="403.33333333333337" y="281.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">=</text>
+<rect x="480.0" y="246.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="549.6666666666666" y="281.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">11010₂</text>
+<rect x="626.3" y="246.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="696.0" y="281.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif"></text>
+<rect x="772.7" y="246.0" width="139.3" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="842.3333333333334" y="281.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif"></text>
+<text x="42" y="384" fill="#9db8c1" font-size="13" font-weight="600" font-family="Segoe UI,Arial,sans-serif">PATRZ NA ZMIANĘ WARTOŚCI I ZNAKI — NIE UCZ SIĘ WYŁĄCZNIE OBRAZKA</text>
+</svg>

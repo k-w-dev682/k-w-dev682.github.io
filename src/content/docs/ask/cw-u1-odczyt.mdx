@@ -48,4 +48,41 @@ W ZM i U1 pewne ciągi oznaczają `-0`. Wartość liczby nadal wynosi zero, ale 
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia U1: odczytaj wartość dziesiętną](/ask/grafiki/cw-u1-odczyt.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Weź oryginalny `1010101` (7 bitów). Najstarszy bit to 1, więc w U1 jest to liczba ujemna.
+2. Odwróć **wszystkie 7** bitów: `0101010`.
+3. Oblicz dodatnią wartość `0101010₂`: `32+8+2 = 42`.
+4. Wynik to **−42**. Zwróć uwagę, że `111111` (6 bitów) jest w U1 ujemnym zerem.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+Po zanegowaniu kodu U1 otrzymujesz zapis dodatniego modułu. W ten sposób odczytujesz znak i wartość.
+
+:::caution[Uważaj tutaj]
+Nie odwracaj tylko jednego bitu. Nie dopisuj kolejnego bitu znaku przed operacją.
+:::
+
+### Minisprawdzian po zadaniu
+
+Jak odczytasz `1110` w 4-bitowym U1?
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+Inwersja daje `0001`, zatem wynik to `−1`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

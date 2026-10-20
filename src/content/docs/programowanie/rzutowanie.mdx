@@ -5,11 +5,99 @@ sidebar:
   order: 22
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="rzutowanie" title="Typy i konwersje: `int` kontra `double`" section="03 · Liczby w pamięci" />
 
 # Typy i konwersje: `int` kontra `double`
+
+## Zrozum od podstaw
+
+Typ obliczenia wybierany jest przed przypisaniem wyniku do zmiennej docelowej. To jak odcięcie połowy kartki: późniejsze włożenie jej do większej teczki nie odzyska odciętej części. Jeżeli najpierw wykonasz 7 / 2 na int, otrzymasz 3. Dopiero rzutowanie jednego argumentu przed dzieleniem pozwoli otrzymać 3.5.
+
+`static_cast<T>(wartosc)` oznacza jawną konwersję do typu T. Nawiasy ostre wskazują typ, a okrągłe obejmują przekształcaną wartość. Ta operacja nie zmienia typu oryginalnej zmiennej.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a = 7, b = 2;
+    double po = static_cast<double>(a / b);
+    double przed = static_cast<double>(a) / b;
+    std::cout << po << ' ' << przed << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Oba argumenty dzielenia w drugiej linii są int, więc powstaje 3.
+2. Konwersja 3 do double daje wartość 3.0, lecz domyślne cout może wypisać samo 3.
+3. W trzeciej linii a jest konwertowane przed dzieleniem. b także bierze udział w dzieleniu zmiennoprzecinkowym.
+4. Otrzymujemy 3 oraz 3.5. Zmienne a i b nadal mają typ int.
+
+<CppTrace title="Śledzenie: rzutowanie" steps={[["a / b", "7 / 2 w int → 3"], ["Konwersja po", "3 → 3.0"], ["Konwersja przed", "7 → 7.0"], ["Dzielenie double", "7.0 / 2.0 → 3.5"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+double srednia = suma / ile;
+```
+
+Jeżeli suma i ile są int, pierwsza wersja odrzuca część ułamkową. W obu wersjach ile musi być różne od zera.
+
+**Poprawiony fragment:**
+
+```cpp
+double srednia = static_cast<double>(suma) / ile;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co daje −7 / 2 dla int?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+−3: dzielenie całkowite obcina w kierunku zera, nie w kierunku minus nieskończoności.
+
+</details>
+
+### 2. Czy static_cast&lt;int>(2.9) zaokrągla do 3?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Daje 2, bo część ułamkowa jest odrzucana.
+
+</details>
+
+### 3. Czy każda wartość double daje się zamienić na int?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Po odrzuceniu części ułamkowej musi mieścić się w zakresie int; NaN i nieskończoności też nie są poprawnymi kandydatami.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Konwertuj przed działaniem, którego rodzaj chcesz zmienić. Zapis do szerszego typu nie naprawia wcześniej utraconych danych.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Jak C++ wybiera typ obliczenia?
 
@@ -31,7 +119,7 @@ std::cout << static_cast<double>(a) / b;  // 2.5
 
 ## Test
 
-Co wypisze `static_cast<double>(7 / 2)`? **3.0**, bo najpierw wykonało się `7/2` jako całkowite 3, a dopiero potem rzutowanie. Rzutować trzeba **przed** dzieleniem.
+Co wypisze `static_cast<double>(7 / 2)`? **wartość 3.0 (domyślne `cout` zwykle pokaże `3`)**, bo najpierw wykonało się `7/2` jako całkowite 3, a dopiero potem rzutowanie. Rzutować trzeba **przed** dzieleniem.
 
 ---
 

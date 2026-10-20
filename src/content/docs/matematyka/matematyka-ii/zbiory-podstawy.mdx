@@ -12,6 +12,28 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Zbiory liczbowe: element i podzbiór
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/zbiory-podstawy.svg" alt="Element to nie to samo co podzbiór" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> `∈` porównuje pojedynczy obiekt ze zbiorem; `⊆` porównuje dwa zbiory. To inne pytania.</figcaption>
+</figure>
+
+## Zbiór jako pudełko na elementy
+
+Zbiór to kolekcja **różnych elementów**. W zapisie `A={1,2,3}` litera `A` jest nazwą zbioru, a liczby to jego elementy. Kolejność elementów nie zmienia zbioru: `{1,2}={2,1}`. Powtórzenie elementu też nic nie zmienia: `{1,1,2}={1,2}`.
+
+### Element czy podzbiór?
+
+`1∈A` mówi „1 jest elementem A”. Z kolei `{1}⊆A` mówi „zbiór składający się z jedynki jest **podzbiorem** A”. Nie jest to ten sam typ wypowiedzi: po lewej stronie `∈` stoi element, a po lewej stronie `⊆` stoi zbiór.
+
+### Zbiór pusty
+
+`∅` nie zawiera żadnych elementów. Mimo tego `∅⊆A` dla każdego zbioru A, ponieważ nie istnieje w zbiorze pustym element, który przeczyłby definicji podzbioru.
+
+
 Zbiór to kolekcja **elementów**. Na przykład A = &#123;1, 2, 3&#125; ma trzy elementy. Kolejność wpisania tych liczb w nawiasie klamrowym nie ma znaczenia.
 
 ## Rodzaje liczb
@@ -41,3 +63,45 @@ Po lewej mamy zero elementów. Po prawej — zbiór zawierający **jeden element
 :::tip[Warto zapamiętać]
 Nie myl **liczby elementów** z ich wartościami. <Eq tex={String.raw`|A|=3`}/> mówi o liczbie elementów zbioru A, nie o wartości bezwzględnej A.
 :::
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Element to nie to samo co podzbiór
+
+Zbiór jest kolekcją różnych obiektów. Klamry mówią, że wypisujesz kolekcję, a nie ciąg w określonej kolejności. Najczęściej mylą się tu dwa symbole: `∈` („jest elementem”) i `⊆` („jest podzbiorem”).
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Niech `A={2,4,6}`. Zapis `4∈A` jest prawdziwy, bo liczba 4 występuje w tej kolekcji.
+2. Zapis `{4}⊆A` też jest prawdziwy, bo **każdy element zbioru `{4}`** należy do A.
+3. Ale zapis `{4}∈A` jest w tym przykładzie fałszywy: A zawiera liczbę 4, a nie osobny zbiór `{4}`.
+4. Przestawienie elementów i powtórzenie ich nie zmienia zbioru: `{2,4,6}={6,2,4,2}`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+`∈` porównuje pojedynczy obiekt ze zbiorem; `⊆` porównuje dwa zbiory. To inne pytania.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**∈ pyta „czy element jest w środku?”. ⊆ pyta „czy cały zbiór mieści się w innym?”.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Nie wnioskuj z `2∈A`, że `2⊆A`. Po prawej stronie `⊆` i po lewej również powinny stać zbiory; liczbę 2 można najpierw zamienić na `{2}`.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Dla `A={1,{2}}` rozstrzygnij: czy `2∈A` i czy `{2}∈A`?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `2∈A` jest fałszywe, bo A zawiera liczbę 1 i zbiór `{2}`. `{2}∈A` jest prawdziwe — ten zbiór jest drugim elementem A.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
+

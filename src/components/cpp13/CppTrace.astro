@@ -1,0 +1,18 @@
+---
+interface Props { title: string; steps: string[][] }
+const {title, steps} = Astro.props;
+---
+<figure class="cpp13-trace" aria-label={title}>
+  <figcaption><span>C++ / ŚLEDZENIE</span><strong>{title}</strong></figcaption>
+  <ol>{steps.map(([label, value], i) => <li><span class="cpp13-number">{i + 1}</span><div><strong>{label}</strong><p>{value}</p></div></li>)}</ol>
+</figure>
+<style>
+.cpp13-trace{margin:2rem 0;padding:clamp(1rem,3vw,1.5rem);background:#080e10;border:1px solid #28544f;border-radius:16px;color:#e7f4f1;break-inside:avoid}
+figcaption{display:grid;gap:.35rem;margin-bottom:1.1rem}figcaption span{font-size:.72rem;letter-spacing:.13em;color:#61e4c5}figcaption strong{font-size:1.05rem}
+ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;padding:0;margin:0;list-style:none}
+li{display:flex;align-items:flex-start;gap:.75rem;padding:1rem;background:#101b1d;border:1px solid #214039;border-radius:10px;margin:0!important;min-width:0}
+.cpp13-number{display:grid;place-items:center;flex:0 0 1.8rem;height:1.8rem;border:1px solid #3b9b88;color:#61e4c5;border-radius:50%;font:700 .8rem monospace}
+li strong{font-size:.92rem;color:#eafaf6}li p{margin:.4rem 0 0;color:#b5cdc7;overflow-wrap:anywhere;font-size:.9rem;line-height:1.6}
+@media(max-width:520px){ol{grid-template-columns:1fr}}
+@media print{.cpp13-trace{color:#111;background:#fff;border-color:#777}li{background:#fff}li strong,li p{color:#111}}
+</style>

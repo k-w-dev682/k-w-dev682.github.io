@@ -5,11 +5,111 @@ sidebar:
   order: 34
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="konwersja-napisow" title="Konwersja napisu na liczbę" section="04 · Tekst i znaki" />
 
 # Konwersja napisu na liczbę
+
+## Zrozum od podstaw
+
+Parsowanie oznacza odczyt znaczenia tekstu według reguł, np. rozpoznanie liczby w napisie. stoi zamienia początek napisu na int, ale sam sukces nie znaczy jeszcze, że wykorzystano cały tekst. Dla 12x początek 12 jest liczbą, a x pozostaje dopiskiem.
+
+Wyjątek sygnalizuje sytuację, w której funkcja nie może zwrócić zwykłego wyniku. try obejmuje próbę, catch obsługuje dany rodzaj problemu. Zapis &koniec przekazuje adres zmiennej, aby stoi mogło zapisać tam pozycję końca rozpoznanej części.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <string>
+#include <stdexcept>
+
+int main() {
+    std::string s = "12x";
+    try {
+        std::size_t koniec = 0;
+        int x = std::stoi(s, &koniec);
+        if (koniec == s.size()) std::cout << x;
+        else std::cout << "Dopisek od pozycji " << koniec;
+    } catch (const std::invalid_argument&) {
+        std::cout << "Brak liczby";
+    } catch (const std::out_of_range&) {
+        std::cout << "Poza zakresem int";
+    }
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. string zawiera bajty 1, 2, x, nie gotową liczbę.
+2. stoi rozpoznaje 12 i zapisuje 2 do koniec.
+3. Rozmiar wynosi 3, więc wykryto dopisek zaczynający się pod indeksem 2.
+4. const i & w catch pozwalają odebrać wyjątek przez referencję bez jego kopiowania; nie modyfikujemy go.
+5. stdexcept udostępnia nazwy wyjątków użyte w tym przykładzie.
+
+<CppTrace title="Śledzenie: konwersja napisow" steps={[["s", "12x: rozmiar 3"], ["stoi", "x = 12"], ["Pozycja końca", "koniec = 2"], ["Walidacja", "2 != 3 → dopisek"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+int x = std::stoi(s); // uznajemy cały napis za poprawny
+```
+
+Bez kontroli pozycji końca akceptujesz częściowy odczyt. Obsługę wyjątków zachowaj jak w pełnym przykładzie.
+
+**Poprawiony fragment:**
+
+```cpp
+std::size_t p = 0;
+int x = std::stoi(s, &p);
+if (p != s.size()) std::cout << "Dopisek";
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co dla abc?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+invalid_argument, bo nie zaczyna się od rozpoznawalnej liczby po opcjonalnych białych znakach.
+
+</details>
+
+### 2. Co dla −8?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Wartość −8, pozycja końca 2, pełny napis wykorzystany.
+
+</details>
+
+### 3. Czy końcowa spacja przejdzie ten test?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie, zostaje dopiskiem. Początkowe spacje stoi pomija. Jeśli chcesz inną politykę białych znaków, opisz ją i obsłuż jawnie.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Rozróżniaj brak liczby, przekroczenie zakresu i niewykorzystaną końcówkę. Nie ignoruj wyjątków.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Tekst "123" to nie liczba 123
 

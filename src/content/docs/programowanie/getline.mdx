@@ -5,11 +5,106 @@ sidebar:
   order: 32
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="getline" title="`getline` i napisy ze spacjami" section="04 · Tekst i znaki" />
 
 # `getline` i napisy ze spacjami
+
+## Zrozum od podstaw
+
+Operator >> dla string czyta jeden wyraz, a getline cały wiersz do separatora nowej linii. getline usuwa separator ze strumienia, ale nie dopisuje go do wyniku. Pusta linia jest poprawnym napisem o długości zero.
+
+Po odczycie liczby przez >> końcowy Enter może pozostać w strumieniu. Następne getline zobaczy właśnie ten Enter i zwróci pustą linię. Nie jest to utrata pamięci ani przypadkowy błąd string: oba odczyty działają według różnych reguł.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <string>
+#include <limits>
+
+int main() {
+    int wiek = 0;
+    std::string imie;
+    if (!(std::cin >> wiek)) return 1;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (!std::getline(std::cin, imie)) return 1;
+    std::cout << wiek << " / " << imie << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Tworzymy liczbę i pusty napis.
+2. Sprawdzany odczyt wieku kończy program, gdy nie można wczytać liczby.
+3. ignore pomija resztę bieżącego wiersza wraz z Enterem. limits udostępnia maksymalny limit liczby pomijanych znaków.
+4. getline czyta następny pełny wiersz, także spacje w imieniu i nazwisku.
+
+<CppTrace title="Śledzenie: getline" steps={[["Wejście", "20, Enter, Ala Kot, Enter"], ["Po >> wiek", "wiek = 20, Enter nadal czeka"], ["Po ignore", "następny znak to A"], ["Po getline", "imie = Ala Kot"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+std::cin >> wiek;
+std::getline(std::cin, imie);
+```
+
+Po udanym odczycie liczby usuń pozostałą część tej linii. Pełny program powyżej dodatkowo sprawdza powodzenie odczytów.
+
+**Poprawiony fragment:**
+
+```cpp
+std::cin >> wiek;
+std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+std::getline(std::cin, imie);
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy getline zachowuje spacje na początku?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Tak. Są częścią linii, w przeciwieństwie do zwykłego >>.
+
+</details>
+
+### 2. Czy std::ws przed getline jest zawsze równoważne ignore?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. ws pomija wszystkie początkowe białe znaki, także puste linie i spacje, które mogły być znaczące.
+
+</details>
+
+### 3. Jak odczytać dwa pełne wiersze?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Wywołaj getline dwa razy bez ignore między nimi. Pierwsze getline samo usuwa swój separator nowej linii.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Łączenie >> i getline wymaga świadomego potraktowania separatora. Nie usuwaj znaków wejścia bez określenia, do której linii należą.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Cała linia czy jeden wyraz?
 

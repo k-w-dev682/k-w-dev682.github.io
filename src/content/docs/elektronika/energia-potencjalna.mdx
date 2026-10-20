@@ -12,6 +12,64 @@ import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
 
 <ElectronicsPdfButton client:load slug="energia-potencjalna" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Energia potencjalna elektryczna opisuje energię wynikającą z położenia ładunku w polu. Jeżeli siła pola wykonuje dodatnią pracę, energia potencjalna układu maleje.
+
+Piłka na półce może tracić energię potencjalną, spadając, a pole grawitacyjne wykonuje pracę. Analogicznie dodatni ładunek przesuwający się zgodnie z polem zwykle traci elektryczną energię potencjalną.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: energia potencjalna](/elektronika/grafiki/energia-potencjalna.svg)
+
+**Wskazówka do grafiki:** **Pole wykonuje dodatnią pracę → energia potencjalna maleje.**
+
+### Każda litera i symbol — co oznacza?
+
+- `E_p` — energia potencjalna w dżulach (`J`).
+- `ΔE_p = E_p(B) − E_p(A)` — zmiana energii.
+- `q` — ładunek w kulombach.
+- `ΔV = V_B − V_A` — zmiana potencjału.
+- `ΔE_p = q ΔV`, `W_pola = −ΔE_p` — uwzględnij znak `q`.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dodatni ładunek `q = +2 μC` przeszedł z punktu `V_A = 5 V` do `V_B = 2 V`.
+2. Zamieniamy `q = 2 · 10⁻⁶ C`.
+3. Zmiana potencjału: `ΔV = 2 − 5 = −3 V`.
+4. Zmiana energii: `ΔE_p = qΔV = 2 · 10⁻⁶ · (−3) = −6 · 10⁻⁶ J`.
+5. Energia potencjalna spadła o `6 μJ`.
+6. Praca pola wynosi `W_pola = −ΔE_p = +6 μJ`.
+
+:::caution[Na co uważać?]
+Nie utożsamiaj „praca pola” i „zmiana energii potencjalnej”: mają przeciwne znaki.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Pole wykonuje dodatnią pracę → energia potencjalna maleje.**
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Gdy energia potencjalna rośnie o `4 J`, jaka jest praca siły elektrostatycznej?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`−4 J`, ponieważ `W_pola = −ΔE_p`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Praca a energia potencjalna
 
 W notatkach pojawia się informacja, że **siły elektrostatyczne są zachowawcze**. Oznacza to, że praca siły pola między punktami A i B nie zależy od drogi, a tylko od punktów końcowych.

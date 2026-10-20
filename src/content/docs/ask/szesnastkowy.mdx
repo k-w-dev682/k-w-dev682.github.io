@@ -42,4 +42,47 @@ System szesnastkowy ma **16 cyfr**. Po `9` występują `A`, `B`, `C`, `D`, `E`, 
 
 <BaseConverterLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: System szesnastkowy i litery A–F](/ask/grafiki/szesnastkowy.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+W systemie szesnastkowym są cyfry `0–9` oraz litery `A–F`, które oznaczają wartości od 10 do 15. Litera `A` to pojedyncza **cyfra**, a nie skrót do dwóch cyfr.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Zapisz `2F₁₆`. Pierwsza cyfra `2` stoi na miejscu o wadze `16`, a `F` oznacza `15` na miejscu o wadze `1`.
+2. Oblicz `2·16 + 15·1 = 32 + 15 = 47₁₀`.
+3. Sprawdź na przykładzie `10₁₆`: to `1·16 + 0·1 = 16₁₀`, a nie liczba dziesięć.
+4. Jeśli pojawia się `C`, podstaw `12`; jeśli `E`, podstaw `14`. Pozostała metoda nie zmienia się.
+
+### Dlaczego to działa?
+
+Jedna cyfra hex zapisuje dokładnie 16 możliwości, czyli tyle, ile 4 bity (`2⁴ = 16`). Dlatego szesnastkowy jest wygodnym krótkim zapisem wartości binarnych.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie wolno zastąpić `F` liczbą `16`. Szesnastkowa cyfra `F` ma wartość 15; nowa pozycja zaczyna się dopiero przy 16.
+:::
+
+### Powtórka bez podglądania
+
+Ile wynosi `3A₁₆`?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+`3·16 + 10 = 58₁₀`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

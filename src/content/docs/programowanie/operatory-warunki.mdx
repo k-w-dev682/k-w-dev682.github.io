@@ -5,11 +5,104 @@ sidebar:
   order: 6
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="operatory-warunki" title="Operatory i instrukcja `if`" section="01 · Fundamenty" />
 
 # Operatory i instrukcja `if`
+
+## Zrozum od podstaw
+
+Warunek jest pytaniem o odpowiedź `true` (prawda) albo `false` (fałsz). Instrukcja `if` wybiera blok na podstawie tej odpowiedzi. `else` oznacza alternatywę, więc dokładnie jeden z dwóch bloków zostanie wykonany. Zmienna `bool` przechowuje odpowiedź logiczną.
+
+`%` daje resztę z dzielenia całkowitego. Liczba jest parzysta, gdy reszta z dzielenia przez 2 wynosi 0. `&&` wymaga obu warunków, `||` co najmniej jednego, a `!` odwraca wynik. Operatory && i || kończą sprawdzanie, gdy wynik jest już rozstrzygnięty.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 12;
+    bool pasuje = x > 0 && x % 3 == 0;
+    if (pasuje) {
+        std::cout << "Dodatnia wielokrotnosc 3\n";
+    } else {
+        std::cout << "Nie pasuje\n";
+    }
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Nadajemy x wartość 12.
+2. `x > 0` jest prawdą. Reszta 12 % 3 wynosi 0, więc `== 0` także jest prawdą.
+3. Prawda && prawda daje true, zapisane w pasuje.
+4. if odczytuje pasuje, wykonuje pierwszy blok i omija else.
+
+<CppTrace title="Śledzenie: operatory warunki" steps={[["x = 12", "12 > 0: prawda"], ["Reszta", "12 % 3 = 0"], ["Połączenie", "prawda && prawda = prawda"], ["Gałąź", "Wypisanie Dodatnia wielokrotnosc 3"]]} />
+
+![Schemat: warunek](/cpp13/warunek.svg)
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+if (x = 0) { std::cout << "Zero"; }
+```
+
+Pojedyncze = zmienia x na 0, a wartość 0 w warunku oznacza fałsz. Podwójne == tylko porównuje.
+
+**Poprawiony fragment:**
+
+```cpp
+if (x == 0) { std::cout << "Zero"; }
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co zmieni się dla x = −3?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Pierwszy warunek jest fałszywy. && nie musi sprawdzać drugiego; wybieramy else.
+
+</details>
+
+### 2. Uzupełnij warunek zakresu od 1 do 10 włącznie.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+`x >= 1 && x <= 10`. Zapis 1 &lt;= x &lt;= 10 nie oznacza w C++ matematycznego podwójnego porównania.
+
+</details>
+
+### 3. Jak bezpiecznie sprawdzić a / b > 2 dla int?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+`b != 0 && a / b > 2` chroni przed dzieleniem przez zero dzięki kolejności &&; zakładamy też brak przepełnienia dzielenia, np. skrajne minimum / −1.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+= przypisuje, == porównuje. Blok if kończy się klamrą; nie stawiaj pustego średnika zaraz po warunku.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Arytmetyka i warunki
 

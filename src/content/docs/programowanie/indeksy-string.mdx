@@ -5,12 +5,104 @@ sidebar:
   order: 30
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { StringLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="indeksy-string" title="Indeksowanie napisu — pierwszy znak ma numer 0" section="04 · Tekst i znaki" />
 
 # Indeksowanie napisu — pierwszy znak ma numer 0
+
+## Zrozum od podstaw
+
+Indeks to numer pozycji od zera. Dla KOT indeksy 0, 1 i 2 wybierają K, O oraz T. Rozmiar wynosi 3, ale indeks ostatniego elementu to 2. **Zakres** elementów tekstu kończy się przed size(). Pusty napis nie ma pierwszego ani ostatniego znaku treści.
+
+Metoda at sprawdza zakres i zgłasza wyjątek, gdy nie ma wskazanego elementu. Operator [] nie daje takiej kontroli. W C++11 i nowszych odczyt s[s.size()] zwraca znak zerowy, lecz nie jest to znak treści; nie wolno zastępować go wartością niezerową. Indeks większy od size() jest niedozwolony.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string s = "KOT";
+    for (std::size_t i = 0; i < s.size(); ++i) {
+        std::cout << i << ':' << s[i] << '\n';
+    }
+    for (std::size_t i = s.size(); i > 0; --i) {
+        std::cout << s[i - 1];
+    }
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. size_t to typ bez znaku używany dla rozmiarów; tutaj licznik nie potrzebuje wartości ujemnych.
+2. Pierwsza pętla wybiera 0, 1, 2 i wypisuje odpowiednie znaki.
+3. Druga startuje od rozmiaru 3, ale odczytuje i − 1, czyli najpierw 2.
+4. Warunek i > 0 sprawdzamy przed odejmowaniem 1, dlatego pusty napis jest bezpieczny.
+
+<CppTrace title="Śledzenie: indeksy string" steps={[["Indeks 0", "K"], ["Indeks 1", "O"], ["Indeks 2", "T"], ["Od końca", "i = 3, 2, 1 → T, O, K"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+for (std::size_t i = s.size() - 1; i >= 0; --i) std::cout << s[i];
+```
+
+Typ bez znaku nigdy nie jest ujemny. Warunek >= 0 zawsze jest prawdziwy, a odejmowanie od zera zawija wartość.
+
+**Poprawiony fragment:**
+
+```cpp
+for (std::size_t i = s.size(); i > 0; --i) std::cout << s[i - 1];
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Jaki indeks ma ostatnie A w ALA?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+2, bo pozycje to 0, 1, 2.
+
+</details>
+
+### 2. Co wykona pętla od końca dla pustego s?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nic. i zaczyna od 0, więc warunek i > 0 jest od razu fałszywy.
+
+</details>
+
+### 3. Jak bezpiecznie zmienić pierwszy znak na X?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Najpierw if (!s.empty()), potem s[0] = 'X'. Pusty napis nie ma znaku do podmiany.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Dla znaków treści używaj i &lt; size(). Nie buduj malejącej pętli size_t z warunkiem i >= 0.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Każdy element ma pozycję
 
@@ -29,7 +121,7 @@ std::cout << napis[2]; // T
 
 ## Dlaczego nie `napis[5]`?
 
-Dla pięciu elementów poprawne indeksy to 0–4. Próba odczytu poza zakresem za pomocą `operator[]` prowadzi do niepoprawnego dostępu (nie wolno zakładać, że program zgłosi ładny komunikat). Metoda `at()` wykonuje kontrolę granic i zgłasza wyjątek `std::out_of_range`.
+Dla pięciu elementów poprawne indeksy to 0–4. Indeks większy od `size()` jest niedozwolony. Odczyt `napis[5]` dla długości 5 w C++11 i nowszych daje końcowy znak zerowy, ale nie jest to znak treści. Nie wolno zastąpić go wartością niezerową. Metoda `at()` wykonuje kontrolę granic i zgłasza wyjątek `std::out_of_range`.
 
 ## Pętla po wszystkich pozycjach
 

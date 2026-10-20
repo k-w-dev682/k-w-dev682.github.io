@@ -13,6 +13,64 @@ import { PotentialLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="potencjal" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Potencjał to **energia potencjalna na jednostkę ładunku**. Jedna liczba w danym punkcie ułatwia porównanie, ile energii miałby tam próbny ładunek dodatni.
+
+Pomyśl o wysokości na mapie: sam punkt ma przypisaną wysokość, a różnica wysokości między dwoma punktami mówi o możliwości zmiany energii. Potencjał nie jest wysokością, ale analogia pomaga odróżnić potencjał od napięcia.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: potencjal](/elektronika/grafiki/potencjal.svg)
+
+**Wskazówka do grafiki:** **Potencjał punktu = jedna liczba. Napięcie = różnica dwóch potencjałów.**
+
+### Każda litera i symbol — co oznacza?
+
+- `V` — potencjał, jednostka `V` (wolt).
+- `E_p` — energia potencjalna, `J`.
+- `q` — ładunek próbny, `C`.
+- `V = E_p / q` — przy ustalonym zerze energii i dla niezerowego próbnika.
+- `V = kQ/r` — potencjał ładunku punktowego w próżni, przy zerze w nieskończoności; znak pochodzi z `Q`.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dane: ładunek źródłowy `Q = +1 nC`, punkt oddalony o `r = 0,10 m`.
+2. Zamieniamy: `Q = 1 · 10⁻⁹ C`.
+3. Korzystamy ze wzoru `V = kQ/r`.
+4. Podstawiamy `V = 8,99 · 10⁹ · 1 · 10⁻⁹ / 0,10`.
+5. W liczniku potęgi się skracają: `8,99 / 0,10 = 89,9`.
+6. Wynik `V = +89,9 V`. Dla `Q = −1 nC` potencjał byłby ujemny.
+
+:::caution[Na co uważać?]
+Potencjał `V` jest wielkością skalarną: nie ma strzałki. Natężenie pola `E` jest wektorem — ma kierunek.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Potencjał punktu = jedna liczba. Napięcie = różnica dwóch potencjałów.**
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Czy ujemny ładunek źródłowy daje dodatni potencjał według `V=kQ/r`?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+Nie, potencjał jest ujemny przy przyjętym zerze w nieskończoności.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Definicja potencjału
 
 Potencjał elektryczny określamy jako **energię potencjalną na jednostkę ładunku**:

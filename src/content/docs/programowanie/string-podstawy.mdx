@@ -5,12 +5,102 @@ sidebar:
   order: 29
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { StringLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="string-podstawy" title="`std::string` — napisy" section="04 · Tekst i znaki" />
 
 # `std::string` — napisy
+
+## Zrozum od podstaw
+
+std::string jest obiektem zarządzającym ciągiem elementów char. Możesz myśleć o nim jak o pasku ponumerowanych pól, który da się wydłużać. Długość może wynosić zero; pusty napis to normalna wartość.
+
+**Metoda** to funkcja wywoływana dla obiektu, np. s.size(). Kropka wybiera metodę, a nawiasy oznaczają jej wywołanie. **Konkatenacja** oznacza połączenie napisów, bez automatycznego dodawania spacji.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string imie = "Ala";
+    std::string nazwisko = "Kot";
+    std::string razem = imie + " " + nazwisko;
+    std::cout << razem << '\n';
+    std::cout << razem.size() << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. string wymaga nagłówka string. Oba napisy zapisujemy w cudzysłowach.
+2. Łączenie tworzy napis Ala Kot z jawną spacją między częściami.
+3. Pierwszy cout wypisuje treść.
+4. size() zwraca 7: trzy bajty imienia, spacja i trzy bajty nazwiska w tym przykładzie ASCII.
+
+<CppTrace title="Śledzenie: string podstawy" steps={[["imie", "Ala: 3 elementy"], ["Spacja", "1 element"], ["nazwisko", "Kot: 3 elementy"], ["razem", "Ala Kot: 7 elementów"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+std::string razem = "Ala" + "Kot";
+```
+
+Dwóch literałów tablicowych nie łączy się operatorem + w ten sposób. Utworzenie std::string pozwala użyć operatora łączenia.
+
+**Poprawiony fragment:**
+
+```cpp
+std::string razem = std::string("Ala") + " " + "Kot";
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Ile wynosi std::string("").size()?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+0, ponieważ pusty napis nie zawiera elementów treści.
+
+</details>
+
+### 2. Czy po razem = imie + nazwisko zmieni się imie?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Powstaje nowa wartość; imie nadal zawiera Ala.
+
+</details>
+
+### 3. Jak dopisać wykrzyknik?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+`razem += '!';`. Długość wzrośnie o jeden element char.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+size() liczy elementy char, nie uniwersalne znaki widoczne. W UTF-8 litera może zajmować kilka elementów.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Napis to sekwencja znaków
 

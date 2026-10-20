@@ -15,6 +15,14 @@ import { AngularLab } from '../../../components/PhysicsLabs.jsx';
 
 # Moment siły i równowaga obrotowa
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/moment-sily.svg" alt="Moment siły zależy od ramienia i kąta" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Dłuższe ramię + siła prostopadła = większy moment.**</figcaption>
+</figure>
+
 Moment siły określa zdolność siły do obracania ciała względem osi lub punktu.
 
 <Eq tex={String.raw`\vec\tau=\vec r\times\vec F`} display />
@@ -31,6 +39,51 @@ Jednostka N·m jest taka sama wymiarowo jak dżul, ale moment siły i energia op
 Dla obrotu wokół nieruchomej osi i stałego momentu bezwładności zachodzi relacja τ = I·alfa, gdzie alfa jest przyspieszeniem kątowym. To **uzupełnienie dydaktyczne**, nie dosłowny zapis z zeszytu.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Moment siły zależy od ramienia i kąta
+
+Nie wystarczy znać siłę. Tą samą siłą łatwiej obrócisz drzwi przy klamce niż przy zawiasach. Dla wartości momentu `τ=rFsinθ`.
+
+### Co oznaczają symbole i jednostki?
+
+`τ` — moment siły [N·m]; `r` — odległość od osi [m]; `F` — wartość siły [N]; `θ` — kąt między ramieniem i siłą.
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Klucz ma długość `r=0,25 m`, a na jego końcu działa siła `F=40 N` prostopadle do ramienia.
+2. Kąt `θ=90°`, więc `sinθ=1`.
+3. Moment: `τ=0,25·40·1=10 N·m`.
+4. Jeśli przyłożysz tę samą siłę w połowie długości (`0,125 m`), uzyskasz `5 N·m` — dwa razy mniej.
+
+### Dlaczego to działa?
+
+Tylko składowa siły prostopadła do ramienia wywołuje obrót. Siła skierowana dokładnie wzdłuż ramienia nie obraca.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Dłuższe ramię + siła prostopadła = większy moment.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie wpisuj `rF` bez sprawdzenia kąta; to działa dla siły prostopadłej do ramienia.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Siła 20 N działa prostopadle na ramieniu 0,5 m. Jaki moment siły?</summary>
+
+**Kolejne kroki i odpowiedź:** `τ=0,5·20=10 N·m`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <AngularLab client:load />
 

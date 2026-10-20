@@ -1,0 +1,106 @@
+---
+title: "Tablice — wiele wartości pod jedną nazwą"
+description: "Krok po kroku: kod, pamięć, ćwiczenia i odpowiedzi."
+sidebar:
+  order: 41
+---
+
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="tablice" title="Tablice — wiele wartości pod jedną nazwą" section="06 · Dane, funkcje i pamięć" />
+
+# Tablice — wiele wartości pod jedną nazwą
+
+## Zrozum od podstaw
+
+Tablica to wiele elementów jednego typu pod wspólną nazwą. Zamiast ocena1, ocena2 i ocena3 możesz przechowywać oceny w trzech kolejnych polach. Indeks wybiera jedno pole. Liczba elementów i ich wartości są oddzielnymi informacjami.
+
+Użyjemy std::array: kontenera o rozmiarze ustalonym podczas kompilacji. Zapis std::array&lt;int, 3> mówi „trzy elementy int”. Później std::vector pozwoli zmieniać rozmiar w czasie działania; nie zastępuj go niestandardowym int tab[n] z n od użytkownika.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <array>
+
+int main() {
+    std::array<int, 3> oceny{2, 4, 6};
+    int suma = 0;
+    for (std::size_t i = 0; i < oceny.size(); ++i) {
+        suma += oceny[i];
+    }
+    std::cout << suma / 3.0;
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Nagłówek array udostępnia std::array. Klamry nadają wartości trzem elementom.
+2. suma jest jedną liczbą, a oceny trzema osobnymi elementami.
+3. i przyjmuje 0, 1, 2; size() zwraca 3.
+4. oceny[i] odczytuje element o danym indeksie.
+5. Dzielenie przez 3.0 daje średnią 4 bez obcinania ułamka.
+
+<CppTrace title="Śledzenie: tablice" steps={[["Indeks 0", "wartość 2, suma 2"], ["Indeks 1", "wartość 4, suma 6"], ["Indeks 2", "wartość 6, suma 12"], ["Po pętli", "średnia = 12 / 3.0 = 4"]]} />
+
+![Schemat: tablica](/cpp13/tablica.svg)
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+for (std::size_t i = 0; i <= oceny.size(); ++i) suma += oceny[i];
+```
+
+&lt;= dopuści i = 3, ale tablica ma tylko indeksy 0–2. Nie wolno odczytywać czwartego elementu.
+
+**Poprawiony fragment:**
+
+```cpp
+for (std::size_t i = 0; i < oceny.size(); ++i) suma += oceny[i];
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Jak zmienić środkową ocenę na 5?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+oceny[1] = 5, ponieważ druga pozycja ma indeks 1.
+
+</details>
+
+### 2. Jak znaleźć maksimum?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Dla niepustej tablicy zacznij od oceny[0], potem porównuj pozostałe elementy. Start od 0 byłby błędny dla samych liczb ujemnych.
+
+</details>
+
+### 3. Jak dostać kontrolowany błąd indeksu?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+oceny.at(i) sprawdza zakres i zgłasza out_of_range. Nadal musisz obsłużyć wyjątek lub zapewnić poprawny indeks.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Tablica ma elementy od 0 do rozmiar − 1. Pusta tablica nie ma elementu 0; przed średnią sprawdź rozmiar.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+[Wróć do spisu treści](../spis-tresci/) · [Laboratorium](../laboratorium/)

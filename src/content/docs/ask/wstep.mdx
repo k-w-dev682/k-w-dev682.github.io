@@ -35,4 +35,47 @@ Każdy etap połączymy konkretnym przykładem, np. liczbą 13 zapisaną binarni
 
 [**Przejdź do bitów i bajtów →**](../bity-bajty/)
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Od czego zaczyna się architektura komputerów?](/ask/grafiki/wstep.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Komputer nie „myśli” w języku C++ ani nie przechowuje w pamięci narysowanych cyfr. Program, dane i wyniki to uporządkowane bity. Procesor wykonuje rozkazy na tych danych, a pamięć przechowuje ich kod.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Wyobraź sobie polecenie `7 + 5`. Dla człowieka są to dwie cyfry i plus. Dla komputera to wartości zapisane w bitach i instrukcja wykonania dodawania.
+2. Liczba `13` ma zapis binarny `1101`, bo `8 + 4 + 0 + 1 = 13`. To nadal **ta sama liczba**, tylko zapisana innymi znakami.
+3. Procesor pobiera rozkaz, ustala jego znaczenie, wykonuje operację i udostępnia wynik. Rejestry przechowują małe porcje danych bardzo blisko jednostek wykonawczych.
+4. Na tym kursie przechodzisz kolejno: systemy liczbowe → zapis liczb ujemnych → pamięć i CPU → proste rozkazy asemblera.
+
+### Dlaczego to działa?
+
+Zamiana systemu nie zmienia wartości liczby: `13₁₀ = 1101₂ = D₁₆`. Zmienia się jedynie **sposób zapisu**. To pierwszy punkt, który pomaga połączyć cały kurs.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie utożsamiaj bitu z literą `0` na ekranie. Bit jest najmniejszą jednostką informacji; widoczny znak jest tylko sposobem przedstawienia wartości.
+:::
+
+### Powtórka bez podglądania
+
+Dlaczego `1101₂` nie należy czytać jako tysiąc sto jeden?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Bo podstawa 2 nadaje cyfrom inne wagi: `1·8 + 1·4 + 0·2 + 1·1 = 13`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

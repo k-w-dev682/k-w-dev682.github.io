@@ -15,6 +15,31 @@ import { LogicLab } from '../../../../components/MathILabs.jsx';
 
 # Zdania, negacja i spójniki logiczne
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/zdania-i-spojniki.svg" alt="Spójniki zmieniają wynik z wartości p i q" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Spójniki zmieniają wynik z wartości p i q. Koniunkcja potrzebuje dwóch jedynek; implikację obala 1→0.</figcaption>
+</figure>
+
+
+## Dlaczego zaczynamy od prawdy i fałszu?
+
+Komputer często podejmuje decyzje typu „tak/nie”. Logika matematyczna porządkuje takie decyzje. Przyjmujemy **1 jako prawdę** i **0 jako fałsz**. Litery `p`, `q`, `r` to po prostu nazwy zdań — podobnie jak `x` jest nazwą liczby.
+
+### Jeden przykład tłumaczący wszystkie podstawowe spójniki
+
+Niech `p` znaczy „mam bilet”, a `q` — „mam dokument”.
+
+- `p∧q` (i): potrzebuję **obu** rzeczy; jeżeli brakuje jednej, całość jest fałszywa.
+- `p∨q` (lub): wystarczy **jedna** z rzeczy; mogą być obie.
+- `¬p` (nie): „nie mam biletu”.
+- `p⇒q` (jeśli p, to q): fałszywe tylko wtedy, gdy bilet jest, a dokumentu nie ma.
+- `p⇔q` (wtedy i tylko wtedy): prawdziwe, kiedy oba zdania mają **taką samą** wartość logiczną.
+
+**Ważne:** znak `∨` w logice oznacza **lub niewykluczające**, a nie „dokładnie jedno z dwóch”.
+
+
 ## 1. Co jest zdaniem logicznym?
 
 **Zdanie logiczne** jest wypowiedzią, której możemy przypisać jedną z dwóch wartości: **1 — prawda** albo **0 — fałsz**. Pytanie „Ile jest godzin?” nie jest zdaniem logicznym — nie da się mu przypisać takiej wartości.
@@ -45,4 +70,47 @@ Dla p=1, q=0:
 Przećwicz to w laboratorium:
 
 <LogicLab client:load />
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Nauka krok po kroku: rozpoznaj zdanie, zanim użyjesz symboli
+
+Zdanie logiczne musi mieć **jedną określoną wartość logiczną**: prawdę albo fałsz. Nie musi być prawdziwe. Na przykład „7 jest parzyste” to zdanie logiczne — jest po prostu fałszywe. Natomiast „Podaj mi zeszyt” jest poleceniem, więc nie ma wartości prawda/fałsz.
+
+Najprościej myśl o spójnikach jak o regułach łączenia dwóch lampek, które mogą być włączone (`1`) albo wyłączone (`0`):
+
+- `p ∧ q` — **oba warunki** muszą być prawdziwe.
+- `p ∨ q` — prawdziwy ma być **co najmniej jeden** warunek; gdy oba są prawdziwe, też otrzymujemy prawdę.
+- `¬p` — zmień wartość na przeciwną.
+- `p ⇒ q` — przypadek fałszywy występuje wyłącznie wtedy, gdy `p` jest prawdziwe, a `q` fałszywe.
+
+### Przykład z codziennego życia — wszystkie kroki
+
+Niech `p`: „mam 10 zł”, a `q`: „mam 20 zł”. Dla danej sytuacji załóżmy `p=1`, `q=0`.
+
+1. `¬p = 0`, bo zaprzeczenie prawdy jest fałszem.
+2. `p ∧ q = 1 ∧ 0 = 0`, bo drugi warunek nie zachodzi.
+3. `p ∨ q = 1 ∨ 0 = 1`, bo przynajmniej jeden warunek zachodzi.
+4. `p ⇒ q = 1 ⇒ 0 = 0`, bo zachodzi właśnie jedyna sytuacja obalająca implikację.
+
+:::tip[Zapamiętaj w pięć sekund]
+`∧` = **oba**; `∨` = **przynajmniej jedno**; `¬` = **odwrotnie**. Słowo „lub” jest w logice zwykle *niewykluczające*.
+:::
+
+### Mini-trening
+
+Masz `p=0`, `q=0`. Oblicz `¬p`, `p∧q`, `p∨q` i `p⇒q`. Spróbuj przed rozwinięciem odpowiedzi.
+
+<details className="m1-selfcheck">
+<summary>Odkryj rozwiązanie z uzasadnieniem</summary>
+
+`¬p=1` (zmiana z fałszu na prawdę), `p∧q=0` (nie są prawdziwe oba), `p∨q=0` (żaden nie jest prawdziwy), `p⇒q=1` (nie ma sytuacji: prawdziwa przesłanka i fałszywy wniosek).
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

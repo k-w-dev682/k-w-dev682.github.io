@@ -1,0 +1,24 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Dlaczego x² nie ma jednej odwrotności na całym ℝ?" eyebrow="MATEMATYKA · FUNKCJE ODWROTNE" caption="Jedna wartość y = 4 odpowiada dwóm argumentom: x = −2 i x = 2. Po ograniczeniu dziedziny do x ≥ 0 zostaje tylko prawa gałąź paraboli.">
+  <svg viewBox="0 0 760 390" class="sl-svg" role="img" aria-label="Parabola oraz prosta y równa się x">
+    <rect x="28" y="28" width="704" height="334" rx="22" class="sl-svg__panel" />
+    <line x1="100" y1="315" x2="660" y2="315" class="sl-svg__axis" />
+    <line x1="380" y1="70" x2="380" y2="335" class="sl-svg__axis" />
+    <text x="670" y="319" class="sl-svg__axisLabel">x</text>
+    <text x="386" y="62" class="sl-svg__axisLabel">y</text>
+    <line x1="200" y1="315" x2="560" y2="135" class="sl-svg__diag" />
+    <text x="565" y="128" class="sl-svg__note">y = x</text>
+    <path d="M 246 91 C 297 215, 336 288, 380 315 C 424 288, 463 215, 514 91" fill="none" class="sl-svg__curve sl-svg__curve--dim" />
+    <path d="M 380 315 C 424 288, 463 215, 514 91" fill="none" class="sl-svg__curve" />
+    <line x1="280" y1="215" x2="480" y2="215" class="sl-svg__guide" />
+    <circle cx="280" cy="215" r="8" class="sl-svg__dot sl-svg__dot--warn" />
+    <circle cx="480" cy="215" r="8" class="sl-svg__dot sl-svg__dot--accent" />
+    <text x="248" y="205" class="sl-svg__label">(-2, 4)</text>
+    <text x="488" y="205" class="sl-svg__label">(2, 4)</text>
+    <text x="395" y="210" class="sl-svg__note">ta sama wartość y = 4</text>
+    <text x="70" y="100" class="sl-svg__note">lewa gałąź powoduje niejednoznaczność</text>
+    <text x="452" y="95" class="sl-svg__note">dla x ≥ 0 można odwrócić: y = x² ↔ x = √y</text>
+  </svg>
+</StudyFigure>

@@ -15,6 +15,14 @@ import { ProjectileLab } from '../../../components/PhysicsLabs.jsx';
 
 # Czas lotu, maksimum i zasięg rzutu
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/rzut-maksimum.svg" alt="W najwyższym punkcie zeruje się tylko prędkość pionowa" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Szczyt: vᵧ=0. Tylko na tę samą wysokość: czas lotu = 2×czas wznoszenia.**</figcaption>
+</figure>
+
 Dla rzutu z poziomu gruntu, który kończy się **na tej samej wysokości**, możemy wyprowadzić trzy użyteczne wzory. Pomijamy opór powietrza.
 
 <Eq tex={String.raw`t_{\mathrm{lot}}=\frac{2v_0\sin\alpha}{g}`} display />
@@ -37,6 +45,51 @@ v₀ = 10 m/s, alfa = 45°, g ≈ 9,81 m/s².
 W symulatorze zmień kąt i obserwuj, kiedy zasięg jest największy.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## W najwyższym punkcie zeruje się tylko prędkość pionowa
+
+Na szczycie lotu `vᵧ=0`, ale `vₓ` zwykle nadal działa. Tylko w szczególnym przypadku rzutu pionowego cała prędkość chwilowo wynosi zero.
+
+### Co oznaczają symbole i jednostki?
+
+`v₀ᵧ` — początkowa prędkość pionowa [m/s]; `vᵧ` — pionowa prędkość chwilowa [m/s]; `g` — przyspieszenie ziemskie [m/s²]; `t_w` — czas wznoszenia [s].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Dane: `v₀ᵧ=15 m/s`, `g=10 m/s²` (przybliżenie szkolne).
+2. Na wierzchołku `vᵧ=v₀ᵧ−gt_w=0`, stąd `t_w=v₀ᵧ/g=15/10=1,5 s`.
+3. Wysokość względem punktu wyrzutu: `h=v₀ᵧt_w−gt_w²/2=15·1,5−10·2,25/2=22,5−11,25=11,25 m`.
+4. Jeżeli ciało wraca na tę samą wysokość bez oporu, czas lotu to `2t_w=3 s`. Na inną wysokość nie używaj tej reguły.
+
+### Dlaczego to działa?
+
+Na szczycie pionowy ruch przez chwilę zmienia zwrot. Symetria wznoszenia i opadania wymaga tej samej wysokości startu i końca.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Szczyt: vᵧ=0. Tylko na tę samą wysokość: czas lotu = 2×czas wznoszenia.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie przyjmuj `vₓ=0` w wierzchołku rzutu ukośnego.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Pionowa prędkość początkowa to 20 m/s, g=10 m/s². Po ilu sekundach ciało osiągnie szczyt?</summary>
+
+**Kolejne kroki i odpowiedź:** `0=20−10t`, więc `t=2 s`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <ProjectileLab client:load />
 

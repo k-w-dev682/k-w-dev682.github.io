@@ -48,4 +48,42 @@ W ZM i U1 pewne ciągi oznaczają `-0`. Wartość liczby nadal wynosi zero, ale 
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia U2: odczytaj wartość dziesiętną](/ask/grafiki/cw-u2-odczyt.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Weź oryginalny kod `1010101` (7 bitów). Lewy bit to `1`, więc wartość w U2 jest ujemna.
+2. Odwróć siedem bitów → `0101010`.
+3. Dodaj jeden → `0101011`.
+4. Wartość dodatnia `0101011₂ = 32+8+2+1 = 43`. Oryginalna liczba wynosi **−43**.
+5. Sprawdzenie drugą metodą: `−64 + 16 + 4 + 1 = −43`.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+Najstarszy bit w U2 ma wagę `−2^(n−1)`. Dlatego wynik można policzyć bez inwersji: suma wag sama uwzględnia minus.
+
+:::caution[Uważaj tutaj]
+Nie pomyl U1 i U2: dla tego samego `1010101` U1 daje −42, a U2 −43.
+:::
+
+### Minisprawdzian po zadaniu
+
+Jak odczytać `1111` na 4 bitach w U2?
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+Wagi: `−8+4+2+1=−1`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

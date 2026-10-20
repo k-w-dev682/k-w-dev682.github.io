@@ -1,0 +1,33 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Cykl rozkazu procesora" eyebrow="ARCHITEKTURA KOMPUTERÓW · CPU" caption="To podstawowy model dla początkujących. W praktyce nowoczesny procesor może wykonywać kilka takich etapów równolegle dla różnych instrukcji.">
+  <svg viewBox="0 0 980 280" class="sl-svg" role="img" aria-label="Etapy cyklu rozkazu procesora">
+    <defs>
+      <marker id="slArrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#5ce2d1" />
+      </marker>
+    </defs>
+    <rect x="25" y="25" width="930" height="230" rx="22" class="sl-svg__panel" />
+    <rect x="58" y="96" width="184" height="94" rx="20" class="sl-svg__action" />
+    <rect x="286" y="96" width="184" height="94" rx="20" class="sl-svg__action" />
+    <rect x="514" y="96" width="184" height="94" rx="20" class="sl-svg__action" />
+    <rect x="742" y="96" width="184" height="94" rx="20" class="sl-svg__action" />
+    <text x="150" y="125" text-anchor="middle" class="sl-svg__overline">1</text>
+    <text x="150" y="148" text-anchor="middle" class="sl-svg__label">FETCH</text>
+    <text x="150" y="170" text-anchor="middle" class="sl-svg__note">pobierz instrukcję</text>
+    <text x="378" y="125" text-anchor="middle" class="sl-svg__overline">2</text>
+    <text x="378" y="148" text-anchor="middle" class="sl-svg__label">DECODE</text>
+    <text x="378" y="170" text-anchor="middle" class="sl-svg__note">zrozum, co zrobić</text>
+    <text x="606" y="125" text-anchor="middle" class="sl-svg__overline">3</text>
+    <text x="606" y="148" text-anchor="middle" class="sl-svg__label">EXECUTE</text>
+    <text x="606" y="170" text-anchor="middle" class="sl-svg__note">wykonaj operację</text>
+    <text x="834" y="125" text-anchor="middle" class="sl-svg__overline">4</text>
+    <text x="834" y="148" text-anchor="middle" class="sl-svg__label">WRITE BACK</text>
+    <text x="834" y="170" text-anchor="middle" class="sl-svg__note">zapisz wynik</text>
+    <line x1="242" y1="143" x2="286" y2="143" class="sl-svg__line" marker-end="url(#slArrow3)" />
+    <line x1="470" y1="143" x2="514" y2="143" class="sl-svg__line" marker-end="url(#slArrow3)" />
+    <line x1="698" y1="143" x2="742" y2="143" class="sl-svg__line" marker-end="url(#slArrow3)" />
+    <text x="58" y="68" class="sl-svg__note">Przykład: rejestr zawiera 4, instrukcja każe dodać 3, po wykonaniu wynik wynosi 7.</text>
+  </svg>
+</StudyFigure>

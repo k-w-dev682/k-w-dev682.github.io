@@ -5,12 +5,105 @@ sidebar:
   order: 31
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { SearchLab } from '../../../components/ExtraLabs.jsx';
 
 <PdfTopicButton client:load slug="metody-string" title="`size`, `substr`, `find`, `erase`, `insert`" section="04 · Tekst i znaki" />
 
 # `size`, `substr`, `find`, `erase`, `insert`
+
+## Zrozum od podstaw
+
+Metody string są narzędziami o różnych skutkach: substr tworzy nowy napis, a erase zmienia oryginał. find wyszukuje i zwraca pozycję; npos oznacza brak wyniku. Nie traktuj każdej zwróconej liczby jak poprawnego indeksu.
+
+W substr(p, n) drugi argument jest liczbą elementów, nie indeksem końca. W erase(p, n) także podajemy liczbę usuwanych elementów. Po zmianie napisu dawne pozycje mogą już wskazywać inne znaki.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string s = "Ala ma kota";
+    auto p = s.find("kota");
+    if (p != std::string::npos) {
+        std::string fragment = s.substr(p, 4);
+        s.erase(p, 4);
+        s.insert(p, "psa");
+        std::cout << fragment << " / " << s << '\n';
+    }
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. auto pozwala kompilatorowi dobrać typ wyniku find. Pozycja kota wynosi 7.
+2. != npos chroni przed użyciem znacznika braku wyniku jako pozycji.
+3. substr kopiuje cztery znaki do fragment; nie zmienia s.
+4. erase usuwa kota, insert wstawia psa w tym samym miejscu. Wynik: kota / Ala ma psa.
+
+<CppTrace title="Śledzenie: metody string" steps={[["Po find", "p = 7, s bez zmian"], ["Po substr", "fragment = kota, s bez zmian"], ["Po erase", "s = Ala ma "], ["Po insert", "s = Ala ma psa"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+if (s.find("Ala")) std::cout << "Jest";
+```
+
+Pozycja 0 jest poprawnym wynikiem, ale w warunku logicznym oznacza fałsz. Znacznik npos jest niezerowy, więc błędna wersja odwraca sens części przypadków.
+
+**Poprawiony fragment:**
+
+```cpp
+if (s.find("Ala") != std::string::npos) std::cout << "Jest";
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co zwraca s.substr(4, 2) dla Ala ma kota?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+ma: dwa elementy od pozycji 4, czyli pozycje 4 i 5.
+
+</details>
+
+### 2. Czy find zmienia tekst?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Zwraca pozycję pierwszego dopasowania albo npos.
+
+</details>
+
+### 3. Zastąp gwiazdki spacjami w a*b**c.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Przejdź po indeksach i dla s[i] == '*' przypisz spację. Wynik to a b  c; dwie sąsiednie gwiazdki tworzą dwie spacje.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Najpierw sprawdź npos. Odróżniaj metody zwracające kopię od metod modyfikujących oryginał.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Gotowe narzędzia do manipulacji tekstem
 

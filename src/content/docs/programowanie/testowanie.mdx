@@ -5,11 +5,99 @@ sidebar:
   order: 13
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="testowanie" title="Jak testować program?" section="02 · Algorytmy i diagnostyka" />
 
 # Jak testować program?
+
+## Zrozum od podstaw
+
+Test jest eksperymentem z wcześniej określonym oczekiwaniem. Nie wystarczy uruchomić program i uznać wynik za wiarygodny. Najpierw policz prosty przypadek ręcznie. **Przypadek brzegowy** leży na granicy dozwolonych danych: zero elementów, jeden element, równe wartości albo ostatni poprawny indeks.
+
+Poniżej sprawdzamy sumę liczb od 1 do n dla n nieujemnego. Umawiamy się, że suma dla n = 0 wynosi 0. Dla dużego n trzeba dodatkowo pilnować zakresu typu.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int n = 5;
+    int suma = 0;
+    for (int i = 1; i <= n; ++i) suma += i;
+    std::cout << suma << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. n jest daną testową, a nie liczbą dobraną automatycznie przez program.
+2. suma zaczyna od 0.
+3. &lt;= dopuszcza także n, więc dla 5 dodajemy pięć liczb.
+4. Porównujemy otrzymane 15 z wynikiem ręcznym 1 + 2 + 3 + 4 + 5.
+
+<CppTrace title="Śledzenie: testowanie" steps={[["Test n = 0", "oczekuj 0: zero obiegów"], ["Test n = 1", "oczekuj 1: jeden obieg"], ["Test n = 5", "oczekuj 15: typowe dane"], ["Test n < 0", "ustal odrzucenie danych w specyfikacji"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+for (int i = 1; i < n; ++i) suma += i;
+```
+
+Wersja z &lt; pomija ostatni składnik. Test n = 0 tego nie wykryje, ale n = 1 już tak.
+
+**Poprawiony fragment:**
+
+```cpp
+for (int i = 1; i <= n; ++i) suma += i;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy 100 podobnych dodatnich danych zastępuje test zera?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Mogą wszystkie przejść tą samą ścieżką.
+
+</details>
+
+### 2. Jaki test wykrywa pominięcie równości w if?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Dwie równe liczby, np. 4 i 4, bo wtedy oba warunki ostrej nierówności są fałszywe.
+
+</details>
+
+### 3. Zaprojektuj testy odczytu liczby.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Poprawne 7, dopuszczalne zero, dopuszczalne −1, tekst abc i koniec wejścia. Dla każdego ustal wynik lub oczekiwany komunikat błędu.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Test musi mieć oczekiwany wynik i powód wyboru danych. Jeden udany przypadek nie dowodzi poprawności wszystkich ścieżek.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Jeden prawidłowy wynik nie dowodzi poprawności
 

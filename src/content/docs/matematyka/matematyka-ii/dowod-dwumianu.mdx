@@ -12,6 +12,26 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Dlaczego dwumian Newtona działa?
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/dowod-dwumianu.svg" alt="Skąd bierze się reguła Pascala w dowodzie?" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Dwa źródła tego samego składnika nie tworzą nowej potęgi — dodają się ich współczynniki. Z tego samego powodu działa rekurencja trójkąta Pascala.</figcaption>
+</figure>
+
+## Jak czytać skomplikowany wzór na dwumian?
+
+Wzór na `(a+b)ⁿ` mówi, jak rozwinąć nawias bez ręcznego mnożenia go przez siebie wiele razy. Dla `n=2` otrzymujemy `a²+2ab+b²`; dla `n=3` — `a³+3a²b+3ab²+b³`.
+
+**Słownik:** `n` to liczba powtórzeń nawiasu, `k` to numer składnika sumy (od 0 do n), `Σ` oznacza dodawanie, a `C(n,k)` — liczbę wyborów k pozycji z n. W składniku `a^(n−k)b^k` suma wykładników **zawsze wynosi n**.
+
+### Dlaczego potrzebna jest reguła Pascala?
+
+W dowodzie mnożymy przez `(a+b)` i otrzymujemy dwie sumy. Ten sam typ wyrazu może pochodzić z mnożenia wcześniejszego składnika przez `a` **lub** przez `b`. Współczynniki z obu możliwości trzeba **dodać**: `C(n,k)+C(n,k−1)=C(n+1,k)`. To dokładnie reguła dodawania dwóch liczb w trójkącie Pascala.
+
+
 Chcemy wykazać dla wszystkich n ≥ 0:
 
 <Eq display tex={String.raw`(a+b)^n=\sum_{k=0}^n\binom nk a^{n-k}b^k`}/>
@@ -43,3 +63,46 @@ Skrajne wyrazy to a^(n+1) i b^(n+1). Otrzymujemy wzór dla n + 1:
 :::tip[Trzy narzędzia dowodu]
 Założenie indukcyjne, **zmiana indeksu sumowania** oraz **reguła Pascala**. Bez zmiany indeksu współczynniki trudniej porównać.
 :::
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Skąd bierze się reguła Pascala w dowodzie?
+
+Po pomnożeniu `(a+b)ⁿ` przez `(a+b)` jeden typ wyrazu można uzyskać dwiema drogami: ze starego wyrazu razy `a` albo z sąsiedniego razy `b`. Liczby tych możliwości się **sumują**.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Dla `n=2` masz `a²+2ab+b²`. Pomnóż przez `(a+b)` i rozpisz obie części osobno.
+2. Mnożenie przez `a` daje `a³+2a²b+ab²`, a przez `b` daje `a²b+2ab²+b³`.
+3. Dodaj wyrazy o tych samych potęgach: `a³+(2+1)a²b+(1+2)ab²+b³`.
+4. Dostajesz `a³+3a²b+3ab²+b³`. Stąd wiersz `1, 2, 1` przeszedł w `1, 3, 3, 1`.
+5. W wersji ogólnej odpowiednik liczby `2+1=3` zapisujemy jako `C(n,k)+C(n,k−1)=C(n+1,k)`. To tożsamość Pascala.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Dwa źródła tego samego składnika nie tworzą nowej potęgi — dodają się ich współczynniki. Z tego samego powodu działa rekurencja trójkąta Pascala.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Dwa sąsiednie współczynniki → jeden współczynnik w następnym wierszu.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Nie dodawaj wykładników przy sumowaniu *podobnych wyrazów*: `2a²b+a²b=3a²b`, a nie `3a⁴b²`.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Dlaczego współczynnik przy `a²b` w `(a+b)³` wynosi 3?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** Z pomnożenia `a²+2ab+b²` przez `a+b` wyraz `a²b` powstaje jako `a²·b` i `2ab·a`. Łącznie współczynnik `1+2=3`.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
+

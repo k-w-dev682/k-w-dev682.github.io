@@ -34,4 +34,48 @@ W nowoczesnym procesorze wiele faz może wykonywać się jednocześnie dla róż
 
 <CpuLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Pobierz → dekoduj → wykonaj](/ask/grafiki/cykl-rozkazu.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Najprostszy model pracy CPU to powtarzający się cykl: **pobierz → zdekoduj → wykonaj → zapisz**. Każdy etap odpowiada na inne pytanie.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Pobierz: instrukcja dociera do CPU z pamięci lub pamięci podręcznej.
+2. Dekoduj: CPU ustala, co znaczy rozkaz, np. „dodaj 3 do wartości w rejestrze”.
+3. Wykonaj: układ wykonawczy dodaje, porównuje lub wykonuje inny nakazany krok.
+4. Zapisz: wynik trafia do odpowiedniego miejsca i procesor może kontynuować program.
+5. Przykład: rejestr miał `4`, rozkaz każe dodać `3`, po wykonaniu i zapisie ma `7`.
+
+### Dlaczego to działa?
+
+Te etapy pomagają zrozumieć, dlaczego instrukcja to nie to samo co jej wykonanie. W rzeczywistych procesorach wiele rozkazów może jednocześnie przechodzić różne fazy.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie zakładaj, że nowoczesny procesor zawsze kończy jeden rozkaz, zanim zacznie następny. To uproszczony model edukacyjny.
+:::
+
+### Powtórka bez podglądania
+
+W którym etapie CPU ustala, jakie działanie oznacza instrukcja?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+W dekodowaniu (decode).
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

@@ -5,11 +5,100 @@ sidebar:
   order: 23
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="formatowanie" title="`setprecision` i formatowanie wyniku" section="03 · Liczby w pamięci" />
 
 # `setprecision` i formatowanie wyniku
+
+## Zrozum od podstaw
+
+Wartość w pamięci i tekst na ekranie to dwie różne rzeczy. Ten sam wynik możesz pokazać krótko lub z wieloma cyframi. Manipulatory strumienia zmieniają sposób wypisywania, podobnie jak ustawienie liczby miejsc w kalkulatorze.
+
+Nagłówek iomanip udostępnia setprecision. W zwykłym trybie liczba oznacza cyfry znaczące. Przy fixed oznacza miejsca po kropce. Ustawienia pozostają aktywne dla kolejnych wypisań do tego strumienia, dopóki ich nie zmienisz.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    double x = 123.456789;
+    std::cout << std::setprecision(4) << x << '\n';
+    std::cout << std::fixed << std::setprecision(4) << x << '\n';
+    std::cout << std::defaultfloat << std::setprecision(6) << x << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. x otrzymuje przybliżenie liczby 123.456789.
+2. Cztery cyfry znaczące dają 123.5.
+3. fixed i cztery miejsca po kropce dają 123.4568.
+4. defaultfloat wraca do zwykłego trybu; precyzję 6 ustawiamy osobno. Wynik to 123.457.
+
+<CppTrace title="Śledzenie: formatowanie" steps={[["Pamięć", "x nie zmienia się"], ["setprecision(4)", "123.5"], ["fixed, precyzja 4", "123.4568"], ["defaultfloat, precyzja 6", "123.457"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+std::cout << std::setprecision(2) << x;
+```
+
+Sama precyzja 2 nie oznacza dwóch miejsc po kropce. Dla kwoty pokazanej z dwoma miejscami potrzebujesz fixed.
+
+**Poprawiony fragment:**
+
+```cpp
+std::cout << std::fixed << std::setprecision(2) << x;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Jak wypisać 2 jako 2.00?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+`std::cout << std::fixed << std::setprecision(2) << 2.0;`. Manipulator dotyczy liczb zmiennoprzecinkowych.
+
+</details>
+
+### 2. Czy x stało się 123.46 po wypisaniu z dwoma miejscami?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Tylko tekst został zaokrąglony.
+
+</details>
+
+### 3. Dlaczego następny wynik też ma dwa miejsca?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Stan strumienia pozostaje aktywny. Zmień go przez defaultfloat i właściwą precyzję.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+fixed + setprecision oznacza miejsca po kropce. Formatowanie nie zwiększa dokładności obliczeń.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Wartość a sposób jej wyświetlania
 

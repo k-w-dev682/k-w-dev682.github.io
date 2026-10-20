@@ -54,4 +54,41 @@ W zapisie binarnym pominąłem zera wiodące, jeżeli nie wymaga się ustalonej 
 
 <BaseConverterLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia 1: dziesiętny → dwójkowy](/ask/grafiki/cw10-2.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Weź pierwszą liczbę z laboratorium: **123₁₀**. Dziel kolejno przez 2 i zapisuj reszty.
+2. `123:2=61 r1; 61:2=30 r1; 30:2=15 r0; 15:2=7 r1`.
+3. `7:2=3 r1; 3:2=1 r1; 1:2=0 r1`.
+4. Odczytaj reszty w odwrotnej kolejności: `1111011₂`. Sprawdź: `64+32+16+8+2+1 = 123`.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+Kolejne reszty opisują coraz wyższe bity, a pierwszy odczyt jest najmniej znaczącą cyfrą. Dlatego odwracamy ich kolejność.
+
+:::caution[Uważaj tutaj]
+Nie wpisuj reszt z góry w dół; w tym przypadku otrzymałbyś błędny ciąg.
+:::
+
+### Minisprawdzian po zadaniu
+
+Zapisz `9₁₀` w systemie dwójkowym.
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+`9:2=4 r1; 4:2=2 r0; 2:2=1 r0; 1:2=0 r1` → `1001₂`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

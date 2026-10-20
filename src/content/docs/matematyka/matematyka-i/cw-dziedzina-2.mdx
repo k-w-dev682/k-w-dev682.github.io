@@ -14,6 +14,29 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Dziedzina — zadania e–g, logarytmy i wykładniki
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/cw-dziedzina-2.svg" alt="Podstawa dodatnia i różna od 1, argument dodatni" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Podstawa dodatnia i różna od 1, argument dodatni. Pierwiastek z logarytmu dodaje następny warunek.</figcaption>
+</figure>
+
+
+## Spokojny sposób na trudniejsze logarytmy
+
+Nie rozwiązywaj od razu całego wyrażenia. Nadaj nazwę temu, co znajduje się wewnątrz logarytmu, np. `A=(3x−1)/(2x+1)`. Wtedy `√(log₀,₁ A)` ma sens, jeśli `log₀,₁ A≥0`. Przy podstawie między 0 i 1 oznacza to `0<A≤1`.
+
+### Rozwiązanie drugiej nierówności
+
+Aby porównać `A≤1`, odejmij 1 po obu stronach:
+
+<Eq display tex={String.raw`\frac{3x-1}{2x+1}-1=\frac{3x-1-(2x+1)}{2x+1}=\frac{x-2}{2x+1}\le0`}/>
+
+Rozpisaliśmy licznik: `3x−1−2x−1=x−2`. Ułamek jest nie-dodatni dla `−1/2<x≤2`. Dodatniość samego `A` wymaga `x<−1/2` **albo** `x>1/3`. Wspólną częścią obu warunków jest `(1/3,2]`.
+
+**Sprawdzanie końców:** w `x=2` logarytm ma argument 1, więc wartość pod pierwiastkiem wynosi 0 — wolno. W `x=1/3` argument logarytmu wynosi 0 — nie wolno.
+
+
 ## e) <Eq tex={String.raw`f(x)=\frac{2}{2^x-4}`}/>
 
 Mianownik ≠0, zatem `2ˣ≠4=2²`. Wniosek: x≠2. **Dziedzina:** wszystkie rzeczywiste poza 2.
@@ -43,4 +66,39 @@ Na zdjęciu 22–26 widać przykład z podstawą <Eq tex={String.raw`x^2-3`}/> i
 Dla podstawy: x²−3>0, więc |x|>√3; dodatkowo x²−3≠1, więc x≠±2.
 
 **Dziedzina:** (−∞,−2) ∪ (−2,−√3) ∪ (√3,2) ∪ (2,∞). Jeśli inne znaki w Twoim oryginalnym przykładzie były zamierzone, zerknij na [listę niejasności](../niejasnosci/).
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Logarytmy: najpierw warunki, potem rachunki
+
+W logarytmie `log_a(b)` wymagamy `a>0`, `a≠1` oraz `b>0`. Jeżeli logarytm stoi **pod pierwiastkiem**, dodatkowo wymagamy, żeby **wartość logarytmu** była nieujemna.
+
+### Przykład: `√(log₂(x−1))`
+
+1. W środku jest `log₂(x−1)`. Jego argument musi być dodatni: `x−1>0`, czyli `x>1`.
+2. Zewnętrzny pierwiastek wymaga `log₂(x−1)≥0`.
+3. Ponieważ podstawa `2>1`, logarytm jest rosnący: `log₂(t)≥0` dla `t≥1`.
+4. Tutaj `t=x−1`, więc `x−1≥1`, czyli `x≥2`.
+5. Łącząc `x>1` i `x≥2`, otrzymujemy **`[2,∞)`**.
+
+### Co jeśli podstawa jest między 0 a 1?
+
+Dla `log₀.₅(t)` funkcja maleje, więc `log₀.₅(t)≥0` oznacza `0<t≤1`. **Kierunek nierówności zależy od podstawy**.
+
+:::caution[Uwaga]
+Nie wolno zamienić `log₀.₅(t)≥0` bezpośrednio na `t≥1`. To poprawne dla podstaw większych od 1, ale nie dla podstaw z przedziału `(0,1)`.
+:::
+
+<details className="m1-selfcheck">
+<summary>Mini-zadanie: dziedzina `√(log₃(x+2))`</summary>
+
+Logarytm wymaga `x+2>0`. Pierwiastek wymaga `log₃(x+2)≥0`, a ponieważ 3>1, mamy `x+2≥1`, czyli `x≥−1`. Dziedzina: `[−1,∞)`.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

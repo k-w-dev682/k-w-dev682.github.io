@@ -1,9 +1,11 @@
 ---
-title: "Laboratorium C++ — 11 symulatorów"
+title: "Laboratorium C++ — 15 symulatorów"
 description: "Interaktywne demonstracje: wykonuj kroki, zmieniaj wartości i analizuj algorytmy"
 sidebar:
   order: 99
 ---
+
+import CppStepLab from '../../../components/cpp13/CppStepLab.jsx';
 
 import { BuildLab, WhileLab, ForLab, DebugLab, FloatLab, AsciiLab, StringLab } from '../../../components/CppLabs.jsx';
 import { BinaryLab, PowerLab, CaesarLab, SearchLab } from '../../../components/ExtraLabs.jsx';
@@ -57,3 +59,19 @@ Wszystkie symulacje działają **bezpośrednio na tej stronie**. Pozwalają eksp
 ## 11. Wyszukiwanie fragmentu
 
 <SearchLab client:load />
+
+## 12. Suma i licznik pętli
+
+<CppStepLab client:visible mode="loop" />
+
+## 13. Wywołanie i powrót funkcji
+
+<CppStepLab client:visible mode="function" />
+
+## 14. Kopia i referencja
+
+<CppStepLab client:visible mode="reference" />
+
+## 15. Adres i zmiana wskazania
+
+<CppStepLab client:visible mode="pointer" />

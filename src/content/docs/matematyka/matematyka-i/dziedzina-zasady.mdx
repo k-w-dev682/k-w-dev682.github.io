@@ -15,6 +15,47 @@ import { DomainLab } from '../../../../components/MathILabs.jsx';
 
 # Wyznaczanie dziedziny: trzy podstawowe reguły
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/dziedzina-zasady.svg" alt="Wypisz ograniczenia i weź ich część wspólną" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Wypisz ograniczenia i weź ich część wspólną. Mianownik ≠0, pierwiastek ≥0, logarytm &gt;0.</figcaption>
+</figure>
+
+
+## Dziedzina — w najprostszych słowach
+
+Wyobraź sobie kalkulator. Niektóre działania potrafi wykonać dla dowolnego wejścia, a inne nie. Dziedzina mówi, **jakie liczby możemy bezpiecznie wpisać w miejsce `x`**, aby wynik istniał w rozważanym zbiorze liczb rzeczywistych.
+
+Przykład: `f(x)=x+2` zadziała dla `x=−5`, `x=0` i `x=100`. Ale w `g(x)=1/(x−2)` podstawienie `x=2` kazałoby dzielić przez zero. Tego nie wolno zrobić.
+
+### Algorytm, który możesz zastosować do każdego zadania
+
+1. Znajdź każdy ułamek. Zapisz, że **mianownik nie może być równy zero**.
+2. Znajdź każdy pierwiastek parzystego stopnia, np. `√(...)`. Zapisz, że liczba pod pierwiastkiem musi być **większa lub równa zero**.
+3. Jeśli taki pierwiastek jest w mianowniku, jego wartość musi być **większa od zera**, bo nie wolno dzielić przez zero.
+4. Znajdź logarytmy. Ich argument musi być **większy od zera**; jeśli podstawa zależy od `x`, musi być dodatnia i różna od 1.
+5. Jeśli warunków jest kilka, rozwiązanie musi spełniać **wszystkie jednocześnie**.
+
+### Zadanie od początku: dwa ograniczenia naraz
+
+Wyznacz dziedzinę `f(x)=√(x−1)/(x−3)`.
+
+**Dane:** wzór funkcji. **Szukamy:** dopuszczalnych wartości `x`.
+
+- Pierwiastek: `x−1≥0`. Dodajemy 1 po obu stronach: `x≥1`.
+- Mianownik: `x−3≠0`. Dodajemy 3 po obu stronach: `x≠3`.
+- Łączymy: bierzemy wszystkie liczby od 1 wzwyż, **z wyjątkiem 3**.
+
+<Eq display tex={String.raw`D=[1,3)\cup(3,\infty)`}/>
+
+**Jak sprawdzić?** Dla `x=1` wychodzi `0/(−2)=0`, więc 1 należy do dziedziny. Dla `x=3` nastąpiłoby dzielenie przez zero, więc 3 nie należy.
+
+### Typowa pomyłka
+
+Nie wolno zamienić warunku `√(x−1)≥0` na `x−1>0` bez przyczyny: **pierwiastek z zera istnieje**. Wyjątek: gdy ten pierwiastek pojawia się w mianowniku.
+
+
 Dziedzina to wszystkie wartości x, dla których **całe wyrażenie ma sens**.
 
 ## Reguła 1. Mianownik ≠ 0
@@ -36,4 +77,44 @@ Wyznacz osobne warunki i weź ich **część wspólną**.
 <div className="mathi-panel"><strong>Zapamiętaj:</strong><p>Nie rozwiązujemy pojedynczej nierówności „na oko”. Zapisujemy wszystkie warunki dziedziny, dopiero potem szukamy ich wspólnego rozwiązania.</p></div>
 
 <DomainLab client:load />
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Algorytm dziedziny — zastosuj go zawsze w tej samej kolejności
+
+Nie próbuj od razu zgadywać końcowego przedziału. Przejrzyj wzór i wypisz osobno wszystkie ograniczenia:
+
+1. **Ułamek:** mianownik `≠0`.
+2. **Pierwiastek parzystego stopnia:** wyrażenie pod nim `≥0`.
+3. **Logarytm:** argument `>0`. Jeśli jego podstawa zależy od `x`, musi być też dodatnia i różna od 1.
+4. **Pierwiastek w mianowniku:** podpierwiastkowe musi być **ściśle dodatnie**, a nie tylko nieujemne.
+5. Po rozwiązaniu warunków weź ich **część wspólną**.
+
+### Rozwiązanie: `g(x)=√(x+2)/(x−1)`
+
+- Pierwiastek wymaga `x+2≥0`, czyli `x≥−2`.
+- Mianownik wymaga `x−1≠0`, czyli `x≠1`.
+- Łączymy: wolno brać liczby od −2 wzwyż, **oprócz 1**.
+- Dziedzina: `[−2,1) ∪ (1,∞)`.
+
+### Dlaczego nie wystarczy „skrócić ułamek”?
+
+Dla `(x²−1)/(x−1)` warunek `x≠1` wynika z oryginalnego wzoru. Po skróceniu do `x+1` nadal nie wolno użyć `x=1`, ponieważ w **wyjściowym ułamku** było `0/0`.
+
+:::tip[Mini-ściąga]
+Mianownik: **≠0**. Pierwiastek: **≥0**. Logarytm: **>0**. Pierwiastek w mianowniku: **>0**.
+:::
+
+<details className="m1-selfcheck">
+<summary>Zadanie: dziedzina `h(x)=1/√(5−x)`</summary>
+
+Wartość pod pierwiastkiem jest jednocześnie częścią mianownika, więc musi być `5−x>0`. Stąd `x<5`, czyli dziedzina `(−∞,5)`. Liczby 5 nie wolno włączyć.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

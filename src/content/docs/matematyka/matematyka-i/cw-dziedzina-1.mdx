@@ -14,6 +14,31 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Dziedzina — zadania a–d z zeszytu
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/cw-dziedzina-1.svg" alt="Punkt zerowy mianownika trzeba usunąć" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Punkt zerowy mianownika trzeba usunąć. Skrócenie ułamka nie przywraca x=1.</figcaption>
+</figure>
+
+
+## Jak nie zgubić żadnego zakazanego argumentu?
+
+Przed liczeniem zadań a–d sprawdź na prostym przykładzie `1/(x−4)`. Mianownik zeruje się dla `x=4` — tylko tę liczbę wykluczamy. Przy `√(x−4)` wolno wstawić `x=4`, bo `√0=0`; przy `1/√(x−4)` **nie wolno**, bo wynik trafiłby do mianownika.
+
+### Dlaczego skrócenie ułamka nie przywraca usuniętej liczby?
+
+W ćwiczeniu b można rozłożyć licznik:
+
+<Eq display tex={String.raw`x^3-1=(x-1)(x^2+x+1)`}/>
+
+Dla `x≠1` można skrócić wspólny czynnik `x−1` i otrzymać `x²+x+1`. Jednak **w oryginalnym ułamku** `x=1` nadal prowadzi do `0/0`, które nie jest liczbą. Skracanie jest dozwolone wyłącznie tam, gdzie skracany czynnik nie jest zerem.
+
+### Jak sprawdzić nierówność `x²−1>0`?
+
+Mamy `(x−1)(x+1)>0`. Iloczyn jest dodatni, gdy oba czynniki są dodatnie (`x>1`) **albo** oba ujemne (`x<−1`). Dla przykładu przy `x=0` wynik `−1` jest niedozwolony, a przy `x=2` wynik `3` jest dozwolony.
+
+
 ## a) <Eq tex={String.raw`f(x)=\frac{1}{1+\cos x}`}/>
 
 Mianownik nie może być zerem:
@@ -37,4 +62,41 @@ Pierwiastek jest w mianowniku. Potrzebujemy **x²−1>0**, a nie jedynie ≥0:
 <Eq display tex={String.raw`(x-1)(x+1)>0\iff x<-1\ \lor\ x>1`}/>
 
 **Dziedzina:** (−∞,−1) ∪ (1,∞).
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Trening krok po kroku: kiedy znak nierówności jest ostry?
+
+Porównaj trzy podobne funkcje:
+
+- `√(x−3)` wymaga `x−3≥0`, czyli `x≥3`.
+- `1/(x−3)` wymaga `x−3≠0`, czyli `x≠3`.
+- `1/√(x−3)` wymaga `x−3>0`, czyli `x>3`.
+
+Te wyniki nie są przypadkowe: pierwiastek z zera istnieje, ale **dzielenie przez zero** nie.
+
+### Zadanie kontrolne: `k(x)=1/√(9−x²)`
+
+1. Zapisz jednocześnie warunek pod pierwiastkiem i mianownika: `9−x²>0`.
+2. Przenieś składniki: `x²<9`.
+3. Liczby o kwadracie mniejszym od 9 leżą między −3 a 3: `−3<x<3`.
+4. Dziedzina: `(−3,3)`. Końce odpadają, bo mianownik byłby zerem.
+5. Sprawdź `x=0`: `1/√9=1/3` istnieje. Sprawdź `x=3`: `1/0` nie istnieje.
+
+:::tip[Zapamiętaj]
+Po uproszczeniu funkcji **nie przywracaj** automatycznie punktów wykluczonych przez oryginalny mianownik.
+:::
+
+<details className="m1-selfcheck">
+<summary>Ćwiczenie: dziedzina `f(x)=1/(x²−4)`</summary>
+
+Mianownik `x²−4=(x−2)(x+2)`. Nie może być zerem dla `x=−2` i `x=2`. Dziedzina: `ℝ∖{−2,2}`.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

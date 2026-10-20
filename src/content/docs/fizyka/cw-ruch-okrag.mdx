@@ -15,6 +15,14 @@ import { CircleLab } from '../../../components/PhysicsLabs.jsx';
 
 # Ćwiczenia: ruch po okręgu
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/cw-ruch-okrag.svg" alt="Na okręgu szukaj promienia i szybkości — potem v²/r" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Najpierw v²/r; potem, gdy pytają o siłę, mnożysz przez m.**</figcaption>
+</figure>
+
 ## Przykład dodatkowy
 
 Ciało m = 1,5 kg porusza się po okręgu o R = 2 m, utrzymując prędkość v = 4 m/s.
@@ -26,6 +34,51 @@ Ciało m = 1,5 kg porusza się po okręgu o R = 2 m, utrzymując prędkość v =
 Jeśli zwiększymy prędkość do 8 m/s bez zmiany promienia, siła potrzebna do utrzymania ruchu wyniesie 48 N — cztery razy więcej.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Na okręgu szukaj promienia i szybkości — potem v²/r
+
+W zadaniach z ruchem po okręgu uporządkuj trzy rzeczy: promień `r`, szybkość `v` i wypadkową sił skierowaną do środka.
+
+### Co oznaczają symbole i jednostki?
+
+`m` — masa [kg]; `v` — szybkość [m/s]; `r` — promień [m]; `a_d` — przyspieszenie ku środkowi [m/s²]; `F_d` — wypadkowa sił do środka [N].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Karuzela ma promień `r=3 m`, a punkt na brzegu porusza się z szybkością `v=6 m/s`.
+2. Przyspieszenie dośrodkowe: `a_d=v²/r=36/3=12 m/s²`.
+3. Jeśli masa punktu `m=4 kg`, wypadkowa radialna wynosi `F_d=ma_d=4·12=48 N`.
+4. Jeśli szybkość zmaleje o połowę do 3 m/s, przyspieszenie wyniesie `9/3=3 m/s²` — aż cztery razy mniej.
+
+### Dlaczego to działa?
+
+Przyspieszenie zależy od kwadratu szybkości. To dlatego zwiększenie szybkości na zakręcie silnie podnosi wymagane siły.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Najpierw v²/r; potem, gdy pytają o siłę, mnożysz przez m.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie wpisuj masy do wzoru na samo przyspieszenie: `a_d=v²/r` nie zawiera `m`.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Ruch po okręgu r=2 m, v=2 m/s. Jakie jest a_d?</summary>
+
+**Kolejne kroki i odpowiedź:** `a_d=2²/2=2 m/s²`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <CircleLab client:load />
 

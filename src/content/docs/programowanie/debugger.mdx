@@ -5,12 +5,101 @@ sidebar:
   order: 12
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { DebugLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="debugger" title="Debugger: praca krok po kroku" section="02 · Algorytmy i diagnostyka" />
 
 # Debugger: praca krok po kroku
+
+## Zrozum od podstaw
+
+Debugger jest jak przycisk pauzy w filmie o działaniu programu. **Breakpoint** zatrzymuje wykonywanie w wybranym miejscu, zwykle przed instrukcją wskazaną jako następna. **Watch** to lista obserwowanych wartości. Odczytuj ją razem z pozycją zatrzymania: ta sama linia przed wykonaniem i po wykonaniu oznacza inne stany.
+
+Buduj konfigurację Debug z informacjami do debugowania. Przy optymalizacji kompilator może przestawiać lub usuwać operacje, więc śledzenie źródła bywa mniej intuicyjne. Nie oznacza to, że język wykonuje instrukcje losowo.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int suma = 0;
+    for (int i = 1; i <= 3; ++i) {
+        suma += i;
+    }
+    std::cout << suma << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Postaw breakpoint na suma += i, nie na deklaracji sumy.
+2. Przy pierwszym zatrzymaniu i wynosi 1, ale suma nadal 0.
+3. Step Over wykonuje bieżącą linię; dopiero wtedy suma zmienia się na 1.
+4. Continue wznawia program do następnego zatrzymania; kolejne zatrzymanie jest już dla i = 2.
+
+<CppTrace title="Śledzenie: debugger" steps={[["Przed pierwszym +=", "i = 1, suma = 0"], ["Po pierwszym +=", "i = 1, suma = 1"], ["Przed drugim +=", "i = 2, suma = 1"], ["Po całej pętli", "suma = 6"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+int suma = 1;
+```
+
+Pętla może być poprawna, a błąd pochodzić z inicjalizacji. Start od 1 zwiększy każdą końcową sumę o 1.
+
+**Poprawiony fragment:**
+
+```cpp
+int suma = 0;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Ile zobaczysz przed trzecim dodaniem?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+suma = 3, i = 3: wykonano już 1 + 2, ale nie dodano jeszcze 3.
+
+</details>
+
+### 2. Czym różni się Step Into od Step Over?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Into próbuje wejść do wywoływanej funkcji, Over wykonuje jej wywołanie bez pokazywania wnętrza.
+
+</details>
+
+### 3. Jak wykryć błąd inicjalizacji?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zatrzymaj się przed pierwszą iteracją i porównaj wartość początkową z oczekiwaną. Nie czekaj do błędnego wyniku.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Zawsze mów, czy opisujesz stan przed instrukcją, czy po niej. Debugger pokazuje konkretny przebieg dla konkretnych danych.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Gdy kompilacja przechodzi, ale wynik jest błędny
 

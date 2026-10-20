@@ -13,6 +13,30 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Trójkąt Pascala i tożsamość Pascala
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/pascal.svg" alt="Każda liczba w trójkącie Pascala ma dwóch rodziców" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Możesz policzyć grupy k-elementowe według tego, czy zawierają jedną ustaloną osobę. Dwie możliwości dają składniki `C(n−1,k−1)` i `C(n−1,k)`.</figcaption>
+</figure>
+
+## Jak zbudować trójkąt Pascala samodzielnie?
+
+Zaczynamy od jedynki. Każdy kolejny wiersz też zaczyna się i kończy jedynką. Wewnątrz wpisujemy **sumę dwóch liczb znajdujących się bezpośrednio nad daną pozycją**:
+
+```text
+          1
+         1 1
+        1 2 1
+       1 3 3 1
+      1 4 6 4 1
+```
+
+Skąd wzięła się liczba 6? Z dwóch liczb 3 i 3 nad nią: `3+3=6`. Wiersz `1 4 6 4 1` daje współczynniki rozwinięcia `(a+b)⁴`. Trójkąt pozwala sprawdzić symbol Newtona bez liczenia silni za każdym razem.
+
+
 W trójkącie Pascala **na brzegach są jedynki**, a każda liczba wewnątrz jest sumą dwóch liczb bezpośrednio nad nią.
 
 ## Reguła Pascala
@@ -32,6 +56,48 @@ Drugi wariant wymaga 1 ≤ k ≤ n. Pierwszy używamy dla 0 ≤ k &lt; n.
 ## Skąd wzięło się to dodawanie?
 
 Przy wyborze grupy z n+1 osób wskaż jedną wyróżnioną osobę. Szukana grupa **zawiera ją** albo **jej nie zawiera**. Oba przypadki nie zachodzą jednocześnie i razem wyczerpują możliwości. To kombinatoryczne uzasadnienie reguły Pascala.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Każda liczba w trójkącie Pascala ma dwóch rodziców
+
+Trójkąt Pascala to zapis liczby możliwości. Brzegi każdego wiersza są jedynkami, a liczba wewnętrzna powstaje jako **suma dwóch liczb stojących ukośnie nad nią**.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Pierwsze wiersze od `n=0`: `1`; potem `1,1`; potem `1,2,1`.
+2. Aby zbudować wiersz `n=3`, dodaj pary sąsiadów z poprzedniego: `1+2=3`, `2+1=3`. Otrzymasz `1,3,3,1`.
+3. Następny wiersz to `1,4,6,4,1`, ponieważ `1+3=4`, `3+3=6`, `3+1=4`.
+4. Każda liczba w wierszu `n` jest `C(n,k)`. Dla `n=4`, `k=2` to środkowe 6.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Możesz policzyć grupy k-elementowe według tego, czy zawierają jedną ustaloną osobę. Dwie możliwości dają składniki `C(n−1,k−1)` i `C(n−1,k)`.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Brzegi = 1, wnętrze = suma dwóch rodziców.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Jeśli liczysz wiersze od zera, `1,4,6,4,1` to wiersz **n=4**, nie n=5. Numer wiersza to wykładnik we wzorze Newtona.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Jaki jest wiersz trójkąta Pascala dla `n=5`?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** Z `1,4,6,4,1` dostajesz `1,5,10,10,5,1`.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <PascalLab client:load />
 

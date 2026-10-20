@@ -5,12 +5,104 @@ sidebar:
   order: 8
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { WhileLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="petla-while" title="Pętla `while` — powtarzaj, aż warunek przestanie być prawdziwy" section="02 · Algorytmy i diagnostyka" />
 
 # Pętla `while` — powtarzaj, aż warunek przestanie być prawdziwy
+
+## Zrozum od podstaw
+
+Pętla `while` działa jak pytanie „czy jeszcze mam coś do zrobienia?”. Najpierw sprawdza warunek; dopiero odpowiedź TAK pozwala wejść do środka. Po ciele wraca do tego samego pytania. **Iteracja** to jeden przebieg ciała, nie samo sprawdzenie warunku.
+
+Przed uruchomieniem wskaż trzy rzeczy: stan początkowy, warunek kontynuowania i instrukcję, która przybliża do końca. Pętla może wykonać zero iteracji, jeśli warunek jest fałszywy już na starcie.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int i = 3;
+    int suma = 0;
+    while (i > 0) {
+        suma += i;
+        --i;
+    }
+    std::cout << suma << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. i zaczyna od 3, a akumulator suma od neutralnego dla dodawania zera.
+2. while sprawdza i > 0 przed każdym wejściem.
+3. += dodaje bieżące i do dotychczasowej sumy.
+4. --i zmniejsza licznik o 1. Przy i = 0 warunek przestaje być prawdziwy.
+5. Wypisanie jest poza klamrami pętli, więc występuje raz.
+
+<CppTrace title="Śledzenie: petla while" steps={[["Przed pętlą", "i = 3, suma = 0"], ["Po obiegu 1", "i = 2, suma = 3"], ["Po obiegu 2", "i = 1, suma = 5"], ["Po obiegu 3", "i = 0, suma = 6; następny test: NIE"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+while (i > 0) { suma += i; }
+```
+
+Bez zmiany i warunek pozostaje prawdziwy; suma nie jest licznikiem sterującym tą pętlą. Długie dodawanie może też przekroczyć zakres int.
+
+**Poprawiony fragment:**
+
+```cpp
+while (i > 0) { suma += i; --i; }
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Ile razy sprawdzamy warunek dla i = 3?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Cztery: trzy odpowiedzi TAK i końcowa NIE.
+
+</details>
+
+### 2. Co dla początkowego i = 0?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zero obiegów, suma pozostaje 0. Warunek jest sprawdzany przed ciałem.
+
+</details>
+
+### 3. Policz 2 + 4 + 6 tą samą pętlą.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zamień suma += i na suma += 2 * i. Dla i kolejno 3, 2, 1 dodasz 6, 4, 2; otrzymasz 12.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Warunek mówi „kontynuuj, dopóki prawda”, a nie „zakończ, gdy prawda”. Zmiana stanu musi umożliwić zakończenie.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Jak działa `while`?
 

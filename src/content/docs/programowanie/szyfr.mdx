@@ -5,12 +5,105 @@ sidebar:
   order: 36
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { CaesarLab } from '../../../components/ExtraLabs.jsx';
 
 <PdfTopicButton client:load slug="szyfr" title="Szyfr Cezara i metoda płotu" section="04 · Tekst i znaki" />
 
 # Szyfr Cezara i metoda płotu
+
+## Zrozum od podstaw
+
+Cezar zmienia znaki, a płot zmienia ich kolejność. W Cezarze traktujemy alfabet jak tarczę: po z wracamy do a. Pozycje małych liter ASCII numerujemy od 0 do 25. Reszta modulo 26 pozwala zawinąć wynik.
+
+Przesunięcie może być ujemne. W C++ reszta dla liczby ujemnej może być ujemna, dlatego normalizujemy przesunięcie dwoma operacjami modulo. Te algorytmy są ćwiczeniem z tekstu i indeksowania, nie ochroną prawdziwych sekretów.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    char c = 'z';
+    int przesuniecie = 3;
+    int p = ((przesuniecie % 26) + 26) % 26;
+    if (c >= 'a' && c <= 'z') {
+        int pozycja = c - 'a';
+        char wynik = static_cast<char>('a' + (pozycja + p) % 26);
+        std::cout << wynik;
+    }
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. c to znak z, a przesunięcie to liczba kroków na tarczy.
+2. Normalizacja daje p od 0 do 25. Dla 3 pozostaje 3.
+3. Znak z ma pozycję 25 w tym alfabecie ASCII.
+4. 25 + 3 daje 28, a 28 % 26 daje 2. Pozycja 2 oznacza c.
+5. static_cast&lt;char> zamienia obliczony kod z powrotem na typ znakowy.
+
+<CppTrace title="Śledzenie: szyfr" steps={[["Litera z", "pozycja 25"], ["Przesunięcie +3", "25 + 3 = 28"], ["Zawinięcie", "28 % 26 = 2"], ["Nowa litera", "a + 2 → c"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+char wynik = static_cast<char>(c + przesuniecie);
+```
+
+Samo dodawanie kodów wychodzi poza zakres alfabetu. Po normalizacji p i sprawdzeniu małej litery modulo utrzymuje pozycję od 0 do 25.
+
+**Poprawiony fragment:**
+
+```cpp
+char wynik = static_cast<char>('a' + (c - 'a' + p) % 26);
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co daje a z przesunięciem −1?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+z, ponieważ znormalizowane przesunięcie to 25, a (0 + 25) % 26 = 25.
+
+</details>
+
+### 2. Zakoduj PROGRAM płotem o dwóch rzędach.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Indeksy 0,2,4,6 dają PORM; indeksy 1,3,5 dają RGA. Razem PORMRGA.
+
+</details>
+
+### 3. Jak odwrócić Cezara o 3?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zastosuj przesunięcie −3 z tą samą normalizacją. Dla ograniczenia do małych liter ASCII otrzymasz pierwotny tekst.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Cezar przesuwa pozycję w alfabecie, płot przestawia pozycje w napisie. Zawsze ustal obsługiwany alfabet.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Szyfr Cezara — zasada
 

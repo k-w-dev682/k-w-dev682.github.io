@@ -15,6 +15,19 @@ import { BaseConverterLab } from '../../../components/AskLabs.jsx';
 
 # Zamiana 10 → 2: dzielenie z resztą
 
+## Dlaczego system dwójkowy ma tylko 0 i 1?
+
+W systemie dziesiętnym mamy cyfry 0–9, a kolejne pozycje odpowiadają potęgom 10. W dwójkowym mamy tylko 0 i 1, a pozycje odpowiadają potęgom **2**: od prawej `1,2,4,8,16,32,...`.
+
+### Zamiana liczby 13 krok po kroku
+
+Dziel przez 2 i zapisuj resztę: `13:2=6 r.1`, `6:2=3 r.0`, `3:2=1 r.1`, `1:2=0 r.1`. Reszty czytane **od dołu** to `1101₂`.
+
+Sprawdzenie: `1·8 + 1·4 + 0·2 + 1·1=8+4+0+1=13`. Indeks dolny `₂` znaczy „zapis w systemie dwójkowym”, a `₁₀` — „dziesiętnym”.
+
+**Częsty błąd:** odczytywanie reszt w kolejności ich otrzymywania daje `1011₂`, czyli 11, a nie 13. Odczytuj je zawsze **wstecz**.
+
+
 Dziel liczbę całkowitą przez 2. Za każdym razem zapisz **resztę** (0 lub 1). Zakończ, gdy iloraz będzie równy 0. **Reszty odczytaj od końca**.
 
 ### Oryginalny przykład: 55₁₀
@@ -37,5 +50,49 @@ Każde dzielenie przez 2 oddziela najmłodszy bit (resztę). Kolejne dzielenie o
 ## Sprawdź samodzielnie — interaktywne laboratorium
 
 <BaseConverterLab client:load />
+
+## Zobacz mechanizm na schemacie
+
+![Schemat: Zamiana 10 → 2: dzielenie z resztą](/ask/grafiki/dziesietny-dwojkowy.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Zamiana `10 → 2` polega na wielokrotnym **dzieleniu całkowitym przez 2**. Reszta zawsze jest `0` albo `1`, czyli dokładnie taką cyfrą, jakiej potrzebujesz w zapisie binarnym.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Chcemy zapisać `26₁₀`. Oblicz `26 ÷ 2 = 13`, reszta `0`.
+2. `13 ÷ 2 = 6`, reszta `1`; `6 ÷ 2 = 3`, reszta `0`.
+3. `3 ÷ 2 = 1`, reszta `1`; `1 ÷ 2 = 0`, reszta `1`.
+4. Reszty uzyskaliśmy kolejno jako `0, 1, 0, 1, 1`. **Czytaj od końca**: `11010₂`.
+5. Sprawdzenie: `16 + 8 + 2 = 26`.
+
+### Dlaczego to działa?
+
+Pierwsza reszta wyznacza ostatnią (najmniej znaczącą) cyfrę, bo mówi, czy liczba jest parzysta. Następne dzielenie odsłania kolejną cyfrę, dlatego końcowy zapis powstaje w odwróconej kolejności.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Najczęstszy błąd to czytanie reszt w kolejności ich otrzymywania: `01011` zamiast `11010`.
+:::
+
+### Powtórka bez podglądania
+
+Zapisz `13₁₀` binarnie.
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+`13 ÷ 2: 6 r1; 6 ÷ 2: 3 r0; 3 ÷ 2: 1 r1; 1 ÷ 2: 0 r1`. Czytane od dołu: `1101₂`.
+
+</details>
+
 
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

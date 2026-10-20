@@ -12,6 +12,63 @@ import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
 
 <ElectronicsPdfButton client:load slug="cw-pole-gauss" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+W tych zadaniach spotykają się trzy podobne symbole: natężenie pola `E`, strumień `Φ_E` i ładunek `Q`. To trzy różne wielkości, więc nie mogą bezmyślnie zastępować się we wzorach.
+
+Przed rachunkami narysuj: gdzie jest źródło pola, jak ustawiona jest powierzchnia i czy interesuje Cię pole w punkcie czy strumień przez powierzchnię.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: cw pole gauss](/elektronika/grafiki/cw-pole-gauss.svg)
+
+**Wskazówka do grafiki:** Płaska powierzchnia → `ES cos α`; zamknięta → pomyśl o `Q_wew/ε₀`.
+
+### Każda litera i symbol — co oznacza?
+
+- `E = F/q₀` — pole w punkcie z siły na dodatni próbnik.
+- `Φ_E = E S cos α` — strumień przez płaską powierzchnię w jednorodnym polu.
+- `Φ_E = Q_wew/ε₀` — strumień netto przez **zamkniętą** powierzchnię.
+- `α` — kąt do normalnej, a nie do samej powierzchni.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Pole jednorodne ma `E = 200 N/C`, powierzchnia `S = 0,10 m²`, normalna jest równoległa do pola.
+2. Wtedy kąt `α = 0°`, więc `cos 0° = 1`.
+3. Korzystamy z `Φ_E = E S cos α`.
+4. Podstawiamy: `Φ_E = 200 · 0,10 · 1`.
+5. Otrzymujemy `Φ_E = 20 N·m²/C`.
+6. To strumień przez **płaską powierzchnię**, a nie obliczenie na podstawie prawa Gaussa dla zamkniętej bryły.
+
+:::caution[Na co uważać?]
+Bardzo ważne: prawo Gaussa dotyczy **zamkniętej** powierzchni. Płaski prostokąt z pierwszego przykładu nie jest powierzchnią zamkniętą.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+Płaska powierzchnia → `ES cos α`; zamknięta → pomyśl o `Q_wew/ε₀`.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Dla płaskiej powierzchni ustawionej równolegle do wektora pola, ile wynosi strumień?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`0`, bo jej normalna jest prostopadła do pola.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Zadanie A — natężenie pola (opracowane uzupełnienie)
 
 Siła **0,012 N** działa na dodatni ładunek próbny **3 µC**. Oblicz natężenie pola.

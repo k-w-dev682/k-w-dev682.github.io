@@ -1,0 +1,112 @@
+---
+title: "Wskaźniki, adresy i czas życia pamięci"
+description: "Krok po kroku: kod, pamięć, ćwiczenia i odpowiedzi."
+sidebar:
+  order: 44
+---
+
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+import CppStepLab from '../../../components/cpp13/CppStepLab.jsx';
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="wskazniki-pamiec" title="Wskaźniki, adresy i czas życia pamięci" section="06 · Dane, funkcje i pamięć" />
+
+# Wskaźniki, adresy i czas życia pamięci
+
+## Zrozum od podstaw
+
+Wskaźnik przechowuje adres obiektu. Adres jest jak numer szuflady: sam numer nie jest jej zawartością. Operator & w wyrażeniu &x pobiera adres x. Operator * w wyrażeniu *p pozwala dostać się do obiektu pod adresem p. Ten sam znak * w a * b oznacza mnożenie; kontekst ma znaczenie.
+
+int* p deklaruje wskaźnik do int. nullptr oznacza brak wskazywanego obiektu. Wskaźnik można przepiąć, a referencji nie. Nie trzeba używać new ani delete, aby zrozumieć wskaźniki: tutaj wskazujemy zwykłe lokalne zmienne.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 5, y = 9;
+    int* p = &x;
+    *p = 7;
+    p = &y;
+    *p += 1;
+    std::cout << x << ' ' << y;
+    p = nullptr;
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. x i y są dwoma żyjącymi obiektami.
+2. p przechowuje adres x, nie liczbę 5.
+3. *p = 7 zapisuje 7 do x.
+4. p = &y zmienia adres zapisany we wskaźniku; nie przepisuje wartości y do x.
+5. *p += 1 zmienia y na 10.
+6. nullptr czyści wskazanie; po tej instrukcji nie wolno odczytywać *p.
+
+<CppTrace title="Śledzenie: wskazniki pamiec" steps={[["p = &x", "p → x; x = 5, y = 9"], ["*p = 7", "p → x; x = 7, y = 9"], ["p = &y", "p → y; x = 7, y = 9"], ["*p += 1", "p → y; x = 7, y = 10"]]} />
+
+![Schemat: wskaznik](/cpp13/wskaznik.svg)
+
+<CppStepLab client:visible mode="pointer" />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+int* p = nullptr;
+std::cout << *p;
+```
+
+nullptr nie wskazuje obiektu. Sprawdzenie chroni przed pustym wskaźnikiem, ale nie dowodzi, że każdy niepusty adres jest nadal ważny.
+
+**Poprawiony fragment:**
+
+```cpp
+int* p = nullptr;
+if (p != nullptr) std::cout << *p;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co różni p = &y od *p = y?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Pierwsze zmienia adres, drugie kopiuje wartość y do aktualnie wskazywanego obiektu.
+
+</details>
+
+### 2. Czy wskaźnik do lokalnej zmiennej jest ważny po końcu jej bloku?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Obiekt już nie żyje; wskaźnik jest wiszący, nawet jeśli nie został ustawiony na nullptr.
+
+</details>
+
+### 3. Czy adresy pokazane w diagramie są prawdziwymi adresami komputera?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Symbole x i y ilustrują relację wskazywania. Rzeczywiste adresy mogą zmieniać się między uruchomieniami.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Adres, wartość pod adresem i czas życia obiektu to trzy różne sprawy. Nie dereferencjuj pustych ani wiszących wskaźników.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+[Wróć do spisu treści](../spis-tresci/) · [Laboratorium](../laboratorium/)

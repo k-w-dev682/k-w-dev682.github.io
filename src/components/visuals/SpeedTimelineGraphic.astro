@@ -1,0 +1,37 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Prędkość jako droga pokonywana w czasie" eyebrow="FIZYKA · KINEMATYKA" caption="Jeżeli w każdej sekundzie pokonujesz ten sam odcinek, prędkość jest stała. W przykładzie poniżej 5 metrów na każdą sekundę daje v = 5 m/s.">
+  <svg viewBox="0 0 860 280" class="sl-svg" role="img" aria-label="Oś czasu i przebyta droga w kolejnych sekundach">
+    <rect x="24" y="24" width="812" height="232" rx="22" class="sl-svg__panel" />
+    <line x1="110" y1="184" x2="760" y2="184" class="sl-svg__axis" />
+    <text x="768" y="190" class="sl-svg__axisLabel">droga [m]</text>
+    <g>
+      <circle cx="130" cy="184" r="8" class="sl-svg__dot sl-svg__dot--warn" /><text x="130" y="211" text-anchor="middle" class="sl-svg__label">0 m</text>
+      <circle cx="270" cy="184" r="8" class="sl-svg__dot sl-svg__dot--accent" /><text x="270" y="211" text-anchor="middle" class="sl-svg__label">5 m</text>
+      <circle cx="410" cy="184" r="8" class="sl-svg__dot sl-svg__dot--accent" /><text x="410" y="211" text-anchor="middle" class="sl-svg__label">10 m</text>
+      <circle cx="550" cy="184" r="8" class="sl-svg__dot sl-svg__dot--accent" /><text x="550" y="211" text-anchor="middle" class="sl-svg__label">15 m</text>
+      <circle cx="690" cy="184" r="8" class="sl-svg__dot sl-svg__dot--accent" /><text x="690" y="211" text-anchor="middle" class="sl-svg__label">20 m</text>
+    </g>
+    <g>
+      <line x1="130" y1="130" x2="270" y2="130" class="sl-svg__measure" />
+      <line x1="270" y1="130" x2="410" y2="130" class="sl-svg__measure" />
+      <line x1="410" y1="130" x2="550" y2="130" class="sl-svg__measure" />
+      <line x1="550" y1="130" x2="690" y2="130" class="sl-svg__measure" />
+      <text x="200" y="116" text-anchor="middle" class="sl-svg__value">1 s</text>
+      <text x="340" y="116" text-anchor="middle" class="sl-svg__value">1 s</text>
+      <text x="480" y="116" text-anchor="middle" class="sl-svg__value">1 s</text>
+      <text x="620" y="116" text-anchor="middle" class="sl-svg__value">1 s</text>
+    </g>
+    <g>
+      <line x1="130" y1="84" x2="270" y2="84" class="sl-svg__measure sl-svg__measure--accent" />
+      <line x1="270" y1="84" x2="410" y2="84" class="sl-svg__measure sl-svg__measure--accent" />
+      <line x1="410" y1="84" x2="550" y2="84" class="sl-svg__measure sl-svg__measure--accent" />
+      <line x1="550" y1="84" x2="690" y2="84" class="sl-svg__measure sl-svg__measure--accent" />
+      <text x="200" y="70" text-anchor="middle" class="sl-svg__value">5 m</text>
+      <text x="340" y="70" text-anchor="middle" class="sl-svg__value">5 m</text>
+      <text x="480" y="70" text-anchor="middle" class="sl-svg__value">5 m</text>
+      <text x="620" y="70" text-anchor="middle" class="sl-svg__value">5 m</text>
+    </g>
+  </svg>
+</StudyFigure>

@@ -39,4 +39,47 @@ W prawdziwym komputerze sposób adresowania, rozmiary rejestrów i operacje zale
 
 <MemoryLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Rejestry, RAM i adresy pamięci](/ask/grafiki/rejestry-pamiec.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Rejestr to niewielkie miejsce do przechowywania danych wewnątrz CPU, natomiast RAM to znacznie większa pamięć robocza. Adres pamięci wskazuje **gdzie** znajduje się wartość, a sama wartość mówi **co** tam zapisano.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Załóż, że pod adresem `1000` zapisano wartość `42`. Adres i dane to dwie różne informacje.
+2. Instrukcja odczytu może pobrać `42` z pamięci do rejestru `R1`.
+3. CPU wykonuje działanie, np. `R1 = 42 + 1 = 43`.
+4. Zapis do pamięci może umieścić `43` ponownie pod wskazanym adresem. Samo dodanie w rejestrze **nie musi automatycznie zmieniać RAM**.
+
+### Dlaczego to działa?
+
+Adres działa jak numer szuflady; wartość to zawartość szuflady. Zmiana zawartości nie zmienia numeru szuflady.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie myl `1000` jako adresu z wartością `1000`. Instrukcja może używać tych samych cyfr w różnych rolach.
+:::
+
+### Powtórka bez podglądania
+
+Jeśli RAM[1000] = 42 i skopiujesz tę liczbę do rejestru, czy RAM się wyzeruje?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Nie, zwykły odczyt nie usuwa danych z RAM.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

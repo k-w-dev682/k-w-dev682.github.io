@@ -8,12 +8,38 @@ sidebar:
 import Eq from '../../../components/PhysicsEquation.astro';
 import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
 import { MotionLab } from '../../../components/PhysicsLabs.jsx';
+import MotionGraphGraphic from '../../../components/visuals/MotionGraphGraphic.astro';
 
 <div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 01 · Kinematyka · ZDJĘCIA 1</div>
 
 <PhysicsPdfButton client:load slug="ruch-jednostajny" title="Ruch jednostajny prostoliniowy" section="01 · Kinematyka" />
 
 # Ruch jednostajny prostoliniowy
+
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/ruch-jednostajny.svg" alt="Stała prędkość oznacza liniowy wzrost położenia" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Start + prędkość razy czas = położenie końcowe.**</figcaption>
+</figure>
+
+## Ruch jednostajny to tyle samo przemieszczenia w równych czasach
+
+Jeśli ktoś porusza się wzdłuż prostej ze stałą prędkością `3 m/s`, to po jednej sekundzie zmieni położenie o 3 m, po dwóch o 6 m, a po trzech o 9 m. Nie musi to oznaczać, że zaczyna od zera.
+
+<Eq tex={String.raw`x(t)=x_0+vt`} display />
+
+Wzór składa się z **położenia początkowego** `x₀` (metry) oraz **zmiany położenia** `v·t`. Symbol `v` to stała prędkość w `m/s`, a `t` to czas w sekundach. Mnożymy prędkość przez czas, bo `(m/s)·s=m` — sekundy się skracają.
+
+<MotionGraphGraphic />
+
+### Przykład
+
+Startujesz z pozycji `x₀=5 m`, idziesz w prawo z prędkością `v=2 m/s` przez `t=4 s`. Najpierw `vt=2·4=8 m`, potem `x=5+8=13 m`.
+
+Gdy idziesz **w lewo**, przy osi dodatniej w prawo prędkość jest ujemna. Dla `v=−2 m/s` po 4 s otrzymalibyśmy `x=5−8=−3 m`.
+
 
 Ruch jednostajny oznacza, że **prędkość nie zmienia się z czasem**. Przyspieszenie wynosi zero.
 
@@ -37,6 +63,51 @@ Ten wzór w takiej postaci używa **stałej** prędkości. Gdy prędkość się 
 :::
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Stała prędkość oznacza liniowy wzrost położenia
+
+Przy stałym `v` każdy jednakowo długi odcinek czasu daje takie samo przemieszczenie. W równaniu `x(t)=x₀+vt` nie gub położenia początkowego.
+
+### Co oznaczają symbole i jednostki?
+
+`x₀` — start [m]; `x(t)` — położenie w chwili t [m]; `v` — stała prędkość [m/s]; `t` — czas od startu [s].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Dane: `x₀=−3 m`, `v=2 m/s`, `t=5 s`.
+2. Oblicz przyrost położenia: `v·t=2 m/s·5 s=10 m`.
+3. Dodaj położenie początkowe: `x=−3+10=7 m`.
+4. Sprawdź znaczenie: położenie końcowe to `7 m`, ale przemieszczenie wynosi `10 m` (to nie to samo).
+
+### Dlaczego to działa?
+
+Wykres `x(t)` jest prostą: jej wysokość początkowa to `x₀`, a nachylenie to `v`. Ujemne `v` daje linię opadającą.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Start + prędkość razy czas = położenie końcowe.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie zakładaj, że `x₀=0`, jeśli w zadaniu podano inne położenie startowe.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Ciało startuje z x₀=5 m i porusza się 3 m/s w lewo przez 2 s. Gdzie jest?</summary>
+
+**Kolejne kroki i odpowiedź:** Przy osi dodatniej w prawo `v=−3 m/s`, więc `x=5+(−3)·2=−1 m`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <MotionLab client:load />
 

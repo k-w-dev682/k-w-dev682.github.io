@@ -5,11 +5,101 @@ sidebar:
   order: 24
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="overflow" title="Przekroczenie zakresu i wartości specjalne" section="03 · Liczby w pamięci" />
 
 # Przekroczenie zakresu i wartości specjalne
+
+## Zrozum od podstaw
+
+Każdy typ ma ograniczony zakres. Przepełnienie to wyjście ponad ten zakres, a nie zwykłe obcięcie kilku cyfr. Dla int ze znakiem przepełnienie jest niezdefiniowanym zachowaniem: nie zakładamy przewidywalnego zawijania. Dla unsigned arytmetyka zawija się modulo rozmiar zakresu. Zmiennoprzecinkowe IEEE 754 ma jeszcze inne reguły, m.in. nieskończoności.
+
+numeric_limits pozwala pytać o granice typu. max() to największa wartość, lowest() to najniższa. Dla float min() oznacza najmniejszą dodatnią wartość znormalizowaną, a nie najbardziej ujemną.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <limits>
+
+int main() {
+    int a = 1000000;
+    int b = 1000000;
+    long long bezpieczniej = 1LL * a * b;
+    std::cout << bezpieczniej << '\n';
+    std::cout << std::numeric_limits<int>::max() << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. a i b mieszczą się w typowym 32-bitowym int.
+2. 1LL jest literałem long long; pierwsze mnożenie zachodzi już w szerszym typie.
+3. Iloczyn 1000000000000 mieści się w long long. Sama nazwa bezpieczniej nie obiecuje braku przepełnienia dla wszystkich danych.
+4. limits udostępnia granicę konkretnej implementacji int.
+
+<CppTrace title="Śledzenie: overflow" steps={[["Argumenty", "1000000 i 1000000"], ["Mnożenie int", "10¹² nie mieści się w typowym int32"], ["Mnożenie long long", "10¹² mieści się"], ["Przypisanie", "wynik = 1000000000000"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+long long wynik = a * b;
+```
+
+W pierwszej wersji mnożenie następuje w int jeszcze przed przypisaniem. Szersza zmienna docelowa nie chroni wcześniejszego działania.
+
+**Poprawiony fragment:**
+
+```cpp
+long long wynik = 1LL * a * b;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy unsigned zawsze jest lepszym typem?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Zawijanie jest określone, ale często niezgodne z zamiarem, np. 0u − 1u daje dużą liczbę.
+
+</details>
+
+### 2. Czym sprawdzić NaN?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+std::isnan z cmath; porównanie x == NaN nie jest właściwym testem.
+
+</details>
+
+### 3. Co oznacza underflow?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Wynik jest bardzo mały i może utracić precyzję lub zaokrąglić się do zera; w IEEE istnieją też liczby podnormalne.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Poszerz typ przed działaniem. Dla większych danych nawet long long ma granice.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Dlaczego nawet `float` ma granice?
 

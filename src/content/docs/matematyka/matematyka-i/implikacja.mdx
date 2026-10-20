@@ -14,6 +14,30 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Implikacja, równoważność i kontrapozycja
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/implikacja.svg" alt="Z prawdziwej przesłanki nie może wypaść fałszywy wniosek" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Z prawdziwej przesłanki nie może wypaść fałszywy wniosek. Nie myl p⇒q z q⇒p.</figcaption>
+</figure>
+
+
+## Implikacja to matematyczna wersja obietnicy
+
+„Jeśli **p**, to **q**” zapisujemy `p⇒q`. Tu `p` to **warunek** (poprzednik), a `q` to **to, co ma z niego wynikać** (następnik).
+
+Wyobraź sobie zdanie: „Jeżeli liczba jest podzielna przez 4, to jest parzysta”. Zdanie będzie obalone dopiero wtedy, gdy znajdziesz liczbę podzielną przez 4, która **nie** jest parzysta. Inne przypadki same w sobie nie obalają tej obietnicy.
+
+| p | q | p⇒q | Dlaczego? |
+|:--:|:--:|:--:|---|
+| 0 | 0 | 1 | Warunek nie zaszedł — obietnica nie została złamana |
+| 0 | 1 | 1 | Warunek nie zaszedł |
+| 1 | 0 | 0 | Warunek zaszedł, ale obiecany skutek nie |
+| 1 | 1 | 1 | Warunek i skutek zaszły |
+
+`1` oznacza **prawdę**, `0` — **fałsz**. Uwaga: z tego, że `p⇒q`, nie wynika automatycznie `q⇒p`. Np. „podzielna przez 4 ⇒ parzysta” jest prawdą, ale „parzysta ⇒ podzielna przez 4” jest fałszem (liczba 6 jest kontrprzykładem).
+
+
 ## Implikacja nie jest tym samym co koniunkcja
 
 <Eq display tex={String.raw`p\Rightarrow q\quad\Longleftrightarrow\quad \neg p\lor q`}/>
@@ -37,4 +61,49 @@ Przykład: „Jeśli liczba jest podzielna przez 4, to jest parzysta” oznacza 
 <Eq display tex={String.raw`p\Leftrightarrow q\quad\Longleftrightarrow\quad (p\Rightarrow q)\land(q\Rightarrow p)`}/>
 
 Obie strony muszą być jednocześnie prawdziwe albo fałszywe. W przeciwnym wypadku równoważność przyjmuje 0.
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Dlaczego implikacja bywa trudna i jak ją zapamiętać?
+
+Weź zdanie „Jeżeli liczba jest podzielna przez 4, to jest parzysta”. **Nie mówi ono**, że każda liczba parzysta jest podzielna przez 4. Gdy widzisz liczbę 6, przesłanka jest fałszywa, ale zdanie „jeżeli ... to ...” nadal nie zostało obalone.
+
+Jedyny **kontrprzykład** to liczba podzielna przez 4, która nie byłaby parzysta. Taka liczba nie istnieje.
+
+### Cztery przypadki — bez zgadywania
+
+| `p` | `q` | `p ⇒ q` | Dlaczego? |
+|---|---|---|---|
+| 1 | 1 | 1 | Warunek spełniony, wniosek też |
+| 1 | 0 | 0 | Warunek spełniony, wniosek złamany |
+| 0 | 1 | 1 | Warunek w ogóle nie wystąpił |
+| 0 | 0 | 1 | Warunek w ogóle nie wystąpił |
+
+### Przykład: kontrapozycja
+
+Zdanie: „Jeśli `n` jest podzielne przez 6, to `n` jest parzyste”. Kontrapozycja: „Jeśli `n` nie jest parzyste, to `n` nie jest podzielne przez 6”. To **równoważne** zdania.
+
+1. Oryginał ma postać `p ⇒ q`.
+2. Zaneguj wniosek: `¬q`.
+3. Zaneguj przesłankę: `¬p`.
+4. Zamień kolejność: `¬q ⇒ ¬p`.
+
+Nie myl kontrapozycji (`¬q ⇒ ¬p`) z odwróceniem (`q ⇒ p`). Przykład `6` pokazuje, że odwrócenie nie musi działać.
+
+:::tip[Skojarzenie]
+Implikacja nie sprawdza, czy *zawsze pada deszcz*, tylko czy **gdy pada**, na pewno **ziemia jest mokra** (przy danym założeniu). Jeden deszcz bez mokrej ziemi obala obietnicę.
+:::
+
+<details className="m1-selfcheck">
+<summary>Sprawdź: Czy z „podzielna przez 10 ⇒ parzysta” wynika „parzysta ⇒ podzielna przez 10”?</summary>
+
+Nie. Kontrprzykładem jest `2`: liczba jest parzysta, ale nie jest podzielna przez 10. Poprawna kontrapozycja brzmi: „nieparzysta ⇒ niepodzielna przez 10”.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

@@ -15,6 +15,26 @@ import { SignedLab } from '../../../components/AskLabs.jsx';
 
 # U2 — uzupełnienie dwójkowe
 
+## Dlaczego komputer nie zapisuje minusa jako osobnego znaczka?
+
+Komputer przechowuje wzorce zer i jedynek. W zapisie **U2** ta sama liczba bitów pozwala przedstawić zarówno dodatnie, jak i ujemne liczby całkowite, a dodawanie w procesorze staje się bardzo wygodne.
+
+### Co oznacza „4 bity”?
+
+Cztery miejsca, z których każde może zawierać `0` albo `1`. Razem jest `2⁴=16` różnych wzorców. W czterobitowym U2 przypisujemy im liczby od **−8 do +7**, nie od −15 do +15.
+
+### Rozpisanie liczby `−5`
+
+1. Zapisz dodatnie 5 w systemie dwójkowym na czterech bitach: `0101`.
+2. **Zamień każdy bit na przeciwny**: `0→1`, `1→0`, dostajesz `1010`.
+3. **Dodaj jeden** do całego wzorca: `1010+0001=1011`.
+4. Wynik `1011` to zapis `−5` w czterobitowym U2.
+
+**Sprawdzenie wagami bitów:** w czterobitowym U2 wagi od lewej to `−8`, `4`, `2`, `1`. Dla `1011` dostajesz `−8+0+2+1=−5`.
+
+**Uwaga:** interpretacja bitów zależy od wybranej liczby miejsc. `1011` jako cztery bity bez znaku oznacza 11, a w U2 oznacza −5.
+
+
 **U2** jest podstawowym sposobem reprezentacji liczb całkowitych ze znakiem we współczesnych procesorach.
 
 ### Jak zapisać -5 na czterech bitach?
@@ -43,5 +63,48 @@ Od **-128 do +127**; tylko jedno zero. U2 upraszcza sprzętowe dodawanie i odejm
 ## Sprawdź samodzielnie — interaktywne laboratorium
 
 <SignedLab client:load />
+
+## Zobacz mechanizm na schemacie
+
+![Schemat: U2 — uzupełnienie dwójkowe](/ask/grafiki/u2.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Kod U2 jest podobny do U1, ale po odwróceniu bitów **dodajesz jeszcze 1**. To mała różnica, która zmienia zakres i usuwa problem dwóch kodów zera.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Wybierz 8 bitów. Zapisz `+5 = 00000101`.
+2. Odwróć bity: `11111010`.
+3. Dodaj `00000001`: otrzymasz `11111011`, czyli `−5` w U2.
+4. Sprawdź metodą wag: najstarszy bit ma wagę `−128`, pozostałe `64, 32, 16, 8, 4, 2, 1`. Dla `11111011` suma wynosi `−128+64+32+16+8+0+2+1 = −5`.
+
+### Dlaczego to działa?
+
+W U2 dla 8 bitów zakres wynosi `−128…127` i tylko zero `00000000`. Najstarszy bit ma wagę ujemną, dlatego nie musisz za każdym razem odwracać bitów przy odczycie.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie myl kroków: `odwróć + 1` to U2; samo `odwróć` to U1. I nie zmieniaj liczby bitów w połowie obliczeń.
+:::
+
+### Powtórka bez podglądania
+
+Jaki jest 4-bitowy U2 liczby −3?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+`+3 = 0011`, inwersja `1100`, dodaj 1 → `1101`.
+
+</details>
+
 
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

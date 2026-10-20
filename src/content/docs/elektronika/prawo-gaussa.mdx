@@ -13,6 +13,64 @@ import { GaussLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="prawo-gaussa" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Prawo Gaussa wiąże **łączny strumień przez zamkniętą powierzchnię** z ładunkiem zamkniętym w jej środku. Nie mówi, że natężenie pola jest wszędzie jednakowe: do łatwego obliczania `E` zwykle potrzebna jest symetria.
+
+Wyobraź sobie przezroczystą bańkę obejmującą kilka ładunków. Prawo Gaussa mówi, że całkowity „bilans strzałek pola” wychodzących przez bańkę zależy od sumy ładunków **wewnątrz**, a nie od jej kształtu.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: prawo gaussa](/elektronika/grafiki/prawo-gaussa.svg)
+
+**Wskazówka do grafiki:** **Zamknięta bańka → licz ładunki w środku.**
+
+### Każda litera i symbol — co oznacza?
+
+- `Φ_E` — całkowity strumień przez powierzchnię zamkniętą.
+- `Q_wew` — algebraiczna suma ładunków wewnątrz powierzchni.
+- `ε₀ ≈ 8,854 · 10⁻¹² F/m` — przenikalność elektryczna próżni.
+- `∮` — całka po powierzchni **zamkniętej**.
+- `Φ_E = Q_wew / ε₀` — całkowa postać prawa Gaussa dla próżni.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. W środku powierzchni zamkniętej znajduje się ładunek `Q_wew = +2 nC`.
+2. Zamieniamy jednostkę: `Q_wew = 2 · 10⁻⁹ C`.
+3. Stosujemy `Φ_E = Q_wew / ε₀`.
+4. Podstawiamy: `Φ_E = (2 · 10⁻⁹)/(8,854 · 10⁻¹²)`.
+5. Dzielimy: `Φ_E ≈ 226 N·m²/C`.
+6. Znak plus oznacza dodatni strumień netto skierowany **na zewnątrz** powierzchni.
+
+:::caution[Na co uważać?]
+Ładunek położony poza powierzchnią może zmieniać lokalne pole, ale nie zmienia **łącznego strumienia netto** przez tę zamkniętą powierzchnię.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Zamknięta bańka → licz ładunki w środku.**
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** W środku jest `+3 nC` i `−3 nC`. Jaki jest strumień netto?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`0`, bo suma ładunków wewnętrznych wynosi zero. Pole lokalnie nie musi być zerowe.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Najważniejszy wzór
 
 <Eq tex={String.raw`\oint_S\vec E\cdot d\vec S=\frac{Q_{\mathrm{wew}}}{\varepsilon_0}`} display />

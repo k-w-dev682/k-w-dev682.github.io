@@ -45,4 +45,18 @@ import AskPdfButton from '../../../components/AskPdf.jsx';
 - `1 kB = 1000 B`, `1 KiB = 1024 B`.
 - `MOV`, `ADD` — przykładowe rozkazy x86 w dodatkowej lekcji, nie gwarantują zgodności z wykładem.
 
+## Jak nie pomylić podobnych symboli?
+
+- `n` to **liczba bitów**. Jeśli widzisz `2ⁿ`, zastępujesz `n` liczbą bitów, np. 8.
+- `p` to **podstawa systemu**. Dla binarnego `p=2`, dla hex `p=16`.
+- `i` to numer pozycji, od prawej i od **zera**.
+- `cᵢ` to cyfra na miejscu `i` — nie trzeba jej dodatkowo „zgadywać”.
+
+### Mini-przykład
+
+Dla `101₂` przyjmij `p=2`, `n=3`, a następnie policz `1·2²+0·2¹+1·2⁰=5`.
+
+:::tip[Jedna reguła na każdy kod]
+**ZM:** znak osobno, moduł osobno. **U1:** odwróć wszystkie bity. **U2:** odwróć i dodaj 1. Każdy przykład musi mieć ustaloną liczbę bitów.
+:::
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

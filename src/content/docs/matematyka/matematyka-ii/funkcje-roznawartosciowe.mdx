@@ -12,6 +12,24 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Funkcje i różnowartościowość
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/funkcje-roznawartosciowe.svg" alt="Funkcja może istnieć, ale nie dać się jednoznacznie odwrócić" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Jeśli wynik pozwala wskazać tylko jedno wejście, możemy myśleć o cofaniu działania. Jeżeli wynik pochodzi z dwóch wejść, cofanie nie jest jednoznaczne.</figcaption>
+</figure>
+
+## Dlaczego „różnowartościowa” jest ważna?
+
+Wyobraź sobie listę uczniów i numery identyfikacyjne. Każdy uczeń musi mieć **inny** numer, aby po numerze było wiadomo, o kogo chodzi. To intuicja różnowartościowości (iniekcji): różnym wejściom odpowiadają różne wyjścia.
+
+Dla `f(x)=2x+1` jeżeli `2a+1=2b+1`, to odejmujemy 1 po obu stronach: `2a=2b`; dzielimy przez 2: `a=b`. To **dowód**, że funkcja jest różnowartościowa.
+
+Dla `g(x)=x²` na całych liczbach rzeczywistych mamy `g(−2)=4` i `g(2)=4`, a `−2≠2`, więc funkcja **nie jest** różnowartościowa. Jeden taki kontrprzykład wystarcza.
+
+
 Funkcja <Eq tex={String.raw`f:X\to Y`}/> przyporządkowuje **każdemu x z X dokładnie jedną wartość f(x) w Y**.
 
 ## Funkcja różnowartościowa (iniekcja)
@@ -39,3 +57,45 @@ Różne argumenty dają ten sam wynik, więc g nie jest różnowartościowa na �
 ## Związek z wariacjami
 
 Gdy każdej pozycji k-elementowej listy przypisujemy jedną z n wartości, mamy n^k funkcji. Jeżeli wartości **nie mogą się powtarzać**, rozpatrujemy iniekcje i wynik jest równy n(n−1)…(n−k+1), dla k ≤ n.
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Funkcja może istnieć, ale nie dać się jednoznacznie odwrócić
+
+Funkcja przypisuje każdemu wejściu tylko jeden wynik. **Różnowartościowa** dodaje drugi warunek: żadne dwa różne wejścia nie mogą dostać tego samego wyniku. Na grafice szukaj dwóch strzałek wpadających do tego samego pola.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Weź `f(x)=3x−2`. Dla `x=1` wynosi `1`, a dla `x=2` wynosi `4`.
+2. Nie wystarczy sprawdzić dwóch liczb, aby dowieść różnowartościowości. Przyjmij dowolne `a,b` i załóż `f(a)=f(b)`.
+3. Zapisz `3a−2=3b−2`. Dodaj 2 do obu stron: `3a=3b`. Podziel przez 3: `a=b`.
+4. To dowód dla wszystkich argumentów z ℝ. Dla `g(x)=x²` kontrprzykład `g(2)=g(−2)=4` wystarcza do obalenia różnowartościowości na ℝ.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Jeśli wynik pozwala wskazać tylko jedno wejście, możemy myśleć o cofaniu działania. Jeżeli wynik pochodzi z dwóch wejść, cofanie nie jest jednoznaczne.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Jedna strzałka z wejścia = funkcja. Brak wspólnego celu dwóch różnych strzałek = iniekcja.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Funkcja `x²` staje się różnowartościowa po ograniczeniu dziedziny do `x≥0` albo do `x≤0`. Zawsze podawaj **dziedzinę**.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Czy `f(x)=5x+1` jest różnowartościowa na ℝ? Uzasadnij jednym równaniem.</summary>
+
+**Rozwiązanie z wyjaśnieniem:** Tak: `5a+1=5b+1 ⇒ 5a=5b ⇒ a=b`. Równe wyniki muszą pochodzić z równych argumentów.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
+

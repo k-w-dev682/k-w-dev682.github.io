@@ -5,11 +5,104 @@ sidebar:
   order: 38
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="zadania-algorytmy" title="Bank zadań — algorytmy i debugger" section="05 · Zadania i utrwalanie" />
 
 # Bank zadań — algorytmy i debugger
+
+## Zrozum od podstaw
+
+Rozkład liczby na cyfry wykorzystuje dwa działania całkowite: reszta z dzielenia przez 10 daje ostatnią cyfrę, a dzielenie przez 10 usuwa ją z prawej strony. To jak zdejmowanie kolejnych wagonów od końca pociągu.
+
+Poniżej pracujemy z liczbą nieujemną. Wybieramy do / while, aby ciało wykonało się przynajmniej raz: zapis liczby zero zawiera jedną cyfrę 0. Wariant while z warunkiem n > 0 pominąłby ją całkowicie.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int n = 1020;
+    int zera = 0;
+    do {
+        int cyfra = n % 10;
+        if (cyfra == 0) ++zera;
+        n /= 10;
+    } while (n > 0);
+    std::cout << zera;
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. n jest roboczą kopią liczby, którą będziemy niszczyć przez dzielenie.
+2. do wykonuje ciało przed pierwszym sprawdzeniem warunku.
+3. % 10 daje ostatnią cyfrę; == porównuje ją z zerem.
+4. /= 10 zastępuje n ilorazem całkowitym.
+5. Po while występuje średnik, inaczej niż w zwykłym while z blokiem.
+
+<CppTrace title="Śledzenie: zadania algorytmy" steps={[["n = 1020", "cyfra 0, zera = 1, nowe n = 102"], ["n = 102", "cyfra 2, zera = 1, nowe n = 10"], ["n = 10", "cyfra 0, zera = 2, nowe n = 1"], ["n = 1", "cyfra 1, zera = 2, nowe n = 0"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+while (n > 0) { if (n % 10 == 0) ++zera; n /= 10; }
+```
+
+Dla danych n = 0 pierwsza wersja zwróci 0 zer, choć w zapisie liczby występuje jedno. do / while uwzględnia ten przypadek.
+
+**Poprawiony fragment:**
+
+```cpp
+do { if (n % 10 == 0) ++zera; n /= 10; } while (n > 0);
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Ile zer w 50007?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Trzy: kolejne cyfry od końca to 7, 0, 0, 0, 5.
+
+</details>
+
+### 2. Jak znaleźć największą cyfrę?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zamiast licznika ustaw maksimum = 0; dla każdej cyfra, jeżeli jest większa od maksimum, przypisz ją do maksimum.
+
+</details>
+
+### 3. Jak porównać skrajne cyfry dodatniej liczby?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zapamiętaj ostatnia = n % 10. Kopię liczby dziel przez 10 dopóki jest >= 10; pozostanie pierwsza cyfra. Porównaj ją z ostatnia.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+% 10 odczytuje ostatnią cyfrę, / 10 ją usuwa. Jeśli potrzebujesz oryginału, pracuj na kopii.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Zadania do rozwiązania
 
@@ -56,3 +149,78 @@ Postaw punkt zatrzymania przed `return` i obserwuj wyrażenie `A*A + B*B`. Jakie
 <small>Materiał dydaktyczny rozwinięty na podstawie skryptu 2. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
 
 ← [Poprzednia: Bank zadań — podstawy i pętle](../zadania-podstawy/) · [Następna: Bank zadań — liczby rzeczywiste](../zadania-float/) →
+
+## Odpowiedzi do całej dotychczasowej listy zadań
+
+Numery odpowiadają oryginalnej liście w tej lekcji. Fragmenty kodu zakładają wcześniej zadeklarowane zmienne i poprawny odczyt. Ograniczenia danych są częścią rozwiązania.
+
+<details>
+<summary>1. Mnożenie ze znakami — rozwiązanie i dlaczego działa</summary>
+
+W lekcji mnożenia są dwie gałęzie. Dla x >= 0 dodaj y x razy; dla x &lt; 0 odejmij y −x razy, zmniejszając licznik od 0 do x. To działa dla −3 i −4: trzy odejmowania −4 dają 12. Wymagaj wyniku mieszczącego się w typie.
+
+</details>
+
+<details>
+<summary>2. Potęgi — rozwiązanie i dlaczego działa</summary>
+
+Dla dodatniego wykładnika powtarzaj mnożenie od 1. Dla zera zwróć 1, o ile podstawa jest niezerowa. Dla ujemnego oblicz potęgę dodatnią i odwrotność. Pełny kod w lekcji potęgowania; kontroluj zakres i czas działania dla dużych wykładników.
+
+</details>
+
+<details>
+<summary>3. Liczby lustrzane — rozwiązanie i dlaczego działa</summary>
+
+Dla nieujemnych małych liczb zbuduj odwrotną: start wynik = 0, w każdym kroku `wynik = wynik * 10 + n % 10; n /= 10;`. Porównaj z drugą liczbą. Dla 125 powstaje 5,52,521. Kontroluj przepełnienie. Dla 120 odwrotna liczbowa to 21; jeśli zera mają być zachowane, porównuj napisy.
+
+</details>
+
+<details>
+<summary>4. Trójka pitagorejska — rozwiązanie i dlaczego działa</summary>
+
+Pełna funkcja poniżej zakłada, że c jest przeciwprostokątną. Dla dowolnej kolejności najpierw wybierz największy bok. Dla 3,4,5 obliczasz 9 + 16 = 25. Odrzuć niedodatnie długości i nie przekraczaj zakresu działań pośrednich.
+
+</details>
+
+<details>
+<summary>5. Suma 1…n — rozwiązanie i dlaczego działa</summary>
+
+`int suma = 0; for (int i = 1; i <= n; ++i) suma += i;` dla małego n >= 0. Wynik dla 5 to 15; dla 0 to 0. Ostatni składnik wymaga &lt;=, a nie &lt;.
+
+</details>
+
+<details>
+<summary>6. Dzielniki — rozwiązanie i dlaczego działa</summary>
+
+Dla małego n > 0 sprawdź d od 1 do n; wypisz d, gdy n % d == 0. Dla 12: 1,2,3,4,6,12. Nigdy nie zaczynaj od 0, bo reszta z dzielenia przez zero jest niedozwolona.
+
+</details>
+
+<details>
+<summary>7. Stan przed i po — rozwiązanie i dlaczego działa</summary>
+
+Dla a = 2, b = 3, c = 4 najpierw wypisz trzy wartości. Wykonaj a += 1, b *= 2, c -= 3, potem wypisz ponownie: 3,6,1. Kolejność wydruków oddziela obserwację przed zmianą od obserwacji po zmianie.
+
+</details>
+
+<details>
+<summary>8. Największa cyfra — rozwiązanie i dlaczego działa</summary>
+
+Dla n >= 0 ustaw maks = 0. W do/while pobieraj cyfra = n % 10 i aktualizuj maks, jeśli cyfra > maks; dziel n przez 10. Dla 592 maks przechodzi 0 → 2 → 9 → 9, więc wynik to 9.
+
+</details>
+
+<details>
+<summary>9. Liczba zer — rozwiązanie i dlaczego działa</summary>
+
+Przykład prowadzony na początku tej lekcji daje 2 dla 1020. Dla 0 daje 1 dzięki do/while. Dla 111 daje 0, bo żaden odczytany element nie jest zerem.
+
+</details>
+
+<details>
+<summary>10. Zestaw testów — rozwiązanie i dlaczego działa</summary>
+
+Najpierw wybierz funkcję. Dla potęg: (2,0) → 1, (2,−1) → 0.5, (0,1) → 0, (0,−1) → odrzucenie. Duży wykładnik bada zakres i czas, a abc bada odczyt. Nie każdy test powinien zwracać liczbę; czasem poprawnym wynikiem jest odmowa obliczenia.
+
+</details>
+

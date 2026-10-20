@@ -15,6 +15,14 @@ import { Newton3Lab } from '../../../components/PhysicsLabs.jsx';
 
 # Trzecia zasada: pary sił
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/trzecia-zasada.svg" alt="Akcja i reakcja działają na RÓŻNE ciała" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Ta sama wartość, przeciwne zwroty, dwa ciała.**</figcaption>
+</figure>
+
 Gdy naciskasz ścianę siłą 50 N, ściana naciska Twoją rękę siłą 50 N w przeciwnym zwrocie.
 
 <Eq tex={String.raw`\vec F_{\mathrm{reka\to sciana}}=-\vec F_{\mathrm{sciana\to reka}}`} display />
@@ -31,6 +39,51 @@ Siły te **nie działają na ten sam obiekt**. Dlatego nie sumujemy ich jako wyp
 Nie myl pary akcji–reakcji z **ciężarem** i **siłą normalną** działającymi na książkę leżącą na stole — obie siły działają na książkę, więc nie są parą III zasady.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Akcja i reakcja działają na RÓŻNE ciała
+
+Każde oddziaływanie jest wzajemne: gdy ciało A działa siłą na B, ciało B działa równą i przeciwną siłą na A. Nie oznacza to, że siły znoszą się **na jednym** z tych ciał.
+
+### Co oznaczają symbole i jednostki?
+
+`F_(A→B)` — siła ciała A na B [N]; `F_(B→A)` — siła B na A [N]. Są przeciwne jako wektory i działają na różne ciała.
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Stoisz na podłodze. Twoja stopa naciska podłogę pionowo w dół siłą `500 N`.
+2. Podłoga naciska stopę pionowo w górę siłą `500 N` — to para III zasady.
+3. Narysuj dwa oddzielne schematy: na podłodze siła od stopy, na stopie siła od podłogi.
+4. Dla całego człowieka analiza sił obejmuje również ciężar. Nie mieszaj pary stopa–podłoga z siłą grawitacji.
+
+### Dlaczego to działa?
+
+Siły akcji i reakcji są równe z definicji wzajemnego oddziaływania, niezależnie od tego, czy któreś ciało przyspiesza.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Ta sama wartość, przeciwne zwroty, dwa ciała.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie wybieraj ciężaru człowieka i reakcji podłogi jako pary III zasady: obie siły działają na człowieka.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Pchając ścianę siłą 40 N, jaką siłą ściana działa na twoje dłonie?</summary>
+
+**Kolejne kroki i odpowiedź:** `40 N` w kierunku przeciwnym do siły twoich dłoni na ścianę.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <Newton3Lab client:load />
 

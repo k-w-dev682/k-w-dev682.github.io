@@ -13,6 +13,26 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Suma, część wspólna i różnica zbiorów
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/dzialania-na-zbiorach.svg" alt="Czy dany element ma zostać w wyniku?" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Symbol „lub” w sumie zbiorów jest niewykluczający: liczba 3 jest w sumie, mimo że występuje w obu zbiorach.</figcaption>
+</figure>
+
+## Trzy działania na zwykłych elementach
+
+Niech `A={1,2,3}` i `B={3,4}`.
+
+- **Suma** `A∪B`: wszystko, co jest w A **lub** B: `{1,2,3,4}`.
+- **Część wspólna** `A∩B`: tylko to, co jest **w obu**: `{3}`.
+- **Różnica** `A\B`: to, co jest w A, ale **nie** w B: `{1,2}`.
+
+W różnicy **kolejność ma znaczenie**: `B\A={4}` jest inne niż `A\B`. Powtarzający się element `3` w sumie występuje tylko raz, ponieważ zbiory nie liczą duplikatów.
+
+
 Weźmy dwa zbiory: **A = &#123;1,2,3&#125;** oraz **B = &#123;3,4&#125;**.
 
 ## Suma zbiorów
@@ -32,6 +52,49 @@ Bierzemy elementy, które występują **jednocześnie w A i B**.
 <Eq display tex={String.raw`A\setminus B=\{1,2\},\quad B\setminus A=\{4\}`}/>
 
 W **A ∖ B** zaczynamy od A i wykreślamy wszystkie elementy, które są także w B. Dlatego kolejność ma znaczenie: A ∖ B może być różne od B ∖ A.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Czy dany element ma zostać w wyniku?
+
+Działania na zbiorach to filtrowanie elementów. Zamiast zapamiętywać symbole osobno, dla każdego elementu zadaj proste pytanie: „czy ten element spełnia warunek obu zbiorów, przynajmniej jednego, czy tylko pierwszego?”.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Niech `A={1,2,3}` i `B={3,4}`. Liczba 3 należy do obu; liczba 1 tylko do A; liczba 4 tylko do B.
+2. Suma `A∪B` zawiera wszystko, co należy do A **lub** B: `{1,2,3,4}`.
+3. Część wspólna `A∩B` zawiera tylko elementy wspólne obu: `{3}`.
+4. Różnica `A∖B` pozostawia elementy A, które nie występują w B: `{1,2}`.
+5. Różnica `B∖A` wynosi `{4}`. Odwrócenie kolejności w różnicy zmienia rezultat.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Symbol „lub” w sumie zbiorów jest niewykluczający: liczba 3 jest w sumie, mimo że występuje w obu zbiorach.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**∪ = razem, ∩ = wspólne, ∖ = tylko po lewej.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Zapis `A∖B` nie oznacza „usuń wszystkie elementy B ze świata”, lecz „weź elementy A i usuń te, które są jednocześnie w B”.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Dane `A={a,b}`, `B={b,c}`. Podaj sumę, część wspólną i różnicę A∖B.</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `A∪B={a,b,c}`, `A∩B={b}`, `A∖B={a}`. Element `b` w sumie wpisujemy tylko raz.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <SetLab client:load />
 

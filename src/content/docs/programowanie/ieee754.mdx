@@ -5,6 +5,8 @@ sidebar:
   order: 19
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import Eq from '../../../components/MathEquation.astro';
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { FloatLab } from '../../../components/CppLabs.jsx';
@@ -12,6 +14,98 @@ import { FloatLab } from '../../../components/CppLabs.jsx';
 <PdfTopicButton client:load slug="ieee754" title="IEEE 754 — jak wyglądają bity float" section="03 · Liczby w pamięci" />
 
 # IEEE 754 — jak wyglądają bity `float`
+
+## Zrozum od podstaw
+
+Format binary32 przypomina zapis naukowy liczby: znak, liczba w okolicy 1 oraz potęga 2. W pamięci nie zapisujemy tekstu 2.5, tylko bity trzech pól. Pole wykładnika przechowuje wartość z przesunięciem 127, dzięki czemu zwykłe wykładniki ujemne nie potrzebują osobnego znaku.
+
+Dla liczby znormalizowanej pierwsza jedynka jest domyślna. Pole 23 bitów przechowuje tylko ułamek po niej. Nie wolno stosować tego samego wzoru bez zmian do E = 0 i E = 255.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <cmath>
+
+int main() {
+    int znak = 0;
+    int poleWykladnika = 128;
+    double ulamek = 0.25;
+    double wartosc = (znak == 0 ? 1.0 : -1.0)
+        * (1.0 + ulamek) * std::pow(2.0, poleWykladnika - 127);
+    std::cout << wartosc << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. znak = 0 oznacza dodatnią liczbę; zapis ten ilustruje pola, a nie odczytuje rzeczywistej pamięci float.
+2. 128 − 127 daje wykładnik 1.
+3. 0.25 odpowiada bitom 01 po kropce.
+4. Operator warunek ? a : b wybiera a dla prawdy, b dla fałszu.
+5. pow z cmath oblicza 2 do potęgi 1. Otrzymujemy 1 × 1.25 × 2 = 2.5.
+
+<CppTrace title="Śledzenie: ieee754" steps={[["Znak S = 0", "czynnik +1"], ["Pole E = 128", "wykładnik E − 127 = 1"], ["Pole ułamkowe 010…", "f = 1/4, znacząca 1.25"], ["Złożenie", "+1 × 1.25 × 2 = 2.5"]]} />
+
+![Schemat: binary32](/cpp13/binary32.svg)
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+double skala = std::pow(2.0, poleWykladnika);
+```
+
+W polu jest wykładnik przesunięty, a nie rzeczywisty. Pominięcie biasu daje zupełnie inną skalę.
+
+**Poprawiony fragment:**
+
+```cpp
+double skala = std::pow(2.0, poleWykladnika - 127);
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Jak zmieni się 2.5 po ustawieniu S = 1?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Na −2.5. Pozostałe pola są niezmienione.
+
+</details>
+
+### 2. Jakie E dla rzeczywistego wykładnika −2?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+125, bo −2 + 127 = 125.
+
+</details>
+
+### 3. Co dla E = 0 i niezerowego f?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Liczba podnormalna ma wartość ze znakiem równą f × 2^(−126), bez ukrytej jedynki. E = 0 i f = 0 koduje zero.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Binary32: 1 bit znaku + 8 wykładnika + 23 ułamka. E = 255: f = 0 to nieskończoność, f różne od 0 to NaN.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Trzy części 32-bitowego `float`
 

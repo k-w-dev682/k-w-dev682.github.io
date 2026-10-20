@@ -5,11 +5,106 @@ sidebar:
   order: 35
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="palindrom" title="Palindrom i odwracanie napisu" section="04 · Tekst i znaki" />
 
 # Palindrom i odwracanie napisu
+
+## Zrozum od podstaw
+
+Palindrom jest taki sam z obu stron. Zamiast tworzyć odwróconą kopię, możemy porównywać pary: pierwszy z ostatnim, drugi z przedostatnim. Pierwsza nierówna para wystarcza, aby odrzucić napis.
+
+Umawiamy się na porównywanie dokładnych bajtów ASCII, z uwzględnieniem wielkości liter i spacji. Pusty napis i napis jednoznakowy przechodzą test: nie ma w nich żadnej sprzecznej pary. Przy UTF-8 odwracanie samych bajtów może uszkodzić litery.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string s = "kajak";
+    bool pasuje = true;
+    for (std::size_t i = 0; i < s.size() / 2; ++i) {
+        if (s[i] != s[s.size() - 1 - i]) {
+            pasuje = false;
+            break;
+        }
+    }
+    std::cout << std::boolalpha << pasuje;
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. bool przechowuje hipotezę: do tej pory nie znaleziono różnicy.
+2. size() / 2 daje 2 dla długości 5; sprawdzamy dwie pary.
+3. Indeks z prawej to długość − 1 − i. Dla i = 0 otrzymujemy 4.
+4. break opuszcza najbliższą pętlę po wykryciu różnicy.
+5. Operator != oznacza nierówność znaków. Środkowe j nie potrzebuje pary.
+
+<CppTrace title="Śledzenie: palindrom" steps={[["Para i = 0", "s[0] = k, s[4] = k"], ["Para i = 1", "s[1] = a, s[3] = a"], ["Środek", "j nie trzeba porównywać"], ["Wynik", "pasuje = true"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+if (s[i] != s[s.size() - i]) pasuje = false;
+```
+
+Pierwszy indeks od prawej to size() − 1, nie size(). Przesunięcie o jeden wybiera niewłaściwy znak.
+
+**Poprawiony fragment:**
+
+```cpp
+if (s[i] != s[s.size() - 1 - i]) pasuje = false;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co dla kot?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+false: k i t różnią się już w pierwszej parze.
+
+</details>
+
+### 2. Ile par ma abba?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Dwie: a/a i b/b. Długość 4 podzielona całkowicie przez 2 daje 2.
+
+</details>
+
+### 3. Dlaczego pusty napis nie powoduje odejmowania 1 od zera?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Warunek pętli 0 &lt; 0 jest fałszywy. Wyrażenie indeksu wewnątrz ciała nie jest wykonywane.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Wystarczy połowa długości i jedna nierówność, by zakończyć sprawdzanie. Normalizacja tekstu jest osobnym etapem.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Co to jest palindrom?
 

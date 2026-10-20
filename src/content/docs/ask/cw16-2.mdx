@@ -54,4 +54,41 @@ W zapisie binarnym pominąłem zera wiodące, jeżeli nie wymaga się ustalonej 
 
 <BaseConverterLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia 5: szesnastkowy → dwójkowy](/ask/grafiki/cw16-2.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Zacznij od `1C8₁₆`. Rozpatrz **każdą cyfrę hex oddzielnie**.
+2. `1` ma czterobitowy zapis `0001`, `C` to `1100`, a `8` to `1000`.
+3. Połącz grupy: `0001 1100 1000₂`.
+4. Jeśli nie wymaga się stałej liczby bitów, usuń zera wiodące: `111001000₂`. To ta sama liczba.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+Każda cyfra szesnastkowa koduje 4 bity, więc nie trzeba stosować długiego dzielenia.
+
+:::caution[Uważaj tutaj]
+Nie gub wewnętrznych zer z grupy: należy usuwać wyłącznie zera na samym początku całej liczby.
+:::
+
+### Minisprawdzian po zadaniu
+
+Zapisz `A₁₆` binarnie.
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+`A = 10` → `1010₂`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

@@ -5,11 +5,105 @@ sidebar:
   order: 33
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="analiza-tekstu" title="Zliczanie liter, cyfr i innych znaków" section="04 · Tekst i znaki" />
 
 # Zliczanie liter, cyfr i innych znaków
+
+## Zrozum od podstaw
+
+Analiza tekstu polega tutaj na przydzielaniu każdego bajtu do jednej kategorii. To jak sortowanie kartek do przegródek. Osobny licznik przechowuje liczbę małych liter, wielkich liter, cyfr i innych znaków. Łańcuch if / else if / else zapewnia, że znak trafia do dokładnie jednej kategorii.
+
+Ograniczamy zadanie do ASCII. Pętla po std::string ogląda bajty, więc polska litera UTF-8 nie jest jednym obiegiem. unsigned char nie zamienia automatycznie bajtów w znaki Unicode.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string s = "Ab3!";
+    int male = 0, duze = 0, cyfry = 0, inne = 0;
+    for (unsigned char c : s) {
+        if (c >= 'a' && c <= 'z') ++male;
+        else if (c >= 'A' && c <= 'Z') ++duze;
+        else if (c >= '0' && c <= '9') ++cyfry;
+        else ++inne;
+    }
+    std::cout << male << ' ' << duze << ' ' << cyfry << ' ' << inne;
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Cztery liczniki zaczynają od zera, ponieważ jeszcze nie obejrzeliśmy żadnego znaku.
+2. Dwukropek w pętli zakresowej oznacza „dla każdego elementu s”. c jest kopią bieżącego bajtu.
+3. && sprawdza obie granice zakresu; ++ zwiększa właściwy licznik.
+4. else jest wykonywane tylko wtedy, gdy żaden wcześniejszy warunek nie pasował.
+
+<CppTrace title="Śledzenie: analiza tekstu" steps={[["A", "małe 0, duże 1, cyfry 0, inne 0"], ["b", "małe 1, duże 1, cyfry 0, inne 0"], ["3", "małe 1, duże 1, cyfry 1, inne 0"], ["!", "małe 1, duże 1, cyfry 1, inne 1"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+if (c >= 'a' || c <= 'z') ++male;
+```
+
+|| wymaga tylko jednego porównania. Dla wielu znaków spoza zakresu jedna strona jest prawdziwa; przedział wymaga obu granic.
+
+**Poprawiony fragment:**
+
+```cpp
+if (c >= 'a' && c <= 'z') ++male;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Ile wynosi suma liczników?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+s.size(), ponieważ każdemu bajtowi przypisano dokładnie jedną kategorię.
+
+</details>
+
+### 2. Gdzie dodać osobne liczenie spacji?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Przed końcowym else dodaj else if (c == ' ') ++spacje. Wtedy spacje nie trafią też do inne.
+
+</details>
+
+### 3. Jakie testy sprawdzają kategorie?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Pusty napis daje same zera; aA0! daje po jednym; same spacje sprawdzają ostatnią kategorię lub nowy licznik spacji.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Kategorie muszą odpowiadać poleceniu. Kod bajtowy ASCII nie jest pełną analizą języka polskiego.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Zadania z materiału
 

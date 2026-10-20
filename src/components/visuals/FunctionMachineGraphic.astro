@@ -1,0 +1,47 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Funkcja i funkcja odwrotna jako maszyny" eyebrow="MATEMATYKA · FUNKCJE" caption="Po lewej zwykła funkcja, po prawej cofanie krok po kroku. Odwrotność odwraca kolejność działań.">
+  <svg viewBox="0 0 980 290" class="sl-svg" role="img" aria-label="Schemat funkcji i funkcji odwrotnej">
+    <defs>
+      <linearGradient id="slGradA" x1="0" x2="1">
+        <stop offset="0%" stop-color="#5ce2d1" />
+        <stop offset="100%" stop-color="#8ef2e6" />
+      </linearGradient>
+      <marker id="slArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#5ce2d1" />
+      </marker>
+    </defs>
+    <rect x="25" y="35" width="430" height="220" rx="22" class="sl-svg__panel" />
+    <rect x="525" y="35" width="430" height="220" rx="22" class="sl-svg__panel" />
+    <text x="45" y="68" class="sl-svg__overline">f(x) = 2x + 3</text>
+    <text x="545" y="68" class="sl-svg__overline">f⁻¹(x) = (x − 3) / 2</text>
+
+    <rect x="55" y="105" width="88" height="60" rx="14" class="sl-svg__chip" />
+    <text x="99" y="142" text-anchor="middle" class="sl-svg__value">x = 4</text>
+    <line x1="143" y1="135" x2="230" y2="135" class="sl-svg__line" marker-end="url(#slArrow)" />
+    <rect x="230" y="105" width="110" height="60" rx="16" class="sl-svg__action" />
+    <text x="285" y="130" text-anchor="middle" class="sl-svg__label">pomnóż</text>
+    <text x="285" y="149" text-anchor="middle" class="sl-svg__value">× 2</text>
+    <line x1="340" y1="135" x2="392" y2="135" class="sl-svg__line" marker-end="url(#slArrow)" />
+    <rect x="392" y="105" width="110" height="60" rx="16" class="sl-svg__action" />
+    <text x="447" y="130" text-anchor="middle" class="sl-svg__label">dodaj</text>
+    <text x="447" y="149" text-anchor="middle" class="sl-svg__value">+ 3</text>
+    <line x1="502" y1="135" x2="575" y2="135" class="sl-svg__line sl-svg__line--dim" />
+    <rect x="705" y="105" width="88" height="60" rx="14" class="sl-svg__chip" />
+    <text x="749" y="142" text-anchor="middle" class="sl-svg__value">11</text>
+
+    <rect x="545" y="105" width="88" height="60" rx="14" class="sl-svg__chip" />
+    <text x="589" y="142" text-anchor="middle" class="sl-svg__value">11</text>
+    <line x1="633" y1="135" x2="720" y2="135" class="sl-svg__line" marker-end="url(#slArrow)" />
+    <rect x="720" y="105" width="110" height="60" rx="16" class="sl-svg__action" />
+    <text x="775" y="130" text-anchor="middle" class="sl-svg__label">odejmij</text>
+    <text x="775" y="149" text-anchor="middle" class="sl-svg__value">− 3</text>
+    <line x1="830" y1="135" x2="882" y2="135" class="sl-svg__line" marker-end="url(#slArrow)" />
+    <rect x="882" y="105" width="58" height="60" rx="16" class="sl-svg__action" />
+    <text x="911" y="130" text-anchor="middle" class="sl-svg__label">÷</text>
+    <text x="911" y="149" text-anchor="middle" class="sl-svg__value">2</text>
+    <text x="589" y="208" class="sl-svg__note">Wynik 11 cofasz do argumentu 4.</text>
+    <text x="55" y="208" class="sl-svg__note">Argument 4 przechodzi kolejno przez dwa działania.</text>
+  </svg>
+</StudyFigure>

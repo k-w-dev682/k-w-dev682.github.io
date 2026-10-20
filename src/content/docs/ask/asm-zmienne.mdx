@@ -42,4 +42,48 @@ Przyjmij: `pamięć[10]=7`, `pamięć[11]=5`, `pamięć[12]=0`.
 
 <AssemblerLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Asembler: odczyt zmiennej, dodawanie i zapis](/ask/grafiki/asm-zmienne.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Zmienna w pamięci i rejestr procesora to dwie różne lokalizacje. W prostym przykładzie x86 możesz wczytać wartość do rejestru, zmodyfikować ją i następnie **osobno zapisać wynik** do pamięci.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Przyjmij, że zmienna `liczba` w pamięci zawiera `10`.
+2. `mov eax, [liczba]` oznacza: odczytaj **z pamięci spod adresu zmiennej** i umieść wartość `10` w EAX.
+3. `add eax, 3` zmienia EAX na `13`; pamięć pod `liczba` wciąż zawiera `10`.
+4. `mov [liczba], eax` zapisuje zawartość EAX z powrotem do pamięci. Dopiero teraz `liczba` ma wartość `13`.
+5. Nawiasy kwadratowe `[...]` w tej składni oznaczają odwołanie do pamięci, a nie tablicę w C++.
+
+### Dlaczego to działa?
+
+Przeniesienie wartości do rejestru daje procesorowi dostęp do danych roboczych. Praca na kopii nie musi zmieniać źródła w pamięci.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Typowy błąd: sądzić, że `add eax, 3` automatycznie zmieni zmienną w RAM. Trzeba wykonać odpowiedni zapis.
+:::
+
+### Powtórka bez podglądania
+
+Co się stanie z RAM po samym `mov eax, [liczba]`?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Nic się w niej nie zmieni; to odczyt wartości do rejestru.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

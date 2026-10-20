@@ -12,6 +12,32 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Ćwiczenia — jedno polecenie, pięć dowodów
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/zadanie-indukcja.svg" alt="Jeden szablon rozwiązywania pięciu pozornie różnych zadań" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Wspólny szablon oddziela myślenie o indukcji od rachunków właściwych dla konkretnej sumy.</figcaption>
+</figure>
+
+## Jak korzystać z tej listy pięciu zadań?
+
+Nie próbuj uczyć się pięciu dowodów na pamięć. W każdym z nich robisz to samo: sprawdzasz pierwszy przypadek, zakładasz prawdziwość dla `n`, dopisujesz **jeden nowy wyraz** do sumy, przekształcasz i porównujesz ze wzorem dla `n+1`.
+
+### Co jest nowym wyrazem w każdym podpunkcie?
+
+| Zadanie | Dodawany składnik przy przejściu z n do n+1 |
+|---|---|
+| a) suma kwadratów | `(n+1)²` |
+| b) suma sześcianów | `(n+1)³` |
+| c) suma geometryczna | `qⁿ` |
+| d) suma naprzemienna | `(-1)ⁿ(n+1)²` |
+| e) suma sinusów | `sin((n+1)α)` |
+
+**Pułapka:** w sumie geometrycznej dla ostatniego indeksu `n` wykładnik wynosi `n−1`. Po dołożeniu wyrazu o numerze `n+1` jego wykładnik wyniesie `n`, a nie `n+1`.
+
+
 > **Zadanie 1.** Stosując zasadę indukcji matematycznej, wykaż, że dla każdego n ∈ ℕ zachodzą następujące równości.
 
 ### a) Suma kwadratów
@@ -41,3 +67,46 @@ Warunki: **c)** q ≠ 1; **e)** sin(α/2) ≠ 0. Przy kątach α = 2πm (m całk
 :::note[Wybierz podpunkt]
 [**a)** kwadraty](../cw-suma-kwadratow/) · [**b)** sześciany](../cw-suma-szescianow/) · [**c)** geometryczna](../cw-geometryczny/) · [**d)** naprzemienna](../cw-naprzemienne/) · [**e)** sinusy](../cw-sinusy/)
 :::
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Jeden szablon rozwiązywania pięciu pozornie różnych zadań
+
+W zadaniach a–e wzory są różne, ale początek rozwiązania pozostaje ten sam. Dla sumy złożonej z kolejnych wyrazów powiedz sobie: „mam starą sumę do n, a teraz muszę dopisać wyraz numer n+1”.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Zapisz tezę w formie `Sₙ = [wzór dla n]`. Sprawdź bazę `n=1` na obu stronach.
+2. Ustal konkretny wzór na jeden wyraz sumy `uₖ`. Dla kwadratów `uₖ=k²`; dla sześcianów `uₖ=k³`; dla geometrycznej `uₖ=q^(k−1)`.
+3. Zapisz **zanim cokolwiek uprościsz**: `Sₙ₊₁=Sₙ+uₙ₊₁`. To najważniejsza linijka każdego dowodu.
+4. Podstaw za `Sₙ` prawą stronę założenia indukcyjnego. Uprość algebraicznie do postaci wzoru, w którym wszędzie zamiast `n` stoi `n+1`.
+5. Zapisz wniosek dopiero po uzyskaniu odpowiedniej prawej strony. Nie zakładaj z góry, że dwa różnie wyglądające wyrażenia są równe.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Wspólny szablon oddziela myślenie o indukcji od rachunków właściwych dla konkretnej sumy.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Baza → założenie → `Sₙ₊₁=Sₙ+uₙ₊₁` → uproszczenie → wniosek.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+W zadaniu geometrycznym nowy wyraz to `qⁿ`, nie `qⁿ⁺¹`; w sinusowym `sin((n+1)α)`, a w naprzemiennym znak też musi się zmienić.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Jaki wyraz należy dopisać do `Σ(k=1 do n) (−1)^(k−1)k²`, aby otrzymać sumę do `n+1`?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** Dopisujesz `uₙ₊₁=(−1)^n(n+1)²`. Zauważ, że wykładnik przy −1 to nowy indeks minus 1.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
+

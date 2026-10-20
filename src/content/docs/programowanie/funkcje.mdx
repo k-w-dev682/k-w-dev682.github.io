@@ -1,0 +1,108 @@
+---
+title: "Funkcje — parametry, wynik i wywołanie"
+description: "Krok po kroku: kod, pamięć, ćwiczenia i odpowiedzi."
+sidebar:
+  order: 42
+---
+
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+import CppStepLab from '../../../components/cpp13/CppStepLab.jsx';
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="funkcje" title="Funkcje — parametry, wynik i wywołanie" section="06 · Dane, funkcje i pamięć" />
+
+# Funkcje — parametry, wynik i wywołanie
+
+## Zrozum od podstaw
+
+Funkcja jest nazwanym fragmentem programu wykonującym określone zadanie. To jak przepis, który można zastosować do różnych składników. **Parametr** jest nazwą używaną w przepisie, a **argument** konkretną wartością przekazaną przy wywołaniu. **return** oddaje wynik i kończy bieżące wywołanie.
+
+W tym przykładzie parametry są przekazywane przez wartość: funkcja otrzymuje kopie argumentów. Zmienna lokalna istnieje tylko podczas swojego wywołania. Dwa wywołania tej samej funkcji mają osobne parametry.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int suma(int a, int b) {
+    int wynik = a + b;
+    return wynik;
+}
+int main() {
+    int x = 3;
+    int y = suma(x, 4);
+    std::cout << x << ' ' << y;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Pierwszy int określa typ wyniku; suma jest nazwą, a a i b parametrami int.
+2. wynik istnieje lokalnie i otrzymuje a + b.
+3. return przekazuje wartość do miejsca wywołania.
+4. main uruchamia suma z argumentami 3 i 4. Nie uruchamia definicji funkcji tylko dlatego, że jest wyżej w pliku.
+5. x pozostaje 3; y otrzymuje 7.
+
+<CppTrace title="Śledzenie: funkcje" steps={[["main", "x = 3; oczekiwanie na suma(x, 4)"], ["Wejście do suma", "a = 3, b = 4"], ["Obliczenie", "lokalne wynik = 7"], ["Powrót", "y = 7, lokalne parametry kończą życie"]]} />
+
+![Schemat: funkcja](/cpp13/funkcja.svg)
+
+<CppStepLab client:visible mode="function" />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+int suma(int a, int b) { std::cout << a + b; }
+```
+
+Wypisanie do konsoli nie jest zwróceniem wartości. Funkcja o wyniku int musi zwrócić wartość na każdej osiągalnej ścieżce.
+
+**Poprawiony fragment:**
+
+```cpp
+int suma(int a, int b) { return a + b; }
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co zwraca suma(2, suma(3, 4))?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+9: wewnętrzne wywołanie daje 7, a zewnętrzne dodaje 2 + 7.
+
+</details>
+
+### 2. Czy a = 100 w funkcji zmienia x?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie przy przekazywaniu int przez wartość. a jest kopią.
+
+</details>
+
+### 3. Napisz funkcję kwadrat.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+`int kwadrat(int x) { return x * x; }`. Działa dla argumentów, których kwadrat mieści się w int; dla większych potrzebny szerszy typ i kontrola zakresu.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Definicja opisuje przepis, wywołanie go uruchamia. cout pokazuje wynik, return przekazuje go do dalszych obliczeń.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+[Wróć do spisu treści](../spis-tresci/) · [Laboratorium](../laboratorium/)

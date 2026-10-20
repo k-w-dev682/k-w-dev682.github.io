@@ -5,12 +5,136 @@ sidebar:
   order: 10
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+import CppStepLab from '../../../components/cpp13/CppStepLab.jsx';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { ForLab } from '../../../components/CppLabs.jsx';
+import ForLoopGraphic from '../../../components/visuals/ForLoopGraphic.astro';
 
 <PdfTopicButton client:load slug="petla-for" title="Pętla `for` — znana liczba powtórzeń" section="02 · Algorytmy i diagnostyka" />
 
 # Pętla `for` — znana liczba powtórzeń
+
+## Zrozum od podstaw
+
+`for` zbiera w jednym miejscu przygotowanie licznika, warunek i zmianę licznika. To wygodny zapis, kiedy chcemy przejść po kolejnych numerach. Nie wykonuje się całego nagłówka przed ciałem: po inicjalizacji sprawdzamy warunek, potem ciało, potem zmianę i ponownie warunek.
+
+Licznik utworzony w nagłówku istnieje tylko w obrębie pętli. Akumulator utworzony przed pętlą pozostaje dostępny także po niej. **Zakres nazwy** oznacza obszar kodu, w którym możemy jej używać.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int suma = 0;
+    for (int i = 1; i <= 3; ++i) {
+        suma += i;
+    }
+    std::cout << suma << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. suma powstaje przed pętlą i zaczyna od 0.
+2. `int i = 1` wykonuje się raz; `i <= 3` przed każdym obiegiem.
+3. Ciało dodaje bieżące i do sumy.
+4. ++i wykonuje się po ciele; wartości i w ciele to 1, 2, 3.
+5. Po pętli suma wynosi 6. i nie jest tutaj dostępne, ponieważ zadeklarowano je w nagłówku.
+
+<CppTrace title="Śledzenie: petla for" steps={[["i = 1, test TAK", "suma: 0 → 1"], ["i = 2, test TAK", "suma: 1 → 3"], ["i = 3, test TAK", "suma: 3 → 6"], ["i = 4, test NIE", "ciało pominięte; suma = 6"]]} />
+
+![Schemat: petla](/cpp13/petla.svg)
+
+<CppStepLab client:visible mode="loop" />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+for (int i = 1; i < 3; ++i) { suma += i; }
+```
+
+Jeśli celem jest suma od 1 do 3 włącznie, &lt; pomija 3. Wynik wynosi wtedy 3 zamiast 6.
+
+**Poprawiony fragment:**
+
+```cpp
+for (int i = 1; i <= 3; ++i) { suma += i; }
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Ile obiegów dla i = 0; i &lt; 3; ++i?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Trzy: i równe 0, 1, 2. Indeks końcowy 3 nie zostaje użyty w ciele.
+
+</details>
+
+### 2. Uzupełnij zmianę w odliczaniu: i = 3; i > 0; ___.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+`--i`, aby po 3, 2, 1 osiągnąć 0 i zakończyć.
+
+</details>
+
+### 3. Wypisz pięć dodatnich wielokrotności 3.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+`for (int i = 1; i <= 5; ++i) std::cout << 3 * i << ' ';`. Kolejne wyniki to 3, 6, 9, 12, 15, bo mnożnik rośnie o jeden.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Kolejność: inicjalizacja raz → warunek → ciało → zmiana → warunek. Licz powtórzenia na rzeczywistych wartościach licznika.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
+
+## Pętla jest powtarzaniem jednej czynności
+
+Zamiast pisać tę samą instrukcję cztery razy, możemy powiedzieć komputerowi: „wykonaj ją cztery razy”. Pętla `for` jest wygodna, gdy wiemy, jak ma się zmieniać **licznik**.
+
+```cpp
+for (int i = 0; i < 4; ++i) {
+    std::cout << i << ' ';
+}
+```
+
+- `int i = 0` — przygotuj licznik i ustaw go na zero **jeden raz przed startem**.
+- `i < 4` — przed każdym obiegiem zapytaj, czy licznik jest mniejszy od 4.
+- `++i` — po obiegu powiększ licznik o 1.
+- `{ ... }` — kod wewnątrz nawiasów klamrowych to **ciało pętli**, które się powtarza.
+
+| Kontrola | i | Czy `i<4`? | Co się stanie? |
+|---|---:|---|---|
+| 1 | 0 | tak | wypisze 0 |
+| 2 | 1 | tak | wypisze 1 |
+| 3 | 2 | tak | wypisze 2 |
+| 4 | 3 | tak | wypisze 3 |
+| 5 | 4 | nie | koniec, niczego nie wypisze |
+
+**Dlaczego cztery powtórzenia, skoro granicą jest 4?** Bo startujemy od zera: wartości licznika to `0,1,2,3`. Warunek `i<4` nie dopuszcza 4. Przy `i<=4` byłoby **pięć** powtórzeń.
+
+
+<ForLoopGraphic />
 
 ## Budowa pętli
 
@@ -45,7 +169,7 @@ Obie pętle mogą realizować ten sam algorytm. `for` bywa wygodniejsza, gdy zna
 
 ## Zadanie
 
-Wypisz pięć pierwszych dodatnich wielokrotności 3: 3, 6, 9, 12, 15. Jedno rozwiązanie: `for (int i=1; i<=5; ++i) cout << 3*i << ' ';`.
+Wypisz pięć pierwszych dodatnich wielokrotności 3: 3, 6, 9, 12, 15. Jedno rozwiązanie: `for (int i=1; i<=5; ++i) std::cout << 3*i << ' ';`.
 
 ## Interaktywna wizualizacja
 

@@ -15,6 +15,14 @@ import { CircleLab } from '../../../components/PhysicsLabs.jsx';
 
 # Ruch jednostajny po okręgu
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/okrag.svg" alt="Na okręgu szybkość może być stała, lecz kierunek wciąż się zmienia" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Jedno okrążenie to 2πr; szybkość = obwód / okres.**</figcaption>
+</figure>
+
 Przy stałej **wartości prędkości** kierunek wektora prędkości nadal się zmienia. Dlatego ruch po okręgu jest ruchem z przyspieszeniem, mimo że szybkość pozostaje stała.
 
 <Eq tex={String.raw`v=\omega R,\qquad \omega=\frac{2\pi}{T}`} display />
@@ -35,6 +43,51 @@ Wektor prędkości jest styczny do toru. Przyspieszenie dośrodkowe wskazuje do 
 :::
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Na okręgu szybkość może być stała, lecz kierunek wciąż się zmienia
+
+W ruchu jednostajnym po okręgu ciało ma stałą **szybkość**, ale zmienia się kierunek wektora prędkości. Zatem ma przyspieszenie.
+
+### Co oznaczają symbole i jednostki?
+
+`r` — promień [m]; `T` — okres jednego obrotu [s]; `v` — szybkość [m/s]; `f` — częstotliwość [Hz = 1/s]; `π≈3,14`.
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Koło ma promień `r=2 m`, a pełen obrót trwa `T=4 s`.
+2. Długość obwodu: `2πr=2π·2=4π m`.
+3. Szybkość: `v=2πr/T=4π/4=π≈3,14 m/s`.
+4. Częstotliwość: `f=1/T=1/4=0,25 Hz`. Oznacza ćwierć obrotu na sekundę.
+
+### Dlaczego to działa?
+
+Jeden pełny obrót to droga równa obwodowi. Czas jednego obrotu nazywamy okresem `T`.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Jedno okrążenie to 2πr; szybkość = obwód / okres.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie myl częstotliwości `f` z okresem `T`: `f=1/T`, a nie `f=T`.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Promień toru to 1 m, okres 2 s. Ile wynosi szybkość?</summary>
+
+**Kolejne kroki i odpowiedź:** `v=2π·1/2=π≈3,14 m/s`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <CircleLab client:load />
 

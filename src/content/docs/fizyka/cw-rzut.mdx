@@ -15,6 +15,14 @@ import { ProjectileLab } from '../../../components/PhysicsLabs.jsx';
 
 # Ćwiczenia: rzut ukośny
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/cw-rzut.svg" alt="W rzucie licz x i y osobno — nigdy w jednym pomieszanym równaniu" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **x: cos. y: sin i minus g.**</figcaption>
+</figure>
+
 ## Przykład dodatkowy
 
 Piłkę wyrzucono z poziomu gruntu z v₀ = 14 m/s pod kątem 45°. Przyjmij g = 9,81 m/s². Zakładamy, że wraca na wysokość startu.
@@ -27,6 +35,51 @@ Piłkę wyrzucono z poziomu gruntu z v₀ = 14 m/s pod kątem 45°. Przyjmij g =
 W oryginalnym zdjęciu 2 są równania rzutu, ale nie podano takiego zestawu danych — liczby są naszym ćwiczeniem.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## W rzucie licz x i y osobno — nigdy w jednym pomieszanym równaniu
+
+Przy rzucie ukośnym bez oporu powietrza składowa `v₀ₓ` pozostaje stała, a składowa `vᵧ` maleje przez grawitację.
+
+### Co oznaczają symbole i jednostki?
+
+`v₀` — szybkość początkowa [m/s]; `α` — kąt rzutu; `t` — czas [s]; `g` — przyspieszenie ziemskie [m/s²]; `x`,`y` — współrzędne [m].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Piłkę rzucono z `v₀=10 m/s` pod kątem `30°`, `g=10 m/s²`, z wysokości `y₀=0`.
+2. Składowe: `v₀ₓ≈8,66 m/s` i `v₀ᵧ=5 m/s`.
+3. Po `t=0,5 s`: `x≈8,66·0,5=4,33 m`.
+4. Wysokość: `y=5·0,5−10·0,5²/2=2,5−1,25=1,25 m`. Piłka nadal jest powyżej miejsca wyrzutu.
+
+### Dlaczego to działa?
+
+Rozkład prędkości na osie rozdziela wpływ siły ciężkości (tylko pionowy) od poziomego ruchu jednostajnego.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**x: cos. y: sin i minus g.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie używaj `gt²/2` w równaniu poziomym przy braku oporu powietrza.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Piłka została rzucona poziomo z v₀=12 m/s. Jak daleko poziomo doleci w 1 s?</summary>
+
+**Kolejne kroki i odpowiedź:** `x=v₀t=12·1=12 m`, pomijamy opór powietrza.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <ProjectileLab client:load />
 

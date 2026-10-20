@@ -1,0 +1,31 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Jak czytać przedział i nierówność z modułem" eyebrow="MATEMATYKA · PRZEDZIAŁY" caption="Na górze przedział [2, 5). Na dole rozwiązanie nierówności |x + 3| ≤ 2, czyli [−5, −1].">
+  <svg viewBox="0 0 860 300" class="sl-svg" role="img" aria-label="Dwa przykłady przedziałów na osi liczbowej">
+    <rect x="24" y="24" width="812" height="252" rx="22" class="sl-svg__panel" />
+    <text x="46" y="62" class="sl-svg__overline">Przykład 1: [2, 5)</text>
+    <line x1="120" y1="102" x2="740" y2="102" class="sl-svg__axis" />
+    <line x1="280" y1="88" x2="280" y2="116" class="sl-svg__tick" /><text x="280" y="140" text-anchor="middle" class="sl-svg__label">2</text>
+    <line x1="520" y1="88" x2="520" y2="116" class="sl-svg__tick" /><text x="520" y="140" text-anchor="middle" class="sl-svg__label">5</text>
+    <line x1="280" y1="102" x2="520" y2="102" class="sl-svg__measure sl-svg__measure--accent" />
+    <circle cx="280" cy="102" r="10" class="sl-svg__dot sl-svg__dot--accent" />
+    <circle cx="520" cy="102" r="10" class="sl-svg__dot sl-svg__dot--open" />
+    <text x="560" y="108" class="sl-svg__note">5 nie należy</text>
+    <text x="175" y="108" class="sl-svg__note">2 należy</text>
+
+    <text x="46" y="187" class="sl-svg__overline">Przykład 2: |x + 3| ≤ 2 → [−5, −1]</text>
+    <line x1="120" y1="224" x2="740" y2="224" class="sl-svg__axis" />
+    <line x1="250" y1="210" x2="250" y2="238" class="sl-svg__tick" /><text x="250" y="262" text-anchor="middle" class="sl-svg__label">−5</text>
+    <line x1="410" y1="210" x2="410" y2="238" class="sl-svg__tick" /><text x="410" y="262" text-anchor="middle" class="sl-svg__label">−3</text>
+    <line x1="570" y1="210" x2="570" y2="238" class="sl-svg__tick" /><text x="570" y="262" text-anchor="middle" class="sl-svg__label">−1</text>
+    <line x1="250" y1="224" x2="570" y2="224" class="sl-svg__measure sl-svg__measure--accent" />
+    <circle cx="250" cy="224" r="10" class="sl-svg__dot sl-svg__dot--accent" />
+    <circle cx="570" cy="224" r="10" class="sl-svg__dot sl-svg__dot--accent" />
+    <line x1="410" y1="182" x2="250" y2="182" class="sl-svg__measure" />
+    <line x1="410" y1="182" x2="570" y2="182" class="sl-svg__measure" />
+    <text x="330" y="170" text-anchor="middle" class="sl-svg__value">2</text>
+    <text x="490" y="170" text-anchor="middle" class="sl-svg__value">2</text>
+    <text x="394" y="153" class="sl-svg__note">środek: −3</text>
+  </svg>
+</StudyFigure>

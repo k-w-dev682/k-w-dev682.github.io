@@ -12,6 +12,64 @@ import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
 
 <ElectronicsPdfButton client:load slug="gradient" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Gradient potencjału mówi, jak szybko i w którą stronę potencjał zmienia się w przestrzeni. Pole elektryczne jest skierowane w stronę **spadku** potencjału dla dodatniego próbnika.
+
+Wyobraź sobie stok narciarski: im bardziej stromo zmienia się wysokość, tym większa składowa „ściągająca w dół”. Natężenie pola odpowiada szybkości zmiany potencjału, a minus mówi: w kierunku malejącego `V`.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: gradient](/elektronika/grafiki/gradient.svg)
+
+**Wskazówka do grafiki:** Potencjał spada w prawo → pole dla dodatniego próbnika wskazuje w prawo.
+
+### Każda litera i symbol — co oznacza?
+
+- `Eₓ` — składowa natężenia pola wzdłuż osi x, `V/m`.
+- `V(x)` — potencjał jako funkcja położenia.
+- `dV/dx` — pochodna, czyli szybkość zmiany `V` względem `x`.
+- `Eₓ = −dV/dx` — zapis w jednym wymiarze.
+- `E ≈ |ΔV|/d` — moduł pola jednorodnego przy znanej zmianie potencjału na odcinku.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Potencjał maleje z `6 V` do `0 V` na odcinku `d = 2 cm` wzdłuż dodatniej osi x.
+2. Zamieniamy `d = 0,02 m`.
+3. Obliczamy zmianę `ΔV = 0 − 6 = −6 V`.
+4. Przybliżona pochodna: `ΔV/Δx = −6/0,02 = −300 V/m`.
+5. Pole ma przeciwny znak: `Eₓ = −(−300) = +300 V/m`.
+6. Znak plus oznacza zwrot pola zgodny z dodatnią osią x.
+
+:::caution[Na co uważać?]
+Nie gub minusa w `Eₓ = −dV/dx` i nie zamieniaj `2 cm` na `2 m`.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+Potencjał spada w prawo → pole dla dodatniego próbnika wskazuje w prawo.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Jeśli potencjał rośnie wraz z x, w którą stronę skierowane jest `Eₓ`?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+W ujemną stronę osi x, bo `Eₓ = −dV/dx`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Dlaczego potencjał ma związek z natężeniem?
 
 Pole elektryczne wskazuje kierunek **najszybszego spadku potencjału** (dla elektrostatyki):

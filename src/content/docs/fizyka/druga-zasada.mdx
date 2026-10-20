@@ -15,6 +15,38 @@ import { ForceLab } from '../../../components/PhysicsLabs.jsx';
 
 # Druga zasada Newtona: równanie ruchu
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/druga-zasada.svg" alt="Nie szukaj F w pamięci — najpierw policz wypadkową sił" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Narysuj → wybierz oś → dodaj ze znakami → podziel przez m.**</figcaption>
+</figure>
+
+## Najpierw myśl o pchaniu wózka
+
+Jeśli pchasz pusty wózek i ciężki wózek z taką samą siłą, pusty zwykle zmienia prędkość szybciej. **Większa masa** oznacza mniejsze przyspieszenie przy tej samej sile wypadkowej. Jeżeli dwie siły działają w przeciwne strony, liczymy ich sumę **z uwzględnieniem znaków**.
+
+<Eq tex={String.raw`\sum F_x=ma_x`} display />
+
+- `Σ` oznacza **sumę wszystkich sił** w rozpatrywanym kierunku.
+- `Fₓ` to składowa siły w kierunku osi x, w niutonach (`N`).
+- `m` to masa w kilogramach (`kg`).
+- `aₓ` to przyspieszenie w osi x, w `m/s²`.
+
+### Cały rachunek dla przykładu z lekcji
+
+W prawo działa `20 N`, a tarcie w lewo ma wartość `8 N`. Wybieramy **prawo jako kierunek dodatni**, dlatego sumujemy `+20 N` i `−8 N`:
+
+<Eq tex={String.raw`F_{\mathrm{wyp}}=20-8=12\ \mathrm{N}`} display />
+
+Dzielimy obie strony równania `F=ma` przez masę `m=4 kg`:
+
+<Eq tex={String.raw`a=\frac{F_{\mathrm{wyp}}}{m}=\frac{12\ \mathrm{N}}{4\ \mathrm{kg}}=3\ \mathrm{m/s^2}`} display />
+
+To oznacza, że przyspieszenie jest skierowane **w prawo** i wynosi `3 m/s²`. Możemy sprawdzić jednostki: `1 N = 1 kg·m/s²`, więc `N/kg = m/s²`.
+
+
 Dla stałej masy przyspieszenie ma taki sam kierunek jak wypadkowa siła. Najpierw ustalamy zwrot osi, potem nadajemy siłom znaki.
 
 <Eq tex={String.raw`a_x=\frac{\sum F_x}{m}`} display />
@@ -33,6 +65,51 @@ Nie dziel jednej przypadkowej siły przez masę, jeśli działa ich kilka. Do wz
 :::
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Nie szukaj F w pamięci — najpierw policz wypadkową sił
+
+Wzór `ΣF=ma` dotyczy **sumy wektorowej** wszystkich sił działających na ciało. Pojedyncza siła nie zawsze jest wypadkową.
+
+### Co oznaczają symbole i jednostki?
+
+`ΣFₓ` — suma składowych sił poziomych [N]; `m` — masa [kg]; `aₓ` — składowa przyspieszenia [m/s²].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Skrzynia o masie `m=4 kg`. Pchasz ją z siłą 18 N w prawo, tarcie wynosi 6 N w lewo.
+2. Przy osi dodatniej w prawo: `ΣFₓ=18−6=12 N`.
+3. Podstaw do `ΣFₓ=maₓ`: `12=4aₓ`.
+4. Podziel obie strony przez 4 kg: `aₓ=12/4=3 m/s²` w prawo.
+
+### Dlaczego to działa?
+
+Siły o przeciwnych zwrotach częściowo się znoszą. Tylko ich suma decyduje o zmianie prędkości.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Narysuj → wybierz oś → dodaj ze znakami → podziel przez m.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie podstawiaj 18 N jako wypadkowej: tarcie też działa na skrzynię.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Masa 2 kg, siły: 10 N w prawo, 4 N w lewo. Wyznacz przyspieszenie.</summary>
+
+**Kolejne kroki i odpowiedź:** `ΣF=10−4=6 N`, `a=6/2=3 m/s²` w prawo.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <ForceLab client:load />
 

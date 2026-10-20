@@ -14,6 +14,29 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Kwantyfikatory i funkcje zdaniowe
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/kwantyfikatory.svg" alt="∀ wymaga wszystkich, ∃ wymaga choć jednego" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> ∀ wymaga wszystkich, ∃ wymaga choć jednego. Jednym kontrprzykładem obalisz „dla każdego”.</figcaption>
+</figure>
+
+
+## „Każdy” i „istnieje” — dwa zupełnie różne wymagania
+
+Zdanie „Każdy student ma zeszyt” obalasz, wskazując **jednego** studenta bez zeszytu. Natomiast zdanie „Istnieje student z zeszytem” obalasz tylko wtedy, gdy **żaden** student go nie ma. Na tej samej zasadzie działają kwantyfikatory.
+
+- `∀` czytamy **dla każdego**. Trzeba sprawdzić wszystkie elementy wybranego zbioru.
+- `∃` czytamy **istnieje**. Wystarczy podać jeden działający przykład.
+- `∈` oznacza **należy do zbioru**. `x∈ℝ` mówi, że `x` jest liczbą rzeczywistą.
+
+Przykładowo zdanie `∀x∈ℝ: x²≥0` jest prawdziwe, ponieważ kwadrat żadnej liczby rzeczywistej nie jest ujemny. Zdanie `∀x∈ℝ: x>0` jest fałszywe — wystarczy wziąć `x=−1`.
+
+### Jak poprawnie zanegować zdanie?
+
+Negacja „Każdy zdał” brzmi **„Co najmniej jedna osoba nie zdała”**, a nie „Nikt nie zdał”. Negacja „Ktoś zdał” brzmi **„Nikt nie zdał”**. Odpowiednio zamieniamy `∀` na `∃` lub odwrotnie i negujemy warunek.
+
+
 ## Zdanie z wolną zmienną
 
 Wyrażenie `x > 3` nie jest jeszcze zdaniem logicznym, jeśli nie ustaliliśmy wartości `x`. Po podstawieniu `x=5` jest prawdziwe, ale po podstawieniu `x=1` — fałszywe.
@@ -37,4 +60,46 @@ Jest prawdziwe, ponieważ pasują np. 2 oraz −2.
 <Eq display tex={String.raw`\neg(\exists x\ P(x))\Leftrightarrow \forall x\ \neg P(x)`}/>
 
 **Sens:** żeby obalić „każdy”, wystarczy **jeden kontrprzykład**. Żeby obalić „istnieje”, musisz wykluczyć wszystkie możliwości.
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## „Każdy” kontra „istnieje” — jak zobaczyć różnicę?
+
+Dla zbioru `A={1,2,3}` porównaj:
+
+- `∀x∈A: x>0` — każdy element jest dodatni; prawda, bo `1`, `2`, `3` są dodatnie.
+- `∃x∈A: x>2` — znajdzie się choć jeden większy od 2; prawda, bo `x=3`.
+- `∀x∈A: x>2` — fałsz, bo `x=1` jest kontrprzykładem.
+
+### Negacja w czterech krokach
+
+Zaneguj `∀x∈A: x>0`.
+
+1. Nie twierdzimy już, że **wszyscy** spełniają warunek.
+2. Wystarczy znaleźć **jednego**, który go nie spełnia.
+3. Zmień `∀` na `∃`.
+4. Zaneguj nierówność: `x>0` przechodzi w `x≤0`.
+
+Wynik: `∃x∈A: x≤0`. Dla `A={1,2,3}` negacja jest fałszywa, co zgadza się z prawdziwością oryginału.
+
+### Kolejność kwantyfikatorów też ma znaczenie
+
+`∀x∈ℝ ∃y∈ℝ: y>x` jest prawdziwe (dla każdego `x` wybierz `y=x+1`). Natomiast `∃y∈ℝ ∀x∈ℝ: y>x` jest fałszywe — nie istnieje jedna liczba większa od wszystkich rzeczywistych.
+
+:::tip[Zapamiętaj]
+`∀` obalamy **jednym kontrprzykładem**. `∃` udowadniamy **jednym przykładem**.
+:::
+
+<details className="m1-selfcheck">
+<summary>Sprawdź: zaneguj „istnieje naturalne n takie, że n² = 2”</summary>
+
+`∀n∈ℕ: n²≠2`. Zmieniamy „istnieje” na „dla każdego” i negujemy równość. Nie wpisujemy „nie istnieje żadne” bez określenia dziedziny.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

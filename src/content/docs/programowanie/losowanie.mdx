@@ -5,11 +5,103 @@ sidebar:
   order: 26
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="losowanie" title="Liczby pseudolosowe i przedziały" section="03 · Liczby w pamięci" />
 
 # Liczby pseudolosowe i przedziały
+
+## Zrozum od podstaw
+
+Generator pseudolosowy jest maszyną ze stanem: kolejny krok zmienia stan i daje następną liczbę. **Ziarno** ustala stan początkowy. **Rozkład** przekształca wyniki generatora na potrzebny przedział, np. od 1 do 6.
+
+Stałe ziarno ułatwia odtwarzanie błędu. Ciąg samego mt19937 jest zdefiniowany, ale sposób mapowania przez uniform_int_distribution może różnić się między bibliotekami standardowymi. Nie obiecujemy identycznych rzutów kostką na każdej platformie.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <random>
+
+int main() {
+    std::mt19937 generator{42};
+    std::uniform_int_distribution<int> kostka(1, 6);
+    for (int i = 0; i < 5; ++i) {
+        int rzut = kostka(generator);
+        std::cout << rzut << ' ';
+    }
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. random udostępnia generator mt19937. Klamry przekazują ziarno 42.
+2. Szablon &lt;int> wybiera typ wyników rozkładu. Granice 1 i 6 są obie dopuszczalne.
+3. Każde wywołanie kostka(generator) pobiera dane z aktualnego stanu generatora.
+4. Nie tworzymy generatora od nowa w pętli, bo chcemy kolejne elementy ciągu.
+
+<CppTrace title="Śledzenie: losowanie" steps={[["Inicjalizacja", "ziarno 42, jeden generator"], ["Rozkład", "dozwolone wartości: 1…6"], ["Każdy rzut", "nowy wynik i zmieniony stan"], ["Po pięciu rzutach", "dokładnie pięć liczb z przedziału"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+for (int i = 0; i < 5; ++i) { std::mt19937 g{42}; std::cout << kostka(g); }
+```
+
+Ponowne ustawienie tego samego ziarna wewnątrz pętli rozpoczyna ciąg od początku, więc dostajesz ciągle pierwszy wynik.
+
+**Poprawiony fragment:**
+
+```cpp
+std::mt19937 g{42};
+for (int i = 0; i < 5; ++i) std::cout << kostka(g);
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy pięć rzutów musi zawierać wszystkie liczby?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Powtórzenia są dozwolone, a równomierny rozkład nie gwarantuje równej liczby wystąpień w krótkiej próbie.
+
+</details>
+
+### 2. Jak losować od 10 do 100 włącznie?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Utwórz uniform_int_distribution&lt;int>(10, 100). Obie granice mogą się pojawić.
+
+</details>
+
+### 3. Jak zliczyć parzyste wyniki dziesięciu losowań?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Ustaw licznik na 0, powtórz losowanie 10 razy i wykonuj ++licznik tylko wtedy, gdy wynik % 2 == 0. Nie losuj drugi raz podczas sprawdzania tego samego wyniku.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Generator twórz raz, potem używaj wielokrotnie. mt19937 nie jest generatorem do ochrony haseł i sekretów.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Co znaczy pseudolosowość?
 

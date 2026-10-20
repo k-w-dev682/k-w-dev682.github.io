@@ -8,10 +8,91 @@ sidebar:
 import Eq from '../../../components/ElecEquation.astro';
 import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
 import { PotentialLab } from '../../../components/ElectronicsLabs.jsx';
+import PotentialDifferenceGraphic from '../../../components/visuals/PotentialDifferenceGraphic.astro';
 
 <div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 04 · Potencjał i napięcie · ZDJĘCIA 5–6</div>
 
 <ElectronicsPdfButton client:load slug="napiecie" />
+
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Napięcie to **różnica potencjałów między dwoma punktami**. Nie można mówić o napięciu pojedynczego punktu bez przyjętego drugiego punktu odniesienia.
+
+Wyobraź sobie dwa miejsca na wzniesieniu. Różnica wysokości mówi, ile metrów dzieli poziomy, nawet jeśli nie znasz wysokości bezwzględnej. Podobnie `U_AB` porównuje dwa potencjały.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: napiecie](/elektronika/grafiki/napiecie.svg)
+
+**Wskazówka do grafiki:** **U_AB = pierwszy potencjał minus drugi.** Zamiana A i B zmienia znak.
+
+### Każda litera i symbol — co oznacza?
+
+- `U_AB` — napięcie punktu A względem B w woltach.
+- `V_A` — potencjał w punkcie A.
+- `V_B` — potencjał w punkcie B.
+- `U_AB = V_A − V_B` — kolejność indeksów ma znaczenie.
+- `1 V = 1 J/C` — 1 wolt odpowiada 1 dżulowi energii na kulomb ładunku.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dane: `V_A = 12 V`, `V_B = 5 V`.
+2. Zapisujemy `U_AB = V_A − V_B`.
+3. Podstawiamy `U_AB = 12 V − 5 V = 7 V`.
+4. Zamieniamy kolejność: `U_BA = V_B − V_A`.
+5. Podstawiamy `U_BA = 5 − 12 = −7 V`.
+6. To samo porównanie ma przeciwny znak, gdy odwrócimy kolejność punktów.
+
+:::caution[Na co uważać?]
+Błąd: „napięcie jest w punkcie A”. Jeśli podajemy potencjał w A względem masy, to drugim punktem jest umowne `0 V`.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**U_AB = pierwszy potencjał minus drugi.** Zamiana A i B zmienia znak.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Jeśli `V_A = −2 V` i `V_B = 3 V`, ile wynosi `U_AB`?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`−2 − 3 = −5 V`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
+## Skąd bierze się napięcie?
+
+Wyobraź sobie dwa punkty, między którymi jest różnica wysokości: piłka może stoczyć się z wyższego na niższy. W elektryczności analogiczną rolę pełni **różnica potencjałów**. To tylko porównanie pomagające w intuicji, nie dosłowne „przelewanie się napięcia”.
+
+<PotentialDifferenceGraphic />
+
+<Eq tex={String.raw`U_{AB}=V_A-V_B`} display />
+
+- `U_AB` — napięcie między punktami A i B, w woltach (`V`).
+- `V_A` oraz `V_B` — potencjały punktów A i B, także w woltach.
+- Znak minus oznacza **różnicę**: potencjał w B odejmujemy od potencjału w A zgodnie z przyjętym oznaczeniem `U_AB=V_A−V_B`.
+
+### Przykład bez skrótów
+
+Jeśli `V_A=9 V` i `V_B=3 V`, to `U_AB=9−3=6 V`. Odwrotny kierunek daje `U_BA=3−9=−6 V`. Ten sam układ może więc dawać wynik ze znakiem dodatnim lub ujemnym w zależności od kolejności punktów.
+
+### Co to jest wolt?
+
+`1 V = 1 J/C`: wolt to **jeden dżul energii (lub pracy) na jeden kulomb ładunku**. Dla ładunku `q=2 C` oraz różnicy potencjałów `U_AB=3 V` praca pola przy przejściu dodatniego ładunku z A do B wynosi `W=qU=2·3=6 J` przy konwencji oznaczeń z tej lekcji.
+
+**Typowy błąd:** napięcie i prąd to nie synonimy. Napięcie to różnica potencjałów, a prąd opisuje przepływ ładunku w czasie.
 
 ## Dwie rzeczy, które często się mylą
 

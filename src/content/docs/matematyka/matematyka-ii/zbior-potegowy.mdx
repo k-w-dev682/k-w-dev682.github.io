@@ -13,6 +13,24 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Zbiór potęgowy i liczba podzbiorów
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/zbior-potegowy.svg" alt="Podzbiory powstają przez decyzje „biorę / nie biorę”" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Każdy element albo należy do tworzonego podzbioru, albo nie. Ta dwuwariantowa decyzja powtarzana n razy daje `2ⁿ`.</figcaption>
+</figure>
+
+## Zbiór potęgowy to „zbiór wszystkich możliwości wyboru”
+
+Dla `A={a,b}` podzbiorami są: `∅`, `{a}`, `{b}`, `{a,b}`. Zbiór złożony z tych podzbiorów nazywa się **zbiorem potęgowym** i oznacza `P(A)` (lub `𝒫(A)`).
+
+Dlaczego przy dwóch elementach wychodzą `4=2²` podzbiory? Dla każdego elementu masz **dwie decyzje**: „biorę” lub „nie biorę”. Zatem `2·2=4`. Dla trzech elementów byłoby `2·2·2=8`.
+
+**Pułapka:** `a∈A`, ale `{a}∈P(A)`, bo elementami zbioru potęgowego są **zbiory**, a nie pojedyncze litery.
+
+
 Zbiór potęgowy <Eq tex={String.raw`\mathcal P(X)`}/> zawiera **wszystkie podzbiory** zbioru X, również pusty i cały X.
 
 Dla X = &#123;1,2,3&#125; otrzymujemy:
@@ -35,6 +53,48 @@ To razem osiem podzbiorów.
 Gdy n = 4:
 
 <Eq display tex={String.raw`|\mathcal P(X)|=2^4=16`}/>
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Podzbiory powstają przez decyzje „biorę / nie biorę”
+
+Zbiór potęgowy `P(A)` (czasem `𝒫(A)`) to zbiór **wszystkich podzbiorów** A. Jego elementami nie są pojedyncze liczby z A, lecz całe podzbiory.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Weź `A={a,b}`. Dla litery a masz dwie decyzje: wybrać albo nie wybrać.
+2. Dla litery b znowu masz dwie decyzje. Łącznie `2·2=4` możliwe zestawy decyzji.
+3. Wypisz wyniki: `∅`, `{a}`, `{b}`, `{a,b}`. To cztery **elementy zbioru potęgowego**.
+4. Dla zbioru z trzema elementami są trzy niezależne decyzje, więc `2³=8` podzbiorów.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Każdy element albo należy do tworzonego podzbioru, albo nie. Ta dwuwariantowa decyzja powtarzana n razy daje `2ⁿ`.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Każdy element daje 2 wybory: wchodzę albo nie. Liczba podzbiorów = 2ⁿ.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+`∅` i sam zbiór A zawsze są podzbiorami A. Nie pomyl `a∈A` z `{a}⊆A` — element i jednoelementowy zbiór to różne obiekty.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Wypisz wszystkie podzbiory `B={1,2}` i policz je.</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `∅`, `{1}`, `{2}`, `{1,2}`. Są `2²=4` podzbiory, licząc pusty i cały B.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <PowerSetLab client:load />
 

@@ -14,6 +14,29 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Dziedziny bardziej złożonych funkcji — korekta rachunków
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/cw-dziedzina-3.svg" alt="Nierówności wymierne sprawdzaj znakami na osi" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Nierówności wymierne sprawdzaj znakami na osi. Nie mnoż przez mianownik bez ustalenia jego znaku.</figcaption>
+</figure>
+
+
+## Skąd wiemy, po której stronie miejsc zerowych jest rozwiązanie?
+
+W tym ćwiczeniu dochodzimy do warunku `(3x−2)/(x+1)≥0`. Nie wolno po prostu pomnożyć przez `x+1` bez sprawdzenia jego znaku: **mnożenie nierówności przez liczbę ujemną odwraca znak nierówności**.
+
+Dlatego dzielimy oś na trzy obszary, wyznaczone przez `−1` i `2/3`:
+
+| Badany obszar | Przykładowe x | Licznik 3x−2 | Mianownik x+1 | Znak ułamka |
+|---|---:|:---:|:---:|:---:|
+| `x<−1` | −2 | − | − | + |
+| `−1<x<2/3` | 0 | − | + | − |
+| `x>2/3` | 1 | + | + | + |
+
+Szukamy wyniku **nieujemnego**, więc bierzemy pierwszy i trzeci obszar. `x=−1` wykluczamy (dzielenie przez zero). `x=2/3` dopuszczamy, bo wówczas ułamek wynosi dokładnie `0`.
+
+
 W zadaniu ze zdjęcia 27 pojawia się funkcja zawierająca pierwiastek z wyrażenia wykładniczego:
 
 <Eq display tex={String.raw`f(x)=\sqrt{2^{\frac{2x-3}{x+1}}-\frac12}`}/>
@@ -41,4 +64,38 @@ Miejsca krytyczne to −1 i 2/3. Z analizy znaków:
 <Eq display tex={String.raw`D=(-\infty,-1)\cup\left[\frac23,\infty\right)`}/>
 
 Wartość −1 jest wykluczona, bo zeruje mianownik, a 2/3 jest dopuszczalne — pierwiastek z 0 istnieje.
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## W trudniejszej dziedzinie rozwiązuj pojedyncze warunki oddzielnie
+
+Jeśli widzisz pierwiastek, mianownik i ułamek w jednym wzorze, nie wykonuj wszystkich przekształceń naraz. Najpierw wypisz warunki, każdy w osobnym wierszu, dopiero potem je połącz.
+
+### Trening: `√((x−2)/(x+1))`
+
+1. Mianownik nie może być zerem: `x≠−1`.
+2. Podpierwiastkowe musi być nieujemne: `(x−2)/(x+1)≥0`.
+3. Punkty zmiany znaku: licznik jest zerem dla `x=2`; mianownik dla `x=−1`.
+4. Dzielimy oś na `(-∞,−1)`, `(−1,2)` i `(2,∞)`.
+5. Sprawdzamy znaki, np. `x=−2`: `(-4)/(-1)=4≥0` — pasuje. `x=0`: `(-2)/1=−2` — nie pasuje. `x=3`: `1/4>0` — pasuje.
+6. Włączamy `x=2`, bo wtedy podpierwiastkowe wynosi zero. Wyłączamy `x=−1`, bo mianownik wynosi zero.
+
+**Wynik:** `(-∞,−1) ∪ [2,∞)`.
+
+:::tip[Metoda trzech kroków]
+**Punkty krytyczne → przedziały → znak w każdym przedziale.** Nigdy nie mnoż nierówności przez mianownik bez ustalenia jego znaku.
+:::
+
+<details className="m1-selfcheck">
+<summary>Ćwiczenie: gdzie `(x−1)/(x+3)` jest nieujemne?</summary>
+
+Punkty: `−3` (wykluczony mianownik) i `1` (dozwolone zero licznika). Znak dodatni dla `x<−3` i `x>1`. Włączamy 1. Wynik: `(-∞,−3) ∪ [1,∞)`.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

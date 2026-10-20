@@ -1,0 +1,18 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Napięcie jako różnica potencjałów" eyebrow="ELEKTRONIKA · NAPIĘCIE" caption="Punkt A ma potencjał 12 V, punkt B ma 5 V. Napięcie U_AB mówi, o ile potencjały się różnią: 12 V − 5 V = 7 V.">
+  <svg viewBox="0 0 860 290" class="sl-svg" role="img" aria-label="Dwa punkty o różnych potencjałach i różnica potencjałów">
+    <rect x="24" y="24" width="812" height="242" rx="22" class="sl-svg__panel" />
+    <line x1="120" y1="220" x2="740" y2="220" class="sl-svg__axis" />
+    <rect x="180" y="68" width="120" height="152" rx="18" class="sl-svg__bar sl-svg__bar--high" />
+    <rect x="540" y="124" width="120" height="96" rx="18" class="sl-svg__bar sl-svg__bar--low" />
+    <text x="240" y="55" text-anchor="middle" class="sl-svg__label">punkt A</text>
+    <text x="600" y="111" text-anchor="middle" class="sl-svg__label">punkt B</text>
+    <text x="240" y="148" text-anchor="middle" class="sl-svg__value">12 V</text>
+    <text x="600" y="176" text-anchor="middle" class="sl-svg__value">5 V</text>
+    <line x1="300" y1="88" x2="540" y2="88" class="sl-svg__measure sl-svg__measure--accent" />
+    <text x="420" y="72" text-anchor="middle" class="sl-svg__value">U_AB = 7 V</text>
+    <text x="120" y="248" class="sl-svg__note">Wyższy potencjał nie oznacza jeszcze przepływu prądu. Pokazuje tylko różnicę energii na jednostkę ładunku.</text>
+  </svg>
+</StudyFigure>

@@ -13,6 +13,65 @@ import { CoulombLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="prawo-coulomba" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Prawo Coulomba pozwala policzyć, jak silnie działają na siebie dwa nieruchome ładunki punktowe. Im większe ładunki, tym większa siła; gdy odległość wzrośnie dwukrotnie, siła spadnie **czterokrotnie**.
+
+To podobne do światła rozchodzącego się od małej lampki: wraz z oddalaniem to samo oddziaływanie „rozlewa się” na coraz większą powierzchnię. Stąd we wzorze pojawia się kwadrat odległości.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: prawo coulomba](/elektronika/grafiki/prawo-coulomba.svg)
+
+**Wskazówka do grafiki:** Odległość razy `2` → siła podzielona przez `4`. Odległość razy `3` → siła podzielona przez `9`.
+
+### Każda litera i symbol — co oznacza?
+
+- `F` — wartość siły w niutonach (`N`).
+- `q₁` i `q₂` — ładunki w kulombach (`C`).
+- `r` — odległość między ładunkami w metrach (`m`).
+- `k ≈ 8,99 · 10⁹ N·m²/C²` — stała dla próżni.
+- `F = k · |q₁ q₂| / r²` — moduł oznacza, że liczymy dodatnią wartość siły; kierunek ustalamy ze znaków.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dane: `q₁ = +2 μC`, `q₂ = −3 μC`, `r = 0,30 m`.
+2. Zamień przedrostki: `q₁ = 2 · 10⁻⁶ C`, `q₂ = −3 · 10⁻⁶ C`.
+3. Wzór na **wartość** siły: `F = k · |q₁ q₂| / r²`.
+4. Liczymy licznik: `|q₁ q₂| = 6 · 10⁻¹² C²`.
+5. Kwadrat odległości: `r² = 0,30² = 0,09 m²`.
+6. Podstawiamy: `F = 8,99 · 10⁹ · 6 · 10⁻¹² / 0,09 ≈ 0,599 N`.
+7. Ponieważ znaki są różne, ładunki **przyciągają się**.
+
+:::caution[Na co uważać?]
+Nie podstawiaj centymetrów zamiast metrów. Nie myl znaku siły z jej wartością: wynik `0,599 N` jest dodatni, kierunek wynika ze znaków ładunków.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+Odległość razy `2` → siła podzielona przez `4`. Odległość razy `3` → siła podzielona przez `9`.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Jeśli odległość wzrośnie z 20 cm do 40 cm, co stanie się z wartością siły?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+Zmniejszy się cztery razy, ponieważ `(40/20)² = 4`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Co mówi prawo Coulomba?
 
 Dwa punktowe ładunki oddziałują na siebie siłą, która rośnie z iloczynem wartości ich ładunków i maleje z **kwadratem odległości**.

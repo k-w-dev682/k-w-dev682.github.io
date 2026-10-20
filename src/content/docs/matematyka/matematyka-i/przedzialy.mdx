@@ -8,12 +8,54 @@ sidebar:
 import Eq from '../../../../components/MathEquation.astro';
 import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 import { AbsoluteLab } from '../../../../components/MathILabs.jsx';
+import IntervalGraphic from '../../../../components/visuals/IntervalGraphic.astro';
 
 <MathIPdfButton client:load slug="przedzialy" title={"Przedziały i nierówności z wartością bezwzględną"} section={"03 · Wykłady — zbiory"} />
 
 <div className="mathi-eyebrow">MATEMATYKA I · 03 · Wykłady — zbiory · ZDJĘCIA 9–11, 14–15</div>
 
 # Przedziały i nierówności z wartością bezwzględną
+
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/przedzialy.svg" alt="Pełne kółko — koniec należy. Puste — nie należy." loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Pełne kółko — koniec należy. Puste — nie należy.. Znaki ≤ i ≥ pozwalają włączyć granicę.</figcaption>
+</figure>
+
+
+## Przedział to zapis fragmentu osi liczbowej
+
+Jeśli szukamy liczb spełniających `2≤x<5`, to 2 wolno wybrać, ale 5 już nie. Zapisujemy to jako `[2,5)`.
+
+```text
+1       2       3       4       5       6
+        ●══════════════════════○
+        2 należy              5 nie należy
+```
+
+Nawias **kwadratowy** oznacza, że koniec należy do zbioru, a **okrągły** — że nie należy. Znaki `∞` i `−∞` nie są zwykłymi liczbami, więc nigdy nie „włączamy” ich nawiasem kwadratowym.
+
+<IntervalGraphic />
+
+### Dlaczego `|x+3|≤2` staje się nierównością podwójną?
+
+Zapis `|x+3|≤2` oznacza: liczba `x+3` jest oddalona od zera o najwyżej 2. Może więc leżeć od `−2` do `2`:
+
+<Eq display tex={String.raw`-2\le x+3\le2`}/>
+
+Aby zostawić samo `x`, **od każdej z trzech części odejmujemy 3**:
+
+<Eq display tex={String.raw`-2-3\le x+3-3\le2-3`}/>
+
+Po uproszczeniu: `−5≤x≤−1`. To przedział `[−5,−1]`.
+
+**Sprawdzenie:** weź środek `x=−3`: `|−3+3|=0≤2` — działa. Weź `x=0` poza przedziałem: `|0+3|=3≤2` — nie działa.
+
+### Dlaczego przy `|x|>a` wychodzą dwa przedziały?
+
+Jeśli masz być dalej niż 3 kroki od zera, możesz stanąć albo **na lewo od −3**, albo **na prawo od 3**. Stąd `|x|>3` oznacza `x<−3` **lub** `x>3`. Słowo „lub” oznacza tu sumę dwóch obszarów.
+
 
 ## Nawiasy mówią, czy końce należą do zbioru
 
@@ -43,4 +85,39 @@ import { AbsoluteLab } from '../../../../components/MathILabs.jsx';
 Zatem rozwiązaniem jest suma dwóch przedziałów: (−∞, −2) oraz (6, ∞).
 
 <AbsoluteLab client:load />
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Dlaczego końce przedziału są tak ważne?
+
+Pomyśl, że nawias to informacja o **pozwoleniu na wejście** na granicę. `[2,5)` to wszystkie liczby od 2 do 5, ale 5 nie wchodzi. 2 może wejść.
+
+### Przykład rozpisany: `|2x−4| < 6`
+
+1. Moduł jest mniejszy od 6, więc wyrażenie wewnątrz musi leżeć między −6 a 6: `−6 < 2x−4 < 6`.
+2. Dodaj 4 do **wszystkich trzech stron**: `−2 < 2x < 10`.
+3. Podziel każdą część przez dodatnią liczbę 2: `−1 < x < 5`.
+4. Oba znaki są ostre, dlatego wynik to **`(−1,5)`**.
+5. Sprawdź np. `x=2`: `|0|=0<6` — pasuje. `x=5`: `|10−4|=6<6` — fałsz, więc 5 wykluczamy.
+
+### Co zmieniłby znak `≤`?
+
+Przy `|2x−4| ≤ 6` wartości brzegowe **są dozwolone**. Dostajesz `[−1,5]`, bo przy `x=−1` i `x=5` moduł wynosi dokładnie 6.
+
+:::tip[Hasło na pamięć]
+`<` i `>` — **puste kółko**; `≤` i `≥` — **pełne kółko**. Przy nieskończoności zawsze nawias okrągły.
+:::
+
+<details className="m1-selfcheck">
+<summary>Mini-zadanie: rozwiąż `|x−1|≤3`</summary>
+
+`−3≤x−1≤3`. Dodajemy 1: `−2≤x≤4`, zatem rozwiązanie to `[−2,4]`. Środek przedziału to 1, a promień 3.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

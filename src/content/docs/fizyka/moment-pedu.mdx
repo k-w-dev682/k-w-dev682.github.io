@@ -15,6 +15,14 @@ import { AngularLab } from '../../../components/PhysicsLabs.jsx';
 
 # Moment pędu punktu materialnego
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/moment-pedu.svg" alt="Moment pędu to „pęd związany z ruchem wokół punktu”" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Dla stycznego ruchu po okręgu: L=mvr; ogólnie potrzebny jest sinθ.**</figcaption>
+</figure>
+
 Moment pędu opisuje ruch obrotowy względem wybranego punktu odniesienia. Jest iloczynem wektorowym wektora położenia i pędu.
 
 <Eq tex={String.raw`\vec L=\vec r\times\vec p`} display />
@@ -34,6 +42,51 @@ L = 2·3·4 = **24 kg·m²/s**.
 Moment pędu zależy od wybranego punktu odniesienia, podobnie jak moment siły.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Moment pędu to „pęd związany z ruchem wokół punktu”
+
+Moment pędu punktu względem wybranego punktu ma wartość `L=r p sinθ`, gdzie `θ` to kąt między promieniem wodzącym i wektorem pędu. Przy ruchu po okręgu wektory są prostopadłe.
+
+### Co oznaczają symbole i jednostki?
+
+`L` — moment pędu [kg·m²/s]; `r` — odległość od punktu odniesienia [m]; `p` — pęd [kg·m/s]; `θ` — kąt między wektorami.
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Punkt materialny `m=2 kg` porusza się stycznie do okręgu o promieniu `r=3 m` z szybkością `v=4 m/s`.
+2. Pęd ma wartość `p=mv=2·4=8 kg·m/s`.
+3. Promień i prędkość są prostopadłe, więc `sin90°=1`.
+4. Moment pędu `L=r·p=3·8=24 kg·m²/s`.
+
+### Dlaczego to działa?
+
+W iloczynie wektorowym `r×p` ważne jest położenie względem punktu odniesienia i składowa pędu prostopadła do `r`.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Dla stycznego ruchu po okręgu: L=mvr; ogólnie potrzebny jest sinθ.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie zamieniaj momentu pędu `L` z momentem siły `τ`. Mają różne jednostki i znaczenie.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Masa 1 kg porusza się stycznie z v=5 m/s po okręgu r=2 m. Ile wynosi L?</summary>
+
+**Kolejne kroki i odpowiedź:** `L=mvr=1·5·2=10 kg·m²/s`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <AngularLab client:load />
 

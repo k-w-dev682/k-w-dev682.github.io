@@ -15,6 +15,14 @@ import { ProjectileLab } from '../../../components/PhysicsLabs.jsx';
 
 # Rzut ukośny — równania i tor
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/rzut-ukosny.svg" alt="Rzut ukośny to dwa niezależne równania na jednym rysunku" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Rozdziel v₀ na cos i sin; x bez g, y z −gt²/2.**</figcaption>
+</figure>
+
 Rzut ukośny to złożenie dwóch niezależnych ruchów: jednostajnego poziomo i jednostajnie przyspieszonego pionowo. Pomijamy opór powietrza.
 
 **Wybór osi:** x w prawo, y **w górę**. Dlatego g ma składową pionową skierowaną w dół.
@@ -37,6 +45,51 @@ Przy osi y skierowanej do góry człon grawitacyjny ma znak **minus**. Znak plus
 :::
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Rzut ukośny to dwa niezależne równania na jednym rysunku
+
+Ciało porusza się jednocześnie poziomo i pionowo. Bez oporu powietrza poziomo nie przyspiesza, pionowo działa `aᵧ=−g` (gdy oś y skierowana jest w górę).
+
+### Co oznaczają symbole i jednostki?
+
+`v₀` — szybkość początkowa [m/s]; `α` — kąt rzutu; `v₀ₓ`, `v₀ᵧ` — składowe [m/s]; `g` — wartość przyspieszenia ziemskiego [m/s²]; `x`,`y` — położenie [m].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Dane: `v₀=20 m/s`, `α=30°`, `t=1 s`, `g≈10 m/s²`, start w `(0,0)`.
+2. Rozdziel prędkość: `v₀ₓ=20cos30°≈17,32 m/s`, `v₀ᵧ=20sin30°=10 m/s`.
+3. Poziomo: `x=v₀ₓt≈17,32·1=17,32 m`.
+4. Pionowo: `y=v₀ᵧt−gt²/2=10·1−10·1²/2=5 m`. Znak minus wynika ze zwrotu grawitacji w dół.
+
+### Dlaczego to działa?
+
+Te same sekundy mijają w obu osiach. Ruchy nie „przeszkadzają” sobie, lecz tworzą jedną krzywą trajektorię.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Rozdziel v₀ na cos i sin; x bez g, y z −gt²/2.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie wpisuj `+gt²/2`, jeżeli dodatnia oś y jest skierowana w górę.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Przy v₀=10 m/s, α=0° i t=2 s, ile wynosi przemieszczenie poziome?</summary>
+
+**Kolejne kroki i odpowiedź:** `v₀ₓ=10cos0°=10 m/s`, `Δx=10·2=20 m`. Pionowo ciało spada.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <ProjectileLab client:load />
 

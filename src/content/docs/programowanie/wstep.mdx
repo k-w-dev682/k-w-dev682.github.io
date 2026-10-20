@@ -5,11 +5,101 @@ sidebar:
   order: 1
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="wstep" title="Od zera: jak myśli komputer?" section="01 · Fundamenty" />
 
 # Od zera: jak myśli komputer?
+
+## Zrozum od podstaw
+
+Program to lista poleceń, a nie życzenie. Pomyśl o przepisie na kanapkę: „zrób dobrą kanapkę” pozostawia wiele decyzji, ale „weź dwie kromki” jest konkretną instrukcją. Komputer potrzebuje właśnie konkretnych kroków. W tym przykładzie nie pobieramy danych z klawiatury: liczby są zapisane w kodzie. To pozwala najpierw zrozumieć samą kolejność wykonania.
+
+**Kod źródłowy** to tekst, który piszesz. **Instrukcja** to pojedyncze polecenie. **Wynik** to informacja otrzymana po wykonaniu poleceń. Program zaczyna wykonywanie własnego kodu w funkcji `main`, a nie od instrukcji `#include`.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a = 2;
+    int b = 3;
+    int suma = a + b;
+    std::cout << suma << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. `int a = 2;` tworzy zmienną całkowitą o nazwie a i zapisuje w niej 2.
+2. `int b = 3;` tworzy drugie, niezależne miejsce na wartość.
+3. `+` dodaje odczytane wartości; `=` zapisuje wynik 5 do suma.
+4. `std::cout` wypisuje 5. `<<` przekazuje dane do wyjścia, a `\n` przechodzi do nowej linii.
+
+<CppTrace title="Śledzenie: wstep" steps={[["Start", "a i b jeszcze nie istnieją"], ["Po deklaracjach", "a = 2, b = 3"], ["Po dodawaniu", "suma = 5"], ["Konsola", "5; zmienne nadal mają te same wartości"]]} />
+
+![Schemat: przeplyw](/cpp13/przeplyw.svg)
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+std::cout << "suma";
+```
+
+Cudzysłowy oznaczają dosłowny tekst. Pierwsza wersja wypisuje cztery litery, druga odczytuje wartość zmiennej.
+
+**Poprawiony fragment:**
+
+```cpp
+std::cout << suma;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Przewidź wynik po zmianie b na 8.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+10, ponieważ program obliczy 2 + 8.
+
+</details>
+
+### 2. Uzupełnij: int roznica = a ___ b; aby otrzymać −1.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Wstaw `-`: odejmowanie 2 − 3 daje −1.
+
+</details>
+
+### 3. Wypisz sumę i potem iloczyn w osobnych liniach.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Po obecnym cout dodaj `std::cout << a * b << '\n';`. `*` mnoży, więc druga linia zawiera 6.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Instrukcje w bloku wykonują się kolejno. Nazwa zmiennej odczytuje wartość, a napis w cudzysłowie jest tekstem.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Najważniejsza idea
 

@@ -5,11 +5,95 @@ sidebar:
   order: 2
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="codeblocks" title="Code::Blocks i pliki projektu" section="01 · Fundamenty" />
 
 # Code::Blocks i pliki projektu
+
+## Zrozum od podstaw
+
+Edytor jest jak zeszyt z kodem. Kompilator sprawdza i tłumaczy ten kod, a terminal pokazuje działanie programu. IDE łączy te narzędzia, ale samo otwarcie pliku nie oznacza, że istnieje już nowy program wykonywalny. Najważniejszy nawyk: po zmianie kodu zapisz plik i zbuduj projekt.
+
+Utwórz projekt aplikacji konsolowej C++, wybierz konfigurację Debug i upewnij się, że plik z `main` należy do projektu. Nazwy menu mogą zależeć od wersji. W dzienniku budowania sprawdzisz, czy uruchomiono kompilator i czy zakończył bez błędu.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Wersja 1" << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Zapisz kompletny program jako main.cpp. Rozszerzenie .cpp oznacza plik źródłowy C++.
+2. `std::cout` wysyła napis do konsoli. Cudzysłowy obejmują cały napis, średnik kończy instrukcję.
+3. Zbuduj program i uruchom go. Następnie zamień 1 na 2, zapisz i ponownie zbuduj.
+
+<CppTrace title="Śledzenie: codeblocks" steps={[["Edytor", "Tekst: Wersja 1"], ["Build", "Powstaje program z tym tekstem"], ["Edycja bez Build", "Nowy kod nie zmienia starego programu"], ["Build and run", "Po zmianie kodu zobaczysz Wersja 2"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+std::cout << "Wersja 2;
+```
+
+Brakuje zamykającego cudzysłowu. Kompilator nie wie, gdzie kończy się tekst; napraw najpierw pierwszy komunikat, potem buduj ponownie.
+
+**Poprawiony fragment:**
+
+```cpp
+std::cout << "Wersja 2";
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Kod zawiera Wersja 2, konsola pokazuje Wersja 1. Co sprawdzisz?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zapis pliku, wynik ostatniego budowania i uruchamiany projekt. Stary plik wykonywalny mógł pozostać po błędzie.
+
+</details>
+
+### 2. Gdzie wpisujesz dane dla cin?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+W konsoli działającego programu. Edytor zawiera kod, nie bieżące dane wejściowe.
+
+</details>
+
+### 3. Dlaczego dwa pliki z main w jednym projekcie mogą powodować błąd?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Linker otrzymuje dwie definicje punktu wejścia. Każde osobne ćwiczenie buduj jako osobny program albo wyłącz drugi plik z budowania.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Zapisz → zbuduj → sprawdź komunikaty → uruchom. Kopiuj cały przykład do jednego pliku; nie łącz kilku funkcji main.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Czym jest IDE?
 

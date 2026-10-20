@@ -13,6 +13,36 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Sigma — zapis i obliczanie sum
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/sigma.svg" alt="Sigma to skrót: „podstaw kolejne indeksy i dodaj”" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Zapis sumy powstał po to, żeby nie przepisywać wielu podobnych składników. Indeks `k` wewnątrz sumy jest licznikiem, który można nazywać dowolną literą.</figcaption>
+</figure>
+
+## Symbol Σ to skrót od długiego dodawania
+
+<Eq display tex={String.raw`\sum_{k=1}^{4}k=1+2+3+4=10`}/>
+
+- Duża litera `Σ` oznacza **sumę**, czyli dodawanie kolejnych składników.
+- `k` to **zmienna sumowania**, która kolejno przyjmuje wartości 1, 2, 3, 4.
+- Liczba u dołu (`k=1`) to **początek**.
+- Liczba u góry (`4`) to **koniec**.
+- Wyrażenie po prawej stronie symbolu (`k`) mówi, **co dodajemy**.
+
+### Co jeśli po prawej mamy coś więcej niż `k`?
+
+<Eq display tex={String.raw`\sum_{k=1}^{3}(2k+1)=(2\cdot1+1)+(2\cdot2+1)+(2\cdot3+1)`}/>
+
+Najpierw podstawiamy kolejne wartości `k`, czyli otrzymujemy `3+5+7=15`. Zwróć uwagę na nawiasy: dodajemy **całe** wyrażenie `2k+1` dla każdego `k`, nie tylko samą liczbę `2k`.
+
+### Co jeżeli koniec jest mniejszy od początku?
+
+W standardowej konwencji suma nie ma wtedy żadnych składników, a jej wartość wynosi **0**. To tzw. *suma pusta*. Nie należy zgadywać, że wynikiem jest pierwsza lub ostatnia liczba.
+
+
 Duża grecka litera sigma <Eq tex={String.raw`\sum`}/> oznacza: **dodaj wszystkie składniki wyznaczone przez indeks**.
 
 <Eq display tex={String.raw`\sum_{k=1}^{4}k=1+2+3+4=10`}/>
@@ -39,6 +69,48 @@ Zwróć uwagę: indeks przyjmuje 0,1,2,3,4 — razem jest **pięć** składnikó
 **Wyrazy ciągu:**
 
 <Eq display tex={String.raw`\sum_{k=1}^{3}a_k=a_1+a_2+a_3`}/>
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Sigma to skrót: „podstaw kolejne indeksy i dodaj”
+
+Duża grecka litera `Σ` nie jest nową operacją na liczbach. To instrukcja: zacznij od podanej dolnej wartości indeksu, wstaw ją do wyrażenia, potem kolejną, aż do górnej granicy, i dodaj wyniki.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Rozważ `Σ(k=1 do 4) (2k+1)`; `k` to licznik, a `2k+1` to wzór na pojedynczy składnik.
+2. Dla `k=1` dostajesz `2·1+1=3`.
+3. Dla `k=2,3,4` dostajesz odpowiednio `5`, `7`, `9`.
+4. Dodaj: `3+5+7+9=24`. Granica 4 jest włączona; nie kończ na trzecim składniku.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Zapis sumy powstał po to, żeby nie przepisywać wielu podobnych składników. Indeks `k` wewnątrz sumy jest licznikiem, który można nazywać dowolną literą.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Dolna granica → podstaw → zwiększ indeks → górna granica też należy.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Liczba składników przy indeksie od `a` do `b` (całkowite, `a≤b`) wynosi `b−a+1`, a nie `b−a`.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Rozwiń i oblicz `Σ(k=2 do 5) k²`.</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `2²+3²+4²+5²=4+9+16+25=54`. Są cztery składniki: `5−2+1=4`.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <SigmaLab client:load />
 

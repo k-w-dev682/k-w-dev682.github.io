@@ -13,6 +13,15 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Zadanie 1e — suma sinusów
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/cw-sinusy.svg" alt="Suma sinusów bez magicznej sztuczki" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Teleskopowanie to skracanie pośrednich składników, a nie osobna tajemnicza metoda. Wypisanie dwóch pierwszych równań pokazuje schemat całego dowodu.</figcaption>
+</figure>
+
 To najbardziej wymagający podpunkt ćwiczeń. Rozpiszemy również potrzebną **tożsamość trygonometryczną**.
 
 <Eq display tex={String.raw`\sum_{k=1}^{n}\sin(k\alpha)=\frac{\cos(\alpha/2)-\cos((n+\frac12)\alpha)}{2\sin(\alpha/2)}`}/>
@@ -62,5 +71,47 @@ To teza dla n + 1.
 ### Co jeśli α = 2πm?
 
 Wtedy sin(α/2) = 0 i nie wolno dzielić przez mianownik. Jednak **każdy sin(kα) = 0**, więc suma wynosi 0 bez użycia wzoru ułamkowego.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Suma sinusów bez magicznej sztuczki
+
+W tym zadaniu kluczowa jest tożsamość: **różnicę dwóch cosinusów można zapisać jako sinus razy sinus**. Dzięki niej kolejne cosinusy w sumie znoszą się parami. Sam wzór na sumę nie jest początkiem rozumowania, tylko jego wynikiem.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Dla pierwszego składnika zachodzi `2 sin(α/2) sin(α)=cos(α/2)−cos(3α/2)`.
+2. Dla drugiego: `2 sin(α/2) sin(2α)=cos(3α/2)−cos(5α/2)`.
+3. Dodaj równania. `−cos(3α/2)` z pierwszego i `+cos(3α/2)` z drugiego znoszą się. Zostaje różnica dwóch skrajnych cosinusów.
+4. Powtórz to dla `n` wyrazów. Otrzymasz `2 sin(α/2)·S = cos(α/2)−cos((n+1/2)α)`. Dopiero teraz podziel przez `2 sin(α/2)`, o ile nie jest zerem.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Teleskopowanie to skracanie pośrednich składników, a nie osobna tajemnicza metoda. Wypisanie dwóch pierwszych równań pokazuje schemat całego dowodu.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Zapisz dwa kolejne składniki jako różnice cosinusów — zobaczysz, co znika.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Jeśli `sin(α/2)=0`, nie dziel przez zero. Przy `α=2πm` dla całkowitego `m` każdy składnik `sin(kα)=0`, więc sama suma też wynosi 0.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Jakie dwa cosinusy zostaną po zsumowaniu równań dla `k=1,2,3`?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** Zostaną `cos(α/2)−cos(7α/2)`. Wszystkie wewnętrzne wyrazy `cos(3α/2)` i `cos(5α/2)` skrócą się parami.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <SineLab client:load />

@@ -13,6 +13,28 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Zadanie 1d — naprzemienna suma kwadratów
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/cw-naprzemienne.svg" alt="Znaki plus i minus są częścią wzoru" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Przeskok z `n` na `n+1` przesuwa parzystość o jeden. Z tego powodu `(-1)ⁿ` ma przeciwny znak niż `(-1)ⁿ⁻¹`.</figcaption>
+</figure>
+
+## Zanim przejdziesz do dowodu: skąd biorą się znaki plus i minus?
+
+Wykładnik w `(-1)^(k−1)` decyduje o znaku. Dla `k=1` wykładnik to 0, więc znak jest dodatni; dla `k=2` wykładnik 1 daje minus; dla `k=3` wykładnik 2 daje plus. Kolejne składniki to `+1²`, `−2²`, `+3²`, `−4²` itd.
+
+### Co oznacza „wyciągnięcie minusa przed nawias”?
+
+W kroku indukcyjnym pojawia się `(-1)^(n−1)`. Ponieważ `(-1)^n=(-1)^(n−1)·(−1)`, te dwa zapisy **różnią się znakiem**. Możemy więc zapisać:
+
+<Eq display tex={String.raw`(-1)^{n-1}=-(-1)^n`}/>
+
+Po wyłączeniu `(-1)^n` przed nawias pierwszy składnik otrzymuje minus. Tego kroku nie należy pomijać, bo łatwo wtedy odwrócić wynik całej sumy.
+
+
 <Eq display tex={String.raw`\sum_{k=1}^{n}(-1)^{k-1}k^2=(-1)^{n-1}\frac{n(n+1)}2`}/>
 
 Symbol <Eq tex={String.raw`(-1)^{k-1}`}/> zmienia znak kolejnych składników: gdy wykładnik jest parzysty daje **+1**, gdy nieparzysty daje **−1**.
@@ -36,5 +58,47 @@ Prawa strona:
 <Eq display tex={String.raw`\begin{aligned}L&=(-1)^{n-1}\frac{n(n+1)}2+(-1)^n(n+1)^2\\&=(-1)^n\left[-\frac{n(n+1)}2+(n+1)^2\right]\\&=(-1)^n(n+1)\left[-\frac n2+n+1\right]\\&=(-1)^n\frac{(n+1)(n+2)}2=P\end{aligned}`}/>
 
 Dlaczego przy wyłączaniu <Eq tex={String.raw`(-1)^n`}/> pojawia się minus? Bo <Eq tex={String.raw`(-1)^{n-1}=-(-1)^n`}/>.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Znaki plus i minus są częścią wzoru
+
+Suma naprzemienna nie oznacza „liczymy wszystko na minusie”. Przy kolejnych indeksach zmienia się **znak składnika**: dodatni, ujemny, dodatni, ujemny. Odpowiada za to `(-1)^(k−1)`.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Dla `k=1` potęga wynosi `(-1)⁰=1`, więc pierwszy składnik to `+1²=+1`.
+2. Dla `k=2` mamy `(-1)¹=−1`, więc dokładamy `−2²=−4`. Zostaje `1−4=−3`.
+3. Dla `k=3` znak wraca na plus: `1−4+9=6`. Dla `k=4`: `1−4+9−16=−10`.
+4. W kroku indukcji trzeba dopisać **właśnie** `(-1)ⁿ(n+1)²`, bo nowy indeks to `k=n+1`, a wykładnik przy −1 wynosi `k−1=n`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Przeskok z `n` na `n+1` przesuwa parzystość o jeden. Z tego powodu `(-1)ⁿ` ma przeciwny znak niż `(-1)ⁿ⁻¹`.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Indeks k = 1 daje plus, k = 2 minus. O znaku decyduje wykładnik przy −1.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+`−2²` to `−(2²)=−4`, nie `(+4)`. Jeśli masz `(-2)²`, dopiero wtedy wynik jest `4`.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Podaj wartość `1²−2²+3²−4²+5²`.</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `1−4+9−16+25=15`. Możesz sprawdzić wzorem: `(-1)⁴·5·6/2=15`.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <AlternatingLab client:load />

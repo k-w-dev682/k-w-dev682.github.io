@@ -5,11 +5,101 @@ sidebar:
   order: 28
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="wczytywanie-char" title="Wczytywanie znaku i klawisze specjalne" section="04 · Tekst i znaki" />
 
 # Wczytywanie znaku i klawisze specjalne
+
+## Zrozum od podstaw
+
+Naciśnięcie klawisza i odczyt znaku ze strumienia nie są tym samym. Terminal zwykle zbiera linię i przekazuje ją po Enterze. Operator >> dla char pomija początkowe białe znaki, natomiast get odczytuje następny znak także wtedy, gdy jest spacją lub nową linią.
+
+Jeśli chcesz liczyć wpisane litery aż do k, ustal, czy k wchodzi do wyniku i czy spacje są liczone. Poniżej pomijamy białe znaki i nie liczymy wartownika. Koniec wejścia także zatrzymuje pętlę.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    char c = '\0';
+    int ile = 0;
+    while (std::cin >> c && c != 'k') {
+        ++ile;
+    }
+    std::cout << ile << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. \0 to znak o wartości zero, nie litera 0. Daje określoną wartość początkową.
+2. Odczyt jest sprawdzany przed porównaniem z wartownikiem.
+3. Każdy zaakceptowany znak zwiększa licznik o jeden. Ten wariant liczy też cyfry i interpunkcję.
+4. Warunek c != 'k' wyklucza małe k, ale nie wielkie K.
+
+<CppTrace title="Śledzenie: wczytywanie char" steps={[["Wejście a", "ile = 1"], ["Wejście spacja", "pominięta przez >>"], ["Wejście b", "ile = 2"], ["Wejście k", "koniec; wynik 2"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+while (c != 'k') { ++ile; }
+```
+
+Pierwsza pętla nie czyta kolejnych znaków; druga odświeża c w każdej próbie.
+
+**Poprawiony fragment:**
+
+```cpp
+while (std::cin >> c && c != 'k') { ++ile; }
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co dla wejścia k jako pierwszego znaku?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+0, bo wartownik nie przechodzi do ciała.
+
+</details>
+
+### 2. Jak czytać także spacje?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Użyj `while (std::cin.get(c) && c != 'k')`. Wówczas także Enter może zwiększyć licznik, jeżeli pojawi się przed k.
+
+</details>
+
+### 3. Jak liczyć tylko małe litery ASCII?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+W ciele dodaj if (c >= 'a' && c &lt;= 'z') ++ile. Kategoria „znak” jest szersza niż „litera”.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+>> pomija białe znaki, get ich nie pomija. Klawisze F1–F12 nie mają jednego przenośnego kodu char.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Dwa różne problemy
 

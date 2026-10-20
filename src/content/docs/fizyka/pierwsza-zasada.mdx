@@ -15,6 +15,14 @@ import { ForceLab } from '../../../components/PhysicsLabs.jsx';
 
 # Pierwsza zasada: siły zrównoważone
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/pierwsza-zasada.svg" alt="Brak wypadkowej siły nie oznacza braku ruchu" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Zero siły wypadkowej → zero przyspieszenia, niekoniecznie zero prędkości.**</figcaption>
+</figure>
+
 Jeśli suma sił wynosi zero, **przyspieszenie jest zerowe**, ale prędkość nie musi wynosić zero.
 
 <Eq tex={String.raw`\sum\vec F=\vec0\quad\Longrightarrow\quad\vec v=\mathrm{const}`} display />
@@ -29,6 +37,51 @@ Dwie osoby ciągną wózek w przeciwne strony z siłami 30 N i 30 N. Wypadkowa: 
 To ważne: **ruch nie wymaga stale niezerowej siły wypadkowej**. Niezerowa siła wypadkowa jest potrzebna do *zmiany* prędkości.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Brak wypadkowej siły nie oznacza braku ruchu
+
+Kiedy wypadkowa sił wynosi zero, prędkość się nie zmienia. Ciało może stać lub poruszać się ze stałą prędkością po prostej.
+
+### Co oznaczają symbole i jednostki?
+
+`ΣF` — suma sił [N]; `a` — przyspieszenie [m/s²]; `v` — prędkość [m/s]. Warunek `ΣF=0` oznacza `a=0`.
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Na wózek działa 5 N w prawo i 5 N w lewo.
+2. Przy osi dodatniej w prawo suma wynosi `ΣFₓ=+5−5=0 N`.
+3. II zasada daje `aₓ=ΣFₓ/m=0` dla dodatniej masy.
+4. Jeżeli wózek jechał `2 m/s`, będzie nadal jechał `2 m/s`, o ile inne siły nie zaburzą równowagi.
+
+### Dlaczego to działa?
+
+Inercja (bezwładność) oznacza, że ciało nie potrzebuje niezerowej siły wypadkowej do podtrzymywania jednostajnego ruchu.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Zero siły wypadkowej → zero przyspieszenia, niekoniecznie zero prędkości.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie twierdź „ΣF=0, więc v=0”. Poprawnie: `a=0`, a `v` jest stała.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Na ciało działają siły 8 N w prawo i 8 N w lewo. Jakie jest przyspieszenie?</summary>
+
+**Kolejne kroki i odpowiedź:** `ΣF=8−8=0 N`, więc `a=0 m/s²`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <ForceLab client:load />
 

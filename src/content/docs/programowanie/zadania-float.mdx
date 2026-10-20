@@ -5,11 +5,101 @@ sidebar:
   order: 39
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="zadania-float" title="Bank zadań — liczby rzeczywiste" section="05 · Zadania i utrwalanie" />
 
 # Bank zadań — liczby rzeczywiste
+
+## Zrozum od podstaw
+
+Zadanie ze wzorem zaczynaj od znaczenia wielkości i dopuszczalnych danych. Dla prostokąta a i b są długościami; pole jest iloczynem, a obwód sumą czterech boków. Sama kompilacja nie wykryje, że użyłeś złego wzoru.
+
+Założenie przykładu: dodatnie, skończone boki nie większe niż 1000000 w tej samej jednostce. Wartości w kodzie są ustalone, aby skupić się na podstawieniu. W wersji z klawiaturą najpierw sprawdź odczyt i dziedzinę.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    double a = 2.5, b = 4.0;
+    double pole = a * b;
+    double obwod = 2 * (a + b);
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << pole << ' ' << obwod;
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. double zachowuje część ułamkową długości a.
+2. Pole: 2.5 × 4 = 10.
+3. Nawiasy w obwodzie wymuszają najpierw sumę 6.5, potem mnożenie przez 2.
+4. Formatowanie daje 10.00 i 13.00, lecz nie zmienia obu obliczonych wartości.
+
+<CppTrace title="Śledzenie: zadania float" steps={[["Dane", "a = 2.5, b = 4"], ["Pole", "2.5 × 4 = 10"], ["Suma boków", "2.5 + 4 = 6.5"], ["Obwód", "2 × 6.5 = 13"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+double obwod = 2 * a + b;
+```
+
+Bez nawiasów mnożysz przez 2 tylko a; brak drugiego b. Można też napisać 2 * a + 2 * b.
+
+**Poprawiony fragment:**
+
+```cpp
+double obwod = 2 * (a + b);
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Jakie jednostki ma pole przy bokach w cm?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+cm², bo mnożymy dwie długości. Obwód pozostaje w cm.
+
+</details>
+
+### 2. Co po podwojeniu obu boków?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Pole rośnie czterokrotnie, obwód dwukrotnie. To dobry test poprawności wzorów.
+
+</details>
+
+### 3. Czy ujemne boki należy zamienić automatycznie na dodatnie?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie bez takiego wymagania. Zwykle odrzuć je jako niepoprawne dane; abs ukryłoby błąd wejścia.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Ustal dziedzinę, jednostki i wzór. Dopiero potem podstaw wartości i wybierz format wyjścia.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Zadania na liczbach rzeczywistych
 
@@ -55,3 +145,92 @@ Czy ujemny promień powinien zostać zaakceptowany? Nie — zadanie opisuje dłu
 <small>Materiał dydaktyczny rozwinięty na podstawie skryptu 3. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
 
 ← [Poprzednia: Bank zadań — algorytmy i debugger](../zadania-algorytmy/) · [Następna: Bank zadań — znaki i `string`](../zadania-string/) →
+
+## Odpowiedzi do całej dotychczasowej listy zadań
+
+Numery odpowiadają oryginalnej liście w tej lekcji. Fragmenty kodu zakładają wcześniej zadeklarowane zmienne i poprawny odczyt. Ograniczenia danych są częścią rozwiązania.
+
+<details>
+<summary>1. Prostokąt — rozwiązanie i dlaczego działa</summary>
+
+P = a*b, O = 2*(a+b). Przykład prowadzony powyżej: 2.5 i 4 dają 10 oraz 13. Boki muszą spełniać przyjęte warunki dziedziny.
+
+</details>
+
+<details>
+<summary>2. Koło — rozwiązanie i dlaczego działa</summary>
+
+P = pi*r*r, O = 2*pi*r. Dla r = 2 wyniki to około 12.5664 i 12.5664; ta równość jest przypadkowa i nie oznacza identycznych wzorów. Dla r = 3 pole wynosi 9pi, obwód 6pi.
+
+</details>
+
+<details>
+<summary>3. Trójkąt — rozwiązanie i dlaczego działa</summary>
+
+Sprawdź dodatnie boki i wszystkie trzy nierówności a+b>c, a+c>b, b+c>a. Obwód wynosi a+b+c. Dla 1,2,3 nierówność jest równością, więc trójkąt jest zdegenerowany i należy go odrzucić.
+
+</details>
+
+<details>
+<summary>4. Równanie kwadratowe — rozwiązanie i dlaczego działa</summary>
+
+Najpierw a == 0: gdy b != 0, x = −c/b; gdy b == 0 i c == 0, nieskończenie wiele rozwiązań; gdy b == 0 i c != 0, brak. Dla a != 0 licz delta = b*b − 4*a*c: ujemna oznacza brak rozwiązań rzeczywistych, zero daje −b/(2*a), dodatnia daje (−b ± sqrt(delta))/(2*a). To dydaktyczny wzór dla małych skończonych danych; bliska zeru delta i bardzo duże współczynniki wymagają analizy numerycznej.
+
+</details>
+
+<details>
+<summary>5. Losowanie całkowitych — rozwiązanie i dlaczego działa</summary>
+
+Utwórz raz mt19937, potem uniform_int_distribution&lt;int>(10,100). Wykonaj dziesięć wywołań rozkładu. Obie granice są dozwolone, ale nie muszą wystąpić w próbie.
+
+</details>
+
+<details>
+<summary>6. Losowanie rzeczywistych — rozwiązanie i dlaczego działa</summary>
+
+Użyj uniform_real_distribution&lt;double>(0.0,1.0) z nagłówka random i dziesięciu wywołań. Kontrakt przedziału jest półotwarty: 0 dozwolone, 1 wyłączone. W praktyce biblioteki mogą mieć znane błędy zaokrągleń przy granicy; sprawdzaj wymagania aplikacji.
+
+</details>
+
+<details>
+<summary>7. 0.1 + 0.2 — rozwiązanie i dlaczego działa</summary>
+
+Wypisz obie wartości z setprecision(17). Na typowym binary64 suma to 0.30000000000000004, a literał 0.3 drukuje się zwykle jako 0.29999999999999999. Różne drogi zaokrąglenia wyjaśniają różnicę.
+
+</details>
+
+<details>
+<summary>8. Trzy dzielenia — rozwiązanie i dlaczego działa</summary>
+
+5/2 daje int 2, a dwa pozostałe wyrażenia dają double 2.5. Konwersja musi nastąpić przed dzieleniem, nie po nim.
+
+</details>
+
+<details>
+<summary>9. Zakres float — rozwiązanie i dlaczego działa</summary>
+
+Dla typowego IEEE float wynik x*x może być inf. `static_cast<double>(x) * x` oblicza iloczyn w double, gdzie około 10^40 mieści się w zakresie. Przybliżenie zapisane wcześniej w x nie zostaje jednak naprawione.
+
+</details>
+
+<details>
+<summary>10. Epsilon — rozwiązanie i dlaczego działa</summary>
+
+`std::numeric_limits<float>::epsilon()` to odstęp od 1 do następnej większej reprezentowalnej wartości, dla binary32 około 1.19209e−7. Nie jest to uniwersalna tolerancja dla każdej wielkości liczby.
+
+</details>
+
+<details>
+<summary>11. Zaokrąglanie ujemnych — rozwiązanie i dlaczego działa</summary>
+
+floor(−2.4) daje −3, ceil(−2.4) daje −2. Na osi liczbowej kierunek w dół oznacza bardziej ujemne wartości.
+
+</details>
+
+<details>
+<summary>12. Szereg e^x — rozwiązanie i dlaczego działa</summary>
+
+Dla małego |x|, np. x = 1, ustaw suma = 1 i wyraz = 1. Dla k od 1 do 20: `wyraz *= x / k; suma += wyraz;`, gdzie x i wyraz są double. Kolejne składniki to x, x²/2!, x³/3!, itd. Porównaj z exp(x). Rekurencja składnika unika osobnego liczenia potęg i silni; duże ujemne x powodują trudności z odejmowaniem zbliżonych liczb.
+
+</details>
+

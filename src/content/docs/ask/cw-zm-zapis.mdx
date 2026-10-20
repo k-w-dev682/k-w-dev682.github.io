@@ -53,4 +53,41 @@ W ZM pierwszy bit to znak, a pozostałe siedem przedstawia wartość bezwzględn
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia ZM: zapis liczb dodatnich i ujemnych](/ask/grafiki/cw-zm-zapis.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Aby zapisać liczbę ujemną w ZM, **najpierw ustal szerokość** bitową podaną w zadaniu.
+2. Przećwicz przykład pomocniczy `−5` na 8 bitach: siedmiobitowy moduł `5` to `0000101`.
+3. Dodaj znak `1` z lewej: `10000101`.
+4. Kontrola: najstarszy bit oznacza minus, pozostałe `0000101₂ = 5`. Zatem to rzeczywiście `−5` w ZM.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+W ZM znak i wartość są rozdzielone: łatwo odtworzyć wartość przez odczytanie końcowych `n−1` bitów.
+
+:::caution[Uważaj tutaj]
+Nie zapisuj U2 zamiast ZM i nie doklejaj dodatkowego bitu do już ustalonej długości.
+:::
+
+### Minisprawdzian po zadaniu
+
+Jak zapisać `+5` w ZM na 8 bitach?
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+`00000101` (bit znaku to 0).
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

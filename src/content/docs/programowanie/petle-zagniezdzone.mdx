@@ -5,11 +5,101 @@ sidebar:
   order: 15
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="petle-zagniezdzone" title="Pętle zagnieżdżone" section="02 · Algorytmy i diagnostyka" />
 
 # Pętle zagnieżdżone
+
+## Zrozum od podstaw
+
+Pomyśl o kinie: wybierasz pierwszy rząd i przechodzisz przez wszystkie fotele; potem drugi rząd i znów wszystkie fotele. Pętla zewnętrzna steruje rzędami, wewnętrzna miejscami w danym rzędzie. Wewnętrzna inicjalizacja wykonuje się na nowo przy każdym wejściu do tej pętli.
+
+Liczba operacji nie zawsze jest iloczynem dwóch stałych. Dla prostokąta 2 na 3 jest to 6, ale dla trójkąta z rosnącą długością wiersza trzeba zsumować długości kolejnych wierszy.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    for (int w = 1; w <= 2; ++w) {
+        for (int k = 1; k <= 3; ++k) {
+            std::cout << w << k << ' ';
+        }
+        std::cout << '\n';
+    }
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. w wybiera wiersz 1 lub 2.
+2. Dla każdego w k zaczyna od 1 i dochodzi do 3.
+3. cout wypisuje dwie cyfry obok siebie: to etykieta pary, a nie suma.
+4. Nowa linia znajduje się po pętli wewnętrznej, dlatego powstają dwa wiersze.
+
+<CppTrace title="Śledzenie: petle zagniezdzone" steps={[["w = 1, k = 1", "wypisz 11"], ["w = 1, k = 2 i 3", "wypisz 12 13, potem nowa linia"], ["w = 2, k ponownie 1", "wypisz 21"], ["w = 2, k = 2 i 3", "wypisz 22 23, potem nowa linia"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+std::cout << w << k << '\n';
+```
+
+Nowa linia wewnątrz wewnętrznej pętli ustawia każdą parę w osobnym wierszu. Nowy wiersz ma być dopiero po wszystkich kolumnach.
+
+**Poprawiony fragment:**
+
+```cpp
+std::cout << w << k << ' ';
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Ile wypisań par dla 4 wierszy i 5 kolumn?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+20, ponieważ każdy z czterech wierszy ma pięć pozycji.
+
+</details>
+
+### 2. Co zmienia warunek k &lt;= w?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Liczba kolumn zależy od w: dla w = 1 jest jedna, dla w = 2 dwie. Powstaje trójkąt.
+
+</details>
+
+### 3. Jak narysować tylko brzeg prostokąta?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Dla indeksów od zera sprawdzaj w == 0, w == h - 1, k == 0 lub k == szer - 1. W tych miejscach wypisz *, w pozostałych spację; || łączy cztery możliwe brzegi.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Wewnętrzna pętla kończy wszystkie swoje obiegi, zanim zewnętrzna przejdzie do następnego wiersza.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Jedna pętla wewnątrz drugiej
 

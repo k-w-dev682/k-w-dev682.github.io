@@ -1261,6 +1261,15 @@
       "topicQuestions": 5,
       "topicCards": 5
     },
+    "programowanie/funkcje": {
+      "subject": "cpp",
+      "lesson": "funkcje",
+      "topic": "all",
+      "exactQuestions": 0,
+      "exactCards": 0,
+      "topicQuestions": 24,
+      "topicCards": 20
+    },
     "programowanie/getline": {
       "subject": "cpp",
       "lesson": "getline",
@@ -1450,6 +1459,15 @@
       "topicQuestions": 5,
       "topicCards": 4
     },
+    "programowanie/referencje": {
+      "subject": "cpp",
+      "lesson": "referencje",
+      "topic": "all",
+      "exactQuestions": 0,
+      "exactCards": 0,
+      "topicQuestions": 24,
+      "topicCards": 20
+    },
     "programowanie/rzutowanie": {
       "subject": "cpp",
       "lesson": "rzutowanie",
@@ -1486,6 +1504,15 @@
       "topicQuestions": 5,
       "topicCards": 5
     },
+    "programowanie/tablice": {
+      "subject": "cpp",
+      "lesson": "tablice",
+      "topic": "all",
+      "exactQuestions": 0,
+      "exactCards": 0,
+      "topicQuestions": 24,
+      "topicCards": 20
+    },
     "programowanie/testowanie": {
       "subject": "cpp",
       "lesson": "testowanie",
@@ -1521,6 +1548,15 @@
       "exactCards": 2,
       "topicQuestions": 5,
       "topicCards": 4
+    },
+    "programowanie/wskazniki-pamiec": {
+      "subject": "cpp",
+      "lesson": "wskazniki-pamiec",
+      "topic": "all",
+      "exactQuestions": 0,
+      "exactCards": 0,
+      "topicQuestions": 24,
+      "topicCards": 20
     },
     "programowanie/zadania-algorytmy": {
       "subject": "cpp",

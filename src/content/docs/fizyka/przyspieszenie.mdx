@@ -15,6 +15,28 @@ import { MotionLab } from '../../../components/PhysicsLabs.jsx';
 
 # Przyspieszenie: tempo zmiany prędkości
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/przyspieszenie.svg" alt="Przyspieszenie: zmiana prędkości na sekundę" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **a to zmiana v na zmianę t**, nie zmiana drogi.</figcaption>
+</figure>
+
+## Przyspieszenie nie oznacza tylko „jechać coraz szybciej”
+
+Przyspieszenie mierzy, **jak zmienia się prędkość w czasie**. Jeśli prędkość wzrasta od `2 m/s` do `8 m/s` w ciągu `3 s`, to zmieniła się o `8−2=6 m/s`. Średnie przyspieszenie wynosi `6/3=2 m/s²`.
+
+<Eq tex={String.raw`a_{\mathrm{sr}}=\frac{v_2-v_1}{t_2-t_1}`} display />
+
+- `a` — przyspieszenie, jednostka `m/s²` (metr na sekundę do kwadratu).
+- `v₁`, `v₂` — prędkości początkowa i końcowa, każda w `m/s`.
+- `t₁`, `t₂` — chwile, w których mierzymy te prędkości, w sekundach.
+- Zapis `m/s²` oznacza, że co sekundę prędkość zmienia się o określoną liczbę `m/s`, **o ile przyspieszenie jest stałe**.
+
+**Znak:** przy przyjęciu ruchu w prawo jako dodatniego, przyspieszenie ujemne oznacza zmianę prędkości w lewo. Nie musi to oznaczać hamowania: gdy ciało jedzie w lewo, ujemne przyspieszenie może zwiększać wartość jego szybkości.
+
+
 Przyspieszenie mówi, jak szybko zmienia się **prędkość**, a nie sama pozycja. Może być dodatnie albo ujemne zależnie od zwrotu osi.
 
 <Eq tex={String.raw`a_{\mathrm{sr}}=\frac{v-v_0}{\Delta t}`} display />
@@ -32,6 +54,51 @@ Prędkość zmieniła się z 3 m/s na 15 m/s w ciągu 4 s.
 Oznacza to, że przy stałym przyspieszeniu prędkość rośnie o 3 m/s w każdej kolejnej sekundzie.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Przyspieszenie: zmiana prędkości na sekundę
+
+Przyspieszenie nie oznacza wyłącznie „coraz szybciej”. Gdy ciało hamuje albo zmienia kierunek prędkości, również ma przyspieszenie.
+
+### Co oznaczają symbole i jednostki?
+
+`a` — przyspieszenie [m/s²]; `Δv` — zmiana prędkości [m/s]; `Δt` — przedział czasu [s].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Dane: `v₀=4 m/s`, `vₖ=−2 m/s`, `Δt=3 s`. Oś dodatnia jest w prawo.
+2. Zmiana prędkości wynosi `Δv=vₖ−v₀=−2−4=−6 m/s`.
+3. Podstaw do `a=Δv/Δt`: `a=−6/3=−2 m/s²`.
+4. Znaczenie: składowa prędkości maleje o `2 m/s` w każdej sekundzie. Po pewnym czasie ciało może zmienić zwrot ruchu.
+
+### Dlaczego to działa?
+
+Jednostka `m/s²` to `(m/s)/s`: o tyle zmienia się prędkość podczas jednej sekundy.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**a to zmiana v na zmianę t**, nie zmiana drogi.
+:::
+
+### Uważaj na ten częsty błąd
+
+Ujemne przyspieszenie nie zawsze znaczy hamowanie: gdy prędkość także jest ujemna, ciało może zwiększać szybkość.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Prędkość wzrasta z 2 m/s do 14 m/s w 4 s. Wyznacz stałe przyspieszenie.</summary>
+
+**Kolejne kroki i odpowiedź:** `Δv=14−2=12 m/s`, `a=12/4=3 m/s²`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <MotionLab client:load />
 

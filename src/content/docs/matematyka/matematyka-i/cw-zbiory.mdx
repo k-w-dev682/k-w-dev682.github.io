@@ -14,6 +14,25 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Ćwiczenia ze zbiorów: sumy, różnice, nierówności
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/cw-zbiory.svg" alt="W przecięciu zostają tylko wspólne elementy" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> W przecięciu zostają tylko wspólne elementy. Suma pozwala na jeden lub oba warunki.</figcaption>
+</figure>
+
+
+## Jak czytać zadanie zapisane symbolami?
+
+W zapisie `A = {x∈ℕ : x²≤7}` litera `A` nazywa zbiór, `x` oznacza badany element, `∈` znaczy „należy do”, `ℕ` to liczby naturalne, a dwukropek czytamy **„takie że”**. Całość: „zbiór liczb naturalnych, których kwadrat jest nie większy niż 7”.
+
+**Uwaga o zerze:** w podręcznikach spotyka się zarówno `ℕ={0,1,2,...}`, jak i `ℕ={1,2,...}`. W oryginalnym zadaniu przyjęto dodatnie naturalne; jeśli na Twoich ćwiczeniach zero należy do `ℕ`, trzeba dopisać `0` do odpowiedzi.
+
+### Co znaczą symbole `∪` i `∩`?
+
+`A∪B` to zbiór elementów należących do **A lub B**. `A∩B` zawiera tylko elementy należące **jednocześnie** do obu zbiorów. Jeśli `A=(−∞,1)` i `B=(−∞,2)`, to `A` w całości mieści się w `B`; dlatego ich część wspólna wynosi `A`, a suma — `B`.
+
+
 ## Zadanie 1. Podaj elementy zbioru
 
 <Eq display tex={String.raw`A=\{x\in\mathbb{N}:x^2\le 7\}`}/>
@@ -45,4 +64,37 @@ Ponieważ A jest podzbiorem B, różnica A ∖ B jest pusta.
 - A ∪ B = (−∞,−5) ∪ (−2,∞)
 
 <div className="mathi-note">Niektóre odręczne nierówności są zamazane. Podane tutaj przekształcenia zostały policzone od nowa i sprawdzone.</div>
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Ćwiczenia: czytaj symbole jak zwykłe słowa
+
+Jeśli zadanie zawiera `A∩B`, zamień to w głowie na „liczby spełniające **oba** warunki”. Jeśli widzisz `A∪B`, czytaj „spełniające **co najmniej jeden**”.
+
+### Przykład: dwie nierówności naraz
+
+Niech `A={x∈ℝ:x≥−2}` i `B={x∈ℝ:x<3}`.
+
+1. Warunek A mówi: wszystkie liczby od −2 wzwyż, czyli `[−2,∞)`.
+2. Warunek B mówi: liczby mniejsze niż 3, czyli `(−∞,3)`.
+3. Przecięcie wymaga **obu**: `x≥−2` i `x<3`.
+4. Wynik: `A∩B=[−2,3)`.
+5. Suma dopuszcza jeden lub drugi warunek. Każda liczba rzeczywista spełnia przynajmniej jeden z nich, więc `A∪B=ℝ`.
+
+### Jak upewnić się, że wynik jest dobry?
+
+Wybierz jeden punkt ze środka (np. 0), jeden przy brzegu (np. 3) i jeden z daleka (np. −5). Sprawdź, czy pasują do zadanych warunków.
+
+<details className="m1-selfcheck">
+<summary>Ćwiczenie: A=[0,4], B=[3,7]. Oblicz A∩B i A∪B.</summary>
+
+Część wspólna to `[3,4]`, bo te liczby należą do obu. Suma to `[0,7]`, bo oba przedziały łączą się bez przerwy i końce są włączone.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

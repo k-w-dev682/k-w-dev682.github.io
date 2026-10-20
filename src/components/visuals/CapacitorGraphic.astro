@@ -1,0 +1,24 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Jak zbudowany jest kondensator?" eyebrow="ELEKTRONIKA · KONDENSATOR" caption="Dwie przewodzące okładki są rozdzielone izolatorem. Na jednej gromadzi się ładunek dodatni, na drugiej ujemny.">
+  <svg viewBox="0 0 900 300" class="sl-svg" role="img" aria-label="Schemat kondensatora z okładkami i dielektrykiem">
+    <rect x="24" y="24" width="852" height="252" rx="22" class="sl-svg__panel" />
+    <line x1="90" y1="150" x2="300" y2="150" class="sl-svg__axis" />
+    <line x1="600" y1="150" x2="810" y2="150" class="sl-svg__axis" />
+    <rect x="300" y="72" width="24" height="156" rx="10" class="sl-svg__plate" />
+    <rect x="576" y="72" width="24" height="156" rx="10" class="sl-svg__plate" />
+    <rect x="344" y="72" width="212" height="156" rx="16" class="sl-svg__dielectric" />
+    <text x="312" y="56" text-anchor="middle" class="sl-svg__label">okładka</text>
+    <text x="588" y="56" text-anchor="middle" class="sl-svg__label">okładka</text>
+    <text x="450" y="56" text-anchor="middle" class="sl-svg__label">dielektryk (izolator)</text>
+    <text x="272" y="114" class="sl-svg__value">+</text>
+    <text x="272" y="152" class="sl-svg__value">+</text>
+    <text x="272" y="190" class="sl-svg__value">+</text>
+    <text x="618" y="114" class="sl-svg__value">−</text>
+    <text x="618" y="152" class="sl-svg__value">−</text>
+    <text x="618" y="190" class="sl-svg__value">−</text>
+    <text x="386" y="141" class="sl-svg__note">w polu elektrycznym magazynowana jest energia</text>
+    <text x="386" y="169" class="sl-svg__note">C = Q / U opisuje, jak dużo ładunku przypada na dane napięcie</text>
+  </svg>
+</StudyFigure>

@@ -14,6 +14,35 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Funkcja, dziedzina, przeciwdziedzina i obraz
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/funkcje.svg" alt="Dwa argumenty mogą dawać tę samą wartość" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Dwa argumenty mogą dawać tę samą wartość. Jeden argument nie może dać dwóch wyników.</figcaption>
+</figure>
+
+
+## Funkcja jak automat z wejściem i wyjściem
+
+Funkcja bierze jedną dopuszczalną liczbę na wejściu i przypisuje jej **dokładnie jeden** wynik. Dla `f(x)=x+3` argument `x=2` daje wynik `5`. Nie może dawać raz 5, a raz 7, gdy mówimy o tej samej funkcji i tym samym argumencie.
+
+| Wejście x | Działanie | Wyjście f(x) |
+|---:|---|---:|
+| 0 | 0 + 3 | 3 |
+| 2 | 2 + 3 | 5 |
+| −5 | −5 + 3 | −2 |
+
+**Dziedzina:** zbiór dozwolonych wejść. **Przeciwdziedzina:** zadany zbiór wyników, do którego funkcja ma trafiać. **Zbiór wartości (obraz):** te wartości, do których funkcja rzeczywiście trafia. Przeciwdziedzina i zbiór wartości nie muszą być równe.
+
+### Nie myl `f(2)` z `f(x)=2`
+
+`f(2)` to polecenie: „oblicz wynik po podstawieniu 2 za `x`”. Natomiast `f(x)=2` to równanie: „znajdź te argumenty, dla których wynik jest równy 2”. To różne zadania.
+
+### Krótki przykład z dziedziną
+
+Dla `f(x)=1/x` podstaw `x=2` i otrzymasz `1/2`. Podstaw `x=0` — obliczenie jest niemożliwe. Dziedzina obejmuje więc wszystkie liczby rzeczywiste **oprócz zera**.
+
+
 ## Funkcja to przyporządkowanie
 
 Zapis <Eq tex={String.raw`f:A\to B`}/> oznacza, że **każdemu elementowi** dziedziny A przyporządkowano **dokładnie jeden** element przeciwdziedziny B.
@@ -34,4 +63,44 @@ Przykład:
 - **Argument** — wartość x; **wartość funkcji** — wynik f(x).
 
 **Pułapka:** obraz nie musi być równy przeciwdziedzinie.
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Każdy argument musi mieć dokładnie jeden wynik
+
+Funkcja to taka „maszyna”, która dla każdego dozwolonego argumentu zwraca **jedną wartość**. Różne argumenty **mogą** mieć ten sam wynik — wtedy nadal mamy funkcję, choć może ona nie być różnowartościowa.
+
+### Czy poniższe przyporządkowanie jest funkcją?
+
+`A={1,2,3}`. Przyporządkowujemy `1→4`, `2→4`, `3→9`.
+
+1. Każdy element A otrzymał wartość? Tak.
+2. Czy któryś argument otrzymał dwie różne wartości? Nie.
+3. Zatem **jest to funkcja**, choć dwa argumenty mają wynik 4.
+
+A gdyby dodano `2→7` *obok* `2→4`, nie byłaby to funkcja, bo ten sam argument miałby dwa różne wyniki.
+
+### Wartość funkcji a rozwiązanie równania
+
+Dla `f(x)=x²+1`:
+
+- `f(3)=3²+1=10` — pytamy o wynik dla **ustalonego argumentu 3**.
+- `f(x)=10` — pytamy, **jakie argumenty** dają wynik 10. Liczymy `x²+1=10`, czyli `x²=9`; stąd `x=3` lub `x=−3`.
+
+:::caution[Najczęstsza pułapka]
+Dziedzina to **dozwolone wejścia**, przeciwdziedzina to zadany zbiór potencjalnych wyników, a zbiór wartości to **wyniki rzeczywiście osiągane**. Nie są to trzy nazwy tego samego zbioru.
+:::
+
+<details className="m1-selfcheck">
+<summary>Sprawdź: dla `f(x)=2x−1` oblicz f(4) i rozwiąż f(x)=7</summary>
+
+`f(4)=2·4−1=7`. Równanie `2x−1=7` daje `2x=8`, czyli `x=4`. To pokazuje, że podstawianie i odwracanie pytania działają w przeciwnych kierunkach.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

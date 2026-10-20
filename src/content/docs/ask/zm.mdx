@@ -39,4 +39,47 @@ Czyli od **-127 do 127**. Wartości -128 w 8-bitowym ZM nie zapiszemy.
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: ZM — znak i moduł](/ask/grafiki/zm.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+ZM oznacza **znak i moduł**. Najstarszy, lewy bit mówi o znaku (`0` plus, `1` minus), a reszta to zwykła dodatnia wartość bez znaku.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Zapisz `−5` na 8 bitach. Najpierw dodatnie `5` w 7 bitach: `0000101`.
+2. Ponieważ liczba jest ujemna, poprzedź tę grupę bitem znaku `1`.
+3. Wynik: `10000101` (ZM). Sprawdź: znak `1` → minus, pozostałe `0000101₂ = 5`.
+4. Dla zera możesz otrzymać `00000000` (+0) i `10000000` (−0). Obie postacie oznaczają wartość zero.
+
+### Dlaczego to działa?
+
+Łatwo myśleć o nim jak o zapisie `−5`: oddzielny symbol znaku oraz wartość dodatnia. Jednak w bitach to dwa fragmenty jednego słowa.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie odczytuj ZM jako U2: dla `10000101` wyniki będą inne. Przy ZM nie odwracasz wszystkich bitów.
+:::
+
+### Powtórka bez podglądania
+
+Jaki jest ośmiobitowy ZM liczby `−3`?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Znak `1` + siedmiobitowa wartość `0000011` = `10000011`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

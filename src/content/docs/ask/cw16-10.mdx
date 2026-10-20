@@ -54,4 +54,41 @@ W zapisie binarnym pominąłem zera wiodące, jeżeli nie wymaga się ustalonej 
 
 <BaseConverterLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia 3: szesnastkowy → dziesiętny](/ask/grafiki/cw16-10.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Weź `1C8₁₆`. Litera `C` oznacza **12**.
+2. Od prawej wagi to `16⁰=1`, `16¹=16`, `16²=256`.
+3. Wstaw cyfry do wzoru: `1·256 + 12·16 + 8·1`.
+4. Policz: `256 + 192 + 8 = 456₁₀`.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+Cyfra hex zachowuje wartość od 0 do 15, a jej miejsce zmienia wagę tak samo, jak miejsce cyfry dziesiętnej.
+
+:::caution[Uważaj tutaj]
+Nie podstawiaj C=3 ani C=16; poprawnie jest C=12.
+:::
+
+### Minisprawdzian po zadaniu
+
+Jaka jest wartość `A0₁₆`?
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+`10·16 + 0 = 160₁₀`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

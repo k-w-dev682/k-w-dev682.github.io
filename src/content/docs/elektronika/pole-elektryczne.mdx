@@ -13,6 +13,63 @@ import { FieldLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="pole-elektryczne" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Pole elektryczne mówi, jakiej siły doświadczyłby dodatni ładunek próbny umieszczony w danym punkcie. Pole może istnieć także wtedy, gdy nie włożymy tam żadnego próbnika.
+
+Wyobraź sobie niewidzialne strzałki narysowane w przestrzeni. W każdym punkcie strzałka mówi, w którą stronę popchnęłoby **dodatni** próbnik i jak mocno na jednostkę ładunku.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: pole elektryczne](/elektronika/grafiki/pole-elektryczne.svg)
+
+**Wskazówka do grafiki:** **Pole → strzałka dla plusa.** Dla minusa kierunek siły odwracasz.
+
+### Każda litera i symbol — co oznacza?
+
+- `E` — natężenie pola w `N/C` lub równoważnie `V/m`.
+- `F` — siła działająca na ładunek w niutonach.
+- `q₀` — mały dodatni ładunek próbny w kulombach.
+- `E = F / q₀` — definicja natężenia dla dodatniego próbnika.
+- `E = k |Q| / r²` — natężenie od punktowego ładunku źródłowego w próżni.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dodatni próbnik `q₀ = 2 μC` znajduje się w polu i działa na niego siła `6 mN`.
+2. Zamieniamy: `2 μC = 2 · 10⁻⁶ C`; `6 mN = 6 · 10⁻³ N`.
+3. Ze wzoru `E = F/q₀` otrzymujemy `E = (6 · 10⁻³)/(2 · 10⁻⁶)`.
+4. Dzielimy liczby `6/2 = 3` i potęgi `10⁻³ / 10⁻⁶ = 10³`.
+5. Natężenie `E = 3000 N/C`. Kierunek strzałki pola pokrywa się z kierunkiem siły na dodatni próbnik.
+
+:::caution[Na co uważać?]
+Jeśli w to samo pole wstawisz ładunek ujemny, siła będzie skierowana **przeciwnie** do pola. Samo pole nie zmienia przez to zwrotu.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Pole → strzałka dla plusa.** Dla minusa kierunek siły odwracasz.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** W prawo skierowane pole i ujemny próbnik: gdzie skierowana jest siła?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+W lewo — przeciwnie do zwrotu wektora pola.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Co to jest pole elektryczne?
 
 Pole elektryczne przypisuje każdemu punktowi przestrzeni **wektor natężenia**: informuje, jaką siłą działałoby ono na mały **dodatni** ładunek próbny umieszczony w tym punkcie.

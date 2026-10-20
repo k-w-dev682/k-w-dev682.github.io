@@ -199,5 +199,9 @@ export const CPP_LESSONS = [
     "slug": "zadania-string",
     "title": "Bank zadań — znaki i `string`",
     "section": "05 · Zadania i utrwalanie"
-  }
+  },
+{"slug": "tablice", "title": "Tablice — wiele wartości pod jedną nazwą", "section": "06 · Dane, funkcje i pamięć"},
+{"slug": "funkcje", "title": "Funkcje — parametry, wynik i wywołanie", "section": "06 · Dane, funkcje i pamięć"},
+{"slug": "referencje", "title": "Referencje — druga nazwa tego samego obiektu", "section": "06 · Dane, funkcje i pamięć"},
+{"slug": "wskazniki-pamiec", "title": "Wskaźniki, adresy i czas życia pamięci", "section": "06 · Dane, funkcje i pamięć"}
 ];

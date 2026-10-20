@@ -13,6 +13,65 @@ import { EnergyLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="energia-kondensatora" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Kondensator magazynuje energię w polu elektrycznym. Do jego naładowania trzeba wykonać pracę — kolejne porcje ładunku przenosimy przy coraz większym napięciu.
+
+Wyobraź sobie pompowanie opony: im bardziej ją napompujesz, tym większego wysiłku wymaga kolejna porcja powietrza. Z kondensatorem podobnie rośnie napięcie w trakcie ładowania — stąd współczynnik `1/2` we wzorze na energię.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: energia kondensatora](/elektronika/grafiki/energia-kondensatora.svg)
+
+**Wskazówka do grafiki:** **Dwa razy większe U → cztery razy większa energia** (przy stałej pojemności).
+
+### Każda litera i symbol — co oznacza?
+
+- `W_C` — energia magazynowana w dżulach (`J`).
+- `C` — pojemność w faradach.
+- `U` — napięcie w woltach.
+- `Q` — wartość ładunku jednej okładki.
+- `W_C = (1/2) C U² = (1/2) Q U = Q²/(2C)` — trzy równoważne formy dla liniowego kondensatora.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Kondensator: `C = 50 μF`, `U = 10 V`.
+2. Zamieniamy: `50 μF = 50 · 10⁻⁶ F`.
+3. Wybieramy postać `W_C = (1/2) C U²`.
+4. Kwadrat napięcia: `U² = 10² = 100 V²`.
+5. Podstawiamy `W_C = 0,5 · 50 · 10⁻⁶ · 100`.
+6. Wynik `W_C = 0,0025 J = 2,5 mJ`.
+7. Jeżeli napięcie wzrośnie dwa razy przy stałym C, energia wzrośnie **cztery razy**.
+
+:::caution[Na co uważać?]
+Nie zapominaj o `1/2` ani o kwadracie napięcia. `C · U` to ładunek, a nie energia.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Dwa razy większe U → cztery razy większa energia** (przy stałej pojemności).
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Ile razy wzrośnie energia kondensatora przy trzykrotnym zwiększeniu napięcia i stałej pojemności?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+Dziewięć razy, ponieważ energia zależy od `U²`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Skąd bierze się energia?
 
 Podczas ładowania trzeba wykonać pracę, aby umieszczać kolejne porcje ładunku na okładkach. Ponieważ napięcie rośnie wraz z ładunkiem, praca nie jest po prostu równa końcowemu **QU** — pojawia się współczynnik 1/2.

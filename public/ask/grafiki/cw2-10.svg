@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 304" role="img" aria-labelledby="t d">
+<title id="t">Ćwiczenia 2: dwójkowy → dziesiętny</title><desc id="d">Przykład z lekcji: BITY 1 0 1 0 1 0 1; WAGI 64 32 16 8 4 2 1; SUMA 64 + 16 + 4 + 1; WYNIK 85₁₀</desc>
+<rect width="960" height="304" rx="24" fill="#070d12"/>
+<rect x="2" y="2" width="956" height="300" rx="22" fill="none" stroke="#28434a" stroke-width="2"/>
+<circle cx="46" cy="45" r="6" fill="#5ce2d1"/>
+<text x="64" y="50" fill="#66e9d8" font-size="15" font-weight="800" font-family="Segoe UI,Arial,sans-serif">STUDYLAB / BLACK EDITION / ARCHITEKTURA</text>
+<text x="42" y="94" fill="#f0fbff" font-size="27" font-weight="800" font-family="Segoe UI,Arial,sans-serif">Ćwiczenia 2: dwójkowy → dziesiętny</text>
+<rect x="40.0" y="133.0" width="208.0" height="92" rx="15" fill="#11222b" stroke="#34636d" stroke-width="1.7"/>
+<text x="52.0" y="158" fill="#76ebde" font-size="14" font-weight="800" font-family="Segoe UI,Arial,sans-serif">BITY</text>
+<text x="52.0" y="192" fill="#e9f5fa" font-size="17" font-weight="700" font-family="Segoe UI,Arial,sans-serif">1 0 1 0 1 0 1</text>
+<text x="252.0" y="184.0" fill="#72e7db" font-size="19" font-weight="650" font-family="Segoe UI,Arial,sans-serif">→</text>
+<rect x="264.0" y="133.0" width="208.0" height="92" rx="15" fill="#11222b" stroke="#34636d" stroke-width="1.7"/>
+<text x="276.0" y="158" fill="#76ebde" font-size="14" font-weight="800" font-family="Segoe UI,Arial,sans-serif">WAGI</text>
+<text x="276.0" y="192" fill="#e9f5fa" font-size="17" font-weight="700" font-family="Segoe UI,Arial,sans-serif">64 32 16 8 4 2 1</text>
+<text x="476.0" y="184.0" fill="#72e7db" font-size="19" font-weight="650" font-family="Segoe UI,Arial,sans-serif">→</text>
+<rect x="488.0" y="133.0" width="208.0" height="92" rx="15" fill="#11222b" stroke="#34636d" stroke-width="1.7"/>
+<text x="500.0" y="158" fill="#76ebde" font-size="14" font-weight="800" font-family="Segoe UI,Arial,sans-serif">SUMA</text>
+<text x="500.0" y="192" fill="#e9f5fa" font-size="17" font-weight="700" font-family="Segoe UI,Arial,sans-serif">64 + 16 + 4 + 1</text>
+<text x="700.0" y="184.0" fill="#72e7db" font-size="19" font-weight="650" font-family="Segoe UI,Arial,sans-serif">→</text>
+<rect x="712.0" y="133.0" width="208.0" height="92" rx="15" fill="#11222b" stroke="#34636d" stroke-width="1.7"/>
+<text x="724.0" y="158" fill="#76ebde" font-size="14" font-weight="800" font-family="Segoe UI,Arial,sans-serif">WYNIK</text>
+<text x="724.0" y="192" fill="#e9f5fa" font-size="17" font-weight="700" font-family="Segoe UI,Arial,sans-serif">85₁₀</text>
+<text x="42" y="278" fill="#9db8c1" font-size="13" font-weight="600" font-family="Segoe UI,Arial,sans-serif">PATRZ NA ZMIANĘ WARTOŚCI I ZNAKI — NIE UCZ SIĘ WYŁĄCZNIE OBRAZKA</text>
+</svg>

@@ -5,11 +5,103 @@ sidebar:
   order: 5
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="zmienne" title="Zmienne, inicjalizacja i `int`" section="01 · Fundamenty" />
 
 # Zmienne, inicjalizacja i `int`
+
+## Zrozum od podstaw
+
+Zmienna przypomina podpisaną przegródkę, ale jej typ określa dozwolone wartości i operacje. Nazwa nie jest wartością: po przypisaniu nazwa zostaje, a zawartość może się zmienić. **Deklaracja** wprowadza nazwę; **inicjalizacja** nadaje pierwszą wartość; **przypisanie** zmienia istniejącą wartość.
+
+W `x = x + 3` najpierw odczytujesz prawą stronę. Dopiero gotowy wynik zastępuje starą zawartość x. Nie rozwiązujesz równania matematycznego. Zwykła lokalna zmienna bez inicjalizacji nie jest bezpiecznym źródłem danych.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 4;
+    int kopia = x;
+    x = x + 3;
+    kopia *= 2;
+    std::cout << x << ' ' << kopia << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. `int x = 4` tworzy liczbę całkowitą.
+2. `int kopia = x` odczytuje 4 i zapisuje ją do osobnej zmiennej. Nie tworzy połączenia między nimi.
+3. Prawa strona x + 3 daje 7; zastępujemy 4 przez 7.
+4. `kopia *= 2` to skrót przypisania wyniku mnożenia kopia przez 2.
+5. Apostrofy w ' ' oznaczają jeden znak spacji między wynikami.
+
+<CppTrace title="Śledzenie: zmienne" steps={[["Inicjalizacja", "x = 4"], ["Kopiowanie", "x = 4, kopia = 4"], ["Zmiana x", "x = 7, kopia = 4"], ["Zmiana kopii", "x = 7, kopia = 8"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+int suma;
+suma += 5;
+```
+
++= musi odczytać starą wartość. Bez inicjalizacji nie mamy ustalonej wartości do dodania.
+
+**Poprawiony fragment:**
+
+```cpp
+int suma = 0;
+suma += 5;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy zmiana kopia wpłynie na x?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Są dwiema osobnymi zmiennymi typu int.
+
+</details>
+
+### 2. Uzupełnij x ___ 1, aby zmniejszyć x o 1.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+`-=`. Zapis x -= 1 odpowiada tu x = x - 1.
+
+</details>
+
+### 3. Jak zamienić x = 2 i y = 9 miejscami?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Użyj `int temp = x; x = y; y = temp;`. temp zachowuje 2 przed nadpisaniem x; wynik to x = 9, y = 2.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Inicjalizuj zmienne. Zwykłe przypisanie kopiuje wartość; nie wiąże na stałe dwóch nazw.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Co jest zmienną?
 

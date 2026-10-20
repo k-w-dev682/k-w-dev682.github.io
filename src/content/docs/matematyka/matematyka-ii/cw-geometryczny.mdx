@@ -13,6 +13,26 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Zadanie 1c — suma geometryczna
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/cw-geometryczny.svg" alt="Dlaczego wzór na sumę geometryczną w ogóle działa?" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Skracają się wyrazy środkowe — `q, q², ...`. W indukcji to samo widać, gdy do sumy dla `n` dopisujesz tylko wyraz `qⁿ`.</figcaption>
+</figure>
+
+## Ciąg geometryczny od podstaw
+
+Jeżeli zaczynasz od 1, a każdą kolejną liczbę otrzymujesz przez pomnożenie poprzedniej przez `q=2`, powstaje `1,2,4,8,16,...`. Liczbę `q` nazywamy **ilorazem ciągu geometrycznego**.
+
+### Skąd skracanie po odjęciu `qS` od `S`?
+
+Nazwij sumę `S=1+q+q²+...+qⁿ⁻¹`. Po pomnożeniu jej przez `q` dostajemy `qS=q+q²+...+qⁿ`. Odejmując te sumy, każdy środkowy wyraz (`q`, `q²`, ...) pojawia się **raz ze znakiem plus i raz ze znakiem minus**, więc znika. Zostają tylko `1−qⁿ`.
+
+**Dlaczego wymagamy `q≠1`?** Bo przy przekształcaniu `S(1−q)=1−qⁿ` chcemy podzielić przez `1−q`. Dla `q=1` byłoby to dzielenie przez zero. W tym przypadku suma ma po prostu `n` jedynek i wynosi `n`.
+
+
 Niech q będzie **stałą** różną od 1. Mamy udowodnić:
 
 <Eq display tex={String.raw`1+q+q^2+\cdots+q^{n-1}=\frac{1-q^n}{1-q}`}/>
@@ -46,5 +66,47 @@ Po odjęciu stronami wyrazy środkowe się redukują:
 <Eq display tex={String.raw`\begin{aligned}S_{n+1}&=S_n+q^n\\&=\frac{1-q^n}{1-q}+q^n\\&=\frac{1-q^n+q^n(1-q)}{1-q}\\&=\frac{1-q^{n+1}}{1-q}\end{aligned}`}/>
 
 **Wniosek:** wzór działa dla n + 1, więc działa dla każdego n ≥ 1 przy q ≠ 1.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Dlaczego wzór na sumę geometryczną w ogóle działa?
+
+Zamiast pamiętać ułamek z `qⁿ`, zobacz, co dzieje się po przesunięciu listy wyrazów o jedno miejsce. Mnożenie całej sumy przez `q` sprawia, że niemal wszystkie składniki trafiają na pozycje tych ze zwykłej sumy.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Ustaw `q=2` i `n=4`. Cztery wyrazy sumy to `1, 2, 4, 8`, więc `S=1+2+4+8=15`.
+2. Pomnóż obie strony przez `q=2`: `2S=2+4+8+16`.
+3. Odejmij: `S−2S=(1+2+4+8)−(2+4+8+16)=1−16=−15`.
+4. Skoro `−S=−15`, to `S=15`. Ogólnie dostajemy `S(1−q)=1−qⁿ`, a przy `q≠1` dzielimy przez `1−q`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Skracają się wyrazy środkowe — `q, q², ...`. W indukcji to samo widać, gdy do sumy dla `n` dopisujesz tylko wyraz `qⁿ`.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Suma przesunięta przez mnożenie → środek się skraca → zostają brzegi.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Dla `q=1` nie wolno dzielić przez `1−q=0`. Wtedy masz po prostu `n` jedynek, więc suma wynosi `n`.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Oblicz `1+3+9+27` bez pomijania podstawienia.</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `q=3`, `n=4`. `S=(1−3⁴)/(1−3)=(1−81)/(−2)=40`. Ręcznie: `1+3+9+27=40`.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <GeometricLab client:load />

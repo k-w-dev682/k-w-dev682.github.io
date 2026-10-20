@@ -5,12 +5,101 @@ sidebar:
   order: 14
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { PowerLab } from '../../../components/ExtraLabs.jsx';
 
 <PdfTopicButton client:load slug="potegowanie" title="Potęgowanie przez pętlę" section="02 · Algorytmy i diagnostyka" />
 
 # Potęgowanie przez pętlę
+
+## Zrozum od podstaw
+
+Potęga to powtarzane mnożenie: 2 do potęgi 3 to trzy czynniki równe 2. Liczba 3 mówi o liczbie mnożeń w naszym algorytmie, a nie o tym, ile dodać do 2. Wynik zaczyna od 1, bo 1 nie zmienia iloczynu.
+
+Wykładnik zerowy oznacza brak mnożeń. Dla niezerowej podstawy pozostaje 1. Wykładnik ujemny oznacza odwrotność odpowiedniej potęgi dodatniej. Przypadki z zerową podstawą wymagają osobnej decyzji; w kursie odrzucamy 0 do potęgi 0 i potęgi ujemne zera.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    double podstawa = 2.0;
+    int wykladnik = 3;
+    double wynik = 1.0;
+    for (int i = 0; i < wykladnik; ++i) wynik *= podstawa;
+    std::cout << wynik << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. double pozwala użyć także podstawy z częścią ułamkową.
+2. wykladnik określa trzy powtórzenia.
+3. wynik = 1.0 jest elementem neutralnym mnożenia.
+4. *= mnoży poprzedni wynik przez podstawę; kolejne wyniki to 2, 4, 8.
+
+<CppTrace title="Śledzenie: potegowanie" steps={[["Start", "wynik = 1"], ["Pierwszy czynnik", "wynik = 2"], ["Drugi czynnik", "wynik = 4"], ["Trzeci czynnik", "wynik = 8"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+double wynik = 0.0;
+```
+
+Mnożenie zera przez dowolną skończoną podstawę dalej daje zero. Start od zera niszczy cały algorytm.
+
+**Poprawiony fragment:**
+
+```cpp
+double wynik = 1.0;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co dla podstawy 3 i wykładnika 2?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+1 → 3 → 9. Dwa czynniki 3 dają 9.
+
+</details>
+
+### 2. Co dla wykładnika 0 i podstawy 7?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+1, bo pętla nie wykona żadnego mnożenia.
+
+</details>
+
+### 3. Jak uzyskać 2 do potęgi −3?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Najpierw oblicz 8 dla trzech mnożeń, potem 1.0 / 8 = 0.125. Dzielenie 1 / 8 w typie int dałoby 0.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Powtarzane mnożenie startuje od 1. Operator ^ w C++ jest XOR-em bitowym, a nie potęgowaniem.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Polecenie ze skryptu
 

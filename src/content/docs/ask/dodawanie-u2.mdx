@@ -42,4 +42,47 @@ Samo wystąpienie przeniesienia poza najstarszy bit nie jest równoznaczne z prz
 
 <ALULab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Dodawanie w U2 i przepełnienie](/ask/grafiki/dodawanie-u2.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Dodawanie w U2 odbywa się bitowo tak jak zwykłe dodawanie binarne, ale **wynik interpretujemy w zadanej szerokości**. To, czy matematyczny wynik jest reprezentowalny, sprawdza osobny warunek przepełnienia.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Na 4 bitach: `3 = 0011`, a `−2`: `0010 → 1101 → 1110`.
+2. Dodaj: `0011 + 1110 = 1 0001`. Wynik ma 5 bitów, ale nasze rejestry mają tylko 4.
+3. Odrzuć dodatkowy piąty bit; pozostaje `0001`, czyli `+1`. To zgadza się z `3 + (−2) = 1`.
+4. Teraz `7 + 3`: `0111 + 0011 = 1010`. W 4-bitowym U2 `1010` oznacza `−6`, choć matematycznie `7 + 3 = 10`. To **przepełnienie**.
+
+### Dlaczego to działa?
+
+Zakres 4-bitowego U2 to od `−8` do `7`. Gdy dodajesz dwie liczby o **tym samym znaku**, a wynik ma znak przeciwny, wystąpiło przepełnienie. Przeniesienie poza szerokość nie jest tym samym.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie traktuj 5. bitu jako części 4-bitowego wyniku. Nie nazywaj też każdego przeniesienia przepełnieniem.
+:::
+
+### Powtórka bez podglądania
+
+Czy `−4 + (−3) = −7` mieści się w 4-bitowym U2?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Tak: `−7` mieści się w zakresie `−8…7`, więc takie dodawanie nie przepełnia 4 bitów.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

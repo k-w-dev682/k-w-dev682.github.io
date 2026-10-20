@@ -33,4 +33,47 @@ Podstawiamy kolejno cyfry: `4`, `8`, `3`, `1` oraz wagi `1000`, `100`, `10`, `1`
 
 <PositionLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: System pozycyjny: wartość cyfry zależy od miejsca](/ask/grafiki/system-pozycyjny.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+W systemie pozycyjnym **miejsce cyfry** decyduje o jej wadze. W liczbie `22` obie cyfry są identyczne, ale pierwsza oznacza dwie dziesiątki, a druga dwie jedności.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Ustal podstawę `p`. Dla zapisu dziesiętnego `p = 10`, binarnego `p = 2`, szesnastkowego `p = 16`.
+2. Numeruj miejsca od **prawej**, zaczynając od `i = 0`. Wagi to `p⁰`, `p¹`, `p²`, ... .
+3. Dla `1011₂` wagi to `8, 4, 2, 1`. Policz `1·8 + 0·4 + 1·2 + 1·1 = 11₁₀`.
+4. W zapisie `N = Σ cᵢpⁱ`: `N` jest wartością, `cᵢ` cyfrą na danym miejscu, `p` podstawą, a `i` numerem miejsca. Sigma `Σ` oznacza sumowanie.
+
+### Dlaczego to działa?
+
+Najbardziej na prawo jest `p⁰ = 1`. Każde przesunięcie o jedno miejsce w lewo mnoży wagę przez podstawę. Dlatego „przesunięcie” cyfry zmienia jej wartość.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie mnoż każdej cyfry przez tę samą potęgę. Błędem jest także zaczynanie numeracji od lewej strony.
+:::
+
+### Powtórka bez podglądania
+
+Jaką wartość dziesiętną ma `101₂`?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Wagi `4, 2, 1` dają `1·4 + 0·2 + 1·1 = 5`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

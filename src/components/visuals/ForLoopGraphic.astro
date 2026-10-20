@@ -1,0 +1,35 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Pętla for krok po kroku" eyebrow="C++ · PĘTLE" caption="Pętla for powtarza ten sam cykl: przygotuj licznik, sprawdź warunek, wykonaj ciało, zwiększ licznik i wróć do sprawdzenia.">
+  <svg viewBox="0 0 960 290" class="sl-svg" role="img" aria-label="Schemat działania pętli for">
+    <defs>
+      <marker id="slArrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#5ce2d1" />
+      </marker>
+    </defs>
+    <rect x="25" y="25" width="910" height="240" rx="22" class="sl-svg__panel" />
+    <rect x="56" y="98" width="148" height="84" rx="18" class="sl-svg__action" />
+    <text x="130" y="126" text-anchor="middle" class="sl-svg__label">inicjalizacja</text>
+    <text x="130" y="149" text-anchor="middle" class="sl-svg__value">int i = 0</text>
+    <line x1="204" y1="140" x2="300" y2="140" class="sl-svg__line" marker-end="url(#slArrow2)" />
+
+    <rect x="300" y="98" width="170" height="84" rx="18" class="sl-svg__action" />
+    <text x="385" y="126" text-anchor="middle" class="sl-svg__label">warunek</text>
+    <text x="385" y="149" text-anchor="middle" class="sl-svg__value">i &lt; 4 ?</text>
+    <text x="368" y="202" class="sl-svg__note">nie → koniec</text>
+
+    <line x1="470" y1="140" x2="564" y2="140" class="sl-svg__line" marker-end="url(#slArrow2)" />
+    <rect x="564" y="98" width="170" height="84" rx="18" class="sl-svg__action" />
+    <text x="649" y="126" text-anchor="middle" class="sl-svg__label">ciało pętli</text>
+    <text x="649" y="149" text-anchor="middle" class="sl-svg__value">wypisz i</text>
+
+    <line x1="734" y1="140" x2="828" y2="140" class="sl-svg__line" marker-end="url(#slArrow2)" />
+    <rect x="828" y="98" width="84" height="84" rx="18" class="sl-svg__action" />
+    <text x="870" y="126" text-anchor="middle" class="sl-svg__label">zmiana</text>
+    <text x="870" y="149" text-anchor="middle" class="sl-svg__value">++i</text>
+
+    <path d="M 870 182 C 870 235, 385 236, 385 184" fill="none" class="sl-svg__line sl-svg__line--loop" marker-end="url(#slArrow2)" />
+    <text x="760" y="228" class="sl-svg__note">wróć i sprawdź warunek jeszcze raz</text>
+  </svg>
+</StudyFigure>

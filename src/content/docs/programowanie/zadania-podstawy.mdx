@@ -5,11 +5,103 @@ sidebar:
   order: 37
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="zadania-podstawy" title="Bank zadań — podstawy i pętle" section="05 · Zadania i utrwalanie" />
 
 # Bank zadań — podstawy i pętle
+
+## Zrozum od podstaw
+
+Ten warsztat łączy wejście, decyzję i powtarzanie. W każdym zadaniu rozdziel dane, warunek wyboru i akumulator. Licznik mówi „ile”, suma mówi „ile łącznie”; pomylenie tych ról jest częstym błędem.
+
+Przykład: ile spośród n podanych liczb jest dodatnich? Przyjmujemy 0 ≤ n ≤ 1000 i małe wartości typu int. Liczba elementów n jest podawana osobno, więc zero w samych danych jest normalną wartością, a nie wartownikiem.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int n = 0, ile = 0;
+    if (!(std::cin >> n) || n < 0 || n > 1000) return 1;
+    for (int i = 0; i < n; ++i) {
+        int x = 0;
+        if (!(std::cin >> x)) return 1;
+        if (x > 0) ++ile;
+    }
+    std::cout << ile;
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Sprawdzenie odrzuca brak liczby i wartości n poza przyjętym zakresem.
+2. i numeruje odczyty, nie wartości wejściowe.
+3. x powstaje na nowo w każdym obiegu, natomiast ile istnieje przed pętlą.
+4. Tylko wartość dodatnia zwiększa licznik; zero i ujemne go nie zmieniają.
+
+<CppTrace title="Śledzenie: zadania podstawy" steps={[["n = 3", "ile = 0"], ["x = −2", "ile = 0"], ["x = 0", "ile = 0"], ["x = 5", "ile = 1"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+if (x > 0) ile += x;
+```
+
+Dodanie x liczy sumę dodatnich wartości. Polecenie pyta o liczbę elementów, więc dodajemy 1.
+
+**Poprawiony fragment:**
+
+```cpp
+if (x > 0) ++ile;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Przewidź wynik dla 4 liczb: 1, 2, −3, 0.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+2, ponieważ tylko 1 i 2 są dodatnie.
+
+</details>
+
+### 2. Zmień program na liczenie parzystych.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zmień warunek na x % 2 == 0. Zero też jest parzyste.
+
+</details>
+
+### 3. Wypisz pozycję pierwszej dodatniej liczby.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Ustaw pozycja = −1 przed pętlą; w środku przy x > 0 && pozycja == −1 zapisz i. −1 oznacza, że dotąd nic nie znaleziono.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Przed kodowaniem określ, czy wynik jest liczbą elementów, sumą, minimum czy pozycją. To determinuje pamięć algorytmu.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Jak ćwiczyć?
 
@@ -56,3 +148,92 @@ Przetestuj ciąg pusty (sam stoper), ciąg bez liczb spełniających warunek, ws
 <small>Materiał dydaktyczny rozwinięty na podstawie skryptu 1. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
 
 ← [Poprzednia: Szyfr Cezara i metoda płotu](../szyfr/) · [Następna: Bank zadań — algorytmy i debugger](../zadania-algorytmy/) →
+
+## Odpowiedzi do całej dotychczasowej listy zadań
+
+Numery odpowiadają oryginalnej liście w tej lekcji. Fragmenty kodu zakładają wcześniej zadeklarowane zmienne i poprawny odczyt. Ograniczenia danych są częścią rozwiązania.
+
+<details>
+<summary>1. Pięć napisów — rozwiązanie i dlaczego działa</summary>
+
+`for (int i = 0; i < 5; ++i) std::cout << "Hej\n";` daje pięć linii, bo i przyjmuje 0,1,2,3,4.
+
+</details>
+
+<details>
+<summary>2. n numerowanych linii — rozwiązanie i dlaczego działa</summary>
+
+Po odczycie sprawdź `0 <= n && n <= 1000`. Pętla `for (int i = 1; i <= n; ++i)` wypisuje `i` i nową linię. Dla n = 0 nie ma linii; górne ograniczenie zapobiega bardzo długiemu wydrukowi.
+
+</details>
+
+<details>
+<summary>3. Prostokąt — rozwiązanie i dlaczego działa</summary>
+
+Dla dodatnich małych h i szer użyj zewnętrznej pętli po w od 0 do h − 1 i wewnętrznej po k od 0 do szer − 1. W środku wypisz *, a po wewnętrznej pętli nową linię. Dla h = 2, szer = 3 powstaną dwa wiersze po trzy gwiazdki.
+
+</details>
+
+<details>
+<summary>4. Trójkąt — rozwiązanie i dlaczego działa</summary>
+
+Dla w od 1 do h wypisz w gwiazdek, czyli wewnętrzna pętla ma k od 0 do w − 1. Dla h = 3 liczby gwiazdek to 1, 2, 3, bo szerokość zależy od numeru wiersza.
+
+</details>
+
+<details>
+<summary>5. Większa z dwóch — rozwiązanie i dlaczego działa</summary>
+
+`if (a > b) std::cout << a; else std::cout << b;`. Równe wartości również są obsłużone: wypisanie którejkolwiek daje tę samą liczbę.
+
+</details>
+
+<details>
+<summary>6. Trzy liczby rosnąco — rozwiązanie i dlaczego działa</summary>
+
+Wykonaj kolejno: jeśli a > b, `std::swap(a,b)`; jeśli b > c, `std::swap(b,c)`; jeśli a > b, ponownie swap. Dołącz utility. Po pierwszych dwóch krokach największa wartość jest w c; trzeci porządkuje pozostałą parę. Dla 3,1,2 otrzymasz 1,2,3.
+
+</details>
+
+<details>
+<summary>7. Większe od 10 — rozwiązanie i dlaczego działa</summary>
+
+Pełne rozwiązanie poniżej wykorzystuje ++licznik, nie licznik += x. Dla 5,11,20,−4,0 wynik wynosi 2, ponieważ pasują dwa elementy.
+
+</details>
+
+<details>
+<summary>8. Parzyste do zera — rozwiązanie i dlaczego działa</summary>
+
+Zmień warunek wewnętrzny na `x % 2 == 0`. Ujemne parzyste też pasują. Wartownik 0 kończy pętlę przed ciałem, więc nie zwiększa licznika.
+
+</details>
+
+<details>
+<summary>9. Minimum i maksimum do −1 — rozwiązanie i dlaczego działa</summary>
+
+Ustaw `bool jest = false; int minimum = 0, maksimum = 0;`. Każdy odczyt różny od −1: jeśli !jest, przypisz x do obu i ustaw jest = true; inaczej aktualizuj przez porównania. Po pętli brak jest oznacza brak danych. Nie rozpoczynaj minimum od zera, bo dla 5,7 dostałbyś nieistniejące minimum 0.
+
+</details>
+
+<details>
+<summary>10. Minimum wraz z pozycją — rozwiązanie i dlaczego działa</summary>
+
+Wymagaj n > 0. Wczytaj pierwszy element jako minimum z pozycją 0. Następne czytaj dla i od 1 do n − 1; gdy x &lt; minimum, aktualizuj minimum i pozycję. Ścisłe &lt; zachowuje pierwsze wystąpienie minimum.
+
+</details>
+
+<details>
+<summary>11. Liczba pierwsza — rozwiązanie i dlaczego działa</summary>
+
+Dla n &lt; 2 odpowiedź NIE. Dla n >= 2 sprawdzaj dzielniki d od 2, dopóki `d <= n / d`; znalezienie n % d == 0 oznacza NIE. Brak dzielnika oznacza TAK. Warunek n / d unika przepełnienia d*d. Wystarczy pierwiastek, ponieważ dzielniki tworzą pary.
+
+</details>
+
+<details>
+<summary>12. Suma nieparzystych — rozwiązanie i dlaczego działa</summary>
+
+Ustal sposób końca: np. wczytaj n, potem n liczb. Dodawaj x tylko gdy `x % 2 != 0`. Warunek == 1 pominąłby ujemne nieparzyste. Dla −3,2,5 suma to 2; zakładaj, że suma mieści się w wybranym typie.
+
+</details>
+

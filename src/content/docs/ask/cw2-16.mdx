@@ -54,4 +54,41 @@ W zapisie binarnym pominąłem zera wiodące, jeżeli nie wymaga się ustalonej 
 
 <BaseConverterLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia 6: dwójkowy → szesnastkowy](/ask/grafiki/cw2-16.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Zacznij od `1010101₂`. Podziel na grupy po 4 bity, **od prawej**.
+2. Pierwsza grupa to `0101`. Z lewej zostało `101`, więc dopełnij zerem: `0101`.
+3. Grupy `0101 0101` to cyfry `5` i `5`.
+4. Wynik `55₁₆`. Sprawdź: `5·16+5 = 85`; w dwójkowym `64+16+4+1 = 85`.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+Grupa czterech bitów ma 16 kombinacji, a więc pasuje do jednej cyfry hex.
+
+:::caution[Uważaj tutaj]
+Nie grupuj od lewej bez kontroli końców; może to zmienić wynik przy niepełnej grupie.
+:::
+
+### Minisprawdzian po zadaniu
+
+Zamień `11111111₂` na system 16.
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+`1111 1111` → `FF₁₆`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

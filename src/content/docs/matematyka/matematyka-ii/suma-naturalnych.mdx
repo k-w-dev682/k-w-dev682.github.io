@@ -13,6 +13,24 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Dowód: 1 + 2 + … + n
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/suma-naturalnych.svg" alt="Suma `1+2+...+n` — od parowania do dowodu" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Ułóż liczby od lewej i od prawej tak, aby każda kolumna dawała tę samą sumę. To ujawnia strukturę wzoru; indukcja daje inny formalny dowód.</figcaption>
+</figure>
+
+## Jak odgadnąć wzór, zanim go udowodnimy?
+
+Przyjrzyj się sumie `1+2+3+4+5`. Licząc po kolei otrzymujemy 15. Możemy też sparować pierwszy i ostatni składnik: `1+5=6`, `2+4=6`, a w środku zostaje 3. Takie parowanie sugeruje wzór na sumę.
+
+W ogólności suma od 1 do `n` wynosi `n(n+1)/2`. Symbol `n` oznacza liczbę składników, `n+1` to liczba o jeden większa, a kreska ułamkowa oznacza dzielenie przez 2.
+
+**Test:** dla `n=5` wzór daje `5·6/2=30/2=15`. Zgadza się, ale jeden test to **nie dowód** dla wszystkich `n`. Potrzebny jest krok indukcyjny opisany w tej lekcji.
+
+
 Chcemy udowodnić:
 
 <Eq display tex={String.raw`1+2+\cdots+n=\sum_{k=1}^{n}k=\frac{n(n+1)}2`}/>
@@ -40,5 +58,48 @@ W drugim wierszu zapisaliśmy <Eq tex={String.raw`n+1=\frac{2(n+1)}2`}/> i sprow
 <Eq display tex={String.raw`\sum_{k=1}^{n+1}f(k)=\sum_{k=1}^{n}f(k)+f(n+1)`}/>
 
 To zdanie jest bardzo przydatne w kolejnych pięciu zadaniach.
+
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Suma `1+2+...+n` — od parowania do dowodu
+
+Zanim użyjesz indukcji, zobacz pomysł na wzór. Dopisz pod sumą te same liczby w odwrotnej kolejności. Każda para daje wtedy `n+1`, a par jest `n`.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Nazwij `S=1+2+...+n`.
+2. Zapisz tę samą sumę od końca: `S=n+(n−1)+...+1`.
+3. Dodaj stronami: `2S=(n+1)+(n+1)+...+(n+1)`, czyli `n` takich samych składników.
+4. Zatem `2S=n(n+1)`. Podziel przez 2: `S=n(n+1)/2`.
+5. Dla `n=5` sprawdź: `1+2+3+4+5=15` i `5·6/2=15`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Ułóż liczby od lewej i od prawej tak, aby każda kolumna dawała tę samą sumę. To ujawnia strukturę wzoru; indukcja daje inny formalny dowód.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Dwie odwrócone sumy → n par po (n+1) → podziel na pół.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+We wzorze jest `n(n+1)`, a nie `n(n−1)`. Test dla `n=1` od razu wykrywa taki błąd.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Oblicz `1+2+...+20`.</summary>
+
+**Rozwiązanie z wyjaśnieniem:** `20·21/2=10·21=210`. Możesz zgrupować skrajne wyrazy w pary po 21: `(1+20), (2+19), ...`, razem 10 par.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <InductionLab client:load />

@@ -14,6 +14,28 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Relacje: zwrotna, symetryczna i przechodnia
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/relacje.svg" alt="Sprawdź zwrotność, symetrię i przechodniość" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Sprawdź zwrotność, symetrię i przechodniość. Przeciwprzykład obala cechę ogólną.</figcaption>
+</figure>
+
+
+## Relacja to odpowiedź na pytanie „czy te dwa elementy są połączone?”
+
+Weź zbiór `A={1,2,3}`. Możemy ustalić, że `aRb` wtedy, gdy `a≤b`. Zapis `1R2` jest prawdziwy, a `3R1` — fałszywy. Litera `R` to **nazwa relacji**, a `a` i `b` to dwa porównywane elementy.
+
+### Własności na przykładach, bez uczenia się na pamięć
+
+- **Zwrotna:** zawsze `aRa`. Dla `≤` działa, bo `a≤a`. Dla `<` nie działa, bo `a<a` jest fałszem.
+- **Symetryczna:** z `aRb` musi wynikać `bRa`. „Ma ten sam kolor” jest symetryczne. `≤` nie jest (1≤2, lecz 2≤1 jest fałszem).
+- **Antysymetryczna:** jeżeli zachodzą **obie** relacje `aRb` i `bRa`, to elementy muszą być identyczne. `≤` spełnia tę własność.
+- **Przechodnia:** jeśli `aRb` i `bRc`, to `aRc`. Z `1≤2` i `2≤3` wynika `1≤3`.
+
+**Najczęstszy błąd:** antysymetryczność nie znaczy „nigdy nie działa w drugą stronę”. Znaczy tylko, że przy dwóch kierunkach jednocześnie elementy nie mogą być różne.
+
+
 ## Czym jest relacja?
 
 Relacja R na zbiorze A określa, **które pary elementów są ze sobą w zadanym związku**. Przykład: na liczbach całkowitych możemy ustalić relację „ma tę samą parzystość”.
@@ -30,4 +52,41 @@ Relacja R na zbiorze A określa, **które pary elementów są ze sobą w zadanym
 Zwrotna — tak, ponieważ `x≤x`. Przechodnia — tak, ponieważ z `x≤y` i `y≤z` wynika `x≤z`. Antysymetryczna — tak. **Nie jest symetryczna**, bo 1≤2, ale 2≤1 jest fałszywe.
 
 <div className="mathi-panel"><strong>Zapamiętaj różnicę.</strong><p>Symetryczność i antysymetryczność nie oznaczają tego samego; relacja „≤” jest antysymetryczna, ale nie jest symetryczna.</p></div>
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Własności relacji sprawdzaj trzema prostymi pytaniami
+
+Relacja na zbiorze A odpowiada na pytanie, czy dana para `(a,b)` spełnia ustalony warunek. Rozważ relację `a≤b` na liczbach rzeczywistych.
+
+- **Zwrotna?** Czy zawsze `a≤a`? Tak.
+- **Symetryczna?** Czy z `a≤b` wynika `b≤a`? Nie. Dla `2≤5` odwrotny warunek `5≤2` jest fałszywy.
+- **Przechodnia?** Czy z `a≤b` i `b≤c` wynika `a≤c`? Tak.
+
+### Czym różni się symetria od antysymetrii?
+
+Antysymetria nie oznacza „relacja nigdy nie działa w dwie strony”. Oznacza: jeśli `aRb` **i** `bRa`, to musi być `a=b`.
+
+Dla `≤` to prawda: jeśli `a≤b` i `b≤a`, liczby muszą być równe. Relacja `=` jest jednocześnie zwrotna, symetryczna, antysymetryczna i przechodnia.
+
+### Krótka kontrola na zbiorze `{1,2}`
+
+Przyjmij `R={(1,1),(2,2),(1,2)}`.
+
+1. Zwrotna? Tak: występują `(1,1)` i `(2,2)`.
+2. Symetryczna? Nie: jest `(1,2)`, ale nie ma `(2,1)`.
+3. Przechodnia? Tak: wszystkie możliwe łańcuchy par prowadzą do par już obecnych w R.
+
+<details className="m1-selfcheck">
+<summary>Ćwiczenie: czy relacja „ma ten sam wiek co” jest symetryczna?</summary>
+
+Tak. Jeśli osoba A ma tyle samo lat co B, to B ma tyle samo lat co A. Jest też zwrotna i przechodnia, czyli stanowi przykład relacji równoważności (na zbiorze osób w danej chwili).
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

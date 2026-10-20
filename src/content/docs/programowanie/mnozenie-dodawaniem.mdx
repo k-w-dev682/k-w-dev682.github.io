@@ -5,12 +5,102 @@ sidebar:
   order: 11
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { ForLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="mnozenie-dodawaniem" title="Mnożenie bez operatora `*`" section="02 · Algorytmy i diagnostyka" />
 
 # Mnożenie bez operatora `*`
+
+## Zrozum od podstaw
+
+Mnożenie przez dodatnią liczbę całkowitą oznacza wielokrotne dodawanie. Cztery paczki po trzy elementy to 3 + 3 + 3 + 3. **Akumulator** przechowuje dotychczasowy wynik, a **licznik** mówi, ile paczek już uwzględniono. To dwie różne role.
+
+Najpierw rozważamy małe liczby i nieujemną liczbę powtórzeń. Dopiero w drugim wariancie obsługujemy znak. Nie zamieniaj skrajnego ujemnego int na dodatni bez zastanowienia: jego dodatni odpowiednik może nie mieścić się w tym typie.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int paczki = 4, wPaczce = 3;
+    int wynik = 0;
+    for (int i = 0; i < paczki; ++i) {
+        wynik += wPaczce;
+    }
+    std::cout << wynik << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. paczki steruje liczbą powtórzeń; wPaczce jest dodawaną wartością.
+2. wynik = 0 oznacza brak uwzględnionych elementów.
+3. i przyjmuje 0, 1, 2, 3: to cztery iteracje.
+4. += dodaje 3, nie numer iteracji. Po pętli wynik wynosi 12.
+
+<CppTrace title="Śledzenie: mnozenie dodawaniem" steps={[["0 paczek", "wynik = 0"], ["1 paczka", "wynik = 3"], ["2 paczki", "wynik = 6"], ["3 i 4 paczki", "wynik = 9, następnie 12"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+wynik += i;
+```
+
+Dodanie licznika dałoby 0 + 1 + 2 + 3 = 6. Trzeba dodawać zawartość paczki, a nie jej numer.
+
+**Poprawiony fragment:**
+
+```cpp
+wynik += wPaczce;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co dla paczki = 0?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Brak obiegów i wynik 0; jest to poprawne mnożenie przez zero.
+
+</details>
+
+### 2. Co dla wPaczce = −3 i paczki = 4?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Wynik −12, bo cztery razy dodajemy −3.
+
+</details>
+
+### 3. Jak obsłużyć paczki = −4 bez abs?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+W osobnej gałęzi wykonuj `for (int i = 0; i > paczki; --i) wynik -= wPaczce;`. Cztery odejmowania 3 dają −12.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Po k obiegach akumulator zawiera sumę k dodanych składników. Zakładamy, że wszystkie wyniki pośrednie mieszczą się w typie.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Polecenie ze skryptu
 

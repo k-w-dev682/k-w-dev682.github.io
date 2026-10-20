@@ -1,0 +1,18 @@
+---
+export interface Props {
+  title: string;
+  eyebrow?: string;
+  caption?: string;
+}
+const { title, eyebrow = 'WIZUALIZACJA STUDYLAB', caption = '' } = Astro.props;
+---
+<figure class="sl-figure not-content">
+  <figcaption class="sl-figure__head">
+    <span class="sl-figure__eyebrow">{eyebrow}</span>
+    <strong>{title}</strong>
+    {caption && <p>{caption}</p>}
+  </figcaption>
+  <div class="sl-figure__art">
+    <slot />
+  </div>
+</figure>

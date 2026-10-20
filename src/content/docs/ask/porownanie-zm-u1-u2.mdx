@@ -37,4 +37,48 @@ Ta sama sekwencja, np. `1110`, ma różne wartości w zależności od użytego k
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: ZM, U1, U2 obok siebie](/ask/grafiki/porownanie-zm-u1-u2.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Zmiana kodu zmienia **znaczenie tych samych bitów**. Zestawienie trzech metod na jednej liczbie zapobiega pomyłce, która często pojawia się przy zadaniach.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Weź liczbę `−5` i szerokość 8 bitów. Punkt startowy: `+5 = 00000101`.
+2. ZM: wpisz znak `1`, a resztę zostaw jako siedmiobitową wartość → `10000101`.
+3. U1: zaneguj wszystkie bity → `11111010`.
+4. U2: wykonaj U1 i dodaj `1` → `11111011`.
+5. Dla porównania: trzy różne ciągi oznaczają **tę samą wartość liczbową `−5`**.
+
+### Dlaczego to działa?
+
+W ZM łatwo rozdzielasz znak i moduł. W U1 inwersja odpowiada liczbie przeciwnej. U2 eliminuje podwójne zero i pozwala używać zwykłego dodawania bitowego modulo `2ⁿ`.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie wyciągaj wniosków tylko z liczby jedynek. O wartości decyduje przyjęty kod i szerokość.
+:::
+
+### Powtórka bez podglądania
+
+W którym zapisie czterobitowym `−5` ma postać `1011`?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+W U2: `0101` → `1010` → `1011`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

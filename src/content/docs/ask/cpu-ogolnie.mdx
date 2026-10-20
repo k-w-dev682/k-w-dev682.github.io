@@ -37,4 +37,47 @@ Rzeczywiste CPU mogą zawierać wiele rdzeni, kolejki, potoki, przewidywanie sko
 
 <CpuLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Co robi procesor (CPU)?](/ask/grafiki/cpu-ogolnie.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Procesor (CPU) to urządzenie wykonujące instrukcje programu. Sam w sobie nie „zna znaczenia” aplikacji — odczytuje kolejne zakodowane polecenia i manipuluje danymi.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Program w pamięci zawiera instrukcje. Przykładowa instrukcja może znaczyć „dodaj wartości z dwóch rejestrów”.
+2. Jednostka sterująca koordynuje pobranie i dekodowanie instrukcji.
+3. Układy wykonawcze, np. ALU, wykonują działania arytmetyczne i logiczne.
+4. Rejestry przechowują wartości i wyniki blisko tych układów. Pamięć RAM zawiera więcej danych, ale dostęp do niej ma inny koszt niż dostęp do rejestru.
+
+### Dlaczego to działa?
+
+Gdy uruchamiasz program, CPU wykonuje mnóstwo prostych rozkazów. Złożone zachowanie aplikacji jest wynikiem ich odpowiedniej kolejności i współpracy z pamięcią.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie myl CPU z RAM ani z całym komputerem. CPU przetwarza dane, RAM przechowuje dane robocze, a pozostałe podzespoły pełnią własne funkcje.
+:::
+
+### Powtórka bez podglądania
+
+Co znajduje się bliżej jednostek obliczeniowych: rejestr czy RAM?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Rejestr procesora; to bardzo mały magazyn danych dostępnych na bieżąco.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

@@ -29,4 +29,47 @@ import AskPdfButton from '../../../components/AskPdf.jsx';
 Rzeczywiste hierarchie cache, protokoły zgodności i mechanizmy dostępu są bardziej złożone. Nie znamy szczegółowego zakresu Twojego wykładu.
 :::
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Magistrale i pamięć podręczna](/ask/grafiki/magistrala-cache.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Procesor musi odbierać adresy, dane i sygnały sterujące. Nazwa **magistrala** opisuje drogę komunikacji, a **cache** to pamięć podręczna zmniejszająca koszt wielu odczytów.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. CPU chce dane znajdujące się w pamięci. Najpierw sprawdzane są odpowiednie poziomy pamięci podręcznej.
+2. Jeżeli dane są w cache (trafienie), można je pobrać bez wykonywania wolniejszego dostępu do RAM.
+3. Jeżeli ich brak (chybienie), dane trzeba uzyskać z dalszego poziomu hierarchii pamięci.
+4. Adres określa lokalizację danych, ścieżka danych przenosi wartości, a sygnały sterujące określają charakter operacji — taki jest podstawowy model komunikacji.
+
+### Dlaczego to działa?
+
+To jak podręczne notatki na biurku: potrzebna informacja może być pod ręką, choć jej źródło znajduje się w większym archiwum.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Cache nie jest zamiennikiem RAM o nieograniczonej pojemności. Trafienia i chybienia są normalną częścią pracy pamięci podręcznej.
+:::
+
+### Powtórka bez podglądania
+
+Co oznacza cache hit?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Żądane dane znaleziono na sprawdzanym poziomie pamięci podręcznej.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

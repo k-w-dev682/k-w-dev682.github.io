@@ -38,4 +38,47 @@ Każdą liczbę złożoną wyłącznie z bitów można odczytać właśnie przez
 
 <PositionLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Zamiana 2 → 10: dodawanie wag bitów](/ask/grafiki/dwojkowy-dziesietny.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Przeliczenie `2 → 10` to **dodawanie wartości jedynek**. Nie musisz zapamiętywać odpowiedzi: wystarczy przyporządkować bity do potęg dwójki.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Weź `110101₂` i wypisz wagi miejsc od prawej: `1, 2, 4, 8, 16, 32`.
+2. Przypisz wagi bitom w oryginalnej kolejności: `1·32 + 1·16 + 0·8 + 1·4 + 0·2 + 1·1`.
+3. Zignoruj wkłady zer: `32 + 16 + 4 + 1 = 53`. Zatem `110101₂ = 53₁₀`.
+4. Sprawdzenie odwrotne: `53 = 32 + 16 + 4 + 1`, więc bity przy tych wagach muszą być `1`.
+
+### Dlaczego to działa?
+
+Zero na pozycji o wadze 8 oznacza po prostu, że do sumy **nie dodajesz ósemki**, a nie że miejsce znika.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie odczytuj `110101` jako 110 101 w systemie dziesiętnym. O zapisie decyduje podstawa.
+:::
+
+### Powtórka bez podglądania
+
+Ile wynosi `10010₂`?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+`16 + 2 = 18₁₀`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

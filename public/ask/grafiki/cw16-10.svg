@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-labelledby="t d">
+<title id="t">Ćwiczenia 3: szesnastkowy → dziesiętny</title><desc id="d">Przykład z lekcji: HEX 1 C 8; DEC 1 12 8; WAGI 256 16 1; WYNIK 256+192+8=456</desc>
+<rect width="960" height="410" rx="24" fill="#070d12"/>
+<rect x="2" y="2" width="956" height="406" rx="22" fill="none" stroke="#28434a" stroke-width="2"/>
+<circle cx="46" cy="45" r="6" fill="#5ce2d1"/>
+<text x="64" y="50" fill="#66e9d8" font-size="15" font-weight="800" font-family="Segoe UI,Arial,sans-serif">STUDYLAB / BLACK EDITION / ARCHITEKTURA</text>
+<text x="42" y="94" fill="#f0fbff" font-size="27" font-weight="800" font-family="Segoe UI,Arial,sans-serif">Ćwiczenia 3: szesnastkowy → dziesiętny</text>
+<rect x="41.0" y="130.0" width="212.5" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="147.25" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">HEX</text>
+<rect x="260.5" y="130.0" width="212.5" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="366.75" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">1</text>
+<rect x="480.0" y="130.0" width="212.5" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="586.25" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">C</text>
+<rect x="699.5" y="130.0" width="212.5" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="805.75" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">8</text>
+<rect x="41.0" y="188.0" width="212.5" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="147.25" y="223.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">DEC</text>
+<rect x="260.5" y="188.0" width="212.5" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="366.75" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">1</text>
+<rect x="480.0" y="188.0" width="212.5" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="586.25" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">12</text>
+<rect x="699.5" y="188.0" width="212.5" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="805.75" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">8</text>
+<rect x="41.0" y="246.0" width="212.5" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="147.25" y="281.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">WAGI</text>
+<rect x="260.5" y="246.0" width="212.5" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="366.75" y="281.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">256</text>
+<rect x="480.0" y="246.0" width="212.5" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="586.25" y="281.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">16</text>
+<rect x="699.5" y="246.0" width="212.5" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="805.75" y="281.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">1</text>
+<rect x="41.0" y="304.0" width="212.5" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="147.25" y="339.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">WYNIK</text>
+<rect x="260.5" y="304.0" width="212.5" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="366.75" y="337.8" fill="#e7f0fa" font-size="15" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">256+192+8=456</text>
+<rect x="480.0" y="304.0" width="212.5" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="586.25" y="339.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif"></text>
+<rect x="699.5" y="304.0" width="212.5" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="805.75" y="339.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif"></text>
+<text x="42" y="384" fill="#9db8c1" font-size="13" font-weight="600" font-family="Segoe UI,Arial,sans-serif">PATRZ NA ZMIANĘ WARTOŚCI I ZNAKI — NIE UCZ SIĘ WYŁĄCZNIE OBRAZKA</text>
+</svg>

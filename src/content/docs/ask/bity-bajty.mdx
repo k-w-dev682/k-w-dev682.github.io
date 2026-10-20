@@ -45,4 +45,47 @@ Nie należy ich mylić: 8 Mb to nie 8 MB.
 
 <BitLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Bit, bajt i zapis informacji](/ask/grafiki/bity-bajty.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Bit może mieć dwa stany: `0` albo `1`. Bajt to **8 bitów obok siebie**. Dla każdego z 8 miejsc mamy dwa wybory, dlatego możliwych ciągów jest `2⁸ = 256`.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Zapisz bajt `01001101`. Ma dokładnie 8 miejsc, licząc także początkowe zero.
+2. Przypisz wagi od prawej: `1, 2, 4, 8, 16, 32, 64, 128`.
+3. Dodaj tylko wagi z jedynkami: `64 + 8 + 4 + 1 = 77`.
+4. Otrzymaliśmy `77₁₀` przy założeniu, że interpretujemy cały bajt jako liczbę **bez znaku**. Te same bity mogą oznaczać coś innego przy innym sposobie kodowania.
+
+### Dlaczego to działa?
+
+Dla trzech bitów liczysz `2·2·2 = 8` możliwych ciągów; każdy kolejny bit **podwaja** ich liczbę. Tak powstaje reguła `2ⁿ`.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Mała litera `b` to bit, wielka `B` to bajt. `8 Mb` i `8 MB` nie oznaczają tej samej ilości danych.
+:::
+
+### Powtórka bez podglądania
+
+Ile jest możliwych zapisów na 5 bitach?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Jest ich `2⁵ = 32`, od `00000` do `11111`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

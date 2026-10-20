@@ -13,6 +13,64 @@ import { NetworkLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="lacznie-szeregowe" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+W połączeniu szeregowym kondensatory są połączone jeden za drugim. W stanie idealnym na każdym z nich mamy tę samą **wartość ładunku**, a napięcia sumują się.
+
+Wyobraź sobie szereg przeszkód dla rozdzielania ładunku: do otrzymania tego samego ładunku potrzebna jest większa suma napięć, więc pojemność zastępcza maleje.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: lacznie szeregowe](/elektronika/grafiki/lacznie-szeregowe.svg)
+
+**Wskazówka do grafiki:** **Szereg → dodajesz odwrotności; C_z jest mniejsza niż najmniejsza pojemność.**
+
+### Każda litera i symbol — co oznacza?
+
+- `C₁`, `C₂` — pojemności poszczególnych kondensatorów.
+- `C_z` — pojemność zastępcza.
+- `Q` — ta sama wartość ładunku w idealnym szeregowym łańcuchu.
+- `U = U₁ + U₂` — suma napięć.
+- `1/C_z = 1/C₁ + 1/C₂` — dla dwóch kondensatorów `C_z = C₁C₂/(C₁+C₂)`.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dwa kondensatory: `C₁ = 6 μF`, `C₂ = 3 μF`.
+2. Wzór na dwa elementy: `C_z = (C₁ C₂)/(C₁ + C₂)`.
+3. Licznik: `6 · 3 = 18`; mianownik: `6+3 = 9`.
+4. Wynik `C_z = 18/9 = 2 μF`.
+5. Kontrola: `2 μF` jest **mniejsze** od mniejszego z kondensatorów (`3 μF`) — tak powinno być dla szeregu.
+6. Przy napięciu całkowitym `U = 12 V`, ładunek `Q = C_z U = 24 μC`.
+
+:::caution[Na co uważać?]
+Błąd: dodawanie pojemności w szeregu. Suma `C₁+C₂` dotyczy połączenia równoległego.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Szereg → dodajesz odwrotności; C_z jest mniejsza niż najmniejsza pojemność.**
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Dwa jednakowe kondensatory `4 μF` połączono szeregowo. Jaka jest pojemność zastępcza?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`2 μF`, czyli połowa pojedynczej pojemności.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Jak wygląda połączenie szeregowe?
 
 Kondensatory tworzą jeden łańcuch. W modelu idealnym, gdy początkowo są nienaładowane i węzły pośrednie są izolowane, **wartości ładunków na kolejnych kondensatorach są równe**:

@@ -12,6 +12,34 @@ import MathPdfButton from '../../../../components/MathPdf.jsx';
 
 # Reguła mnożenia i wariacje
 
+
+{/* M2_ETAP_2: Autorski system ilustracji i prostych wyjaśnień */}
+<div className="m2-study-path not-content"><strong>PRZECZYTAJ → ZOBACZ → POLICZ → WYJAŚNIJ</strong><span>Na początku obejrzyj schemat, potem przejdź przykład w swoim tempie. Spróbuj odpowiedzieć bez podglądania rozwiązania i sprawdź, czy rozumiesz każdy krok.</span></div>
+
+<figure className="m2-learning-visual not-content">
+  <div className="m2-learning-visual__scroll"><img src="/math-ii/grafiki/regula-mnozenia.svg" alt="Zawsze najpierw policz decyzje po kolei" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Odczytaj najpierw schemat:</strong> Liczba dostępnych opcji zależy od ograniczeń zadania: np. zakaz powtórzeń zmniejsza kolejne pule.</figcaption>
+</figure>
+
+## Dlaczego w kombinatoryce mnożymy?
+
+Masz 3 koszulki i 2 pary spodni. Do każdej koszulki możesz dobrać dowolną z 2 par spodni. To daje:
+
+```text
+Koszulka A → spodnie 1, spodnie 2
+Koszulka B → spodnie 1, spodnie 2
+Koszulka C → spodnie 1, spodnie 2
+```
+
+Widzimy `2+2+2=6`, czyli `3·2=6` zestawów. Mnożymy, bo wykonujemy **kolejne niezależne etapy wyboru**, a liczba opcji jest taka sama na każdym rozgałęzieniu.
+
+### Z powtórzeniami czy bez?
+
+Jeżeli tworzysz dwucyfrowy kod z cyfr 1, 2, 3, to przy dopuszczonych powtórzeniach masz `3·3=9` kodów. Gdy zabronimy powtórzeń, po wyborze pierwszej cyfry zostały tylko **2 inne**, więc `3·2=6`.
+
+**Kolejność ma znaczenie** w kodach: `12` i `21` traktujemy jako dwa różne kody. Przy wyborze **dwuosobowej grupy** kolejność nie ma znaczenia; używamy wtedy symbolu Newtona.
+
+
 **Kombinatoryka** odpowiada na pytanie: „Ile jest możliwości?”, bez ręcznego wypisywania każdej z nich.
 
 ## Reguła mnożenia
@@ -47,3 +75,45 @@ Przy wyborze trzycyfrowego kodu z różnych cyfr: pierwsza pozycja ma 10 opcji, 
 :::caution[Kolejność]
 Wariacje **uwzględniają kolejność**. Wybór `(A, B)` i `(B, A)` to dwa różne uporządkowania, ale jeden i ten sam dwuosobowy zespół. Przy wyborze zespołu używamy symbolu Newtona.
 :::
+
+
+<div className="m2-chapter-divider not-content"><span>DOKŁADNIEJ · DLACZEGO? · ĆWICZENIE · POWTÓRKA</span></div>
+
+## Zawsze najpierw policz decyzje po kolei
+
+Reguła mnożenia odpowiada na pytanie: „Ile pełnych możliwości powstaje, gdy podejmuję kilka kolejnych decyzji?”. W każdej gałęzi drzewa wyborów liczysz dalsze opcje.
+
+### Jeden przykład rozłożony na małe kroki
+
+1. Masz 3 koszulki i 2 pary spodni. Każda koszulka daje 2 pełne zestawy.
+2. Wypisz możliwości: `(K1,S1)`, `(K1,S2)`, `(K2,S1)`, `(K2,S2)`, `(K3,S1)`, `(K3,S2)`. Widzisz 6.
+3. Zapisz to krócej: `3·2=6`. Mnożenie wynika z powtarzającego się rozgałęzienia.
+4. Teraz kod 3-literowy ze znaków A, B, C: z powtórzeniami `3·3·3=27`; bez powtórzeń `3·2·1=6`.
+
+### Dlaczego to działa, a nie jest tylko regułką?
+
+Liczba dostępnych opcji zależy od ograniczeń zadania: np. zakaz powtórzeń zmniejsza kolejne pule.
+
+:::tip[Zapamiętaj jednym zdaniem]
+**Kolejne etapy wyboru mnożysz; powtórzenia zmieniają liczbę opcji w etapach.**
+:::
+
+### Błąd, który najłatwiej popełnić
+
+Rozróżnij **kod**, w którym kolejność ma znaczenie, od **grupy**, w której AB i BA są tym samym wyborem. Dla grup przydaje się symbol Newtona.
+
+<details className="m2-selfcheck">
+<summary>Spróbuj sam: Ile jest 4-cyfrowych PIN-ów, jeśli cyfry mogą się powtarzać i PIN może zaczynać się od zera?</summary>
+
+**Rozwiązanie z wyjaśnieniem:** Każda z czterech pozycji ma 10 możliwości: `10·10·10·10=10⁴=10 000`.
+
+</details>
+
+### Szybka powtórka bez zaglądania do notatek
+
+1. Spróbuj powiedzieć własnymi słowami, **co oznacza główny symbol** z tej lekcji.
+2. Przypomnij sobie, **dlaczego opisany sposób działa** — nie tylko jaki jest wynik.
+3. Rozwiąż mini-zadanie jeszcze raz. Jeśli utkniesz, sprawdź jedną wskazówkę i spróbuj ponownie.
+
+**Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
+

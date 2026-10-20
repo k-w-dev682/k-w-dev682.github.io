@@ -15,6 +15,14 @@ import { MotionLab } from '../../../components/PhysicsLabs.jsx';
 
 # Ćwiczenia: ruch prostoliniowy
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/cw-kinematyka.svg" alt="Jedno zadanie na trzy kroki: dane → wzór → kontrola wyniku" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Podziel ruch na etapy, policz każdy, na końcu dodaj zgodne wielkości.**</figcaption>
+</figure>
+
 ## Zadanie 1 — ruch jednostajny (przykład dodatkowy)
 
 Auto porusza się ze stałą prędkością 72 km/h przez 15 s. Ile metrów przejedzie?
@@ -33,6 +41,51 @@ Rower zwiększa prędkość z 4 m/s do 10 m/s w ciągu 3 s.
 Sprawdź wynik również w symulatorze poniżej.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Jedno zadanie na trzy kroki: dane → wzór → kontrola wyniku
+
+Rozpoznaj typ ruchu. Jeśli prędkość jest stała, wystarczy `Δx=vt`. Jeśli zmienia się ze stałym przyspieszeniem, użyj `v=v₀+at` i `Δx=v₀t+at²/2`.
+
+### Co oznaczają symbole i jednostki?
+
+`s₁`, `s₂` — drogi kolejnych etapów [m]; `v₀` — prędkość początkowa [m/s]; `a` — przyspieszenie [m/s²]; `t` — czas danego etapu [s].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Rower jedzie najpierw ze stałą szybkością 5 m/s przez 4 s.
+2. Etap 1: droga `s₁=5·4=20 m`.
+3. Potem rusza ze stanu `v₀=5 m/s` i przyspiesza `a=2 m/s²` przez 3 s.
+4. Etap 2: `s₂=v₀t+at²/2=5·3+2·9/2=15+9=24 m`. Łączna droga w ruchu w tym samym kierunku to `44 m`.
+
+### Dlaczego to działa?
+
+Każdy etap ma inne warunki. Rozdzielenie go chroni przed użyciem jednego wzoru dla całego odcinka, mimo że przyspieszenie nie jest wszędzie takie samo.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Podziel ruch na etapy, policz każdy, na końcu dodaj zgodne wielkości.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie podstawiaj czasu 7 s do wzoru dla stałego przyspieszenia w etapie drugim — obowiązuje tylko przez 3 s.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Ciało rusza z v₀=0 przy a=2 m/s² przez 4 s. Ile przebędzie?</summary>
+
+**Kolejne kroki i odpowiedź:** `s=0·4+2·4²/2=16 m`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <MotionLab client:load />
 

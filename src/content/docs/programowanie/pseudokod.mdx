@@ -5,11 +5,103 @@ sidebar:
   order: 7
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="pseudokod" title="Pseudokod i schematy blokowe" section="01 · Fundamenty" />
 
 # Pseudokod i schematy blokowe
+
+## Zrozum od podstaw
+
+Pseudokod to przepis zapisany zwykłymi słowami. Nie musi się kompilować. Ma pomóc sprawdzić pomysł, zanim zajmiesz się nawiasami i średnikami. Najpierw ustal umowę: jakie dane przyjmujesz i co ma być wynikiem. Dla większej z dwóch liczb trzeba pamiętać również o równości.
+
+Schemat pokazuje przepływ sterowania, czyli wybór następnego kroku. Romb ma pytanie i opisane wyjścia TAK/NIE. Obie drogi mogą wrócić do wspólnego końca. Sam rysunek pudełek bez warunków nie opisuje jeszcze algorytmu.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a = 7, b = 4;
+    int wieksza = b;
+    if (a > b) {
+        wieksza = a;
+    }
+    std::cout << wieksza << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. Ustalamy dane: 7 i 4.
+2. Wstępnie wybieramy b. To kandydat na wynik, nie ostateczna decyzja.
+3. Jeżeli a jest większe, zastępujemy kandydata przez a.
+4. Po bloku wynik jest poprawny na obu ścieżkach. Dla równości pozostaje b, co daje tę samą wartość.
+
+<CppTrace title="Śledzenie: pseudokod" steps={[["Dane", "a = 7, b = 4"], ["Kandydat", "wieksza = 4"], ["Pytanie 7 > 4", "TAK: wieksza = 7"], ["Wynik", "7"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+if (a > b) std::cout << a;
+if (b > a) std::cout << b;
+```
+
+Pierwsza wersja nie wypisze niczego przy równych danych. Druga obejmuje także równość.
+
+**Poprawiony fragment:**
+
+```cpp
+if (a > b) std::cout << a;
+else std::cout << b;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Zapisz pseudokod dla wartości większej.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Wczytaj a i b; jeśli a > b wypisz a; w przeciwnym razie wypisz b. Każde poprawne wejście ma wynik.
+
+</details>
+
+### 2. Jakie trzy testy rozróżniają ścieżki?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+7 4, 4 7, 4 4. Badają a większe, b większe i równość.
+
+</details>
+
+### 3. Jak rozszerzyć pomysł do trzech liczb?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Ustaw maksimum na a; jeśli b jest większe, przypisz b; jeśli c jest większe od aktualnego maksimum, przypisz c. Każdy krok zachowuje największą dotychczas wartość.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+W schemacie każda decyzja musi mieć zdefiniowane wyjścia. W pseudokodzie uwzględniaj równość i puste dane.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Najpierw pomysł, potem składnia
 

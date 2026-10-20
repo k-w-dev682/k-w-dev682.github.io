@@ -39,4 +39,47 @@ To **fragment x86 w składni Intel**, a nie kompletny program uruchamialny. W in
 
 <AssemblerLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Asembler: rejestr, liczba i prosta instrukcja](/ask/grafiki/asm-start.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Asembler to zapis niskopoziomowych instrukcji procesora, zwykle czytelniejszy od surowych bitów. W pokazanym przykładzie stosujemy **składnię Intel dla x86** — to nie uniwersalny język wszystkich procesorów.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Instrukcja `mov eax, 7` zapisuje liczbę `7` w rejestrze `EAX`.
+2. `mov ebx, 5` zapisuje `5` w rejestrze `EBX`.
+3. `add eax, ebx` oblicza `EAX + EBX` i zapisuje sumę do `EAX`.
+4. Po tych trzech instrukcjach `EAX = 12`, zaś `EBX = 5`. To fragment instrukcji, a nie kompletny program uruchamialny.
+
+### Dlaczego to działa?
+
+W składni Intel **pierwszy argument** jest celem zapisu. To wyjaśnia, dlaczego `add eax, ebx` zmienia EAX, a nie EBX.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Nie myl `mov` z matematycznym przesuwaniem: tu oznacza przeniesienie/skopiowanie wartości do celu. Podane rozkazy nie opisują całego działania programu.
+:::
+
+### Powtórka bez podglądania
+
+Co zrobi `add eax, ebx` przy EAX=2, EBX=3?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+EAX otrzyma `5`, EBX pozostanie `3`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

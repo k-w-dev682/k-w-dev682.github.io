@@ -15,6 +15,14 @@ import { MotionLab } from '../../../components/PhysicsLabs.jsx';
 
 # Jak czytać wykresy x(t), v(t), a(t)
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/wykresy-ruchu.svg" alt="Jeden ruch, trzy wykresy: nie pomyl nachylenia z polem" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **x → nachylenie v. v → nachylenie a i pole Δx. a → pole Δv.**</figcaption>
+</figure>
+
 Trzy wykresy opisują ten sam ruch z różnych perspektyw:
 
 - **x(t)**: nachylenie krzywej oznacza prędkość. Dla ruchu jednostajnego jest linią prostą.
@@ -31,6 +39,51 @@ Prędkość rośnie liniowo od 2 do 8 m/s przez 3 s.
 Gdy v(t) jest ujemne, pole liczymy ze znakiem minus dla przemieszczenia; **drogę** obliczamy sumując wartości bezwzględne pól.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Jeden ruch, trzy wykresy: nie pomyl nachylenia z polem
+
+Na wykresie `x(t)` nachylenie to prędkość. Na wykresie `v(t)` nachylenie to przyspieszenie, a **pole ze znakiem** to przemieszczenie. Na `a(t)` pole ze znakiem to zmiana prędkości.
+
+### Co oznaczają symbole i jednostki?
+
+`x(t)` — położenie [m]; `v(t)` — prędkość [m/s]; `a(t)` — przyspieszenie [m/s²]. Oś pozioma zazwyczaj pokazuje czas [s].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Prędkość rośnie liniowo od `2 m/s` do `8 m/s` przez `3 s`.
+2. Przyspieszenie: nachylenie `v(t)` to `(8−2)/3=2 m/s²`.
+3. Przemieszczenie: policz pole trapezu pod `v(t)`: `[(2+8)/2]·3=15 m`.
+4. Gdy fragment wykresu `v(t)` leży poniżej zera, odejmujesz jego pole przy przemieszczeniu; do drogi bierzesz jego wartość bezwzględną.
+
+### Dlaczego to działa?
+
+Wykres jest tylko rysunkiem zależności, a nie mapą trasy. Pochylenie prostej na `v(t)` opisuje zmianę prędkości.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**x → nachylenie v. v → nachylenie a i pole Δx. a → pole Δv.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie obliczaj pola pod `x(t)` jako drogi. W podstawowych zadaniach mechaniki droga wiąże się z całką z szybkości, czyli polem pod `|v(t)|`.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Prędkość stała 4 m/s przez 5 s. Jakie jest pole pod v(t)?</summary>
+
+**Kolejne kroki i odpowiedź:** Prostokąt: `4·5=20 m`, czyli przemieszczenie 20 m.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <MotionLab client:load />
 

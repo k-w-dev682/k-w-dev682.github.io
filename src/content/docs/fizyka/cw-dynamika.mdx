@@ -15,6 +15,14 @@ import { ForceLab } from '../../../components/PhysicsLabs.jsx';
 
 # Ćwiczenia: równania Newtona
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/cw-dynamika.svg" alt="W zadaniu z siłami nie zgaduj kierunku: nadaj mu znak" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Minus wyniku to informacja o zwrocie względem twojej osi.**</figcaption>
+</figure>
+
 ## Przykład dodatkowy: skrzynia
 
 Ciało m = 6 kg jest ciągnięte siłą F = 40 N. W przeciwnym kierunku działa tarcie 10 N. Oblicz przyspieszenie.
@@ -31,6 +39,51 @@ Masa 2 kg wisi nieruchomo. Napięcie linki równoważy ciężar, więc T = 2·9,
 Podstawianie do II zasady zawsze poprzedzamy **rozpisaniem sił**.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## W zadaniu z siłami nie zgaduj kierunku: nadaj mu znak
+
+Równania Newtona działają nawet wtedy, gdy nie wiesz, w którą stronę ciało ruszy. Wybierz dodatnią oś, wpisz siły ze znakami i odczytaj znak `a`.
+
+### Co oznaczają symbole i jednostki?
+
+`F₁`, `F₂` — siły [N]; `ΣFₓ` — ich suma ze znakami [N]; `m` — masa [kg]; `aₓ` — przyspieszenie w osi x [m/s²].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Na klocek `m=5 kg` działają poziomo `F₁=12 N` w prawo i `F₂=22 N` w lewo.
+2. Oś x jest dodatnia w prawo: `ΣFₓ=12−22=−10 N`.
+3. II zasada: `maₓ=−10`, czyli `5aₓ=−10`.
+4. Dzielimy przez 5: `aₓ=−2 m/s²`. Minus oznacza przyspieszenie w lewo.
+
+### Dlaczego to działa?
+
+Ustalony układ znaków automatycznie wyjaśnia kierunek wyniku. Nie musisz wcześniej zgadywać rzeczywistego zwrotu przyspieszenia.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Minus wyniku to informacja o zwrocie względem twojej osi.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie traktuj wartości wszystkich sił jako dodatnich. Dla przeciwnego zwrotu daj minus.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Masa 3 kg, siły 15 N w prawo i 6 N w lewo. Jakie a?</summary>
+
+**Kolejne kroki i odpowiedź:** `ΣF=15−6=9 N`, `a=9/3=3 m/s²` w prawo.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <ForceLab client:load />
 

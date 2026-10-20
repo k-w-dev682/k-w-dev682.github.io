@@ -15,6 +15,34 @@ import { SetsLab } from '../../../../components/MathILabs.jsx';
 
 # Suma, przecięcie, różnica i dopełnienie zbiorów
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/dzialania-na-zbiorach.svg" alt="A ∪ B obejmuje wszystko z A lub B" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> A ∪ B obejmuje wszystko z A lub B. A ∩ B obejmuje tylko wspólne elementy.</figcaption>
+</figure>
+
+
+## Najpierw przećwicz działania na konkretnych liczbach
+
+Niech `A={1,2,3}`, a `B={3,4}`. Wyobraź sobie dwa koła, które częściowo na siebie zachodzą. W części wspólnej znajduje się liczba `3`.
+
+| Działanie | Co robimy? | Wynik |
+|---|---|---|
+| `A∪B` | Zbieramy wszystko z obu zbiorów, bez powtórzeń | `{1,2,3,4}` |
+| `A∩B` | Bierzemy tylko elementy obecne w obu | `{3}` |
+| `A∖B` | Zostawiamy elementy A, których nie ma w B | `{1,2}` |
+| `B∖A` | Zostawiamy elementy B, których nie ma w A | `{4}` |
+
+### Dlaczego różnice są różne?
+
+`A∖B` oznacza „**najpierw A**, a potem usuwamy elementy wspólne z B”. Odwrócenie liter każe zacząć od innego zbioru, dlatego wynik może się zmienić.
+
+### Dopełnienie ma sens tylko z ustalonym „światem”
+
+Jeśli jako uniwersum weźmiemy `U={1,2,3,4,5}`, a `A={1,2,3}`, to dopełnienie A w U wynosi `{4,5}`. Bez wskazania uniwersum nie wiemy, które elementy uznać za „pozostałe”.
+
+
 ## Cztery działania
 
 Przyjmijmy zbiory A = [1, 4] oraz B = [3, 6].
@@ -42,4 +70,46 @@ A: 1, 2, 3, 5. B: 2, 4, 5.
 Zmieniaj zbiory w laboratorium i obserwuj obliczenia.
 
 <SetsLab client:load />
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Nie ucz się czterech znaków na pamięć — zobacz je na jednym przykładzie
+
+Weź zbiory `A={1,2,3,4}` oraz `B={3,4,5}`.
+
+| Działanie | Pytanie | Wynik |
+|---|---|---|
+| `A∪B` | co jest w **A lub B**? | `{1,2,3,4,5}` |
+| `A∩B` | co jest **jednocześnie** w A i B? | `{3,4}` |
+| `A∖B` | co jest w A, ale **nie** w B? | `{1,2}` |
+| `B∖A` | co jest w B, ale nie w A? | `{5}` |
+
+Zobacz, że `A∖B` i `B∖A` **nie muszą być równe**. Kolejność w różnicy jest bardzo ważna.
+
+### Przykład z przedziałami, krok po kroku
+
+`A=[1,5]`, `B=(3,7)`.
+
+1. Część wspólna musi należeć do obu zbiorów.
+2. Liczba `3` należy do A, ale **nie** należy do B.
+3. Liczba `5` należy do obu.
+4. Zatem `A∩B=(3,5]`.
+5. Suma bierze liczby występujące przynajmniej w jednym zbiorze: `A∪B=[1,7)`.
+
+:::caution[Częsty błąd]
+Nie traktuj `∪` jak dodawania liczb i nie wpisuj powtarzających się elementów dwa razy. `{1,2}∪{2,3}={1,2,3}`, nie `{1,2,2,3}`.
+:::
+
+<details className="m1-selfcheck">
+<summary>Sprawdź: A={0,1,2}, B={2,3}. Oblicz A∩B, A∖B i B∖A.</summary>
+
+`A∩B={2}`, `A∖B={0,1}`, `B∖A={3}`. W różnicy usuwamy z pierwszego zbioru elementy należące do drugiego.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

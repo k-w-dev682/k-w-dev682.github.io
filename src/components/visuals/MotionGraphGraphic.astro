@@ -1,0 +1,22 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Wykres ruchu jednostajnego x(t)" eyebrow="FIZYKA · WYKRES" caption="Przy stałej prędkości wykres położenia w funkcji czasu jest linią prostą. Nachylenie tej prostej odpowiada prędkości.">
+  <svg viewBox="0 0 760 360" class="sl-svg" role="img" aria-label="Wykres położenia od czasu dla ruchu jednostajnego">
+    <rect x="24" y="24" width="712" height="312" rx="22" class="sl-svg__panel" />
+    <line x1="110" y1="280" x2="660" y2="280" class="sl-svg__axis" />
+    <line x1="110" y1="280" x2="110" y2="72" class="sl-svg__axis" />
+    <text x="666" y="285" class="sl-svg__axisLabel">t [s]</text>
+    <text x="115" y="66" class="sl-svg__axisLabel">x [m]</text>
+    <path d="M 110 235 L 220 203 L 330 171 L 440 139 L 550 107 L 660 75" fill="none" class="sl-svg__curve" />
+    <circle cx="110" cy="235" r="8" class="sl-svg__dot sl-svg__dot--warn" />
+    <circle cx="440" cy="139" r="8" class="sl-svg__dot sl-svg__dot--accent" />
+    <text x="78" y="240" class="sl-svg__label">x₀</text>
+    <text x="448" y="132" class="sl-svg__label">x(t)</text>
+    <line x1="440" y1="280" x2="440" y2="139" class="sl-svg__guide" />
+    <line x1="110" y1="139" x2="440" y2="139" class="sl-svg__guide" />
+    <text x="418" y="302" class="sl-svg__note">czas t</text>
+    <text x="122" y="129" class="sl-svg__note">położenie po czasie t</text>
+    <text x="300" y="100" class="sl-svg__note">im bardziej stroma prosta, tym większa prędkość</text>
+  </svg>
+</StudyFigure>

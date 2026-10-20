@@ -15,6 +15,14 @@ import { MomentumLab } from '../../../components/PhysicsLabs.jsx';
 
 # Pęd i jego jednostka
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/ped.svg" alt="Pęd łączy masę z prędkością" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **p=mv; kilogram razy metr na sekundę.**</figcaption>
+</figure>
+
 Pęd to iloczyn masy i prędkości. Jest wielkością wektorową.
 
 <Eq tex={String.raw`\vec p=m\vec v`} display />
@@ -36,6 +44,51 @@ Przy masie zmieniającej się w czasie nie można bez dodatkowych założeń zas
 :::
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Pęd łączy masę z prędkością
+
+Pęd `p=mv` jest wektorem. Przy jednej osi znak prędkości nadaje znak pędowi. Duża masa przy małej szybkości może mieć taki sam pęd jak mała masa przy dużej szybkości.
+
+### Co oznaczają symbole i jednostki?
+
+`p` — pęd [kg·m/s]; `m` — masa [kg]; `v` — prędkość [m/s]. Znak pędu mówi o zwrocie w wybranej osi.
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Piłka ma `m=0,5 kg` i leci w prawo z `v=8 m/s`.
+2. Pęd: `p=mv=0,5·8=4 kg·m/s` w prawo.
+3. Druga piłka `m=1 kg` leci w lewo z `v=−4 m/s`.
+4. Jej pęd `p=1·(−4)=−4 kg·m/s`. Pędy mają równe wartości, ale przeciwne zwroty.
+
+### Dlaczego to działa?
+
+II zasadę można sformułować jako tempo zmiany pędu. Zmiana pędu to skutek siły wypadkowej działającej przez pewien czas.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**p=mv; kilogram razy metr na sekundę.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie sumuj pędów bez uwzględnienia zwrotów — przy ruchu wzdłuż osi posługuj się liczbami ze znakami.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Ciało 3 kg porusza się z v=−2 m/s. Oblicz pęd w osi x.</summary>
+
+**Kolejne kroki i odpowiedź:** `p=3·(−2)=−6 kg·m/s`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <MomentumLab client:load />
 

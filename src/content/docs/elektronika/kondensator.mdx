@@ -8,10 +8,93 @@ sidebar:
 import Eq from '../../../components/ElecEquation.astro';
 import {ElectronicsPdfButton} from '../../../components/ElectronicsPdf.jsx';
 import { CapacitorLab } from '../../../components/ElectronicsLabs.jsx';
+import CapacitorGraphic from '../../../components/visuals/CapacitorGraphic.astro';
 
 <div className="el-eyebrow">PODSTAWY ELEKTRONIKI · 05 · Kondensatory · ZDJĘCIA 6</div>
 
 <ElectronicsPdfButton client:load slug="kondensator" />
+
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+Kondensator to dwa przewodniki rozdzielone izolatorem. Może gromadzić na okładkach **równe co do wartości ładunki o przeciwnych znakach** oraz energię w polu elektrycznym.
+
+Wyobraź sobie pojemnik na energię, ale zamiast wody gromadzi on rozdzielone ładunki. Większa pojemność oznacza, że przy tym samym napięciu można zgromadzić większą **wartość ładunku na jednej okładce**.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: kondensator](/elektronika/grafiki/kondensator.svg)
+
+**Wskazówka do grafiki:** Pojemność nie jest tym samym co zgromadzony ładunek: **Q = C × U**.
+
+### Każda litera i symbol — co oznacza?
+
+- `C` — pojemność w faradach (`F`).
+- `Q` — moduł ładunku jednej okładki w kulombach (`C`).
+- `U` — napięcie między okładkami w woltach.
+- `C = Q/U`, czyli `Q = C U` — dla kondensatora o stałej pojemności.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dane: `C = 10 μF`, `U = 5 V`.
+2. Przeliczamy `10 μF = 10 · 10⁻⁶ F`.
+3. Wybieramy `Q = C U`.
+4. Podstawiamy `Q = 10 · 10⁻⁶ F · 5 V`.
+5. Liczymy: `Q = 50 · 10⁻⁶ C = 50 μC`.
+6. Jedna okładka ma `+50 μC`, druga `−50 μC` (przy przyjętych oznaczeniach).
+
+:::caution[Na co uważać?]
+Nie dodawaj modułów ładunków obu okładek, by wyznaczyć `Q` we wzorze. Każda okładka ma moduł `Q`, a łączny ładunek obu przy idealnym naładowaniu jest zerowy.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+Pojemność nie jest tym samym co zgromadzony ładunek: **Q = C × U**.
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Kondensator `2 μF` naładowano do `4 V`. Jaki jest moduł ładunku jednej okładki?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`8 μC`, bo `Q = 2 μF · 4 V`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
+## Po co nam kondensator?
+
+Kondensator może **zgromadzić energię w polu elektrycznym**, a później oddać ją do obwodu. Najprostszy model to dwie metalowe płytki rozdzielone materiałem izolującym, zwanym **dielektrykiem**.
+
+```text
+przewód        okładka      izolator    okładka       przewód
+───────────────| |             | |──────────────────
+              + +             − −
+```
+
+<CapacitorGraphic />
+
+### Jakie wielkości opisują kondensator?
+
+<Eq tex={String.raw`C=\frac{Q}{U}`} display />
+
+- `C` — pojemność elektryczna, jednostka `F` (farad).
+- `Q` — wartość ładunku zgromadzonego na jednej okładce, w `C` (kulombach).
+- `U` — wartość napięcia między okładkami, w `V` (woltach).
+- Kreska ułamkowa oznacza dzielenie `Q` przez `U`. Ten iloraz opisuje pojemność dla liniowego kondensatora.
+
+### Zadanie
+
+Kondensator ma pojemność `2 μF` i napięcie `3 V`. Przelicz `2 μF = 2·10⁻⁶ F`. Ponieważ `Q=C·U`, podstaw: `Q=2·10⁻⁶·3=6·10⁻⁶ C = 6 μC`. Wynik mówi, ile wynosi **wartość ładunku jednej okładki**; druga ma przeciwny ładunek.
 
 ## Co to jest kondensator?
 

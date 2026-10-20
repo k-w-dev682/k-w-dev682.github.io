@@ -8,12 +8,57 @@ sidebar:
 import Eq from '../../../../components/MathEquation.astro';
 import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 import { InverseLab } from '../../../../components/MathILabs.jsx';
+import FunctionMachineGraphic from '../../../../components/visuals/FunctionMachineGraphic.astro';
+import ParabolaInverseGraphic from '../../../../components/visuals/ParabolaInverseGraphic.astro';
 
 <MathIPdfButton client:load slug="funkcje-odwrotne" title={"Iniekcja, suriekcja, bijekcja i funkcja odwrotna"} section={"05 · Wykłady — funkcje"} />
 
 <div className="mathi-eyebrow">MATEMATYKA I · 05 · Wykłady — funkcje · ZDJĘCIA 16–18, 28–29</div>
 
 # Iniekcja, suriekcja, bijekcja i funkcja odwrotna
+
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/funkcje-odwrotne.svg" alt="Cofnij operacje w odwrotnej kolejności" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Cofnij operacje w odwrotnej kolejności. Sprawdź odpowiedź przez złożenie funkcji.</figcaption>
+</figure>
+
+
+## Zanim przejdziemy do wzorów: co znaczy „odwrócić funkcję”? 
+
+Funkcja działa jak maszyna: wrzucasz liczbę, a dostajesz wynik. Przykładowo maszyna `f(x)=2x+3` dla liczby 4 najpierw mnoży przez 2 (otrzymuje 8), a potem dodaje 3 (otrzymuje 11). **Funkcja odwrotna robi te czynności w przeciwnej kolejności i w przeciwną stronę:** od 11 odejmuje 3 i dzieli przez 2. Wracamy do 4.
+
+- **Argument** to liczba podawana na wejściu. Zwykle nazywamy go `x`.
+- **Wartość funkcji** to wynik na wyjściu. Zwykle piszemy `y=f(x)`.
+- **Dziedzina** mówi, jakie liczby wolno włożyć do maszyny.
+- **Przeciwdziedzina** jest zadanym zbiorem możliwych wyników; **zbiór wartości** to te wyniki, które maszyna naprawdę osiąga.
+
+### Dlaczego czasem odwrócenie nie działa?
+
+Jeżeli dwie różne liczby dadzą ten sam wynik, nie da się jednoznacznie ustalić, jaka liczba była na wejściu. Dla `f(x)=x²` zarówno `2`, jak i `−2` dają `4`. Z samego wyniku `4` nie wiesz, który argument był pierwotny. To właśnie brak **różnowartościowości**.
+
+Aby mieć odwrotność jako funkcję na całej zadanej przeciwdziedzinie, potrzebujesz **bijekcji**. Jeżeli jako przeciwdziedzinę przyjmiesz sam zbiór osiąganych wartości, wystarcza różnowartościowość. Te dwa stwierdzenia nie przeczą sobie: różnią się wybranym zbiorem po stronie wyników.
+
+<FunctionMachineGraphic />
+
+### Pełny przykład: `f(x)=2x+3`
+
+1. Najpierw zapisz `y=2x+3`. Litera `y` oznacza wynik, a `x` — liczbę na wejściu.
+2. Odejmij `3` po **obu** stronach: `y−3=2x`. Możemy odjąć tę samą liczbę po obu stronach równości, bo zachowujemy wtedy równość.
+3. Podziel **obie** strony przez `2`: `(y−3)/2=x`. Dzielimy przez 2, bo chcemy pozostawić samo `x`.
+4. Zamień nazwy liter: nowym argumentem będzie `x`, a nowy wynik oznaczymy przez `f⁻¹(x)`.
+
+<Eq display tex={String.raw`f^{-1}(x)=\frac{x-3}{2}`}/>
+
+Sprawdzenie: `f(4)=11`, zaś `f⁻¹(11)=(11−3)/2=8/2=4`. Wróciliśmy do punktu wyjścia.
+
+**Uwaga:** zapis `f⁻¹` oznacza *funkcję odwrotną*, a nie `1/f(x)`.
+
+### Co się zmienia, gdy ograniczamy dziedzinę kwadratu?
+
+Dla `f(x)=x²` i `x≥0` odwracanie jest jednoznaczne: `y=x²`, zatem `x=√y`, bo nasz argument nie może być ujemny. Gdy zamiast tego przyjmiemy `x≤0`, dostaniemy `x=−√y`. **Warunek przy funkcji decyduje o znaku odpowiedzi.**
+
 
 ## Funkcja różnowartościowa — iniekcja
 
@@ -35,9 +80,46 @@ Każdy element **przeciwdziedziny** B jest wartością dla przynajmniej jednego 
 
 <Eq display tex={String.raw`f^{-1}(x)=\frac{x-3}{2}`}/>
 
+<ParabolaInverseGraphic />
+
 ## Dlaczego x² nie ma odwrotnej na całym ℝ?
 
 Bo `f(−2)=4` i `f(2)=4`. Po ograniczeniu dziedziny do nieujemnych otrzymamy funkcję różnowartościową z odwrotnością pierwiastkową.
 
 <InverseLab client:load />
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Funkcja odwrotna: wykonaj operacje od końca
+
+Jeśli przepis brzmi „najpierw pomnóż przez 5, potem odejmij 2”, aby go cofnąć, trzeba „najpierw dodać 2, potem podzielić przez 5”. **Odwracamy zarówno działanie, jak i jego kolejność.**
+
+### Pełny przykład: `f(x)=5x−2`
+
+1. Zapisz wynik: `y=5x−2`.
+2. Dodaj 2 po obu stronach: `y+2=5x`.
+3. Podziel przez 5: `x=(y+2)/5`.
+4. Nowy argument nazywamy `x`: `f⁻¹(x)=(x+2)/5`.
+5. Sprawdź dwukierunkowo: `f(3)=15−2=13`, a `f⁻¹(13)=(13+2)/5=3`.
+
+### Kiedy odwrotność się nie uda?
+
+Jeżeli funkcja ma dwa argumenty prowadzące do tego samego wyniku, przy cofaniu nie wiadomo, który wybrać. Dla `x²` liczby 2 i −2 dają 4. Wystarczy jednak ograniczyć dziedzinę do `x≥0`, żeby wracanie było jednoznaczne: `f⁻¹(x)=√x` dla `x≥0`.
+
+:::tip[Metoda 4K]
+**K**oniec (`y=...`), **K**ofnij działania, **K**oryguj dziedzinę i znak, **K**ontroluj przez podstawienie.
+:::
+
+<details className="m1-selfcheck">
+<summary>Mini-zadanie: odwrotna do `f(x)=3x+6`</summary>
+
+Zapisz `y=3x+6`. Odejmij 6: `y−6=3x`. Podziel przez 3: `x=(y−6)/3`. Odpowiedź: `f⁻¹(x)=(x−6)/3`. Sprawdzenie: `f(2)=12`, `f⁻¹(12)=2`.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

@@ -53,4 +53,42 @@ W U2 odwróć osiem bitów dodatniej liczby, a następnie dodaj 1.
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia U2: zapis liczb dodatnich i ujemnych](/ask/grafiki/cw-u2-zapis.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Przykład pomocniczy: zapisz **−5** na 8 bitach.
+2. Zapisz dodatnie `5` jako `00000101`.
+3. Odwróć wszystkie bity → `11111010`.
+4. Dodaj 1 → `11111011`. To wynik U2.
+5. Sprawdź: najstarszy bit ma wagę −128, pozostałe są dodatnie. Suma dla tego kodu to −5.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+Dodatkowa jedynka jest niezbędna, bo zmienia U1 w U2 i eliminuje ujemne zero.
+
+:::caution[Uważaj tutaj]
+Nie zapominaj o dodawaniu 1 i pilnuj dokładnie wymaganej szerokości słowa.
+:::
+
+### Minisprawdzian po zadaniu
+
+Zapisz `−2` na 4 bitach w U2.
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+`+2 = 0010`; odwróć `1101`; dodaj 1 → `1110`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

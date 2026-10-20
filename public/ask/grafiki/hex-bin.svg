@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-labelledby="t d">
+<title id="t">Binarne ↔ szesnastkowe: grupy po 4 bity</title><desc id="d">Przykład z lekcji: HEX 2 D; 4 BITY 0010 1101; ŁĄCZNIE 0010 1101; BEZ ZERA 101101₂</desc>
+<rect width="960" height="410" rx="24" fill="#070d12"/>
+<rect x="2" y="2" width="956" height="406" rx="22" fill="none" stroke="#28434a" stroke-width="2"/>
+<circle cx="46" cy="45" r="6" fill="#5ce2d1"/>
+<text x="64" y="50" fill="#66e9d8" font-size="15" font-weight="800" font-family="Segoe UI,Arial,sans-serif">STUDYLAB / BLACK EDITION / ARCHITEKTURA</text>
+<text x="42" y="94" fill="#f0fbff" font-size="27" font-weight="800" font-family="Segoe UI,Arial,sans-serif">Binarne ↔ szesnastkowe: grupy po 4 bity</text>
+<rect x="41.0" y="130.0" width="285.7" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="183.83333333333334" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">HEX</text>
+<rect x="333.7" y="130.0" width="285.7" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="476.5" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">2</text>
+<rect x="626.3" y="130.0" width="285.7" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="769.1666666666667" y="165.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">D</text>
+<rect x="41.0" y="188.0" width="285.7" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="183.83333333333334" y="223.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">4 BITY</text>
+<rect x="333.7" y="188.0" width="285.7" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="476.5" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">0010</text>
+<rect x="626.3" y="188.0" width="285.7" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="769.1666666666667" y="223.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">1101</text>
+<rect x="41.0" y="246.0" width="285.7" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="183.83333333333334" y="281.72" fill="#73eddf" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">ŁĄCZNIE</text>
+<rect x="333.7" y="246.0" width="285.7" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="476.5" y="280.76" fill="#e7f0fa" font-size="18" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">0010 1101</text>
+<rect x="626.3" y="246.0" width="285.7" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="769.1666666666667" y="281.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif"></text>
+<rect x="41.0" y="304.0" width="285.7" height="52.0" rx="10" fill="#10313a" stroke="#34535d"/>
+<text x="183.83333333333334" y="338.76" fill="#73eddf" font-size="18" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">BEZ ZERA</text>
+<rect x="333.7" y="304.0" width="285.7" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="476.5" y="339.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">101101₂</text>
+<rect x="626.3" y="304.0" width="285.7" height="52.0" rx="10" fill="#101b27" stroke="#34535d"/>
+<text x="769.1666666666667" y="339.72" fill="#e7f0fa" font-size="21" font-weight="760" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif"></text>
+<text x="42" y="384" fill="#9db8c1" font-size="13" font-weight="600" font-family="Segoe UI,Arial,sans-serif">PATRZ NA ZMIANĘ WARTOŚCI I ZNAKI — NIE UCZ SIĘ WYŁĄCZNIE OBRAZKA</text>
+</svg>

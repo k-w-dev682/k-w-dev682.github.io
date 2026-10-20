@@ -14,6 +14,29 @@ import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 
 # Monotoniczność, parzystość i wykres
 
+<div className="m1-study-method not-content"><strong>JAK UCZYĆ SIĘ TEGO TEMATU?</strong><span>Najpierw przyjrzyj się schematowi, potem przeanalizuj przykład i spróbuj wyjaśnić rozwiązanie własnymi słowami. Odpowiedź do ćwiczenia odsłoń dopiero po własnej próbie.</span></div>
+
+<figure className="m1-learning-visual not-content">
+  <div className="m1-learning-visual__scroll"><img src="/math-i/grafiki/wlasnosci-funkcji.svg" alt="Dla x² monotoniczność zależy od przedziału" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Przeczytaj diagram:</strong> Dla x² monotoniczność zależy od przedziału. Zawsze porównuj dwa dozwolone argumenty.</figcaption>
+</figure>
+
+
+## Rosnąca czy malejąca? Porównuj dwa punkty
+
+Weź prostą `f(x)=2x`. Gdy argument zmienia się z 1 na 3, wynik rośnie z 2 na 6. Taka funkcja jest **ściśle rosnąca**. Dla `g(x)=−x` przy zmianie argumentu z 1 na 3 wynik spada z −1 na −3: funkcja jest **ściśle malejąca**.
+
+**Ważne:** w matematyce występują również określenia „niemalejąca” (`≤`) i „nierosnąca” (`≥`). Przy ścisłej rosnącej dla `a<b` wymagamy `f(a)<f(b)`; w przypadku niemalejącej dopuszczamy równość wyników.
+
+### Czy `x²` zawsze rośnie?
+
+Nie. Sprawdź `x=−3`, `x=−2`, `x=−1`, `x=0`: wyniki to 9, 4, 1, 0 — **maleją**, chociaż argument rośnie. Dopiero od zera w prawo wartości zaczynają rosnąć.
+
+### Jak testować parzystość wzorem?
+
+Dla `f(x)=x²+1` najpierw podstaw `−x` w miejsce każdego `x`: `f(−x)=(−x)²+1=x²+1=f(x)`. Zatem funkcja jest parzysta. Dziedzina musi też być symetryczna względem zera; samo przekształcenie wzoru bez sprawdzenia dziedziny może wprowadzić w błąd.
+
+
 ## Monotoniczność
 
 - **Rosnąca:** większemu argumentowi odpowiada większa wartość.
@@ -34,4 +57,37 @@ Przykłady: `x²` jest parzysta, a `x³` nieparzysta. Funkcja parzysta ma symetr
 Dla każdego argumentu x wykres pokazuje jedną wysokość y. Pionowa prosta nie może przecinać wykresu funkcji w więcej niż jednym punkcie.
 
 Wartości odczytujemy z osi y, miejsca zerowe z przecięcia z osią x, a przedziały monotoniczności z kierunku, w którym „idzie” wykres.
+
+
+
+<div className="m1-chapter-divider not-content"><span>DOKŁADNIEJ · PRZYKŁAD · UTRWALENIE</span></div>
+
+## Jak czytać własności funkcji z wykresu i wzoru?
+
+Rosnąca oznacza: gdy wybierzesz większy argument, otrzymasz **większy wynik**. Malejąca — odwrotnie. Dla funkcji `f(x)=x²` sytuacja zależy od tego, po której stronie zera jesteśmy.
+
+### Dlaczego `x²` nie rośnie na całej osi?
+
+1. Weź `x₁=−3` i `x₂=−2`. Mamy `−3<−2`, ale `f(−3)=9` i `f(−2)=4`: wynik **maleje**.
+2. Weź `x₁=1` i `x₂=2`. Mamy `1<2`, a `f(1)=1`, `f(2)=4`: wynik **rośnie**.
+3. Zatem na `(-∞,0]` funkcja maleje, a na `[0,∞)` rośnie (przy porównywaniu argumentów w każdym z tych przedziałów).
+
+### Test parzystości i nieparzystości
+
+Dla `f(x)=x²`: `f(−x)=(−x)²=x²=f(x)` — funkcja **parzysta**, wykres symetryczny względem osi pionowej.
+
+Dla `g(x)=x³`: `g(−x)=−x³=−g(x)` — funkcja **nieparzysta**, symetryczna względem początku układu.
+
+Pamiętaj też o dziedzinie: żeby mówić o parzystości lub nieparzystości, dla każdego dozwolonego `x` także `−x` musi należeć do dziedziny.
+
+<details className="m1-selfcheck">
+<summary>Sprawdź: czy `f(x)=x²+2` jest parzysta?</summary>
+
+Tak. `f(−x)=(−x)²+2=x²+2=f(x)` dla każdego x rzeczywistego. Dodanie liczby 2 do wyników nie niszczy symetrii względem osi y.
+
+</details>
+
+## Powtórka aktywna — spróbuj przypomnieć sobie bez patrzenia
+
+Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 

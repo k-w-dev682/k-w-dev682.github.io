@@ -5,12 +5,104 @@ sidebar:
   order: 9
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { WhileLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="stoper" title="Stoper `0` i sumowanie ciągu" section="02 · Algorytmy i diagnostyka" />
 
 # Stoper `0` i sumowanie ciągu
+
+## Zrozum od podstaw
+
+Wartownik to umówiony znak końca, podobny do słowa „stop” w dyktowaniu listy. Nie jest zwykłym elementem listy. Tutaj liczba 0 kończy dane. Gdyby zero miało być normalną wartością do zliczania, potrzebowalibyśmy innej umowy, np. liczby elementów podanej wcześniej.
+
+Użyjemy `while (std::cin >> x && x != 0)`. Najpierw próbujemy odczytu. Tylko udany odczyt pozwala sprawdzić x. Dopiero gdy x nie jest wartownikiem, wykonujemy ciało. To obejmuje również koniec pliku i niepoprawne wejście.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 0;
+    int suma = 0;
+    int ile = 0;
+    while (std::cin >> x && x != 0) {
+        suma += x;
+        ++ile;
+    }
+    std::cout << suma << ' ' << ile << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. x przechowuje ostatnio wczytaną liczbę; suma i ile zbierają wynik.
+2. && oznacza, że potrzebujemy powodzenia odczytu oraz wartości różnej od zera.
+3. += dodaje element, ++ zwiększa liczbę zaakceptowanych elementów.
+4. Po wyjściu wypisujemy sumę i liczbę elementów. Zakładamy małe dane mieszczące się w int.
+
+<CppTrace title="Śledzenie: stoper" steps={[["Odczyt 4", "suma = 4, ile = 1"], ["Odczyt −2", "suma = 2, ile = 2"], ["Odczyt 7", "suma = 9, ile = 3"], ["Odczyt 0", "koniec; suma = 9, ile = 3"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+while (x != 0) { suma += x; }
+```
+
+W błędnej wersji x nie jest odświeżane. W poprawnej każdy test warunku pobiera kolejny element.
+
+**Poprawiony fragment:**
+
+```cpp
+while (std::cin >> x && x != 0) { suma += x; }
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co wypisze program dla samego 0?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+0 0: ciało nie zostanie wykonane, więc obie wartości początkowe pozostaną.
+
+</details>
+
+### 2. Zlicz tylko dodatnie elementy.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zamiast ++ile wpisz `if (x > 0) ++ile;`. Suma może nadal obejmować wszystkie elementy.
+
+</details>
+
+### 3. Jak obliczyć średnią?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Najpierw sprawdź ile > 0, potem `static_cast<double>(suma) / ile`. Bez elementów średnia nie jest określona, więc nie dziel przez zero.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Wartownik nie trafia do statystyki. Odczyt powinien być częścią kontroli pętli, nie tylko jednorazową instrukcją przed nią.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Zadanie ze skryptu
 

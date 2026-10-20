@@ -1,0 +1,25 @@
+---
+import StudyFigure from './StudyFigure.astro';
+---
+<StudyFigure title="Wartość bezwzględna jako odległość" eyebrow="MATEMATYKA · MODUŁ" caption="Moduł nie pyta o stronę osi, tylko o samą odległość. Dlatego |−3| i |3| dają ten sam wynik.">
+  <svg viewBox="0 0 860 240" class="sl-svg" role="img" aria-label="Oś liczbowa z odległością od zera">
+    <rect x="24" y="24" width="812" height="192" rx="22" class="sl-svg__panel" />
+    <line x1="100" y1="122" x2="760" y2="122" class="sl-svg__axis" />
+    <g class="sl-svg__ticks">
+      <line x1="160" y1="110" x2="160" y2="134" class="sl-svg__tick" /><text x="160" y="158" text-anchor="middle" class="sl-svg__label">−3</text>
+      <line x1="340" y1="110" x2="340" y2="134" class="sl-svg__tick" /><text x="340" y="158" text-anchor="middle" class="sl-svg__label">0</text>
+      <line x1="520" y1="110" x2="520" y2="134" class="sl-svg__tick" /><text x="520" y="158" text-anchor="middle" class="sl-svg__label">3</text>
+      <line x1="700" y1="110" x2="700" y2="134" class="sl-svg__tick" /><text x="700" y="158" text-anchor="middle" class="sl-svg__label">6</text>
+    </g>
+    <circle cx="160" cy="122" r="9" class="sl-svg__dot sl-svg__dot--accent" />
+    <circle cx="520" cy="122" r="9" class="sl-svg__dot sl-svg__dot--accent" />
+    <circle cx="340" cy="122" r="9" class="sl-svg__dot sl-svg__dot--warn" />
+    <line x1="160" y1="84" x2="340" y2="84" class="sl-svg__measure" />
+    <line x1="340" y1="84" x2="520" y2="84" class="sl-svg__measure" />
+    <text x="250" y="73" text-anchor="middle" class="sl-svg__value">3 kroki</text>
+    <text x="430" y="73" text-anchor="middle" class="sl-svg__value">3 kroki</text>
+    <text x="120" y="195" class="sl-svg__note">|−3| = 3</text>
+    <text x="485" y="195" class="sl-svg__note">|3| = 3</text>
+    <text x="315" y="195" class="sl-svg__note">|0| = 0</text>
+  </svg>
+</StudyFigure>

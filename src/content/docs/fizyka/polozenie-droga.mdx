@@ -14,6 +14,14 @@ import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
 
 # Położenie, droga i przemieszczenie
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/polozenie-droga.svg" alt="Droga i przemieszczenie to dwie różne odpowiedzi" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Droga = ile przeszedłeś. Przemieszczenie = jak daleko i w którą stronę od startu.**</figcaption>
+</figure>
+
 ## Trzy różne pojęcia
 
 - **Położenie** x informuje, gdzie ciało jest na wybranej osi.
@@ -32,5 +40,50 @@ Osoba idzie od x = 2 m do x = 9 m, a potem wraca do x = 5 m.
 4. Droga łącznie: 7 + 4 = **11 m**.
 
 Przemieszczenie nie musi być równe drodze!
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Droga i przemieszczenie to dwie różne odpowiedzi
+
+Wyobraź sobie oś x. **Położenie** mówi, gdzie jesteś; **przemieszczenie**, jak bardzo zmieniła się współrzędna; **droga**, ile metrów faktycznie przeszedłeś.
+
+### Co oznaczają symbole i jednostki?
+
+`x₀` — położenie startowe [m]; `xₖ` — końcowe [m]; `Δx` — ich różnica [m]; `s` — łączna droga [m].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Startujesz w punkcie `x₀=2 m`, idziesz `7 m` w prawo: jesteś w `x=9 m`.
+2. Wracasz `3 m` w lewo: kończysz w `xₖ=6 m`.
+3. Droga to wszystkie przebyte odcinki: `s=7 m+3 m=10 m`.
+4. Przemieszczenie: `Δx=xₖ−x₀=6−2=4 m`, czyli o 4 m w prawo od początku.
+
+### Dlaczego to działa?
+
+Droga nie może maleć, bo sumujesz długości. Przemieszczenie może być ujemne lub zerowe, bo porównuje jedynie położenie końcowe z początkowym.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Droga = ile przeszedłeś. Przemieszczenie = jak daleko i w którą stronę od startu.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie wstawiaj automatycznie drogi `s` do wzoru na średnią prędkość wektorową `Δx/Δt`.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Idziesz 5 m w prawo i wracasz 5 m w lewo. Podaj drogę i przemieszczenie.</summary>
+
+**Kolejne kroki i odpowiedź:** Droga to `10 m`, przemieszczenie to `0 m`, bo wróciłeś do punktu startowego.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

@@ -1,0 +1,108 @@
+---
+title: "Referencje — druga nazwa tego samego obiektu"
+description: "Krok po kroku: kod, pamięć, ćwiczenia i odpowiedzi."
+sidebar:
+  order: 43
+---
+
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+import CppStepLab from '../../../components/cpp13/CppStepLab.jsx';
+
+import PdfTopicButton from '../../../components/PdfExport.jsx';
+
+<PdfTopicButton client:load slug="referencje" title="Referencje — druga nazwa tego samego obiektu" section="06 · Dane, funkcje i pamięć" />
+
+# Referencje — druga nazwa tego samego obiektu
+
+## Zrozum od podstaw
+
+Referencja to druga nazwa istniejącego obiektu. Nie jest osobną kopią jego wartości. Wyobraź sobie jedną szufladę z dwiema etykietami: zmiana przez którąkolwiek etykietę dotyczy tej samej zawartości.
+
+W deklaracji int& alias = x znak & oznacza referencję. Musi od razu wskazywać istniejący obiekt. Późniejsze alias = y przypisuje wartość y do x; nie przepina referencji do innego obiektu. const int& pozwala czytać bez możliwości zmiany przez tę nazwę.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 5;
+    int kopia = x;
+    int& alias = x;
+    alias += 2;
+    kopia += 10;
+    std::cout << x << ' ' << alias << ' ' << kopia;
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. x jest obiektem przechowującym 5.
+2. kopia tworzy nowy obiekt z taką samą wartością.
+3. alias nazywa ten sam obiekt co x.
+4. Zmiana alias zwiększa x do 7; nie zmienia kopia.
+5. Zwiększenie kopia daje 15, a x i alias nadal odczytują 7.
+
+<CppTrace title="Śledzenie: referencje" steps={[["Start", "x = 5"], ["Dwie drogi", "kopia osobno; alias to druga nazwa x"], ["alias += 2", "x = 7, alias = 7, kopia = 5"], ["kopia += 10", "x = 7, alias = 7, kopia = 15"]]} />
+
+![Schemat: referencja](/cpp13/referencja.svg)
+
+<CppStepLab client:visible mode="reference" />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+for (char c : s) c = 'X';
+```
+
+Pierwsza pętla zmienia kopie. Referencja c w drugiej odnosi się bezpośrednio do elementu napisu.
+
+**Poprawiony fragment:**
+
+```cpp
+for (char& c : s) c = 'X';
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co zrobi alias = 20?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Zapisze 20 do x, ponieważ alias jest tą samą szufladą pod inną nazwą.
+
+</details>
+
+### 2. Jak napisać funkcję zwiększającą argument?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+`void zwieksz(int& x) { ++x; }`. void oznacza brak zwracanej wartości, a & pozwala zmienić obiekt wywołującego.
+
+</details>
+
+### 3. Czy można zwrócić referencję do lokalnego int?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie można potem bezpiecznie jej używać: lokalny obiekt kończy życie przy powrocie funkcji. Zwróć wartość albo odwołuj się do obiektu o odpowiednio długim życiu.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Referencja nie kopiuje obiektu. Czas życia obiektu musi obejmować wszystkie użycia referencji.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+[Wróć do spisu treści](../spis-tresci/) · [Laboratorium](../laboratorium/)

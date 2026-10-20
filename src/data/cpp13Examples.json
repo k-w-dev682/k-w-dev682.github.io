@@ -1,0 +1,178 @@
+[
+  {
+    "slug": "wstep",
+    "code": "#include <iostream>\n\nint main() {\n    int a = 2;\n    int b = 3;\n    int suma = a + b;\n    std::cout << suma << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "codeblocks",
+    "code": "#include <iostream>\n\nint main() {\n    std::cout << \"Wersja 1\" << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "kompilacja",
+    "code": "#include <iostream>\n\nint main() {\n    int cena = 4;\n    int sztuki = 3;\n    std::cout << cena * sztuki << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "wejscie-wyjscie",
+    "code": "#include <iostream>\n\nint main() {\n    int a = 0, b = 0;\n    if (!(std::cin >> a >> b)) {\n        std::cout << \"Bledne dane\\n\";\n        return 1;\n    }\n    std::cout << \"Suma: \" << a + b << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "zmienne",
+    "code": "#include <iostream>\n\nint main() {\n    int x = 4;\n    int kopia = x;\n    x = x + 3;\n    kopia *= 2;\n    std::cout << x << ' ' << kopia << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "operatory-warunki",
+    "code": "#include <iostream>\n\nint main() {\n    int x = 12;\n    bool pasuje = x > 0 && x % 3 == 0;\n    if (pasuje) {\n        std::cout << \"Dodatnia wielokrotnosc 3\\n\";\n    } else {\n        std::cout << \"Nie pasuje\\n\";\n    }\n    return 0;\n}\n"
+  },
+  {
+    "slug": "pseudokod",
+    "code": "#include <iostream>\n\nint main() {\n    int a = 7, b = 4;\n    int wieksza = b;\n    if (a > b) {\n        wieksza = a;\n    }\n    std::cout << wieksza << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "petla-while",
+    "code": "#include <iostream>\n\nint main() {\n    int i = 3;\n    int suma = 0;\n    while (i > 0) {\n        suma += i;\n        --i;\n    }\n    std::cout << suma << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "stoper",
+    "code": "#include <iostream>\n\nint main() {\n    int x = 0;\n    int suma = 0;\n    int ile = 0;\n    while (std::cin >> x && x != 0) {\n        suma += x;\n        ++ile;\n    }\n    std::cout << suma << ' ' << ile << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "petla-for",
+    "code": "#include <iostream>\n\nint main() {\n    int suma = 0;\n    for (int i = 1; i <= 3; ++i) {\n        suma += i;\n    }\n    std::cout << suma << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "mnozenie-dodawaniem",
+    "code": "#include <iostream>\n\nint main() {\n    int paczki = 4, wPaczce = 3;\n    int wynik = 0;\n    for (int i = 0; i < paczki; ++i) {\n        wynik += wPaczce;\n    }\n    std::cout << wynik << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "debugger",
+    "code": "#include <iostream>\n\nint main() {\n    int suma = 0;\n    for (int i = 1; i <= 3; ++i) {\n        suma += i;\n    }\n    std::cout << suma << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "testowanie",
+    "code": "#include <iostream>\n\nint main() {\n    int n = 5;\n    int suma = 0;\n    for (int i = 1; i <= n; ++i) suma += i;\n    std::cout << suma << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "potegowanie",
+    "code": "#include <iostream>\n\nint main() {\n    double podstawa = 2.0;\n    int wykladnik = 3;\n    double wynik = 1.0;\n    for (int i = 0; i < wykladnik; ++i) wynik *= podstawa;\n    std::cout << wynik << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "petle-zagniezdzone",
+    "code": "#include <iostream>\n\nint main() {\n    for (int w = 1; w <= 2; ++w) {\n        for (int k = 1; k <= 3; ++k) {\n            std::cout << w << k << ' ';\n        }\n        std::cout << '\\n';\n    }\n    return 0;\n}\n"
+  },
+  {
+    "slug": "float-double",
+    "code": "#include <iostream>\n#include <iomanip>\n\nint main() {\n    float a = 0.5f;\n    double b = 0.1;\n    std::cout << std::setprecision(17) << a << '\\n';\n    std::cout << b << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "zapis-pozycyjny",
+    "code": "#include <iostream>\n\nint main() {\n    int liczba = 0b1101;\n    int rozklad = 1 * 8 + 1 * 4 + 0 * 2 + 1 * 1;\n    std::cout << liczba << ' ' << rozklad << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "ulamki-binarne",
+    "code": "#include <iostream>\n\nint main() {\n    double reszta = 0.625;\n    for (int i = 0; i < 3; ++i) {\n        reszta *= 2;\n        int bit = static_cast<int>(reszta);\n        std::cout << bit;\n        reszta -= bit;\n    }\n    return 0;\n}\n"
+  },
+  {
+    "slug": "ieee754",
+    "code": "#include <iostream>\n#include <cmath>\n\nint main() {\n    int znak = 0;\n    int poleWykladnika = 128;\n    double ulamek = 0.25;\n    double wartosc = (znak == 0 ? 1.0 : -1.0)\n        * (1.0 + ulamek) * std::pow(2.0, poleWykladnika - 127);\n    std::cout << wartosc << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "bledy-obliczen",
+    "code": "#include <iostream>\n#include <iomanip>\n\nint main() {\n    double x = 1.0;\n    for (int i = 0; i < 10; ++i) {\n        x -= 0.1;\n    }\n    std::cout << std::setprecision(17) << x << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "porownanie-float",
+    "code": "#include <iostream>\n#include <cmath>\n\nint main() {\n    double a = 0.1 + 0.2;\n    double b = 0.3;\n    double tolerancja = 1e-9;\n    bool blisko = std::abs(a - b) <= tolerancja;\n    std::cout << std::boolalpha << blisko << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "rzutowanie",
+    "code": "#include <iostream>\n\nint main() {\n    int a = 7, b = 2;\n    double po = static_cast<double>(a / b);\n    double przed = static_cast<double>(a) / b;\n    std::cout << po << ' ' << przed << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "formatowanie",
+    "code": "#include <iostream>\n#include <iomanip>\n\nint main() {\n    double x = 123.456789;\n    std::cout << std::setprecision(4) << x << '\\n';\n    std::cout << std::fixed << std::setprecision(4) << x << '\\n';\n    std::cout << std::defaultfloat << std::setprecision(6) << x << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "overflow",
+    "code": "#include <iostream>\n#include <limits>\n\nint main() {\n    int a = 1000000;\n    int b = 1000000;\n    long long bezpieczniej = 1LL * a * b;\n    std::cout << bezpieczniej << '\\n';\n    std::cout << std::numeric_limits<int>::max() << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "cmath",
+    "code": "#include <iostream>\n#include <cmath>\n\nint main() {\n    double x = -2.4;\n    std::cout << std::floor(x) << ' ' << std::ceil(x) << '\\n';\n    double a = 3.0, b = 4.0;\n    double przekatna = std::sqrt(a * a + b * b);\n    std::cout << przekatna << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "losowanie",
+    "code": "#include <iostream>\n#include <random>\n\nint main() {\n    std::mt19937 generator{42};\n    std::uniform_int_distribution<int> kostka(1, 6);\n    for (int i = 0; i < 5; ++i) {\n        int rzut = kostka(generator);\n        std::cout << rzut << ' ';\n    }\n    return 0;\n}\n"
+  },
+  {
+    "slug": "char-ascii",
+    "code": "#include <iostream>\n\nint main() {\n    char c = '7';\n    if (c >= '0' && c <= '9') {\n        int wartosc = c - '0';\n        std::cout << wartosc + 1 << '\\n';\n    }\n    return 0;\n}\n"
+  },
+  {
+    "slug": "wczytywanie-char",
+    "code": "#include <iostream>\n\nint main() {\n    char c = '\\0';\n    int ile = 0;\n    while (std::cin >> c && c != 'k') {\n        ++ile;\n    }\n    std::cout << ile << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "string-podstawy",
+    "code": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string imie = \"Ala\";\n    std::string nazwisko = \"Kot\";\n    std::string razem = imie + \" \" + nazwisko;\n    std::cout << razem << '\\n';\n    std::cout << razem.size() << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "indeksy-string",
+    "code": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string s = \"KOT\";\n    for (std::size_t i = 0; i < s.size(); ++i) {\n        std::cout << i << ':' << s[i] << '\\n';\n    }\n    for (std::size_t i = s.size(); i > 0; --i) {\n        std::cout << s[i - 1];\n    }\n    return 0;\n}\n"
+  },
+  {
+    "slug": "metody-string",
+    "code": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string s = \"Ala ma kota\";\n    auto p = s.find(\"kota\");\n    if (p != std::string::npos) {\n        std::string fragment = s.substr(p, 4);\n        s.erase(p, 4);\n        s.insert(p, \"psa\");\n        std::cout << fragment << \" / \" << s << '\\n';\n    }\n    return 0;\n}\n"
+  },
+  {
+    "slug": "getline",
+    "code": "#include <iostream>\n#include <string>\n#include <limits>\n\nint main() {\n    int wiek = 0;\n    std::string imie;\n    if (!(std::cin >> wiek)) return 1;\n    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\\n');\n    if (!std::getline(std::cin, imie)) return 1;\n    std::cout << wiek << \" / \" << imie << '\\n';\n    return 0;\n}\n"
+  },
+  {
+    "slug": "analiza-tekstu",
+    "code": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string s = \"Ab3!\";\n    int male = 0, duze = 0, cyfry = 0, inne = 0;\n    for (unsigned char c : s) {\n        if (c >= 'a' && c <= 'z') ++male;\n        else if (c >= 'A' && c <= 'Z') ++duze;\n        else if (c >= '0' && c <= '9') ++cyfry;\n        else ++inne;\n    }\n    std::cout << male << ' ' << duze << ' ' << cyfry << ' ' << inne;\n    return 0;\n}\n"
+  },
+  {
+    "slug": "konwersja-napisow",
+    "code": "#include <iostream>\n#include <string>\n#include <stdexcept>\n\nint main() {\n    std::string s = \"12x\";\n    try {\n        std::size_t koniec = 0;\n        int x = std::stoi(s, &koniec);\n        if (koniec == s.size()) std::cout << x;\n        else std::cout << \"Dopisek od pozycji \" << koniec;\n    } catch (const std::invalid_argument&) {\n        std::cout << \"Brak liczby\";\n    } catch (const std::out_of_range&) {\n        std::cout << \"Poza zakresem int\";\n    }\n    return 0;\n}\n"
+  },
+  {
+    "slug": "palindrom",
+    "code": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string s = \"kajak\";\n    bool pasuje = true;\n    for (std::size_t i = 0; i < s.size() / 2; ++i) {\n        if (s[i] != s[s.size() - 1 - i]) {\n            pasuje = false;\n            break;\n        }\n    }\n    std::cout << std::boolalpha << pasuje;\n    return 0;\n}\n"
+  },
+  {
+    "slug": "szyfr",
+    "code": "#include <iostream>\n\nint main() {\n    char c = 'z';\n    int przesuniecie = 3;\n    int p = ((przesuniecie % 26) + 26) % 26;\n    if (c >= 'a' && c <= 'z') {\n        int pozycja = c - 'a';\n        char wynik = static_cast<char>('a' + (pozycja + p) % 26);\n        std::cout << wynik;\n    }\n    return 0;\n}\n"
+  },
+  {
+    "slug": "zadania-podstawy",
+    "code": "#include <iostream>\n\nint main() {\n    int n = 0, ile = 0;\n    if (!(std::cin >> n) || n < 0 || n > 1000) return 1;\n    for (int i = 0; i < n; ++i) {\n        int x = 0;\n        if (!(std::cin >> x)) return 1;\n        if (x > 0) ++ile;\n    }\n    std::cout << ile;\n    return 0;\n}\n"
+  },
+  {
+    "slug": "zadania-algorytmy",
+    "code": "#include <iostream>\n\nint main() {\n    int n = 1020;\n    int zera = 0;\n    do {\n        int cyfra = n % 10;\n        if (cyfra == 0) ++zera;\n        n /= 10;\n    } while (n > 0);\n    std::cout << zera;\n    return 0;\n}\n"
+  },
+  {
+    "slug": "zadania-float",
+    "code": "#include <iostream>\n#include <iomanip>\n\nint main() {\n    double a = 2.5, b = 4.0;\n    double pole = a * b;\n    double obwod = 2 * (a + b);\n    std::cout << std::fixed << std::setprecision(2);\n    std::cout << pole << ' ' << obwod;\n    return 0;\n}\n"
+  },
+  {
+    "slug": "zadania-string",
+    "code": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string s = \"Ala ma kota\";\n    std::string wynik;\n    for (char c : s) {\n        if (c != ' ') wynik += c;\n    }\n    std::cout << wynik;\n    return 0;\n}\n"
+  },
+  {
+    "slug": "tablice",
+    "code": "#include <iostream>\n#include <array>\n\nint main() {\n    std::array<int, 3> oceny{2, 4, 6};\n    int suma = 0;\n    for (std::size_t i = 0; i < oceny.size(); ++i) {\n        suma += oceny[i];\n    }\n    std::cout << suma / 3.0;\n    return 0;\n}\n"
+  },
+  {
+    "slug": "funkcje",
+    "code": "#include <iostream>\n\nint suma(int a, int b) {\n    int wynik = a + b;\n    return wynik;\n}\nint main() {\n    int x = 3;\n    int y = suma(x, 4);\n    std::cout << x << ' ' << y;\n}\n"
+  },
+  {
+    "slug": "referencje",
+    "code": "#include <iostream>\n\nint main() {\n    int x = 5;\n    int kopia = x;\n    int& alias = x;\n    alias += 2;\n    kopia += 10;\n    std::cout << x << ' ' << alias << ' ' << kopia;\n    return 0;\n}\n"
+  },
+  {
+    "slug": "wskazniki-pamiec",
+    "code": "#include <iostream>\n\nint main() {\n    int x = 5, y = 9;\n    int* p = &x;\n    *p = 7;\n    p = &y;\n    *p += 1;\n    std::cout << x << ' ' << y;\n    p = nullptr;\n    return 0;\n}\n"
+  }
+]

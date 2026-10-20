@@ -13,6 +13,63 @@ import { NetworkLab } from '../../../components/ElectronicsLabs.jsx';
 
 <ElectronicsPdfButton client:load slug="lacznie-rownolegle" />
 
+## Zrozum temat od zera — StudyLab 11.0
+
+**Cel tej części:** zrozumieć sens pojęć przed zapamiętywaniem wzoru. Ten przykład jest opracowaniem dydaktycznym; w dalszej części strony pozostają Twoje dotychczasowe notatki, wzory i laboratoria.
+
+### Najpierw najprostsze wyjaśnienie
+
+W połączeniu równoległym oba końce każdego kondensatora są przyłączone do tych samych dwóch węzłów. Dlatego na każdym panuje to samo napięcie, a zgromadzone ładunki się dodają.
+
+Wyobraź sobie dokładanie kolejnych półek o takiej samej odległości między okładkami — zwiększa się całkowita dostępna powierzchnia, a razem z nią pojemność.
+
+### Zobacz to na schemacie
+
+![Schemat do tematu: lacznie rownolegle](/elektronika/grafiki/lacznie-rownolegle.svg)
+
+**Wskazówka do grafiki:** **Równolegle → dodaj pojemności, napięcie pozostaje takie samo.**
+
+### Każda litera i symbol — co oznacza?
+
+- `U₁ = U₂ = U` — napięcie wszystkich gałęzi jest jednakowe.
+- `Q_z = Q₁ + Q₂` — suma wartości ładunków dla gałęzi przy tych samych biegunach.
+- `C_z = C₁ + C₂ + …` — pojemność zastępcza równoległa.
+- `C` — jednostka farad `F`, np. `μF`.
+
+### Przykład rozwiązany bez opuszczania kroków
+
+**Prześledź kolejność, zanim spróbujesz liczyć samodzielnie.**
+
+1. Dane: `C₁ = 4 μF`, `C₂ = 6 μF`, napięcie zasilania `U = 12 V`.
+2. Dodajemy pojemności: `C_z = 4 + 6 = 10 μF`.
+3. Na każdym kondensatorze jest **12 V**.
+4. Ładunek pierwszego: `Q₁ = 4 μF · 12 V = 48 μC`.
+5. Ładunek drugiego: `Q₂ = 6 μF · 12 V = 72 μC`.
+6. Suma: `Q_z = 48 + 72 = 120 μC`; kontrola: `C_z U = 10 μF · 12 V = 120 μC`.
+
+:::caution[Na co uważać?]
+Błąd: dzielenie napięcia tak jak w szeregu. W połączeniu równoległym oba kondensatory mają to samo napięcie.
+:::
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Równolegle → dodaj pojemności, napięcie pozostaje takie samo.**
+:::
+
+### Sprawdź, czy naprawdę rozumiesz
+
+**Pytanie:** Jaką pojemność mają razem `2 μF`, `3 μF` i `5 μF` połączone równolegle?
+
+<details>
+<summary>Odsłoń odpowiedź i wyjaśnienie</summary>
+
+`10 μF`.
+
+</details>
+
+**Mini-powtórka:** po zamknięciu tej lekcji spróbuj z pamięci powiedzieć, **co oznaczają symbole**, **kiedy działa wzór** i **dlaczego wynik ma właśnie taki znak lub jednostkę**. Wróć do pytania jutro, za 3 dni i za tydzień.
+
+---
+
 ## Jak wygląda połączenie równoległe?
 
 Obie okładki każdego kondensatora są podłączone do tych samych dwóch węzłów. Dlatego **napięcie na każdym jest takie samo**:

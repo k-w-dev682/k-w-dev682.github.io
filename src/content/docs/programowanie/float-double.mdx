@@ -5,6 +5,8 @@ sidebar:
   order: 16
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { FloatLab } from '../../../components/CppLabs.jsx';
 
@@ -12,14 +14,101 @@ import { FloatLab } from '../../../components/CppLabs.jsx';
 
 # `float`, `double` i liczby rzeczywiste
 
+## Zrozum od podstaw
+
+Wyobraź sobie linijkę z ograniczoną liczbą kresek. Wynik pomiaru pomiędzy kreskami trzeba przybliżyć. Typy float i double też mają ograniczony zbiór wartości, choć odstępy między nimi zależą od wielkości liczby. double zwykle ma więcej bitów precyzji niż float, lecz nadal nie przechowuje każdej liczby rzeczywistej dokładnie.
+
+**Cyfry znaczące** opisują cały zapis liczby, nie tylko część po kropce. **Literał** to wartość zapisana bezpośrednio w kodzie. Zapis 0.1 ma typ double, a 0.1f typ float.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    float a = 0.5f;
+    double b = 0.1;
+    std::cout << std::setprecision(17) << a << '\n';
+    std::cout << b << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. f na końcu 0.5f wybiera float. Połówka ma skończony zapis binarny.
+2. 0.1 jest literałem double, zwykle zapisanym jako bliskie przybliżenie.
+3. setprecision z nagłówka iomanip zwiększa liczbę pokazywanych cyfr; nie poprawia dokładności samej zmiennej.
+4. W typowym IEEE binary64 zobaczysz 0.10000000000000001 dla b.
+
+<CppTrace title="Śledzenie: float double" steps={[["Źródło a", "0.5: dokładna połówka"], ["Pamięć a", "dokładnie 1/2 w binary32"], ["Źródło b", "0.1: nieskończony zapis binarny"], ["Pamięć b", "najbliższe przybliżenie w typowym binary64"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+int x = 2.75;
+```
+
+int odrzuci część ułamkową, jeśli konwersja mieści się w zakresie. double zachowa tutaj dokładne 2.75 = 2 + 1/2 + 1/4.
+
+**Poprawiony fragment:**
+
+```cpp
+double x = 2.75;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy double zawsze daje wynik dokładny?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Więcej bitów zmniejsza wiele błędów, ale nie usuwa nieskończonych rozwinięć.
+
+</details>
+
+### 2. Ile cyfr znaczących ma 1234.5?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Pięć; tylko jedna z nich jest po kropce.
+
+</details>
+
+### 3. Dlaczego drukowanie 0.1 nie dowodzi dokładnego zapisu?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Format wyjścia może zaokrąglić przybliżenie do krótkiego 0.1. Zmiana liczby widocznych cyfr ujawnia więcej informacji.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Precyzja i zakres to różne cechy. Standard nie wymaga, aby każdy float był dokładnie IEEE binary32.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
+
 ## Typ całkowity to nie wszystko
 
 `int` nie przechowa dokładnie liczby `3.14`. Do przybliżeń liczb rzeczywistych w C++ używamy najczęściej `float` i `double`. To typy **zmiennoprzecinkowe**, a nie „liczby z dowolną dokładnością”.
 
 | Typ | Zwykły rozmiar | Typowa precyzja |
 |---|---:|---|
-| `float` | 4 bajty | ok. 6–9 **cyfr znaczących** |
-| `double` | 8 bajtów | ok. 15–17 **cyfr znaczących** |
+| `float` | 4 bajty | zwykle 6 gwarantowanych cyfr dziesiętnych; do 9 do odtworzenia wartości z wydruku |
+| `double` | 8 bajtów | zwykle 15 gwarantowanych cyfr dziesiętnych; do 17 do odtworzenia wartości z wydruku |
 | `long double` | zależny od systemu | zależna od implementacji |
 
 Nie myl **cyfr znaczących** z liczbą cyfr *po przecinku*. To nie jest to samo! Liczba `123456.7` ma siedem cyfr znaczących, mimo że po przecinku jest tylko jedna.

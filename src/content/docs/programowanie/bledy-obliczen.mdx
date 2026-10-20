@@ -5,12 +5,102 @@ sidebar:
   order: 20
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 import { FloatLab } from '../../../components/CppLabs.jsx';
 
 <PdfTopicButton client:load slug="bledy-obliczen" title="Błędy zaokrągleń i pętla, która nie kończy" section="03 · Liczby w pamięci" />
 
 # Błędy zaokrągleń i pętla, która nie kończy
+
+## Zrozum od podstaw
+
+Zaokrąglenie może wystąpić już przy zapisaniu liczby i ponownie przy każdym działaniu. To jak wielokrotne odmierzanie niedokładną miarką: końcowy błąd zależy także od sposobu liczenia. Odejmowanie prawie równych liczb może usunąć wspólne cyfry i ujawnić wcześniej mało widoczny błąd.
+
+Oddziel decyzję o liczbie powtórzeń od wartości przybliżonej. Gdy zadanie mówi o dziesięciu próbkach, użyj dziesięciu kroków z licznikiem całkowitym. Nie czekaj, aż przybliżona suma przypadkiem będzie dokładnie równa granicy.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    double x = 1.0;
+    for (int i = 0; i < 10; ++i) {
+        x -= 0.1;
+    }
+    std::cout << std::setprecision(17) << x << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. x zaczyna od dokładnego 1.
+2. Licznik i zapewnia dokładnie dziesięć obiegów.
+3. Każde odejmowanie używa przybliżenia 0.1 i może ponownie zaokrąglić wynik.
+4. Wynik na typowym binary64 jest bliski zeru, ale może nie być zerem. To nie zmienia liczby obiegów.
+
+<CppTrace title="Śledzenie: bledy obliczen" steps={[["Matematyka", "1 − 10 × 0.1 = 0"], ["Reprezentacja", "0.1 jest przybliżeniem"], ["Kolejne operacje", "możliwe kolejne zaokrąglenia"], ["Sterowanie", "i kończy pętlę po 10 krokach"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+while (x != 0.0) { x -= 0.1; }
+```
+
+Dokładne zero może nigdy nie wystąpić. Licznik całkowity spełnia wymaganie liczby kroków niezależnie od błędu arytmetyki.
+
+**Poprawiony fragment:**
+
+```cpp
+for (int i = 0; i < 10; ++i) { x -= 0.1; }
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Czy setprecision naprawia x?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. Zmienia tylko sposób pokazania przechowywanej wartości.
+
+</details>
+
+### 2. Czy licznik double i += 0.1 gwarantuje 10 kroków?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Nie. On też podlega zaokrągleniom. Użyj int i obliczaj pozycję z i.
+
+</details>
+
+### 3. Jak wyznaczyć 11 punktów od 0 do 1?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Dla i od 0 do 10 włącznie oblicz x = i / 10.0. Punkty są przybliżone, ale jest ich dokładnie jedenaście.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Błąd wyniku i błąd sterowania pętlą to osobne problemy. Licznik int rozwiązuje drugi, nie usuwa pierwszego.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Pułapka z materiału
 

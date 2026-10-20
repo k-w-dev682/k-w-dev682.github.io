@@ -33,4 +33,47 @@ Przed kodowaniem określ, ilu bitów używasz, np. **4** albo **8**. Ten sam ci�
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Dlaczego potrzebujemy zapisu liczb ujemnych?](/ask/grafiki/liczby-ze-znakiem.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Zrozum to od początku — StudyLab BLACK Edition
+
+Dla liczby bez znaku na 4 bitach ciąg `1111` oznacza `15`. Jeśli chcemy zapisywać także liczby ujemne, musimy uzgodnić, jak interpretować te same cztery bity. Tak powstają ZM, U1 i U2.
+
+### Pełny przykład: każdy krok ma swoje uzasadnienie
+
+1. Ustal **szerokość**, np. 4 bity; bez niej nie określisz jednoznacznie zakresu.
+2. W ZM lewy bit jest znakiem; w U1 liczbę ujemną zapisujesz przez odwrócenie bitów; w U2 dodatkowo dodajesz 1.
+3. Na 4 bitach liczba `−3` to `1011` w ZM, `1100` w U1 i `1101` w U2.
+4. Przed odczytem zawsze zapytaj: **w jakim kodzie?** Sam ciąg bitów nie wystarcza.
+
+### Dlaczego to działa?
+
+Dopiero reguła interpretacji bitów zamienia surowy kod na liczbę. Jedne systemy mają dwa zera; U2 ma tylko jedno i dlatego jest szczególnie praktyczny.
+
+:::tip[Jak to zapamiętać]
+**Powiedz na głos, co pokazuje schemat:** skąd biorą się dane, co zmienia się w każdym kroku i jak sprawdzić końcowy wynik. Jeżeli potrafisz wykonać przykład z innymi liczbami, rozumiesz regułę.
+:::
+
+:::caution[Najczęstszy błąd]
+Samo sprawdzenie pierwszego bitu nie wystarczy, aby wyliczyć moduł liczby ujemnej. Trzeba znać regułę konkretnego kodu.
+:::
+
+### Powtórka bez podglądania
+
+Czy kod `1111` na czterech bitach zawsze oznacza −1?
+
+<details>
+<summary>Sprawdź odpowiedź i sposób rozumowania</summary>
+
+Nie. W ZM oznacza `−7`, w U1 oznacza `−0`, a w U2 oznacza `−1`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

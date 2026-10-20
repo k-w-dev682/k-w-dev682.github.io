@@ -15,6 +15,14 @@ import { ProjectileLab } from '../../../components/PhysicsLabs.jsx';
 
 # Wektory w dwóch wymiarach
 
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/wektory-2d.svg" alt="Składowe wektora to jego „cienie” na osiach" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Kąt od poziomu → poziom cos, pion sin.**</figcaption>
+</figure>
+
 W ruchu na płaszczyźnie położenie, prędkość i przyspieszenie mają po dwie składowe.
 
 <Eq tex={String.raw`\vec r=x\,\vec i+y\,\vec j`} display />
@@ -37,6 +45,51 @@ v₀ = 10 m/s i kąt alfa = 30°.
 Funkcje trygonometryczne odczytujemy z kąta liczonego od osi **x**; przy innym sposobie wyznaczenia kąta wzory mogą wyglądać inaczej.
 
 ## Interaktywne laboratorium
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Składowe wektora to jego „cienie” na osiach
+
+Wektor skośny łatwiej rozwiązać po rozłożeniu na dwa kierunki: poziomy i pionowy. Wybierasz osie i konsekwentnie zachowujesz znaki.
+
+### Co oznaczają symbole i jednostki?
+
+`F` — wartość siły [N]; `Fₓ`, `Fᵧ` — składowe siły [N]; `α` — kąt od dodatniej osi x; `sin`, `cos` — proporcje trójkąta.
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Masz wektor siły o wartości `F=10 N` pod kątem `30°` do poziomu, skierowany w prawo i w górę.
+2. Składowa pozioma: `Fₓ=F cos30°=10·(√3/2)≈8,66 N`.
+3. Składowa pionowa: `Fᵧ=F sin30°=10·(1/2)=5 N`.
+4. Sprawdź długość: `√(8,66²+5²)≈10 N`, więc odzyskałeś siłę wejściową.
+
+### Dlaczego to działa?
+
+Składowe tworzą przyprostokątne trójkąta prostokątnego. Sinus i cosinus opisują proporcje boków dla podanego kąta.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Kąt od poziomu → poziom cos, pion sin.**
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie zamieniaj sinusa i cosinusa bez sprawdzenia, **od której osi** mierzysz kąt.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Wektor 20 N działa pod kątem 90° do poziomu. Podaj Fₓ i Fᵧ.</summary>
+
+**Kolejne kroki i odpowiedź:** `Fₓ=20cos90°=0 N`, `Fᵧ=20sin90°=20 N`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <ProjectileLab client:load />
 

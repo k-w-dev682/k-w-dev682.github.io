@@ -5,11 +5,101 @@ sidebar:
   order: 25
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="cmath" title="Biblioteka `<cmath>` i funkcje matematyczne" section="03 · Liczby w pamięci" />
 
 # Biblioteka `<cmath>` i funkcje matematyczne
+
+## Zrozum od podstaw
+
+Biblioteka matematyczna dostarcza gotowe funkcje. **Argument** to wartość przekazana funkcji, a **wynik zwracany** może trafić do zmiennej lub kolejnego działania. Wywołanie sqrt(25.0) nie zmienia 25.0; oblicza nową wartość 5.
+
+Zwracaj uwagę na dziedzinę: sqrt w obliczeniach rzeczywistych wymaga argumentu nieujemnego. floor idzie w kierunku minus nieskończoności, ceil w kierunku plus nieskończoności. Nie są tym samym co obcinanie w kierunku zera.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <cmath>
+
+int main() {
+    double x = -2.4;
+    std::cout << std::floor(x) << ' ' << std::ceil(x) << '\n';
+    double a = 3.0, b = 4.0;
+    double przekatna = std::sqrt(a * a + b * b);
+    std::cout << przekatna << '\n';
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. x zawiera −2.4.
+2. floor daje −3, ceil daje −2; na osi −3 leży niżej niż −2.4.
+3. a i b są długościami przyprostokątnych.
+4. Najpierw liczymy 9 + 16, potem sqrt(25) daje 5. Nawiasy obejmują całe wyrażenie pod pierwiastkiem.
+
+<CppTrace title="Śledzenie: cmath" steps={[["a²", "3 × 3 = 9"], ["b²", "4 × 4 = 16"], ["Suma", "9 + 16 = 25"], ["Pierwiastek", "sqrt(25) = 5"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+double pole = 3.14 * r ^ 2;
+```
+
+^ nie oznacza potęgi i nie działa na double. Dwa czynniki r wyrażają kwadrat promienia.
+
+**Poprawiony fragment:**
+
+```cpp
+double pole = 3.141592653589793 * r * r;
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Ile wynosi floor(2.9)?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+2, bo to najbliższa liczba całkowita nie większa niż 2.9.
+
+</details>
+
+### 2. Co zrobić przed sqrt(x), gdy x pochodzi od użytkownika?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Sprawdzić dziedzinę x >= 0; dla ujemnego argumentu poinformować o braku rzeczywistego pierwiastka.
+
+</details>
+
+### 3. Oblicz pole koła dla r = 3.
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+pi * 3 * 3 = 9pi, około 28.2743. Promień powinien być nieujemny.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Wywołanie funkcji ma nawiasy okrągłe. Sprawdzaj dziedzinę oraz jednostki: długość i pole to różne wielkości.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Nie wszystko trzeba programować od zera
 

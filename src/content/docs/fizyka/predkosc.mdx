@@ -7,12 +7,46 @@ sidebar:
 
 import Eq from '../../../components/PhysicsEquation.astro';
 import PhysicsPdfButton from '../../../components/PhysicsPdf.jsx';
+import SpeedTimelineGraphic from '../../../components/visuals/SpeedTimelineGraphic.astro';
 
 <div className="ph-eyebrow">FIZYKA DLA INFORMATYKÓW · 01 · Kinematyka · ZDJĘCIA 1</div>
 
 <PhysicsPdfButton client:load slug="predkosc" title="Prędkość średnia i chwilowa" section="01 · Kinematyka" />
 
 # Prędkość średnia i chwilowa
+
+
+{/* STUDYLAB_FIZYKA_ETAP_3: BLACK Edition graphical lesson */}
+<div className="ph3-study-path not-content"><strong>NAJPIERW ZROZUM · POTEM POLICZ · NA KOŃCU SPRAWDŹ</strong><span>Przeczytaj podpisy rysunku, samodzielnie wykonaj poniższe kroki i dopiero potem odsłoń odpowiedź do zadania.</span></div>
+<figure className="ph3-figure not-content">
+  <div className="ph3-figure__scroll"><img src="/fizyka/grafiki/predkosc.svg" alt="Prędkość średnia: podziel zmianę położenia przez czas" loading="lazy" decoding="async" /></div>
+  <figcaption><strong>Jak czytać rysunek?</strong> **Najpierw dwie różnice, potem jedno dzielenie:** `(xₖ−x₀)/(tₖ−t₀)`.</figcaption>
+</figure>
+
+## Najpierw intuicja: co mierzy prędkość?
+
+<SpeedTimelineGraphic />
+
+Jeżeli przesuniesz się o 20 metrów w ciągu 4 sekund, twoje **średnie tempo zmiany położenia** wynosi `20/4=5 m/s`. Zapis `m/s` czytamy „metry na sekundę”. Oznacza, że na każdą sekundę przypada średnio 5 metrów **przemieszczenia**.
+
+Prędkość średnia wzdłuż osi jest definiowana jako:
+
+<Eq tex={String.raw`v_{\mathrm{sr}}=\frac{\Delta x}{\Delta t}`} display />
+
+- `vₛᵣ` — prędkość średnia wzdłuż wybranej osi, jednostka `m/s`.
+- `Δ` (delta) — zmiana, czyli **wartość końcowa minus początkowa**.
+- `Δx=x₂−x₁` — przemieszczenie w metrach.
+- `Δt=t₂−t₁` — czas, jaki upłynął, w sekundach. Musi być dodatni.
+- Kreska ułamkowa oznacza **dzielenie** przemieszczenia przez upływ czasu.
+
+### Przykład rozpisany na wszystkie działania
+
+Ciało zaczęło na pozycji `x₁=2 m`, a po 4 s znalazło się na pozycji `x₂=22 m`. Najpierw liczymy zmianę położenia: `Δx=22−2=20 m`. Potem dzielimy przez czas `Δt=4 s`: `vₛᵣ=20 m/4 s=5 m/s`.
+
+### Dlaczego droga i przemieszczenie to nie to samo?
+
+Jeżeli pójdziesz 5 m w prawo i potem 5 m w lewo, **łączna droga** wyniesie 10 m, ale końcowe położenie będzie takie jak początkowe, czyli **przemieszczenie to 0 m**. Średnia prędkość wektorowa po takiej podróży wyniesie zero, lecz średnia *szybkość* (`droga / czas`) będzie dodatnia. Te pojęcia należy rozróżniać.
+
 
 Prędkość średnia jest zmianą **położenia** podzieloną przez czas tej zmiany. W przypadku ruchu po prostej może mieć znak minus.
 
@@ -31,5 +65,50 @@ Ciało zmienia położenie z 2 m na 22 m w ciągu 4 s.
 <Eq tex={String.raw`v(t)=\frac{dx(t)}{dt}`} display />
 
 Jeśli nie znasz pochodnych, na początek myśl o niej jako o „nachyleniu wykresu położenia”.
+
+
+<div className="ph3-divider not-content"><span>ROZUMIENIE OD ZERA · OBLICZENIA · POWTÓRKA</span></div>
+
+## Prędkość średnia: podziel zmianę położenia przez czas
+
+Wzór `vₛᵣ=Δx/Δt` opisuje zmianę **położenia**, nie każdą przebytą ścieżkę. Symbol `Δ` czytaj „wartość końcowa minus początkowa”.
+
+### Co oznaczają symbole i jednostki?
+
+`vₛᵣ` — średnia składowa prędkości [m/s]; `Δx` — przemieszczenie [m]; `Δt` — dodatni upływ czasu [s].
+
+### Jeden kompletny przykład — bez pominiętych działań
+
+1. Wybierz kierunek dodatni, np. w prawo. Dane: `x₀=−2 m`, `xₖ=10 m`, `t₀=1 s`, `tₖ=5 s`.
+2. Licz przemieszczenie: `Δx=10−(−2)=12 m`. Odejmowanie liczby ujemnej daje dodawanie.
+3. Licz czas: `Δt=5−1=4 s`.
+4. Podstaw: `vₛᵣ=12 m / 4 s = 3 m/s`. Wynik jest dodatni, więc średnie przemieszczenie jest w prawo.
+
+### Dlaczego to działa?
+
+W każdym przedziale czasowym prędkość średnia jest tempem **netto** zmiany współrzędnej. Gdy droga prowadzi tam i z powrotem, szybkość średnia i prędkość średnia mogą się różnić.
+
+:::tip[Zapamiętaj w jednym zdaniu]
+**Najpierw dwie różnice, potem jedno dzielenie:** `(xₖ−x₀)/(tₖ−t₀)`.
+:::
+
+### Uważaj na ten częsty błąd
+
+Nie nazywaj wartości `droga/czas` średnią prędkością wektorową; dla drogi użyj terminu **średnia szybkość**.
+
+<details className="ph3-selfcheck">
+<summary>Sprawdź bez patrzenia: Pozycja wzrosła z 3 m do 15 m w ciągu 6 s. Oblicz prędkość średnią.</summary>
+
+**Kolejne kroki i odpowiedź:** `Δx=15−3=12 m`, `vₛᵣ=12/6=2 m/s`.
+
+</details>
+
+### Powtórka, która pomaga zapamiętać
+
+1. **Bez czytania tekstu** spróbuj powiedzieć, co oznaczają najważniejsze litery w tej lekcji i w jakich jednostkach podajesz wynik.
+2. Wyjaśnij sobie na głos lub na kartce, **dlaczego wybrany wzór pasuje** do sytuacji z zadania.
+3. Zasłoń rozwiązanie i zrób małe zadanie jeszcze raz. Jeżeli utkniesz, zajrzyj tylko do jednego kroku.
+4. Wróć do przykładu jutro, a następnie po kilku dniach. Samodzielne przypominanie utrwala materiał lepiej niż samo ponowne czytanie.
+
 
 <div className="ph-links not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ Eksport PDF</a><a href="../karta-wzorow/">∑ Karta wzorów</a></div>

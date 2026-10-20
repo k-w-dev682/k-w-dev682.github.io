@@ -53,4 +53,41 @@ W U1 odwróć każdy bit ośmiobitowej dodatniej liczby.
 
 <SignedLab client:load />
 
+## Zobacz mechanizm na schemacie
+
+![Schemat: Ćwiczenia U1: zapis liczb dodatnich i ujemnych](/ask/grafiki/cw-u1-zapis.svg)
+
+*Każda strzałka i każdy podpis pokazują kolejny etap wyjaśniony w tej lekcji.*
+
+
+
+## Jak rozwiązać taki typ zadania od zera?
+
+**To dodatkowy przykład pokazujący sposób rozwiązania. Oryginalne dane z laboratorium i tabela odpowiedzi pozostają powyżej bez zmian.**
+
+1. Wybierz ustaloną w poleceniu liczbę bitów. Przykład pomocniczy: **−5 na 8 bitach**.
+2. Zapisz `+5 = 00000101`.
+3. Odwróć **wszystkie osiem** bitów: `11111010`.
+4. W U1 ten wynik oznacza `−5`. Sprawdź odwrotnie: `11111010` → `00000101₂` = 5.
+
+### Dlaczego wykonujemy właśnie te działania?
+
+U1 polega na jednorazowej inwersji każdego bitu, bez dodawania 1.
+
+:::caution[Uważaj tutaj]
+Nie wykonuj przypadkowo procedury U2. Pamiętaj, że U1 ma dwa kody zera.
+:::
+
+### Minisprawdzian po zadaniu
+
+Zapisz `−1` na 4 bitach w U1.
+
+<details>
+<summary>Rozwiń rozwiązanie</summary>
+
+`+1 = 0001`, inwersja → `1110`.
+
+</details>
+
+
 <div className="ask-nav not-content"><a href="../spis-tresci/">← Spis treści</a><a href="../eksport/">↓ PDF</a><a href="../karta-pojec/">⌘ Pojęcia</a></div>

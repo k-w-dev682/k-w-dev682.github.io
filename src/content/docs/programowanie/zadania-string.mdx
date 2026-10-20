@@ -5,11 +5,103 @@ sidebar:
   order: 40
 ---
 
+import CppTrace from '../../../components/cpp13/CppTrace.astro';
+
 import PdfTopicButton from '../../../components/PdfExport.jsx';
 
 <PdfTopicButton client:load slug="zadania-string" title="Bank zadań — znaki i `string`" section="05 · Zadania i utrwalanie" />
 
 # Bank zadań — znaki i `string`
+
+## Zrozum od podstaw
+
+Modyfikowanie tekstu wymaga rozróżnienia kopii znaku od samego znaku w napisie. W pętli char c : s zmienna c jest kopią. W char& c : s jest referencją: drugą nazwą bieżącego elementu. Zmiana przez referencję zmienia oryginał.
+
+Gdy usuwasz elementy, indeksy kolejnych znaków przesuwają się. Dlatego na początku wygodnie budować nowy wynik, dodając tylko znaki, które chcemy zachować. Poniższy przykład usuwa spacje ASCII, ale nie usuwa automatycznie tabulatorów i nowych linii.
+
+## Przykład prowadzony — kompletny program
+
+Skopiuj ten przykład do osobnego pliku `.cpp`. W kursie używamy C++20. Każdy pełny program ma jedno `main`.
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string s = "Ala ma kota";
+    std::string wynik;
+    for (char c : s) {
+        if (c != ' ') wynik += c;
+    }
+    std::cout << wynik;
+    return 0;
+}
+```
+
+### Czytamy kod po kolei
+
+`#include` udostępnia deklaracje z podanego nagłówka; `std::` wskazuje nazwę z biblioteki standardowej. Klamry wyznaczają blok, a średnik kończy instrukcję. `main` jest punktem wejścia; `return 0` oznacza poprawne zakończenie.
+
+1. wynik jest początkowo pusty.
+2. Każdy obieg pobiera kopię kolejnego znaku; nie zamierzamy modyfikować s.
+3. != oznacza „różny od spacji”.
+4. += dopisuje znak na końcu wyniku. Dla spacji nic nie robimy.
+5. Na końcu mamy Alamakota, a s wciąż zawiera pierwotne spacje.
+
+<CppTrace title="Śledzenie: zadania string" steps={[["Przed pętlą", "wynik pusty"], ["Po Ala", "wynik = Ala"], ["Po pierwszej spacji", "wynik = Ala bez zmiany"], ["Po wszystkich znakach", "wynik = Alamakota"]]} />
+
+### Znajdź i napraw błąd
+
+**Błędny fragment — nie kopiuj go jako rozwiązania:**
+
+```cpp
+for (char c : s) if (c == ' ') c = '*';
+```
+
+Pierwsza wersja zmienia tylko kopię c. Referencja w poprawce pozwala podmienić znak bezpośrednio w s.
+
+**Poprawiony fragment:**
+
+```cpp
+for (char& c : s) if (c == ' ') c = '*';
+```
+
+## Przećwicz — od przewidywania do samodzielnej zmiany
+
+### 1. Co dla samych spacji?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Pusty wynik, bo żaden znak nie przechodzi warunku.
+
+</details>
+
+### 2. Jak zamiast usuwać, zamienić spacje na gwiazdki?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Użyj char& w pętli i przypisz '*' dla c == ' '. Wynik to Ala*ma*kota.
+
+</details>
+
+### 3. Jak zachować tylko jedną spację z każdej serii?
+
+<details>
+<summary>Sprawdź odpowiedź i uzasadnienie</summary>
+
+Dodaj znak, jeżeli nie jest spacją albo wynik jest pusty albo jego ostatni znak nie jest spacją. To zachowuje jedną spację także na początku i końcu; usuwanie skrajnych spacji jest osobną decyzją.
+
+</details>
+
+## Zapamiętaj i sprawdź rozumienie
+
+Kopia służy do odczytu, referencja do zmiany elementu. Przy usuwaniu znaków rozważ budowanie nowego napisu.
+
+**Powtórka bez patrzenia:** wyjaśnij, dlaczego poprawka w sekcji „Znajdź i napraw błąd” działa. Następnie zmień dane w przykładzie prowadzonym i odtwórz jego stany przed uruchomieniem. Wróć do trzech odpowiedzi powyżej, aby porównać swoje uzasadnienie.
+
+## Rozwinięcie tematu i dotychczasowe ćwiczenia
 
 ## Zadania na tekstach
 
@@ -61,3 +153,113 @@ Zadania ze znakami narodowymi lub ignorowaniem wielkości liter Unicode wymagaj�
 <small>Materiał dydaktyczny rozwinięty na podstawie skryptu 4. Opracowanie własnymi słowami; przykłady poprawione lub uzupełnione tam, gdzie było to potrzebne.</small>
 
 ← [Poprzednia: Bank zadań — liczby rzeczywiste](../zadania-float/)
+
+## Odpowiedzi do całej dotychczasowej listy zadań
+
+Numery odpowiadają oryginalnej liście w tej lekcji. Fragmenty kodu zakładają wcześniej zadeklarowane zmienne i poprawny odczyt. Ograniczenia danych są częścią rozwiązania.
+
+<details>
+<summary>1. Spacje na gwiazdki — rozwiązanie i dlaczego działa</summary>
+
+Użyj referencji char& c w pętli i przypisz * tylko dla spacji. Rozwiązanie poniżej zmienia oryginał, ponieważ c nie jest kopią.
+
+</details>
+
+<details>
+<summary>2. Usuń spacje — rozwiązanie i dlaczego działa</summary>
+
+Przykład prowadzony tworzy nowy napis. Dla A  B powstaje AB, ponieważ obie spacje są pomijane niezależnie.
+
+</details>
+
+<details>
+<summary>3. Duże i małe — rozwiązanie i dlaczego działa</summary>
+
+Dla każdego bajtu ASCII sprawdź zakres a–z albo A–Z, używając && między granicami. Dla AbC wyniki to 1 mała i 2 duże. Polskie litery wymagają innej analizy.
+
+</details>
+
+<details>
+<summary>4. Od końca — rozwiązanie i dlaczego działa</summary>
+
+`for (std::size_t i = s.size(); i > 0; --i) std::cout << s[i-1];`. Dla KOT wynik TOK; dla pustego napisu zero obiegów, więc brak ryzykownego odejmowania od zera.
+
+</details>
+
+<details>
+<summary>5. Palindrom — rozwiązanie i dlaczego działa</summary>
+
+Porównuj s[i] z s[s.size()−1−i] dla i &lt; s.size()/2. Kajak z wielkim K nie jest równy kajak bajtowo; wcześniej ustal reguły wielkości liter.
+
+</details>
+
+<details>
+<summary>6. Cezar — rozwiązanie i dlaczego działa</summary>
+
+Dla małych ASCII użyj znormalizowanego przesunięcia p od 0 do 25 i `static_cast<char>('a' + (c - 'a' + p) % 26)`. Dla z i +3 wynikiem jest c; pozostałe znaki pozostaw bez zmian.
+
+</details>
+
+<details>
+<summary>7. Płot — rozwiązanie i dlaczego działa</summary>
+
+Najpierw dopisz indeksy parzyste 0,2,4…, potem nieparzyste 1,3,5…. Dla KOTEK otrzymasz KTKOE. Nieparzysta długość daje górnemu rzędowi jeden znak więcej.
+
+</details>
+
+<details>
+<summary>8. Cyfry i maksimum — rozwiązanie i dlaczego działa</summary>
+
+Ustaw ile = 0, maks = −1. Dla znaku od 0 do 9 zwiększ ile i porównaj c − '0' z maks. Dla a5b0c9: ile = 3 i maks = 9. Maks −1 po pętli oznacza brak cyfry, nie cyfrę zero.
+
+</details>
+
+<details>
+<summary>9. Ignoruj wielkość ASCII — rozwiązanie i dlaczego działa</summary>
+
+Znormalizuj szukany znak i każdy znak wejścia do tego samego zakresu: jeśli A–Z, użyj c − 'A' + 'a'. Porównuj znormalizowane wartości. Dla AaA i a licznik wynosi 3. To założenie dotyczy ASCII.
+
+</details>
+
+<details>
+<summary>10. Zastąp fragment — rozwiązanie i dlaczego działa</summary>
+
+Użyj p = s.find(stary). Jeśli p != npos, wykonaj s.replace(p, stary.size(), nowy). Dla Ala ma kota, kota → psa otrzymasz Ala ma psa. To zastępuje pierwsze wystąpienie; wszystkie wymagają pętli i jasnej reguły postępu.
+
+</details>
+
+<details>
+<summary>11. Wielokrotne spacje — rozwiązanie i dlaczego działa</summary>
+
+Buduj wynik. Dopisz c, jeśli c != spacja albo wynik.empty() albo wynik.back() != spacja. Kolejność || chroni back() dla pustego wyniku. Dla A   B otrzymasz A B; ten wariant zachowuje jedną skrajną spację.
+
+</details>
+
+<details>
+<summary>12. Znaki drugiego w pierwszym — rozwiązanie i dlaczego działa</summary>
+
+Dla każdego c z drugiego napisu sprawdź pierwszy.find(c) != npos. Pierwszy brak oznacza NIE. Liczności nie mają znaczenia: dla pierwszy = ab i drugi = aaa odpowiedź TAK, jeśli polecenie mówi jedynie o obecności znaków.
+
+</details>
+
+<details>
+<summary>13. Ciągi co najmniej dwóch cyfr — rozwiązanie i dlaczego działa</summary>
+
+Trzymaj początek serii i jej długość. Gdy pojawi się znak niebędący cyfrą, wypisz serię, jeśli długość >= 2, potem wyzeruj długość. Po pętli obsłuż też ostatnią serię. Dla a12b345c6 wypiszesz 12 i 345.
+
+</details>
+
+<details>
+<summary>14. Wyrazy od końca — rozwiązanie i dlaczego działa</summary>
+
+Użyj istringstream z sstream, wczytuj kolejne string przez >> do vector&lt;string> z vector, potem przejdź po wektorze od końca. Dla Ala ma kota wynik kota ma Ala. Ten wariant normalizuje odstępy do pojedynczych spacji, nie zachowuje oryginalnego formatowania.
+
+</details>
+
+<details>
+<summary>15. Liczby trzycyfrowe — rozwiązanie i dlaczego działa</summary>
+
+Ustal umowę: maksymalne serie cyfr ASCII o długości 3 reprezentujące 100–999. Zliczaj serię, gdy ma długość 3 i nie zaczyna się od 0. Dla 12 123 1234 007 999 wynik 2. Obsłuż serię kończącą tekst; liczby ze znakiem nadal mają trzy cyfry, jeśli znak traktujesz jako separator.
+
+</details>
+
