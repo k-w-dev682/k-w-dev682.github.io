@@ -10,6 +10,8 @@ export default defineConfig({
       // StudyLab Centrum nauki v2.
       head: [
         { tag: 'script', attrs: { src: '/study-center-lesson-bridge.js', defer: true } },
+        { tag: 'script', attrs: { src: '/studylab-ai-lesson.js', defer: true } },
+        { tag: 'link', attrs: { rel: 'stylesheet', href: '/studylab-ai-lesson.css' } },
         { tag: 'script', attrs: { src: '/study-center-annotations.js', defer: true } },
         { tag: 'script', attrs: { src: '/studylab-lesson-72.js', defer: true } },
         { tag: 'script', attrs: { src: '/studylab-studytime-72.js', defer: true } },

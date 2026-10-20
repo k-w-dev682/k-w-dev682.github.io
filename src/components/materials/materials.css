@@ -18,3 +18,11 @@
 .sl-mat-ai-preview label{color:#b9e9cb;font-weight:650}
 .sl-mat-ai-preview textarea{width:100%;font-family:ui-monospace,Consolas,monospace;resize:vertical;font-size:.83rem;line-height:1.65;border:1px solid #46745a;border-radius:11px;color:#e7f9e8;background:#080f0a;padding:16px;tab-size:2;min-height:240px}
 .sl-mat-ai-preview textarea:focus{outline:2px solid #6de0ae}
+
+/* StudyLab 17.5: opt-in grounded Gemini comparison. */
+.sl-mat-deep-ai{border-color:#45755a;background:linear-gradient(160deg,#11251a,#09120d)}
+.sl-mat-deep-ai h3{color:#c5ffda}.sl-mat-deep-ai>p{font-size:.86rem;color:#b2cabc}
+.sl-mat-ai-deep-results{margin-top:16px}.sl-mat-ai-deep-results ol{list-style:none;padding:0;display:grid;gap:12px}
+.sl-mat-ai-deep-results li{border:1px solid #355540;background:#0a1910;border-radius:10px;padding:14px}
+.sl-mat-ai-deep-results li strong{color:#d3f4d9}.sl-mat-ai-deep-results li p{margin:10px 0;color:#c3d7ca;white-space:pre-wrap}
+.sl-mat-ai-deep-results blockquote{border-left:3px solid #5db88a;padding:9px 13px;margin:.55rem 0;color:#c4ead2;background:#15251a;font-size:.86rem;overflow-wrap:anywhere}

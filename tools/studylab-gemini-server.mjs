@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { existsSync } from 'node:fs';
 import { loadEnvFile } from 'node:process';
+import { tutorRequest, stepsRequest, compareRequest, parseCompareResult } from '../src/lib/studylab-ai-prompts.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const envPath = path.join(root, '.env');
@@ -91,6 +92,39 @@ export async function handleFormat(data, options={}) {
     return {status:502,error:'Nie udało się połączyć z Gemini. Sprawdź sieć oraz konfigurację.'};
   } finally { clearTimeout(timeout); }
 }
+/** Shared restricted local Gemini operations. Data leaves the PC only after explicit user request. */
+export async function handleStudyCoach(route, data, options={}) {
+  const apiKey=options.apiKey ?? key, fetchApi=options.fetchApi ?? fetch;
+  if(!apiKey)return {status:503,error:'Brak GEMINI_API_KEY w pliku .env. Uruchom ponownie lokalny serwer AI po zmianie pliku.'};
+  let body;
+  try {
+    if(route==='/tutor')body=tutorRequest(data);
+    else if(route==='/steps')body=stepsRequest(data);
+    else if(route==='/compare-ai')body=compareRequest(data);
+    else return {status:404,error:'Nieznana funkcja AI.'};
+  }catch(e){return {status:400,error:e.message};}
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),120000);
+  try{
+    const response=await fetchApi(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(AI_MODEL)}:generateContent`,{
+      method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':apiKey},body:JSON.stringify(body),signal:controller.signal
+    });
+    if(!response.ok){
+      const status=response.status===429?429:502;
+      const error=response.status===429?'Osiągnięto limit wywołań Gemini API.':
+        response.status===401||response.status===403?'Klucz Gemini API nie jest poprawny lub nie ma dostępu do modelu.':
+        `Gemini API zgłosiło HTTP ${response.status}. Sprawdź nazwę GEMINI_MODEL i limity.`;
+      return {status,error};
+    }
+    const text=extractMarkdown(await response.json());
+    if(route==='/compare-ai')return {status:200,...parseCompareResult(text,data)};
+    return {status:200,answer:text.slice(0,24000)};
+  }catch(e){
+    if(e.name==='AbortError')return {status:504,error:'Gemini nie odpowiedziało w ciągu 120 sekund.'};
+    if(route==='/compare-ai'&&/JSON|listy różnic|format/.test(e.message))return {status:502,error:e.message};
+    return {status:502,error:'Błąd odpowiedzi Gemini. Sprawdź połączenie i spróbuj ponownie.'};
+  }finally{clearTimeout(timeout);}
+}
 export function createServer() {
   return http.createServer(async(req,res)=>{
     const origin = req.headers.origin || '';
@@ -101,7 +135,7 @@ export function createServer() {
       return res.end();
     }
     if(req.method==='GET' && req.url==='/health') return json(res,200,{ok:true,geminiConfigured:!!key},origin);
-    if(req.method!=='POST' || req.url!=='/format') return json(res,404,{error:'Nie znaleziono endpointu.'},origin);
+    if(req.method!=='POST' || !['/format','/tutor','/steps','/compare-ai'].includes(req.url)) return json(res,404,{error:'Nie znaleziono endpointu.'},origin);
     if(!String(req.headers['content-type']||'').startsWith('application/json')) return json(res,415,{error:'Wymagany JSON.'},origin);
     let length = 0; const chunks=[];
     try {
@@ -111,7 +145,7 @@ export function createServer() {
         chunks.push(chunk);
       }
       const data=JSON.parse(Buffer.concat(chunks).toString('utf8'));
-      const reply=await handleFormat(data);
+      const reply=req.url==='/format'?await handleFormat(data):await handleStudyCoach(req.url,data);
       return json(res,reply.status,reply,origin);
     } catch(e) {return json(res,400,{error:e instanceof SyntaxError?'Niepoprawny JSON.':(e.message||'Niepoprawne żądanie.')},origin);}
   });
