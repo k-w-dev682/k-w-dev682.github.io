@@ -1,0 +1,364 @@
+---
+// src/pages/import.astro
+---
+
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Import Notatek — StudyLab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      /* Kolorystyka zbieżna z motywem StudyLab */
+      --sl-bg: #000000;
+      --sl-bg-nav: #000000;
+      --sl-bg-card: #070908;
+      --sl-bg-input: #000000;
+      --sl-border: #19221d;
+      --sl-border-light: #27372d;
+      
+      /* Jasny miętowy/cyjanowy akcent z menu bocznego */
+      --sl-accent: #6ee7b7; 
+      --sl-accent-hover: #34d399;
+      --sl-accent-dim: rgba(110, 231, 183, 0.1);
+      
+      --sl-text-main: #d1d5db;
+      --sl-text-heading: #ffffff;
+      --sl-text-muted: #9ca3af;
+    }
+    
+    body {
+      background-color: var(--sl-bg);
+      color: var(--sl-text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Pasek nawigacji top */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--sl-border);
+      background: var(--sl-bg-nav);
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--sl-text-heading);
+      text-decoration: none;
+    }
+    .logo span { color: var(--sl-accent); }
+    .search-mock {
+      background: var(--sl-bg-card);
+      border: 1px solid var(--sl-border);
+      padding: 6px 12px;
+      border-radius: 4px;
+      color: var(--sl-text-muted);
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .search-mock kbd {
+      background: #111827;
+      border: 1px solid var(--sl-border);
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-size: 0.7rem;
+    }
+    
+    /* Kontener centralny */
+    .main-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+    }
+    .header-group {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header-group h1 {
+      font-size: 2rem;
+      margin: 0 0 8px 0;
+      color: var(--sl-text-heading);
+      font-weight: 600;
+    }
+    .header-group p {
+      color: var(--sl-text-muted);
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    
+    /* Karta formularza */
+    .card {
+      background: var(--sl-bg-card);
+      border: 1px solid var(--sl-border);
+      border-radius: 8px;
+      padding: 32px;
+      max-width: 600px;
+      width: 100%;
+    }
+    
+    .dropzone {
+      border: 1px dashed var(--sl-border-light);
+      border-radius: 6px;
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 24px;
+      background: var(--sl-bg);
+    }
+    .dropzone:hover, .dropzone.dragover {
+      border-color: var(--sl-accent);
+      background: var(--sl-accent-dim);
+    }
+    .dropzone h3 { margin: 0 0 6px 0; font-size: 1.05rem; color: var(--sl-accent); font-weight: 500; }
+    .dropzone p { margin: 0; color: var(--sl-text-muted); font-size: 0.85rem; }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .full-width { grid-column: 1 / -1; }
+    
+    label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--sl-text-muted);
+      margin-bottom: 6px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      background: var(--sl-bg-input);
+      border: 1px solid var(--sl-border);
+      border-radius: 4px;
+      color: var(--sl-text-main);
+      font-size: 0.9rem;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--sl-accent);
+    }
+    
+    button {
+      width: 100%;
+      padding: 12px;
+      background: var(--sl-accent);
+      color: #000000;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover:not(:disabled) { background: var(--sl-accent-hover); }
+    button:disabled { background: var(--sl-border-light); color: var(--sl-text-muted); cursor: not-allowed; }
+    
+    .status {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      display: none;
+      line-height: 1.5;
+    }
+    .status.success { background: var(--sl-accent-dim); border: 1px solid var(--sl-accent); color: var(--sl-accent); display: block; }
+    .status.error { background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #fca5a5; display: block; }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="/" class="logo">StudyLab<span>.</span></a>
+  <div class="search-mock">
+    <span>🔍 Search</span>
+    <kbd>Ctrl K</kbd>
+  </div>
+</nav>
+
+<div class="main-container">
+  <div class="header-group">
+    <h1>Import materiałów PDF</h1>
+    <p>Zautomatyzowany kreator notatek z wykorzystaniem AI.</p>
+  </div>
+
+  <div class="card">
+    <form id="importForm">
+      <div class="dropzone" id="dropzone">
+        <h3 id="dropTitle">Przeciągnij plik PDF</h3>
+        <p id="dropSubText">lub kliknij, aby przeglądać pliki</p>
+        <input type="file" id="fileInput" accept=".pdf" style="display: none;" />
+      </div>
+
+      <div class="form-grid">
+        <div class="full-width">
+          <label for="title">Tytuł notatki na stronie</label>
+          <input type="text" id="title" placeholder="np. Algorytmy sortowania" required />
+        </div>
+
+        <div>
+          <label for="subject">Przedmiot</label>
+          <select id="subject" required>
+            <option value="programowanie">Programowanie C++</option>
+            <option value="fizyka">Fizyka dla informatyków</option>
+            <option value="matematyka/matematyka-i">Matematyka I</option>
+            <option value="matematyka/matematyka-ii">Matematyka II</option>
+            <option value="elektronika">Podstawy elektroniki</option>
+            <option value="ask">Architektura systemów (ASK)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="chapter">Rozdział</label>
+          <select id="chapter" required></select>
+        </div>
+
+        <div class="full-width" id="newChapterContainer" style="display: none;">
+          <label for="newChapter">Nazwa nowego rozdziału</label>
+          <input type="text" id="newChapter" placeholder="np. Wskaźniki zaawansowane" />
+        </div>
+        
+        <div class="full-width">
+          <label for="apiKey">Klucz Gemini API</label>
+          <input type="password" id="apiKey" placeholder="AIzaSy..." />
+        </div>
+      </div>
+
+      <button type="submit" id="submitBtn">Przetwórz i dodaj na stronę</button>
+    </form>
+    <div id="status" class="status"></div>
+  </div>
+</div>
+
+<script>
+  const structure = {
+    'programowanie': ["Na początek", "Pętle i algorytmy", "Testowanie", "Liczby i pamięć", "Znaki i tekst", "Zadania i laboratoria", "Materiały pomocnicze"],
+    'fizyka': ["Podstawy mechaniki", "Ruch i wykresy", "Ruch w dwóch wymiarach", "Siły i zasady Newtona", "Pęd i ruch obrotowy", "Ćwiczenia", "Materiały pomocnicze"],
+    'matematyka/matematyka-i': ["Logika matematyczna", "Zbiory i relacje", "Funkcje", "Dziedziny funkcji", "Ćwiczenia i zadania domowe", "Materiały pomocnicze"],
+    'matematyka/matematyka-ii': ["Podstawy i ciągi", "Zbiory i funkcje", "Indukcja matematyczna", "Kombinatoryka", "Ćwiczenia — dowody", "Materiały pomocnicze"],
+    'elektronika': ["Podstawy i ładunki", "Pole elektryczne", "Energia, potencjał, napięcie", "Kondensatory", "Pomiary i ćwiczenia", "Materiały pomocnicze"],
+    'ask': ["01 · Systemy liczbowe", "02 · Liczby ze znakiem", "03 · Procesor i pamięć", "04 · Podstawy asemblera", "05 · Ćwiczenia — laboratorium 1", "06 · Ćwiczenia — laboratorium 2", "Narzędzia"]
+  };
+
+  const subjectSelect = document.getElementById('subject');
+  const chapterSelect = document.getElementById('chapter');
+  const newChapterContainer = document.getElementById('newChapterContainer');
+  const newChapterInput = document.getElementById('newChapter');
+  
+  function updateChapters() {
+    const subject = subjectSelect.value;
+    const chapters = structure[subject] || [];
+    chapterSelect.innerHTML = chapters.map(c => `<option value="${c}">${c}</option>`).join('');
+    chapterSelect.innerHTML += `<option value="_NEW_">[ + Utwórz nowy rozdział ]</option>`;
+    toggleNewChapter();
+  }
+
+  function toggleNewChapter() {
+    if (chapterSelect.value === '_NEW_') {
+      newChapterContainer.style.display = 'block';
+      newChapterInput.required = true;
+    } else {
+      newChapterContainer.style.display = 'none';
+      newChapterInput.required = false;
+    }
+  }
+
+  subjectSelect.addEventListener('change', updateChapters);
+  chapterSelect.addEventListener('change', toggleNewChapter);
+  
+  updateChapters();
+  if (localStorage.getItem('gemini_api_key')) {
+    document.getElementById('apiKey').value = localStorage.getItem('gemini_api_key');
+  }
+
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const dropTitle = document.getElementById('dropTitle');
+  const dropSubText = document.getElementById('dropSubText');
+
+  dropzone.addEventListener('click', () => fileInput.click());
+  dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('dragover'); });
+  dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+  dropzone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropzone.classList.remove('dragover');
+    if (e.dataTransfer.files.length) {
+      fileInput.files = e.dataTransfer.files;
+      updateFileName();
+    }
+  });
+  fileInput.addEventListener('change', updateFileName);
+
+  function updateFileName() {
+    if (fileInput.files.length) {
+      dropTitle.innerHTML = `✅ ${fileInput.files[0].name}`;
+      dropSubText.innerHTML = "Plik gotowy do konwersji";
+      const titleInput = document.getElementById('title');
+      if (!titleInput.value) {
+        titleInput.value = fileInput.files[0].name.replace('.pdf', '').replace(/[-_]/g, ' ');
+      }
+    }
+  }
+
+  document.getElementById('importForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!fileInput.files.length) return alert('Wybierz plik PDF!');
+
+    const apiKey = document.getElementById('apiKey').value;
+    if (apiKey) localStorage.setItem('gemini_api_key', apiKey);
+
+    const submitBtn = document.getElementById('submitBtn');
+    const statusDiv = document.getElementById('status');
+    
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Przetwarzanie z udziałem AI... (ok. 20-30s)';
+    statusDiv.style.display = 'none';
+
+    const isNewChapter = chapterSelect.value === '_NEW_';
+    const finalChapter = isNewChapter ? newChapterInput.value : chapterSelect.value;
+
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+    formData.append('title', document.getElementById('title').value);
+    formData.append('subject', subjectSelect.value);
+    formData.append('chapter', finalChapter);
+    formData.append('isNewChapter', isNewChapter);
+    formData.append('apiKey', apiKey);
+
+    try {
+      const res = await fetch('/api/process-pdf', { method: 'POST', body: formData });
+      const data = await res.json();
+
+      if (res.ok) {
+        statusDiv.className = 'status success';
+        statusDiv.innerHTML = `
+          <strong>Sukces! 🎉</strong> Notatka dodana.<br/><br/>
+          <a href="${data.url}" style="color:var(--sl-accent); font-weight:600; text-decoration:none;">👉 Otwórz: ${data.title}</a>
+        `;
+      } else throw new Error(data.error);
+    } catch (err) {
+      statusDiv.className = 'status error';
+      statusDiv.innerHTML = '<strong>Błąd:</strong> ' + err.message;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerText = 'Przetwórz i dodaj na stronę';
+    }
+  });
+</script>
+</body>
+</html>

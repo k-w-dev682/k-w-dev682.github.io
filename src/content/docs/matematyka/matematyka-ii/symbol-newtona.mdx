@@ -102,3 +102,30 @@ W zadaniach o kodach, miejscach na podium lub hasłach kolejność zwykle ma zna
 **Jak to zapamiętać na dłużej?** Wróć do tego samego zadania następnego dnia, a potem po kilku dniach. Samodzielne przypominanie jest ważniejsze niż wielokrotne czytanie gotowego rozwiązania.
 
 <CombinationLab client:load />
+
+
+## Od samego wzoru do wyboru właściwej metody
+
+Zapamiętaj różnicę: <Eq tex={String.raw`\binom nk`} /> służy do **wyboru bez kolejności**. W trudniejszych zadaniach najpierw sprawdzaj, czy obok samego wyboru trzeba rozdzielić funkcje albo role.
+
+### Przykład z przewodniczącym — krok po kroku
+
+Z ośmiu różnych osób tworzymy komisję trzyosobową. Jedna osoba w komisji zostaje przewodniczącym. Ile jest możliwości?
+
+1. Wybieramy trójkę osób bez ustalania ról. Kombinacji jest <Eq tex={String.raw`\binom83=\frac{8!}{3!5!}=56`} />.
+2. Dla każdej wybranej trójki przewodniczącym może być dowolna z trzech osób, czyli mamy 3 dalsze możliwości.
+3. Zasada mnożenia daje <Eq tex={String.raw`56\cdot3=168`} />.
+
+<Eq tex={String.raw`\boxed{\binom83\cdot3=\frac{8!}{3!5!}\cdot3=168}`} display />
+
+**Dlaczego nie 8·7·6?** Bo to odróżnia kolejność *wszystkich trzech* osób, a tu specjalną rolę ma tylko przewodniczący. Dwóch pozostałych członków komisji nie rozróżniamy.
+
+### Gdy kolejność nie ma znaczenia, ale liczby mogą się powtarzać
+
+Inny typ problemu: liczby całkowite nieujemne <Eq tex={String.raw`x,y,z`} /> spełniają <Eq tex={String.raw`x+y+z=7`} />. Ile rozwiązań istnieje? Rozdzielamy siedem jednakowych jednostek między trzy przegródki, używając dwóch separatorów (metoda gwiazd i kresek):
+
+<Eq tex={String.raw`\boxed{\binom{7+3-1}{3-1}=\binom92=36}`} display />
+
+**Ważne:** Zera są dozwolone, więc jeden z trzech składników może nie otrzymać żadnej jednostki. Ten problem **nie** jest zwykłym wyborem trzech różnych osób.
+
+[Ćwicz pięć poziomów trudności w Centrum nauki](/centrum-nauki/#challenge17) — wybierz *Matematyka II → Kombinatoryka*.

@@ -8,6 +8,7 @@ sidebar:
 import Eq from '../../../../components/MathEquation.astro';
 import MathIPdfButton from '../../../../components/MathIPdf.jsx';
 import { InverseLab } from '../../../../components/MathILabs.jsx';
+import InverseBranchLab from '../../../../components/InverseBranchLab.jsx';
 import FunctionMachineGraphic from '../../../../components/visuals/FunctionMachineGraphic.astro';
 import ParabolaInverseGraphic from '../../../../components/visuals/ParabolaInverseGraphic.astro';
 
@@ -123,3 +124,32 @@ Zapisz `y=3x+6`. Odejmij 6: `y−6=3x`. Podziel przez 3: `x=(y−6)/3`. Odpowied
 
 Zamknij na chwilę tę lekcję i odpowiedz własnymi słowami: **co oznacza najważniejszy symbol, dlaczego opisany sposób działa i jak rozpoznać błędne rozwiązanie?** Gdy wrócisz następnego dnia, rozwiąż ponownie mini-zadanie bez podglądania odpowiedzi.
 
+
+
+## Rozwiązanie trudniejszego zadania: parabola i ograniczenie dziedziny
+
+<InverseBranchLab client:load />
+
+Rozważ funkcję <Eq tex={String.raw`f(x)=x^2-4x`} /> dla <Eq tex={String.raw`x\leq 2`} />. Dlaczego jej odwrotność **nie** ma plusa przed pierwiastkiem?
+
+1. **Uzupełniamy kwadrat:** ponieważ <Eq tex={String.raw`(x-2)^2=x^2-4x+4`} />, to po odjęciu 4 dostajemy <Eq tex={String.raw`x^2-4x=(x-2)^2-4`} />.
+2. **Zamieniamy wynik na y:** <Eq tex={String.raw`y=(x-2)^2-4`} />. Dodajemy 4 po obu stronach: <Eq tex={String.raw`y+4=(x-2)^2`} />.
+3. **Pierwiastkujemy, nie gubiąc wartości bezwzględnej:** <Eq tex={String.raw`\sqrt{(x-2)^2}=|x-2|=\sqrt{y+4}`} />. Pierwiastek arytmetyczny jest nieujemny, dlatego zawsze daje moduł, a nie po prostu <Eq tex={String.raw`x-2`} />.
+4. **Korzystamy z ograniczenia x ≤ 2:** wtedy <Eq tex={String.raw`x-2\leq 0`} />, więc <Eq tex={String.raw`|x-2|=-(x-2)=2-x`} />. To wynika z definicji: moduł liczby ujemnej zmienia jej znak.
+5. **Wyznaczamy x:** <Eq tex={String.raw`2-x=\sqrt{y+4}`} />, więc <Eq tex={String.raw`x=2-\sqrt{y+4}`} />. Zamieniamy symbol wyniku y na argument nowej funkcji.
+
+<Eq tex={String.raw`\boxed{f^{-1}(x)=2-\sqrt{x+4}\quad\text{dla }x\geq -4}`} display />
+
+**Skąd dziedzina odwrotnej?** Najmniejsza wartość pierwotnej funkcji wynosi −4 (dla argumentu 2), a inne wyniki są większe. Zatem wynik dawnej funkcji — czyli argument odwrotnej — musi spełniać <Eq tex={String.raw`x\geq-4`} />.
+
+**Kontrola:** <Eq tex={String.raw`f(0)=0`} />, a <Eq tex={String.raw`f^{-1}(0)=2-\sqrt4=0`} />. Gałąź z plusem dałaby 4, które nie spełnia ograniczenia x ≤ 2.
+
+<details className="m1-selfcheck">
+<summary>Spróbuj sam: znajdź odwrotność dla tego samego wzoru, ale x ≥ 2</summary>
+
+Teraz <Eq tex={String.raw`x-2\geq0`} /> i dlatego <Eq tex={String.raw`|x-2|=x-2`} />. Wybieramy **plus**:
+<Eq tex={String.raw`f^{-1}(x)=2+\sqrt{x+4},\qquad x\geq-4`} display />.
+
+</details>
+
+**Chcesz przećwiczyć to od prostych zadań do trudniejszych?** [Otwórz zadania 17.0](/centrum-nauki/#challenge17) i wybierz *Matematyka I → Funkcje*.

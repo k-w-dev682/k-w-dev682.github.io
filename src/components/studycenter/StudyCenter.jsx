@@ -14,6 +14,8 @@ import '../../styles/study-center.css';
 import StudyCenterPlus from './StudyCenterPlus.jsx';
 import StudyCenterWorkshop from './StudyCenterWorkshop.jsx';
 import StudyCenterNext from './StudyCenterNext.jsx';
+import StudyCenter17 from './StudyCenter17.jsx';
+import MaterialsCompare from '../materials/MaterialsCompare.jsx';
 import './study-center-73.css';
 
 const BASE = (import.meta.env.BASE_URL || '/').replace(/\/?$/, '/');
@@ -21,8 +23,8 @@ const localHref = route => `${BASE}${String(route||'').replace(/^\/+/, '')}`;
 const TODAY = () => new Date().toLocaleDateString('sv-SE');
 const prettyDate = stamp => new Date(stamp).toLocaleDateString('pl-PL', { day:'2-digit', month:'short', year:'numeric' });
 const uid = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2,10)}`;
-const SHORT = {overview:'Pulpit',quiz:'Quizy',cards:'Fiszki',tasks:'Zadania',adaptive:'Trening',exam:'Kolokwium',errors:'Błędy',stats:'Statystyki',calendar:'Kalendarz',planner:'Plan nauki',library:'Moje materiały',sync:'Synchronizacja',plus:'Laboratorium nauki',workshop:'Warsztat 7.0',next:'StudyLab 7.2'};
-const ICONS = {overview:'◫',quiz:'◇',cards:'▤',tasks:'∑',adaptive:'◎',exam:'◷',errors:'↺',stats:'▥',planner:'▦',calendar:'◷',library:'☆',sync:'☁',plus:'✦',workshop:'◈',next:'✧'};
+const SHORT = {overview:'Pulpit',quiz:'Quizy',cards:'Fiszki',tasks:'Zadania',adaptive:'Trening',exam:'Kolokwium',errors:'Błędy',stats:'Statystyki',calendar:'Kalendarz',planner:'Plan nauki',library:'Moje materiały',sync:'Synchronizacja',plus:'Laboratorium nauki',workshop:'Warsztat 7.0',next:'StudyLab 7.2',challenge17:'Zadania 17.0',compare:'Porównaj notatki'};
+const ICONS = {overview:'◫',quiz:'◇',cards:'▤',tasks:'∑',adaptive:'◎',exam:'◷',errors:'↺',stats:'▥',planner:'▦',calendar:'◷',library:'☆',sync:'☁',plus:'✦',workshop:'◈',next:'✧',challenge17:'✦',compare:'≍'};
 const BookmarkContext = React.createContext({bookmarks:[],toggle:()=>{}});
 
 function SectionTitle({eyebrow,title,children}){return <div className="sc-section-title"><div><span className="sc-eyebrow">{eyebrow}</span><h2>{title}</h2></div>{children&&<div>{children}</div>}</div>;}
@@ -58,7 +60,7 @@ function Overview({db,stats,setTab}){
   <div className="sc-two-col"><section className="sc-panel"><h3>Przedmioty</h3><p className="sc-muted">Skuteczność oznacza odsetek poprawnych odpowiedzi, a nie zaliczenie całego kursu.</p><div className="sc-progress-list">{stats.bySubject.map(s=><div key={s.id} className="sc-subject-progress"><div className="sc-between"><span><i style={{background:s.color}}/>{s.short}</span><strong>{s.percent===null?'Jeszcze bez danych':`${s.percent}%`}</strong></div><Meter value={s.percent??0}/></div>)}</div></section>
    <section className="sc-panel"><h3>Co teraz ćwiczyć?</h3>{stats.weak.length?<><p className="sc-muted">Zagadnienia z co najmniej dwoma odpowiedziami i skutecznością poniżej 70%.</p>{stats.weak.slice(0,4).map(w=><div className="sc-weak" key={`${w.subject}-${w.id}`}><span>{w.subjectName}<b>{w.title}</b></span><strong>{w.rate}%</strong></div>)}</>:<Empty title="Jeszcze nie ma słabszych tematów">Rozwiąż kilka quizów. Gdy pojawią się błędy, system wskaże zagadnienia do powtórki.</Empty>}
     {last.length>0&&<button className="sc-inline-action" onClick={()=>setTab('errors')}>Otwórz zeszyt błędów →</button>}</section></div>
-  <section className="sc-panel"><div className="sc-between"><div><h3>Szybki wybór</h3><p>Ucz się na różne sposoby, nie tylko czytając notatki.</p></div></div><div className="sc-tile-grid">{[['quiz','Quizy','Pytania z wyjaśnieniami'],['cards','Fiszki','Powtórki w odpowiednich odstępach'],['tasks','Zadania','Nowe liczby i automatyczne sprawdzanie'],['adaptive','Trening adaptacyjny','Słabsze i nieprzećwiczone tematy'],['exam','Kolokwium','Test na czas bez podpowiedzi'],['calendar','Kalendarz','Terminy i sesje przed zaliczeniami'],['sync','Chmura','Postępy na telefonie i komputerze'],['workshop','Warsztat 7.0','Ścieżki, wzory, laboratoria i notatki'],['next','StudyLab 7.2','Mapa wiedzy, powtórki, edytor i statystyki']].map(([key,title,desc])=><button key={key} className="sc-tile" onClick={()=>setTab(key)}><span aria-hidden="true">{ICONS[key]}</span><strong>{title}</strong><small>{desc}</small><i aria-hidden="true">↗</i></button>)}</div></section>
+  <section className="sc-panel"><div className="sc-between"><div><h3>Szybki wybór</h3><p>Ucz się na różne sposoby, nie tylko czytając notatki.</p></div></div><div className="sc-tile-grid">{[['quiz','Quizy','Pytania z wyjaśnieniami'],['cards','Fiszki','Powtórki w odpowiednich odstępach'],['tasks','Zadania','Nowe liczby i automatyczne sprawdzanie'],['adaptive','Trening adaptacyjny','Słabsze i nieprzećwiczone tematy'],['exam','Kolokwium','Test na czas bez podpowiedzi'],['calendar','Kalendarz','Terminy i sesje przed zaliczeniami'],['sync','Chmura','Postępy na telefonie i komputerze'],['workshop','Warsztat 7.0','Ścieżki, wzory, laboratoria i notatki'],['next','StudyLab 7.2','Mapa wiedzy, powtórki, edytor i statystyki'],['challenge17','Zadania 17.0','Pięć poziomów, trzy podpowiedzi, kolokwia'],['compare','Porównaj notatki','Wykłady kontra podręczniki PDF']].map(([key,title,desc])=><button key={key} className="sc-tile" onClick={()=>setTab(key)}><span aria-hidden="true">{ICONS[key]}</span><strong>{title}</strong><small>{desc}</small><i aria-hidden="true">↗</i></button>)}</div></section>
  </>;
 }
 
@@ -291,7 +293,9 @@ export default function StudyCenter(){
  {tab==='planner'&&<PlannerPanel db={db} stats={stats} onPlanner={planner=>update(d=>bumpModified({...d,planner},'planner'))} setTab={changeTab}/>}
  {tab==='plus'&&<StudyCenterPlus db={db} onAttempt={addAttempt} onSession={addSession}/>}
  {tab==='next'&&<StudyCenterNext db={db} onGo={changeTab}/>}
+ {tab==='challenge17'&&<StudyCenter17 onAttempt={addAttempt} onSession={addSession}/>}
+ {tab==='compare'&&<MaterialsCompare notes={db.notes||[]}/>}
  {tab==='workshop'&&<StudyCenterWorkshop db={db} onAttempt={addAttempt} onAddCard={c=>update(d=>addCloudItem(d,'customCards',c))}/>}
  {tab==='library'&&<LibraryPanel db={db} onAddCard={c=>update(d=>addCloudItem(d,'customCards',c))} onRemoveCard={id=>update(d=>markDeleted(d,'customCards',id))} onAddNote={n=>update(d=>addCloudItem(d,'notes',n))} onRemoveNote={id=>update(d=>markDeleted(d,'notes',id))} onImport={setDb} onClear={()=>{if(!cloud.userId){setDb(DEFAULT_DB());cloud.clearAccountBindingIfSignedOut();}}} cloudActive={!!cloud.userId}/>}
- </div></div><footer className="sc-footer">StudyLab · Wersja 7.3 · Pytania i fiszki z zatwierdzonej bazy · FSRS-5 (parametry standardowe, bez indywidualnego trenowania) · PWA: odwiedzone strony dostępne offline · Synchronizacja opcjonalna przez Supabase</footer></div></BookmarkContext.Provider>;
+ </div></div><footer className="sc-footer">StudyLab · Centrum 7.3 + moduł zadań 17.0 · Pytania i fiszki z zatwierdzonej bazy · FSRS-5 (parametry standardowe, bez indywidualnego trenowania) · PWA: odwiedzone strony dostępne offline · Synchronizacja opcjonalna przez Supabase</footer></div></BookmarkContext.Provider>;
 }

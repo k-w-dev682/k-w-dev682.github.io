@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "import-pdf": "node tools/import-pdf.mjs",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -10,10 +11,11 @@
     "astro": "astro",
     "studycenter:drafts": "node tools/studycenter-generate.mjs",
     "studycenter:approve": "node tools/studycenter-approve.mjs",
-    "prebuild": "node tools/studycenter-check-public-config.mjs && node tools/generate-lesson-index.mjs && node tools/generate-microchecks.mjs && node tools/studycenter-generate.mjs",
+    "prebuild": "node tools/studycenter-check-public-config.mjs && node tools/generate-lesson-index.mjs && node tools/generate-microchecks.mjs && node tools/studycenter-generate.mjs && node tools/generate-lecture-comparison-index.mjs",
     "test:workshop": "node --test tests/workshop.test.mjs",
     "test:next": "node --test tests/next.test.mjs",
-    "test:cards": "node --test tests/studylab73.test.mjs"
+    "test:cards": "node --test tests/studylab73.test.mjs",
+    "test:materials": "node --test tests/materials-library.test.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.0",
@@ -23,6 +25,7 @@
     "@types/react-dom": "^19.3.0",
     "astro": "^7.2.10",
     "katex": "^0.19.0",
+    "pdf-parse": "^2.4.5",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "sharp": "^0.35.3"

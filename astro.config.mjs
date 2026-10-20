@@ -1132,7 +1132,21 @@ export default defineConfig({
               ]
             }
           ]
-        }
+        },
+      {
+        label: 'Książki',
+        collapsed: true,
+        items: [
+          {label: 'Biblioteka PDF', slug: 'ksiazki'},
+          {label: 'Programowanie C++', slug: 'ksiazki/programowanie'},
+          {label: 'Matematyka I', slug: 'ksiazki/matematyka-i'},
+          {label: 'Matematyka II', slug: 'ksiazki/matematyka-ii'},
+          {label: 'Fizyka dla informatyków', slug: 'ksiazki/fizyka'},
+          {label: 'Podstawy elektroniki', slug: 'ksiazki/elektronika'},
+          {label: 'Architektura systemów komputerowych', slug: 'ksiazki/architektura'},
+          {label: 'Porównaj z wykładem', slug: 'ksiazki/porownanie'},
+        ],
+      },
       ],
     }),
     react(),
