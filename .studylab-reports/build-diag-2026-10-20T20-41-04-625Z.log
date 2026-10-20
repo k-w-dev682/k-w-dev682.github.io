@@ -1,0 +1,52 @@
+=== StudyLab: diagnostyka kompilacji GitHub Pages ===
+Katalog: C:\studylab
+SHA-256 oryginalnej konfiguracji: 2a4fd64563fd43af7b2a8deb485e86d550b36ed075daa5a13e899831b5fc0452
+Trasy z export const prerender = false:
+src\pages\api\import-pdf.js:6: export const prerender = false;
+Nie znaleziono output: server w konfiguracji.
+Uruchamiam npm run build z diagnostyką. To może potrwać kilka minut...
+
+> studylab@0.0.1 prebuild
+> node tools/studycenter-check-public-config.mjs && node tools/generate-lesson-index.mjs && node tools/generate-microchecks.mjs && node tools/studycenter-generate.mjs && node tools/generate-lecture-comparison-index.mjs
+
+
+StudyLab: public Supabase configuration validated (no secret printed).
+
+StudyLab: indeks lekcji przygotowany: 180 stron.
+
+StudyLab 7.2: przygotowano 144 pytań mikrotestów.
+
+StudyLab: zapisano 91 propozycji w study-center-drafts\propozycje.json (nie są publikowane).
+
+Indeks porównywania wykładów: 215 lekcji, 703 KB.
+
+
+> studylab@0.0.1 build
+> astro build --config astro.studylab-diag.config.mjs
+
+
+[STUDYLAB DIAG] output config: static
+
+[STUDYLAB DIAG] SSR route: {"origin":"internal"}
+
+[STUDYLAB DIAG] SSR route: {"origin":"external"}
+[STUDYLAB DIAG] SSR route: {"origin":"project"}
+[STUDYLAB DIAG] SSR route: {"origin":"project"}
+[STUDYLAB DIAG] SSR route: {"origin":"external"}
+
+[STUDYLAB DIAG] output after integrations: static
+
+[31m[NoAdapterInstalled][39m Cannot use server-rendered pages without an adapter. Please install and configure the appropriate server adapter for your final deployment.
+  [1mHint:[22m
+[33m    See [4mhttps://docs.astro.build/en/guides/on-demand-rendering/[24m for more information.[39m
+  [1mError reference:[22m
+    [36m[4mhttps://docs.astro.build/en/reference/errors/no-adapter-installed/[24m[39m
+  [1mLocation:[22m
+    [4mC:\studylab\node_modules\astro\dist\core\build\index.js:99:10[24m
+  [1mStack trace:[22m
+[2m    at AstroBuilder.setup (file:///C:/studylab/node_modules/astro/dist/core/build/index.js:99:10)
+    at async build (file:///C:/studylab/node_modules/astro/dist/core/build/index.js:53:2)
+    at async runCommand (file:///C:/studylab/node_modules/astro/dist/cli/index.js:178:4)[22m
+
+Zakończenie kompilacji: kod 1.
+Oryginalny astro.config.mjs pozostał bez zmian.
