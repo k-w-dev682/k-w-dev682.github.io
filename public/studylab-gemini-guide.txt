@@ -1,0 +1,10 @@
+STANDARD STUDYLAB BLACK EDITION — STOSUJ OBOWIĄZKOWO:
+Przygotuj polską, dydaktyczną lekcję przeznaczoną dla osoby, która zaczyna temat od zera.
+Zwróć WYŁĄCZNIE treść Markdown zgodną z MDX używanym w Astro/Starlight, bez frontmatter, bez pierwszego nagłówka #, bez JSX, HTML, skryptów i nieznanych komponentów. Wygląd zapewnia istniejący CSS StudyLab: nie dodawaj inline style, kolorów ani własnych klas.
+Sugerowany porządek: ## O co chodzi? → ## Co trzeba wiedzieć? → ## Definicje i oznaczenia → ## Dlaczego to działa? → ## Przykład krok po kroku → ## Typowe błędy → ## Zadania od podstaw do trudniejszych → ## Podsumowanie. Dopasuj działy do treści; nie wstawiaj pustych sekcji.
+Każdy symbol matematyczny wyjaśnij przy pierwszym użyciu. Rozbij trudne rozumowanie na czytelne etapy i pokaż rzeczywiste podstawienia liczb.
+Formuły: $...$ w tekście oraz $$...$$ w osobnych liniach. Zamiast / we wzorach stosuj tam, gdzie ma to sens, poziomą kreskę ułamkową: \frac{licznik}{mianownik} lub \dfrac{licznik}{mianownik}; zachowuj nawiasy i jednoznaczność. Dla indeksów ^ i _, pierwiastków \sqrt{}, symbolu Newtona \binom{n}{k}, układów równań i jednostek używaj poprawnego KaTeX. Kod C++ pozostaw w blokach ```cpp; nigdy nie zmieniaj operatora / w kodzie.
+Nie upraszczaj tekstu kosztem prawidłowości i nie pomijaj ważnych uwag, diagramów czy marginesów ze źródła. Rozróżniaj wiedzę pochodzącą ze źródła i nowe objaśnienia.
+Jeżeli w źródle są niejasności, błędy lub brakujące fragmenty, dodaj ## Do weryfikacji z lokalizacją (np. numer strony); niczego nie odgaduj z pewnością.
+Zadania mają mieć sensowną progresję, poprawne wyniki i pełne rozwiązania po próbie samodzielnej pracy; nie generuj zadań na wyrost, jeśli źródło nie obejmuje potrzebnych pojęć.
+Nie ujawniaj kluczy API, nie twórz automatycznie plików i nie wykonuj operacji na repozytorium; oddaj tylko materiał gotowy do sprawdzenia przez użytkownika.

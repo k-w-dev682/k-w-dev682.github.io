@@ -1,0 +1,19 @@
+.sl-manual-ai{box-sizing:border-box;--ma-accent:#5ce2d1;--ma-line:#2b4542;margin:24px 0;padding:clamp(16px,3vw,28px);color:#eaf2f7;background:linear-gradient(125deg,#071718,#080b0d);border:1px solid var(--ma-line);border-radius:18px}
+.sl-manual-ai *, .sl-manual-ai *::before{box-sizing:border-box}
+.sl-manual-top h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:10px 0 8px;color:#eaf2f7;line-height:1.25}
+.sl-manual-ai p{color:#b8cbc9;line-height:1.65;margin:9px 0 16px}
+.sl-manual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+.sl-manual-grid label,.sl-manual-prompt-label{font-size:.89rem;font-weight:650;color:#d9eeeb;display:block}
+.sl-manual-wide{grid-column:1/-1}
+.sl-manual-grid input,.sl-manual-grid select,.sl-manual-ai textarea{box-sizing:border-box;display:block;width:100%;color:#eaf2f7;background:#090e10;border:1px solid #41615f;border-radius:9px;padding:11px;margin-top:7px;font-size:.94rem}
+.sl-manual-ai textarea{resize:vertical;min-height:176px;line-height:1.5;font-family:ui-monospace,Consolas,monospace;font-size:.8rem;overflow:auto}
+.sl-manual-grid input:focus,.sl-manual-grid select:focus,.sl-manual-ai textarea:focus,.sl-manual-actions button:focus-visible,.sl-manual-actions a:focus-visible{outline:2px solid var(--ma-accent);outline-offset:2px}
+.sl-manual-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:14px 0}
+.sl-manual-actions button,.sl-manual-actions a{font:inherit;display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:9px;padding:10px 14px;text-decoration:none;color:#d4f9f1;border:1px solid #3a716b;background:#102627;cursor:pointer}
+.sl-manual-actions .sl-manual-primary{background:var(--ma-accent);border-color:var(--ma-accent);font-weight:750;color:#06221f}
+.sl-manual-status{color:#9aefcf!important}
+.sl-manual-instructions{border-top:1px solid #2a4643;margin-top:22px;padding-top:16px}
+.sl-manual-instructions h3{font-size:1.1rem;color:#e7faf7;margin:0 0 10px}
+.sl-manual-instructions p{font-size:.92rem}
+@media(max-width:650px){.sl-manual-grid{grid-template-columns:1fr}.sl-manual-wide{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){.sl-manual-ai *{scroll-behavior:auto!important;transition:none!important}}

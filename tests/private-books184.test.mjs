@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {readFileSync} from 'node:fs';
+const src=readFileSync(new URL('../src/lib/studylab-private-books.mjs',import.meta.url),'utf8');
+const sql=readFileSync(new URL('../tools/PRYWATNE_KSIAZKI_SUPABASE.sql',import.meta.url),'utf8');
+const comp=readFileSync(new URL('../src/components/materials/PrivateBooksAccess.jsx',import.meta.url),'utf8');
+test('private bucket cannot be public',()=>assert.match(sql,/['"]studylab-private-books['"],\s*false/));
+test('SQL relies on authenticated UID, owner and folder',()=>{assert.match(sql,/studylab_is_books_owner/);assert.match(sql,/auth\.uid/);assert.match(sql,/storage\.foldername/);assert.match(sql,/owner_id/);});
+test('SQL requires explicit owner configuration',()=>assert.match(sql,/__YOUR_SUPABASE_UID__/));
+test('auth check uses Supabase user plus remote RPC',()=>{assert.match(src,/auth\.getUser\(/);assert.match(src,/\.rpc\('studylab_is_books_owner'\)/);});
+test('cloud book cannot use public URL',()=>assert.doesNotMatch(src,/getPublicUrl|publicUrl/));
+test('private book is namespaced by account and UUID',()=>{assert.match(src,/\$\{uid\}\/\$\{id\}\.pdf/);assert.match(src,/uuidRx/);});
+test('owner gate rejects other accounts',()=>{assert.match(comp,/!access\.allowed/);assert.match(comp,/BooksPrivateContent/);});
+test('legacy copy preserves originals',()=>assert.doesNotMatch(comp,/deleteDocument|localDeleteDocument|indexedDB\.deleteDatabase/));

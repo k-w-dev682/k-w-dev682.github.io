@@ -1,0 +1,81 @@
+---
+title: "Specyfikacja StudyLab — BLACK Edition"
+description: "Kolory, typografia, układy i standard lekcji MDX dla Gemini."
+sidebar:
+  order: 98
+---
+
+import StudyLabDesignGuide from '../../../components/StudyLabDesignGuide.jsx';
+import Eq from '../../../components/MathEquation.astro';
+
+Ta strona jest **publicznym przewodnikiem po wyglądzie i standardzie nauczania StudyLab**. Przeznaczona jest zarówno dla osoby rozwijającej projekt, jak i dla Gemini, które formatuje importowane PDF. Żaden sekret ani klucz API nie jest tu przechowywany.
+
+<StudyLabDesignGuide client:load />
+
+## 1. Jak działa stylowanie?
+
+Projekt bazuje na **Astro + Starlight + React**. Wspólny wygląd lekcji pochodzi z arkusza `src/styles/custom.css` oraz wbudowanego stylu Starlight. Strona główna ma dodatkowe style wewnątrz `src/components/StudyHome.astro`, a niektóre interaktywne moduły — osobne arkusze CSS.
+
+**Ważne:** Gemini powinno tworzyć poprawną **treść**, a nie powielać kod wyglądu w każdej notatce. Dzięki temu zmiana palety czy typografii w jednym miejscu obejmie też nowe lekcje.
+
+### Pliki i ich przeznaczenie
+
+| Plik | Rola |
+|---|---|
+| `src/styles/custom.css` | Globalne kolory, typografia, Starlight, wygląd większości lekcji |
+| `src/components/StudyHome.astro` | Strona główna, kafelki przedmiotów, akcje |
+| `src/components/materials/materials.css` | Biblioteka PDF i porównywanie wykładów |
+| `src/components/studycenter/*.css` | Fiszki, plan nauki, kolokwia i Centrum nauki |
+| `src/lib/studylab-style-guide.mjs` | Publiczny standard formatowania wykorzystywany przez Gemini |
+| `public/studylab-design-system.json` | Eksport parametrów i nazw plików dla narzędzi AI |
+| `public/studylab-style-source.css` | Czytelna kopia CSS strony głównej i globalnych stylów wykonana podczas instalacji |
+
+Pełna kopia CSS pokazuje szczegóły reguł, selektorów i wartości. Jest migawką z chwili instalacji — po ręcznych zmianach styli trzeba ją ponownie wygenerować.
+
+## 2. Typografia, odstępy, kontrast
+
+- **Motyw:** czarne lub prawie czarne tło, spokojne turkusowe akcenty, wysoki kontrast.
+- **Tekst:** Segoe UI Variable / Segoe UI; czytelne akapity, długość wierszy ograniczona przez Starlight.
+- **Kod:** Cascadia Code / JetBrains Mono / Consolas. Dla C++ bloki zaczynają się od trzech backticków i `cpp`.
+- **Szerokość artykułu:** `52rem`; panel boczny: `18rem`. Główna strona ma ograniczenie do `1200px`.
+- **Kolumny kafelków:** trzy na szerokim ekranie, dwie na tablecie i jedna na telefonie.
+- **Nagłówki:** logiczna hierarchia `##` → `###`; w artykułach nie powtarzaj `#`, bo tytuł pochodzi z frontmatter.
+- **Dostępność:** opisy diagramów, czytelne etykiety, klawiatura, kontrast i ograniczenie animacji przy `prefers-reduced-motion`.
+
+## 3. Jak przygotować materiał do nauki?
+
+1. Zacznij od intuicji i zastosowania, nie od zaawansowanego dowodu.
+2. Definiuj **każdy nowy symbol** i objaśniaj po co go używamy.
+3. Pokazuj skąd wziął się wzór — nie tylko jego zapis.
+4. Zanim przejdziesz do trudnych zadań, przygotuj przynajmniej jeden przykład z pełnymi podstawieniami.
+5. Zadania ułóż od łatwych po akademickie i wymagające rozumowania, nie tylko większych liczb.
+6. Rozwiązania i podpowiedzi oddzielaj od polecenia tak, aby uczeń mógł spróbować samodzielnie.
+7. Oddziel treści ze źródła od wyjaśnień dodanych przez AI. Nie zgaduj nieczytelnych fragmentów.
+8. Rysunki lub schematy dodawaj wtedy, kiedy rzeczywiście poprawiają zrozumienie.
+
+## 4. Zasady wzorów i kodu
+
+Używaj KaTeX i jednoznacznych nawiasów. Zamiast `1 / (2x+1)` powinno pojawić się:
+
+<Eq display tex={String.raw`f(x)=\frac{1}{2x+1}`}/>
+
+Zamiast `n(n+1)/2`:
+
+<Eq display tex={String.raw`\sum_{k=1}^{n}k=\frac{n(n+1)}{2}`}/>
+
+Nie zamieniaj jednak ukośników na ułamki w **kodzie C++** ani w ścieżkach plików. Zapis `1 / 2x+1` jest niejednoznaczny — najpierw trzeba sprawdzić sens matematyczny.
+
+## 5. Struktura gotowej lekcji
+
+Dla zwykłego opracowania PDF Gemini generuje **treść bez frontmatter** (importer dołącza metadane podczas eksportu). Przy ręcznym zakładaniu pliku MDX użyj pełnego szablonu dostępnego powyżej.
+
+Przykładowe sekcje (dostosuj je do konkretnego działu): „O co chodzi?”, „Co trzeba wiedzieć?”, „Definicje i symbole”, „Dlaczego to działa?”, „Przykład krok po kroku”, „Typowe błędy”, „Sprawdź się” i „Do weryfikacji”.
+
+## 6. Bezpieczeństwo i ograniczenia
+
+- Klucz Gemini pozostaje w lokalnym `.env`, nigdy w publicznym pliku MDX, JSON, CSS ani HTML.
+- GitHub Pages publikuje tylko stronę statyczną. Formatowanie Gemini działa przez lokalny serwer AI — nie przez endpoint `prerender = false` na GitHub Pages.
+- Materiał wygenerowany przez AI **wymaga sprawdzenia**: szczególnie wzory, twierdzenia, numery stron, definicje i przykłady.
+- Import PDF zachowuje oryginał w lokalnej bibliotece. Eksport MDX sam nie publikuje lekcji w repozytorium.
+
+**Aby wykonać import:** wróć na stronę główną i wybierz „Importuj PDF” albo otwórz bibliotekę „Książki” w lewym menu.

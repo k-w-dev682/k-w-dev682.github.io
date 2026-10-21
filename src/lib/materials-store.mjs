@@ -1,4 +1,6 @@
-// Local PDF library. Blobs and extracted pages never leave the user's browser.
+// STUDYLAB-PRIVATE-BOOKS-18-4
+import {listPrivateDocuments,getPrivateBook,putPrivateDocument,deletePrivateBook,isPrivateBookId} from './studylab-private-books.mjs';
+// Previous-version PDF library: read-only until the user explicitly migrates legacy documents.
 const DB_NAME = 'studylab-books-v1';
 const STORE = 'documents';
 let handle;
@@ -28,10 +30,15 @@ async function transaction(mode, fn) {
     tx.onabort = () => reject(tx.error || new Error('Operacja została przerwana.'));
   });
 }
-export const listDocuments = () => transaction('readonly', store => store.getAll());
-export const getDocument = id => transaction('readonly', store => store.get(id));
-export const putDocument = doc => transaction('readwrite', store => store.put(doc));
-export const deleteDocument = id => transaction('readwrite', store => store.delete(id));
+const listLocalDocuments = () => transaction('readonly',store=>store.getAll());
+// Stare pliki z tego profilu przeglądarki są widoczne TYLKO w narzędziu migracji.
+export const listLegacyDocuments = listLocalDocuments;
+export const listLocalBooks = async () => (await listLegacyDocuments()).filter(d=>d.kind==='book');
+// Nigdy nie łącz lokalnych danych osób logujących się na różnych kontach.
+export const listDocuments = listPrivateDocuments;
+export const getDocument = id => isPrivateBookId(id)?getPrivateBook(id):Promise.reject(Error('Dokument nie jest przypisany do zalogowanego konta. Użyj migracji.'));
+export const putDocument = doc => putPrivateDocument(doc);
+export const deleteDocument = id => isPrivateBookId(id)?deletePrivateBook(id):Promise.reject(Error('Usuwanie danych starej przeglądarki jest wyłączone.'));
 export const makeDocumentId = () => typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `pdf-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 export const SUBJECTS_MATERIALS = Object.freeze([
   { id: 'cpp', label: 'Programowanie C++', slug: 'programowanie' },

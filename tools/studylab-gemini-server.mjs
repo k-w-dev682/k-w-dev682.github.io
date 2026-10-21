@@ -1,3 +1,4 @@
+import { STUDYLAB_GEMINI_STYLE } from '../src/lib/studylab-style-guide.mjs';
 /** Local-only Gemini bridge for StudyLab. Static Astro/GitHub Pages stay unchanged.
  * Node >= 22. Never serve .env, never log Gemini keys.
  */
@@ -35,13 +36,14 @@ function prompt(title, subject) {
     + `Przygotuj przejrzystą notatkę w języku polskim jako treść Markdown zgodną z MDX.\n`
     + `1. Zachowaj wszystkie ważne informacje z otrzymanego fragmentu (w tym z marginesów, rysunków i tabel, jeżeli są czytelne).\n`
     + `2. Zadbaj o sensowną hierarchię nagłówków ## i ###, krótkie akapity, listy i opisane przykłady. Nie dodawaj nagłówka # ani YAML frontmatter.\n`
-    + `3. Stosuj poprawny KaTeX: $...$ w tekście i $$...$$ dla wzorów blokowych. Tam, gdzie właściwe, używaj \\frac{...}{...}, \\sqrt{...}, indeksów i poprawnych jednostek.\n`
+    + `3. Stosuj poprawny KaTeX: $...$ w tekście i $...$ dla wzorów blokowych. Tam, gdzie właściwe, używaj \\frac{...}{...}, \\sqrt{...}, indeksów i poprawnych jednostek.\n`
     + `4. Wyjaśniaj każdy symbol i pokazuj przekształcenia krok po kroku. Nie zmieniaj operatorów dzielenia w blokach kodu C++ na ułamki.\n`
     + `5. Jeśli podajesz wyjaśnienia, których nie ma w źródle, umieść je w osobnej sekcji 'Dodatkowe objaśnienia'. Nie wymyślaj faktów.\n`
     + `6. Niejednoznaczności, braki lub niemożliwe do odczytania fragmenty opisz w sekcji 'Do weryfikacji' z lokalizacją. Nigdy nie zgaduj z pewnością.\n`
     + `7. Nie generuj instrukcji import, JavaScript, JSX, HTML, znaczników <...>, nieznanych komponentów ani bloków ::: — tylko zwykły Markdown, KaTeX i bloki kodu z językiem.\n`
     + `8. Nie dołączaj ani nie przepisuj całych podręczników: przetwórz tylko dostarczony fragment.\n`
-    + `9. Zwróć tylko treść Markdown, bez opakowania w potrójne backticki.\n`;
+    + `9. Zwróć tylko treść Markdown, bez opakowania w potrójne backticki.\n`
+    + '\n\n' + STUDYLAB_GEMINI_STYLE;
 }
 export function makeGeminiBody(input) {
   if (!input || typeof input !== 'object' || !['text','pdf'].includes(input.mode)) throw new Error('Niepoprawny tryb przesyłania.');

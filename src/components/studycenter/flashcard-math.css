@@ -1,0 +1,14 @@
+/* Czytelne wzory i długie objaśnienia; kompatybilne z ciemnym motywem i telefonami. */
+.sc-root .sc-rich-text{font:inherit;color:inherit;white-space:pre-wrap;overflow-wrap:anywhere;min-width:0;max-width:100%}
+.sc-root .sc-rich-equation{display:inline-block;max-width:100%;vertical-align:middle;margin-inline:.14em;white-space:normal;color:inherit}
+.sc-root .sc-rich-equation .katex{font-size:1.07em;color:inherit}
+.sc-root .sc-rich-equation--display{display:block;width:100%;overflow-x:auto;overflow-y:hidden;padding:.5em .1em;margin:.4em 0;text-align:center}
+.sc-root .sc-rich-equation--display .katex-display{margin:.15em auto}
+.sc-root .sc-flashcard-body{display:block;width:100%;max-width:min(100%,650px);margin-inline:auto;font-size:clamp(19px,2.4vw,26px);font-weight:750;line-height:1.6;overflow-wrap:anywhere}
+.sc-root .sc-flashcard{overflow:hidden;min-width:0}
+.sc-root .sc-flashcard-body .katex{font-size:1.06em}
+.sc-root .sc-card-explanation .sc-rich-equation{color:#e4fbef}
+.sc-root .sc-rich-code{font:500 .94em/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;padding:.1em .32em;background:#1c2830;border-radius:5px;color:#baf7dc}
+.sc-root .sc-rich-invalid{font:inherit;white-space:pre-wrap;border-bottom:1px dotted #ffad99;color:#ffd2c2}
+.sc-root .sc-own-list .sc-rich-text{display:inline}
+@media(max-width:550px){.sc-root .sc-flashcard-body{font-size:19px}.sc-root .sc-flashcard{padding:22px 12px}.sc-root .sc-rich-equation .katex{font-size:1em}}

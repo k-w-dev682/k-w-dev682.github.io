@@ -26,10 +26,13 @@ export default defineConfig({
 
       sidebar: [
         { label: 'Centrum nauki', slug: 'centrum-nauki' },
+        { label: 'Materiały importowane', slug: 'materialy-importowane' },
+        { label: 'Specyfikacja StudyLab', slug: 'o-studylab/specyfikacja' },
   {
     label: "Programowanie C++",
     collapsed: true,
     items: [
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/programowanie" },
       {"label": "Dane, funkcje i pamięć", "collapsed": true, "items": [{"label": "Tablice — wiele wartości pod jedną nazwą", "slug": "programowanie/tablice"}, {"label": "Funkcje — parametry, wynik i wywołanie", "slug": "programowanie/funkcje"}, {"label": "Referencje — druga nazwa tego samego obiektu", "slug": "programowanie/referencje"}, {"label": "Wskaźniki, adresy i czas życia pamięci", "slug": "programowanie/wskazniki-pamiec"}]},
       {
         label: "Spis treści",
@@ -273,6 +276,7 @@ export default defineConfig({
     label: "Matematyka I",
     collapsed: true,
     items: [
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/matematyka-i" },
       {
         label: "Spis treści",
         slug: "matematyka/matematyka-i/spis-tresci"
@@ -439,6 +443,7 @@ export default defineConfig({
     label: "Matematyka II",
     collapsed: true,
     items: [
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/matematyka-ii" },
       {
         label: "Spis treści",
         slug: "matematyka/matematyka-ii/spis-tresci"
@@ -597,6 +602,7 @@ export default defineConfig({
     label: "Fizyka dla informatyków",
     collapsed: true,
     items: [
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/fizyka" },
       {
         label: "Spis treści",
         slug: "fizyka/spis-tresci"
@@ -789,6 +795,7 @@ export default defineConfig({
     label: "Podstawy elektroniki",
     collapsed: true,
     items: [
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/elektronika" },
       {
         label: "Spis treści",
         slug: "elektronika/spis-tresci"
@@ -973,6 +980,7 @@ export default defineConfig({
           label: "Architektura systemów komputerowych",
           collapsed: true,
           items: [
+            { label: "Moje notatki (prywatne)", slug: "moje-notatki/architektura" },
             {
               label: "Start",
               collapsed: true,
@@ -1135,20 +1143,7 @@ export default defineConfig({
             }
           ]
         },
-      {
-        label: 'Książki',
-        collapsed: true,
-        items: [
-          {label: 'Biblioteka PDF', slug: 'ksiazki'},
-          {label: 'Programowanie C++', slug: 'ksiazki/programowanie'},
-          {label: 'Matematyka I', slug: 'ksiazki/matematyka-i'},
-          {label: 'Matematyka II', slug: 'ksiazki/matematyka-ii'},
-          {label: 'Fizyka dla informatyków', slug: 'ksiazki/fizyka'},
-          {label: 'Podstawy elektroniki', slug: 'ksiazki/elektronika'},
-          {label: 'Architektura systemów komputerowych', slug: 'ksiazki/architektura'},
-          {label: 'Porównaj z wykładem', slug: 'ksiazki/porownanie'},
-        ],
-      },
+        // STUDYLAB-18-4-PRIVATE-NAV: brak publicznego menu książek.
       ],
     }),
     react(),

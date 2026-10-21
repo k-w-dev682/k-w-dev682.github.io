@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const books=readFileSync(path.join(root,'src/components/materials/BooksLibrary.jsx'),'utf8');
+const author=readFileSync(path.join(root,'src/components/materials/AuthoringStudio.jsx'),'utf8');
+const prompt=readFileSync(path.join(root,'src/components/materials/ManualAIGuide.jsx'),'utf8');
+test('Prompt jest w bibliotece',()=>assert.match(books,/<ManualAIGuide \/>/));
+test('Podzial na wyklady cwiczenia kurs',()=>{for(const k of ['lecture','exercise','book'])assert.match(prompt,new RegExp(k));});
+test('PDF nie jest automatycznie przemalowany',()=>assert.match(prompt,/nie przemaluje automatycznie/));
+test('Nie ujawnia API i wymaga recznej publikacji',()=>{assert.doesNotMatch(prompt,/GEMINI_API_KEY|STUDYLAB_GITHUB_TOKEN/);assert.match(prompt,/nie publikuj niczego samodzielnie/);});
+test('Kopiowanie promptu i dostepna alternatywa reczna',()=>{assert.match(prompt,/navigator\.clipboard\.writeText/);assert.match(prompt,/boxRef\.current\?\.select\(\)/);});
+test('Dopisanie rozdzialu offline bez API',()=>{assert.match(author,/async function addManualChapter\(/);assert.match(author,/appendCourseChapter\(course/);assert.match(author,/Dodaj ręcznie do kursu/);});
+test('Zachowano publikowanie tylko dla administratora',()=>assert.match(author,/if\(!admin\|\|!session\?\.access_token\)/));
+test('Bledy trafiaja do bezpiecznych komunikatow',()=>assert.match(author,/setError\(e\.message\)/));

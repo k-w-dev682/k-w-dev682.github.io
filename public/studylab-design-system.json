@@ -1,0 +1,194 @@
+{
+  "version": "18.1",
+  "description": "Publiczna specyfikacja wyglądu oraz nauczania StudyLab BLACK Edition; migawka w chwili instalacji.",
+  "tokens": {
+    "theme": "StudyLab BLACK Edition",
+    "framework": "Astro 7 + Starlight + React; Markdown/MDX and KaTeX",
+    "fonts": {
+      "body": "'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif",
+      "code": "'Cascadia Code', 'JetBrains Mono', Consolas, monospace"
+    },
+    "colors": {
+      "background": "#000000",
+      "navigation": "#060709",
+      "sidebar": "#050607",
+      "surface": "#070707",
+      "card": "#0B0B0B",
+      "cardBorder": "#292929",
+      "accent": "#5ce2d1",
+      "homeAccent": "#76E2D1",
+      "accentHigh": "#c8fff6",
+      "text": "#eaf2f7",
+      "muted": "#A5ADB3",
+      "codeBackground": "#111923"
+    },
+    "layout": {
+      "contentWidth": "52rem",
+      "sidebarWidth": "18rem",
+      "homeMaxWidth": "1200px",
+      "cardRadius": "14px",
+      "homeHeroRadius": "20px",
+      "bodyLineHeight": "1.78",
+      "homeColumns": "3 / 2 / 1 kolumny dla desktop / tablet / mobile"
+    },
+    "subjects": [
+      {
+        "name": "Programowanie C++",
+        "color": "#76E2D1"
+      },
+      {
+        "name": "Matematyka I",
+        "color": "#BEADFF"
+      },
+      {
+        "name": "Matematyka II",
+        "color": "#D9B3F7"
+      },
+      {
+        "name": "Architektura systemów komputerowych",
+        "color": "#A1DDB3"
+      },
+      {
+        "name": "Fizyka dla informatyków",
+        "color": "#98CFFF"
+      },
+      {
+        "name": "Podstawy elektroniki",
+        "color": "#F5C891"
+      }
+    ]
+  },
+  "actualStarlightTokens": {
+    "--sl-color-bg": "#000000",
+    "--sl-color-bg-nav": "#060709",
+    "--sl-color-bg-sidebar": "#050607",
+    "--sl-color-bg-inline-code": "#111923",
+    "--sl-color-hairline": "#222c37",
+    "--sl-color-accent": "#5ce2d1",
+    "--sl-color-text": "#eaf2f7",
+    "--sl-content-width": "52rem",
+    "--sl-sidebar-width": "18rem"
+  },
+  "cssSourceFiles": [
+    {
+      "path": "public/study-center-lesson-tools.css",
+      "bytes": 4977
+    },
+    {
+      "path": "public/studylab-ai-lesson.css",
+      "bytes": 2871
+    },
+    {
+      "path": "public/studylab-lesson-72.css",
+      "bytes": 1854
+    },
+    {
+      "path": "src/components/cpp13/cpp13.css",
+      "bytes": 2040
+    },
+    {
+      "path": "src/components/inverse-branch-lab.css",
+      "bytes": 1944
+    },
+    {
+      "path": "src/components/materials/materials.css",
+      "bytes": 8822
+    },
+    {
+      "path": "src/components/studycenter/cloud-styles.css",
+      "bytes": 898
+    },
+    {
+      "path": "src/components/studycenter/flashcard-math.css",
+      "bytes": 1466
+    },
+    {
+      "path": "src/components/studycenter/learning176.css",
+      "bytes": 5183
+    },
+    {
+      "path": "src/components/studycenter/study-center-73.css",
+      "bytes": 1964
+    },
+    {
+      "path": "src/components/studycenter/studycenter-advanced.css",
+      "bytes": 4941
+    },
+    {
+      "path": "src/components/studycenter/studycenter-next.css",
+      "bytes": 8751
+    },
+    {
+      "path": "src/components/studycenter/studycenter-plus.css",
+      "bytes": 3097
+    },
+    {
+      "path": "src/components/studycenter/studycenter-workshop.css",
+      "bytes": 8658
+    },
+    {
+      "path": "src/components/studycenter/studycenter17.css",
+      "bytes": 3995
+    },
+    {
+      "path": "src/components/studycenter/studycoach-ai.css",
+      "bytes": 2891
+    },
+    {
+      "path": "src/components/studycenter/studylab-cpp-runner.css",
+      "bytes": 14984
+    },
+    {
+      "path": "src/components/studycenter/studylab-flowchart.css",
+      "bytes": 4569
+    },
+    {
+      "path": "src/components/studycenter/studylab-github-auth.css",
+      "bytes": 1641
+    },
+    {
+      "path": "src/components/StudyHome.astro (inline style 1)",
+      "bytes": 5495
+    },
+    {
+      "path": "src/components/studylab-design-guide.css",
+      "bytes": 2957
+    },
+    {
+      "path": "src/styles/ask.css",
+      "bytes": 9362
+    },
+    {
+      "path": "src/styles/custom.css",
+      "bytes": 33301
+    },
+    {
+      "path": "src/styles/electronics.css",
+      "bytes": 8362
+    },
+    {
+      "path": "src/styles/math.css",
+      "bytes": 7074
+    },
+    {
+      "path": "src/styles/mathI.css",
+      "bytes": 7544
+    },
+    {
+      "path": "src/styles/physics.css",
+      "bytes": 5058
+    },
+    {
+      "path": "src/styles/study-center.css",
+      "bytes": 24810
+    }
+  ],
+  "sourceOfTruth": [
+    "src/styles/custom.css",
+    "src/components/StudyHome.astro",
+    "src/components/**/*.css",
+    "public/**/*.css"
+  ],
+  "noteGenerator": "src/lib/studylab-style-guide.mjs",
+  "security": "No API keys or .env contents included."
+}
