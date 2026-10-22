@@ -1,0 +1,90 @@
+---
+title: "Kombinacje bez powtórzeń — rozszerzenie"
+description: "Kombinacje bez powtórzeń i związek z wariacjami"
+sidebar:
+  order: 25
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+
+# Kombinacje bez powtórzeń
+
+## Definicja
+
+`k`-elementową kombinacją bez powtórzeń zbioru `n`-elementowego nazywamy dowolny `k`-elementowy podzbiór tego zbioru.
+
+Czyli:
+
+- wybieramy `k` elementów,
+- **kolejność nie ma znaczenia**,
+- elementy się **nie powtarzają**,
+- oczywiście `k \le n`.
+
+## Wzór
+
+Liczba `k`-elementowych kombinacji bez powtórzeń wynosi:
+
+<Eq display tex={String.raw`C_n^k=\binom{n}{k}=\frac{n!}{k!(n-k)!}`}/>
+
+## Skąd bierze się ten wzór?
+
+Najłatwiej wyjść od wariacji bez powtórzeń.
+
+1. Najpierw wybierz `k` elementów i ustaw je w kolejności.
+   To daje:
+
+<Eq display tex={String.raw`V_n^k=\frac{n!}{(n-k)!}`}/>
+
+2. Ale jedna kombinacja została wtedy policzona wiele razy — dokładnie tyle razy,
+ile można przestawić `k` wybranych elementów, czyli `k!` razy.
+
+3. Dlatego dzielimy przez `k!`:
+
+<Eq display tex={String.raw`C_n^k=\frac{V_n^k}{P_k}=\frac{\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}`}/>
+
+## Przykład
+
+Ile jest 3-osobowych grup z 10 osób?
+
+Tutaj:
+
+- `n=10`,
+- `k=3`.
+
+Liczymy:
+
+<Eq display tex={String.raw`C_{10}^3=\binom{10}{3}=\frac{10!}{3!7!}=120`}/>
+
+Odpowiedź: można utworzyć **120** takich grup.
+
+## Kiedy używać kombinacji?
+
+Używaj kombinacji wtedy, gdy:
+
+1. wybierasz elementy,
+2. **kolejność nie ma znaczenia**,
+3. elementów nie powtarzasz.
+
+### Przykłady
+
+- wybór komisji,
+- wybór drużyny,
+- wybór smaków bez powtórzeń,
+- wybór 5 kart z talii.
+
+## Najczęstszy błąd
+
+Jeżeli z osób A, B, C tworzysz 2-osobową grupę, to:
+
+- `{A,B}` i `{B,A}` to **ta sama** kombinacja,
+- ale byłyby to dwie różne wariacje.
+
+## Mini zadania
+
+1. Ile jest 2-elementowych podzbiorów zbioru 6-elementowego?
+2. Ile jest 4-osobowych zespołów z 9 osób?
+
+## Odpowiedzi
+
+1. <Eq tex={String.raw`C_6^2=\binom{6}{2}=15`}/>
+2. <Eq tex={String.raw`C_9^4=\binom{9}{4}=126`}/>

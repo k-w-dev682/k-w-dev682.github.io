@@ -1,0 +1,93 @@
+---
+title: "Instrukcja switch: case i default"
+description: "Wybór gałęzi, fallthrough, break i poprawna reszta z dzielenia."
+---
+
+# Instrukcja `switch`
+
+`switch` przydaje się, kiedy porównujesz **jedną wartość całkowitą lub wyliczeniową** z wieloma znanymi możliwościami. To nie jest uniwersalny zamiennik dla dowolnych nierówności, np. `x > 10`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int wybor;
+    std::cin >> wybor;
+    switch (wybor) {
+        case 1:
+            std::cout << "Dodawanie\n";
+            break;
+        case 2:
+            std::cout << "Odejmowanie\n";
+            break;
+        default:
+            std::cout << "Nieznana opcja\n";
+    }
+}
+```
+
+**Krok po kroku:** program odczytuje `wybor`, szuka pasującego `case` i rozpoczyna wykonywanie od tego miejsca. `break` kończy całego `switch`. `default` obsługuje sytuację, gdy żadna etykieta nie pasuje.
+
+## Gdy zapomnisz `break`
+
+```cpp
+int x = 1;
+switch (x) {
+    case 1: std::cout << "A";
+    case 2: std::cout << "B"; break;
+    default: std::cout << "C";
+}
+```
+
+Wynik to **`AB`**, nie `A`. Jest to tak zwane *fallthrough* — wykonanie kolejnych instrukcji bez ponownego sprawdzania etykiet. Jeśli przejście jest zamierzone, warto je czytelnie oznaczyć `[[fallthrough]];`.
+
+## Kilka przypadków z tym samym działaniem
+
+```cpp
+switch (x) {
+    case 1:
+    case 3:
+        std::cout << "Jedna lub trzy\n";
+        break;
+    default:
+        std::cout << "Inna\n";
+}
+```
+
+## Uwaga na liczby ujemne przy `%`
+
+W C++ reszta z dzielenia liczby ujemnej może być ujemna: `-7 % 5 == -2`. Jeśli chcesz uzyskać matematyczną resztę z zakresu `0..4`, znormalizuj ją:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x;
+    std::cin >> x;
+    int reszta = ((x % 5) + 5) % 5;
+    switch (reszta) {
+        case 0: std::cout << "Podzielna przez 5\n"; break;
+        case 1: std::cout << "Reszta 1\n"; break;
+        case 2: std::cout << "Reszta 2\n"; break;
+        case 3: std::cout << "Reszta 3\n"; break;
+        case 4: std::cout << "Reszta 4\n"; break;
+    }
+}
+```
+
+Dla `x = -7` wyświetli `Reszta 3`, bo `-7 = -2 * 5 + 3`. To **inne** pojęcie niż reszta operatora `%` w C++ dla liczby ujemnej. W zadaniu zawsze sprawdź, którego znaczenia oczekuje polecenie.
+
+## Ćwiczenia
+
+1. Dopisz do menu opcję `3` — zakończenie programu.
+2. Przewidź wynik wersji bez `break` przy `wybor = 1`.
+3. Dlaczego do `switch (x)` nie można wprost dodać etykiety `case x > 5:`?
+
+<details>
+<summary>Odpowiedzi</summary>
+
+1. Dodaj `case 3: ...; break;` (a pętlę sterującą menu zakończ osobno).
+2. Wejdzie także do kolejnego `case`, dopóki nie napotka `break` albo końca `switch`.
+3. `case` wymaga stałej wartości w czasie kompilacji, a nie testu o zmiennym wyniku. Użyj `if` do nierówności.
+
+</details>

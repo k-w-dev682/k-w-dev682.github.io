@@ -32,7 +32,40 @@ export default defineConfig({
     label: "Programowanie C++",
     collapsed: true,
     items: [
+      {
+        label: 'Wykład 1 — podstawy programowania i algorytmów',
+        collapsed: true,
+        items: [
+          { label: 'Przewodnik wykładu', slug: 'programowanie/wyklad-1/start' },
+          { label: 'Informacja i programowanie', slug: 'programowanie/wyklad-1/informacja-i-programowanie' },
+          { label: 'Akcje i abstrakcja', slug: 'programowanie/wyklad-1/akcje-i-abstrakcja' },
+          { label: 'Algorytm i jego własności', slug: 'programowanie/wyklad-1/algorytmy-i-poprawnosc' },
+          { label: 'Od problemu do programu', slug: 'programowanie/wyklad-1/od-problemu-do-programu' },
+          { label: 'Komputer i pamięć', slug: 'programowanie/wyklad-1/komputer-i-pamiec' },
+          { label: 'Bity i kodowanie znaków', slug: 'programowanie/wyklad-1/kodowanie-znakow' },
+          { label: 'Języki programowania', slug: 'programowanie/wyklad-1/jezyki-programowania' },
+          { label: 'Kompilacja i interpretacja', slug: 'programowanie/wyklad-1/kompilacja-i-interpretacja' },
+          { label: 'Schematy blokowe', slug: 'programowanie/wyklad-1/schematy-blokowe' },
+          { label: 'Zadania i sprawdzian', slug: 'programowanie/wyklad-1/zadania' }
+        ]
+      },
+      {
+        label: 'Skrypt — Rozdział 5: instrukcje C++',
+        collapsed: true,
+        items: [
+          { label: 'Przewodnik po rozdziale', slug: 'programowanie/skrypt-r5/start' },
+          { label: 'Przypisanie i bloki', slug: 'programowanie/skrypt-r5/przypisanie-i-bloki' },
+          { label: 'if, else i ?:', slug: 'programowanie/skrypt-r5/if-i-operator-warunkowy' },
+          { label: 'Instrukcja switch', slug: 'programowanie/skrypt-r5/switch' },
+          { label: 'Petla for', slug: 'programowanie/skrypt-r5/petla-for' },
+          { label: 'while i do...while', slug: 'programowanie/skrypt-r5/while-do-while' },
+          { label: 'break, continue i goto', slug: 'programowanie/skrypt-r5/skoki' },
+          { label: 'Przyklady prowadzone', slug: 'programowanie/skrypt-r5/przyklady' },
+          { label: 'Bank 45 zadan', slug: 'programowanie/skrypt-r5/zadania' }
+        ]
+      },
       { label: "Moje notatki (prywatne)", slug: "moje-notatki/programowanie" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/programowanie" },
       {"label": "Dane, funkcje i pamięć", "collapsed": true, "items": [{"label": "Tablice — wiele wartości pod jedną nazwą", "slug": "programowanie/tablice"}, {"label": "Funkcje — parametry, wynik i wywołanie", "slug": "programowanie/funkcje"}, {"label": "Referencje — druga nazwa tego samego obiektu", "slug": "programowanie/referencje"}, {"label": "Wskaźniki, adresy i czas życia pamięci", "slug": "programowanie/wskazniki-pamiec"}]},
       {
         label: "Spis treści",
@@ -277,6 +310,7 @@ export default defineConfig({
     collapsed: true,
     items: [
       { label: "Moje notatki (prywatne)", slug: "moje-notatki/matematyka-i" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/matematyka-i" },
       {
         label: "Spis treści",
         slug: "matematyka/matematyka-i/spis-tresci"
@@ -444,6 +478,7 @@ export default defineConfig({
     collapsed: true,
     items: [
       { label: "Moje notatki (prywatne)", slug: "moje-notatki/matematyka-ii" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/matematyka-ii" },
       {
         label: "Spis treści",
         slug: "matematyka/matematyka-ii/spis-tresci"
@@ -549,6 +584,30 @@ export default defineConfig({
           {
             label: "Dowód dwumianu Newtona",
             slug: "matematyka/matematyka-ii/dowod-dwumianu"
+          },
+          {
+            label: "Multizbiory i kombinacje z powtórzeniami",
+            slug: "matematyka/matematyka-ii/multizbiory"
+          },
+          {
+            label: "Iniekcja, suriekcja i bijekcja",
+            slug: "matematyka/matematyka-ii/funkcje-iniekcja-suriekcja"
+          },
+          {
+            label: "Wariacje bez powtórzeń — rozszerzenie",
+            slug: "matematyka/matematyka-ii/wariacje-bez-powtorzen-rozszerzenie"
+          },
+          {
+            label: "Permutacje bez powtórzeń",
+            slug: "matematyka/matematyka-ii/permutacje-bez-powtorzen"
+          },
+          {
+            label: "Kombinacje bez powtórzeń — rozszerzenie",
+            slug: "matematyka/matematyka-ii/kombinacje-bez-powtorzen-rozszerzenie"
+          },
+          {
+            label: "Zastosowania kombinatoryki",
+            slug: "matematyka/matematyka-ii/zastosowania-kombinatoryki"
           }
         ]
       },
@@ -579,6 +638,10 @@ export default defineConfig({
           {
             label: "Ćwiczenie e: suma sinusów",
             slug: "matematyka/matematyka-ii/cw-sinusy"
+          },
+          {
+            label: "Indukcja — nowe przykłady dowodów",
+            slug: "matematyka/matematyka-ii/indukcja-przyklady-2"
           }
         ]
       },
@@ -602,7 +665,29 @@ export default defineConfig({
     label: "Fizyka dla informatyków",
     collapsed: true,
     items: [
+      {
+        label: "Zeszyt — płyny, siły i grawitacja",
+        collapsed: true,
+        items: [
+          { label: "Start i mapa materiału", slug: "fizyka/zeszyt-plyny/start" },
+          { label: "Praca i energia", slug: "fizyka/zeszyt-plyny/praca-energia" },
+          { label: "Opór ośrodka i spadanie", slug: "fizyka/zeszyt-plyny/opor-osrodka" },
+          { label: "Ciśnienie i hydrostatyka", slug: "fizyka/zeszyt-plyny/cisnienie-hydrostatyka" },
+          { label: "Prawo Pascala i Archimedesa", slug: "fizyka/zeszyt-plyny/pascal-archimedes" },
+          { label: "Lepkość dynamiczna i kinematyczna", slug: "fizyka/zeszyt-plyny/lepkosc" },
+          { label: "Przepływy i liczba Reynoldsa", slug: "fizyka/zeszyt-plyny/rodzaje-przeplywu" },
+          { label: "Równanie ciągłości", slug: "fizyka/zeszyt-plyny/ciaglosc" },
+          { label: "Równanie Bernoulliego", slug: "fizyka/zeszyt-plyny/bernoulli" },
+          { label: "Równanie Naviera–Stokesa", slug: "fizyka/zeszyt-plyny/navier-stokes" },
+          { label: "Oddziaływania fundamentalne", slug: "fizyka/zeszyt-plyny/oddzialywania" },
+          { label: "Grawitacja Newtona", slug: "fizyka/zeszyt-plyny/grawitacja-newtona" },
+          { label: "6 przykładów krok po kroku", slug: "fizyka/zeszyt-plyny/przyklady" },
+          { label: "30 zadań z odpowiedziami", slug: "fizyka/zeszyt-plyny/zadania" },
+          { label: "Niepewności i poprawki", slug: "fizyka/zeszyt-plyny/niepewnosci" }
+        ]
+      },
       { label: "Moje notatki (prywatne)", slug: "moje-notatki/fizyka" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/fizyka" },
       {
         label: "Spis treści",
         slug: "fizyka/spis-tresci"
@@ -795,7 +880,27 @@ export default defineConfig({
     label: "Podstawy elektroniki",
     collapsed: true,
     items: [
+      {
+        label: "Zeszyt — obwody i elementy",
+        collapsed: true,
+        items: [
+          { label: "Start i mapa tematów", slug: "elektronika/zeszyt-obwody/start" },
+          { label: "Prąd i gęstość prądu", slug: "elektronika/zeszyt-obwody/prad-i-ladunek" },
+          { label: "Opór i właściwości materiału", slug: "elektronika/zeszyt-obwody/opor-i-materialy" },
+          { label: "Prawo Ohma i rezystory", slug: "elektronika/zeszyt-obwody/prawo-ohma-rezystory" },
+          { label: "Praca, energia i moc", slug: "elektronika/zeszyt-obwody/energia-i-moc" },
+          { label: "Podział elementów", slug: "elektronika/zeszyt-obwody/podzial-elementow" },
+          { label: "Cewka i indukcyjność", slug: "elektronika/zeszyt-obwody/cewka-indukcyjnosc" },
+          { label: "Prawo Faradaya i samoindukcja", slug: "elektronika/zeszyt-obwody/faraday-samoindukcja" },
+          { label: "Energia i łączenie cewek", slug: "elektronika/zeszyt-obwody/energia-polaczenia-cewek" },
+          { label: "Kondensator i RLC", slug: "elektronika/zeszyt-obwody/kondensator-rlc" },
+          { label: "Przykłady krok po kroku", slug: "elektronika/zeszyt-obwody/przyklady" },
+          { label: "30 zadań z odpowiedziami", slug: "elektronika/zeszyt-obwody/zadania" },
+          { label: "Niepewności i uzupełnienia", slug: "elektronika/zeszyt-obwody/niepewnosci" }
+        ]
+      },
       { label: "Moje notatki (prywatne)", slug: "moje-notatki/elektronika" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/elektronika" },
       {
         label: "Spis treści",
         slug: "elektronika/spis-tresci"
@@ -981,6 +1086,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             { label: "Moje notatki (prywatne)", slug: "moje-notatki/architektura" },
+            { label: "Moje książki (prywatne)", slug: "moje-ksiazki/architektura" },
             {
               label: "Start",
               collapsed: true,

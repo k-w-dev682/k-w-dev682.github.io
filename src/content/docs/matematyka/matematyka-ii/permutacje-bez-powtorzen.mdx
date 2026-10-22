@@ -1,0 +1,68 @@
+---
+title: "Permutacje bez powtórzeń"
+description: "Permutacje bez powtórzeń i związek z wariacjami"
+sidebar:
+  order: 24
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+
+# Permutacje bez powtórzeń
+
+## Definicja
+
+Permutacją bez powtórzeń zbioru `n`-elementowego nazywamy każde uporządkowanie wszystkich jego elementów.
+
+Inaczej mówiąc:
+
+- bierzemy wszystkie `n` elementów,
+- ustawiamy je w pewnej kolejności,
+- żaden element się nie powtarza.
+
+## Wzór
+
+Liczba wszystkich permutacji zbioru `n`-elementowego jest równa:
+
+<Eq display tex={String.raw`P_n=n!`}/>
+
+## Dlaczego?
+
+Na pierwszym miejscu możesz postawić `n` elementów.
+Na drugim zostaje `n-1` elementów.
+Na trzecim `n-2`, itd.
+Na ostatnim zostaje już tylko 1 możliwość.
+
+Zatem:
+
+<Eq display tex={String.raw`P_n=n(n-1)(n-2)\cdots2\cdot1=n!`}/>
+
+## Związek z wariacjami
+
+Permutacja to wariacja bez powtórzeń, w której bierzemy wszystkie elementy.
+
+Dlatego:
+
+<Eq display tex={String.raw`P_n=V_n^n=\frac{n!}{(n-n)!}=n!`}/>
+
+## Przykład
+
+Ile różnych ustawień można zrobić z liter A, B, C, D?
+
+Mamy `n=4`, więc:
+
+<Eq display tex={String.raw`P_4=4!=24`}/>
+
+## Uwaga praktyczna
+
+Jeśli w zadaniu chodzi o „ustawienie wszystkich osób w kolejce”, „przestawienie wszystkich cyfr”,
+„uporządkowanie wszystkich książek na półce”, to bardzo często chodzi właśnie o permutacje.
+
+## Mini zadania
+
+1. Ile jest wszystkich ustawień 5 różnych osób w rzędzie?
+2. Ile anagramów można ułożyć z liter słowa złożonego z 6 różnych liter?
+
+## Odpowiedzi
+
+1. <Eq tex={String.raw`P_5=5!=120`}/>
+2. <Eq tex={String.raw`P_6=6!=720`}/>

@@ -1,0 +1,102 @@
+---
+title: "Zastosowania kombinatoryki"
+description: "Tablice rejestracyjne, kości i praktyczne przykłady liczenia"
+sidebar:
+  order: 26
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+
+# Zastosowania kombinatoryki
+
+## 1. Numery rejestracyjne: 3 litery i 4 cyfry
+
+Załóżmy, że numer składa się z:
+
+- 3 liter,
+- 4 cyfr.
+
+Dla uproszczenia przyjmujemy:
+
+- litery wybieramy z alfabetu 26-literowego,
+- cyfry z zestawu `0,1,2,...,9`.
+
+Jeżeli nie ma dodatkowych ograniczeń, to:
+
+- na pierwszą literę mamy 26 możliwości,
+- na drugą też 26,
+- na trzecią też 26,
+- na każdą z 4 cyfr mamy 10 możliwości.
+
+Korzystamy z reguły mnożenia:
+
+<Eq display tex={String.raw`26^3\cdot10^4`}/>
+
+To już jest poprawny wynik końcowy. Po obliczeniu:
+
+<Eq display tex={String.raw`26^3\cdot10^4=17576\cdot10000=175760000`}/>
+
+## 2. Suma oczek na 3 nierozróżnialnych kościach
+
+W notatkach pojawia się wypisywanie trójek dla ustalonej sumy, np. 11 albo 12.
+
+Jeżeli kości traktujemy jako **nierozróżnialne**, to trójki:
+
+```text
+(6,4,1), (4,6,1), (1,6,4)
+```
+
+opisują tak naprawdę **ten sam wynik**, bo liczy się tylko zestaw oczek, a nie kolejność kości.
+
+### Przykład: suma 11
+
+Możliwe zestawy to:
+
+```text
+(6,4,1)
+(6,3,2)
+(5,5,1)
+(5,4,2)
+(5,3,3)
+(4,4,3)
+```
+
+### Przykład: suma 12
+
+Możliwe zestawy to:
+
+```text
+(6,5,1)
+(6,4,2)
+(6,3,3)
+(5,5,2)
+(5,4,3)
+(4,4,4)
+```
+
+Takie zadania dobrze pokazują, że przed liczeniem trzeba ustalić,
+**czy kolejność ma znaczenie**.
+
+## 3. Jak dobrać dobry wzór?
+
+Zanim zaczniesz liczyć, zadaj sobie trzy pytania:
+
+1. Czy **kolejność ma znaczenie**?
+2. Czy **powtórzenia są dozwolone**?
+3. Czy wybieram **wszystkie elementy**, czy tylko część?
+
+### Krótka ściąga
+
+- kolejność tak, powtórzenia tak → wariacje z powtórzeniami,
+- kolejność tak, powtórzenia nie → wariacje bez powtórzeń,
+- kolejność nie, powtórzenia nie → kombinacje,
+- kolejność nie, powtórzenia tak → kombinacje z powtórzeniami,
+- bierzemy wszystkie elementy → permutacje.
+
+## Podsumowanie
+
+Kombinatoryka nie polega tylko na podstawieniu do wzoru.
+Najważniejsze jest poprawne rozpoznanie typu zadania.
+
+Jeśli dobrze odpowiesz na pytania o **kolejność** i **powtórzenia**,
+to wybór wzoru zwykle robi się prosty.

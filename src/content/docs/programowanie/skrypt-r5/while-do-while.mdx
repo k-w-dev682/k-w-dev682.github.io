@@ -1,0 +1,94 @@
+---
+title: "Pętle while i do...while"
+description: "Walidacja, suma cyfr, powtarzane menu, przypadki brzegowe."
+---
+
+# `while` i `do...while`
+
+## Różnica jednego sprawdzenia
+
+- `while (warunek) { ... }` **najpierw sprawdza** warunek, dlatego może wykonać ciało zero razy.
+- `do { ... } while (warunek);` **najpierw wykonuje** ciało, więc zawsze przynajmniej raz. Pamiętaj o średniku na końcu `while`.
+
+```cpp
+int x = 0;
+while (x > 0) {
+    std::cout << "while";    // nie wykona się
+}
+do {
+    std::cout << "do while"; // wykona się jeden raz
+} while (x > 0);
+```
+
+## Wczytaj dodatnią liczbę i oblicz sumę cyfr
+
+```cpp
+#include <iostream>
+
+int main() {
+    int n;
+    do {
+        std::cout << "Podaj dodatnia liczbe: ";
+        if (!(std::cin >> n)) {
+            std::cout << "Niepoprawne dane\n";
+            return 1;
+        }
+    } while (n <= 0);
+
+    int liczba = n;
+    int suma = 0;
+    while (liczba > 0) {
+        suma += liczba % 10; // ostatnia cyfra
+        liczba /= 10;       // usuwa ostatnia cyfre
+    }
+    std::cout << "Suma cyfr " << n << " = " << suma << '\n';
+}
+```
+
+Dla `n = 407`: najpierw dodajemy `7`, potem `0`, potem `4`, co daje `11`.
+
+| Kolejny obieg | `liczba` przed działaniem | Dodana cyfra | `suma` po dodaniu | `liczba` po `/= 10` |
+|---|---:|---:|---:|---:|
+| 1 | 407 | 7 | 7 | 40 |
+| 2 | 40 | 0 | 7 | 4 |
+| 3 | 4 | 4 | 11 | 0 |
+
+W oryginalnym przykładzie po wczytaniu liczby dodatniej obliczano ponownie wartość bezwzględną — jest to zbędne. Nie kopiujemy też `system("PAUSE")`, bo nie jest przenośnym sposobem zatrzymywania programu.
+
+## Menu uruchamiane wielokrotnie
+
+```cpp
+#include <iostream>
+
+int main() {
+    int opcja;
+    do {
+        std::cout << "1. Dodaj\n2. Odejmij\n3. Koniec\n";
+        if (!(std::cin >> opcja)) return 1;
+        if (opcja == 1 || opcja == 2) {
+            double a, b;
+            if (!(std::cin >> a >> b)) return 1;
+            std::cout << (opcja == 1 ? a + b : a - b) << '\n';
+        } else if (opcja != 3) {
+            std::cout << "Nieznana opcja\n";
+        }
+    } while (opcja != 3);
+}
+```
+
+`do...while` pasuje tutaj, bo menu powinno zostać pokazane **co najmniej raz**, nawet jeżeli użytkownik od razu wybierze zakończenie.
+
+## Pytania
+
+1. Dlaczego w `while (liczba > 0)` trzeba zmieniać `liczba`?
+2. Co się stanie dla `n = 0` w pierwszej pętli `do...while`?
+3. Czy pętla `while` nadaje się tylko wtedy, gdy nie znamy liczby powtórzeń?
+
+<details>
+<summary>Odpowiedzi</summary>
+
+1. Bez zmiany warunek mógłby nigdy nie stać się fałszywy.
+2. Użytkownik zostanie ponownie poproszony o liczbę, bo `n <= 0` jest prawdziwe.
+3. Nie. Obie konstrukcje potrafią realizować te same algorytmy; różnica dotyczy przede wszystkim wygody zapisu.
+
+</details>

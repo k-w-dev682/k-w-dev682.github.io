@@ -1,0 +1,135 @@
+---
+title: "Funkcje: różnowartościowa, na i wzajemnie jednoznaczna"
+description: "Iniekcja, suriekcja i bijekcja bardzo prostym językiem"
+sidebar:
+  order: 22
+---
+
+# Funkcje: różnowartościowa, „na” i wzajemnie jednoznaczna
+
+## Przypomnienie: czym jest funkcja?
+
+Funkcja `f: X -> Y` przyporządkowuje każdemu elementowi zbioru `X` dokładnie jeden element zbioru `Y`.
+
+- `X` — dziedzina,
+- `Y` — przeciwdziedzina.
+
+## Funkcja różnowartościowa (iniekcja)
+
+Funkcja jest **różnowartościowa**, jeżeli różne argumenty mają różne obrazy.
+
+Zapis:
+
+```text
+jeśli x1 ≠ x2, to f(x1) ≠ f(x2)
+```
+
+Można też zapisać równoważnie:
+
+```text
+jeśli f(x1) = f(x2), to x1 = x2
+```
+
+### Intuicja
+
+Dwa różne elementy z `X` nie mogą „wpadać” w to samo miejsce w `Y`.
+
+## Funkcja "na" (suriekcja)
+
+Funkcja `f: X -> Y` jest **na**, jeżeli **każdy** element zbioru `Y` jest obrazem jakiegoś elementu z `X`.
+
+Zapis słowny:
+
+- dla każdego `y` należącego do `Y`
+- istnieje takie `x` należące do `X`,
+- że `y = f(x)`.
+
+### Intuicja
+
+W zbiorze `Y` nie zostaje żaden „wolny” element.
+
+## Funkcja wzajemnie jednoznaczna (bijekcja)
+
+Funkcja jest **wzajemnie jednoznaczna**, gdy jest jednocześnie:
+
+1. różnowartościowa,
+2. na.
+
+Czyli:
+
+- nic się nie zlewa,
+- nic nie zostaje puste.
+
+To jest idealne sparowanie elementów zbioru `X` z elementami zbioru `Y`.
+
+## Dlaczego to ważne w kombinatoryce?
+
+Bardzo często, zamiast liczyć obiekty bezpośrednio, pokazujemy, że istnieje **bijekcja** między:
+
+- zbiorem trudnym do policzenia,
+- a zbiorem prostszym do policzenia.
+
+Jeżeli między dwoma zbiorami istnieje bijekcja, to oba zbiory mają tyle samo elementów.
+
+## Przykład idei bijekcji
+
+W notatkach pojawia się pomysł, że pewne obiekty kombinatoryczne odpowiadają ciągom uporządkowanym. To jest właśnie klasyczne użycie bijekcji:
+
+- każdemu obiektowi przyporządkowujemy jeden ciąg,
+- każdemu takiemu ciągowi odpowiada dokładnie jeden obiekt.
+
+Wtedy liczenie obiektów można zastąpić liczeniem ciągów.
+
+## Szybkie rozpoznawanie
+
+### 1. Czy funkcja jest różnowartościowa?
+
+Zapytaj:
+
+> Czy dwa różne argumenty mogą dać ten sam wynik?
+
+Jeśli nie — funkcja jest różnowartościowa.
+
+### 2. Czy funkcja jest "na"?
+
+Zapytaj:
+
+> Czy każdy element przeciwdziedziny jest osiągany?
+
+Jeśli tak — funkcja jest suriekcją.
+
+### 3. Czy jest bijekcją?
+
+Zapytaj jednocześnie:
+
+- czy nic się nie zlewa?
+- czy nic nie zostaje wolne?
+
+## Przykład prosty
+
+Niech:
+
+```text
+X = {1, 2, 3}
+Y = {a, b, c}
+```
+
+oraz:
+
+```text
+f(1)=a, f(2)=b, f(3)=c
+```
+
+Ta funkcja jest:
+
+- różnowartościowa — bo obrazy są różne,
+- na — bo `a`, `b`, `c` są trafione,
+- więc jest bijekcją.
+
+## Podsumowanie
+
+- **różnowartościowa** = różne wejścia dają różne wyjścia,
+- **na** = każdy element przeciwdziedziny jest trafiony,
+- **wzajemnie jednoznaczna** = jednocześnie oba warunki.
+
+W kombinatoryce bijekcja jest bardzo cenna, bo pozwala zamienić trudne liczenie na prostsze.

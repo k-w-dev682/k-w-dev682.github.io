@@ -1,0 +1,36 @@
+---
+title: "Instrukcje C++ — przewodnik po rozdziale"
+description: "Skrypt: przypisania, warunki, pętle, skoki i 45 zadań. Wszystko w stylu StudyLab."
+---
+
+# Instrukcje C++ — rozdział po rozdziale
+
+Materiał opracowany na podstawie udostępnionego rozdziału **„Instrukcje języka C++”**. Wyjaśnienia i przykłady napisano na nowo, aby nadawały się do samodzielnej nauki. **Nie zawiera danych autora dokumentu, danych studentów ani metadanych źródłowego pliku.**
+
+## Ścieżka nauki
+
+1. [Przypisanie i zasięg zmiennych](../przypisanie-i-bloki/) — czym różni się `=` od `==`, jak działają `{}` i deklaracje.
+2. [Instrukcje `if` i `else`](../if-i-operator-warunkowy/) — co dokładnie wykona program i skąd biorą się błędy z klamrami.
+3. [Instrukcja `switch`](../switch/) — wybór jednej z wielu możliwości, `case`, `default`, `break`.
+4. [Pętla `for`](../petla-for/) — licznik, krok, warunek i przedział.
+5. [Pętle `while` i `do...while`](../while-do-while/) — walidacja danych, suma cyfr i menu programu.
+6. [Instrukcje `break`, `continue`, `goto`](../skoki/) — wyjście z pętli, pomijanie obiegu, etykiety.
+7. [Przykłady prowadzone](../przyklady/) — siedem problemów i rozwiązania z uzasadnieniem.
+8. [45 zadań do przećwiczenia](../zadania/) — uporządkowane według trudności z podpowiedziami i wykrytymi niejasnościami.
+
+:::tip[Jak się uczyć]
+Przed uruchomieniem każdego programu przeanalizuj wartości zmiennych na papierze. Przewidź, jaki tekst pojawi się na ekranie, a dopiero później sprawdź wynik w kompilatorze.
+:::
+
+## Co zostało skorygowane?
+
+- Komentarze z przykładowymi wynikami deklarowanych zmiennych nie zawsze zgadzały się z kodem — tutaj są poprawne.
+- W przykładzie reszty z dzielenia przez 5 pierwotne rozwiązanie nie obsługiwało poprawnie wszystkich liczb ujemnych. Używamy reszty znormalizowanej do zakresu `0..4`, gdy jest to wymagane.
+- Parzystość pokazujemy czytelnym testem `n % 2 == 0`, zamiast mieszać ją z operatorem bitowym `&`.
+- `break` jest **instrukcją**, a nie funkcją. `do...while` zawsze wykonuje ciało przynajmniej raz. Klamry przy pętli są dobrym zwyczajem — nie ma nakazu ich usuwania przy jednej instrukcji.
+- Liczba `27` nie jest pierwsza (dzieli się przez `3`).
+- W dwóch zadaniach z oryginału brakuje wystarczająco czytelnego zapisu wzorów; zaznaczyłem to bez zgadywania.
+
+## Powiązanie z dotychczasowymi lekcjami
+
+W StudyLab już znajdują się osobne działy [Operatory i `if`](../../operatory-warunki/), [Pętla `for`](../../petla-for/) i [Pętla `while`](../../petla-while/). Ten rozdział jest ich **uzupełnieniem**; niczego nie usuwa ani nie zastępuje.

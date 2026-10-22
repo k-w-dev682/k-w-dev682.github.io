@@ -1,0 +1,106 @@
+---
+title: "Przykłady prowadzone — 7 programów"
+description: "Od warunku modulo do pętli i menu: rozwiązania oraz analiza krok po kroku."
+---
+
+# Siedem przykładów prowadzonych
+
+Zadania odwołują się do problemów z przesłanego rozdziału, ale rozwiązania mają **poprawioną logikę i czytelniejszy kod**.
+
+## 1. Dwie gałęzie warunku
+
+**Polecenie:** wczytaj liczbę; jeśli jest większa od 10, podaj resztę z dzielenia przez 10, w przeciwnym razie podaj dziesięciokrotność liczby.
+
+```cpp
+int n;
+std::cin >> n;
+if (n > 10) std::cout << n % 10;
+else std::cout << n * 10;
+```
+
+Dla `n=10`: `100`. Dla `n=11`: `1`. Warunek **nie** brzmi `n >= 10`.
+
+## 2. Parzystość
+
+**Polecenie:** wypisz, czy liczba całkowita jest parzysta.
+
+```cpp
+int n;
+std::cin >> n;
+std::cout << (n % 2 == 0 ? "Parzysta" : "Nieparzysta");
+```
+
+`-8` również jest liczbą parzystą, bo `-8 % 2 == 0`.
+
+## 3. Reszta z dzielenia przez 5
+
+**Polecenie:** wyświetl informację o podzielności przez 5 albo wartość reszty; można to zrobić przez `if` lub `switch`.
+
+```cpp
+int n;
+std::cin >> n;
+int r = ((n % 5) + 5) % 5;
+if (r == 0) std::cout << "Podzielna";
+else std::cout << "Reszta: " << r;
+```
+
+Wersja z `switch` i wszystkie przypadki są w [osobnej lekcji](../switch/).
+
+## 4. Tablicowanie funkcji wykładniczej
+
+**Polecenie:** od `x = 1` do podanego końca zakresu obliczaj `exp(x)` krokiem `0.5`, a po przekroczeniu `10` zakończ wyświetlanie.
+
+```cpp
+for (double x = 1; x <= n; x += 0.5) {
+    if (x > 10) { std::cout << "Za duza wartosc\n"; break; }
+    std::cout << x << ' ' << std::exp(x) << '\n';
+}
+```
+
+Dla tego fragmentu zmienna `n` musi już być zadeklarowana i wczytana, a program powinien dołączyć `<cmath>` i `<iostream>`.
+
+## 5. Suma cyfr dodatniej liczby
+
+```cpp
+int suma = 0;
+while (n > 0) {
+    suma += n % 10;
+    n /= 10;
+}
+```
+
+Przy `n=235`: `5 + 3 + 2 = 10`. Ten fragment **modyfikuje n**; jeżeli potrzebujesz zachować liczbę wejściową, skopiuj ją do osobnej zmiennej.
+
+## 6. `do...while` do poprawnego wczytywania
+
+```cpp
+int n;
+do {
+    std::cout << "Liczba dodatnia: ";
+    if (!(std::cin >> n)) return 1;
+} while (n <= 0);
+```
+
+Ciało wykonuje się raz, a w przypadku `n <= 0` prośba wraca. Ten fragment musi znajdować się wewnątrz funkcji zwracającej `int`, np. `main`.
+
+## 7. Menu dodawanie / odejmowanie / koniec
+
+```cpp
+int opcja;
+do {
+    std::cout << "1. Dodaj, 2. Odejmij, 3. Koniec\n";
+    if (!(std::cin >> opcja)) return 1;
+    if (opcja == 1 || opcja == 2) {
+        double a, b;
+        std::cin >> a >> b;
+        if (opcja == 1) std::cout << a + b << '\n';
+        else std::cout << a - b << '\n';
+    }
+} while (opcja != 3);
+```
+
+Przykłady 1–7 są **fragmentami do przeanalizowania**, a nie siedmioma gotowymi osobnymi plikami `.cpp`: w praktyce otocz każdy fragment `int main() { ... }` i dołącz wymagane biblioteki. Pełne programy znajdziesz w odpowiednich lekcjach.
+
+## Zadanie sprawdzające
+
+Zmień menu tak, aby miało także opcję `4` — mnożenie. Spróbuj najpierw samodzielnie, potem porównaj z warunkiem `if (opcja == 1 || opcja == 2 || opcja == 4)` i nową gałęzią wypisującą `a * b`.

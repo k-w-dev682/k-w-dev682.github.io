@@ -1,0 +1,47 @@
+---
+title: "Ciśnienie i hydrostatyka"
+description: "p=F/S; p=p0+ρgh; jednostki, głębokość i przykłady."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Ciśnienie i hydrostatyka
+
+*Z zeszytu: zdjęcie 3. Jedno sformułowanie zostało skorygowane: ciśnienie rośnie **z głębokością**, nie z wysokością nad powierzchnią.*
+
+## Co to jest ciśnienie?
+
+<Eq tex={String.raw`p=\frac{F_\perp}{S}`} display />
+
+- `p` — ciśnienie [Pa],
+- `F⊥` — siła działająca prostopadle na powierzchnię [N],
+- `S` — pole powierzchni [m²].
+
+`1 Pa = 1 N/m²`. Jeśli te same `100 N` rozłożą się na mniejszej powierzchni, ciśnienie wzrośnie.
+
+## Ciśnienie pod powierzchnią cieczy
+
+W nieruchomej, nieściśliwej cieczy o stałej gęstości:
+
+<Eq tex={String.raw`p=p_0+\rho gh`} display />
+
+![Słup cieczy o wysokości h i nacisk na dno](/studylab-fizyka-plyny/hydrostatyka.svg)
+
+- `p₀` — ciśnienie przy powierzchni cieczy [Pa],
+- `ρ` — gęstość cieczy [kg/m³],
+- `g` — przyspieszenie ziemskie [m/s²],
+- `h` — **głębokość poniżej powierzchni**, mierzona w dół [m].
+
+**Skąd wzór?** Słup cieczy o polu podstawy `S` i wysokości `h` ma objętość `Sh`, masę `ρSh` i ciężar `ρShg`. Ciężar przypadający na `S` daje dodatkowe ciśnienie `ρgh`.
+
+:::caution[Ciśnienie absolutne a nadciśnienie]
+Wzór `ρgh` daje przyrost ciśnienia względem poziomu odniesienia. Nie należy go automatycznie nazywać ciśnieniem całkowitym: to `p=p₀+ρgh`.
+:::
+
+### Przykład
+
+Woda: `ρ=1000 kg/m³`, `g≈10 m/s²`; głębokość `h=3 m`.
+
+<Eq tex={String.raw`\Delta p=\rho gh=1000\cdot10\cdot3=30000\ \mathrm{Pa}`} display />
+
+Przy `p₀≈100 000 Pa` ciśnienie bezwzględne wynosi około `130 000 Pa`. Im głębiej, tym większe ciśnienie.

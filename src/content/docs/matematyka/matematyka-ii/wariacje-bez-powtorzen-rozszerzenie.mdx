@@ -1,0 +1,89 @@
+---
+title: "Wariacje bez powtórzeń — rozszerzenie"
+description: "Wariacje bez powtórzeń krok po kroku"
+sidebar:
+  order: 23
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+
+# Wariacje bez powtórzeń
+
+## Definicja
+
+`k`-wyrazową wariacją bez powtórzeń zbioru `n`-elementowego nazywamy uporządkowany ciąg długości `k`,
+złożony z elementów tego zbioru, w którym **żaden element nie może się powtórzyć**.
+
+Najważniejsze słowa:
+
+- **uporządkowany** — kolejność ma znaczenie,
+- **bez powtórzeń** — tego samego elementu nie bierzemy dwa razy.
+
+## Wzór
+
+Liczba wariacji bez powtórzeń wynosi:
+
+<Eq display tex={String.raw`V_n^k=n(n-1)(n-2)\cdots(n-k+1)=\frac{n!}{(n-k)!}`}/>
+
+## Skąd to się bierze?
+
+Jeżeli wybierasz kolejno `k` miejsc:
+
+- na pierwsze miejsce masz `n` możliwości,
+- na drugie miejsce `n-1`,
+- na trzecie `n-2`,
+- ...
+- na `k`-te miejsce `n-k+1`.
+
+Z reguły mnożenia dostajemy:
+
+<Eq display tex={String.raw`n(n-1)(n-2)\cdots(n-k+1)`}/>
+
+## Przykład
+
+Ile można utworzyć 4-cyfrowych liczb ze zbioru cyfr `{1,2,3,4,5,6}`, jeśli cyfry mają być różne?
+
+To jest dokładnie wariacja bez powtórzeń:
+
+- `n=6`,
+- `k=4`.
+
+Zatem:
+
+<Eq display tex={String.raw`V_6^4=\frac{6!}{(6-4)!}=\frac{6!}{2!}=6\cdot5\cdot4\cdot3=360`}/>
+
+Odpowiedź: takich liczb jest **360**.
+
+## Kiedy używać wariacji?
+
+Używaj wariacji, gdy:
+
+1. wybierasz **kilka elementów**,
+2. **kolejność ma znaczenie**,
+3. zwykle nie chcesz wykorzystać wszystkich elementów,
+4. często obowiązuje zakaz powtórzeń.
+
+### Przykłady
+
+- kody,
+- ustawienie osób na miejscach,
+- wybór 3 medali: złoto, srebro, brąz,
+- tworzenie numerów lub słów z ograniczeniami.
+
+## Wariacje a permutacje
+
+Permutacja to szczególny przypadek wariacji, gdy bierzesz **wszystkie** elementy, czyli `k=n`.
+
+Wtedy:
+
+<Eq display tex={String.raw`V_n^n=\frac{n!}{(n-n)!}=\frac{n!}{0!}=n!`}/>
+
+## Mini zadania
+
+1. Ile można ustawić 3 różne litery z alfabetu 26-literowego?
+2. Ile jest 2-cyfrowych liczb z cyfr 1,2,3,4 bez powtórzeń?
+
+## Odpowiedzi
+
+1. <Eq tex={String.raw`V_{26}^3=26\cdot25\cdot24=15600`}/>
+2. <Eq tex={String.raw`V_4^2=4\cdot3=12`}/>

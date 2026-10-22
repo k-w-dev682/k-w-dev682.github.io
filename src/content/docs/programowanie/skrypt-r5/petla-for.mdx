@@ -1,0 +1,79 @@
+---
+title: "Pętla for: licznik, krok i warunek"
+description: "Śledzenie pętli for i tablicowanie funkcji exp(x)."
+---
+
+# Pętla `for`
+
+`for` to wygodny sposób zapisania powtarzania, kiedy łatwo opisać początek, koniec i zmianę licznika.
+
+```cpp
+for (int i = 1; i <= 4; ++i) {
+    std::cout << i << ' ';
+}
+// Wynik: 1 2 3 4
+```
+
+| Część | Wykonuje się | Znaczenie |
+|---|---|---|
+| `int i = 1` | raz | początek liczenia |
+| `i <= 4` | przed każdym obiegiem | czy dalej wolno wykonywać ciało |
+| `++i` | po każdym obiegu | zmiana licznika |
+
+Najważniejsza pułapka: `i < 4` wykonuje ciało dla `1,2,3`, a `i <= 4` także dla `4`.
+
+## Tablicowanie funkcji — przykład z rozdziału
+
+Zadanie polega na wypisywaniu wartości funkcji `y = exp(x)` od `x = 1` ze skokiem `0.5`, a po przekroczeniu `10` na zakończeniu pętli z komunikatem.
+
+```cpp
+#include <cmath>
+#include <iostream>
+
+int main() {
+    double n;
+    std::cin >> n;
+
+    for (double x = 1.0; x <= n + 1e-9; x += 0.5) {
+        if (x > 10.0) {
+            std::cout << "Argument przekracza 10\n";
+            break;
+        }
+        std::cout << x << " -> " << std::exp(x) << '\n';
+    }
+}
+```
+
+`std::exp(x)` oznacza funkcję wykładniczą `e` do potęgi `x`; wymaga nagłówka `<cmath>`. `break` pozwala nie wypisywać tego samego ostrzeżenia wielokrotnie. Dodałem małą tolerancję przy porównaniu z `n`, ponieważ liczby zmiennoprzecinkowe nie zawsze są zapisywane dokładnie; **dla kroku `0.5` akurat liczby połówkowe są reprezentowalne dokładnie w systemie dwójkowym**, ale tolerancja staje się przydatna po zmianie kroku, np. na `0.1`.
+
+## Pętla z dwoma licznikami
+
+```cpp
+for (int lewy = 0, prawy = 10; lewy < prawy; ++lewy, --prawy) {
+    std::cout << lewy << ':' << prawy << '\n';
+}
+```
+
+Przecinek w nagłówku `for` pozwala tutaj wykonywać **dwie osobne zmiany**. Przejdź pierwsze trzy obiegi: `0:10`, `1:9`, `2:8`.
+
+## Najczęstsze błędy
+
+- Brak zmiany licznika może spowodować pętlę nieskończoną.
+- `i <= n` zamiast `i < n` zmienia liczbę powtórzeń.
+- Jeśli chcesz używać licznika poza pętlą, zadeklaruj go **przed** pętlą.
+- Przy dużych danych pamiętaj o zakresie typu i przepełnieniu.
+
+<details>
+<summary>Ćwiczenie z rozwiązaniem: suma liczb od 1 do 5</summary>
+
+```cpp
+int suma = 0;
+for (int i = 1; i <= 5; ++i) {
+    suma += i;
+}
+std::cout << suma; // 15
+```
+
+Stan `suma`: `0 → 1 → 3 → 6 → 10 → 15`. Nie jest to suma indeksów od zera, ponieważ inicjalizacja zaczyna się od `1`.
+
+</details>

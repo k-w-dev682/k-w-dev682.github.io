@@ -1,0 +1,162 @@
+---
+title: "Indukcja — nowe przykłady dowodów"
+description: "Kolejna partia zadań z indukcji matematycznej"
+sidebar:
+  order: 27
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+
+# Indukcja — nowe przykłady dowodów
+
+Ta lekcja zbiera kolejne zadania z notatek, w których trzeba użyć **indukcji matematycznej**.
+Nie chodzi tylko o wynik — ważne jest zachowanie schematu:
+
+1. **krok bazowy**,
+2. **założenie indukcyjne**,
+3. **krok indukcyjny**.
+
+## Schemat, który zawsze powtarzasz
+
+Jeżeli chcesz udowodnić zdanie `P(n)` dla każdego `n \in \mathbb{N}`:
+
+### 1. Baza
+
+Sprawdzasz, czy zdanie jest prawdziwe dla pierwszej dopuszczalnej wartości, np. `n=1`.
+
+### 2. Założenie
+
+Przyjmujesz, że dla pewnego `n` zdanie jest prawdziwe.
+
+### 3. Krok
+
+Na podstawie tego pokazujesz, że prawdziwe jest także `P(n+1)`.
+
+## Zadanie 1
+
+Pokaż, że:
+
+<Eq display tex={String.raw`n!\ge 2^{n-1} \quad \text{dla } n\in\mathbb{N}`}/>
+
+### Baza
+
+Dla `n=1`:
+
+<Eq display tex={String.raw`1!=1 \quad \text{i} \quad 2^{0}=1`}/>
+
+Czyli nierówność jest prawdziwa.
+
+### Założenie indukcyjne
+
+Zakładamy, że dla pewnego `n`:
+
+<Eq display tex={String.raw`n!\ge 2^{n-1}`}/>
+
+### Krok indukcyjny
+
+Musimy wykazać, że:
+
+<Eq display tex={String.raw`(n+1)!\ge 2^n`}/>
+
+Liczymy:
+
+<Eq display tex={String.raw`(n+1)!=(n+1)\,n!`}/>
+
+Korzystamy z założenia indukcyjnego:
+
+<Eq display tex={String.raw`(n+1)!\ge (n+1)2^{n-1}`}/>
+
+Dla `n\ge1` mamy `n+1\ge2`, więc:
+
+<Eq display tex={String.raw`(n+1)2^{n-1}\ge 2\cdot2^{n-1}=2^n`}/>
+
+Czyli teza jest udowodniona.
+
+## Zadanie 2
+
+Pokaż, że:
+
+<Eq display tex={String.raw`3\mid (10^n+4^n-2)`}/>
+
+### Idea
+
+Chcemy wykazać podzielność przez 3, czyli pokazać, że wyrażenie daje się zapisać w postaci `3k`.
+
+### Baza
+
+Dla `n=1`:
+
+<Eq display tex={String.raw`10+4-2=12`}/>
+
+A `12` jest podzielne przez 3.
+
+### Założenie indukcyjne
+
+Zakładamy, że dla pewnego `n`:
+
+<Eq display tex={String.raw`10^n+4^n-2=3k`}/>
+
+### Krok
+
+Rozważamy:
+
+<Eq display tex={String.raw`10^{n+1}+4^{n+1}-2=10\cdot10^n+4\cdot4^n-2`}/>
+
+Dodajemy i odejmujemy wygodnie składniki tak, aby wykorzystać założenie.
+W praktyce najważniejsze jest to, że po przekształceniu dostajesz sumę:
+
+- wielokrotności 3,
+- oraz wyrażenia z założenia indukcyjnego.
+
+Wniosek: także `10^{n+1}+4^{n+1}-2` jest podzielne przez 3.
+
+## Zadanie 3
+
+Pokaż, że:
+
+<Eq display tex={String.raw`8\mid \left(5^n+2\cdot3^{n-1}+1\right)`}/>
+
+### Baza
+
+Dla `n=1`:
+
+<Eq display tex={String.raw`5^1+2\cdot3^0+1=5+2+1=8`}/>
+
+Czyli baza jest prawdziwa.
+
+### Dalszy pomysł
+
+W kroku indukcyjnym rozpisujesz:
+
+<Eq display tex={String.raw`5^{n+1}+2\cdot3^n+1`}/>
+
+następnie wyłączasz i grupujesz wyrażenia tak, by pojawiła się część objęta założeniem indukcyjnym.
+Po uporządkowaniu znowu dostajesz wielokrotność 8.
+
+## Zadanie 4
+
+Pokaż, że:
+
+<Eq display tex={String.raw`30\mid (n^5-n)`}/>
+
+To klasyczne zadanie. Można je robić indukcyjnie, ale warto też wiedzieć, że:
+
+<Eq display tex={String.raw`n^5-n=n(n^4-1)=n(n^2-1)(n^2+1)=n(n-1)(n+1)(n^2+1)`}/>
+
+Występują tu trzy kolejne liczby całkowite `n-1`, `n`, `n+1`, więc iloczyn jest podzielny przez 2 i 3,
+a dodatkowo można sprawdzić podzielność przez 5.
+
+## Co zapamiętać?
+
+W zadaniach z indukcji najczęstsza trudność polega na tym, że student:
+
+- umie napisać bazę,
+- umie napisać założenie,
+- ale nie wie, jak rozpocząć krok `n+1`.
+
+Najlepsza rada:
+
+1. zacznij od lewej strony tezy dla `n+1`,
+2. rozpisz ją dokładnie,
+3. spróbuj wydzielić fragment odpowiadający założeniu indukcyjnemu,
+4. resztę oszacuj lub pokaż jej podzielność.

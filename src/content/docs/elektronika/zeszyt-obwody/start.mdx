@@ -1,0 +1,54 @@
+---
+title: "Zeszyt — obwody i elementy"
+description: "Prąd, opór, energia, cewka i kondensator — rekonstrukcja 10 zdjęć."
+sidebar:
+  order: 1
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Zeszyt — elementy i obwody elektryczne
+
+**Materiały dydaktyczne z Podstaw elektroniki.** Ten dział uzupełnia dotychczasowy kurs; nie zmienia istniejących lekcji, książek ani prywatnych notatek. Obejmuje **10 zdjęć notatek** i dodatkowe objaśnienia na podstawie załączonego podręcznika *Elementy i układy elektroniczne w pytaniach i odpowiedziach*.
+
+:::note[Co oznaczają trzy kropki?]
+W notatkach `...` oznacza **niedokończony fragment**, a nie koniec tematu. Uzupełniono podstawową teorię w oparciu o podręcznik i standardowe zależności elektrotechniczne. Ponieważ książka **nie jest transkrypcją wykładu**, uzupełnienie może nie odpowiadać dosłownemu dalszemu ciągowi wypowiedzi prowadzącego. Pytania do sprawdzenia są w [Rejestrze niepewności](../niepewnosci/).
+:::
+
+## Kolejność nauki
+
+1. [Prąd i gęstość prądu](../prad-i-ladunek/) — co przepływa i jak mierzymy natężenie.
+2. [Opór, rezystywność i przewodność](../opor-i-materialy/) — skąd bierze się rezystancja.
+3. [Prawo Ohma i połączenia rezystorów](../prawo-ohma-rezystory/) — rozwiązywanie prostych obwodów.
+4. [Praca, energia i moc](../energia-i-moc/) — dżule, waty i kWh.
+5. [Podział elementów elektrycznych](../podzial-elementow/) — pasywne/aktywne, idealne/rzeczywiste.
+6. [Cewka i indukcyjność](../cewka-indukcyjnosc/) — strumień i indukcyjność własna.
+7. [Prawo Faradaya i samoindukcja](../faraday-samoindukcja/) — dlaczego zmiana prądu wywołuje napięcie.
+8. [Energia i łączenie cewek](../energia-polaczenia-cewek/) — energia pola i połączenia bez sprzężenia.
+9. [Kondensator, RLC i okres](../kondensator-rlc/) — uzupełnione niedokończone hasła.
+10. [Przykłady rozwiązane](../przyklady/) — pełne podstawienia i jednostki.
+11. [Ćwiczenia i odpowiedzi](../zadania/) — stopniowanie trudności.
+12. [Rejestr niepewności](../niepewnosci/) — co zrekonstruowano, a co wymaga potwierdzenia.
+
+## Jak rozumieć źródła?
+
+- **Zeszyt** — temat i kolejność pojęć, także skróty i niedokończone hasła (zdjęcia 1–10).
+- **Podręcznik** — uzupełnienie pojęć dotyczących obwodów, elementów biernych, rezystorów, kondensatorów i cewek; przede wszystkim części o teorii obwodów i elementach biernych.
+- **Wyjaśnienie StudyLab** — niezależne, proste przykłady, dodatkowe zastrzeżenia, zadania i odtworzone schematy. **Nie są dosłownymi cytatami z książki.**
+
+## Najważniejsze pary, których nie należy mylić
+
+| Wielkość | Symbol | Jednostka | O co pytamy? |
+|---|---|---|---|
+| Ładunek | `q`, `Q` | C | Ile ładunku? |
+| Natężenie prądu | `I`, `i(t)` | A | Jak szybko przepływa ładunek? |
+| Napięcie | `U`, `u(t)` | V | Jaka jest różnica potencjałów? |
+| Rezystancja | `R` | Ω | Jak silny jest opór elementu? |
+| Moc | `P`, `p(t)` | W | Jak szybko przekazywana jest energia? |
+| Energia | `W`, `E` | J | Ile energii przekazano lub zgromadzono? |
+| Indukcyjność | `L` | H | Jak bardzo cewka wiąże zmiany prądu ze strumieniem? |
+| Pojemność | `C` | F | Jak dużo ładunku gromadzi się przy danym napięciu? |
+
+:::tip[Jak liczyć?]
+Zawsze wypisz **dane → szukane → wzór → podstawienie w jednostkach SI → wynik z jednostką → krótki test sensowności**.
+:::

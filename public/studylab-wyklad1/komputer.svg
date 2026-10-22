@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-label="Uproszczony schemat elementów komputera"><rect width="1000" height="360" rx="26" fill="#071311"/><style>.h{font:700 26px system-ui, sans-serif;fill:#eafcf7}.t{font:18px system-ui,sans-serif;fill:#b4e9da}.s{font:16px system-ui,sans-serif;fill:#8ec9b8}.line{stroke:#61e7c4;stroke-width:4;fill:none}.b{fill:#123128;stroke:#4fcfae;stroke-width:2.5}.d{fill:#123128;stroke:#4fcfae;stroke-width:2.5}</style>
+<rect class="b" x="355" y="90" width="290" height="150" rx="18"/><text class="h" x="500" y="151" text-anchor="middle">Procesor (CPU)</text><text class="t" x="500" y="193" text-anchor="middle">wykonuje instrukcje</text>
+<rect class="b" x="40" y="105" width="225" height="120" rx="18"/><text class="h" x="153" y="151" text-anchor="middle">Wejście</text><text class="t" x="153" y="191" text-anchor="middle">klawiatura, dane</text>
+<rect class="b" x="735" y="105" width="225" height="120" rx="18"/><text class="h" x="847" y="151" text-anchor="middle">Wyjście</text><text class="t" x="847" y="191" text-anchor="middle">ekran, wyniki</text>
+<path class="line" d="M270 165 H345"/><path d="M335 155 L352 165 L335 175" stroke="#61e7c4" stroke-width="4" fill="none"/>
+<path class="line" d="M650 165 H726"/><path d="M716 155 L733 165 L716 175" stroke="#61e7c4" stroke-width="4" fill="none"/>
+<rect class="b" x="398" y="270" width="204" height="60" rx="15"/><text class="t" x="500" y="308" text-anchor="middle">Pamięć RAM</text>
+<path class="line" d="M485 248 V263 M515 263 V248"/><path d="M475 259 L485 245 L495 259 M505 253 L515 267 L525 253" stroke="#61e7c4" stroke-width="3" fill="none"/></svg>

@@ -1,0 +1,48 @@
+---
+title: "Lepkość dynamiczna i kinematyczna"
+description: "Prawo lepkości Newtona, jednostki Pa·s oraz m²/s."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Lepkość — dlaczego płyn stawia opór?
+
+*Z zeszytu: zdjęcie 5.*
+
+Lepkość opisuje **tarcie wewnętrzne** między sąsiednimi warstwami płynu poruszającymi się z różnymi prędkościami. Nie jest tym samym co tarcie ciała o ścianę naczynia.
+
+## Prawo lepkości Newtona
+
+Dla płynu newtonowskiego, prostego ścinania i liniowej zależności między naprężeniem a gradientem prędkości:
+
+<Eq tex={String.raw`\tau=\mu\frac{dv}{dy}`} display />
+
+Wartość siły stycznej na powierzchni `S`:
+
+<Eq tex={String.raw`|F|=\mu S\left|\frac{dv}{dy}\right|`} display />
+
+- `μ` — lepkość dynamiczna [Pa·s],
+- `τ` — naprężenie styczne [Pa],
+- `v` — prędkość warstwy płynu [m/s],
+- `y` — kierunek prostopadły do warstw [m],
+- `S` — powierzchnia kontaktu [m²].
+
+**Po co pochodna?** `dv/dy` mówi, jak szybko zmienia się prędkość między warstwami w niewielkiej odległości. Im większa różnica prędkości na tę samą odległość, tym większa siła ścinająca.
+
+## Lepkość kinematyczna
+
+<Eq tex={String.raw`\nu=\frac{\mu}{\rho}`} display />
+
+- `ν` (nu) — lepkość kinematyczna [m²/s],
+- `μ` — lepkość dynamiczna [Pa·s],
+- `ρ` — gęstość [kg/m³].
+
+Własność **newtonowska** oznacza, że naprężenie ścinające jest proporcjonalne do szybkości ścinania (przy określonej temperaturze i ciśnieniu). Samo zdanie „lepkość nie zależy od prędkości” jest zbyt nieprecyzyjne.
+
+### Przykład
+
+Jeśli `μ=0,001 Pa·s`, `ρ=1000 kg/m³`, to `ν=0,001/1000=10⁻⁶ m²/s`.
+
+:::tip[Jak zapamiętać?]
+Grecka litera **μ** (mi) to lepkość dynamiczna, a **ν** (nu) to kinematyczna. `ν=μ/ρ`.
+:::

@@ -1,0 +1,40 @@
+.sl-pbookcourse{color:#e7f5ed;max-width:100%;overflow-wrap:anywhere;margin-top:14px}
+.sl-pbookcourse *{box-sizing:border-box}
+.sl-pbookcourse-cover{padding:22px;background:linear-gradient(120deg,#102d24,#09140f);border:1px solid #39745d;border-radius:14px;margin-bottom:12px}
+.sl-pbookcourse-kicker{font-size:.67rem;letter-spacing:.14em;font-weight:800;color:#70e5b7}
+.sl-pbookcourse-cover h2{font-size:clamp(1.2rem,2.5vw,1.8rem);color:#fff;margin:10px 0}
+.sl-pbookcourse-cover p{font-size:.86rem;color:#b6cfc0;margin:0}
+.sl-pbookcourse-warning{border-left:3px solid #5ca98e;background:#152920;color:#bbdccb;border-radius:8px;padding:12px;font-size:.82rem;line-height:1.5}
+.sl-pbookcourse-grid{display:grid;grid-template-columns:minmax(185px,250px) minmax(0,1fr);gap:15px;align-items:start;margin-top:16px}
+.sl-pbookcourse-toc{background:#0c1912;border:1px solid #2e5341;border-radius:12px;padding:12px;max-height:75vh;overflow:auto}
+.sl-pbookcourse-toc h3{font-size:.96rem;margin:4px 2px 12px;color:#e6ffef}
+.sl-pbookcourse-toc details{border-bottom:1px solid #2b4637;padding:8px 0}
+.sl-pbookcourse-toc summary{font-size:.84rem;color:#aef2ce;cursor:pointer;line-height:1.4;font-weight:750}
+.sl-pbookcourse-toc ul{list-style:none;margin:0;padding:3px 0 3px 6px;display:flex;flex-direction:column;gap:4px;max-height:none}
+.sl-pbookcourse-toc li{padding:0;margin:0;background:none;border:none}
+.sl-pbookcourse-lessonrow{display:flex;align-items:start;gap:4px}
+.sl-pbookcourse-lessonrow>button:first-child{flex:1;min-width:0;text-align:left;border:1px solid transparent;background:transparent;color:#d3e6d9;padding:7px;font-size:.83rem;border-radius:7px}
+.sl-pbookcourse-lessonrow>button:first-child:hover,.sl-pbookcourse-lessonrow>button.sl-pbookcourse-active{background:#164633;color:#a3ffd2;border-color:#377c58}
+.sl-pbookcourse-lessonrow small{display:block;color:#9bb4a7;margin-top:4px;font-size:.71rem}
+.sl-pbookcourse-rename{flex-shrink:0;padding:5px!important;font-size:.78rem!important}
+.sl-pbookcourse-chapter-tools{margin:7px 0 3px}.sl-pbookcourse-chapter-tools button{padding:5px 8px;font-size:.72rem;color:#a6cfb9}
+.sl-pbookcourse-reading{background:#060d09;border:1px solid #2c5340;border-radius:14px;min-width:0;padding:clamp(13px,2.5vw,26px);font-size:calc(1rem * var(--book-zoom));line-height:1.75}
+.sl-pbookcourse-crumb{font-size:.76em;color:#8edcbb}
+.sl-pbookcourse-reading>h3{font-size:1.42em;color:#e9fff4;margin:8px 0 12px;line-height:1.35}
+.sl-pbookcourse-toolbar,.sl-pbookcourse-bottom,.sl-pbookcourse-source{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:9px}
+.sl-pbookcourse-toolbar{padding-bottom:14px;border-bottom:1px solid #355543;color:#b8d3c3;font-size:.8em}
+.sl-pbookcourse-scale{display:flex;align-items:center;gap:8px}
+.sl-pbookcourse-filter{display:block;font-size:.81em;color:#b8dfcb;margin:15px 0}
+.sl-pbookcourse-filter input{display:block;width:100%;margin-top:5px;background:#0d1b12;color:white;border:1px solid #34553f;border-radius:7px;padding:10px;font:inherit}
+.sl-pbookcourse-article h4{color:#83eac1;font-size:1.16em;margin:1.4em 0 .5em}
+.sl-pbookcourse-article p{white-space:pre-wrap;margin:.7em 0 1em}
+.sl-pbookcourse-page{border-bottom:1px solid #1d3427;padding:10px 0 17px}
+.sl-pbookcourse-source{font-size:.77em;color:#9abdac;margin:4px 0 12px}
+.sl-pbookcourse-source button{font-size:.95em;padding:5px 9px}
+.sl-pbookcourse-list{border-left:2px solid #4cae87;padding-left:12px}
+.sl-pbookcourse-formula{overflow-wrap:anywhere;white-space:pre-wrap;background:#153125;border-left:3px solid #68d5a6;border-radius:7px;padding:10px 12px;font-family:ui-monospace,monospace;font-size:.91em}
+.sl-pbookcourse-katex{overflow-x:auto;font-family:inherit;font-size:1.1em}
+.sl-pbookcourse-missing{color:#e8bd88}
+.sl-pbookcourse-bottom{padding-top:16px}
+.sl-pbookcourse :is(button,input,summary):focus-visible{outline:3px solid #6ee7b7;outline-offset:2px}
+@media(max-width:760px){.sl-pbookcourse-grid{grid-template-columns:1fr}.sl-pbookcourse-toc{max-height:50vh}.sl-pbookcourse-cover{padding:15px}.sl-pbookcourse-reading{padding:14px}}

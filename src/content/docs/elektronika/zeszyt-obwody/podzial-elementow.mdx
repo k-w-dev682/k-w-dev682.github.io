@@ -1,0 +1,38 @@
+---
+title: "Podział elementów elektrycznych"
+description: "Idealne/rzeczywiste, bierne/aktywne, liniowe/nieliniowe."
+sidebar:
+  order: 6
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Jak dzielimy elementy obwodów?
+
+*Główne źródło zeszytowe: zdjęcia 9–10; część klasyfikacji została uzupełniona z teorii obwodów.*
+
+![Mapa rodzajów elementów w obwodzie](/studylab-elektronika-obwody/klasyfikacja.svg)
+
+| Podział | Co oznacza? | Przykład |
+|---|---|---|
+| **Bierny / aktywny** | Element bierny nie jest źródłem zasilania zdolnym do dostarczenia energii netto; aktywny model może ją dostarczać lub sterować przepływem energii | Rezystor; źródło napięciowe |
+| **Idealny / rzeczywisty** | Idealny pomija straty i efekty uboczne, rzeczywisty je uwzględnia | Idealna cewka `L`; cewka z rezystancją uzwojenia |
+| **Liniowy / nieliniowy** | Dla liniowego modelu spełniona jest zasada superpozycji; dla nieliniowego nie | Stały rezystor; dioda |
+| **Skupiony / rozłożony** | Parametry przypisujemy elementowi albo rozkładamy w przestrzeni | Rezystor idealny; długa linia transmisyjna |
+| **Dwójnik / wielobiegunnik** | Liczba zacisków | Rezystor ma dwa zaciski; tranzystor trzy |
+
+## Trzy podstawowe elementy bierne
+
+- **R — rezystor:** w idealnym modelu rozprasza energię i nie gromadzi jej trwale.
+- **C — kondensator:** gromadzi energię **w polu elektrycznym**.
+- **L — cewka:** gromadzi energię **w polu magnetycznym**.
+
+W każdym z tych elementów **model rzeczywisty** może uwzględniać dodatkowe opory, pojemności pasożytnicze i straty.
+
+:::note[Co to jest źródło napięciowe i prądowe?]
+Idealne źródło napięciowe utrzymuje zadane napięcie niezależnie od prądu, a idealne źródło prądowe — zadany prąd niezależnie od napięcia. To abstrakcyjne modele, więc nie opisują bez ograniczeń rzeczywistych baterii i zasilaczy.
+:::
+
+## Ważne doprecyzowanie
+
+W elektronice określenie **„aktywny”** bywa też używane względem tranzystorów i układów ze wzmocnieniem. Nie należy wyciągać wniosku, że każdy element aktywny sam z siebie wytwarza energię.

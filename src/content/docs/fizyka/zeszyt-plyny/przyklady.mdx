@@ -1,0 +1,64 @@
+---
+title: "Przykłady obliczeniowe krok po kroku"
+description: "Sześć przykładów z jednostkami, pełnymi podstawieniami i kontrolą sensu."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Rozwiązane przykłady — pełne kroki
+
+Zamiast uczyć się samych wzorów, za każdym razem odpowiedz na cztery pytania: **Co jest dane? Co mam znaleźć? Który wzór ma tu sens? Czy wynik ma właściwą jednostkę?**
+
+## 1. Ciśnienie na dnie zbiornika
+
+**Dane:** `ρ=1000 kg/m³`, `g=9,81 m/s²`, `h=2 m`, `p₀=101 325 Pa`.
+
+**Szukane:** ciśnienie całkowite `p`.
+
+<Eq tex={String.raw`p=p_0+\rho gh`} display />
+
+Podstawiamy: `p=101325+1000·9,81·2=120945 Pa`.
+
+**Odpowiedź:** `120,945 kPa` (ciśnienie bezwzględne), przyrost wynosi `19,62 kPa`.
+
+## 2. Siła wyporu dla zanurzonego klocka
+
+**Dane:** `ρ=1000 kg/m³`, `V=0,003 m³`, `g=10 m/s²`.
+
+`F_w=ρgV=1000·10·0,003=30 N`.
+
+**Odpowiedź:** siła wyporu to `30 N` skierowane w górę. Nie trzeba znać masy klocka do obliczenia wyporu — wystarczy wypartej cieczy.
+
+## 3. Prasa hydrauliczna
+
+`S₁=2 cm²`, `S₂=40 cm²`, `F₁=50 N`.
+
+Z prawa Pascala: `F₁/S₁=F₂/S₂`; zatem `F₂=F₁·S₂/S₁=50·(40/2)=1000 N`.
+
+Odpowiedź: idealna siła wyjściowa `1000 N`, kosztem dwudziestokrotnie mniejszego przesunięcia dużego tłoka.
+
+## 4. Woda w zwężającej się rurze
+
+`S₁=6 cm²`, `S₂=2 cm²`, `v₁=1 m/s`, założenia: ustalony przepływ nieściśliwy.
+
+`v₂=S₁·v₁/S₂=6·1/2=3 m/s`.
+
+Odpowiedź: `3 m/s`. **Uwaga:** nie należy porównywać w liczniku powierzchni przekroju z średnicą — jednostki muszą być jednakowe.
+
+## 5. Liczba Reynoldsa
+
+`v=0,2 m/s`, `D=0,02 m`, `ν=1·10⁻⁶ m²/s`.
+
+`Re=vD/ν = (0,2·0,02)/(10⁻⁶)=4000`.
+
+To okolice przejścia do turbulencji w typowej rurze, a nie pewny dowód turbulencji w dowolnej geometrii.
+
+## 6. Prędkość graniczna w powietrzu
+
+**Dane:** `m=0,08 kg`, `g=10 m/s²`, `ρ=1 kg/m³`, `C_D=1`, `S=0,016 m²`.
+
+<Eq tex={String.raw`v_t=\sqrt{\frac{2mg}{\rho C_DS}}`} display />
+
+Licznik: `2·0,08·10=1,6`. Mianownik: `1·1·0,016=0,016`. Iloraz: `100`. Pierwiastek: **`v_t=10 m/s`**.
+
+Wynik zależy od założenia stałego `C_D` i pominięcia wyporu ośrodka.

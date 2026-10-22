@@ -1,0 +1,46 @@
+---
+title: "Energia cewki i połączenia"
+description: "W = 1/2 L I²; łączenie cewek bez sprzężenia magnetycznego."
+sidebar:
+  order: 9
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Energia cewki i cewki zastępcze
+
+*Główne źródło zeszytowe: zdjęcie 7.*
+
+## W jakiej postaci cewka przechowuje energię?
+
+Idealna cewka gromadzi energię w **polu magnetycznym**:
+
+<Eq tex={String.raw`W_L=\frac12 LI^2`} display />
+
+- `Wₗ` — energia [J],
+- `L` — indukcyjność [H],
+- `I` — prąd [A].
+
+**Dlaczego kwadrat prądu?** Moc chwilowa cewki wynosi `p = ui = L i (di/dt)`. Całkując od prądu zero do `I` otrzymujemy połowę iloczynu `L I²`.
+
+Przy `L = 0,2 H` i `I = 3 A`: <Eq tex={String.raw`W_L=\frac12\cdot0{,}2\cdot3^2=0{,}9\,\mathrm J`} />.
+
+## Łączenie cewek bez sprzężenia magnetycznego
+
+**Szeregowo** — ten sam prąd w każdej cewce:
+
+<Eq tex={String.raw`L_z=L_1+L_2+\ldots+L_n`} display />
+
+**Równolegle** — takie samo napięcie gałęzi:
+
+<Eq tex={String.raw`\frac1{L_z}=\frac1{L_1}+\frac1{L_2}+\ldots+\frac1{L_n}`} display />
+
+Dwie cewki `2 H` i `3 H`: szeregowo **5 H**, równolegle **1,2 H**.
+
+:::caution[Bardzo ważne: sprzężenie]
+Powyższe wzory zakładają **brak sprzężenia magnetycznego** między cewkami. Jeśli zwoje jednej cewki obejmują strumień drugiej, potrzebujemy także indukcyjności wzajemnej `M` i orientacji uzwojeń. Dla dwóch cewek połączonych szeregowo może wtedy wystąpić `L_z = L₁ + L₂ ± 2M`.
+:::
+
+## Cewka idealna a rzeczywista
+
+Cewka rzeczywista ma opór uzwojenia, pojemność pasożytniczą, czasem straty rdzenia i nasycenie. Idealny wzór energii jest użyteczny, ale nie opisuje wszystkich strat i ograniczeń.

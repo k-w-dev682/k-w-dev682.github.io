@@ -1,0 +1,121 @@
+---
+title: "Zadania — wykład 1"
+description: "Zadania od wprowadzenia do projektowania, testowania i tworzenia schematów."
+sidebar:
+  order: 11
+---
+
+# Zadania do wykładu 1
+
+Poniższe zadania **nie wymagają dodatkowych plików**. Najpierw spróbuj odpowiedzieć samodzielnie, a rozwiązania rozwiń dopiero po próbie.
+
+## Poziom 1 — zrozumienie pojęć
+
+**1. Dane i informacja.** Podaj dwa różne znaczenia liczby `100`. Wyjaśnij, jakie informacje są potrzebne, aby poprawnie ją zinterpretować.
+
+**2. Algorytm czy program?** Przyporządkuj: (A) „porównaj dwie liczby”, (B) `if (a > b) ...`, (C) plik wykonywalny. Które z nich opisuje pomysł, a które konkretną implementację?
+
+**3. Akcja i stan.** Licznik pokazuje 12 i rośnie o 1. Wskaż obiekt, stan początkowy, akcję i stan końcowy.
+
+**4. Proces.** Rozpisz przygotowanie napoju na co najmniej cztery akcje. Które muszą nastąpić w określonej kolejności?
+
+**5. Abstrakcja.** Wymyśl model programu do obliczania ceny 3 sztuk produktu. Jakie informacje pomijasz, bo nie mają wpływu na rachunek?
+
+<details>
+<summary>Wskazówki do zadań 1–5</summary>
+
+1. Może być ceną, liczbą osób, prędkością; trzeba podać kontekst/jednostkę.
+2. A to ogólny pomysł (fragment algorytmu), B to kod, C to wynik budowania programu.
+3. Obiekt: licznik; stan: 12; akcja: inkrementacja; stan: 13.
+4. Np. nalej wodę → podgrzej → umieść składniki → wymieszaj. Zależności wynikają z procesu.
+5. Wystarczą cena jednostkowa i liczba sztuk, nie trzeba znać koloru opakowania.
+
+</details>
+
+## Poziom 2 — dane, algorytmy i testy
+
+**6. Pole prostokąta.** Określ wejście, wyjście i przypadki niepoprawne. Napisz pseudokod obliczania pola.
+
+**7. Czy liczba jest dodatnia?** Napisz algorytm dla liczby całkowitej, który wyświetla „dodatnia”, „ujemna” albo „zero”.
+
+**8. Maksimum trzech liczb.** Zaprojektuj algorytm bez sortowania. Uwzględnij liczby równe.
+
+**9. NWD.** Wykonaj ręcznie kolejne iteracje algorytmu Euklidesa dla 36 i 24.
+
+**10. Warunek zakończenia.** Opisz, dlaczego pętla `while (n > 0) { n = n - 1; }` kończy się dla `n >= 0`. Co stanie się dla `n < 0`?
+
+**11. Weryfikacja danych.** Program sumuje liczby od 1 do `n`. Wymień po dwa testy typowe, brzegowe i niepoprawne.
+
+**12. Przypadek szczególny.** Zaprojektuj algorytm rozwiązania `a*x + b = 0`, także gdy `a == 0`.
+
+<details>
+<summary>Podpowiedzi do zadań 6–12</summary>
+
+6. Wejście: dodatnie boki `a,b`; wyjście `a*b`; odrzuć boki niedodatnie.
+7. `if (n > 0)... else if (n < 0)... else...`.
+8. Ustaw `max = a`, potem porównaj z `b` i `c`.
+9. `36 % 24 = 12`, `24 % 12 = 0`, więc NWD = 12.
+10. Dla `n >= 0` kolejne wartości maleją do 0. Dla `n < 0` ciało nie wykona się ani razu.
+11. Przykładowe: `4, 10`; `0, 10000`; `-1, 10001`.
+12. Dla `a == 0` i `b == 0` jest nieskończenie wiele rozwiązań; gdy `a==0` i `b!=0` — brak; w innym przypadku `x=-b/a`.
+
+</details>
+
+## Poziom 3 — schematy i język C++
+
+**13. Schemat blokowy parzystości.** Narysuj START, wejście `n`, romb `n % 2 == 0`, dwa komunikaty i STOP.
+
+**14. Zamiana wartości.** Napisz pseudokod zamiany wartości `a` i `b` z wykorzystaniem zmiennej pomocniczej.
+
+**15. Kompilacja.** Wskaż, za co odpowiada kod źródłowy, kompilator i linker w programie korzystającym z `std::cout`.
+
+**16. Błąd logiczny.** Program ma obliczać `a+b`, ale wykonuje `a-b`. Dlaczego błąd może nie zostać wykryty podczas kompilacji?
+
+**17. Program.** Napisz w C++ program wczytujący dwie liczby i wypisujący mniejszą. Co pokaże przy równych wartościach?
+
+**18. Kodowanie.** Wyjaśnij, dlaczego liczba bajtów UTF-8 może różnić się od liczby znaków tekstu.
+
+**19. Klasyfikacja języków.** Porównaj poziom abstrakcji języka maszynowego, asemblera i C++.
+
+**20. Schemat z pętlą.** Narysuj schemat obliczania sumy od 1 do `n` z użyciem licznika. Pokaż warunek zatrzymania.
+
+<details>
+<summary>Wskazówki do zadań 13–20</summary>
+
+13. Potrzebne są dwie opisane strzałki z rombu.
+14. `tmp = a; a = b; b = tmp;`.
+15. Plik `.cpp` opisuje kod, kompilator generuje kod obiektowy, a linker łączy potrzebne elementy.
+16. Odejmowanie jest składniowo poprawne, ale nie realizuje celu zadania.
+17. Możesz użyć `if (a <= b) ... else ...`. Dla równości obie wartości są równie małe.
+18. Punkty kodowe Unicode wymagają w UTF-8 różnej liczby bajtów.
+19. C++ udostępnia pętle, funkcje i typy danych bez obowiązku pisania kodów instrukcji procesora.
+20. Inicjalizacja `suma=0, i=1`; decyzja `i<=n`; TAK: dodaj i zwiększ i, NIE: wypisz wynik i stop.
+
+</details>
+
+## Poziom 4 — trudniejsze zadania
+
+**21. Mnożenie przez dodawanie.** Bez użycia operatora `*` zaprojektuj mnożenie dwóch liczb całkowitych z uwzględnieniem znaków. Zastanów się nad wartościami skrajnymi typu całkowitego.
+
+**22. Porównanie dwóch algorytmów.** Jak porównasz obliczanie sumy od 1 do `n` przez pętlę oraz wzór `n(n+1)/2`? Czy dla bardzo dużego `n` pojawiają się problemy ze zmiennoprzecinkowością lub przepełnieniem?
+
+**23. Algorytm z błędem.** Ktoś zapisuje: `while (i < 10) { suma += i; }`. Wyjaśnij, dlaczego ta pętla może się nie kończyć, i popraw pseudokod.
+
+**24. Granice modelu.** Czy program, który ma sprawdzać wszystkie możliwe hasła, gwarantuje szybkie wykonanie? Rozdziel pojęcia poprawności, zakończenia i wydajności.
+
+**25. Pełny projekt.** Zaplanuj program kalkulatora z menu i opcjami: dodawanie, odejmowanie, zakończenie. Przygotuj dane, pseudokod, schemat blokowy i 8 testów, w tym dla danych błędnych.
+
+<details>
+<summary>Wskazówki do zadań 21–25</summary>
+
+21. Ustal znak wyniku i powtarzaj dodawanie wartości bezwzględnej. Dla `INT_MIN` zwykłe `abs(int)` może się przepełnić — zastosuj szerszy typ albo bezpieczną obsługę granic.
+22. Pętla wymaga O(n) kroków, wzór O(1) podstawowych działań; obydwa wymagają poprawnie dobranych typów danych.
+23. Nie zmienia się `i`; trzeba zapewnić inicjalizację i modyfikację licznika.
+24. Zakończenie i poprawność nie oznaczają praktycznej wydajności.
+25. Zwróć uwagę na menu, `switch`, poprawne zakończenie, walidację wejścia i zakaz dzielenia przez zero, jeśli dodasz dzielenie.
+
+</details>
+
+## Mini-test na koniec
+
+Spróbuj bez zaglądania do notatek wyjaśnić: **algorytm**, **instrukcja**, **kompilator**, **linker**, **pamięć operacyjna**, **ASCII** i **romb w schemacie blokowym**. Jeśli któregoś pojęcia nie umiesz wyjaśnić własnymi słowami, wróć do powiązanej lekcji.

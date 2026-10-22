@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" role="img" aria-labelledby="title desc"><title id="title">Prad i przekroj przewodnika</title><desc id="desc">Kierunek umownego pradu i pole przekroju poprzecznego</desc><rect width="900" height="330" rx="20" fill="#0b1614"/><rect x="16" y="16" width="868" height="298" rx="17" fill="#10251f" stroke="#205645" stroke-width="2"/>
+<text x="54" y="67" font-family="sans-serif" font-size="24" fill="#e3fdf3">Prąd w przewodniku</text>
+<rect x="112" y="112" width="575" height="91" rx="22" fill="#204e45" stroke="#72eac7" stroke-width="3"/>
+<ellipse cx="677" cy="158" rx="28" ry="46" fill="#2b695a" stroke="#95ffdb" stroke-width="3"/>
+<path d="M160 156H598" stroke="#78f0d0" stroke-width="6"/><path d="M580 136l25 20-25 20" fill="none" stroke="#78f0d0" stroke-width="6"/>
+<text x="320" y="142" font-family="sans-serif" font-size="18" fill="#d7f7eb">umowny kierunek I</text>
+<path d="M678 109L752 80" stroke="#e8d988" stroke-width="2"/><text x="755" y="78" font-family="sans-serif" font-size="18" fill="#e8d988">S = πr²</text>
+<text x="140" y="267" font-family="sans-serif" font-size="22" fill="#d8f5ec">J = I / S</text><text x="360" y="267" font-family="sans-serif" font-size="18" fill="#aaccc1">J: A/mm², I: A, S: mm²</text></svg>

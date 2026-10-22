@@ -1,0 +1,57 @@
+---
+title: "Wykład 1 — podstawy programowania"
+description: "Plan nauki, definicje, przykłady i ćwiczenia z pierwszego wykładu."
+sidebar:
+  order: 1
+---
+
+# Wykład 1 — podstawy programowania i algorytmów
+
+To opracowanie pierwszego wykładu z programowania. **Nie zastępuje dotychczasowych lekcji C++** — wyjaśnia pojęcia, które warto rozumieć, zanim zacznie się pisać większe programy.
+
+:::note[Jak korzystać]
+Czytaj kolejno. Każda lekcja zawiera najważniejsze pojęcia, przykład i pytania kontrolne. W razie wątpliwości uruchamiaj pełne przykłady C++ i sprawdzaj ich działanie.
+:::
+
+## Spis lekcji
+
+1. [Informacja, informatyka i programowanie](../informacja-i-programowanie/) — czym różnią się dane, informacja, algorytm i program.
+2. [Akcje, obiekty, instrukcje i abstrakcja](../akcje-i-abstrakcja/) — jak opis świata zmienia się w instrukcje.
+3. [Algorytm i jego własności](../algorytmy-i-poprawnosc/) — dane, wyniki, warunki brzegowe, zakończenie.
+4. [Od problemu do programu](../od-problemu-do-programu/) — analiza, pseudokod, testy i implementacja.
+5. [Komputer, procesor i pamięć](../komputer-i-pamiec/) — na czym pracuje program.
+6. [Bity, ASCII i Unicode](../kodowanie-znakow/) — czym jest kodowanie danych i znaków.
+7. [Języki programowania](../jezyki-programowania/) — poziomy abstrakcji i generacje.
+8. [Kompilacja i interpretacja](../kompilacja-i-interpretacja/) — jak kod zamienia się w wykonanie.
+9. [Schematy blokowe](../schematy-blokowe/) — znaczenie kształtów i prawidłowy przepływ.
+10. [Zadania i sprawdzian](../zadania/) — od podstaw do samodzielnego algorytmu.
+
+## Trzy pojęcia, których nie należy mylić
+
+| Pojęcie | Co oznacza | Przykład |
+|---|---|---|
+| **Problem** | Co trzeba osiągnąć | „Znajdź większą z dwóch liczb” |
+| **Algorytm** | Jakie kroki prowadzą do wyniku | „Porównaj a i b, wybierz większą wartość” |
+| **Program** | Zapis rozwiązania w konkretnym języku | Kod C++ z `if` i `std::cout` |
+
+Przykład pełnego programu:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a = 7;
+    int b = 11;
+    if (a > b) {
+        std::cout << a << '\n';
+    } else {
+        std::cout << b << '\n';
+    }
+}
+```
+
+Wynik: **11**. Program działa, ponieważ instrukcja `if` realizuje wcześniej ustalony algorytm.
+
+## Co powinno zostać po wykładzie?
+
+Powinieneś umieć wyjaśnić różnicę między algorytmem a programem, określić **dane wejściowe** i **wynik**, narysować prosty schemat blokowy, wymienić elementy komputera i opowiedzieć, co robi kompilator. Dopiero wtedy przejdź do szczegółów składni C++.

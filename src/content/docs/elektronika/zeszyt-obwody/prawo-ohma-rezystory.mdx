@@ -1,0 +1,50 @@
+---
+title: "Prawo Ohma i łączenie rezystorów"
+description: "U = RI oraz obliczanie rezystancji zastępczej."
+sidebar:
+  order: 4
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Prawo Ohma i rezystory połączone w obwód
+
+*Główne źródło zeszytowe: zdjęcia 3–4.*
+
+## Prawo Ohma
+
+Dla **rezystora omowego** w rozważanych warunkach:
+
+<Eq tex={String.raw`U=RI\qquad I=\frac{U}{R}\qquad R=\frac{U}{I}`} display />
+
+`U` to napięcie [V], `I` natężenie [A], a `R` rezystancja [Ω]. Wzór działa wtedy, kiedy opór jest traktowany jako stały. W zeszycie słusznie zaznaczono, że istnieją **elementy nieliniowe**, których zależność prądu od napięcia nie ma postaci `U = stała · I`.
+
+Przykład: przy `U = 12 V` i `R = 6 Ω`:
+
+<Eq tex={String.raw`I=\frac{12\,\mathrm V}{6\,\Omega}=2\,\mathrm A`} display />
+
+## Połączenie szeregowe
+
+Przez wszystkie rezystory przepływa **ten sam prąd**, a napięcia na nich się sumują:
+
+<Eq tex={String.raw`R_z=R_1+R_2+\ldots+R_n`} display />
+
+## Połączenie równoległe
+
+Na każdej gałęzi panuje **to samo napięcie**, a prądy gałęzi się sumują:
+
+<Eq tex={String.raw`\frac1{R_z}=\frac1{R_1}+\frac1{R_2}+\ldots+\frac1{R_n}`} display />
+
+Dla **dwóch** rezystorów wygodny jest zapis:
+
+<Eq tex={String.raw`R_z=\frac{R_1R_2}{R_1+R_2}`} display />
+
+![Połączenia szeregowe i równoległe](/studylab-elektronika-obwody/rezystory.svg)
+
+:::tip[Kontrola sensowności]
+Rezystancja zastępcza rezystorów szeregowych musi być większa od każdego składnika. Przy połączeniu równoległym dodatnich rezystancji — mniejsza od najmniejszego rezystora.
+:::
+
+## Co poprawiono z zeszytu?
+
+Fragment z przekreślonym wzorem dla dwóch rezystorów (zdjęcie 3) zapisano w jednoznacznej postaci `R₁R₂/(R₁+R₂)`. Warto pamiętać, że dwójkowy skrót nie zastępuje sumy odwrotności dla wielu rezystorów.

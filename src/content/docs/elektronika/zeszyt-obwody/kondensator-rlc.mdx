@@ -1,0 +1,55 @@
+---
+title: "Kondensator i obwód RLC"
+description: "Uzupełnienie haseł kondensator, RLC oraz częstotliwość i okres."
+sidebar:
+  order: 10
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Kondensator, obwody RLC i częstotliwość
+
+*Główne źródło zeszytowe: zdjęcia 7, 9–10. Większość hasła „rzeczywisty kondensator...” była niedokończona.*
+
+## Kondensator — odpowiednik cewki?
+
+Kondensator gromadzi energię **w polu elektrycznym**, a nie magnetycznym. Jego pojemność określamy jako:
+
+<Eq tex={String.raw`C=\frac{Q}{U}`} display />
+
+Dla **stałej pojemności** i konwencji biernej:
+
+<Eq tex={String.raw`i_C(t)=C\frac{du_C(t)}{dt}`} display />
+
+Energia zgromadzona w polu kondensatora:
+
+<Eq tex={String.raw`W_C=\frac12 CU^2`} display />
+
+`C` oznacza pojemność [F], `Q` ładunek [C], `U` napięcie [V]. Idealny kondensator **nie przewodzi prądu stałego w stanie ustalonym** (gdy napięcie nie zmienia się w czasie).
+
+## Połączenia kondensatorów
+
+| Połączenie | Wzór |
+|---|---|
+| Równoległe | <Eq tex={String.raw`C_z=C_1+C_2+\cdots`} /> |
+| Szeregowe | <Eq tex={String.raw`\frac1{C_z}=\frac1{C_1}+\frac1{C_2}+\cdots`} /> |
+
+Wzory są odwrotne względem prostych połączeń cewek bez sprzężenia. W praktyce kondensatory mają upływność, rezystancję szeregową ESR i ograniczone napięcie pracy.
+
+## Obwód RLC
+
+Składa się z rezystora `R`, cewki `L` i kondensatora `C`. W modelu idealnego obwodu LC jego częstość własna:
+
+<Eq tex={String.raw`\omega_0=\frac1{\sqrt{LC}}\qquad f_0=\frac1{2\pi\sqrt{LC}}`} display />
+
+Rezystancja tłumi drgania. **Uwaga:** szczegółowa częstotliwość maksimum odpowiedzi w rzeczywistym obwodzie zależy od typu połączenia, strat i wielkości obserwowanej; nie zawsze jest równa `f₀` powyższego modelu.
+
+## Częstotliwość i okres
+
+<Eq tex={String.raw`f=\frac1T`} display />
+
+Na zdjęciu 10 odczytujemy obliczenie `1 000 000 / 1680 ≈ 595,24 Hz`. To ma sens, gdy zmierzony okres wynosi **1680 µs**:
+
+<Eq tex={String.raw`T=1680\,\mu\mathrm s=0{,}00168\,\mathrm s\Rightarrow f\approx595{,}24\,\mathrm{Hz}`} display />
+
+Brak jednoznacznego podpisu jednostki przy `1680` w notatce — sprawdź **Rejestr niepewności**.

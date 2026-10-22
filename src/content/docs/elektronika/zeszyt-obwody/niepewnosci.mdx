@@ -1,0 +1,37 @@
+---
+title: "Niepewności i uzupełnienia"
+description: "Lista fragmentów urwanych i zrekonstruowanych z odwołaniem do zdjęć."
+sidebar:
+  order: 13
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Rejestr niepewności — zdjęcie po zdjęciu
+
+Ta strona odróżnia to, co wyraźnie widać na notatce, od tego, co zostało **uzupełnione z wiedzy o obwodach i przesłanej książki**. Trzy kropki w zdjęciach traktujemy jako **świadomie niedokończoną treść**.
+
+| Zdjęcie | Miejsce / temat | Uzupełnienie w StudyLab | Pewność |
+|---|---|---|---|
+| **1** | Prąd chwilowy, gęstość prądu `J = I/S` | Wzór pochodnej `i = dq/dt` i jednostki; objaśnienie warunku równomiernego przepływu | wysoka — standardowa teoria |
+| **2** | Oporność, konduktancja, rezystywność; schematy | Rozdzielono `G` i `σ`, dopisano zależność od geometrii | wysoka |
+| **3** | Wzór na rezystancję z temperaturą, łączenie rezystorów | Model liniowy `R(T)≈R₀[1+αΔT]`; poprawiono wzór dwóch równoległych oporów | średnia — pełnej wypowiedzi wykładowej nie ma |
+| **4** | „Cewka”, „źródło energii”, pole magnetyczne | Dodano podział elementów, energię pola i ostrożniejszą definicję źródła | średnia — sformułowanie urwane |
+| **5** | `Ψ=NΦ`, solenoid i `L=µ₀µᵣN²S/l` | Dopisano nazwy wielkości i warunki idealnego solenoidu | wysoka co do wzoru, niska co do dokładnej geometrii z wykładu |
+| **6** | Prawo Faradaya, SEM `-dΦ/dt`, napięcie `L di/dt` | Rozdzielono znaki i konwencje SEM vs napięcie zaciskowe | wysoka — standardowa teoria |
+| **7** | Energia cewki, sumowanie indukcyjności; „rzeczywisty rezystor/kondensator ...” | Wzory energii, łączenia **bez sprzężenia**, praktyczne modele R i C | średnia — dalsze sformułowania nieobecne |
+| **8** | Praca `W=qU`, moc `P=UI`, wzory z czasem | Dodano moc chwilową i całkę energii; wyjaśniono kWh | wysoka |
+| **9** | Moc i elementy liniowe/nieliniowe, aktywne/pasywne | Ujednolicono klasyfikację i dodano przykłady | średnia — klasyfikacja w zeszycie urwana |
+| **10** | Okres i częstotliwość: `1000000/1680` | Przyjęto warunkowo **`T=1680 µs`** i obliczono `f≈595,24 Hz` | **do potwierdzenia jednostka okresu** |
+
+## Miejsca wymagające potwierdzenia
+
+1. **Zdjęcie 10:** czy `1680` oznacza mikrosekundy, działki oscyloskopu po przeliczeniu czy inną jednostkę? Bez tego nie można kategorycznie potwierdzić wyniku w hercach.
+2. **Zdjęcie 7:** jakie dokładnie modele **rzeczywistego rezystora i kondensatora** podano na wykładzie? Uzupełniono typowy opis, ale nie można odzyskać dosłownego dalszego ciągu.
+3. **Zdjęcie 3:** jaki przedział temperatur i materiał zakładano przy współczynniku `α`? Przyjęto tylko lokalne przybliżenie liniowe.
+4. **Zdjęcie 5:** czy wykładowca rozpatrywał **cewkę długą z jednorodnym rdzeniem**? Tylko wtedy uproszczony wzór solenoidu ma dobrze określony zakres.
+5. **Zdjęcie 6:** jak ustalono zwroty napięcia i prądu na schemacie z zajęć? Wyjaśniono oba standardowe zapisy, ale szczegóły znaku należy zestawić z konkretnym schematem.
+
+## Skąd pochodzi uzupełnienie?
+
+**Zeszyt:** 10 przekazanych zdjęć. **Podręcznik:** dołączony skan książki *Elementy i układy elektroniczne w pytaniach i odpowiedziach*, zwłaszcza rozdziały dotyczące podstaw teorii obwodów i elementów biernych. **Dopowiedzenia StudyLab:** własne przykłady numeryczne, jednostki, zastrzeżenia przy modelach idealnych i zadania. Nie przepisano książki, nie dołączono jej skanu i nie odwzorowywano jej oryginalnych ilustracji.

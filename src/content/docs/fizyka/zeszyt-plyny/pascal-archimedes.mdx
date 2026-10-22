@@ -1,0 +1,45 @@
+---
+title: "Prawo Pascala i Archimedesa"
+description: "Jak rozchodzi się przyrost ciśnienia i skąd bierze się wypór."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Prawo Pascala i siła wyporu
+
+*Z zeszytu: zdjęcie 4.*
+
+## Prawo Pascala
+
+**Przyrost ciśnienia** wywierany z zewnątrz na płyn zamknięty przekazywany jest do wszystkich jego części. Jest to podstawa prasy hydraulicznej.
+
+<Eq tex={String.raw`\Delta p=\frac{F_1}{S_1}=\frac{F_2}{S_2}`} display />
+
+- `F₁`, `F₂` — siły na tłokach [N],
+- `S₁`, `S₂` — pola tłoków [m²].
+
+Jeśli tłok wyjściowy jest `5` razy większy powierzchnią, w idealnym urządzeniu może wywierać `5` razy większą siłę — ale przemieści się na mniejszą odległość. **Nie powstaje dodatkowa energia.**
+
+## Prawo Archimedesa
+
+Zanurzone ciało doświadcza siły wyporu skierowanej w górę:
+
+<Eq tex={String.raw`F_w=\rho_{plynu}\,g\,V_{zan}`} display />
+
+![Siła wyporu oraz ciężar ciała](/studylab-fizyka-plyny/wypor.svg)
+
+- `ρ_płynu` — gęstość otaczającego płynu [kg/m³],
+- `V_zan` — objętość **wypartego płynu** (zanurzonej części ciała) [m³],
+- `g` — przyspieszenie grawitacyjne [m/s²].
+
+Nie myl masy **wypartego płynu** z masą badanego ciała. Siła wyporu jest równa ciężarowi **wypartego płynu**, nie zawsze ciężarowi samego ciała.
+
+### Przykład
+
+Objętość zanurzonej części `V_zan=0,002 m³`, woda `ρ=1000 kg/m³`, `g=10 m/s²`.
+
+`F_w=1000·10·0,002=20 N`. Ciało o ciężarze `15 N` będzie miało tendencję do wynurzania się, jeśli nie działa inna siła utrzymująca je pod wodą.
+
+:::note[Warunki]
+Wzory dotyczą standardowej hydrostatyki; przy silnych przyspieszeniach płynu lub niejednorodnej gęstości trzeba uwzględnić dokładniejszy rozkład ciśnienia.
+:::

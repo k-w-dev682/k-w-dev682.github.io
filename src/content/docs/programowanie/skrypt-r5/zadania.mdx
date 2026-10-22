@@ -1,0 +1,236 @@
+---
+title: "Bank 45 zadań — instrukcje C++"
+description: "Zadania z rozdziału 5 od łatwiejszych do zaawansowanych, uwagi i wskazówki."
+---
+
+# Bank 45 zadań — od podstaw do trudniejszych algorytmów
+
+Zadania pochodzą tematycznie z przesłanego rozdziału. Treści zostały uporządkowane, a jednoznaczne błędy redakcyjne poprawiono. **Nie dołączamy danych osobowych, autora pliku, komentarzy ani obrazów ze starego dokumentu.**
+
+Rozwiązuj zadania **samodzielnie**. Po każdym programie sprawdź trzy rodzaje danych: typowe, graniczne i błędne. Zaplanuj też, jaki wynik ma zostać wypisany.
+
+:::caution[Dwa zadania wymagają sprawdzenia w oryginale]
+W źródle część matematycznych wzorów była zapisana jako obiekty Word i tekst ekstrakcji jest niejednoznaczny. Przy zadaniach **13 i 23** zaznaczono wymagane doprecyzowanie; nie zakładaj brakującego wzoru bez ustalenia definicji. W innych miejscach dopisano warunki brzegowe i konieczne walidacje.
+:::
+
+
+## Poziom I — warunki i proste pętle
+
+### Zadanie 1
+
+Dla podanej liczby n (n z przedziału (0,1000&gt;) wyznaczyć i wyświetlić n kolejnych wyrazów ciągu arytmetycznego o zadanych przez użytkownika pierwszym elemencie a i różnicy r, gdzie a jest liczbą całkowitą z przedziału &lt;0,20&gt;, r jest liczbą całkowitą różną od 0 z przedziału &lt;-10000,10000&gt;. Obliczyć sumę tych elementów.
+
+### Zadanie 3
+
+Napisz program, w którym wczytasz liczbę naturalną n, a następnie wczytując kolejno n liczb naturalnych obliczysz ile wśród wczytanych liczb jest takich, które: są podzielne przez 3 i 2, a niepodzielne przez 5.
+
+### Zadanie 5
+
+Napisz program, który wczyta liczbę X oraz wyliczy i wyświetli kolejne elementy ciągu Fibonacciego, które nie przekraczają wartości wczytanej zmiennej X. W przypadku, gdy kolejny wyliczony element jest większy od zmiennej X, program powinien zakończyć działanie. Wykorzystaj pętlę while.
+
+### Zadanie 6
+
+Dla wczytanej liczby n wypisz dla tabliczkę mnożenia lub dzielenia (całkowitego lub rzeczywistego).
+
+### Zadanie 10
+
+Rozszerz kalkulator z poprzedniego zadania o możliwość wielokrotnego wykonywania obliczeń. Przyjęcie opcji 0 kończy pracę.
+
+### Zadanie 11
+
+Wczytaj trzy liczby rzeczywiste oznaczające długości boków trójkąta tak by mogły one utworzyć trójkąt na płaszczyźnie. Użyj pętli do .. while.
+
+### Zadanie 12
+
+Wylosuj cyfrę z zakresu 0..9 – ma być ona ukryta przed użytkownikiem programu. Spróbuj odgadnąć tą liczbę w trzech próbach. Zakończenie programu powinno wyświetlić komunikat: „PIN poprawny” lub „PIN niepoprawny”. Użyj pętli do … while.
+
+### Zadanie 15
+
+Napisz program, który wczyta N liczb całkowitych i wyznaczy iloczyn tych liczb, które są parzyste oraz sumę liczb nieparzystych.
+
+### Zadanie 16
+
+Dane są dwie liczby całkowite dodatnie. Napisz program, który obliczy największy wspólny dzielnik podanych liczb, wykorzystaj algorytm Euklidesa. Zwróć uwagę na wydajność algorytmu dla danych np. 1 i 10000.
+
+### Zadanie 18
+
+Napisz program Rok przestępny. Program pobiera z klawiatury numer roku i drukuje na ekranie informacje ROK JEST PRZESTĘPNY lub ROK NIE JEST PRZESTĘPNY
+
+### Zadanie 19
+
+Wczytaj liczbę naturalną i określ, czy jest pierwsza (większa od 1 i podzielna tylko przez 1 i siebie). Pamiętaj, że 27 jest złożona: 27 = 3 · 9.
+
+### Zadanie 20
+
+Napisz program wyświetlający na ekranie wartości funkcji f(x)=1/x w zadanym przedziale [a, b] z krokiem k (tzw. tablicowanie funkcji).
+
+### Zadanie 21
+
+Napisz program, który w zależności od wyboru użytkownika wczytuje wymiary: kwadratu, prostokąta lub trójkąta i wypisuje na ekran pole figury o wczytanych wymiarach.
+
+### Zadanie 22
+
+Napisz program, w którym wczytasz liczbę naturalną n, a następnie wczytując kolejno n liczb rzeczywistych znaleźć ilość sąsiadujących par (a; b) takich, że a &gt; 0 i b &gt; 0. (Przykład: dla liczby n = 6 i kolejnych liczb 3; 5; 2;-4; 9; 7 poprawna odpowiedz to 3 (pary (3; 5), (5; 2) oraz (9; 7))).
+
+**Wskazówka:** gdy porównujesz sąsiadujące liczby, pamiętaj poprzednią i sprawdzaj parę dopiero po pobraniu bieżącej.
+
+### Zadanie 27
+
+Napisz program, który z wykorzystaniem instrukcji switch oblicza pierwiastki równania kwadratowego ax2+bx+c = 0, w którym zmienne a, b, c to liczby rzeczywiste wprowadzane z klawiatury.
+
+### Zadanie 28
+
+Napisz program, który generuje losową liczbę naturalną, która ma zostać odgadnięta. Następnie w pętli do – while użytkownik próbuje odgadnąć liczbę podając swoja propozycję. Jeśli zaproponowana liczba jest odpowiednio mniejsza lub większa –wyświetlany jest odpowiedni komunikat. Pętla kończy się w momencie trafienia w szukaną liczbę.
+
+### Zadanie 36
+
+Napisz program, który wczytuje długości boków trójkąta i sprawdza, czy trójkąt ten jest równoboczny, równoramienny, czy też różnoboczny.
+
+### Zadanie 37
+
+Zbadaj kąt w stopniach w zakresie 0–360. Rozróżnij kąt zerowy, ostry, prosty, rozwarty, półpełny, wklęsły i pełny. Ustal dokładne granice klas przed napisaniem warunków.
+
+**Uwaga:** zapis w źródle ma sprzeczny opis kąta „zerowego” jako podtypu ostrego. Tu zastosowano osobną klasę `0°`.
+
+### Zadanie 38
+
+Dany jest ciąg liczb zakończony zerem. Napisz program, który w danym ciągu wyszuka liczby podzielne przez 3 a niepodzielne przez 6. Program powinien wypisać znalezione liczby lub komunikat o braku takich liczb w ciągu.
+
+### Zadanie 43
+
+Napisz program drukujący na ekranie wieżę prostokąt z literek S. Rozmiar podstawy podaje użytkownik. Np. wieża o podstawie długości 4: S SS SSS SSSS
+
+### Zadanie 44
+
+Napisz program drukujący na ekranie wieżę z literek U. Długość obu boków podaje użytkownik. Np. Prostokąt o bokach długości 5 i 4: UUUUU U U U U UUUUU
+
+### Zadanie 45
+
+Napisz program drukujący na ekranie choinkę z znaku #. Wysokość choinki podaje użytkownik. Np. Choinka o wysokości 5 : # ### ##### ####### #########
+
+
+## Poziom II — praca z ciągami i cyframi
+
+### Zadanie 2
+
+Napisz program, który w zależności od wybranej opcji dokonuje zamiany podanej liczby naturalnej n podanej w systemie dziesiętnym, na liczbę w systemie binarnym lub liczby w systemie binarnym b, na liczbę w systemie dziesiętnym. Liczba n podawana jest przez użytkownika i mieści się w przedziale &lt;0,255&gt;, natomiast liczba b jest ciągiem zer i jedynek nie dłuższym niż 8. Jeśli użytkownik poda nieprawidłowe dane powinien zostać wyświetlony odpowiedni komunikat i wczytanie podanie nowych danych.
+
+### Zadanie 4
+
+Napisz program, w którym wczytasz liczbę naturalną n, a następnie wczytując kolejno n liczb naturalnych obliczysz ile wśród wczytanych liczb jest takich, które spełniają warunek |ak| &lt; k2, , gdzie k oznacza numer liczby w kolejności.
+
+**Wskazówka:** `k` oznacza pozycję w sekwencji od 1; przepisz wzór do `abs(a[k]) < k*k` i zweryfikuj indeksowanie.
+
+### Zadanie 8
+
+Wczytaj ciąg liczb naturalnych i wypisz ich zapis w systemie rzymskim. Zdefiniuj dozwolony zakres (np. 1–3999) i sposób postępowania dla danych spoza zakresu.
+
+### Zadanie 14
+
+Napisz program, w którym wczytasz liczbę naturalną n, a następnie wczytując kolejno n liczb naturalnych obliczysz ile wśród wczytanych liczb jest takich, które są kwadratami liczby parzystej.
+
+**Wskazówka:** kwadrat liczby parzystej jest podzielny przez 4, ale nie każda liczba podzielna przez 4 jest takim kwadratem.
+
+### Zadanie 17
+
+Należy napisać program, który w zależności od wybranej opcji dokonuje zamiany podanej liczby naturalnej n podanej w systemie dziesiętnym, na liczbę w systemie szesnastkowym lub liczby w systemie szesnastkowym s, na liczbę w systemie dziesiętnym. Liczba n podawana jest przez użytkownika i mieści się w przedziale &lt;0,65535&gt;, natomiast liczba s jest ciągiem cyfr 0-9 lub liter A-F nie dłuższym niż 4. Jeśli użytkownik poda nieprawidłowe dane powinien zostać wyświetlony odpowiedni komunikat i wczytanie podanie nowych danych.
+
+### Zadanie 23
+
+Napisz program, w którym wczytasz liczbę naturalną n, a następnie wczytując kolejno n liczb naturalnych obliczysz ile wśród wczytanych liczb jest takich, które spełniają warunek 2k &lt; ak &lt; k!, gdzie k oznacza numer liczby w kolejności.
+
+**Uwaga:** zapis warunku w oryginale odpowiada `2^k < a_k < k!` tylko jeśli `2k` oznacza potęgę, a nie iloczyn. Weryfikacja zapisu źródłowego jest potrzebna przed wykonaniem zadania.
+
+### Zadanie 24
+
+Napisz program, w którym wczytasz liczbę naturalną n, a następnie wczytując kolejno n liczb naturalnych obliczysz ile wśród wczytanych liczb jest takich, które spełniają warunek ak &lt; (ak-1+ak+1)/2, gdzie k oznacza numer liczby w kolejności.
+
+**Wskazówka:** trzeba znać sąsiadów `a_(k-1)` i `a_(k+1)`; określ, które pozycje ciągu mogą być porównywane (zwykle `2...n-1`).
+
+### Zadanie 25
+
+Napisz program, który wczytuje liczbę n i wypisuje na ekran wszystkie trojki pitagorejskie (tj. trojki liczb całkowitych a, b, c takich, że a2 +b2 = c2), składające się z liczb mniejszych od n.
+
+### Zadanie 26
+
+Napisz program generujący n liczb pseudolosowych. Pierwszą liczbą powinna być dowolna losowa liczba z przedziału (0, 1). Kolejne liczby powinny być wyliczane ze wzoru xn = 1 − x2 n−1, gdzie xn to bieżąca, a xn−1 to poprzednia wartość liczby.
+
+### Zadanie 29
+
+Napisz program, który z ciągu n-liczb całkowitych wprowadzonych z klawiatury wypisze te, których najbardziej i najmniej znacząca cyfra są takie same. np. -131, 25672
+
+### Zadanie 30
+
+Napisz program, który z ciągu n-liczb całkowitych wprowadzonych z klawiatury wypisze te, które spełniają następujący warunek: naprzemiennie występują cyfry parzyste i nieparzyste Np. 121438, -8783
+
+### Zadanie 31
+
+Dany jest ciąg liczb naturalnych wprowadzonych z klawiatury, zakończony zerem. Napisz program, który wypisze kolejne liczby ciągu w postaci iloczynu liczb pierwszych. Np. Dla ciągu liczb: 24, 100, 6, 1520, 0 2*2*2*3 2*2*5*5 2*3 2*2*2*2*5*19
+
+### Zadanie 32
+
+Dany jest ciąg liczb całkowitych zakończony zerem. Napisz program, który wypisze liczby których cyfry tworzą ciąg niemalejący, od najbardziej znaczącej do najmniej znaczącej. np. 14456, 7881, -13, 8889, 252 wynik: 14456, -13, 8889
+
+**Wskazówka:** użyj porównania cyfr od najbardziej znaczącej do najmniej znaczącej; dla liczb ujemnych uzgodnij, czy ignorować znak minus.
+
+### Zadanie 33
+
+Napisz program, który z ciągu n-liczb całkowitych wprowadzonych z klawiatury wypisze te, w których nie powtarzają się cyfry.
+
+### Zadanie 34
+
+Napisz program zgadywanie. Użytkownik podaje początkowy przedział z jakiego wymyślił liczbę a zgadującym jest komputer. Zgaduje losując liczby z przedziału wyznaczonego na podstawie poprzednich odpowiedzi (np. komputer początkowo losował z przedziału[0..20] podał liczbę 10 i dostał odpowiedź od użytkownika: Za mało, to następne losowanie komputera będzie z przedziału [10..20]). Gra toczy się do momentu odgadnięcia liczby przez komputer.
+
+### Zadanie 41
+
+Dana jest liczba n oznaczająca liczbę cyfr w liczbie, n&lt;=5. Napisz program, który wylosuje cyfry dla tej liczby oraz wypisze jej wartość w systemie dwójkowym.
+
+
+## Poziom III — algorytmy i obliczenia
+
+### Zadanie 7
+
+Napisz program, który wyznaczy rozwiązania układu równań z trzema niewiadomymi metodą wyznaczników. Sprawdzi czy jest jedno rozwiązanie, nieskończenie wiele rozwiązań czy też układ jest sprzeczny.
+
+**Wskazówka:** najpierw rozstrzygnij, czy wyznacznik macierzy współczynników jest zerowy. Samo `D=0` nie rozróżnia jeszcze układu sprzecznego od nieoznaczonego.
+
+### Zadanie 9
+
+Napisz program symulujący działanie kalkulatora. Kalkulator ma pracować w dwu trybach: standardowym i profesjonalnym. W trybie standardowym kalkulator ma operować na liczbach rzeczywistych i uwzględniać operacje: dodawanie, odejmowanie, mnożenie i dzielenie a w trybie rozszerzonym ma ponadto obliczać funkcje matematyczne: sin, cos, exp i losować liczbę rzeczywistą pseudolosową z zakresu 0...1.
+
+### Zadanie 13
+
+Dany jest ciąg n-elementowy. Napisz program obliczający wariancję i odchylenie standardowe korzystając z trzech różnych pętli: (1) for, (2) while i (3) do … while. W obliczeniach wykorzystaj wzory: - wariancja; - odchylenie standardowe. Jakie są wady i zalety poszczególnych rozwiązań?
+
+**Uwaga:** w materiale źródłowym po nazwach wariancji i odchylenia standardowego **nie ma czytelnych wzorów**. Ustal z prowadzącym, czy chodzi o wariancję populacyjną (dzielenie przez `n`), czy próbki (dzielenie przez `n-1`).
+
+### Zadanie 35
+
+Napisz program, który wczyta równanie prostej Ax+By+C=0 oraz okręgu (x- a )2 +(y-b)2=r2 a następnie zbada ich wzajemne położenie. Uwaga ! Prosta i okrąg: mają dwa punkty wspólne, jeżeli d(S,k)&lt;r; są styczne, jeżeli d(S,k)=r ; nie przecinają się, jeżeli d(S,k)&gt;r. d(S,k)-oznacza odległość środka okręgu od prostej k :
+
+### Zadanie 39
+
+Dane są trzy punkty: (x0, y0), (x1, y1), (x2, y2), gdzie x są argumentami a y są wartościami paraboli o nieznanych współczynnikach. Napisz program, który na ich podstawie obliczy współczynniki a, b, c wielomianu 2-go stopnia, a następnie obliczy 5 wartości tego wielomianu dla wybranych x.
+
+**Wskazówka:** sprawdź, czy trzy wartości `x` są różne, zanim spróbujesz wyznaczyć jednoznaczną parabolę.
+
+### Zadanie 40
+
+Dane są dwa punkty w przestrzeni R3 P1 i P2 oraz równanie prostej, która przechodzi przez te dwa punkty postaci: P(t)= tP1 + (1-t)P2, dla 0&lt;=t&lt;=1 jest to równanie odcinka. Napisz program, który wypisze n punktów równoodległych pomiędzy P1 i P2.
+
+### Zadanie 42
+
+Napisz program, który obliczy pochodną funkcji f(x)=x^n na podstawie jej definicji: f'(x)=lim(f(x+h)-f(x))/h. Sprawdź wpływ typu zmiennej (float, double) h na dokładność obliczeń. Porównaj z dokładną wartością pochodnej: f'(x)=nx^(n-1).
+
+**Wskazówka:** przy różniczkowaniu numerycznym bardzo małe `h` może zwiększyć błąd zaokrągleń — nie chodzi tylko o błąd przybliżenia.
+
+
+## Jak sprawdzać rozwiązania
+
+- **Poprawność:** porównaj wynik z obliczeniem ręcznym na małym przykładzie.
+- **Wartości graniczne:** przetestuj `0`, `1`, granice przedziałów i liczby ujemne tam, gdzie mogą wystąpić.
+- **Dane niepoprawne:** sprawdź `std::cin.fail()` albo kontrolę `if (!(std::cin >> x))`.
+- **Koniec pętli:** określ, która zmienna zmienia się w każdym obiegu i dlaczego warunek kiedyś przestanie być prawdziwy.
+- **Typy danych:** wybrany typ musi pomieścić wynik; np. silnia rośnie bardzo szybko.
+
+[Wróć do ścieżki nauki](../start/).

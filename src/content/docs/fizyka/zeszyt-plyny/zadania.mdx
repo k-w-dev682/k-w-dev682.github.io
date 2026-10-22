@@ -1,0 +1,110 @@
+---
+title: "30 zadań: fizyka płynów i grawitacja"
+description: "Ćwiczenia od definicji do Bernoulliego z odpowiedziami i wskazówkami."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Zadania — od łatwych do trudniejszych
+
+Rozwiązuj w podanej kolejności. Zanim zajrzysz do odpowiedzi, **zapisz dane, wzór, podstawienie, jednostkę i wynik**. O ile w zadaniu nie określono inaczej, przyjmij `g=10 m/s²`.
+
+## Poziom 1 — sprawdzamy podstawy (1–8)
+
+1. Czym różni się siła od ciśnienia? Podaj jednostki.
+2. Wyjaśnij, dlaczego w głębszej wodzie rośnie ciśnienie hydrostatyczne.
+3. Podaj definicję siły wyporu i kierunek jej działania.
+4. Jak odróżnić lepkość dynamiczną `μ` od kinematycznej `ν`?
+5. Co oznacza, że przepływ jest ustalony?
+6. Czy laminarny przepływ musi mieć taką samą szybkość w całej rurze? Wyjaśnij.
+7. Jaka jest jednostka strumienia objętości `Q_v`, a jaka strumienia masy `ṁ`?
+8. Czy przy zwiększeniu szybkości w poziomej idealnej rurze ciśnienie statyczne rośnie, czy maleje?
+
+<details>
+<summary>Sprawdź odpowiedzi 1–8</summary>
+
+1. Siła [N] opisuje oddziaływanie, ciśnienie [Pa=N/m²] — siłę normalną na jednostkę powierzchni.
+2. Rośnie ciężar słupa wody znajdującego się nad rozważanym punktem: `Δp=ρgh`.
+3. Siła od płynu skierowana w górę, `F_w=ρgV_zan`.
+4. `μ` [Pa·s], `ν=μ/ρ` [m²/s].
+5. W ustalonym przepływie pole prędkości nie zależy od czasu w ustalonych punktach przestrzeni.
+6. Nie. Profile prędkości bywają nierównomierne; nieustalone i turbulentne to inne rozróżnienie.
+7. `Q_v`: m³/s; `ṁ`: kg/s.
+8. Maleje dla przepływu wzdłuż linii prądu przy założeniach Bernoulliego.
+
+</details>
+
+## Poziom 2 — podstawianie do wzorów (9–18)
+
+9. Siła `150 N` działa prostopadle na `0,03 m²`. Oblicz ciśnienie.
+10. Oblicz przyrost ciśnienia na głębokości `4 m` w wodzie (`ρ=1000 kg/m³`).
+11. Klocek wypiera `0,005 m³` wody. Oblicz siłę wyporu.
+12. `S₁=5 cm²`, `S₂=50 cm²`, `F₁=20 N`. Jaka idealna siła działa na dużym tłoku?
+13. Oblicz `ν`, jeśli `μ=0,002 Pa·s`, `ρ=800 kg/m³`.
+14. Pole przekroju rury `S=0,004 m²`, średnia prędkość `v=2 m/s`. Oblicz `Q_v`.
+15. `ρ=1000 kg/m³` oraz `Q_v=0,01 m³/s`. Oblicz `ṁ`.
+16. Dla `v=0,1 m/s`, `D=0,02 m`, `ν=10⁻⁶ m²/s` oblicz `Re`.
+17. Siła `F=20 N` działa pod kątem `60°` do przemieszczenia `3 m`. Oblicz pracę.
+18. Ciało `m=5 kg` porusza się z szybkością `4 m/s`. Oblicz energię kinetyczną.
+
+<details>
+<summary>Odpowiedzi i rachunki 9–18</summary>
+
+9. `p=150/0,03=5000 Pa`.
+10. `Δp=1000·10·4=40 000 Pa`.
+11. `F_w=1000·10·0,005=50 N`.
+12. `F₂=20·50/5=200 N`.
+13. `ν=0,002/800=2,5·10⁻⁶ m²/s`.
+14. `Q_v=Sv=0,004·2=0,008 m³/s`.
+15. `ṁ=ρQ_v=1000·0,01=10 kg/s`.
+16. `Re=0,1·0,02/(10⁻⁶)=2000` — zwykle laminarny w prostej rurze.
+17. `W=Fs cos60°=20·3·0,5=30 J`.
+18. `E_k=½mv²=0,5·5·16=40 J`.
+
+</details>
+
+## Poziom 3 — połącz dwa prawa (19–25)
+
+19. Woda przepływa przez rurę, która zwęża się z `8 cm²` do `2 cm²`. Przy `v₁=0,25 m/s` wyznacz `v₂`.
+20. W poziomej idealnej rurze woda przyspiesza z `1 m/s` do `2 m/s`. O ile zmieni się ciśnienie statyczne? `ρ=1000 kg/m³`.
+21. Na głębokości `2,5 m` w wodzie, gdzie `p₀=100 kPa`, znajdź ciśnienie całkowite.
+22. Ciało o masie `2 kg` jest całkowicie zanurzone w wodzie, a jego objętość wynosi `0,0015 m³`. Czy wypadkowa ciężaru i wyporu jest skierowana w górę czy w dół? Ile ma niutonów?
+23. Ciało spada w powietrzu; jego ciężar to `8 N`, a siła wyporu `0,5 N`. Znajdź siłę oporu w chwili osiągnięcia prędkości granicznej.
+24. W typowej rurze `ν=2·10⁻⁶ m²/s`, `D=0,01 m`. Wyznacz prędkość dającą `Re=2000`.
+25. Jeśli średnica rury zmniejszy się dwukrotnie, ile razy rośnie średnia prędkość nieściśliwego płynu przy stałym `Q_v`?
+
+<details>
+<summary>Odpowiedzi i wyjaśnienia 19–25</summary>
+
+19. `v₂=(8/2)·0,25=1 m/s`.
+20. `p₂−p₁=½ρ(v₁²−v₂²)=500·(1−4)=−1500 Pa`; spadek o `1,5 kPa`.
+21. `p=100000+1000·10·2,5=125000 Pa=125 kPa`.
+22. `F_g=2·10=20 N`, `F_w=1000·10·0,0015=15 N`; wynik `5 N` w dół.
+23. `F_D=F_g−F_w=8−0,5=7,5 N`.
+24. `v=Re·ν/D=2000·2·10⁻⁶/0,01=0,4 m/s`.
+25. Pole przekroju `S=πD²/4` spada czterokrotnie, więc prędkość rośnie czterokrotnie.
+
+</details>
+
+## Poziom 4 — wymagające myślenia (26–30)
+
+26. `p₁=140 kPa`, `v₁=3 m/s`, `v₂=5 m/s`, `ρ=1000 kg/m³`, `y₁=0`, `y₂=2 m`. Dla idealnego przepływu oblicz `p₂`.
+27. Dwa ciała mają masy `2 kg` i `3 kg`, odległość ich środków mas wynosi `0,5 m`. Oblicz siłę grawitacji dla `G=6,67·10⁻¹¹ N·m²/kg²`.
+28. Obiekt zatacza jednostajnie okrąg o promieniu `1,5 m` w `3 s`. Oblicz przyspieszenie dośrodkowe.
+29. Dlaczego wzór Bernoulliego może błędnie przewidzieć ciśnienie w długiej, wąskiej rurze z lepkim płynem? Wymień przynajmniej dwa brakujące efekty.
+30. Zapisz pięć rodzajów członów występujących w równaniu Naviera–Stokesa i wskaż, który z nich znika w przepływie ustalonym.
+
+<details>
+<summary>Odpowiedzi i podpowiedzi 26–30</summary>
+
+26. `p₂=p₁ + ½ρ(v₁²−v₂²)+ρg(y₁−y₂) =140000+500(9−25)+1000·10(0−2)=112000 Pa =112 kPa`.
+27. `F=G·m₁m₂/r²=6,67·10⁻¹¹·(2·3)/(0,5²)=1,6008·10⁻⁹ N`.
+28. `a_d=4π²R/T² =4π²·1,5/9 ≈6,58 m/s²`.
+29. Straty wynikające z lepkości (tarcie o ściany, dyssypacja) i możliwe zaburzenia/turbulencja; idealny model nie zawiera strat ciśnienia.
+30. `∂u/∂t`: lokalna zmiana, `(u·∇)u`: konwekcja, `−∇p`: ciśnienie, `μ∇²u`: lepkość, `ρg`: siła objętościowa. Przy przepływie ustalonym znika lokalny człon `∂u/∂t`.
+
+</details>
+
+:::tip[Jak sprawdzić samodzielność?]
+Wyjaśnij komuś, dlaczego w zadaniu 25 wynik jest `4`, a nie `2`. Potem rozwiąż ponownie zadanie 26 bez podglądu odpowiedzi.
+:::

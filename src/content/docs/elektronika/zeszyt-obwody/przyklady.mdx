@@ -1,0 +1,64 @@
+---
+title: "Przykłady obliczeń krok po kroku"
+description: "Pełne podstawienia: prąd, rezystancja, moc, cewka i okres."
+sidebar:
+  order: 11
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Przykłady krok po kroku
+
+## 1. Prąd w okrągłym przewodzie
+
+**Dane:** `J = 9,33 A/mm²`, `r = 0,7 mm`. **Szukane:** `I`.
+
+Pole przekroju: <Eq tex={String.raw`S=\pi r^2\approx3{,}14159\cdot(0{,}7)^2\approx1{,}5394\,\mathrm{mm^2}`} />.
+
+Natężenie: <Eq tex={String.raw`I=JS\approx9{,}33\cdot1{,}5394\approx14{,}36\,\mathrm A`} />.
+
+**Wniosek:** dla założonej gęstości prądu otrzymujemy około **14,36 A**. Sama wartość gęstości może być niewłaściwa do długotrwałej bezpiecznej eksploatacji konkretnego przewodu; tu chodzi tylko o rachunek.
+
+## 2. Opór przewodu
+
+**Dane:** `ρ = 0,028 Ω·mm²/m`, `l = 10 m`, `S = 2 mm²`.
+
+<Eq tex={String.raw`R=\rho\frac{l}{S}=0{,}028\cdot\frac{10}{2}=0{,}14\,\Omega`} display />
+
+Tu świadomie użyliśmy **zgodnych jednostek mieszanych**: rezystywność `Ω·mm²/m`, długość `m`, pole `mm²`. Przy `Ω·m` pole trzeba zamienić na `m²`.
+
+## 3. Dwa rezystory równolegle
+
+`R₁ = 6 Ω`, `R₂ = 3 Ω`.
+
+<Eq tex={String.raw`R_z=\frac{6\cdot3}{6+3}=\frac{18}{9}=2\,\Omega`} display />
+
+Wynik `2 Ω` jest mniejszy od `3 Ω`, czyli przechodzi test sensowności.
+
+## 4. Energia i moc
+
+Grzałka pobiera `I = 2 A` przy napięciu `U = 12 V` przez `t = 5 min`.
+
+Przeliczenie: `5 min = 300 s`.
+
+<Eq tex={String.raw`P=UI=12\cdot2=24\,\mathrm W`} display />
+
+<Eq tex={String.raw`W=Pt=24\cdot300=7200\,\mathrm J=7{,}2\,\mathrm{kJ}`} display />
+
+## 5. Indukcyjność solenoidu — tylko w modelu idealnym
+
+`μᵣ = 1`, `N = 200`, `S = 1 cm² = 10⁻⁴ m²`, `l = 0,1 m`, `μ₀ ≈ 4π · 10⁻⁷ H/m`.
+
+<Eq tex={String.raw`L\approx\mu_0\mu_r\frac{N^2S}{l}=4\pi\cdot10^{-7}\cdot\frac{200^2\cdot10^{-4}}{0{,}1}\approx5{,}03\cdot10^{-5}\,\mathrm H`} display />
+
+Otrzymujemy około **50,3 µH**. To przybliżenie; krótka cewka może istotnie odbiegać od modelu długiego solenoidu.
+
+## 6. Okres na oscyloskopie
+
+`T = 1680 µs`.
+
+<Eq tex={String.raw`f=\frac1{1680\cdot10^{-6}}\approx595{,}24\,\mathrm{Hz}`} display />
+
+:::tip[Przed podaniem wyniku]
+Nie zgaduj jednostek. Zwróć uwagę na przedrostki: `m = 10⁻³`, `µ = 10⁻⁶`, `k = 10³`, `M = 10⁶`.
+:::

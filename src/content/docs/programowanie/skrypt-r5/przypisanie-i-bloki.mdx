@@ -1,0 +1,81 @@
+---
+title: "Przypisanie, blok i zakres zmiennych"
+description: "Jak działa operator =, inkrementacja, przecinek i cień zmiennej w bloku."
+---
+
+# Przypisanie i bloki kodu
+
+## 1. Dlaczego `=` to nie to samo co `==`?
+
+`x = 10;` oznacza **zapisz** liczbę `10` w zmiennej `x`. Natomiast `x == 10` oznacza **sprawdź**, czy obecna wartość `x` jest równa `10`. Operacja przypisania jest wyrażeniem — może też sama mieć wartość. Zwykle początkującym wystarczy używać jej jako samodzielnej instrukcji zakończonej średnikiem.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 2;
+    x = x + 3;             // x ma teraz 5
+    std::cout << x << '\n';
+}
+```
+
+**Dlaczego wynik to `5`?** Komputer najpierw oblicza prawą stronę: `2 + 3 = 5`, następnie zapisuje wynik do `x`. To nie jest równanie algebraiczne `x = x + 3`, lecz polecenie aktualizacji zmiennej.
+
+## 2. `++` przed i po zmiennej
+
+- `x++` — użyj dotychczasowej wartości wyrażenia, a potem zwiększ `x` o jeden.
+- `++x` — zwiększ `x` o jeden, po czym użyj nowej wartości.
+
+```cpp
+int x = 1;
+int y = x++; // y = 1, x = 2
+int z = ++x; // x = 3, z = 3
+```
+
+:::caution[Zapis z przecinkiem]
+W dokumencie jest przykład podobny do `i = (j, j = k++);`. **Przecinek w nawiasie** jest tutaj operatorem: lewe wyrażenie jest obliczane i odrzucane, a wartość całego wyrażenia pochodzi z prawego. Ten zapis jest legalny, ale mniej czytelny niż kilka osobnych instrukcji — w nauce i zwykłym kodzie unikaj go bez potrzeby.
+:::
+
+## 3. Blok `{ ... }` i czas życia zmiennej
+
+Blok to grupa instrukcji w nawiasach klamrowych. Nazwa zadeklarowana wewnątrz bloku jest dostępna tylko w odpowiednim zakresie.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int liczba = 7;
+    std::cout << liczba << '\n'; // 7
+    {
+        int liczba = 10;        // nowa zmienna przesłania zewnętrzną
+        int dodatkowa = 1;
+        std::cout << liczba << '\n';   // 10
+        std::cout << dodatkowa << '\n';// 1
+    }
+    std::cout << liczba << '\n'; // 7
+    // std::cout << dodatkowa; // BLAD: zmienna juz nie jest dostepna
+}
+```
+
+Pomyśl o dwóch pudełkach o nazwie `liczba`: wewnętrzne zasłania zewnętrzne tylko podczas pobytu w wewnętrznym bloku. Gdy blok się kończy, zewnętrzna zmienna dalej ma wartość `7`.
+
+| Miejsce w kodzie | Dostępna `liczba` | Dostępna `dodatkowa` |
+|---|---:|---|
+| Przed wewnętrznym blokiem | 7 | Nie |
+| Wewnątrz bloku | 10 | Tak, 1 |
+| Po bloku | 7 | Nie |
+
+## Sprawdź się
+
+1. Jaką wartość będzie mieć `x`, a jaką `a` po `int x=4; int a=x++;`?
+2. Czy można użyć zmiennej zadeklarowanej w klamrach po wyjściu z nich?
+3. Czy `if (x = 0)` sprawdza, czy `x` równa się zero?
+
+<details>
+<summary>Odpowiedzi z wyjaśnieniem</summary>
+
+1. `a = 4`, `x = 5`: postfix zwraca starą wartość.
+2. Nie — jej zakres nazwy kończy się razem z blokiem.
+3. Nie — `=` przypisuje zero, które w warunku jest fałszem. Trzeba napisać `x == 0`.
+
+</details>

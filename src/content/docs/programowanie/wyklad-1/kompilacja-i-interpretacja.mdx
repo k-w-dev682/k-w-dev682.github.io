@@ -1,0 +1,66 @@
+---
+title: "Kompilacja i interpretacja"
+description: "Kod źródłowy, kompilator, linker, wykonywanie i debugowanie."
+sidebar:
+  order: 9
+---
+
+# Kompilacja i interpretacja
+
+## Od pliku C++ do programu
+
+![Etapy budowania programu C++](/studylab-wyklad1/kompilacja.svg)
+
+1. **Kod źródłowy** — piszesz tekst programu, np. w pliku `main.cpp`.
+2. **Preprocessing** — przetwarzane są dyrektywy takie jak `#include`.
+3. **Kompilacja i asemblacja** — powstaje kod obiektowy odpowiedni dla platformy.
+4. **Linkowanie** — potrzebne fragmenty kodu obiektowego i bibliotek są łączone w plik wynikowy.
+5. **Uruchomienie** — system ładuje program i umożliwia jego wykonanie.
+
+Opis jest uproszczony: szczegóły zależą od kompilatora, platformy i sposobu budowania projektu.
+
+## Przykład minimalny
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Dziala!\n";
+}
+```
+
+Po zapisaniu jako `main.cpp`, jeśli masz zainstalowany kompilator `g++`, możesz wykonać:
+
+```bash
+g++ -std=c++20 -Wall -Wextra main.cpp -o program
+```
+
+Na Windows wynikowym plikiem może być `program.exe`, a na Linux `program`. Sposób uruchomienia zależy od systemu i terminala.
+
+## Kompilacja a interpretacja
+
+**Kompilacja** przekształca kod do innej postaci, często maszynowej, przed uruchomieniem. **Interpretacja** oznacza wykonywanie programu za pomocą interpretera, który analizuje odpowiednią reprezentację podczas działania.
+
+:::note[Nowoczesne środowiska]
+Ten podział nie zawsze jest czarno-biały. Istnieje wykonywanie kodu pośredniego, maszyny wirtualne i kompilacja JIT (podczas działania). Nie należy też zakładać, że każdy interpreter zawsze odczytuje każdą instrukcję od nowa.
+:::
+
+## Rodzaje błędów
+
+| Rodzaj | Przykład | Co się dzieje? |
+|---|---|---|
+| Składniowy/kompilacji | brak średnika albo nieznana nazwa | program nie przechodzi kompilacji |
+| Linkowania | brak definicji użytej funkcji | kompilacja może się udać, ale budowa całego programu nie |
+| Wykonania | odczyt poza zakresem tablicy | błąd może ujawnić się dopiero podczas pracy |
+| Logiczny | użycie `-` zamiast `+` | program może się uruchomić, lecz daje zły wynik |
+
+## Ćwiczenie
+
+Program wypisuje 8, choć powinien 12. Kompilator nie zgłasza błędów. Jakiego rodzaju jest to problem?
+
+<details>
+<summary>Odpowiedź</summary>
+
+Prawdopodobnie błąd logiczny albo błędne założenia dotyczące danych. Sama poprawna kompilacja nie dowodzi poprawności algorytmu.
+
+</details>

@@ -1,0 +1,58 @@
+---
+title: "Równanie Bernoulliego"
+description: "Zależność ciśnienia, szybkości i wysokości w przepływie idealnym."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Równanie Bernoulliego
+
+*Z zeszytu: zdjęcie 7.*
+
+## Co mówi równanie?
+
+Dla **ustalonego przepływu nieściśliwego płynu idealnego**, bez lepkości i bez wymiany pracy przez pompę lub turbinę, wzdłuż tej samej linii prądu zachodzi:
+
+<Eq tex={String.raw`p+\frac12\rho v^2+\rho gy=\mathrm{const}`} display />
+
+Między dwoma punktami tej samej linii prądu:
+
+<Eq tex={String.raw`p_1+\frac12\rho v_1^2+\rho gy_1=p_2+\frac12\rho v_2^2+\rho gy_2`} display />
+
+- `p₁, p₂` — ciśnienie statyczne [Pa],
+- `ρ` — stała gęstość płynu [kg/m³],
+- `v₁, v₂` — prędkość płynu [m/s],
+- `g` — przyspieszenie grawitacyjne [m/s²],
+- `y₁, y₂` — wysokości punktów [m].
+
+**Każdy składnik ma jednostkę paskala (Pa).** Człon `½ρv²` nazywamy ciśnieniem dynamicznym, a `ρgy` — składnikiem hydrostatycznym związanym z wysokością.
+
+## Co się dzieje w poziomej rurze?
+
+Jeśli `y₁=y₂`, wyrazy `ρgy` znoszą się:
+
+<Eq tex={String.raw`p_1+\frac12\rho v_1^2=p_2+\frac12\rho v_2^2`} display />
+
+Jeżeli węższy przekrój zwiększa prędkość, w **idealnym modelu** zmniejsza się ciśnienie statyczne.
+
+![Rura i pola S1/S2 z różnymi prędkościami](/studylab-fizyka-plyny/bernoulli.svg)
+
+### Przykład z wyprowadzeniem
+
+W poziomej rurze płynie woda `ρ=1000 kg/m³`. `v₁=1 m/s`, `v₂=3 m/s`, `p₁=100 kPa`.
+
+1. `p₂=p₁ + ½ρ(v₁²-v₂²)`.
+2. `v₁²-v₂²=1-9=-8 m²/s²`.
+3. `½·1000·(-8)=-4000 Pa`.
+4. `p₂=100000-4000=96000 Pa = 96 kPa`.
+
+:::caution[Zastrzeżenie]
+W rzeczywistej rurze lepkość powoduje straty energii mechanicznej. Zmiana ciśnienia nie musi być taka jak w modelu idealnym, zwłaszcza przy długich przewodach, zaworach i przepływach turbulentnych.
+:::
+
+### Różnica między prawami
+
+- **Ciągłość:** `S₁v₁=S₂v₂` dla przepływu ustalonego nieściśliwego.
+- **Bernoulli:** wiąże ciśnienie, szybkość i wysokość, przy dodatkowych założeniach o stratach i przepływie.
+
+To dwa **różne prawa**, używane razem do rozwiązania zadania.

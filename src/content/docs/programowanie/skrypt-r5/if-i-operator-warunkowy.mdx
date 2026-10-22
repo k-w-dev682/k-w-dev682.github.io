@@ -1,0 +1,87 @@
+---
+title: "Warunki: if, else, else if i ?:"
+description: "Rozgałęzienia w C++, bloki instrukcji, sprawdzanie liczb i operator warunkowy."
+---
+
+# `if`, `else if`, `else` oraz `?:`
+
+## Jeden warunek, dwie drogi
+
+`if` wykonuje ciało wtedy, gdy warunek jest prawdziwy. `else` to opcjonalna alternatywa wykonywana tylko przy warunku fałszywym. Warunki zwykle mają postać porównania: `x > 10`, `x == 0`, `x != 5`.
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x;
+    std::cin >> x;
+
+    if (x > 10) {
+        std::cout << "Reszta: " << x % 10 << '\n';
+    } else {
+        std::cout << "Dziesieciokrotnosc: " << x * 10 << '\n';
+    }
+}
+```
+
+Dla `x = 27` wypisze `Reszta: 7`, a dla `x = 10` wypisze `Dziesieciokrotnosc: 100`, ponieważ `10 > 10` jest fałszem.
+
+## Klamry chronią przed pomyłką
+
+Bez `{}` do danej gałęzi należy tylko **jedna** następna instrukcja. Wcięcia są dla człowieka — kompilator decyduje na podstawie składni.
+
+```cpp
+int x = 2, y = 5, z = 7, s = 0;
+if (x > y)
+    s = x + z;
+else
+    s = x + y;
+s = y + z;  // WYKONUJE SIE ZAWSZE, wiec na koncu s == 12
+```
+
+Dlaczego `s == 12`, a nie `7`? Zapis `s = y + z;` znajduje się **poza** `if` i wykonuje się niezależnie od wyboru gałęzi.
+
+## Wiele warunków — `else if`
+
+```cpp
+if (punkty >= 90) {
+    std::cout << "Bardzo dobry";
+} else if (punkty >= 50) {
+    std::cout << "Zaliczono";
+} else {
+    std::cout << "Do poprawy";
+}
+```
+
+Warunki są sprawdzane po kolei; po wejściu do jednej gałęzi program nie sprawdza następnych `else if`.
+
+## Operator warunkowy `?:`
+
+To krótszy sposób wybrania **wartości**, np. napisu. Jego ogólny zapis to `warunek ? wartosc_gdy_prawda : wartosc_gdy_falsz`.
+
+```cpp
+int x = 7;
+const char* opis = (x % 2 == 0) ? "parzysta" : "nieparzysta";
+std::cout << opis << '\n';
+```
+
+`7 % 2` wynosi `1`, zatem warunek `== 0` jest fałszywy i wybrana zostaje wartość `"nieparzysta"`. Średnik kończy **całą instrukcję**, nie samą pierwszą gałąź operatora `?:`.
+
+:::tip[Alternatywa bitowa]
+W skrypcie parzystość sprawdzano przez `x & 1`. Działa to przez badanie najmłodszego bitu liczby, ale **`&` jest operatorem bitowym**, nie logicznym `&&`. Dla początkującego zwykle czytelniejsze jest `x % 2 == 0`.
+:::
+
+## Pytania kontrolne
+
+1. Jakie są wyniki dla `x = -3`, `x = 10`, `x = 11` w pierwszym programie?
+2. Dlaczego wcięcie nie wystarcza do objęcia dwóch instrukcji gałęzią `if`?
+3. Czym różni się `x = 2` od `x == 2`?
+
+<details>
+<summary>Sprawdź</summary>
+
+1. Odpowiednio `-30`, `100` i reszta `1` (komunikaty według gałęzi).
+2. Bo bez klamer tylko jedna kolejna instrukcja należy do gałęzi.
+3. Pierwszy zapis ustawia wartość, drugi ją porównuje.
+
+</details>

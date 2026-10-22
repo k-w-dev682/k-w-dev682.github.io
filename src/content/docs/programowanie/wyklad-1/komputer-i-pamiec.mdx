@@ -1,0 +1,53 @@
+---
+title: "Komputer, procesor i pamięć"
+description: "Procesor, pamięć, wejście/wyjście oraz bity i bajty."
+sidebar:
+  order: 6
+---
+
+# Komputer, procesor i pamięć
+
+## Co jest potrzebne do wykonania algorytmu?
+
+Algorytm opisuje **co** zrobić, a komputer zapewnia środki umożliwiające wykonanie tych operacji.
+
+![Uproszczony schemat komputera](/studylab-wyklad1/komputer.svg)
+
+| Element | Rola |
+|---|---|
+| **Procesor (CPU)** | Wykonuje instrukcje maszynowe i steruje przebiegiem obliczeń |
+| **Pamięć operacyjna (RAM)** | Przechowuje działający program i dane używane podczas jego wykonywania |
+| **Urządzenia wejścia** | Dostarczają dane, np. klawiatura, czujnik |
+| **Urządzenia wyjścia** | Prezentują wyniki, np. ekran |
+| **Dysk/SSD** | Przechowuje pliki także po wyłączeniu zasilania |
+
+**Procesor nie jest całym komputerem.** Współpracuje z pamięcią, urządzeniami i systemem operacyjnym.
+
+## Stan zmiennej w pamięci
+
+Dla `int x = 5; x = x + 2;` program tworzy obiekt reprezentujący liczbę całkowitą, zapisuje 5, a później zmienia jego wartość na 7. Nie należy utożsamiać nazwy `x` z fizycznym adresem ani zakładać, że każda zmienna zawsze ma osobną komórkę RAM: kompilator może używać rejestrów i optymalizacji.
+
+## Bit, bajt i kod
+
+**Bit** może przyjmować dwie wartości: 0 albo 1. Z `n` bitów można utworzyć `2^n` kombinacji. **Bajt** ma 8 bitów, a więc 256 kombinacji. Kombinacja bitów sama w sobie nie mówi, czy reprezentuje liczbę, znak, kolor czy instrukcję — decydują typ danych i umówione kodowanie.
+
+Przykładowo `01000001` to zapis 65 w kodowaniu dwójkowym, a w ASCII kod dużej litery `A`.
+
+## Dlaczego ograniczenia sprzętu są istotne?
+
+Nie każda maszyna wykonuje każdą operację pojedynczą instrukcją sprzętową. Bardziej złożone działania mogą wymagać sekwencji prostszych instrukcji. To uzasadnia, dlaczego **ten sam problem może mieć różne algorytmy o różnej wydajności**.
+
+## Pytania kontrolne
+
+1. Czy pamięć RAM i SSD pełnią taką samą funkcję?
+2. Ile wzorców kodowych można przedstawić za pomocą 3 bitów?
+3. Czy pojedynczy bit określa, co oznacza liczba w programie?
+
+<details>
+<summary>Odpowiedzi</summary>
+
+1. Nie. RAM służy przede wszystkim do pracy uruchomionych programów, a SSD do trwałego zapisu plików.
+2. `2^3 = 8` różnych kombinacji: od `000` do `111`.
+3. Nie. Potrzebna jest interpretacja (np. typ, format, kodowanie).
+
+</details>

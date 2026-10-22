@@ -1,0 +1,70 @@
+---
+title: "Informacja i programowanie"
+description: "Dane, informacja, informatyka i różnica między algorytmem a programem."
+sidebar:
+  order: 2
+---
+
+# Informacja, informatyka i programowanie
+
+## Informatyka — o czym jest ta dziedzina?
+
+**Informatyka** zajmuje się reprezentowaniem, przetwarzaniem, przechowywaniem i przekazywaniem informacji oraz projektowaniem sposobów wykonywania tych czynności, zwłaszcza za pomocą komputerów.
+
+Nie sprowadza się do samego pisania kodu. Programowanie jest jedną z metod rozwiązywania problemów informatycznych.
+
+## Dane a informacja
+
+**Dane** to symbole lub wartości zapisane w określonej postaci, np. `7`, `12`, `temperatura=21`. **Informacja** to treść, którą z tych danych można odczytać w odpowiednim kontekście.
+
+Przykład: samotna liczba `21` niczego jednoznacznie nie określa. Dopiero opis „temperatura pomieszczenia: 21°C” przekazuje konkretną informację.
+
+:::tip[Zapamiętaj]
+Program zwykle **pobiera dane**, **przetwarza je** według reguł i **wytwarza wynik**. Znaczenie liczb i napisów wynika z tego, jak je interpretujemy.
+:::
+
+## Czym jest programowanie?
+
+To projektowanie rozwiązania i wyrażanie go w języku, który da się wykonać na komputerze. Potrzebujesz **dwóch umiejętności**: znalezienia rozwiązania i zapisania go poprawną składnią języka.
+
+Rozważ zadanie „oblicz cenę po rabacie”. Ustalamy:
+
+- wejście: cena `cena` i procent rabatu `rabat`;
+- wynik: kwota `poRabacie`;
+- reguła: `cena * (1 - rabat / 100)`.
+
+Pełny przykład w C++:
+
+```cpp
+#include <iostream>
+
+int main() {
+    double cena = 200.0;
+    double rabat = 15.0;
+    double poRabacie = cena * (1.0 - rabat / 100.0);
+    std::cout << poRabacie << '\n';  // 170
+}
+```
+
+**Dlaczego `100.0`, a nie `100`?** Oba zapisy dają tutaj dobry wynik, ponieważ `rabat` ma typ `double`. Zapis `100.0` podkreśla jednak, że obliczenia prowadzimy na liczbach rzeczywistych.
+
+## Pomyłki początkujących
+
+- „Jeśli umiem składnię C++, to umiem rozwiązać każde zadanie” — nie; najpierw trzeba znaleźć algorytm.
+- „Algorytm to plik `.cpp`” — nie; algorytm można opisać słowami, pseudokodem lub schematem.
+- „Liczba w pamięci sama ma znaczenie” — nie; znaczenie nadają kontekst i interpretacja danych.
+
+## Pytania kontrolne
+
+1. Jakie dane i wyniki występują przy obliczaniu pola prostokąta?
+2. Czy dwie osoby mogą napisać różne programy realizujące ten sam algorytm?
+3. Co zmieni się w przykładzie, jeśli rabat będzie równy `0`?
+
+<details>
+<summary>Odpowiedzi z uzasadnieniem</summary>
+
+1. Wejście: długości boków. Wynik: pole równe ich iloczynowi. Trzeba też ustalić jednostkę.
+2. Tak. Ten sam pomysł można zapisać w różnych językach lub odmienną składnią.
+3. Otrzymamy `cena * (1 - 0)`, czyli cenę bez zmiany.
+
+</details>

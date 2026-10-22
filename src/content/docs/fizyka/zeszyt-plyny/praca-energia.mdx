@@ -1,0 +1,53 @@
+---
+title: "Praca i energia mechaniczna"
+description: "Rozkład siły, praca, energia kinetyczna, potencjalna i zachowanie energii."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Praca i energia — skąd biorą się wzory?
+
+*Z zeszytu: zdjęcia 1–2. Wyjaśnienia i przykłady dodano w StudyLab.*
+
+## Siła pod kątem do przemieszczenia
+
+W zeszycie siła `F` jest rozłożona na składowe `F cos α` (poziomą) i `F sin α` (pionową). Kąt `α` mierzymy od dodatniego kierunku poziomego.
+
+![Rozkład siły przy ciągnięciu ciała](/studylab-fizyka-plyny/sila-praca.svg)
+
+Jeżeli ciało przemieszcza się poziomo o `s`, a siła `F` jest stała:
+
+<Eq tex={String.raw`W=Fs\cos\alpha`} display />
+
+- `W` — praca [J],
+- `F` — wartość siły [N],
+- `s` — długość przemieszczenia [m],
+- `α` — kąt między siłą a przemieszczeniem.
+
+**Dlaczego jest cosinus?** Pracę przy tym przemieszczeniu wykonuje tylko składowa siły skierowana wzdłuż ruchu. Prostopadła składowa nie wykonuje pracy przy ruchu poziomym.
+
+## Energia kinetyczna i potencjalna
+
+<Eq tex={String.raw`E_k=\frac12mv^2`} display />
+
+<Eq tex={String.raw`E_p=mgh`} display />
+
+- `m` — masa [kg], `v` — szybkość [m/s],
+- `g` — wartość przyspieszenia grawitacyjnego [m/s²],
+- `h` — wysokość względem **wybranego** poziomu zerowego [m].
+
+Wzór `mgh` dotyczy sytuacji, gdy `g` można traktować jako stałe, np. blisko powierzchni Ziemi.
+
+## Zasada zachowania energii
+
+Dla układu izolowanego całkowita energia jest stała. **Energia mechaniczna** `E_k + E_p` zachowuje się tylko wtedy, gdy nie ma strat na tarcie/opór ani dopływu energii mechanicznej z zewnątrz:
+
+<Eq tex={String.raw`E_{k1}+E_{p1}=E_{k2}+E_{p2}`} display />
+
+:::caution[Pułapka]
+Jeśli ciało porusza się w powietrzu, część energii mechanicznej może zamienić się na energię wewnętrzną otoczenia. **Całkowita energia** nadal jest zachowana, ale `E_k+E_p` zwykle już nie.
+:::
+
+### Przykład
+
+Masa `2 kg` porusza się z szybkością `3 m/s`: `E_k = ½·2·3² = 9 J`. Gdy uniesiesz ją o `1,5 m`, przy `g=10 m/s²` energia potencjalna wzrośnie o `2·10·1,5 = 30 J`.

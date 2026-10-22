@@ -1,0 +1,74 @@
+---
+title: "Algorytm i jego własności"
+description: "Dane wejściowe, wyniki, jednoznaczność, zakończenie i przypadki brzegowe."
+sidebar:
+  order: 4
+---
+
+# Algorytm i jego własności
+
+## Co to jest algorytm?
+
+**Algorytm** jest jasno określonym sposobem przetwarzania danych wejściowych w wynik. Nie zależy od konkretnego języka programowania. Można go przedstawić opisem słownym, pseudokodem, schematem blokowym albo kodem.
+
+### Jak ocenić algorytm?
+
+| Własność | Co sprawdzamy? |
+|---|---|
+| Określone wejście i wynik | Wiadomo, co można podać i czego oczekujemy |
+| Jednoznaczne kroki | W każdej sytuacji wiadomo, co wykonać dalej |
+| Poprawność | Dla danych spełniających założenia powstaje właściwy wynik |
+| Zakończenie | Dla rozważanej klasy danych algorytm kończy pracę albo jawnie określa warunki przerwania |
+| Ogólność | Nie działa wyłącznie dla jednego ręcznie dobranego zestawu danych |
+
+**Ważne doprecyzowanie:** nie każdy proces obliczeniowy musi się zatrzymywać. W zadaniach szkolnych zwykle projektujemy algorytmy, które kończą się dla poprawnych danych wejściowych. Warto to sprawdzić, zamiast zakładać automatycznie.
+
+## Przykład: większa z dwóch liczb
+
+Dane: liczby `a` i `b`. Wynik: większa wartość.
+
+```text
+jeżeli a >= b:
+    wynik = a
+w przeciwnym razie:
+    wynik = b
+zwróć wynik
+```
+
+Co jeśli `a == b`? Wtedy obie są równie duże i można zwrócić dowolną z nich. Warunek `>=` uwzględnia ten przypadek bez osobnej gałęzi.
+
+## Przykład: równanie kwadratowe
+
+Dla zapisu `a*x*x + b*x + c = 0` nie wystarczy bezmyślnie użyć wzoru na deltę.
+
+1. Najpierw sprawdź `a == 0`. Wtedy równanie **nie jest kwadratowe**.
+2. Jeśli `a != 0`, oblicz deltę `b*b - 4*a*c`.
+3. Delta dodatnia: dwa różne pierwiastki rzeczywiste; zero: jeden podwójny; ujemna: brak rzeczywistych pierwiastków.
+4. Gdy `a == 0`, rozpatrz osobno przypadki równania liniowego `b*x+c=0`, w tym `b == 0`.
+
+Dla liczb zmiennoprzecinkowych dokładne porównywanie z zerem wymaga dodatkowej ostrożności — to osobny temat kursu.
+
+## Przykład algorytmu kończącego się — NWD
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a = 48;
+    int b = 18;
+    while (b != 0) {
+        int reszta = a % b;
+        a = b;
+        b = reszta;
+    }
+    std::cout << a << '\n'; // 6
+}
+```
+
+**Dlaczego pętla się kończy?** Dla dodatnich liczb całkowitych reszta z dzielenia jest nieujemna i mniejsza od dzielnika. Kolejne dodatnie wartości `b` maleją, aż pojawi się zero.
+
+## Pytania kontrolne
+
+- Dlaczego program korzystający ze stałej `a=4` nie jest pełnym rozwiązaniem zadania „dla dowolnego a”, jeśli nie pozwala wczytać innych wartości?
+- Jakim przykładem wykryjesz brak obsługi `a=0` w równaniu kwadratowym?
+- Czym różni się **poprawny wynik** od **programu, który się kompiluje**?

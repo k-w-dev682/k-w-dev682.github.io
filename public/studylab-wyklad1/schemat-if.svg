@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Schemat blokowy wybierania większej z dwóch liczb"><rect width="1200" height="360" rx="26" fill="#071311"/><style>.h{font:700 26px system-ui, sans-serif;fill:#eafcf7}.t{font:18px system-ui,sans-serif;fill:#b4e9da}.s{font:16px system-ui,sans-serif;fill:#8ec9b8}.line{stroke:#61e7c4;stroke-width:4;fill:none}.b{fill:#123128;stroke:#4fcfae;stroke-width:2.5}.d{fill:#123128;stroke:#4fcfae;stroke-width:2.5}</style>
+<rect class="b" x="20" y="134" width="140" height="80" rx="37"/><text class="h" x="90" y="184" text-anchor="middle">START</text>
+<path class="line" d="M160 174 H203"/><path d="M193 164 L210 174 L193 184" stroke="#61e7c4" stroke-width="4" fill="none"/>
+<polygon class="b" points="222,130 380,130 402,218 244,218"/><text class="t" x="312" y="182" text-anchor="middle">Wczytaj a, b</text>
+<path class="line" d="M402 174 H445"/><path d="M435 164 L452 174 L435 184" stroke="#61e7c4" stroke-width="4" fill="none"/>
+<polygon class="d" points="545,88 638,174 545,260 452,174"/><text class="h" x="545" y="182" text-anchor="middle">a ≥ b?</text>
+<path class="line" d="M638 174 H683 V110 H705"/><path d="M695 100 L712 110 L695 120" stroke="#61e7c4" stroke-width="4" fill="none"/>
+<path class="line" d="M638 174 H683 V238 H705"/><path d="M695 228 L712 238 L695 248" stroke="#61e7c4" stroke-width="4" fill="none"/>
+<text class="s" x="663" y="107" text-anchor="middle">TAK</text><text class="s" x="661" y="250" text-anchor="middle">NIE</text>
+<rect class="b" x="712" y="67" width="210" height="85" rx="16"/><text class="h" x="817" y="119" text-anchor="middle">Wypisz a</text>
+<rect class="b" x="712" y="195" width="210" height="85" rx="16"/><text class="h" x="817" y="246" text-anchor="middle">Wypisz b</text>
+<path class="line" d="M922 110 H955 V174 M922 238 H955 V174 M955 174 H1002"/><path d="M992 164 L1009 174 L992 184" stroke="#61e7c4" stroke-width="4" fill="none"/>
+<rect class="b" x="1015" y="134" width="150" height="80" rx="35"/><text class="h" x="1090" y="185" text-anchor="middle">STOP</text></svg>

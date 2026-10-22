@@ -1,0 +1,51 @@
+---
+title: "Akcje i abstrakcja"
+description: "Świat rzeczywisty, obiekt, stan, instrukcja, proces i program."
+sidebar:
+  order: 3
+---
+
+# Akcje, obiekty, instrukcje i abstrakcja
+
+## Dwa sposoby opisywania zdarzeń
+
+W wykładzie rozdzielono pojęcia ze **świata zewnętrznego** i z **opisu symbolicznego** stosowanego w programie.
+
+- **Akcja** — zdarzenie wykonywane na pewnym obiekcie, mające określony skutek.
+- **Obiekt** — to, czego stan może się zmienić.
+- **Stan** — informacje opisujące obiekt w danej chwili.
+- **Instrukcja** — formalny zapis czynności, którą ma wykonać program.
+
+Przykład: przedmiot kosztuje 80 zł, a system nalicza rabat 10 zł. W rzeczywistości cena do zapłaty spada. W programie zapisujemy to przez zmianę wartości zmiennej.
+
+```cpp
+int kwota = 80;
+kwota = kwota - 10; // teraz kwota == 70
+```
+
+**Krok po kroku:** `kwota` początkowo ma wartość 80; prawa strona `kwota - 10` daje 70; instrukcja przypisania zapisuje 70 do tej samej zmiennej.
+
+## Abstrakcja
+
+**Abstrakcja** polega na wybraniu cech istotnych dla zadania i pominięciu szczegółów niepotrzebnych do obliczeń. Program do obliczania wynagrodzenia nie musi wiedzieć, jak wygląda portfel pracownika ani gdzie stoi biurko — wystarczą poprawnie określone składniki wynagrodzenia.
+
+![Droga od sytuacji do programu](/studylab-wyklad1/abstrakcja.svg)
+
+Przykład matematyczny: różne zakupy mogą zostać opisane przez dwie liczby `cena` i `ilosc`. Obliczenie wartości to po prostu `cena * ilosc`.
+
+## Proces a program
+
+**Proces** składa się z kilku powiązanych akcji, często w określonej kolejności. **Program** to formalny zestaw instrukcji umożliwiających przeprowadzenie obliczeń.
+
+Dla zamówienia kolejność ma znaczenie: pobranie liczby sztuk → obliczenie ceny → pokazanie wyniku. Jeśli najpierw użyjemy jeszcze niezdefiniowanych danych, wynik nie będzie poprawny.
+
+## Ćwiczenie
+
+Zadanie: „uczeń ma 4 punkty, otrzymuje jeszcze 3”. Wskaż obiekt, początkowy stan, akcję i końcowy stan.
+
+<details>
+<summary>Sprawdź</summary>
+
+Obiekt: wynik punktowy. Stan początkowy: 4. Akcja: dodanie 3. Stan końcowy: 7. W C++: `int punkty = 4; punkty += 3;`.
+
+</details>

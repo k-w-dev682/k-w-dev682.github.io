@@ -1,0 +1,52 @@
+---
+title: "Cewka, strumień i indukcyjność"
+description: "Psi=N Phi, L=Psi/I i przybliżenie długiej cewki."
+sidebar:
+  order: 7
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Cewka — skąd bierze się indukcyjność?
+
+*Główne źródło zeszytowe: zdjęcie 5; ciąg dalszy na zdjęciach 6–7.*
+
+Cewka to zwykle przewód nawinięty w zwoje. Kiedy płynie przez nią prąd, powstaje **pole magnetyczne** i energia może być przechowywana w tym polu.
+
+![Symbol cewki i zwoje](/studylab-elektronika-obwody/cewka.svg)
+
+## Strumień a strumień skojarzony
+
+- `Φ` (fi) — strumień magnetyczny przechodzący przez powierzchnię jednego zwoju [Wb].
+- `Ψ` (psi) — **strumień skojarzony** całej cewki [Wb·zwoje], gdy sumujemy strumienie poszczególnych zwojów.
+- `N` — liczba zwojów.
+
+Jeśli każdy zwój obejmuje **taki sam strumień**:
+
+<Eq tex={String.raw`\Psi=N\Phi`} display />
+
+## Definicja indukcyjności
+
+W liniowym obwodzie magnetycznym, bez dodatkowych źródeł strumienia:
+
+<Eq tex={String.raw`L=\frac{\Psi}{I}`} display />
+
+Indukcyjność `L` mierzymy w **henrach [H]**. To opis zależności strumienia skojarzonego z prądem; nie oznacza ona, że cewka „przepuszcza” mniej prądu stałego tak jak rezystor.
+
+## Przybliżenie długiego solenoidu
+
+Dla długiej, ciasno nawiniętej cewki z jednorodnym rdzeniem, przy zaniedbaniu rozproszenia:
+
+<Eq tex={String.raw`L\approx\mu_0\mu_r\frac{N^2S}{l}`} display />
+
+- `μ₀` — przenikalność magnetyczna próżni [H/m],
+- `μᵣ` — względna przenikalność magnetyczna rdzenia (bez jednostki),
+- `N` — liczba zwojów,
+- `S` — pole przekroju cewki [m²],
+- `l` — długość obszaru uzwojenia [m].
+
+:::caution[Warunki wzoru]
+Nie jest to uniwersalny wzór na każdą cewkę. Dla krótkiej cewki, rdzenia z przerwą powietrzną, nieliniowego materiału albo dużych strumieni rozproszonych wynik może być niedokładny. `μᵣ` nie jest też koniecznie stałe.
+:::
+
+**Skąd `N²`?** Więcej zwojów zwiększa wytworzone pole magnetyczne, a równocześnie zwiększa liczbę zwojów obejmujących strumień; przy pozostałych warunkach stałych oba efekty mnożą się.

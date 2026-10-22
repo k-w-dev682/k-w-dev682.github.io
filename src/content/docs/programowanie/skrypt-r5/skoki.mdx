@@ -1,0 +1,72 @@
+---
+title: "Instrukcje break, continue i goto"
+description: "Kiedy zatrzymać pętlę, pominąć jeden obieg albo skoczyć do etykiety."
+---
+
+# `break`, `continue`, `goto`
+
+## `break` — koniec najbliższej pętli lub `switch`
+
+```cpp
+for (int i = 0; i < 100; ++i) {
+    if (i == 7) {
+        break;
+    }
+    std::cout << i << ' ';
+}
+// 0 1 2 3 4 5 6
+```
+
+**Uwaga:** w skrypcie przykładowy kod wypisywał `i` **przed** sprawdzeniem `i >= 7`, więc w jego wyniku pojawiało się także `7`. Wersja powyżej celowo pokazuje przerwanie przed wypisaniem tej liczby. To dwie różne, poprawne kolejności działań.
+
+## `continue` — pomiń resztę aktualnego obiegu
+
+```cpp
+for (int i = 0; i < 10; ++i) {
+    if (i % 2 != 0) {
+        continue;
+    }
+    std::cout << i << ' ';
+}
+// 0 2 4 6 8
+```
+
+`continue` nie kończy całej pętli; `for` wykonuje jeszcze swoją część zmiany licznika i ponownie bada warunek. W `while` trzeba uważać, aby `continue` nie pominęło koniecznej zmiany stanu.
+
+| Instrukcja | Co robi? | Gdzie używać? |
+|---|---|---|
+| `break` | Kończy najbliższą pętlę lub `switch` | `for`, `while`, `do...while`, `switch` |
+| `continue` | Przechodzi do następnego obiegu pętli | tylko pętle |
+| `goto` | Skacze do etykiety w tej samej funkcji, z ograniczeniami zakresu | rzadko — kiedy jest uzasadnione |
+
+## `goto` — skok do etykiety
+
+```cpp
+#include <iostream>
+
+int main() {
+    char odpowiedz;
+    std::cin >> odpowiedz;
+    if (odpowiedz == 't') goto koniec;
+    std::cout << "To wypisze sie tylko dla odpowiedzi innej niz t\n";
+koniec:
+    std::cout << "Koniec programu\n";
+}
+```
+
+Etykieta ma postać `koniec:`. C++ dopuszcza skoki do etykiet w obrębie **tej samej funkcji**, ale nie można skokiem obejść inicjalizacji niektórych zmiennych. `goto` komplikuje czytanie i testowanie kodu, dlatego początkującym zwykle lepiej służą `if`, pętle i funkcje.
+
+## Zadania do przewidywania
+
+1. Jakie liczby wypisze pętla z `break`, jeśli zamienisz `i == 7` na `i >= 3`?
+2. Jakie liczby pokaże przykład z `continue`, jeżeli warunkiem będzie `i % 3 == 0`?
+3. Czy `break` zakończy dwie zagnieżdżone pętle naraz?
+
+<details>
+<summary>Odpowiedzi</summary>
+
+1. `0 1 2`.
+2. `1 2 4 5 7 8` — pominięte będą `0`, `3`, `6`, `9`.
+3. Nie. Zakończy tylko pętlę najbardziej wewnętrzną.
+
+</details>

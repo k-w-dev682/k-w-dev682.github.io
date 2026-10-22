@@ -1,0 +1,70 @@
+---
+title: "Języki programowania"
+description: "Język maszynowy, asembler, języki wysokiego poziomu i generacje."
+sidebar:
+  order: 8
+---
+
+# Języki programowania
+
+## Po co nam język programowania?
+
+Algorytm może być opisany słowami, ale komputer potrzebuje formalnej reprezentacji instrukcji. **Język programowania** określa symbole, składnię i znaczenie poprawnych konstrukcji.
+
+Ważne rozróżnienie:
+
+- **Język maszynowy** — instrukcje w formie zrozumiałej dla danego procesora.
+- **Asembler** — symboliczne nazwy instrukcji niskiego poziomu, zwykle mocno związane z architekturą procesora.
+- **Języki wyższego poziomu** — pozwalają używać pojęć takich jak zmienne, funkcje, pętle i typy danych.
+
+## Porównanie idei
+
+Polecenie „dodaj dwie wartości” można opisać na różnym poziomie:
+
+```text
+Algorytm: wynik = pierwsza liczba + druga liczba
+C++:      int wynik = a + b;
+Asembler: instrukcje zależne od procesora, rejestrów i konwencji
+Maszyna:  właściwe kody instrukcji dla danego CPU
+```
+
+Nie istnieje jeden uniwersalny zapis asemblerowy działający bez zmian na każdej architekturze.
+
+## Generacje języków
+
+W prezentacji występuje tradycyjny podział na generacje. Jest to **umowna klasyfikacja**, a nie ścisłe prawo techniczne:
+
+| Nazwa | Sens | Przykłady |
+|---|---|---|
+| 1GL | język maszynowy | kody instrukcji procesora |
+| 2GL | język asemblera | mnemoniki instrukcji |
+| 3GL | języki ogólnego przeznaczenia wyższego poziomu | C++, C, Java |
+| 4GL | języki bardziej deklaratywne lub ukierunkowane dziedzinowo | SQL (często tak klasyfikowany) |
+
+**Dlaczego C++ bywa zaliczany do 3GL?** Pozwala opisać obliczenia czytelniej niż instrukcje procesora, niezależnie od bardzo wielu szczegółów sprzętu. Nie oznacza to, że kod C++ jest zawsze automatycznie przenośny między systemami.
+
+## Kod o tej samej idei
+
+```cpp
+int suma = 0;
+for (int x = 1; x <= 5; ++x) {
+    suma += x;
+}
+```
+
+Ten program wyraża algorytm sumowania pięciu liczb bez wskazywania konkretnych instrukcji procesora. Kompilator tłumaczy kod na działania odpowiednie dla docelowej platformy.
+
+## Sprawdź rozumienie
+
+1. Czy ten sam algorytm można zapisać w C++ i innym języku?
+2. Co oznacza „język wyższego poziomu”?
+3. Dlaczego assembler konkretnego procesora może nie pasować do innego?
+
+<details>
+<summary>Odpowiedzi</summary>
+
+1. Tak, ponieważ algorytm opisuje sposób rozwiązania, a nie składnię.
+2. Większą abstrakcję od szczegółów sprzętu i wygodniejsze konstrukcje do opisu obliczeń.
+3. Procesory mogą mieć inne zestawy instrukcji, rejestry i konwencje.
+
+</details>

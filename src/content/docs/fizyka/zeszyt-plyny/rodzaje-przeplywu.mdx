@@ -1,0 +1,41 @@
+---
+title: "Przepływ laminarny i turbulentny"
+description: "Ustalony/nieustalony, liczba Reynoldsa i ograniczenia progów."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Rodzaje przepływu i liczba Reynoldsa
+
+*Z zeszytu: zdjęcie 6.*
+
+## Przepływ ustalony i nieustalony
+
+- **Ustalony** — w każdym nieruchomym punkcie przestrzeni prędkość płynu nie zmienia się z upływem czasu.
+- **Nieustalony** — prędkość w danym punkcie zmienia się w czasie.
+
+Nie myl przepływu ustalonego z przepływem o jednakowej prędkości **wszędzie**. W zwężającej się rurze przepływ może być ustalony, choć szybkość jest większa w węższej części.
+
+## Przepływ laminarny a turbulentny
+
+- **Laminarny (warstwowy)** — płyn porusza się uporządkowanie, z niewielkimi zaburzeniami.
+- **Turbulentny (burzliwy)** — pojawiają się nieregularne fluktuacje prędkości i wiry.
+
+## Liczba Reynoldsa
+
+<Eq tex={String.raw`\mathrm{Re}=\frac{\rho vD}{\mu}=\frac{vD}{\nu}`} display />
+
+- `ρ` — gęstość [kg/m³],
+- `v` — charakterystyczna (np. średnia) szybkość [m/s],
+- `D` — charakterystyczna długość (dla rury: średnica) [m],
+- `μ` — lepkość dynamiczna [Pa·s], `ν` — kinematyczna [m²/s].
+
+Liczba Reynoldsa **nie ma jednostki**: wskazuje relację efektów bezwładności do lepkości.
+
+W przepływie przez **prostą, okrągłą rurę**, orientacyjnie: `Re < 2300` zwykle laminarny, `2300–4000` obszar przejściowy, powyżej `4000` często turbulentny. Są to tylko przybliżone progi zależne od warunków doświadczenia; nie obowiązują uniwersalnie dla wszystkich geometrii.
+
+### Przykład
+
+Woda ma `ν=10⁻⁶ m²/s`. W rurze `D=0,01 m`, przy średniej szybkości `v=0,1 m/s`:
+
+`Re=0,1·0,01/(10⁻⁶)=1000`, czyli w typowej prostej rurze przepływ będzie zwykle laminarny.

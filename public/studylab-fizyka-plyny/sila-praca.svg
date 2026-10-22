@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 355" role="img" aria-label="Siła F pod kątem alfa rozłożona na składowe F cos alfa poziomo i F sin alfa pionowo">
+<rect width="820" height="355" rx="25" fill="#071614"/><rect x="182" y="213" width="155" height="84" rx="8" fill="#173e3b" stroke="#7affdf" stroke-width="3"/>
+<line x1="270" y1="213" x2="535" y2="68" stroke="#ffcd76" stroke-width="6"/>
+<path d="M516 66l22 -2 -8 20" fill="none" stroke="#ffcd76" stroke-width="6"/>
+<line x1="270" y1="213" x2="535" y2="213" stroke="#68e8d0" stroke-width="5" stroke-dasharray="13 8"/><path d="M516 202l19 11 -19 11" fill="none" stroke="#68e8d0" stroke-width="5"/>
+<line x1="535" y1="213" x2="535" y2="68" stroke="#9ccafa" stroke-width="4" stroke-dasharray="12 8"/>
+<path d="M327 213 A58 58 0 0 0 321 186" fill="none" stroke="#ffe8ae" stroke-width="3"/>
+<text x="347" y="183" fill="#ffe8ae" font-size="25" font-family="sans-serif">α</text><text x="545" y="68" fill="#ffe2a4" font-size="27" font-family="sans-serif">F</text>
+<text x="390" y="250" fill="#9cffe8" font-size="25" font-family="sans-serif">F cos α</text><text x="551" y="140" fill="#c2d9ff" font-size="25" font-family="sans-serif">F sin α</text>
+<line x1="62" y1="301" x2="740" y2="301" stroke="#718d84" stroke-width="5"/><text x="63" y="46" fill="#e7fff3" font-size="27" font-family="sans-serif">Praca przy ruchu poziomym: W = F·s·cos α</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 350" role="img" aria-label="Rura o dwóch przekrojach: szeroki S1 i wąski S2; przy zwężeniu większa szybkość">
+<rect width="820" height="350" rx="25" fill="#071614"/><path d="M80 78 L350 78 C395 78 410 139 470 139 L740 139 L740 212 L470 212 C410 212 395 272 350 272 L80 272 Z" fill="#0f5152" stroke="#46dcc6" stroke-width="4"/>
+<path d="M110 180 L317 180" stroke="#a5ffe2" stroke-width="6"/><path d="M307 169L330 180 307 191" fill="none" stroke="#a5ffe2" stroke-width="6"/>
+<path d="M515 180 L679 180" stroke="#f5c87b" stroke-width="8"/><path d="M667 166L692 180 667 194" fill="none" stroke="#f5c87b" stroke-width="7"/>
+<text x="175" y="49" fill="#e1fbf5" font-size="26" font-family="sans-serif">S₁ — duże</text><text x="502" y="110" fill="#fff0cf" font-size="26" font-family="sans-serif">S₂ — małe</text>
+<text x="130" y="317" fill="#b5e9e4" font-size="22" font-family="sans-serif">v₁ mniejsza</text><text x="515" y="286" fill="#f5d193" font-size="22" font-family="sans-serif">v₂ większa</text>
+<text x="354" y="39" fill="#77e5cf" font-size="24" font-family="sans-serif">S₁v₁ = S₂v₂</text>
+</svg>

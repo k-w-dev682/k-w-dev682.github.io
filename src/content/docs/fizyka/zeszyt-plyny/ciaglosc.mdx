@@ -1,0 +1,43 @@
+---
+title: "Zasada ciągłości przepływu"
+description: "Dlaczego w zwężeniu rury płyn płynie szybciej?"
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Równanie ciągłości przepływu
+
+*Z zeszytu: zdjęcia 6–7.*
+
+## Zasada zachowania masy
+
+Ilość masy przepływająca przez dany przekrój w jednostce czasu nazywamy **strumieniem masy**:
+
+<Eq tex={String.raw`\dot m=\rho Sv`} display />
+
+- `ṁ` — strumień masy [kg/s],
+- `ρ` — gęstość [kg/m³],
+- `S` — pole przekroju poprzecznego [m²],
+- `v` — średnia składowa prędkości prostopadła do przekroju [m/s].
+
+Dla przepływu ustalonego w rurze, bez dopływów i odpływów po drodze, `ṁ` jest stałe:
+
+<Eq tex={String.raw`\rho_1S_1v_1=\rho_2S_2v_2`} display />
+
+Jeżeli płyn jest **nieściśliwy** i `ρ₁=ρ₂`, gęstość się skraca:
+
+<Eq tex={String.raw`S_1v_1=S_2v_2=Q_v`} display />
+
+`Q_v` — strumień objętości, jednostka [m³/s]. To **nie** jest ładunek elektryczny `Q`; symbole zależą od działu fizyki.
+
+![Przepływ przez przewężenie rury](/studylab-fizyka-plyny/bernoulli.svg)
+
+## Przykład krok po kroku
+
+Pole dużego przekroju: `S₁=4 cm²`. Mały przekrój: `S₂=1 cm²`. Prędkość w szerokiej części: `v₁=0,5 m/s`.
+
+1. Wpisz wzór: `S₁v₁=S₂v₂`.
+2. Podziel obie strony przez `S₂`: `v₂=(S₁/S₂)·v₁`.
+3. Podstaw: `v₂=(4/1)·0,5=2 m/s`.
+
+**Wniosek:** w cztery razy mniejszym przekroju średnia szybkość rośnie czterokrotnie — przy stałym przepływie nieściśliwym.

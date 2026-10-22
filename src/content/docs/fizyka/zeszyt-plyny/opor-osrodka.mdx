@@ -1,0 +1,50 @@
+---
+title: "Opór ośrodka i prędkość graniczna"
+description: "Model oporu kwadratowego i warunek równowagi sił."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Opór powietrza i prędkość graniczna
+
+*Z zeszytu: zdjęcia 2–3.*
+
+Kiedy ciało spada w powietrzu, działa na nie **siła ciężkości** skierowana w dół i **siła oporu aerodynamicznego** skierowana przeciwnie do prędkości.
+
+Dla modelu oporu kwadratowego, przy typowych większych liczbach Reynoldsa:
+
+<Eq tex={String.raw`F_D=\frac12\rho C_D A v^2`} display />
+
+- `F_D` — wartość siły oporu [N],
+- `ρ` — gęstość ośrodka [kg/m³],
+- `C_D` — bezwymiarowy współczynnik oporu zależny od kształtu i warunków przepływu,
+- `A` — pole powierzchni odniesienia, zwykle rzut ciała prostopadły do ruchu [m²],
+- `v` — szybkość względem ośrodka [m/s].
+
+## Dlaczego powstaje prędkość graniczna?
+
+Na początku przyspieszanie zwiększa szybkość, a wraz z nią siłę oporu. Gdy wypadkowa siła wynosi zero, dalsze przyspieszanie ustaje. Pomijając wypór powietrza:
+
+<Eq tex={String.raw`mg=\frac12\rho C_D A v_t^2`} display />
+
+Wyznaczamy `v_t` krok po kroku: mnożymy obie strony przez `2`, dzielimy przez `ρ C_D A`, pierwiastkujemy:
+
+<Eq tex={String.raw`v_t=\sqrt{\frac{2mg}{\rho C_D A}}`} display />
+
+Jeżeli uwzględniamy wypór `F_w`, to siła napędzająca spadanie ma wartość `mg-F_w`:
+
+<Eq tex={String.raw`v_t=\sqrt{\frac{2(mg-F_w)}{\rho C_D A}}`} display />
+
+To wyrażenie stosujemy, gdy `mg > F_w` i gdy model oporu kwadratowego jest odpowiedni.
+
+:::caution[Ważne]
+To **nie jest uniwersalny wzór na opór cieczy i gazu**. Przy bardzo małych prędkościach lub innym reżimie przepływu opór może być w przybliżeniu proporcjonalny do `v`, a nie `v²`. `C_D` nie musi być stałe.
+:::
+
+### Przykład
+
+Dane: `m=0,2 kg`, `g=10 m/s²`, `ρ=1,25 kg/m³`, `C_D=1`, `A=0,02 m²`.
+
+- Ciężar: `mg=2 N`.
+- Mianownik pod pierwiastkiem: `1,25·1·0,02=0,025`.
+- `v_t=√(4/0,025)=√160≈12,65 m/s`.

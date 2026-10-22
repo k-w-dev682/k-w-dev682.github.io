@@ -1,0 +1,53 @@
+---
+title: "Prąd elektryczny i gęstość"
+description: "Natężenie, ładunek, prąd chwilowy, prąd umowny, gęstość prądu."
+sidebar:
+  order: 2
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Prąd elektryczny — od ładunku do amperów
+
+*Główne źródło zeszytowe: zdjęcie 1; także zdjęcie 2 (gęstość prądu).*
+
+## Co to jest prąd?
+
+Prąd elektryczny to **uporządkowany ruch ładunków elektrycznych**. W metalach przemieszczają się przede wszystkim elektrony. **Umowny kierunek prądu** jest zgodny z ruchem ładunków dodatnich: od wyższego do niższego potencjału w biernym elemencie. Elektrony płyną przeciwnie.
+
+Dla stałego tempa przepływu:
+
+<Eq tex={String.raw`I=\frac{\Delta Q}{\Delta t}`} display />
+
+- `I` — natężenie prądu [A],
+- `ΔQ` — ładunek, który przeszedł przez przekrój [C],
+- `Δt` — czas [s].
+
+**Jeden amper** oznacza przepływ jednego kulomba w ciągu jednej sekundy: <Eq tex={String.raw`1\,\mathrm A=1\,\mathrm{C/s}`} />.
+
+Przy prądzie zmieniającym się w czasie używamy pochodnej:
+
+<Eq tex={String.raw`i(t)=\frac{dq(t)}{dt}`} display />
+
+To dokładniejsze sformułowanie niż `I = q/t`, kiedy tempo przepływu nie jest stałe. Odwrotnie, przeniesiony ładunek to <Eq tex={String.raw`\Delta q=\int_{t_1}^{t_2}i(t)\,dt`} />.
+
+## Gęstość prądu
+
+Gęstość prądu opisuje **prąd przypadający na jednostkę powierzchni przekroju**. Gdy przepływ jest w przybliżeniu równomierny i prostopadły do przekroju:
+
+<Eq tex={String.raw`J=\frac{I}{S}\qquad\Longleftrightarrow\qquad I=JS`} display />
+
+- `J` — gęstość prądu [A/m²], często praktycznie [A/mm²],
+- `S` — pole przekroju przewodnika [m² albo mm²].
+
+Dla okrągłego przewodu o promieniu `r`: <Eq tex={String.raw`S=\pi r^2`} />. Przy przepływie nierównomiernym gęstość jest wielkością miejscową i powyższy iloraz oznacza wartość średnią.
+
+![Przewodnik, pole przekroju i kierunek prądu](/studylab-elektronika-obwody/prad.svg)
+
+:::caution[Uważaj na jednostki]
+`r = 0,7 mm` to promień, nie średnica. Jeśli `J` podano w A/mm², obliczaj pole w **mm²**. Jeśli w A/m² — najpierw zamień mm na metry.
+:::
+
+## Minićwiczenie
+
+Przez przewodnik przeszło `12 C` w `3 s`. Oblicz natężenie. **Wynik: 4 A**, bo `12 C / 3 s = 4 A`.

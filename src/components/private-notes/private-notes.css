@@ -39,3 +39,15 @@
 .sl-pnote-table-scroll{max-width:100%;overflow-x:auto}.sl-pnote-markdown table{width:100%;border-collapse:collapse;min-width:300px}.sl-pnote-markdown th,.sl-pnote-markdown td{border:1px solid var(--pn-border);padding:8px 10px;text-align:left}.sl-pnote-markdown th{background:#17352a}
 @media(max-width:690px){.sl-pnotes-layout{grid-template-columns:1fr}.sl-pnotes-sidebar,.sl-pnotes-reader{padding:14px}.sl-pnotes-list{max-height:200px}.sl-pnotes-heading{flex-wrap:wrap}.sl-pnotes-lock{margin-left:0}}
 @media(prefers-reduced-motion:reduce){.sl-pnotes button{transition:none}}
+
+/* StudyLab 18.10 BEGIN: szeroki widok prywatnych materialow */
+/* Width applies ONLY to the six "Moje notatki" pages; Starlight's regular lessons stay unchanged. */
+html:has(.sl-pnotes) { --sl-content-width: 88rem; }
+.sl-pnotes { max-width: none; width: 100%; min-width: 0; container-type: inline-size; }
+.sl-pnotes-layout { grid-template-columns: minmax(200px, 275px) minmax(0, 1fr); }
+.sl-pnotes-sidebar, .sl-pnotes-reader, .sl-pnote-markdown { min-width: 0; }
+@container (max-width: 47rem) {
+  .sl-pnotes-layout { grid-template-columns: minmax(0, 1fr); }
+  .sl-pnotes-list { max-height: 35vh; }
+}
+/* StudyLab 18.10 END */

@@ -1,0 +1,52 @@
+---
+title: "Praca, energia i moc"
+description: "W = UIt, P = UI, moc chwilowa i przeliczanie kWh na J."
+sidebar:
+  order: 5
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Praca prądu, energia i moc
+
+*Główne źródło zeszytowe: zdjęcia 8–9.*
+
+## Praca sił elektrycznych
+
+Dla ładunku `q`, który przechodzi przez różnicę potencjałów `U`, zmiana energii ma wartość (zgodnie z przyjętymi znakami):
+
+<Eq tex={String.raw`W=qU`} display />
+
+Ponieważ w obwodzie o stałym natężeniu `q = It`, to przy **stałym napięciu i prądzie**:
+
+<Eq tex={String.raw`W=UIt`} display />
+
+Gdzie `W` oznacza energię/pracę [J], `U` napięcie [V], `I` prąd [A], `t` czas [s].
+
+## Moc
+
+Moc określa, jak szybko energia jest przekazywana lub pobierana:
+
+<Eq tex={String.raw`P=\frac{W}{t}=UI`} display />
+
+To postać dla stałych wartości. Dla przebiegów zmiennych:
+
+<Eq tex={String.raw`p(t)=u(t)i(t)\qquad W=\int_{t_1}^{t_2}p(t)\,dt`} display />
+
+**Ważna konwencja znaków:** jeżeli prąd wpływa do zacisku elementu oznaczonego jako dodatni, dodatnie `p = ui` oznacza pobieranie energii przez element. Źródło może oddawać energię, co w tej konwencji da znak ujemny.
+
+## Rezystor omowy
+
+Po podstawieniu `U = RI`:
+
+<Eq tex={String.raw`P=I^2R=\frac{U^2}{R}`} display />
+
+Dla idealnego rezystora moc dodatnia zamienia się w ciepło.
+
+## Kilowatogodzina to energia, nie moc
+
+<Eq tex={String.raw`1\,\mathrm{kWh}=1000\,\mathrm W\cdot3600\,\mathrm s=3{,}6\cdot10^6\,\mathrm J`} display />
+
+:::caution[Pomyłka w jednostkach]
+`W` jest jednocześnie zwyczajowym symbolem pracy/energii w zapisie wzorów **i** symbolem jednostki wat w nawiasie [W]. Z kontekstu rozpoznaj, czy chodzi o energię w dżulach czy o moc w watach.
+:::

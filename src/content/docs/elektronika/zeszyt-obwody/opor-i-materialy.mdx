@@ -1,0 +1,49 @@
+---
+title: "Opór, rezystywność i konduktancja"
+description: "Rezystancja zależna od materiału, temperatury i wymiarów przewodu."
+sidebar:
+  order: 3
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Opór, rezystywność i przewodność
+
+*Główne źródło zeszytowe: zdjęcia 2 i 3.*
+
+## Dlaczego przewodnik ma opór?
+
+W rzeczywistym przewodniku przemieszczanie nośników ładunku napotyka przeszkody. W modelu jednorodnego przewodnika o stałym przekroju jego rezystancję obliczamy tak:
+
+<Eq tex={String.raw`R=\rho\frac{l}{S}`} display />
+
+- `R` — rezystancja [Ω],
+- `ρ` (rho) — rezystywność właściwa materiału [Ω·m],
+- `l` — długość przewodu [m],
+- `S` — pole przekroju poprzecznego [m²].
+
+**Dlaczego?** Dłuższy drut stawia większy opór, bo droga przepływu jest dłuższa. Grubszy drut ma mniejszy opór, bo ładunki mogą przepływać większym przekrojem.
+
+## Konduktancja i konduktywność — podobne nazwy, inne rzeczy
+
+<Eq tex={String.raw`G=\frac1R\qquad\sigma=\frac1\rho`} display />
+
+- `G` — **konduktancja** konkretnego elementu, jednostka siemens [S],
+- `σ` (sigma) — **konduktywność właściwa materiału**, jednostka [S/m].
+
+Zatem dla jednorodnego przewodu: <Eq tex={String.raw`G=\sigma\frac{S}{l}`} />. Nie należy nazywać `1/ρ` konduktancją — dotyczy ona materiału, nie całego rezystora.
+
+## Zmiana rezystancji z temperaturą
+
+W notatce ze zdjęcia 3 znajduje się urwany wzór zależności od temperatury. W przybliżeniu liniowym i **w ograniczonym zakresie temperatur**:
+
+<Eq tex={String.raw`R(T)\approx R(T_0)\,[1+\alpha(T-T_0)]`} display />
+
+- `T₀` — temperatura odniesienia,
+- `α` — temperaturowy współczynnik rezystancji [1/K].
+
+Dla wielu metali `α` jest dodatnie. **Nie jest to wzór uniwersalny** dla wszystkich materiałów i temperatur.
+
+:::note[Oznaczenia w źródle]
+W zeszycie pojawiają się symbole `ρ`, `σ` i `G`; zostały tutaj zapisane konsekwentnie. Fragment o zależności temperaturowej został uzupełniony jako przybliżenie, a nie jako pewny odczyt dalszego ciągu wykładu.
+:::

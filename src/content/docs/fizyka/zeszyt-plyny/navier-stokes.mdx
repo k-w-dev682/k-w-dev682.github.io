@@ -1,0 +1,50 @@
+---
+title: "Równanie Naviera–Stokesa od podstaw"
+description: "Znaczenie członów równania i związek z II zasadą Newtona."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Równanie Naviera–Stokesa — co oznaczają symbole?
+
+*Z zeszytu: zdjęcie 8. W zeszycie zapis jest skrótowy: nie ma wyraźnego podziału przez gęstość i pominięto siły masowe.*
+
+Równanie Naviera–Stokesa opisuje ruch **rzeczywistego, lepkiego płynu**. Jest odpowiednikiem drugiej zasady Newtona `F=ma`, tylko zapisanym dla małych objętości płynu.
+
+## Wersja wektorowa dla cieczy nieściśliwej
+
+Dla stałej gęstości `ρ` i stałej lepkości `μ`:
+
+<Eq tex={String.raw`\rho\left(\frac{\partial\mathbf{u}}{\partial t}+(\mathbf{u}\cdot\nabla)\mathbf{u}\right)=-\nabla p+\mu\nabla^2\mathbf{u}+\rho\mathbf{g}`} display />
+
+Z warunkiem nieściśliwości:
+
+<Eq tex={String.raw`\nabla\cdot\mathbf{u}=0`} display />
+
+- `u` — **wektor pola prędkości** [m/s] (ma składowe np. `uₓ, uᵧ, u𝓏`),
+- `t` — czas [s],
+- `ρ` — gęstość [kg/m³],
+- `p` — ciśnienie [Pa],
+- `μ` — lepkość dynamiczna [Pa·s],
+- `g` — wektor przyspieszenia grawitacyjnego [m/s²],
+- `∇` — operator pochodnych przestrzennych, `∇²` — laplasjan.
+
+## Cztery mechanizmy ruchu
+
+1. `∂u/∂t` — prędkość w danym miejscu zmienia się w czasie (przepływ nieustalony).
+2. `(u·∇)u` — płyn przenosi pęd wraz ze swoim ruchem (konwekcja).
+3. `−∇p` — różnice ciśnień wprawiają płyn w ruch.
+4. `μ∇²u` — lepkość wygładza różnice prędkości między sąsiednimi warstwami.
+5. `ρg` — siły objętościowe; w tym przykładzie grawitacja.
+
+## Wersja z lepkością kinematyczną
+
+Dzieląc przez `ρ` oraz przyjmując `ν=μ/ρ`:
+
+<Eq tex={String.raw`\frac{\partial\mathbf{u}}{\partial t}+(\mathbf{u}\cdot\nabla)\mathbf{u}=-\frac{1}{\rho}\nabla p+\nu\nabla^2\mathbf{u}+\mathbf{g}`} display />
+
+:::caution[Ważna korekta zeszytu]
+Nie można używać `∇p` bez czynnika `1/ρ`, jeśli `p` oznacza zwykłe ciśnienie w paskalach, a pozostałe wyrazy mają jednostkę przyspieszenia. Alternatywnie można wprowadzić `p/ρ` jako **ciśnienie kinematyczne**. Należy to zawsze jawnie zaznaczyć.
+:::
+
+**Dla początkującego:** nie musisz teraz samodzielnie rozwiązywać tego równania. Wystarczy rozpoznawać, które zjawisko odpowiada któremu członowi i jak równanie rozszerza prosty opis idealnego przepływu.

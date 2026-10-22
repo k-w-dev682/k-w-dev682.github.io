@@ -1,0 +1,57 @@
+---
+title: "Prawo powszechnego ciążenia"
+description: "Prawo Newtona, g, ruch po okręgu i wzór na przyspieszenie dośrodkowe."
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Grawitacja Newtona i przyspieszenie dośrodkowe
+
+*Z zeszytu: zdjęcie 10 (powtórka związana również z wcześniejszym działem mechaniki).* 
+
+## Prawo powszechnego ciążenia
+
+Dwie masy przyciągają się siłą:
+
+<Eq tex={String.raw`F=G\frac{m_1m_2}{r^2}`} display />
+
+- `F` — wartość siły przyciągania [N],
+- `G` — stała grawitacji, około `6,6743·10⁻¹¹ N·m²/kg²`,
+- `m₁`, `m₂` — masy ciał [kg],
+- `r` — odległość między **środkami mas** dwóch kulistosymetrycznych ciał; w prostym modelu punktowych mas [m].
+
+Gdy odległość między ciałami podwoisz, siła spadnie **czterokrotnie**: w mianowniku jest `r²`.
+
+## Skąd się bierze g?
+
+Dla ciała o masie `m` blisko powierzchni planety o masie `M`:
+
+<Eq tex={String.raw`mg=G\frac{Mm}{r^2}`} display />
+
+Dzielimy przez `m` (zakładając `m≠0`):
+
+<Eq tex={String.raw`g=G\frac{M}{r^2}`} display />
+
+Przy powierzchni Ziemi `g≈9,81 m/s²`. W dalekiej odległości od Ziemi `g` maleje.
+
+## Ruch po okręgu
+
+<Eq tex={String.raw`a_d=\frac{v^2}{R}=\omega^2R=\frac{4\pi^2R}{T^2}`} display />
+
+- `a_d` — przyspieszenie dośrodkowe [m/s²],
+- `v` — szybkość liniowa [m/s],
+- `R` — promień ruchu po okręgu [m],
+- `ω` — prędkość kątowa [rad/s],
+- `T` — okres jednego obiegu [s].
+
+**Wniosek:** przyspieszenie dośrodkowe nie jest osobną siłą. Aby ciało poruszało się po okręgu, potrzebna jest wypadkowa siła dośrodkowa `F_d = ma_d`, a jej źródłem może być np. grawitacja.
+
+### Przykład
+
+Przy `R=2 m`, `T=4 s`:
+
+<Eq tex={String.raw`a_d=\frac{4\pi^2\cdot2}{4^2}=\frac{\pi^2}{2}\approx4{,}93\ \mathrm{m/s^2}`} display />
+
+:::note[Warunki]
+Pierwsza postać wzoru `a_d=v²/R` opisuje składową dośrodkową przyspieszenia przy ruchu po okręgu. Ruch nie musi być jednostajny — w ruchu niejednostajnym pojawia się także składowa styczna.
+:::

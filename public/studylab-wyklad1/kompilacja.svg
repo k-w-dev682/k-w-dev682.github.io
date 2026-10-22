@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-label="Kompilacja programu C++ od kodu źródłowego do uruchomienia"><rect width="1000" height="360" rx="26" fill="#071311"/><style>.h{font:700 26px system-ui, sans-serif;fill:#eafcf7}.t{font:18px system-ui,sans-serif;fill:#b4e9da}.s{font:16px system-ui,sans-serif;fill:#8ec9b8}.line{stroke:#61e7c4;stroke-width:4;fill:none}.b{fill:#123128;stroke:#4fcfae;stroke-width:2.5}.d{fill:#123128;stroke:#4fcfae;stroke-width:2.5}</style>
+<rect class="b" x="16" y="110" width="176" height="120" rx="14"/><text class="h" x="104" y="158" text-anchor="middle">Kod</text><text class="t" x="104" y="192" text-anchor="middle">main.cpp</text>
+<rect class="b" x="218" y="110" width="174" height="120" rx="14"/><text class="h" x="305" y="158" text-anchor="middle">Preprocesor</text><text class="t" x="305" y="192" text-anchor="middle">#include</text>
+<rect class="b" x="418" y="110" width="174" height="120" rx="14"/><text class="h" x="505" y="158" text-anchor="middle">Kompilator</text><text class="t" x="505" y="192" text-anchor="middle">kod obiektowy</text>
+<rect class="b" x="618" y="110" width="174" height="120" rx="14"/><text class="h" x="705" y="158" text-anchor="middle">Linker</text><text class="t" x="705" y="192" text-anchor="middle">łączenie kodu</text>
+<rect class="b" x="818" y="110" width="166" height="120" rx="14"/><text class="h" x="901" y="158" text-anchor="middle">Program</text><text class="t" x="901" y="192" text-anchor="middle">uruchomienie</text>
+<path class="line" d="M193 170 H210 M393 170 H410 M593 170 H610 M793 170 H810"/>
+<text class="s" x="500" y="292" text-anchor="middle">Schemat uproszczony — dokładny przebieg zależy od narzędzi i platformy.</text></svg>

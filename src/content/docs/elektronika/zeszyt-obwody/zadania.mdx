@@ -1,0 +1,108 @@
+---
+title: "Ćwiczenia — podstawy elektroniki"
+description: "30 zadań od definicji do obwodów RLC, odpowiedzi i wskazówki."
+sidebar:
+  order: 12
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Zadania — od podstaw do trudniejszych obwodów
+
+W pierwszej kolejności spróbuj rozwiązać zadania samodzielnie. Odpowiedzi i krótkie wskazówki umieszczono pod grupami. Wszędzie, gdzie nie zaznaczono inaczej, zakładamy **elementy idealne**.
+
+## Poziom 1 — rozumienie (1–8)
+
+1. Wyjaśnij własnymi słowami różnicę między ładunkiem a natężeniem prądu.
+2. Przez przekrój przewodu przechodzi `30 C` przez `10 s`. Oblicz średni prąd.
+3. Co oznacza prąd umowny i jak ma się do ruchu elektronów w metalu?
+4. Wytłumacz, czym różni się rezystywność od rezystancji.
+5. Czy `G = 1/R` i `σ = 1/ρ` opisują to samo? Uzasadnij.
+6. Jaka jest jednostka indukcyjności, a jaka pojemności?
+7. Jaką energię gromadzi kondensator, a jaką cewka?
+8. Czym różni się moc od energii? Podaj jednostki.
+
+<details>
+<summary>Odpowiedzi / wskazówki 1–8</summary>
+
+1. Ładunek mierzymy w kulombach, prąd to tempo jego przepływu.
+2. `I = 30/10 = 3 A`.
+3. Umowny kierunek odpowiada ruchowi ładunku dodatniego; elektrony poruszają się w przeciwnym kierunku.
+4. `ρ` to właściwość materiału, `R` dotyczy konkretnego elementu i zależy też od wymiarów.
+5. Nie. `G` ma jednostkę S i opisuje element; `σ` ma jednostkę S/m i materiał.
+6. Henr (H) i farad (F).
+7. Kondensator — elektryczne; cewka — magnetyczne.
+8. Moc to szybkość przekazywania energii (W); energia to ilość (J).
+
+</details>
+
+## Poziom 2 — obliczenia (9–18)
+
+9. `U = 24 V`, `R = 8 Ω`. Oblicz prąd.
+10. `R₁ = 5 Ω` i `R₂ = 15 Ω` szeregowo. Oblicz opór zastępczy.
+11. Te same opory połącz równolegle. Oblicz opór zastępczy.
+12. Przewód ma `l = 4 m`, `S = 1 mm²`, `ρ = 0,0175 Ω·mm²/m`. Oblicz `R`.
+13. Oblicz natężenie dla `J = 3 A/mm²` i pola przekroju `S = 2,5 mm²`.
+14. Odbiornik pobiera `2,5 A` przy `12 V`. Jaka jest jego moc?
+15. Przez `2 min` grzałka pobiera `100 W`. Ile energii zużyła w J?
+16. Cewka `L = 0,5 H` przewodzi prąd `4 A`. Ile energii gromadzi?
+17. Cewki `L₁ = 2 mH`, `L₂ = 3 mH` połączono szeregowo **bez sprzężenia**. Oblicz `Lz`.
+18. Dla `T = 2,5 ms` oblicz częstotliwość.
+
+<details>
+<summary>Odpowiedzi / wskazówki 9–18</summary>
+
+9. `3 A`.
+10. `20 Ω`.
+11. `(5·15)/(5+15) = 3,75 Ω`.
+12. `0,0175·4/1 = 0,07 Ω`.
+13. `7,5 A`.
+14. `30 W`.
+15. `100·120 = 12 000 J`.
+16. `0,5·0,5·4² = 4 J`.
+17. `5 mH`.
+18. `1/(2,5·10⁻³) = 400 Hz`.
+
+</details>
+
+## Poziom 3 — zastosowania i pułapki (19–25)
+
+19. Dwa rezystory `4 Ω` i `12 Ω` połączono równolegle i podłączono do `12 V`. Oblicz prądy w obu gałęziach i łączny prąd.
+20. Z napięciem `9 V` współpracuje rezystor `3 Ω`. Oblicz energię rozproszoną po `20 s`.
+21. Prąd w cewce `L = 10 mH` wzrasta liniowo od `0` do `2 A` przez `4 ms`. Oblicz `uL` przy konwencji biernej.
+22. Cewka `L = 0,1 H` ma w danej chwili `I = 3 A`. O ile wzrośnie energia, gdy prąd wzrośnie do `4 A`?
+23. Kondensator `C = 100 µF` naładowano do `10 V`. Oblicz energię.
+24. Oblicz częstotliwość własną idealnego obwodu LC: `L = 10 mH`, `C = 100 µF`.
+25. Rezystancja przewodu podwaja się przy tej samej długości i materiale. Jak musiało zmienić się jego pole przekroju?
+
+<details>
+<summary>Odpowiedzi / wskazówki 19–25</summary>
+
+19. `I₁ = 12/4 = 3 A`, `I₂ = 12/12 = 1 A`; `I = 4 A`.
+20. `P = U²/R = 81/3 = 27 W`, `W = 27·20 = 540 J`.
+21. `di/dt = 2/0,004 = 500 A/s`; `uL = 0,01·500 = 5 V`.
+22. `ΔW = 0,5·0,1·(4²−3²) = 0,35 J`.
+23. `W = 0,5·100·10⁻⁶·10² = 0,005 J`.
+24. `LC = 0,01·0,0001 = 10⁻⁶`; `f0 = 1/(2π·0,001) ≈ 159,15 Hz`.
+25. Pole przekroju zmalało dwukrotnie, gdy inne wielkości się nie zmieniły.
+
+</details>
+
+## Poziom 4 — analiza, nie tylko liczenie (26–30)
+
+26. Opisz, co się stanie z napięciem idealnej cewki przy gwałtownym wyłączeniu prądu. Dlaczego w praktyce potrzebujemy zabezpieczeń?
+27. Narysuj **rzeczywisty model cewki** zawierający indukcyjność i opór uzwojenia; wyjaśnij, co każdy element reprezentuje.
+28. Podaj przykład elementu, dla którego zależność `U = RI` ze stałym `R` nie opisuje zachowania w pełnym zakresie pracy.
+29. Dwie cewki leżą blisko siebie. Czy wystarczy zsumować ich indukcyjności? Wyjaśnij, jaką dodatkową informację trzeba znać.
+30. Porównaj reakcję idealnej cewki i idealnego kondensatora na **stały prąd lub stałe napięcie w stanie ustalonym**. Który z nich ma wtedy zerowe napięcie, a który zerowy prąd?
+
+<details>
+<summary>Wskazówki 26–30</summary>
+
+26. Szybka zmiana prądu może wywołać bardzo wysokie napięcie; stosuje się np. diody gaszące dla odpowiednio dobranego obwodu prądu stałego.
+27. W najprostszym modelu: idealna cewka `L` szeregowo z rezystorem `Ruzw`.
+28. Np. dioda półprzewodnikowa lub żarówka z silnie zmieniającą się temperaturą włókna.
+29. Nie, jeśli sprzężenie magnetyczne nie jest zaniedbywalne; istotna jest indukcyjność wzajemna i zwrot uzwojeń.
+30. Przy stałym prądzie idealna cewka ma `uL=0`; przy stałym napięciu idealny kondensator ma `iC=0`.
+
+</details>

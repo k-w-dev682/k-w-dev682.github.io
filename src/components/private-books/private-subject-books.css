@@ -1,0 +1,57 @@
+.sl-pbooks{--pb-accent:#6ee7b7;--pb-border:#29483a;--pb-muted:#a7b6ad;color:#e9f2ec;max-width:1160px;margin:1.25rem 0}
+.sl-pbooks *{box-sizing:border-box}
+.sl-pbooks-hero{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-bottom:20px}
+.sl-pbooks-hero small{font-weight:800;letter-spacing:.13em;color:var(--pb-accent);font-size:.71rem}
+.sl-pbooks-hero h2{margin:.4rem 0 .6rem;color:#fafefa;font-size:clamp(1.4rem,3vw,2rem)}
+.sl-pbooks-hero p{max-width:760px;color:var(--pb-muted);line-height:1.6}
+.sl-pbooks-private{white-space:nowrap;color:var(--pb-accent);border:1px solid var(--pb-border);border-radius:999px;padding:8px 12px;font-size:.83rem}
+.sl-pbooks-layout{display:grid;grid-template-columns:minmax(220px,310px) minmax(0,1fr);gap:16px;align-items:start}
+.sl-pbooks-panel{min-width:0;border:1px solid var(--pb-border);border-radius:15px;background:#0b1511;padding:18px;margin-bottom:15px}
+.sl-pbooks-panel h3{font-size:1.07rem;margin:0 0 12px;color:#fafefa}
+.sl-pbooks-sidehead,.sl-pbooks-viewerhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.sl-pbooks button{font:inherit;background:#14251c;border:1px solid #3b6750;border-radius:9px;color:#d4fae9;padding:9px 12px;cursor:pointer}
+.sl-pbooks button:hover:not(:disabled){background:#1d392b;border-color:var(--pb-accent)}
+.sl-pbooks button:disabled{opacity:.55;cursor:not-allowed}
+.sl-pbooks .sl-pbooks-primary{background:var(--pb-accent);color:#042016;border-color:var(--pb-accent);font-weight:800}
+.sl-pbooks .sl-pbooks-danger{background:#2d191c;border-color:#8b454a;color:#ffc6c6}
+.sl-pbooks :is(button,input,a):focus-visible{outline:3px solid var(--pb-accent);outline-offset:3px}
+.sl-pbooks-label{display:block;color:#d4eae0;font-size:.88rem;font-weight:650;margin:10px 0}
+.sl-pbooks-label input{display:block;width:100%;background:#08120d;color:#f1f7f3;border:1px solid #3b6750;border-radius:9px;padding:12px;margin-top:7px;font:inherit}
+.sl-pbooks-checkbox{display:flex;align-items:flex-start;gap:10px;color:#c6d7cd;line-height:1.45;font-size:.87rem;margin:13px 0 20px}
+.sl-pbooks-checkbox input{accent-color:#6ee7b7;margin-top:4px;flex-shrink:0}
+.sl-pbooks ul{padding:0;list-style:none;margin:8px 0;display:flex;flex-direction:column;gap:10px;max-height:660px;overflow:auto}
+.sl-pbooks li{padding:12px;border:1px solid #254839;background:#101e17;border-radius:10px;overflow-wrap:anywhere}
+.sl-pbooks li strong{display:block;margin-bottom:5px;color:#fafefa}
+.sl-pbooks li small{color:var(--pb-muted);display:block;margin-bottom:9px}
+.sl-pbooks-actions{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.sl-pbooks-actions button{padding:6px 9px;font-size:.8rem}
+.sl-pbooks a{color:#8cf2cb}
+.sl-pbooks-viewer iframe{width:100%;height:min(75vh,750px);border:1px solid var(--pb-border);border-radius:10px;background:#f5f5f5}
+.sl-pbooks-muted{color:var(--pb-muted);font-size:.86rem;line-height:1.6}
+.sl-pbooks-success,.sl-pbooks-error{border-radius:10px;padding:12px 15px;margin:10px 0;overflow-wrap:anywhere}
+.sl-pbooks-success{background:#123a28;border:1px solid #3e8562;color:#acf5d0}
+.sl-pbooks-error{background:#391b20;border:1px solid #a64c50;color:#ffc3c3}
+.sl-pbooks-hint{padding:22px}
+@media(max-width:760px){.sl-pbooks-layout{grid-template-columns:1fr}.sl-pbooks-hero{flex-wrap:wrap}.sl-pbooks-list ul{max-height:280px}.sl-pbooks-panel{padding:14px}.sl-pbooks-viewer iframe{height:65vh}}
+@media(prefers-reduced-motion:reduce){.sl-pbooks button{transition:none}}
+
+/* StudyLab 18.10 BEGIN: szeroki widok prywatnych materialow */
+/* Book pages use all available document width, without the redundant Starlight TOC. */
+html:has(.sl-pbooks) { --sl-content-width: 88rem; }
+.sl-pbooks { max-width: none; width: 100%; min-width: 0; container-type: inline-size; }
+.sl-pbooks-layout { grid-template-columns: minmax(215px, 285px) minmax(0, 1fr); }
+.sl-pbooks-main, .sl-pbooks-viewer, .sl-pbookcourse-grid, .sl-pbookcourse-reading { min-width: 0; }
+/* When a book is open, the reader replaces the library columns.
+   "Zamknij" returns to the book list and upload form. No book data is altered. */
+.sl-pbooks-layout:has(.sl-pbooks-viewer) { grid-template-columns: minmax(0, 1fr); }
+.sl-pbooks-layout:has(.sl-pbooks-viewer) > .sl-pbooks-list,
+.sl-pbooks-layout:has(.sl-pbooks-viewer) .sl-pbooks-form { display: none; }
+.sl-pbooks-viewer { container-type: inline-size; }
+@container (max-width: 48rem) {
+  .sl-pbooks-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@container (max-width: 49rem) {
+  .sl-pbookcourse-grid { grid-template-columns: minmax(0, 1fr); }
+  .sl-pbookcourse-toc { max-height: 45vh; }
+}
+/* StudyLab 18.10 END */

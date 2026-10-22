@@ -1,0 +1,48 @@
+---
+title: "Prawo Faradaya i samoindukcja"
+description: "SEM = -dPsi/dt oraz napięcie u=L di/dt przy konwencji biernej."
+sidebar:
+  order: 8
+---
+
+import Eq from '../../../../components/ElecEquation.astro';
+
+# Dlaczego zmiana prądu wywołuje napięcie?
+
+*Główne źródło zeszytowe: zdjęcia 6 i 5 (prawa strona); ten sam temat uzupełniono definicjami i znakami.*
+
+## Prawo indukcji Faradaya
+
+Zmiana strumienia magnetycznego skojarzonego z obwodem indukuje **siłę elektromotoryczną (SEM)**:
+
+<Eq tex={String.raw`\mathcal E=-\frac{d\Psi}{dt}`} display />
+
+Dla identycznego strumienia przez każdy z `N` zwojów:
+
+<Eq tex={String.raw`\mathcal E=-N\frac{d\Phi}{dt}`} display />
+
+Minus wyraża **regułę Lenza**: zjawisko indukcji przeciwdziała zmianie strumienia, która je wywołała.
+
+## Napięcie idealnej cewki
+
+Jeśli indukcyjność jest stała, a kierunki prądu i napięcia opisujemy **konwencją odbiornikową (bierną)**:
+
+<Eq tex={String.raw`u_L(t)=L\frac{di(t)}{dt}`} display />
+
+Tu nie ma sprzeczności z minusem Faradaya! Wzory dotyczą inaczej zdefiniowanych kierunków: indukowanej SEM oraz napięcia między zaciskami idealnego elementu.
+
+## Trzy sytuacje
+
+| Co robi prąd? | Pochodna prądu | Co dzieje się z napięciem idealnej cewki? |
+|---|---|---|
+| Rośnie liniowo | `di/dt > 0` | dodatnie według wybranej biegunowości |
+| Jest stały | `di/dt = 0` | `u_L = 0` |
+| Maleje liniowo | `di/dt < 0` | ujemne według wybranej biegunowości |
+
+:::caution[Cewka przy prądzie stałym]
+W stanie ustalonym przy **stałym prądzie** napięcie na idealnej cewce wynosi zero. To nie znaczy, że rzeczywista cewka nie ma oporu! Jej uzwojenie ma rezystancję, więc może występować na nim spadek napięcia i wydzielać się ciepło.
+:::
+
+## Minićwiczenie
+
+Prąd przez cewkę `L = 0,4 H` rośnie z `1 A` do `3 A` w `0,2 s`, jednostajnie. `Δi/Δt = 2/0,2 = 10 A/s`; stąd **`u_L = 4 V`** przy przyjętej konwencji.

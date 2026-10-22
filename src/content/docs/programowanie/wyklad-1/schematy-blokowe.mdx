@@ -1,0 +1,71 @@
+---
+title: "Schematy blokowe"
+description: "Symbolika: start, proces, wejście/wyjście, decyzja i kierunki strzałek."
+sidebar:
+  order: 10
+---
+
+# Schematy blokowe
+
+## Po co rysować schemat?
+
+**Schemat blokowy** to graficzny zapis algorytmu, pokazujący kolejność działań i wybór ścieżki. Można nim przedstawić logikę zanim zacznie się pisać kod C++.
+
+### Najważniejsze symbole
+
+| Kształt | Znaczenie | Przykład opisu |
+|---|---|---|
+| Owal lub zaokrąglony prostokąt | początek / koniec | `START`, `STOP` |
+| Prostokąt | przetwarzanie | `suma = a + b` |
+| Równoległobok | wejście / wyjście | `wczytaj a`, `wypisz suma` |
+| Romb | decyzja, rozgałęzienie | `a > b?` |
+| Strzałka | kierunek wykonania | przejście do następnego bloku |
+| Podwójnie obramowany prostokąt | zdefiniowany podprogram | `oblicz_podatek()` |
+| Łącznik | kontynuacja w innym miejscu | `A`, `B` |
+
+![Przykładowy schemat blokowy wyboru większej liczby](/studylab-wyklad1/schemat-if.svg)
+
+## Przykład: porównanie a i b
+
+1. Rozpocznij.
+2. Wczytaj dwie liczby.
+3. Sprawdź `a >= b`.
+4. Jeśli TAK — wypisz `a`. Jeśli NIE — wypisz `b`.
+5. Zakończ.
+
+Pełny odpowiednik w C++:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a, b;
+    if (!(std::cin >> a >> b)) {
+        return 1;
+    }
+    if (a >= b) {
+        std::cout << a << '\n';
+    } else {
+        std::cout << b << '\n';
+    }
+}
+```
+
+## Typowe błędy w schematach
+
+- Romb bez wyjść `TAK` i `NIE` — nie wiadomo, którą drogą podążyć.
+- Strzałka bez grotu — nie jest jasny kierunek przejścia.
+- Brak ścieżki do końca dla części danych — schemat może opisywać niezamierzoną pętlę.
+- Pomieszanie obliczeń z wczytywaniem i wypisywaniem — zaciera znaczenie bloków.
+- Pętla bez warunku przerwania — może wykonywać się bez końca.
+
+## Samodzielne zadanie
+
+Narysuj schemat, który wczytuje liczbę `n`, następnie sprawdza, czy jest parzysta i wypisuje odpowiedni komunikat. Podpowiedź: warunek `n % 2 == 0`.
+
+<details>
+<summary>Rozwiązanie słowami</summary>
+
+START → wczytaj `n` → romb `n % 2 == 0?` → TAK: „parzysta”, NIE: „nieparzysta” → STOP. Każda ścieżka prowadzi do końca.
+
+</details>

@@ -1,0 +1,63 @@
+---
+title: "Bity, ASCII i Unicode"
+description: "Kodowanie znaków: ASCII, bajty, UTF-8 i typ char w C++."
+sidebar:
+  order: 7
+---
+
+# Bity, ASCII i Unicode
+
+## Po co kodować znaki?
+
+Komputer przechowuje dane w postaci bitów, a człowiek czyta litery i symbole. **Kodowanie znaków** ustala przyporządkowanie znaków liczbom i sposób zapisu tych liczb jako bajtów.
+
+## ASCII — 7 bitów
+
+ASCII definiuje **128 kodów** od 0 do 127. Część oznacza znaki drukowalne, a część służy do sterowania urządzeniami lub formatowania tekstu.
+
+| Znak | Kod ASCII w systemie dziesiętnym |
+|---|---:|
+| `A` | 65 |
+| `a` | 97 |
+| `0` | 48 |
+| spacja | 32 |
+| znak nowego wiersza (LF) | 10 |
+
+ASCII nie wystarcza do zakodowania wszystkich znaków używanych na świecie, np. wielu polskich liter.
+
+## Unicode i UTF-8
+
+**Unicode** definiuje punkty kodowe znaków, a **UTF-8** określa, jak zapisać je w bajtach. Dla znaków ASCII UTF-8 używa tych samych jednobajtowych kodów. Pozostałe znaki mogą zajmować 2, 3 albo 4 bajty.
+
+:::caution[To ważne w C++]
+`std::string::size()` zwraca liczbę **bajtów**, a nie zawsze liczbę znaków widocznych na ekranie. Dla tekstu UTF-8 polska litera często zajmuje więcej niż jeden bajt. Typ `char` nie reprezentuje automatycznie dowolnego znaku Unicode.
+:::
+
+## Krótki przykład ASCII
+
+```cpp
+#include <iostream>
+
+int main() {
+    char litera = 'A';
+    std::cout << litera << '\n';
+    std::cout << static_cast<int>(litera) << '\n';
+}
+```
+
+Na typowym systemie stosującym ASCII lub kodowanie zgodne z ASCII wynik to `A`, a pod nim `65`. **Uwaga:** standard C++ nie wymaga, by wszystkie środowiska kodowały znaki podstawowe dokładnie tak jak ASCII, dlatego w przykładzie mówimy o typowych systemach.
+
+## Zastosowanie: hasło „ABC”
+
+Przy kodowaniu zgodnym z ASCII znaki `A`, `B`, `C` odpowiadają kodom 65, 66 i 67. Tekst składa się z trzech znaków, ale dowolny tekst UTF-8 nie musi mieć tylu bajtów, ile znaków.
+
+## Ćwiczenie
+
+Czy `std::string tekst = "abc";` ma trzy bajty w UTF-8? A czy tyle samo musi mieć `std::string tekst = "ąbc";`?
+
+<details>
+<summary>Wyjaśnienie</summary>
+
+`abc` zajmuje 3 bajty. `ąbc` w UTF-8 zwykle zajmuje 4 bajty: `ą` — 2, `b` — 1, `c` — 1.
+
+</details>

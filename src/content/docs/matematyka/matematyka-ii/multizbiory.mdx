@@ -1,0 +1,144 @@
+---
+title: "Multizbiory i kombinacje z powtórzeniami"
+description: "Multizbiory, kombinacje z powtórzeniami i wzór C(m+k-1, k)"
+sidebar:
+  order: 21
+---
+
+import Eq from '../../../../components/MathEquation.astro';
+
+# Multizbiory i kombinacje z powtórzeniami
+
+## O co chodzi?
+
+W zwykłym zbiorze element **nie może powtarzać się kilka razy**.
+Na przykład:
+
+```text
+{1, 2, 3}
+```
+
+W **multizbiorze** powtórzenia są dozwolone. Dlatego zapis typu
+
+```text
+⟨1, 1, 1, 2, 4, 4, 4, 4⟩
+```
+
+ma sens — liczba `1` występuje 3 razy, a `4` występuje 4 razy.
+
+Najważniejsza myśl jest taka:
+
+- w **kombinacjach bez powtórzeń** każdy element można wziąć najwyżej raz,
+- w **kombinacjach z powtórzeniami** ten sam element można wybrać wiele razy.
+
+## Definicja intuicyjna
+
+Jeżeli mamy zbiór `Y` o `m` elementach i chcemy wybrać z niego `k` elementów,
+przy czym **wolno powtarzać wybrane elementy**, to otrzymujemy
+**k-elementowe kombinacje z powtórzeniami**.
+
+Przykład:
+
+Zbiór:
+
+<Eq display tex={String.raw`Y=\{1,2,3\}`}/>
+
+Chcemy wybrać `k=4` elementy z powtórzeniami. Poprawne przykłady:
+
+```text
+(1,1,1,1)
+(1,1,2,3)
+(2,2,2,3)
+(1,3,3,3)
+```
+
+Ważne: kolejność nas nie interesuje. Zatem zapis `1,1,2,3` opisuje ten sam wybór co `3,1,2,1`.
+
+## Wzór
+
+Liczba `k`-elementowych kombinacji z powtórzeniami ze zbioru `m`-elementowego wynosi:
+
+<Eq display tex={String.raw`\overline{C}_m^k=\binom{m+k-1}{k}=\binom{m+k-1}{m-1}`}/>
+
+### Co oznaczają litery?
+
+- `m` — liczba różnych elementów w zbiorze,
+- `k` — ile elementów wybieramy,
+- kreska nad `C` przypomina, że chodzi o **powtórzenia**.
+
+## Skąd bierze się wzór?
+
+To klasyczny model „**gwiazdki i kreski**”.
+
+Jeżeli wybierasz `k` elementów z `m` rodzajów, to możesz to traktować tak:
+
+- stawiasz `k` gwiazdek `*` — każda gwiazdka oznacza jeden wybrany element,
+- między rodzajami elementów ustawiasz `m-1` kresek `|`.
+
+Przykład dla `m=3`, `k=4`:
+
+```text
+**|*|*
+```
+
+oznacza:
+
+- przed pierwszą kreską są 2 gwiazdki → wybraliśmy dwa razy element 1,
+- między kreskami jest 1 gwiazdka → raz element 2,
+- za drugą kreską jest 1 gwiazdka → raz element 3.
+
+Czyli dostajemy wybór:
+
+```text
+(1,1,2,3)
+```
+
+Łącznie mamy `k + (m-1)` miejsc. Trzeba wybrać, gdzie stoją np. `k` gwiazdki,
+więc liczba możliwości to:
+
+<Eq display tex={String.raw`\binom{m+k-1}{k}`}/>
+
+## Przykład obliczeniowy
+
+Ile jest 4-elementowych kombinacji z powtórzeniami ze zbioru 3-elementowego?
+
+Dane:
+
+- `m=3`
+- `k=4`
+
+Podstawiamy do wzoru:
+
+<Eq display tex={String.raw`\overline{C}_3^4=\binom{3+4-1}{4}=\binom{6}{4}=15`}/>
+
+Odpowiedź: istnieje **15** takich kombinacji.
+
+## Jak rozpoznać, że to właśnie ten wzór?
+
+Użyj kombinacji z powtórzeniami wtedy, gdy jednocześnie:
+
+1. wybierasz **kilka elementów**,
+2. **kolejność nie ma znaczenia**,
+3. **powtórzenia są dozwolone**.
+
+### Szybkie porównanie
+
+- kod PIN → kolejność ma znaczenie → to nie kombinacja,
+- wybór 3 smaków lodów, gdy można wziąć ten sam smak kilka razy → tak, to kombinacja z powtórzeniami,
+- skład komisji 4-osobowej → kolejność nie ma znaczenia, ale zwykle bez powtórzeń.
+
+## Mini zadania
+
+1. Ile jest 3-elementowych kombinacji z powtórzeniami ze zbioru 5-elementowego?
+2. Ile sposobów wyboru 6 pączków jest możliwych, jeśli piekarnia sprzedaje 4 rodzaje i wolno brać wiele sztuk tego samego rodzaju?
+
+## Odpowiedzi
+
+1. <Eq tex={String.raw`\overline{C}_5^3=\binom{7}{3}=35`}/>
+2. <Eq tex={String.raw`\overline{C}_4^6=\binom{9}{6}=84`}/>
+
+## Najkrótsze podsumowanie
+
+Jeśli **kolejność nie ma znaczenia**, ale **wolno powtarzać elementy**, to zwykle używamy:
+
+<Eq display tex={String.raw`\overline{C}_m^k=\binom{m+k-1}{k}`}/>
