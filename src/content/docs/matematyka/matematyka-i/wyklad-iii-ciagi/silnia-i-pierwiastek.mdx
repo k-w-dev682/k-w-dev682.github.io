@@ -1,0 +1,56 @@
+---
+title: "Silnia i pierwiastki — trudniejsze granice"
+description: "Granice 100 do n przez n silnia oraz pierwiastek n-tego stopnia"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Trudniejsze granice: silnia i pierwiastek n-tego stopnia
+
+## Co to jest silnia?
+
+<Eq display tex={String.raw`n!=1\cdot2\cdot3\cdots n`}/>
+
+Przykłady: `3!=6`, `4!=24`, `5!=120`.
+
+Silnia rośnie **szybciej** niż dowolna stała potęga typu `100^n`.
+
+## Przykład: 100 do n przez n!
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{100^n}{n!}=0`}/>
+
+Nie zgaduj tego z wyglądu. Zobacz, co robi iloraz kolejnych wyrazów:
+
+<Eq display tex={String.raw`a_n=\frac{100^n}{n!},\quad \frac{a_{n+1}}{a_n}=\frac{100}{n+1}`}/>
+
+Dla `n≥199` mamy:
+
+<Eq display tex={String.raw`\frac{100}{n+1}\le\frac12`}/>
+
+Od tego momentu każdy kolejny wyraz jest co najwyżej połową poprzedniego. Kolejne połówki muszą iść do 0.
+
+**Ważne:** to oszacowanie działa **od odpowiednio dużego n**, nie od pierwszego wyrazu.
+
+## Przykład: suma potęg pod pierwiastkiem
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\sqrt[n]{3^n+4^n}`}/>
+
+Największy składnik to `4^n`, bo 4 jest większe od 3.
+
+Wyłączamy `4^n` spod pierwiastka:
+
+<Eq display tex={String.raw`\sqrt[n]{3^n+4^n}=4\sqrt[n]{\left(\frac34\right)^n+1}`}/>
+
+Ponieważ `(3/4)^n→0`, wyrażenie pod pierwiastkiem zbliża się do 1. Dokładne oszacowanie daje:
+
+<Eq display tex={String.raw`4\le\sqrt[n]{3^n+4^n}\le4\sqrt[n]{2}`}/>
+
+Skrajne ciągi dążą do 4, więc wynik to:
+
+<Eq display tex={String.raw`\boxed{4}`}/>
+
+## Jak to zapamiętać?
+
+- przy **silni** pomyśl o ilorazie kolejnych wyrazów,
+- przy **pierwiastku n-tego stopnia z sumy potęg** pomyśl o największej podstawie potęgi,
+- przy trudnym wyrażeniu zawsze sprawdź, czy można je oszacować z obu stron.

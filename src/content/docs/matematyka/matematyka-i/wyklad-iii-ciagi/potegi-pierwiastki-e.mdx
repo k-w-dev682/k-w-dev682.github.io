@@ -1,0 +1,80 @@
+---
+title: "Potęgi, pierwiastki n-te i liczba e"
+description: "Najważniejsze granice specjalne i zastosowanie do obliczeń"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Granice specjalne: potęgi, pierwiastki i liczba e
+
+## Potęgi: co robi `a^n`?
+
+Ważne jest, jaka liczba stoi u podstawy potęgi.
+
+- gdy `|a|<1`, kolejne potęgi maleją co do wartości bezwzględnej do zera,
+- gdy `a=1`, każda potęga to 1,
+- gdy `a>1`, potęgi rosną do `+∞`,
+- gdy `a=-1`, potęgi skaczą między -1 i 1,
+- gdy `a<-1`, wartości bezwzględne rosną, a znaki się zmieniają.
+
+<Eq display tex={String.raw`|a|<1\quad\Longrightarrow\quad a^n\to0`}/>
+
+### Przykład
+
+<Eq display tex={String.raw`\left(\frac12\right)^n\to0`}/>
+
+Ponieważ powtarzamy mnożenie przez liczbę mniejszą od 1.
+
+## Pierwiastki n-te
+
+Dla każdej **stałej dodatniej** liczby `a`:
+
+<Eq display tex={String.raw`\sqrt[n]{a}\longrightarrow1`}/>
+
+Dlaczego? Bo szukamy liczby, którą trzeba pomnożyć przez samą siebie `n` razy, by dostać stałe `a`. Gdy `n` rośnie, ta liczba musi zbliżać się do 1.
+
+Ważny przypadek:
+
+<Eq display tex={String.raw`\sqrt[n]{n}\longrightarrow1`}/>
+
+## Skąd bierze się liczba e?
+
+Rozważmy:
+
+<Eq display tex={String.raw`a_n=\left(1+\frac1n\right)^n`}/>
+
+Kilka przybliżeń:
+
+```text
+n=1   → 2.0000
+n=2   → 2.2500
+n=5   → 2.48832
+n=10  → 2.59374
+n=100 → 2.70481
+```
+
+Wyrazy zbliżają się do liczby około `2,71828...`. Nazywamy ją `e`.
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(1+\frac1n\right)^n=e`}/>
+
+## Bardzo użyteczny wzór
+
+Dla każdej stałej rzeczywistej `c`:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(1+\frac cn\right)^n=e^c`}/>
+
+### Przykład
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(1+\frac3n\right)^n=e^3`}/>
+
+**Dlaczego `e³`?** Wnętrze ma `1+3/n`, a wykładnik to `n`. Po dopasowaniu do wzorca współczynnik `3` przechodzi do wykładnika potęgi `e`.
+
+## Uwaga na założenia
+
+Nie można stosować wzoru automatycznie do dowolnego wyrażenia z literą `n`. Najpierw musi ono mieć właściwy kształt albo dać się do niego przekształcić.
+
+## Mini zadanie
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(1+\frac5n\right)^n`}/>
+
+**Odpowiedź:** `e⁵`.

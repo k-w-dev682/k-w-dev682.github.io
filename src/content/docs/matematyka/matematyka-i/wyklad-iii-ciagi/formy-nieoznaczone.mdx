@@ -1,0 +1,57 @@
+---
+title: "Symbole nieoznaczone i typowe pułapki"
+description: "Dlaczego 0/0 i nieskończoność/nieskończoność nie dają wyniku"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Postacie nieoznaczone — co właściwie oznaczają?
+
+## Pierwsza sprawa: nieskończoność nie jest zwykłą liczbą
+
+W granicach można zobaczyć zapisy takie jak:
+
+```text
+0/0, ∞/∞, ∞−∞, 0·∞, 1^∞, 0^0, ∞^0
+```
+
+Nazywamy je **postaciami nieoznaczonymi**. To nie są wyniki działania, lecz sygnały, że potrzebne jest przekształcenie.
+
+## Dlaczego `0/0` nie ma jednego wyniku?
+
+Porównaj dwa ułamki:
+
+<Eq display tex={String.raw`\frac{1/n}{1/n}=1`}/>
+
+oraz:
+
+<Eq display tex={String.raw`\frac{1/n^2}{1/n}=\frac1n\longrightarrow0`}/>
+
+W obu przypadkach licznik i mianownik zbliżają się do zera, ale granice całych ułamków są różne.
+
+## A co z `∞/∞`?
+
+<Eq display tex={String.raw`\frac{n}{n}=1,\qquad\frac{n^2}{n}=n\to+\infty,\qquad\frac{n}{n^2}=\frac1n\to0`}/>
+
+W każdym licznik i mianownik rosną bez końca, ale wyniki są różne.
+
+## Co robić w zadaniu?
+
+1. Rozpoznaj typ wyrażenia.
+2. Poszukaj najwyższej potęgi, wspólnego czynnika lub sprzężenia.
+3. Uprość ułamek.
+4. Dopiero **po uproszczeniu** licz granicę.
+
+## Przykład: różnica pierwiastków
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(\sqrt{n+1}-\sqrt n\right)`}/>
+
+To wygląda jak `∞-∞`. Mnożymy przez tzw. sprzężenie:
+
+<Eq display tex={String.raw`\sqrt{n+1}-\sqrt n=\frac{(n+1)-n}{\sqrt{n+1}+\sqrt n}=\frac1{\sqrt{n+1}+\sqrt n}`}/>
+
+Mianownik rośnie, więc cały ułamek dąży do 0.
+
+## Najważniejsza rzecz
+
+**Nie wpisuj „wynik = 0/0”.** To informacja o problemie, a nie wynik.

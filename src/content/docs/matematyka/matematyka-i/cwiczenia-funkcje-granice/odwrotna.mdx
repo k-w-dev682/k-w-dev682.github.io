@@ -1,0 +1,96 @@
+---
+title: "Funkcja odwrotna — od A do Z"
+description: "Jak znaleźć funkcję odwrotną z ograniczoną dziedziną"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Funkcja odwrotna — powolne wyjaśnienie
+
+## Co znaczy „odwrócić funkcję”?
+
+Funkcja bierze argument `x` i robi z niego wynik `y`. Funkcja odwrotna ma zrobić drogę **w drugą stronę**: dostać `y` i odzyskać `x`.
+
+Nie każdą funkcję da się odwrócić na całej dziedzinie. Jeśli różne argumenty dają ten sam wynik, nie wiadomo, który argument odzyskać.
+
+![Schemat pokazujący funkcję liniową i wykonywanie działań odwrotnych](/studylab-matematyka-i-iii/funkcja-odwrotna.svg)
+
+## Przykład 1 — funkcja liniowa
+
+<Eq display tex={String.raw`y=3x+2`}/>
+
+Chcemy wyznaczyć `x` z tego równania.
+
+Odejmij 2 po obu stronach:
+
+<Eq display tex={String.raw`y-2=3x`}/>
+
+Podziel obie strony przez 3:
+
+<Eq display tex={String.raw`x=\frac{y-2}{3}`}/>
+
+Zamień nazwy liter (`x` ma być argumentem nowej funkcji):
+
+<Eq display tex={String.raw`f^{-1}(x)=\frac{x-2}{3}`}/>
+
+### Sprawdzenie
+
+<Eq display tex={String.raw`f\left(f^{-1}(x)\right)=3\frac{x-2}{3}+2=x`}/>
+
+## Przykład 2 — parabola z ograniczoną dziedziną
+
+Dane:
+
+<Eq display tex={String.raw`f(x)=x^2-4x\qquad\text{dla }x\le2`}/>
+
+### Krok 1. Uporządkuj do kwadratu
+
+<Eq display tex={String.raw`x^2-4x=(x-2)^2-4`}/>
+
+**Dlaczego?** Bo `(x-2)²=x²-4x+4`. Odejmujemy 4, by wrócić do wyjściowego wzoru.
+
+### Krok 2. Wprowadź `y`
+
+<Eq display tex={String.raw`y=(x-2)^2-4`}/>
+
+Dodaj 4:
+
+<Eq display tex={String.raw`y+4=(x-2)^2`}/>
+
+### Krok 3. Pierwiastkuj — uważaj na znak
+
+<Eq display tex={String.raw`|x-2|=\sqrt{y+4}`}/>
+
+Ponieważ **dziedzina narzuca `x≤2`**, wiemy, że `x-2≤0`. Dlatego:
+
+<Eq display tex={String.raw`|x-2|=-(x-2)=2-x`}/>
+
+To jest powód, dla którego nagle pojawia się `2-x`.
+
+### Krok 4. Oblicz `x`
+
+<Eq display tex={String.raw`2-x=\sqrt{y+4}`}/>
+
+<Eq display tex={String.raw`x=2-\sqrt{y+4}`}/>
+
+### Krok 5. Zapisz funkcję odwrotną
+
+<Eq display tex={String.raw`\boxed{f^{-1}(x)=2-\sqrt{x+4}}`}/>
+
+**Dziedzina funkcji odwrotnej:** `x≥-4`, bo `x+4≥0`.
+
+## Dlaczego nie ma plusa przed pierwiastkiem?
+
+Bo pierwotnie przyjęliśmy tylko `x≤2`. Gałąź `2+√(y+4)` prowadziłaby do argumentów większych od 2, więc nie należy do wybranego fragmentu paraboli.
+
+## Mini zadanie
+
+Znajdź odwrotną do `f(x)=5x-7`.
+
+Rozwiązanie: `y=5x-7 → y+7=5x → x=(y+7)/5`.
+
+<Eq display tex={String.raw`f^{-1}(x)=\frac{x+7}{5}`}/>
+
+:::caution[Najczęstsza pomyłka]
+Zapis `f⁻¹(x)` **nie oznacza** `1/f(x)`. W pierwszym przypadku chodzi o odwrócenie działania, w drugim o odwrotność liczby.
+:::

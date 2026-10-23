@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-label="Funkcja i funkcja odwrotna: najpierw mnożenie razy trzy i dodanie dwóch, a potem odejmowanie dwóch i dzielenie przez trzy">
+<rect width="900" height="360" rx="20" fill="#0a1413"/>
+<text x="40" y="54" font-family="Arial" font-size="26" font-weight="bold" fill="#e4fff7">Funkcja i działanie odwrotne</text>
+<g font-family="Arial" text-anchor="middle"><rect x="40" y="135" width="180" height="84" rx="15" fill="#123d33" stroke="#54cbad"/><text x="130" y="183" font-size="25" fill="#d5fff3">x</text>
+<rect x="358" y="135" width="188" height="84" rx="15" fill="#123d33" stroke="#54cbad"/><text x="452" y="182" font-size="25" fill="#e9fff7">3x + 2</text>
+<rect x="680" y="135" width="180" height="84" rx="15" fill="#123d33" stroke="#54cbad"/><text x="770" y="182" font-size="25" fill="#e9fff7">y</text></g>
+<line x1="220" y1="170" x2="345" y2="170" stroke="#60e9c5" stroke-width="3"/><path d="M345 170 l-12 -8 v16 z" fill="#60e9c5"/>
+<line x1="548" y1="170" x2="667" y2="170" stroke="#60e9c5" stroke-width="3"/><path d="M667 170 l-12 -8 v16 z" fill="#60e9c5"/>
+<text x="451" y="110" text-anchor="middle" font-family="Arial" font-size="18" fill="#b7e0d4">f(x) = 3x + 2</text>
+<path d="M769 240 L768 285 L130 285 L130 233" stroke="#f3cb7c" fill="none" stroke-width="3"/><path d="M130 233 l-8 12 h16 z" fill="#f3cb7c"/>
+<text x="460" y="319" text-anchor="middle" font-family="Arial" font-size="19" fill="#ffdfa7">Droga powrotna: odejmij 2, następnie podziel przez 3</text>
+</svg>

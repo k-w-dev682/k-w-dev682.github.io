@@ -1,0 +1,101 @@
+---
+title: "Granica ciągu i epsilon"
+description: "Co oznacza granica i definicja z epsilonem od podstaw"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Granica ciągu — nareszcie zrozumiale
+
+## Najpierw wyobraź sobie przykład
+
+Ciąg:
+
+<Eq display tex={String.raw`a_n=\frac1n`}/>
+
+Ma wyrazy:
+
+```text
+1, 0.5, 0.333..., 0.25, 0.2, ...
+```
+
+Są coraz bliżej zera. Nie muszą nigdy równać się zeru, aby **zbliżać się do zera**.
+
+Pisząc:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac1n=0`}/>
+
+mówimy: gdy `n` przyjmuje coraz większe wartości, wyrazy stają się dowolnie bliskie `0`.
+
+![Wizualizacja dowolnie małego pasa wokół granicy](/studylab-matematyka-i-iii/epsilon.svg)
+
+![Punkty kolejnych wyrazów ciągu jeden przez n zbliżają się do zera](/studylab-matematyka-i-iii/ciag-punkty.svg)
+
+## Co znaczy epsilon?
+
+Grecka litera `ε` to po prostu **wybrana dokładność**.
+
+Na przykład:
+
+- `ε=0,1` — chcemy mieć odległość od granicy mniejszą niż `0,1`,
+- `ε=0,001` — żądamy dokładności `0,001`,
+- `ε=0,0000001` — bardzo wymagająca dokładność.
+
+Nie trzeba się jej bać: **to zwykła dodatnia liczba**.
+
+## Odległość od granicy
+
+<Eq display tex={String.raw`|a_n-g|<\varepsilon`}/>
+
+- `a_n` — badany wyraz,
+- `g` — kandydat na granicę,
+- `|...|` — wartość bezwzględna, czyli odległość na osi liczbowej,
+- `ε` — dopuszczalny błąd.
+
+## Cała definicja, ale po ludzku
+
+<Eq display tex={String.raw`\lim_{n\to\infty}a_n=g\iff \forall\varepsilon>0\ \exists N\in\mathbb N\ \forall n>N:\ |a_n-g|<\varepsilon`}/>
+
+Przeczytaj ją w tej kolejności:
+
+1. Ktoś podaje ci **dowolnie małe** dodatnie `ε`.
+2. Ty wskazujesz taki numer `N`, od którego wszystko już się udaje.
+3. Dla **każdego późniejszego numeru** `n>N` wyraz leży bliżej `g` niż `ε`.
+
+**Nie trzeba trafić dokładnie w granicę.** Trzeba móc podejść do niej tak blisko, jak ktoś zażąda.
+
+## Dowód dla `1/n` krok po kroku
+
+Chcemy pokazać:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac1n=0`}/>
+
+Warunek z definicji brzmi:
+
+<Eq display tex={String.raw`\left|\frac1n-0\right|<\varepsilon`}/>
+
+Ponieważ `n>0`, wartość bezwzględna znika:
+
+<Eq display tex={String.raw`\frac1n<\varepsilon`}/>
+
+Mnożymy obie strony przez dodatnie `n`, a potem dzielimy przez dodatnie `ε`:
+
+<Eq display tex={String.raw`n>\frac1\varepsilon`}/>
+
+To jest odpowiedź: wybierz `N` większe od `1/ε`. Każdy numer `n>N` będzie już wystarczająco duży.
+
+### Konkretny przykład
+
+Ktoś żąda `ε=0,01`. Wtedy `1/ε=100`. Wybieramy `N=101`. Dla wszystkich `n>101`:
+
+<Eq display tex={String.raw`\frac1n<\frac1{101}<0{,}01`}/>
+
+## Dlaczego „prawie wszystkie” nie znaczy „wszystkie”?
+
+Pierwszy, drugi lub setny wyraz może być daleko od granicy. Liczy się to, że **od pewnego momentu już wszystkie** są blisko.
+
+## Zadanie
+
+Dla `a_n=5/n` i `ε=0,1` znajdź numer, od którego odległość od 0 jest mniejsza niż `ε`.
+
+Warunek: `5/n<0,1`, czyli `n>50`. Możesz przyjąć `N=50`: dla wszystkich `n>50` warunek działa.

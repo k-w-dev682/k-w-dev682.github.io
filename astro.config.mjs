@@ -309,6 +309,42 @@ export default defineConfig({
     label: "Matematyka I",
     collapsed: true,
     items: [
+      {
+        label: "Wykład III — Ciągi liczbowe",
+        collapsed: true,
+        items: [
+          { label: "Wykład III — Start", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/start" },
+          { label: "Ciągi liczbowe — od początku", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/ciag-definicja" },
+          { label: "Ciągi ograniczone", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/ograniczonosc" },
+          { label: "Monotoniczność", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/monotonicznosc" },
+          { label: "Ciąg arytmetyczny i geometryczny", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/arytmetyczny-geometryczny" },
+          { label: "Granica i epsilon", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/granica-intuicja-epsilon" },
+          { label: "Zbieżność i rozbieżność", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/zbieznosc-rozbieznosc" },
+          { label: "Działania na granicach", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/rachunek-granic" },
+          { label: "Twierdzenie o trzech ciągach", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/trzy-ciagi-i-oszacowania" },
+          { label: "Twierdzenia o zbieżności", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/twierdzenia-zbieznosci" },
+          { label: "Podciągi", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/podciagi" },
+          { label: "Potęgi, pierwiastki, liczba e", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/potegi-pierwiastki-e" },
+          { label: "Silnia i trudniejsze granice", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/silnia-i-pierwiastek" },
+          { label: "Postacie nieoznaczone", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/formy-nieoznaczone" },
+          { label: "Zadania z ciągów i granic", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/zadania-ciagi" }
+        ]
+      },
+      {
+        label: "Ćwiczenia — Funkcje i granice",
+        collapsed: true,
+        items: [
+          { label: "Ćwiczenia — Start", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/start" },
+          { label: "Dziedzina krok po kroku", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/dziedzina" },
+          { label: "Własności funkcji", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/wlasnosci" },
+          { label: "Złożenie funkcji", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/zlozenie" },
+          { label: "Funkcja odwrotna", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/odwrotna" },
+          { label: "Granice ułamków", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/granice-wielomianow" },
+          { label: "Granice z pierwiastkami", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/granice-pierwiastki" },
+          { label: "Zadania z funkcji i granic", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/zadania-funkcje" },
+          { label: "Poprawki i niepewności", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/poprawki-i-watpliwosci" }
+        ]
+      },
       { label: "Moje notatki (prywatne)", slug: "moje-notatki/matematyka-i" },
       { label: "Moje książki (prywatne)", slug: "moje-ksiazki/matematyka-i" },
       {

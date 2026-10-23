@@ -1,0 +1,114 @@
+---
+title: "Zadania — funkcje, odwrotne i granice"
+description: "Bank przykładów z odpowiedziami i uzasadnieniami"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Zadania — funkcje, odwrotne i granice
+
+## Poziom 1 — dziedzina
+
+**1.** Znajdź dziedzinę `f(x)=1/(x-2)`.
+
+Warunek: `x−2≠0`. Odpowiedź: `R` bez liczby 2.
+
+**2.** Znajdź dziedzinę `f(x)=√(x+3)`.
+
+Warunek: `x+3≥0`. Odpowiedź: `[-3,+∞)`.
+
+**3.** Znajdź dziedzinę `f(x)=log₂(x−4)`.
+
+Warunek: `x−4>0`. Odpowiedź: `(4,+∞)`.
+
+**4.** Znajdź dziedzinę:
+
+<Eq display tex={String.raw`f(x)=\frac{\sqrt{x-1}}{x-5}`}/>
+
+Warunki: `x≥1` oraz `x≠5`. Odpowiedź: `[1,5)∪(5,+∞)`.
+
+## Poziom 2 — własności
+
+**5.** Znajdź miejsce zerowe `f(x)=3x−9`.
+
+`3x−9=0 → x=3`.
+
+**6.** Gdzie `f(x)=x²−4` jest dodatnia?
+
+Rozkład: `(x−2)(x+2)>0`, co zachodzi dla `x<-2` lub `x>2`.
+
+**7.** Czy `f(x)=x²` jest różnowartościowa na całej osi?
+
+Nie: `f(1)=f(-1)=1`. Na przykład na `[0,+∞)` jest różnowartościowa.
+
+**8.** Ile wynosi minimum funkcji `f(x)=x²−4x`?
+
+Po przekształceniu `f(x)=(x−2)²−4`. Minimum to `-4` dla `x=2`.
+
+## Poziom 3 — złożenie i odwrotność
+
+**9.** Dla `f(x)=x²` i `g(x)=x+1` oblicz `f(g(x))`.
+
+<Eq display tex={String.raw`f(g(x))=(x+1)^2=x^2+2x+1`}/>
+
+**10.** Oblicz `g(f(x))` dla tych samych funkcji.
+
+<Eq display tex={String.raw`g(f(x))=x^2+1`}/>
+
+**11.** Znajdź odwrotną do `f(x)=2x+5`.
+
+`y=2x+5 → y−5=2x → x=(y−5)/2`.
+
+<Eq display tex={String.raw`f^{-1}(x)=\frac{x-5}2`}/>
+
+**12.** Wyznacz odwrotną do `f(x)=x²` dla `x≥0`.
+
+`y=x² → x=√y` (wybieramy dodatnią gałąź z powodu dziedziny).
+
+<Eq display tex={String.raw`f^{-1}(x)=\sqrt x\quad(x\ge0)`}/>
+
+**13.** Wyznacz odwrotną do `f(x)=x²−4x` dla `x≤2`.
+
+<Eq display tex={String.raw`f^{-1}(x)=2-\sqrt{x+4}\quad(x\ge-4)`}/>
+
+## Poziom 4 — granice
+
+**14.** Oblicz:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{2n^2+n}{5n^2-1}=\frac25`}/>
+
+**15.** Oblicz:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{n+1}{n^2+1}=0`}/>
+
+**16.** Oblicz:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(\sqrt{n^2+8n}-n\right)=4`}/>
+
+Wskazówka: pomnóż przez sprzężenie, a potem podziel przez `n`.
+
+**17.** Oblicz:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(1+\frac2n\right)^n=e^2`}/>
+
+**18.** Oblicz:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{\cos n}{n}=0`}/>
+
+Użyj oszacowania `-1≤cos n≤1`.
+
+## Poziom 5 — dwa trudniejsze sprawdziany
+
+**19.** Znajdź dziedzinę `f(x)=√(x²−9)/(x−3)`.
+
+Pierwiastek wymaga `x≤−3` lub `x≥3`; mianownik wyklucza `x=3`. Odpowiedź: `(-∞,-3]∪(3,+∞)`.
+
+**20.** Znajdź odwrotną do `f(x)=(x+1)²` na dziedzinie `x≥−1`.
+
+Po pierwiastkowaniu wybieramy nieujemną gałąź `x+1`:
+
+<Eq display tex={String.raw`f^{-1}(x)=\sqrt x-1\quad(x\ge0)`}/>
+
+:::tip[Jeśli zadanie wydaje się zbyt trudne]
+Zidentyfikuj typ: dziedzina, znak, odwrotna czy granica. Samo nazwanie typu pomaga wybrać pierwszy krok.
+:::

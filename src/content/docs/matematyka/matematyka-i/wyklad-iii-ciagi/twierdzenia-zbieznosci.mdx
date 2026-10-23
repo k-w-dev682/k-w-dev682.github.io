@@ -1,0 +1,56 @@
+---
+title: "Własności ciągów zbieżnych"
+description: "Jednoznaczność granicy, ograniczoność i monotoniczność"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Dlaczego pewne ciągi muszą mieć granicę?
+
+## Własność 1 — granica jest jedna
+
+Ciąg nie może jednocześnie dążyć do dwóch różnych liczb.
+
+Jeśli ktoś twierdzi, że jeden ciąg ma granicę 3 i 5, to przynajmniej jedno stwierdzenie jest błędne.
+
+## Własność 2 — ciąg zbieżny jest ograniczony
+
+Jeżeli wyrazy w końcu trzymają się blisko liczby `g`, to nie mogą dowolnie daleko od niej odlatywać.
+
+A co z pierwszymi wyrazami? Jest ich tylko skończenie wiele, więc można dobrać dostatecznie szerokie barierki, obejmujące również je.
+
+## Uwaga — odwrotność nie jest prawdziwa
+
+Ciąg:
+
+<Eq display tex={String.raw`a_n=(-1)^n`}/>
+
+jest ograniczony między `-1` a `1`, ale **nie jest zbieżny**. Ograniczoność nie wystarcza.
+
+## Własność 3 — monotoniczny i ograniczony jest zbieżny
+
+Jeśli ciąg ciągle rośnie, ale nie może przebić górnej barierki, musi coraz bardziej zbliżać się do jakiejś liczby.
+
+Analogicznie ciąg malejący, ograniczony z dołu.
+
+Nie musisz na tym etapie umieć udowodnić twierdzenia formalnie. Najpierw zrozum jego sens: **brak skoków w przeciwną stronę** plus **brak ucieczki w nieskończoność**.
+
+## Przykład
+
+<Eq display tex={String.raw`a_n=2-\frac1n`}/>
+
+Ten ciąg:
+
+- jest rosnący — bo `1/n` maleje, więc `2-1/n` rośnie,
+- jest mniejszy od 2,
+- ma granicę 2.
+
+## Co sprawdzić na egzaminie?
+
+Gdy masz udowodnić zbieżność przez monotoniczność:
+
+1. wykaż, że ciąg jest rosnący albo malejący,
+2. wskaż odpowiednie ograniczenie,
+3. dopiero potem powołaj się na twierdzenie.
+
+**Nie wystarczy** napisać tylko „ciąg rosnący”, bo `a_n=n` też rośnie, a nie ma skończonej granicy.

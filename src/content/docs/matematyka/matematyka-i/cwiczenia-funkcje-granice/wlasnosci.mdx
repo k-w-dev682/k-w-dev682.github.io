@@ -1,0 +1,86 @@
+---
+title: "Własności funkcji: znak, monotoniczność, ograniczenia"
+description: "Miejsca zerowe, dodatniość, maksimum i ograniczenia"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Własności funkcji bez zgadywania
+
+## Miejsce zerowe
+
+To takie `x`, dla którego wynik funkcji wynosi zero:
+
+<Eq display tex={String.raw`f(x)=0`}/>
+
+Przykład:
+
+<Eq display tex={String.raw`f(x)=2x-6\quad\Longrightarrow\quad2x-6=0\quad\Longrightarrow\quad x=3`}/>
+
+## Kiedy funkcja jest dodatnia?
+
+Szukamy takich `x`, że:
+
+<Eq display tex={String.raw`f(x)>0`}/>
+
+Przykład dla `f(x)=2x-6`:
+
+<Eq display tex={String.raw`2x-6>0\quad\Longrightarrow\quad x>3`}/>
+
+Dlatego funkcja jest dodatnia na `(3,+∞)`.
+
+## Rosnąca i malejąca
+
+Funkcja rośnie, gdy większy argument daje większą wartość:
+
+<Eq display tex={String.raw`x_1<x_2\quad\Longrightarrow\quad f(x_1)<f(x_2)`}/>
+
+Maleje, gdy większy argument daje mniejszą wartość.
+
+**To porównanie dotyczy argumentów z dziedziny**.
+
+## Przykład z parabolą
+
+<Eq display tex={String.raw`f(x)=x^2-3x+2`}/>
+
+Współczynnik przy `x²` jest dodatni, więc parabola ma ramiona skierowane w górę.
+
+Wierzchołek ma współrzędną:
+
+<Eq display tex={String.raw`p=-\frac b{2a}=-\frac{-3}{2\cdot1}=\frac32`}/>
+
+Dla całej osi rzeczywistej:
+
+- funkcja maleje do `x=3/2`,
+- potem rośnie od `x=3/2`.
+
+Wartość w wierzchołku:
+
+<Eq display tex={String.raw`f\left(\frac32\right)=\frac94-\frac92+2=-\frac14`}/>
+
+Zatem najmniejsza wartość wynosi `-1/4`.
+
+## Ograniczona z góry i z dołu
+
+Parabola o ramionach do góry ma minimum, ale nie ma maksimum na całej osi.
+
+Przykład `f(x)=x²`:
+
+- jest ograniczona z dołu przez 0,
+- nie jest ograniczona z góry, bo dla dużych `|x|` wartość `x²` jest duża.
+
+## Logarytm — pułapka dziedziny
+
+<Eq display tex={String.raw`f(x)=\log_2 x`}/>
+
+Funkcja istnieje tylko dla `x>0`, jest rosnąca, ale nie jest ograniczona ani z dołu, ani z góry.
+
+## Zadanie
+
+Dla `f(x)=1/(x²+1)` wskaż dziedzinę i ograniczenia.
+
+Mianownik jest zawsze większy lub równy 1, więc:
+
+<Eq display tex={String.raw`D_f=\mathbb R,\qquad 0<f(x)\le1`}/>
+
+Funkcja osiąga maksimum 1 przy `x=0` i zbliża się do zera dla `|x|→∞`, ale nigdy nie jest równa zeru.

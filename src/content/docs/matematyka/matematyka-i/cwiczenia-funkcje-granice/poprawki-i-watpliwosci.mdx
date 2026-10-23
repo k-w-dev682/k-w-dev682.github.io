@@ -1,0 +1,50 @@
+---
+title: "Poprawki i niepewne fragmenty"
+description: "Co zostało poprawione, a co wymaga sprawdzenia w źródłach"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Poprawki i niepewne fragmenty
+
+Ten rejestr ma pokazać, gdzie zapis wykładowy lub ręczne obliczenia mogłyby wprowadzać w błąd. Nie ukrywamy niepewności i nie traktujemy przekreślonych obliczeń jako prawidłowych.
+
+## Poprawki merytoryczne
+
+### Ciąg arytmetyczny
+
+Różnica `r` **nie musi być dodatnia**. Gdy `r<0`, ciąg maleje; gdy `r=0`, jest stały.
+
+### Wyraz ogólny ciągu geometrycznego
+
+Jeśli liczymy od `a₁`, poprawny wzór to:
+
+<Eq display tex={String.raw`a_n=a_1q^{n-1}`}/>
+
+### Podciąg
+
+Indeksy wybieranych wyrazów muszą być **ściśle rosnące**. Sam zapis „niekoniecznie kolejne” jest zbyt słaby.
+
+### Funkcja odwrotna
+
+Nie wolno odwrócić paraboli `x²` na całej osi rzeczywistej jako funkcji, dopóki nie ograniczymy odpowiednio dziedziny.
+
+### Ułamki w granicach
+
+Nie wolno po prostu pisać `∞/∞=1` albo `0/0=0`. Potrzebne jest algebraiczne przekształcenie.
+
+## Fragmenty wymagające ostrożności
+
+- W niektórych odręcznych granicach pod pierwiastkami współczynniki są przekreślane, dlatego w lekcjach użyto pełnych, jednoznacznie zapisanych przykładów równoważnych metodą.
+- Część notacji funkcji na zdjęciach jest poprawiana w trakcie obliczeń; do rozwiązania zadania należy przyjmować **ostateczną, wyraźną postać**. Jeśli wzór pozostaje nieczytelny, nie przypisujemy mu zgadywanej wartości.
+- W trudnych zadaniach z granicami istotne jest, czy zmienna dąży do `+∞`, `−∞`, czy do konkretnej liczby. Te trzy sytuacje nie są zamienne.
+
+## Jak samodzielnie kontrolować rozwiązanie?
+
+1. Czy wszystkie działania są dozwolone dla przyjętej dziedziny?
+2. Czy przy mnożeniu nierówności nie zmienił się jej kierunek?
+3. Czy po pierwiastkowaniu wybrano właściwy znak?
+4. Czy skrócenie wyrażenia nie usuwa punktu, w którym było ono pierwotnie nieokreślone?
+5. Czy otrzymany wynik jest zgodny z intuicją z kilku wartości liczbowych?
+
+Ten zestaw zawiera **korekty i dodatkowe przykłady dydaktyczne**, a nie dosłowną kopię notatek.

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 390" role="img" aria-label="Wykres punktowy ciągu a n równego jeden przez n, punkty zbliżają się do zera">
+<rect width="900" height="390" rx="20" fill="#0a1313"/>
+<text x="36" y="46" font-family="Arial, sans-serif" font-size="27" font-weight="bold" fill="#e7fff8">Ciąg aₙ = 1/n</text>
+<text x="36" y="76" font-family="Arial, sans-serif" font-size="17" fill="#a9c7be">Każdy punkt to inny wyraz: coraz niżej, lecz zawsze powyżej zera.</text>
+<line x1="70" y1="325" x2="852" y2="325" stroke="#8cbcaf" stroke-width="2"/><line x1="82" y1="100" x2="82" y2="325" stroke="#8cbcaf" stroke-width="2"/>
+<text x="60" y="344" font-family="Arial" font-size="16" fill="#bedbd3">0</text><text x="48" y="113" font-family="Arial" font-size="16" fill="#bedbd3">1</text><text x="830" y="354" font-family="Arial" font-size="16" fill="#bedbd3">n</text>
+<line x1="82" y1="325" x2="845" y2="325" stroke="#51d7ba" opacity=".5" stroke-dasharray="8 6"/>
+<g fill="#53e4c2" stroke="#ddfff5" stroke-width="2">
+<circle cx="122" cy="100" r="8"/><circle cx="195" cy="212.5" r="8"/><circle cx="268" cy="250" r="8"/><circle cx="341" cy="268.75" r="8"/><circle cx="414" cy="280" r="8"/><circle cx="487" cy="287.5" r="8"/><circle cx="560" cy="292.85" r="8"/><circle cx="633" cy="296.88" r="8"/><circle cx="706" cy="300" r="8"/><circle cx="779" cy="302.5" r="8"/>
+</g>
+<g font-family="Arial" font-size="16" fill="#c6eae1" text-anchor="middle"><text x="122" y="351">1</text><text x="195" y="351">2</text><text x="268" y="351">3</text><text x="341" y="351">4</text><text x="414" y="351">5</text><text x="487" y="351">6</text><text x="560" y="351">7</text><text x="633" y="351">8</text><text x="706" y="351">9</text><text x="779" y="351">10</text></g>
+<rect x="560" y="111" width="280" height="74" rx="10" fill="#123329" stroke="#327d68"/>
+<text x="579" y="141" font-family="Arial" font-size="18" fill="#e5fff8">Granica: 0</text>
+<text x="579" y="167" font-family="Arial" font-size="15" fill="#abd8ca">Wyrazy nie muszą równać się 0.</text>
+</svg>

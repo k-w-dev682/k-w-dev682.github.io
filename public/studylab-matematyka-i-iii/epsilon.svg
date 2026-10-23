@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 370" role="img" aria-label="Pas wokół granicy g o szerokości epsilon: dalsze wyrazy ciągu mieszczą się w pasie">
+<rect width="900" height="370" rx="20" fill="#091414"/>
+<text x="36" y="43" font-family="Arial" font-weight="bold" font-size="26" fill="#e1fff7">Granica g i pas dokładności ε</text>
+<rect x="85" y="138" width="738" height="100" rx="6" fill="#185345" opacity=".55"/>
+<line x1="85" y1="188" x2="830" y2="188" stroke="#7bf1d1" stroke-width="2"/>
+<line x1="85" y1="138" x2="830" y2="138" stroke="#85c7b5" stroke-dasharray="7 6"/>
+<line x1="85" y1="238" x2="830" y2="238" stroke="#85c7b5" stroke-dasharray="7 6"/>
+<g fill="#f2d479" stroke="#fff1c1" stroke-width="2"><circle cx="145" cy="90" r="7"/><circle cx="214" cy="260" r="7"/></g>
+<g fill="#58e8c8"><circle cx="313" cy="150" r="7"/><circle cx="381" cy="225" r="7"/><circle cx="453" cy="165" r="7"/><circle cx="525" cy="202" r="7"/><circle cx="597" cy="182" r="7"/><circle cx="669" cy="191" r="7"/><circle cx="741" cy="184" r="7"/></g>
+<line x1="282" y1="92" x2="282" y2="285" stroke="#d5f0e5" stroke-dasharray="5 5"/>
+<text x="282" y="310" text-anchor="middle" font-family="Arial" font-size="21" fill="#e7fff8">N</text>
+<text x="24" y="143" font-family="Arial" font-size="21" fill="#adf1e0">g + ε</text>
+<text x="49" y="194" font-family="Arial" font-size="21" fill="#adf1e0">g</text>
+<text x="24" y="243" font-family="Arial" font-size="21" fill="#adf1e0">g − ε</text>
+<text x="330" y="343" font-family="Arial" font-size="19" fill="#c8eee2">Po numerze N wszystkie kolejne wyrazy mieszczą się w pasie.</text>
+</svg>

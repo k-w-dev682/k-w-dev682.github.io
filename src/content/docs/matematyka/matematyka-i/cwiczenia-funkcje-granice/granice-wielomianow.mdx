@@ -1,0 +1,63 @@
+---
+title: "Granice wielomianów i ułamków"
+description: "Dominująca potęga, dzielenie przez najwyższą potęgę"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Granice wielomianów i ułamków
+
+## Jak rozpoznać „najważniejszy” wyraz?
+
+Dla bardzo dużego `n` potęga `n³` rośnie dużo szybciej niż `n²`, a `n²` szybciej niż `n`.
+
+Na przykład dla `n=1000`:
+
+```text
+n   = 1 000
+n²  = 1 000 000
+n³  = 1 000 000 000
+```
+
+Dlatego przy dużych `n` zwykle liczy się **najwyższa potęga**.
+
+## Przykład 1 — ten sam stopień
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{3n^2+n}{6n^2+4n+5}`}/>
+
+Dzielimy licznik i mianownik przez `n²`:
+
+<Eq display tex={String.raw`=\lim_{n\to\infty}\frac{3+\frac1n}{6+\frac4n+\frac5{n^2}}`}/>
+
+Ułamki z `n` w mianowniku dążą do zera:
+
+<Eq display tex={String.raw`=\frac{3+0}{6+0+0}=\frac12`}/>
+
+## Przykład 2 — niższy stopień w liczniku
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{n+3}{2n^2-1}`}/>
+
+Dziel przez `n²`:
+
+<Eq display tex={String.raw`=\lim_{n\to\infty}\frac{1/n+3/n^2}{2-1/n^2}=0`}/>
+
+## Przykład 3 — wyższy stopień w liczniku
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{4n^3+7}{n-1}`}/>
+
+Dla dużego `n` wygląda to jak `4n³/n = 4n²`, więc granica wynosi `+∞`.
+
+**Uwaga:** jeśli współczynniki przy dominujących potęgach miałyby przeciwne znaki, wynik mógłby być `−∞`.
+
+## Sposób rozwiązywania
+
+1. Podkreśl największą potęgę `n` w liczniku i mianowniku.
+2. Zdecyduj, czy chcesz dzielić przez największą potęgę w mianowniku czy przez dominującą w całym wyrażeniu.
+3. Każdy wyraz dziel osobno.
+4. Ułamki `1/n`, `1/n²` itd. zastąp ich granicą 0 **dopiero po uzasadnieniu**.
+
+## Zadanie
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{4n^3-n+2}{2n^3+n^2}`}/>
+
+**Wynik:** 2. Współczynniki wiodące to 4 i 2.

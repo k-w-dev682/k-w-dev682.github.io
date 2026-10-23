@@ -1,0 +1,66 @@
+---
+title: "Podciągi"
+description: "Co to jest podciąg i jak wykazać brak granicy"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Podciągi — wybieramy niektóre wyrazy
+
+## Definicja w zwykłych słowach
+
+Podciąg powstaje, gdy z ciągu wybierasz niektóre wyrazy, **zachowując ich kolejność**.
+
+Możesz pominąć pierwszy, trzeci czy setny wyraz, ale nie możesz przestawić kolejności pozostałych.
+
+## Przykład
+
+Ciąg:
+
+<Eq display tex={String.raw`a_n=\frac1n`}/>
+
+czyli:
+
+```text
+1, 1/2, 1/3, 1/4, 1/5, 1/6, ...
+```
+
+Wybierz tylko wyrazy o parzystych numerach: 2., 4., 6., ...
+
+<Eq display tex={String.raw`a_{2k}=\frac1{2k}`}/>
+
+Podciąg:
+
+```text
+1/2, 1/4, 1/6, 1/8, ...
+```
+
+## Ważne: numery muszą rosnąć
+
+Wybieramy indeksy `n₁<n₂<n₃<...`. Jeśli indeksy nie byłyby rosnące, można byłoby zmieniać kolejność i to nie byłby poprawny podciąg.
+
+## Twierdzenie
+
+Jeżeli oryginalny ciąg dąży do `g`, to **każdy** jego podciąg też dąży do `g`.
+
+To ma bardzo wygodną konsekwencję:
+
+> Jeśli znajdziesz dwa podciągi z różnymi granicami, cały ciąg nie ma granicy.
+
+## Przykład: `(-1)^n`
+
+Wyrazy o parzystych indeksach:
+
+<Eq display tex={String.raw`a_{2k}=(-1)^{2k}=1`}/>
+
+Wyrazy o nieparzystych indeksach:
+
+<Eq display tex={String.raw`a_{2k+1}=(-1)^{2k+1}=-1`}/>
+
+Pierwszy podciąg dąży do 1, drugi do -1. Zatem całość **nie ma granicy**.
+
+## Mini zadanie
+
+Rozważ `a_n = 2 + (-1)^n`. Jakie są granice podciągu parzystego i nieparzystego?
+
+**Odpowiedź:** parzysty ma stałą wartość 3, nieparzysty stałą wartość 1. Cały ciąg nie jest zbieżny.

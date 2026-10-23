@@ -1,0 +1,60 @@
+---
+title: "Złożenie funkcji — co liczymy najpierw?"
+description: "Złożenie f po g i dziedzina złożenia"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Złożenie funkcji — jak nie pomylić kolejności?
+
+## Znaczenie symbolu
+
+<Eq display tex={String.raw`(f\circ g)(x)=f(g(x))`}/>
+
+Czytaj od środka:
+
+1. Najpierw oblicz `g(x)`.
+2. Wynik wstaw do wzoru `f`.
+
+## Przykład
+
+<Eq display tex={String.raw`f(x)=x^2+1,\qquad g(x)=2x-3`}/>
+
+Obliczmy `f ∘ g`:
+
+<Eq display tex={String.raw`f(g(x))=(2x-3)^2+1`}/>
+
+Rozwiń kwadrat:
+
+<Eq display tex={String.raw`=4x^2-12x+9+1=4x^2-12x+10`}/>
+
+Teraz w drugą stronę — `g ∘ f`:
+
+<Eq display tex={String.raw`g(f(x))=2(x^2+1)-3=2x^2-1`}/>
+
+Wyniki są różne. **Kolejność złożenia ma znaczenie!**
+
+## Dziedzina złożenia
+
+Żeby `f(g(x))` miało sens, muszą być prawdziwe dwa warunki:
+
+1. `x` należy do dziedziny `g`.
+2. `g(x)` należy do dziedziny `f`.
+
+### Przykład z pierwiastkiem
+
+<Eq display tex={String.raw`f(x)=\sqrt x,\qquad g(x)=x-2`}/>
+
+<Eq display tex={String.raw`(f\circ g)(x)=\sqrt{x-2}`}/>
+
+Pod pierwiastkiem musi być liczba nieujemna:
+
+<Eq display tex={String.raw`x-2\ge0\quad\Longrightarrow\quad x\ge2`}/>
+
+Czyli dziedzina złożenia to `[2,+∞)`.
+
+## Mini zadanie
+
+Dane `f(x)=1/x` oraz `g(x)=x+1`. Oblicz `f(g(x))` i dziedzinę.
+
+<Eq display tex={String.raw`f(g(x))=\frac1{x+1},\qquad D=\mathbb R\setminus\{-1\}`}/>

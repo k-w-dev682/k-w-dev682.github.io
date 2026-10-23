@@ -1,0 +1,74 @@
+---
+title: "Twierdzenie o trzech ciągach"
+description: "Ściskanie ciągu i porównywanie z prostszym ciągiem"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Twierdzenie o trzech ciągach — zasada „kanapki”
+
+## Intuicja
+
+Masz trzy ciągi. Środkowy jest **uwięziony** między dolnym a górnym:
+
+<Eq display tex={String.raw`a_n\le b_n\le c_n`}/>
+
+Jeśli oba zewnętrzne zbliżają się do tej samej liczby `g`, to środkowy nie ma gdzie uciec: też musi zbliżać się do `g`.
+
+<Eq display tex={String.raw`\lim a_n=\lim c_n=g\quad\Longrightarrow\quad\lim b_n=g`}/>
+
+Nierówności wystarczą od pewnego miejsca, nie muszą działać dla pierwszych wyrazów.
+
+## Przykład 1 — sinus, który nie ma granicy
+
+Rozważmy:
+
+<Eq display tex={String.raw`b_n=\frac{\sin n}{n}`}/>
+
+Wiemy, że niezależnie od argumentu:
+
+<Eq display tex={String.raw`-1\le\sin n\le1`}/>
+
+Dzielimy przez dodatnie `n`:
+
+<Eq display tex={String.raw`-\frac1n\le\frac{\sin n}{n}\le\frac1n`}/>
+
+Obie skrajne strony dążą do zera, więc środek też:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{\sin n}{n}=0`}/>
+
+## Przykład 2 — pierwiastek n-tego stopnia
+
+Rozważmy:
+
+<Eq display tex={String.raw`b_n=\sqrt[n]{3^n+4^n}`}/>
+
+Ponieważ `3^n ≤ 4^n` dla dodatniego `n`, mamy:
+
+<Eq display tex={String.raw`4^n\le3^n+4^n\le2\cdot4^n`}/>
+
+Pierwiastkujemy stronami (wszystkie wielkości dodatnie):
+
+<Eq display tex={String.raw`4\le\sqrt[n]{3^n+4^n}\le4\sqrt[n]{2}`}/>
+
+A ponieważ `√[n]{2}→1`, prawa i lewa strona dążą do 4.
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\sqrt[n]{3^n+4^n}=4`}/>
+
+## Druga przydatna wersja: porównanie do +∞
+
+Jeśli `a_n ≤ b_n` od pewnego miejsca oraz `a_n→+∞`, to `b_n→+∞`.
+
+**Dlaczego?** Skoro nawet mniejsza liczba przekracza każdą barierę, to większa też ją przekracza.
+
+## Zadanie
+
+Oblicz:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{\cos n}{n^2}`}/>
+
+Wskazówka: `-1 ≤ cos n ≤ 1`, więc:
+
+<Eq display tex={String.raw`-\frac1{n^2}\le\frac{\cos n}{n^2}\le\frac1{n^2}`}/>
+
+**Wynik:** 0.

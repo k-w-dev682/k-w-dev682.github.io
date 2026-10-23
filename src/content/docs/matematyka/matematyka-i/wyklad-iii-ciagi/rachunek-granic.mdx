@@ -1,0 +1,70 @@
+---
+title: "Działania na granicach"
+description: "Granica sumy, iloczynu, ilorazu — kiedy wolno stosować"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Jak obliczać granice bez zgadywania?
+
+## Najważniejsza zasada
+
+Jeśli oba ciągi mają skończone granice, można zwykle liczyć je osobno i dopiero potem wykonać działanie.
+
+Gdy `a_n→a` oraz `b_n→b`, to:
+
+<Eq display tex={String.raw`\lim(a_n+b_n)=a+b`}/>
+<Eq display tex={String.raw`\lim(a_n-b_n)=a-b`}/>
+<Eq display tex={String.raw`\lim(a_nb_n)=ab`}/>
+
+Dla ilorazu jest dodatkowy warunek:
+
+<Eq display tex={String.raw`\lim\frac{a_n}{b_n}=\frac ab\quad\text{jeżeli }b\ne0`}/>
+
+Musimy też mieć `b_n ≠ 0` tam, gdzie zapisujemy iloraz.
+
+## Przykład: granica prostego ułamka
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{3n+2}{n+1}`}/>
+
+Gdy podstawimy sam symbol `∞`, dostaniemy nierzetelne `∞/∞`. Zamiast tego dzielimy licznik i mianownik przez `n`:
+
+<Eq display tex={String.raw`\frac{3n+2}{n+1}=\frac{3+\frac2n}{1+\frac1n}`}/>
+
+Teraz `2/n→0` i `1/n→0`, więc:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{3+\frac2n}{1+\frac1n}=\frac{3+0}{1+0}=3`}/>
+
+## Jak wybierać potęgę, przez którą dzielimy?
+
+W wielomianach z `n` zwykle wybieramy **najwyższą potęgę występującą w mianowniku lub liczniku**.
+
+Przykład:
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{5n^2-3n+1}{2n^2+n+7}`}/>
+
+Dzielimy wszystko przez `n²`:
+
+<Eq display tex={String.raw`=\lim_{n\to\infty}\frac{5-\frac3n+\frac1{n^2}}{2+\frac1n+\frac7{n^2}}=\frac52`}/>
+
+**Dlaczego drobne ułamki znikają?** Im większy mianownik, tym mniejszy wynik, a `1/n` i `1/n²` dążą do 0.
+
+## Trzy możliwe sytuacje przy wielomianach
+
+Jeżeli najwyższa potęga licznika jest:
+
+- **mniejsza** niż mianownika → zwykle granica to 0,
+- **taka sama** → iloraz współczynników przy najwyższych potęgach,
+- **większa** → wyrażenie rośnie co do modułu, ale znak trzeba sprawdzić.
+
+## Pułapka: zero w mianowniku
+
+Działanie „granica ilorazu = iloraz granic” **nie działa**, jeśli granica mianownika jest równa zero.
+
+Wtedy trzeba najpierw przekształcić wyrażenie lub zbadać znak i zachowanie z obu stron.
+
+### Samodzielnie
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\frac{7n^3+n}{2n^3+5}`}/>
+
+**Odpowiedź:** `7/2`. Podziel przez `n³` i wykreśl części dążące do zera.

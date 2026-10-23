@@ -1,0 +1,68 @@
+---
+title: "Granice z pierwiastkami — sprzężenie"
+description: "Usuwanie niewymierności i dlaczego wolno użyć sprzężenia"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Granice z pierwiastkami
+
+## Co to jest „sprzężenie”?
+
+Jeżeli masz:
+
+<Eq display tex={String.raw`A-B`}/>
+
+i pomnożysz przez `A+B`, dostaniesz:
+
+<Eq display tex={String.raw`(A-B)(A+B)=A^2-B^2`}/>
+
+To jest **różnica kwadratów**. Dzięki temu pierwiastki często znikają z licznika.
+
+## Przykład 1
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(\sqrt{n+4}-\sqrt n\right)`}/>
+
+Pomnóż licznik i mianownik przez sumę tych samych pierwiastków:
+
+<Eq display tex={String.raw`\sqrt{n+4}-\sqrt n=\frac{(\sqrt{n+4}-\sqrt n)(\sqrt{n+4}+\sqrt n)}{\sqrt{n+4}+\sqrt n}`}/>
+
+W liczniku użyj różnicy kwadratów:
+
+<Eq display tex={String.raw`=\frac{(n+4)-n}{\sqrt{n+4}+\sqrt n}=\frac4{\sqrt{n+4}+\sqrt n}`}/>
+
+Mianownik rośnie bez końca, więc wynik to 0.
+
+## Przykład 2 — pierwiastki z n²
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(\sqrt{n^2+2n}-n\right)`}/>
+
+Na początku to wygląda jak `∞−∞`. Mnożymy przez sprzężenie:
+
+<Eq display tex={String.raw`=\lim_{n\to\infty}\frac{(n^2+2n)-n^2}{\sqrt{n^2+2n}+n}`}/>
+
+Skracamy licznik:
+
+<Eq display tex={String.raw`=\lim_{n\to\infty}\frac{2n}{\sqrt{n^2+2n}+n}`}/>
+
+Ponieważ `n>0`, wyłączamy `n` spod pierwiastka:
+
+<Eq display tex={String.raw`\sqrt{n^2+2n}=n\sqrt{1+\frac2n}`}/>
+
+Podstawiamy i skracamy `n`:
+
+<Eq display tex={String.raw`=\lim_{n\to\infty}\frac2{\sqrt{1+\frac2n}+1}=\frac2{1+1}=1`}/>
+
+## Dlaczego nie wolno po prostu „odjąć nieskończoności”?
+
+Ponieważ różne wyrażenia rosną z różną szybkością. Sprzężenie pokazuje ich dokładną różnicę.
+
+## Zadanie
+
+<Eq display tex={String.raw`\lim_{n\to\infty}\left(\sqrt{n^2+6n}-n\right)`}/>
+
+Sprzężenie daje:
+
+<Eq display tex={String.raw`\frac{6n}{\sqrt{n^2+6n}+n}=\frac6{\sqrt{1+6/n}+1}\longrightarrow3`}/>
+
+**Wynik:** 3.

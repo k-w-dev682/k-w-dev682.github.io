@@ -1,0 +1,103 @@
+---
+title: "Ciąg arytmetyczny i geometryczny"
+description: "Dlaczego we wzorach jest n minus jeden i jak liczyć sumy"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Ciąg arytmetyczny i geometryczny
+
+## Ciąg arytmetyczny — dodajemy stale tę samą liczbę
+
+Przykład:
+
+```text
+4, 7, 10, 13, 16, ...
+```
+
+Za każdym razem dodajemy `3`. Tę liczbę nazywamy **różnicą** i oznaczamy `r`.
+
+<Eq display tex={String.raw`a_{n+1}-a_n=r`}/>
+
+Różnica może być **dodatnia, zerowa albo ujemna**. Np. `10,7,4,1,...` to ciąg arytmetyczny z `r=-3`.
+
+## Wzór na n-ty wyraz
+
+<Eq display tex={String.raw`a_n=a_1+(n-1)r`}/>
+
+- `a₁` — pierwszy wyraz,
+- `n` — numer wyrazu,
+- `r` — różnica.
+
+**Dlaczego `n-1`?** Aby dojść od pierwszego wyrazu do czwartego, robisz tylko trzy kroki:
+
+```text
+a1 → a2 → a3 → a4
+     +r    +r    +r
+```
+
+Czyli do `n`-tego wyrazu wykonujesz `n-1` kroków.
+
+### Przykład
+
+`a₁=4`, `r=3`. Oblicz `a₈`:
+
+<Eq display tex={String.raw`a_8=4+(8-1)\cdot3=4+21=25`}/>
+
+## Suma początkowych wyrazów
+
+<Eq display tex={String.raw`S_n=\frac{n(a_1+a_n)}2`}/>
+
+Dlaczego średnia pierwszego i ostatniego wyrazu? Bo pary od końców mają taką samą sumę.
+
+### Przykład: 2 + 5 + 8 + 11
+
+`n=4`, pierwszy wyraz `2`, ostatni `11`:
+
+<Eq display tex={String.raw`S_4=\frac{4(2+11)}2=26`}/>
+
+Można sprawdzić ręcznie: `2+5+8+11=26`.
+
+## Ciąg geometryczny — mnożymy stale przez tę samą liczbę
+
+```text
+3, 6, 12, 24, 48, ...
+```
+
+Każdy kolejny wyraz to poprzedni razy `2`. Tę stałą oznaczamy `q` i nazywamy **ilorazem**.
+
+<Eq display tex={String.raw`a_{n+1}=q\,a_n`}/>
+
+## Wzór na n-ty wyraz ciągu geometrycznego
+
+<Eq display tex={String.raw`a_n=a_1q^{n-1}`}/>
+
+**Dlaczego znowu `n-1`?** Na pierwszym wyrazie nie wykonano jeszcze żadnego mnożenia przez `q`.
+
+### Przykład
+
+`a₁=3`, `q=2`:
+
+<Eq display tex={String.raw`a_5=3\cdot2^{5-1}=3\cdot16=48`}/>
+
+## Suma n wyrazów ciągu geometrycznego
+
+Dla `q ≠ 1`:
+
+<Eq display tex={String.raw`S_n=a_1\frac{1-q^n}{1-q}`}/>
+
+Dla `q=1` wszystkie wyrazy są równe `a₁`, więc:
+
+<Eq display tex={String.raw`S_n=na_1`}/>
+
+### Przykład
+
+`a₁=2`, `q=3`, `n=4`:
+
+<Eq display tex={String.raw`S_4=2\frac{1-3^4}{1-3}=2\frac{-80}{-2}=80`}/>
+
+Sprawdzenie: `2+6+18+54=80`.
+
+:::caution[Pułapka ze wzorem]
+Wzór `a₁ q^n` nie opisuje n-tego wyrazu, gdy numerację zaczynamy od `a₁`. Poprawnie: `a₁ q^{n-1}`. Dla numeracji od zera można używać innego zapisu.
+:::

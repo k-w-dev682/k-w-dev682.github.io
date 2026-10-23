@@ -1,0 +1,60 @@
+---
+title: "Ciągi zbieżne i rozbieżne"
+description: "Granice skończone i nieskończone bez mylenia pojęć"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Zbieżność i rozbieżność
+
+## Zbieżny — idzie do konkretnej liczby
+
+Przykłady:
+
+<Eq display tex={String.raw`\frac1n\longrightarrow0,\qquad \frac{n+1}{n}\longrightarrow1`}/>
+
+Pierwszy ciąg zmierza do 0, drugi do 1.
+
+Ciąg nazywamy **zbieżnym**, gdy ma skończoną granicę rzeczywistą.
+
+## Rozbieżny — nie ma skończonej granicy
+
+Przykłady:
+
+- `a_n=n` rośnie bez ograniczeń,
+- `a_n=-n` maleje bez ograniczeń,
+- `a_n=(-1)^n` skacze między `-1` i `1`.
+
+Wszystkie są rozbieżne, lecz z **różnych powodów**.
+
+## Plus nieskończoność
+
+<Eq display tex={String.raw`a_n\longrightarrow+\infty`}/>
+
+Czytamy: wyrazy w końcu stają się większe od każdej z góry ustalonej liczby.
+
+Na przykład dla `a_n=n²` możesz zażądać, aby `a_n>1 000 000`. Wystarczy odpowiednio duże `n`.
+
+## Minus nieskończoność
+
+<Eq display tex={String.raw`a_n\longrightarrow-\infty`}/>
+
+Czytamy: wyrazy spadają poniżej każdej z góry zadanej liczby, nawet bardzo ujemnej.
+
+Na przykład:
+
+<Eq display tex={String.raw`-n^2\longrightarrow-\infty`}/>
+
+## Uwaga na `(-1)^n`
+
+Ciąg `-1,1,-1,1,...` nie dąży ani do jednej liczby, ani do `+∞`, ani do `-∞`. On **oscyluje**.
+
+## Wniosek
+
+W matematyce symbol `∞` nie oznacza zwyczajnej liczby. Zapis „granica wynosi nieskończoność” jest skrótem mówiącym o zachowaniu ciągu.
+
+### Mini test
+
+1. `a_n=3/n`: zbieżny czy rozbieżny? → zbieżny do 0.
+2. `a_n=4n-1`: dokąd dąży? → do `+∞`.
+3. `a_n=(-1)^n`: co się dzieje? → brak granicy, oscylacja.

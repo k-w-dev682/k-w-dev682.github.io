@@ -1,0 +1,75 @@
+---
+title: "Ograniczoność ciągów"
+description: "Górne i dolne ograniczenie w najprostszych przykładach"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Ograniczoność ciągu
+
+## Co znaczy „ograniczony”?
+
+Wyobraź sobie wszystkie wyrazy ciągu jako punkty na osi liczbowej. Pytamy, czy możemy postawić **barierkę** z lewej lub prawej strony, za którą żaden punkt nie przejdzie.
+
+- ograniczenie **z góry** — istnieje liczba `M`, której żaden wyraz nie przekracza,
+- ograniczenie **z dołu** — istnieje liczba `m`, poniżej której żaden wyraz nie schodzi,
+- ciąg **ograniczony** — ma obie takie barierki.
+
+<Eq display tex={String.raw`m\le a_n\le M\quad\text{dla każdego }n`}/>
+
+Litery `m` i `M` to **stałe liczby**: muszą działać dla wszystkich wyrazów jednocześnie.
+
+## Przykład 1 — ciąg zbliża się do zera
+
+<Eq display tex={String.raw`a_n=\frac{1}{n}`}/>
+
+Pierwsze wyrazy: `1`, `1/2`, `1/3`, `1/4`, ...
+
+Wszystkie są dodatnie, ale żaden nie jest większy od 1:
+
+<Eq display tex={String.raw`0<\frac1n\le1`}/>
+
+Zatem ciąg jest ograniczony od dołu przez 0 i z góry przez 1.
+
+**Ważne:** ograniczenie **nie musi występować jako wyraz ciągu**. Zero jest dolnym ograniczeniem, chociaż `1/n` nigdy nie równa się zeru.
+
+## Przykład 2 — liczby rosną bez końca
+
+<Eq display tex={String.raw`a_n=n`}/>
+
+Dostajemy `1,2,3,4,...`. Dolna barierka jest prosta: `m=1`. Ale górnej barierki nie ma, bo numer `n` można zwiększać bez końca.
+
+## Przykład 3 — naprzemienne znaki
+
+<Eq display tex={String.raw`a_n=(-1)^n`}/>
+
+Daje to `-1,1,-1,1,...`. Cały ciąg mieści się między `-1` a `1`, więc jest ograniczony.
+
+## Jak szybko badać ograniczoność?
+
+1. Policz kilka wyrazów — tylko dla intuicji.
+2. Spróbuj znaleźć nierówność prawdziwą dla **każdego** `n`.
+3. Podaj konkretne barierki `m` i `M`.
+4. Pamiętaj: samo kilka przykładów **nie jest dowodem** dla nieskończonego ciągu.
+
+## Zapis za pomocą wartości bezwzględnej
+
+<Eq display tex={String.raw`|a_n|\le M`}/>
+
+To znaczy, że odległość każdego wyrazu od zera jest nie większa niż `M`. Gdy `M ≥ 0`, taki warunek zapewnia ograniczenie z obu stron:
+
+<Eq display tex={String.raw`-M\le a_n\le M`}/>
+
+## Zadanie
+
+Czy ciąg `a_n = (2n)/(n+1)` jest ograniczony?
+
+Przekształć go:
+
+<Eq display tex={String.raw`a_n=\frac{2n}{n+1}=2-\frac{2}{n+1}`}/>
+
+Dla `n ≥ 1` mamy `0 < 2/(n+1) ≤ 1`, zatem:
+
+<Eq display tex={String.raw`1\le a_n<2`}/>
+
+**Wniosek:** ciąg jest ograniczony.
