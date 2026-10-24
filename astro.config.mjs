@@ -33,6 +33,16 @@ export default defineConfig({
     collapsed: true,
     items: [
       {
+        label: "Spis treści",
+        slug: "programowanie/spis-tresci"
+      },
+      {
+        label: "Wprowadzenie",
+        slug: "programowanie/wstep"
+      },
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/programowanie" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/programowanie" },
+      {
         label: 'Wykład 1 — podstawy programowania i algorytmów',
         collapsed: true,
         items: [
@@ -64,17 +74,7 @@ export default defineConfig({
           { label: 'Bank 45 zadan', slug: 'programowanie/skrypt-r5/zadania' }
         ]
       },
-      { label: "Moje notatki (prywatne)", slug: "moje-notatki/programowanie" },
-      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/programowanie" },
       {"label": "Dane, funkcje i pamięć", "collapsed": true, "items": [{"label": "Tablice — wiele wartości pod jedną nazwą", "slug": "programowanie/tablice"}, {"label": "Funkcje — parametry, wynik i wywołanie", "slug": "programowanie/funkcje"}, {"label": "Referencje — druga nazwa tego samego obiektu", "slug": "programowanie/referencje"}, {"label": "Wskaźniki, adresy i czas życia pamięci", "slug": "programowanie/wskazniki-pamiec"}]},
-      {
-        label: "Spis treści",
-        slug: "programowanie/spis-tresci"
-      },
-      {
-        label: "Wprowadzenie",
-        slug: "programowanie/wstep"
-      },
       {
         label: "Na początek",
         collapsed: true,
@@ -270,6 +270,16 @@ export default defineConfig({
         ]
       },
       {
+        label: "Pozostałe tematy",
+        collapsed: true,
+        items: [
+          {
+            label: "programowanie",
+            slug: "programowanie/programowanie"
+          }
+        ]
+      },
+      {
         label: "Zadania i laboratoria",
         collapsed: true,
         items: [
@@ -292,16 +302,6 @@ export default defineConfig({
             slug: "programowanie/eksport"
           }
         ]
-      },
-      {
-        label: "Pozostałe tematy",
-        collapsed: true,
-        items: [
-          {
-            label: "programowanie",
-            slug: "programowanie/programowanie"
-          }
-        ]
       }
     ]
   },
@@ -310,6 +310,16 @@ export default defineConfig({
     collapsed: true,
     items: [
       {
+        label: "Spis treści",
+        slug: "matematyka/matematyka-i/spis-tresci"
+      },
+      {
+        label: "Wprowadzenie",
+        slug: "matematyka/matematyka-i/wstep"
+      },
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/matematyka-i" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/matematyka-i" },
+      {
         label: "Wykład III — Ciągi liczbowe",
         collapsed: true,
         items: [
@@ -317,8 +327,10 @@ export default defineConfig({
           { label: "Ciągi liczbowe — od początku", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/ciag-definicja" },
           { label: "Ciągi ograniczone", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/ograniczonosc" },
           { label: "Monotoniczność", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/monotonicznosc" },
+          { label: "Laboratorium: monotoniczność na wykresie", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/laboratorium-monotonicznosc" },
           { label: "Ciąg arytmetyczny i geometryczny", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/arytmetyczny-geometryczny" },
           { label: "Granica i epsilon", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/granica-intuicja-epsilon" },
+          { label: "Laboratorium: epsilon i granica", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/laboratorium-epsilon" },
           { label: "Zbieżność i rozbieżność", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/zbieznosc-rozbieznosc" },
           { label: "Działania na granicach", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/rachunek-granic" },
           { label: "Twierdzenie o trzech ciągach", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/trzy-ciagi-i-oszacowania" },
@@ -327,41 +339,13 @@ export default defineConfig({
           { label: "Potęgi, pierwiastki, liczba e", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/potegi-pierwiastki-e" },
           { label: "Silnia i trudniejsze granice", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/silnia-i-pierwiastek" },
           { label: "Postacie nieoznaczone", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/formy-nieoznaczone" },
-          { label: "Zadania z ciągów i granic", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/zadania-ciagi" }
+          { label: "Zadania z ciągów i granic", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/zadania-ciagi" },
+          { label: "20 zadań: ciągi i granice", slug: "matematyka/matematyka-i/wyklad-iii-ciagi/zadania-poziomy-ciagi" }
         ]
-      },
-      {
-        label: "Ćwiczenia — Funkcje i granice",
-        collapsed: true,
-        items: [
-          { label: "Ćwiczenia — Start", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/start" },
-          { label: "Dziedzina krok po kroku", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/dziedzina" },
-          { label: "Własności funkcji", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/wlasnosci" },
-          { label: "Złożenie funkcji", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/zlozenie" },
-          { label: "Funkcja odwrotna", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/odwrotna" },
-          { label: "Granice ułamków", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/granice-wielomianow" },
-          { label: "Granice z pierwiastkami", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/granice-pierwiastki" },
-          { label: "Zadania z funkcji i granic", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/zadania-funkcje" },
-          { label: "Poprawki i niepewności", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/poprawki-i-watpliwosci" }
-        ]
-      },
-      { label: "Moje notatki (prywatne)", slug: "moje-notatki/matematyka-i" },
-      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/matematyka-i" },
-      {
-        label: "Spis treści",
-        slug: "matematyka/matematyka-i/spis-tresci"
-      },
-      {
-        label: "Wprowadzenie",
-        slug: "matematyka/matematyka-i/wstep"
       },
       {
         label: "Wykłady",
         slug: "matematyka/matematyka-i/wyklady"
-      },
-      {
-        label: "Ćwiczenia",
-        slug: "matematyka/matematyka-i/cwiczenia"
       },
       {
         label: "Logika matematyczna",
@@ -476,6 +460,30 @@ export default defineConfig({
         ]
       },
       {
+        label: "Ćwiczenia",
+        slug: "matematyka/matematyka-i/cwiczenia"
+      },
+      {
+        label: "Ćwiczenia — Funkcje i granice",
+        collapsed: true,
+        items: [
+          { label: "Ćwiczenia — Start", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/start" },
+          { label: "Dziedzina krok po kroku", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/dziedzina" },
+          { label: "Własności funkcji", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/wlasnosci" },
+          { label: "Złożenie funkcji", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/zlozenie" },
+          { label: "Funkcja odwrotna", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/odwrotna" },
+          { label: "Laboratorium: składanie i odwrotność", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/laboratorium-funkcje" },
+          { label: "Granice ułamków", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/granice-wielomianow" },
+          { label: "Granice z pierwiastkami", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/granice-pierwiastki" },
+          { label: "Granice ułamków i pierwiastków: każdy krok", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/granice-zaawansowane-krok-po-kroku" },
+          { label: "Najczęstsze błędy — przyczyny", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/najczestsze-bledy" },
+          { label: "Zadania z funkcji i granic", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/zadania-funkcje" },
+          { label: "20 zadań: funkcje i granice", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/zadania-poziomy-funkcje" },
+          { label: "Sprawdź: dlaczego tak jest?", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/czy-rozumiesz" },
+          { label: "Poprawki i niepewności", slug: "matematyka/matematyka-i/cwiczenia-funkcje-granice/poprawki-i-watpliwosci" }
+        ]
+      },
+      {
         label: "Ćwiczenia i zadania domowe",
         collapsed: true,
         items: [
@@ -513,8 +521,6 @@ export default defineConfig({
     label: "Matematyka II",
     collapsed: true,
     items: [
-      { label: "Moje notatki (prywatne)", slug: "moje-notatki/matematyka-ii" },
-      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/matematyka-ii" },
       {
         label: "Spis treści",
         slug: "matematyka/matematyka-ii/spis-tresci"
@@ -523,13 +529,11 @@ export default defineConfig({
         label: "Wprowadzenie",
         slug: "matematyka/matematyka-ii/wstep"
       },
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/matematyka-ii" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/matematyka-ii" },
       {
         label: "Wykłady",
         slug: "matematyka/matematyka-ii/wyklady"
-      },
-      {
-        label: "Ćwiczenia",
-        slug: "matematyka/matematyka-ii/cwiczenia"
       },
       {
         label: "Podstawy i ciągi",
@@ -648,6 +652,10 @@ export default defineConfig({
         ]
       },
       {
+        label: "Ćwiczenia",
+        slug: "matematyka/matematyka-ii/cwiczenia"
+      },
+      {
         label: "Ćwiczenia — dowody",
         collapsed: true,
         items: [
@@ -702,6 +710,16 @@ export default defineConfig({
     collapsed: true,
     items: [
       {
+        label: "Spis treści",
+        slug: "fizyka/spis-tresci"
+      },
+      {
+        label: "Wprowadzenie",
+        slug: "fizyka/wstep"
+      },
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/fizyka" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/fizyka" },
+      {
         label: "Zeszyt — płyny, siły i grawitacja",
         collapsed: true,
         items: [
@@ -721,16 +739,6 @@ export default defineConfig({
           { label: "30 zadań z odpowiedziami", slug: "fizyka/zeszyt-plyny/zadania" },
           { label: "Niepewności i poprawki", slug: "fizyka/zeszyt-plyny/niepewnosci" }
         ]
-      },
-      { label: "Moje notatki (prywatne)", slug: "moje-notatki/fizyka" },
-      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/fizyka" },
-      {
-        label: "Spis treści",
-        slug: "fizyka/spis-tresci"
-      },
-      {
-        label: "Wprowadzenie",
-        slug: "fizyka/wstep"
       },
       {
         label: "Podstawy mechaniki",
@@ -917,6 +925,16 @@ export default defineConfig({
     collapsed: true,
     items: [
       {
+        label: "Spis treści",
+        slug: "elektronika/spis-tresci"
+      },
+      {
+        label: "Wprowadzenie",
+        slug: "elektronika/wstep"
+      },
+      { label: "Moje notatki (prywatne)", slug: "moje-notatki/elektronika" },
+      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/elektronika" },
+      {
         label: "Zeszyt — obwody i elementy",
         collapsed: true,
         items: [
@@ -934,16 +952,6 @@ export default defineConfig({
           { label: "30 zadań z odpowiedziami", slug: "elektronika/zeszyt-obwody/zadania" },
           { label: "Niepewności i uzupełnienia", slug: "elektronika/zeszyt-obwody/niepewnosci" }
         ]
-      },
-      { label: "Moje notatki (prywatne)", slug: "moje-notatki/elektronika" },
-      { label: "Moje książki (prywatne)", slug: "moje-ksiazki/elektronika" },
-      {
-        label: "Spis treści",
-        slug: "elektronika/spis-tresci"
-      },
-      {
-        label: "Wprowadzenie",
-        slug: "elektronika/wstep"
       },
       {
         label: "Podstawy i ładunki",
@@ -1121,8 +1129,6 @@ export default defineConfig({
           label: "Architektura systemów komputerowych",
           collapsed: true,
           items: [
-            { label: "Moje notatki (prywatne)", slug: "moje-notatki/architektura" },
-            { label: "Moje książki (prywatne)", slug: "moje-ksiazki/architektura" },
             {
               label: "Start",
               collapsed: true,
@@ -1136,6 +1142,8 @@ export default defineConfig({
                 }
               ]
             },
+            { label: "Moje notatki (prywatne)", slug: "moje-notatki/architektura" },
+            { label: "Moje książki (prywatne)", slug: "moje-ksiazki/architektura" },
             {
               label: "01 · Systemy liczbowe",
               collapsed: true,

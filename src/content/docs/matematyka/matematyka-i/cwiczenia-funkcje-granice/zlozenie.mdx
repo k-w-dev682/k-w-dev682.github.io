@@ -58,3 +58,15 @@ Czyli dziedzina złożenia to `[2,+∞)`.
 Dane `f(x)=1/x` oraz `g(x)=x+1`. Oblicz `f(g(x))` i dziedzinę.
 
 <Eq display tex={String.raw`f(g(x))=\frac1{x+1},\qquad D=\mathbb R\setminus\{-1\}`}/>
+
+{/* STUDYLAB_18_17_ROZSZERZENIE */}
+
+## Jeszcze prościej: Dlaczego zaczynamy od środka nawiasu?
+
+Zapis `f(g(x))` oznacza, że argumentem funkcji `f` jest **cały wynik** funkcji `g`. Dla `f(x)=x+2` i `g(x)=3x` mamy `f(g(4))=f(12)=14`. Gdy zmienimy kolejność, dostaniemy `g(f(4))=g(6)=18`.
+
+### Sprawdź to na konkretnym przykładzie
+
+Porównaj `14` i `18`. Jeśli wyniki są różne, to znak, że kolejność ma znaczenie.
+
+**Dalszy krok:** [Interaktywny wykres składania](../laboratorium-funkcje/)

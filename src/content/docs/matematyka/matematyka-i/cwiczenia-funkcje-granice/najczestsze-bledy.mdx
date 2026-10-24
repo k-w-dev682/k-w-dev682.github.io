@@ -1,0 +1,72 @@
+---
+title: "Najczęstsze błędy — co poszło nie tak?"
+description: "Dziedzina, wartości bezwzględne, granice i funkcje odwrotne: błędy z uzasadnieniami"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Najczęstsze błędy — co poszło nie tak?
+
+Zamiast zapamiętywać tylko dobry wynik, spróbuj zrozumieć, **dlaczego dany błędny krok jest niedozwolony**.
+
+## Pułapka 1. „0/0 = 0”
+
+Nie. Wyrażenie <Eq tex={String.raw`\frac00`}/> nie jest określone. W zadaniach z granicami jest to **postać nieoznaczona**: trzeba przekształcić wyrażenie, zanim będzie można obliczyć granicę.
+
+Przykład:
+
+<Eq display tex={String.raw`\lim_{x\to2}\frac{x^2-4}{x-2}=\lim_{x\to2}\frac{(x-2)(x+2)}{x-2}=4`}/>
+
+Skracamy tylko dla <Eq tex={String.raw`x\ne2`}/>. W granicy wystarczy, że badamy wartości **bliskie 2**, a nie sam punkt 2. Dlatego mimo braku wartości funkcji dla `x=2` granica może istnieć.
+
+## Pułapka 2. „sqrt(x²) = x”
+
+Prawidłowo:
+
+<Eq display tex={String.raw`\sqrt{x^2}=|x|`}/>
+
+Dla `x = -3` mamy <Eq tex={String.raw`\sqrt{(-3)^2}=\sqrt9=3`}/>, podczas gdy samo `x` wynosi `-3`.
+
+## Pułapka 3. Pierwiastek liczby ujemnej w liczbach rzeczywistych
+
+Dla <Eq tex={String.raw`f(x)=\sqrt{x-5}`}/> wymagamy <Eq tex={String.raw`x-5\ge0`}/>, czyli <Eq tex={String.raw`x\ge5`}/>.
+
+Warunek jest **nieostry**: zero pod pierwiastkiem jest dozwolone.
+
+## Pułapka 4. Dzielenie przez zero
+
+Dla <Eq tex={String.raw`g(x)=\frac2{x-4}`}/> argument `x=4` jest zabroniony. Nie ma znaczenia, że licznik jest równy 2 — mianownik nie może być zerem.
+
+## Pułapka 5. Złożenie w złej kolejności
+
+<Eq display tex={String.raw`f(g(x))\ne g(f(x))\quad\text{w ogólności}`}/>
+
+Najpierw wykonujesz funkcję **wewnętrzną**. Np. przy `f(x)=x+1`, `g(x)=x²` otrzymasz `f(g(2))=5`, ale `g(f(2))=9`.
+
+## Pułapka 6. Odwracanie funkcji kwadratowej bez ograniczenia dziedziny
+
+Funkcja <Eq tex={String.raw`f(x)=x^2`}/> na całej osi rzeczywistej nie jest różnowartościowa: `f(-2)=f(2)`. Nie można więc bez dodatkowego ograniczenia zapisać zwykłej funkcji odwrotnej na całym jej zbiorze wartości.
+
+Jeśli ograniczysz dziedzinę do nieujemnych liczb rzeczywistych, otrzymasz <Eq tex={String.raw`f^{-1}(x)=\sqrt{x}`}/> dla <Eq tex={String.raw`x\ge0`}/>.
+
+## Pułapka 7. Dodatnia różnica ciągu tylko dla kilku n
+
+Sprawdzenie trzech pierwszych wyrazów nie dowodzi monotoniczności całego nieskończonego ciągu. Musisz wykazać znak <Eq tex={String.raw`a_{n+1}-a_n`}/> **dla każdego wymaganego `n`**.
+
+## Pułapka 8. Podstawianie „nieskończoności” do ułamka
+
+W wyrażeniu <Eq tex={String.raw`\frac{2n^2+1}{n^2+3}`}/> nie obliczamy `∞/∞`. Dzielimy licznik i mianownik przez najwyższą potęgę `n²` i uzyskujemy granicę równą `2`.
+
+## Pułapka 9. Skracanie sumy
+
+Nie wolno skrócić `x` w wyrażeniu `(x+2)/x`, ponieważ w liczniku występuje **suma**, a nie iloczyn.
+
+Można natomiast zapisać:
+
+<Eq display tex={String.raw`\frac{x+2}{x}=1+\frac2x\quad (x\ne0)`}/>
+
+## Krótka kontrola
+
+Przed zaakceptowaniem rozwiązania zadaj sobie pytania: czy nie podzieliłem przez zero? Czy nierówność zmieniła znak przy mnożeniu przez liczbę ujemną? Czy każda nowa liczba spełnia dziedzinę? Czy mój wynik można sprawdzić podstawieniem?
+
+[Trudniejsze granice](../granice-zaawansowane-krok-po-kroku/) · [Ćwiczenia z uzasadnieniem](../czy-rozumiesz/)

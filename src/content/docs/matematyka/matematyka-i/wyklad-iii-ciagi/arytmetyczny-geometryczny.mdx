@@ -101,3 +101,15 @@ Sprawdzenie: `2+6+18+54=80`.
 :::caution[Pułapka ze wzorem]
 Wzór `a₁ q^n` nie opisuje n-tego wyrazu, gdy numerację zaczynamy od `a₁`. Poprawnie: `a₁ q^{n-1}`. Dla numeracji od zera można używać innego zapisu.
 :::
+
+{/* STUDYLAB_18_17_ROZSZERZENIE */}
+
+## Jeszcze prościej: Dlaczego we wzorze jest n−1?
+
+Pierwszy wyraz ma numer `n=1`, ale jeszcze **nie wykonaliśmy żadnego przejścia**. Aby dotrzeć do `a₄`, przechodzimy od 1 do 2, od 2 do 3, od 3 do 4 — razem trzy razy. Dlatego w arytmetycznym mnożymy różnicę przez `n−1`, a w geometrycznym mamy potęgę `q^(n−1)`.
+
+### Sprawdź to na konkretnym przykładzie
+
+Dla `a₁=2`, `q=3`: `a₁=2`, `a₂=6`, `a₃=18`, `a₄=54`. Potęga przy `a₄` to 3.
+
+**Dalszy krok:** [Ćwicz sam](../zadania-poziomy-ciagi/)

@@ -1,0 +1,51 @@
+---
+title: "Laboratorium: składanie i odwracanie funkcji"
+description: "Interaktywny argument x, składanie f(g(x)) i funkcja odwrotna"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+import Lab from '../../../../../components/math-i/MathIInteractive.jsx';
+
+# Składanie i odwracanie funkcji — wszystko w jednej lekcji
+
+## Dlaczego kolejność działania ma znaczenie?
+
+Niech <Eq tex={String.raw`f(x)=2x+3`}/> oraz <Eq tex={String.raw`g(x)=x^2`}/>.
+
+- <Eq tex={String.raw`f(g(x))`}/> oznacza: **najpierw** oblicz <Eq tex={String.raw`g(x)`}/>, a dopiero potem wynik podstaw do <Eq tex={String.raw`f`}/>.
+- <Eq tex={String.raw`g(f(x))`}/> oznacza odwrotną kolejność.
+
+<Lab client:visible mode="functions" />
+
+## Rozpiszmy x=2 bez żadnych skrótów
+
+<Eq display tex={String.raw`g(2)=2^2=4`}/>
+<Eq display tex={String.raw`f(g(2))=f(4)=2\cdot4+3=11`}/>
+
+Ale w drugą stronę:
+
+<Eq display tex={String.raw`f(2)=2\cdot2+3=7`}/>
+<Eq display tex={String.raw`g(f(2))=g(7)=7^2=49`}/>
+
+Wyniki `11` i `49` są różne. Złożenie funkcji zazwyczaj **nie jest przemienne**.
+
+## Jak odwrócić f(x)=2x+3?
+
+1. Zapisz <Eq tex={String.raw`y=2x+3`}/>.
+2. Odejmij 3 od obu stron: <Eq tex={String.raw`y-3=2x`}/>.
+3. Podziel przez 2: <Eq tex={String.raw`x=\frac{y-3}{2}`}/>.
+4. Zamień nazwy zmiennych — argument odwrotnej oznaczamy `x`.
+
+<Eq display tex={String.raw`f^{-1}(x)=\frac{x-3}{2}`}/>
+
+### Sprawdzenie
+
+<Eq display tex={String.raw`f^{-1}(f(2))=f^{-1}(7)=\frac{7-3}{2}=2`}/>
+
+Wyszła początkowa liczba 2 — to dobra kontrola.
+
+## Kiedy odwrotność nie istnieje na całej dziedzinie?
+
+Dla <Eq tex={String.raw`f(x)=x^2`}/> na liczbach rzeczywistych mamy <Eq tex={String.raw`f(-2)=f(2)=4`}/>, czyli dwa różne argumenty dają ten sam wynik. Taka funkcja **nie jest różnowartościowa**. Można ograniczyć jej dziedzinę np. do <Eq tex={String.raw`x\ge0`}/>, wtedy ma odwrotność <Eq tex={String.raw`f^{-1}(x)=\sqrt{x}`}/>.
+
+[Otwórz ćwiczenia z funkcji odwrotnych](../odwrotna/) · [Więcej zadań](../zadania-poziomy-funkcje/)

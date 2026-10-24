@@ -61,3 +61,15 @@ Dla dużego `n` wygląda to jak `4n³/n = 4n²`, więc granica wynosi `+∞`.
 <Eq display tex={String.raw`\lim_{n\to\infty}\frac{4n^3-n+2}{2n^3+n^2}`}/>
 
 **Wynik:** 2. Współczynniki wiodące to 4 i 2.
+
+{/* STUDYLAB_18_17_ROZSZERZENIE */}
+
+## Jeszcze prościej: Dlaczego dzielimy przez najwyższą potęgę?
+
+Ułamek `(3n²+n)/(2n²−1)` trudno ocenić bezpośrednio, ale po podzieleniu przez `n²` zmienia się w `(3+1/n)/(2−1/n²)`. Dodatkowe ułamki znikają przy `n→∞`, więc wynik to `3/2`.
+
+### Sprawdź to na konkretnym przykładzie
+
+Spróbuj sam dla `(5n³−2n)/(n³+4)` — wynik to 5.
+
+**Dalszy krok:** [Wszystkie kroki obliczeń](../granice-zaawansowane-krok-po-kroku/)

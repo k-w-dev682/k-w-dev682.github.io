@@ -1,0 +1,54 @@
+---
+title: "Laboratorium: epsilon i granica ciągu"
+description: "Interaktywny suwak epsilon, definicja i dowody krok po kroku"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+import Lab from '../../../../../components/math-i/MathIInteractive.jsx';
+
+# Granica i epsilon: zobacz, co naprawdę oznaczają
+
+## Najpierw jeden prosty pomysł
+
+Ciąg <Eq tex={String.raw`a_n=\frac1n`}/> ma wyrazy `1`, `1/2`, `1/3`, `1/4` i tak dalej. Z każdym kolejnym wyrazem odległość od zera jest mniejsza. **Granica zero nie oznacza, że któryś z wyrazów musi być dokładnie zerem.**
+
+<Lab client:visible mode="epsilon" />
+
+## Od wzoru do dowodu — dlaczego tak liczymy?
+
+Chcemy wykazać, że <Eq tex={String.raw`\lim_{n\to\infty}\frac1n=0`}/>.
+
+1. Ustalamy dowolne <Eq tex={String.raw`\varepsilon>0`}/>. To żądana dokładność, a nie konkretna z góry wybrana liczba.
+2. Odległość od granicy zapisujemy jako <Eq tex={String.raw`\left|\frac1n-0\right|`}/>.
+3. Ponieważ przyjmujemy <Eq tex={String.raw`n\ge1`}/>, ułamek jest dodatni. Zatem wartość bezwzględna niczego nie zmienia.
+4. Chcemy spełnić nierówność <Eq tex={String.raw`\frac1n<\varepsilon`}/>.
+5. Mnożymy przez dodatnie <Eq tex={String.raw`n`}/> i dzielimy przez dodatnie <Eq tex={String.raw`\varepsilon`}/> — znaku nierówności nie odwracamy.
+
+<Eq display tex={String.raw`\frac1n<\varepsilon\ \Longleftrightarrow\ 1<n\varepsilon\ \Longleftrightarrow\ n>\frac1\varepsilon`}/>
+
+Możemy wybrać <Eq tex={String.raw`N=\lfloor1/\varepsilon\rfloor`}/>. Wtedy każde całkowite <Eq tex={String.raw`n>N`}/> spełnia warunek. Symbol podłogi oznacza **zaokrąglenie w dół**.
+
+### Przykład z liczbami: epsilon = 0,02
+
+<Eq display tex={String.raw`\frac1\varepsilon=\frac1{0{,}02}=50`}/>
+
+Zatem wystarczy <Eq tex={String.raw`n>50`}/>. Pierwszym pasującym numerem jest `51`, ale **N możemy wybrać równe 50** — w definicji jest warunek `n > N`.
+
+## Sprawdź, czy rozumiesz
+
+1. Czy granica ciągu musi być jego wyrazem? **Nie.**
+2. Czy `N` może zależeć od epsilonu? **Tak, właśnie o to chodzi.**
+3. Dlaczego wolno mnożyć nierówność przez `n` bez zmiany znaku? **Bo `n` jest dodatnie.**
+4. Czy sprawdzenie pierwszych tysiąca wyrazów dowodzi granicy? **Nie.** Trzeba zagwarantować warunek dla wszystkich dalszych wyrazów.
+
+## Zadania
+
+**Łatwe.** Dla <Eq tex={String.raw`a_n=\frac3n`}/> znajdź numer pierwszego wyrazu bliższego 0 niż `0,1`.
+
+Rozwiązanie: <Eq tex={String.raw`\frac3n<0{,}1\iff n>30`}/>, więc pierwszy numer to `31`.
+
+**Średnie.** Dla <Eq tex={String.raw`a_n=\frac{7}{2n+1}`}/> i epsilon `0,01` znajdź taki próg `N`, żeby wszystkie `n > N` spełniały warunek.
+
+Rozwiązanie: <Eq tex={String.raw`7/(2n+1)<0{,}01\iff 2n+1>700\iff n>349{,}5`}/>. Wybierz <Eq tex={String.raw`N=349`}/> lub większe, np. `350`. Dla wszystkich całkowitych `n > 349` nierówność jest spełniona.
+
+[Wróć do definicji granicy](../granica-intuicja-epsilon/) · [Więcej zadań](../zadania-poziomy-ciagi/)

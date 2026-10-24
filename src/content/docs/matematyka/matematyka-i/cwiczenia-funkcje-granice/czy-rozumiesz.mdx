@@ -1,0 +1,64 @@
+---
+title: "Czy naprawdę rozumiesz? Pytania dlaczego"
+description: "Pytania problemowe z rozwiązaniami i uzasadnieniami krok po kroku"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+
+# Czy naprawdę rozumiesz? — sprawdzian „dlaczego?”
+
+Nie sprawdzaj odpowiedzi, dopóki nie spróbujesz wytłumaczyć własnymi słowami. Dobre wyjaśnienie powinno zawierać **powód**, nie sam wzór.
+
+## Pytania
+
+1. Dlaczego ciąg `1/n` może mieć granicę zero, choć żaden jego wyraz nie jest zerem?
+2. Dlaczego przy dowodzie granicy wybieramy `N` zależne od epsilonu?
+3. Czemu przy `aₙ = 3n − 2` ciąg jest ściśle rosnący?
+4. Dlaczego `aₙ = (−1)ⁿ` nie jest monotoniczny?
+5. Dlaczego `sqrt(x²)` nie zawsze równa się `x`?
+6. Dlaczego `0/0` nie może być końcowym wynikiem granicy?
+7. Dlaczego w granicy ułamka z wielomianów dzielimy przez najwyższą potęgę?
+8. Dlaczego pomnożenie przez sprzężenie może pomóc przy różnicy pierwiastków?
+9. Dlaczego w `f(g(x))` liczymy najpierw `g(x)`?
+10. Dlaczego funkcja kwadratowa na całych liczbach rzeczywistych nie ma funkcji odwrotnej?
+11. Czy wartość funkcji w punkcie musi być równa jej granicy w tym punkcie?
+12. Dlaczego w nierówności dzielenie przez liczbę ujemną odwraca znak?
+13. Dlaczego `1/(x−2)` nie jest określone dla `x=2`?
+14. Dlaczego do dziedziny `sqrt(x−5)` należy `x=5`?
+15. Czy jeden przykład liczbowy dowodzi wzoru dla wszystkich liczb naturalnych?
+
+## Odpowiedzi i uzasadnienia
+
+1. Granica opisuje zachowanie dla coraz większych numerów, nie obowiązek osiągnięcia wyniku.
+2. Im mniejszy błąd dopuszczamy, tym dalej w ciąg musimy przejść.
+3. `aₙ₊₁ − aₙ = 3` dla każdego `n`, więc kolejny wyraz jest większy.
+4. Wyrazy naprzemiennie przyjmują `−1` i `1`: raz rosną, raz maleją.
+5. Pierwiastek arytmetyczny jest nieujemny, więc `sqrt(x²)=|x|`.
+6. Dzielenie przez zero jest niedozwolone, a postać `0/0` nie rozstrzyga granicy.
+7. Dzieląc przez największą potęgę, ujawniamy wyrazy zanikające przy wzroście argumentu.
+8. Iloczyn wyrażeń sprzężonych usuwa pierwiastek dzięki różnicy kwadratów.
+9. Zewnętrzna funkcja `f` dostaje **wynik funkcji g**, więc bez niego nie znamy argumentu `f`.
+10. `x²` daje ten sam wynik dla `x` i `−x`; nie jest różnowartościowa.
+11. Nie. Granica zależy od wartości **w otoczeniu** punktu; sama wartość funkcji może być inna lub niezdefiniowana.
+12. Mnożenie lub dzielenie nierówności przez liczbę ujemną zmienia porządek liczb na osi.
+13. Mianownik byłby równy zero.
+14. Pod pierwiastkiem jest wtedy zero, a pierwiastek z zera istnieje i równa się zero.
+15. Nie. Przykłady pomagają odkryć regułę; dowód musi obejmować każdy rozpatrywany przypadek.
+
+## Mini-test końcowy
+
+**Zadanie 1.** Wskaż błąd w rozumowaniu: „<Eq tex={String.raw`\sqrt{(-4)^2}=-4`}/>, bo pierwiastek i kwadrat się skracają”.
+
+Poprawka: wynik to `4`, nie `-4`, ponieważ pierwiastek arytmetyczny jest nieujemny.
+
+**Zadanie 2.** Uczeń twierdzi: „Jeśli pierwsze 20 wyrazów rośnie, to ciąg jest rosnący”. Czy ma rację?
+
+Nie. Potrzebuje argumentu obejmującego wszystkie kolejne wyrazy.
+
+**Zadanie 3.** Oblicz <Eq tex={String.raw`f^{-1}(11)`}/> dla <Eq tex={String.raw`f(x)=2x+3`}/>.
+
+<Eq display tex={String.raw`f^{-1}(11)=\frac{11-3}{2}=4`}/>
+
+Dlaczego? Bo <Eq tex={String.raw`f(4)=11`}/> — funkcja odwrotna odzyskuje argument z wyniku.
+
+[Pułapki krok po kroku](../najczestsze-bledy/) · [Laboratorium z funkcji](../laboratorium-funkcje/)

@@ -1,0 +1,53 @@
+---
+title: "Laboratorium: rosnący, malejący czy stały?"
+description: "Interaktywne wykresy monotoniczności ciągów"
+---
+
+import Eq from '../../../../../components/MathEquation.astro';
+import Lab from '../../../../../components/math-i/MathIInteractive.jsx';
+
+# Monotoniczność ciągu: nie zgaduj z wykresu
+
+## Cztery możliwe sytuacje
+
+- **Ściśle rosnący:** każdy następny wyraz jest większy.
+- **Ściśle malejący:** każdy następny wyraz jest mniejszy.
+- **Stały:** kolejne wyrazy są równe.
+- **Niemotoniczny:** raz rośnie, a raz maleje.
+
+<Lab client:visible mode="monotonic" />
+
+## Najpewniejsza metoda: różnica
+
+Jeżeli znasz wzór na wyraz ogólny, oblicz:
+
+<Eq display tex={String.raw`a_{n+1}-a_n`}/>
+
+Dlaczego akurat to? Odejmujemy **poprzedni wyraz od następnego**, więc wynik mówi, czy wykonaliśmy krok w górę, w dół, czy stoimy w miejscu.
+
+Jeżeli różnica jest zawsze dodatnia — ciąg ściśle rośnie. Jeżeli zawsze ujemna — ściśle maleje. Jeśli jest zawsze równa zero — jest stały.
+
+### Przykład 1: a_n = 3n + 1
+
+<Eq display tex={String.raw`a_{n+1}=3(n+1)+1=3n+4`}/>
+<Eq display tex={String.raw`a_{n+1}-a_n=(3n+4)-(3n+1)=3>0`}/>
+
+Wniosek: ściśle rosnący.
+
+### Przykład 2: a_n = 1/n
+
+<Eq display tex={String.raw`a_{n+1}-a_n=\frac1{n+1}-\frac1n=\frac{n-(n+1)}{n(n+1)}=-\frac1{n(n+1)}<0`}/>
+
+Dla dodatnich `n` mianownik jest dodatni, więc różnica jest ujemna. Ciąg ściśle maleje.
+
+## Pułapka
+
+Ciąg stały jest **niemalejący** i **nierosnący**, ale nie jest **ściśle rosnący** ani **ściśle malejący**. Słowa „niemalejący” i „rosnący” nie oznaczają tego samego.
+
+## Zadania kontrolne
+
+1. Czy <Eq tex={String.raw`a_n=5`}/> jest niemalejący? Tak.
+2. Czy <Eq tex={String.raw`a_n=(-1)^n`}/> jest malejący? Nie — kolejne wyrazy na przemian się zmieniają.
+3. Dla <Eq tex={String.raw`a_n=7-2n`}/> różnica wynosi `-2`. Jaki to ciąg? Ściśle malejący.
+
+[Wróć do teorii monotoniczności](../monotonicznosc/) · [Bank zadań](../zadania-poziomy-ciagi/)
